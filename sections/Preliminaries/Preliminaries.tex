@@ -97,9 +97,8 @@ The following proposition formalizes this dictionary:
     induces a canonical equivalence of monoidal categories:
     $$\Phi: (\mathbf{Tors}(\mathcal{E}, G), \otimes^G, G) \xrightarrow{\sim} (\mathbf{Pic}(\mathcal{E}, \Lambda), 
     \otimes_\Lambda, \Lambda)$$
-    The inverse functor
+    with quasi-inverse functor given by
     $\Psi: \mathcal{L} \mapsto \underline{\mathrm{Isom}}_\Lambda(\Lambda, \mathcal{L})$.
-
 \end{prop}
 
 Lastly, for any object $\cX \in \mathcal{E}$, there is a canonical identification between the slice category 
@@ -354,6 +353,8 @@ is an isomorphism.
 %\subsubsection*{Symmetric Powers of Torsors}
 Now, let $G$ be a finite abelian group, let $\cP$ be a $G$-torsor over an $S$-scheme $X$ in $S_{\text{Ét}}$. 
 
+\textcolor{red}{insert here something about the equivilance of how we arrive at both G-torsors, one time as
+products d times and one time as $G_d$ qoutient}
 \begin{prop}[{[\cite{sga1}]}, IX.5.8]
 Assume that $\cP$ and $X$ are endowed with right actions from a finite group $\Gamma$ 
 such that the morphism $\cP \to X$ is $\Gamma$-equivariant, and that the following properties hold:
@@ -368,7 +369,7 @@ Then the action of $\Gamma$ on $\cP$ is admissible, and $\cP/\Gamma$ is a $G$-to
 By \Cref{theorem:torsors_are_realized_as_spaces}, $\cP$ is representable by a finite étale $X$-scheme.
 For each $i \in  \llbracket 1, d \rrbracket$ let $p_i : X^{\times_S d} \to X$ be the projection on $i$-th factor, and let us consider the $G$-torsor
 \[
-p_1^{-1}\cP \otimes \cdots \otimes p_d^{-1}\cP = G_d \backslash \cP^{\times_S d}
+p_1^{-1}\cP \otimes^G \cdots \otimes^G p_d^{-1}\cP = G_d \backslash \cP^{\times_S d}
 \]
 over $X^{\times_S d}$, where $G_d \subseteq G^d$ is the kernel of the multiplication morphism $G^d \to G$. 
 The object $G_d \backslash \cP^{\times_S d}$ of $S_{\text{Ét}}$ is too representable by an $S$-scheme which is finite étale over $X^{\times_S d}$. 
@@ -386,11 +387,27 @@ so that the quotient $\cP^{(d)}$ of $G_d \backslash \cP^{\times_S d}$ by ${S}_d$
 Moreover, the canonical morphism $\cP^{(d)} \to \mathrm{Sym}_S^d(X)$ is a $G$-torsor, 
 and the morphism
 \[
-p_1^{-1}\cP \otimes \cdots \otimes p_d^{-1}\cP \to r^{-1}\cP^{(d)}
+p_1^{-1}\cP \otimes^G \cdots \otimes^G p_d^{-1}\cP \to r^{-1}\cP^{(d)}
 \]
 where $r : X^{\times_S d} \to \mathrm{Sym}_S^d(X)$ is the canonical projection, is an isomorphism of $G$-torsors over $X^{\times_S d}$.
 \end{prop}
 
+\begin{cor} Under the assumptions of the proposition above, and since the $G_d$ and $S_d$ actions commute,
+    we get the following qoutient map
+    \[
+         \cP^{\times_S d} / S_d \to G_d \backslash \cP^{\times_S d} / S_d
+    \]
+    between the symmetric power of $\cP$ as a scheme and the symmetric power of $\cP$ as a $G$-torsor.
+    
+\end{cor}
+
+%     Let $X, X'$ be schemes and assume $X' \to X$ is a $G$-torsor. 
+%     Let $X'^{(d)} = X'^d/S_d$ be the symmetric power of $X'$ as a scheme, and let 
+%     $X'^{(d)}_G = G_d \backslash X'^d/S_d$ be the symmetric power of $X'$ as a $G$-torsor. 
+%     By \Cref{prop:prop:symmetric_power_torsor} and the fact that $G_d, S_d$ actions commute, 
+%     there is a natural qoutient map: $\pi: X'^{(d)} \to X'^{(d)}_G$.    
+% \end{Corollary}
+    
 
 %
 % SYMMETRIC POWERS OF LOCAL SYSTEMS ON CURVES

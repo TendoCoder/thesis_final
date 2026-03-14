@@ -118,7 +118,6 @@ if and only if the homomorphism $\rho$ trivializes the $r$-th ramification group
 
 \subsubsection*{Basic Properties of Ramification of \texorpdfstring{$G$-Torsors}{G-Torsors}}
 We now prove some elementary lemmas regarding the ramification of $G$-torsors.
-\textcolor{red}{fix this if you have time}
 \begin{lemma}\label{lemma:bounding_ramification_of_contracted_product}
     Let $G$ be a finite abelian group and $X$ be a locally Noetherian scheme over a field $k$. 
     Let $U \subset X$ be a dense open subset and let $(Z, \xi)$ be a prime divisor in the complement $X \setminus U$.
@@ -151,29 +150,18 @@ We finish by noticing that the upper numbering filtration on the absolute Galois
 \[ G_L^r = G_K^r \cap G_L \]}
 \end{proof}
 
-Let $C$ be a projective smooth geoemetrcally conencted curve over $k$. Let $\mdls= \sum_{i=1}^n m_i P_i$ be a modulus on $C$, and let $U = C \setminus \mdls$.
-Let $G$ be a finite abelian group and $\cP \to U$ be a $G$-torsor in $U_{\text{\'Et}}$ with ramification bounded by $\mdls$.
-\begin{lemma}\label{lemma:ramification_symmetric_power_boundary}
+\begin{lemma}
+    Let $G$ be a finite abelian group.
+    Let $X, X'$ be schemes and assume $X' \to X$ is a $G$-torsor. 
+    Let $X'^{(d)} = X'^d/S_d$ be the symmetric power of $X'$ as a scheme, and let 
+    $X'^{(d)}_G = G_d \backslash X'^d/S_d$ be the symmetric power of $X'$ as a $G$-torsor. 
+    By \Cref{prop:prop:symmetric_power_torsor} and the fact that $G_d, S_d$ actions commute, 
+    there is a natural qoutient map: $\pi: X'^{(d)} \to X'^{(d)}_G$.
     
-   
-    Keep the notations of \Cref{section:ramification_after_blowup_is_tame}. Let $d = \deg \ndls$, and let $P_i$ be the support of $\ndls$. 
-    Let $D_{P_i} \subset C^{(d)}$ be the prime divisor parameterizing effective divisors of degree $d$ whose support contains $P_i$, and let $\xi_{D_{P_i}}$ be its generic point. 
-    Then the ramification of the $G$-torsor $\cP^{(d)}$ at $\xi_{D_{P_i}}$ is bounded by $r$ if and only if the ramification of $\cP$ at $P_i$ is bounded by $r$.
+
 \end{lemma}
-\begin{proof}
-    Consider the quotient morphism $q: C^d \to C^{(d)}$ by the symmetric group $S_d$. Let $W_{P_i} = \{P_i\} \times C^{d-1}$ be a prime divisor in $C^d$. By definition, $q$ maps the generic point $\xi_{W_{P_i}}$ to $\xi_{D_{P_i}}$. 
-    Because a generic divisor in $D_{P_i}$ is of the form $P_i + y_1 + \dots + y_{d-1}$ where the $y_j \in U$ are all distinct, the stabilizer of $S_d$ at $\xi_{W_{P_i}}$ is trivial. Thus, the map $q$ is \'etale at $\xi_{W_{P_i}}$.
-    
-    The pullback of $\cP^{(d)}$ along $q$ to $U^d$ is isomorphic to the contracted product of the pullbacks from the individual projections $pr_j: U^d \to U$:
-    \[ q^{-1}(\cP^{(d)}) \cong pr_1^{-1}\cP \otimes^G pr_2^{-1}\cP \otimes^G \dots \otimes^G pr_d^{-1}\cP \]
-    
-    At the generic point $\xi_{W_{P_i}}$, the projection $pr_1$ restricts to the identity on the first factor, so the ramification of $pr_1^{-1}\cP$ at $\xi_{W_{P_i}}$ is exactly the ramification of $\cP$ at $P_i$. For all $j > 1$, the divisor $W_{P_i}$ projects generically into $U$, meaning $pr_j^{-1}\cP$ is unramified at $\xi_{W_{P_i}}$ (its ramification is bounded by $0$).
-    
-    By \Cref{lemma:bounding_ramification_of_contracted_product}, the ramification of the contracted product $q^{-1}(\cP^{(d)})$ at $\xi_{W_{P_i}}$ is bounded by:
-    \[ \max(r, 0, \dots, 0) = r \]
-    
-    Since $q$ is \'etale at $\xi_{W_{P_i}}$, \Cref{lemma:descend_ramification_along_etale} implies that the ramification of $\cP^{(d)}$ at $\xi_{D_{P_i}}$ is bounded by $r$ if and only if the ramification of $q^{-1}(\cP^{(d)})$ at $\xi_{W_{P_i}}$ is bounded by $r$. This completes the proof.
-\end{proof}
+
+
 % \subsection{The Local Ring \texorpdfstring{$\Oo_{\eta_\ndls}$}{at the generic point of the blowup}}
 % We remind the settings of this section: $C$ is a projective smooth geometrically connected curve over $k$.
 % $\mdls = \sum n_i P_i$ is a fixed modulus. $U=C \setminus \mdls$.
