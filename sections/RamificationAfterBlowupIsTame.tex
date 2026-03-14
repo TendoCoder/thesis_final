@@ -123,13 +123,13 @@ We now prove some elementary lemmas regarding the ramification of $G$-torsors.
     Let $G$ be a finite abelian group and $X$ be a locally Noetherian scheme over a field $k$. 
     Let $U \subset X$ be a dense open subset and let $(Z, \xi)$ be a prime divisor in the complement $X \setminus U$.
     Assume $\cP_1$ and $\cP_2$ are two $G$-torsors on $U_{\text{ét}}$, Such that $\cP_1$ has ramification bounded by $r_1$ at $(Z, \xi)$, and $\cP_2$ has ramification bounded by $r_2$ at $(Z, \xi)$.
-    Then their contracted product $\cP_1 \times^G \cP_2$ has ramification bounded by $max(r_1, r_2)$ at $(Z, \xi)$.
+    Then their product $\cP_1 \otimes^G \cP_2$ has ramification bounded by $max(r_1, r_2)$ at $(Z, \xi)$.
 \end{lemma}
 \begin{proof}
     Let $A=\widehat{\Oo_{X, \xi}}$ and let $K=Frac(A)$.
     Let $\rho_1, \rho_2: G_K \to G$ be the associated continious homomorphisms corresponding to the $G$-torsors 
     $\cP_1|_{\Spec(K)}$, $\cP_2|_{\Spec(K)}$.
-    We finish by noticing that the associated character of $(\cP_1 \times^G \cP_2)|_{\Spec(K)}$ is $\rho=\rho_1 + \rho_2$.    
+    We finish by noticing that the associated character of $(\cP_1 \otimes^G \cP_2)|_{\Spec(K)}$ is $\rho=\rho_1 + \rho_2$.    
 \end{proof}
 
 \begin{lemma}\label{lemma:descend_ramification_along_etale}
@@ -151,6 +151,29 @@ We finish by noticing that the upper numbering filtration on the absolute Galois
 \[ G_L^r = G_K^r \cap G_L \]}
 \end{proof}
 
+Let $C$ be a projective smooth geoemetrcally conencted curve over $k$. Let $\mdls= \sum_{i=1}^n m_i P_i$ be a modulus on $C$, and let $U = C \setminus \mdls$.
+Let $G$ be a finite abelian group and $\cP \to U$ be a $G$-torsor in $U_{\text{\'Et}}$ with ramification bounded by $\mdls$.
+\begin{lemma}\label{lemma:ramification_symmetric_power_boundary}
+    
+   
+    Keep the notations of \Cref{section:ramification_after_blowup_is_tame}. Let $d = \deg \ndls$, and let $P_i$ be the support of $\ndls$. 
+    Let $D_{P_i} \subset C^{(d)}$ be the prime divisor parameterizing effective divisors of degree $d$ whose support contains $P_i$, and let $\xi_{D_{P_i}}$ be its generic point. 
+    Then the ramification of the $G$-torsor $\cP^{(d)}$ at $\xi_{D_{P_i}}$ is bounded by $r$ if and only if the ramification of $\cP$ at $P_i$ is bounded by $r$.
+\end{lemma}
+\begin{proof}
+    Consider the quotient morphism $q: C^d \to C^{(d)}$ by the symmetric group $S_d$. Let $W_{P_i} = \{P_i\} \times C^{d-1}$ be a prime divisor in $C^d$. By definition, $q$ maps the generic point $\xi_{W_{P_i}}$ to $\xi_{D_{P_i}}$. 
+    Because a generic divisor in $D_{P_i}$ is of the form $P_i + y_1 + \dots + y_{d-1}$ where the $y_j \in U$ are all distinct, the stabilizer of $S_d$ at $\xi_{W_{P_i}}$ is trivial. Thus, the map $q$ is \'etale at $\xi_{W_{P_i}}$.
+    
+    The pullback of $\cP^{(d)}$ along $q$ to $U^d$ is isomorphic to the contracted product of the pullbacks from the individual projections $pr_j: U^d \to U$:
+    \[ q^{-1}(\cP^{(d)}) \cong pr_1^{-1}\cP \otimes^G pr_2^{-1}\cP \otimes^G \dots \otimes^G pr_d^{-1}\cP \]
+    
+    At the generic point $\xi_{W_{P_i}}$, the projection $pr_1$ restricts to the identity on the first factor, so the ramification of $pr_1^{-1}\cP$ at $\xi_{W_{P_i}}$ is exactly the ramification of $\cP$ at $P_i$. For all $j > 1$, the divisor $W_{P_i}$ projects generically into $U$, meaning $pr_j^{-1}\cP$ is unramified at $\xi_{W_{P_i}}$ (its ramification is bounded by $0$).
+    
+    By \Cref{lemma:bounding_ramification_of_contracted_product}, the ramification of the contracted product $q^{-1}(\cP^{(d)})$ at $\xi_{W_{P_i}}$ is bounded by:
+    \[ \max(r, 0, \dots, 0) = r \]
+    
+    Since $q$ is \'etale at $\xi_{W_{P_i}}$, \Cref{lemma:descend_ramification_along_etale} implies that the ramification of $\cP^{(d)}$ at $\xi_{D_{P_i}}$ is bounded by $r$ if and only if the ramification of $q^{-1}(\cP^{(d)})$ at $\xi_{W_{P_i}}$ is bounded by $r$. This completes the proof.
+\end{proof}
 % \subsection{The Local Ring \texorpdfstring{$\Oo_{\eta_\ndls}$}{at the generic point of the blowup}}
 % We remind the settings of this section: $C$ is a projective smooth geometrically connected curve over $k$.
 % $\mdls = \sum n_i P_i$ is a fixed modulus. $U=C \setminus \mdls$.
@@ -356,13 +379,13 @@ Our first result is:
      $$
 
      Next, we want to understand the ring corresponding to $p_1^{-1}(\cP) \otimes \dots \otimes p_d^{-1}(\cP)$ on $C^{d}$ - 
-     the $d$'th-contracted product of the $G=\Z/p\Z$-torsors  $p_1^{-1}(\cP), \dots, p_d^{-1}(\cP)$ on $U^{d}$. 
+     the $d$'th-product of the $G=\Z/p\Z$-torsors  $p_1^{-1}(\cP), \dots, p_d^{-1}(\cP)$ on $U^{d}$. 
      It corresponds to qoutient:
      $\left(p_1^{-1}(\cP) \times \dots \times p_d^{-1}(\cP)\right) / G^{d-1}$ where the action of $G^{d-1}$ on the product is:
      $$(g_1, \dots, g_{d-1}) \cdot (p_1, p_2, \dots, p_{d-1}, p_{d}) = (g_1(p_1), g_1^{-1}g_2(p_2), \dots, 
      g_{d-2}^{-1}g_{d-1}(p_{d-1}), g_{d-1}^{-1}(p_d))$$
      
-     The affine ring corrsponding to the contracted product is $\left(S^{\otimes_k d}\right)^{G^{d-1}}$
+     The affine ring corrsponding to the torsor product is $\left(S^{\otimes_k d}\right)^{G^{d-1}}$
     
      Recall that the action of $g \in G=\Z/p\Z$ on $X$ is $g(X) = X + g$ ($g$ correspond to a number $0 \leq g \leq p-1)$.
      So, the action of $(g_1, \dots, g_{d-1})$ on the generators $(X_1, X_2, \dots, X_{d-1}, X_{d})$

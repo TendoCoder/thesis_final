@@ -60,24 +60,31 @@ This construction yields a functor:
 On the level of isomorphism classes, $\varphi_*$ induces a map of pointed sets $\mathrm{Tors}(\cE, \mathcal{G}_1) \to \mathrm{Tors}(\cE, \mathcal{G}_2)$, sending the class of the trivial $\mathcal{G}_1$-torsor to the class of the trivial $\mathcal{G}_2$-torsor.
 
 When $\mathcal{G}$ is a \textbf{sheaf of abelian groups} (an \textit{abelian sheaf}), the pointed set $\mathrm{Tors}(\cE, \mathcal{G})$ 
-inherits the structure of an abelian group. Let $\mathcal{P}_1$ and $\mathcal{P}_2$ be objects of $\mathbf{Tors}(\cE, \mathcal{G})$. We define their sum $[\mathcal{P}_1] + [\mathcal{P}_2]$ 
-to be the class $[\cP_1 \otimes \cP_2]$, where $\cP_1 \otimes \cP_2$ is defined as the quotient sheaf $(\mathcal{P}_1 \times \mathcal{P}_2)/\mathcal{G}$. 
-In this construction, $\mathcal{G}$ acts on the product $\mathcal{P}_1 \times \mathcal{P}_2$ on $T$-points by:
-\[ g \cdot (f_1, f_2) := (g f_1, g^{-1} f_2) \]
-
-The group object $\mathcal{G}$ then acts on the resulting quotient via its action on the presheaf quotient, which is given on classes by:
-\[ g \cdot [(f_1, f_2)] = [(g f_1, f_2)] = [(f_1, g f_2)] \]
-where the square brackets denote the class in the quotient set. This structure turns $\mathrm{Tors}(\mathcal{G})$ into an abelian group, 
-where the identity is the class of the trivial torsor and the inverse is obtained by the opposite action.\footnote{
+inherits the structure of an abelian group:
+\begin{definition}
+    Assume $\mathcal{G}$ is abelian sheaf. Let $\mathcal{P}_1$ and $\mathcal{P}_2$ be objects of $\mathbf{Tors}(\cE, \mathcal{G})$. 
+    We define the \textbf{product} $\mathcal{P}_1 \otimes^{\cG} \mathcal{P}_2$ to be the quotient sheaf 
+    $(\mathcal{P}_1 \times \mathcal{P}_2)/\mathcal{G}$, where $\mathcal{G}$ acts on $T$-points by having:
+    \[ g \cdot (f_1, f_2) := (g f_1, g^{-1} f_2) \]
+    The group object $\mathcal{G}$ then acts on the resulting quotient via its action on the presheaf quotient, which is given on classes by:
+    \[ g \cdot [(f_1, f_2)] = [(g f_1, f_2)] = [(f_1, g f_2)] \]
+    where the square brackets denote the class in the quotient set.\footnote{
     Equivantly, the sum is obtained as the contracted product of the $\cG \times \cG$-torsor $\cP_1 \times \cP_2$ along the multiplication map
 $m: \cG \times \cG \to \cG$. }
+\end{definition}
+
+Let $[\mathcal{P}_1]$ and $[\mathcal{P}_2]$ be the isomorphism classes of $\mathcal{P}_1$ and $\mathcal{P}_2$ in $\mathrm{Tors}(\cE, \mathcal{G})$.
+We define the sum $[\mathcal{P}_1] + [\mathcal{P}_2]$ to be the class $[\cP_1 \otimes^{\cG} \cP_2]$.
+This structure turns $\mathrm{Tors}(\cE, \mathcal{G})$ into an abelian group, 
+where the identity is the class of the trivial torsor and the inverse is obtained by the opposite action.
 
 Let $\Lambda$ be a commutative ring object in the topos $\mathcal{E}$. 
-We denote by $\mathbf{Pic}(\mathcal{E}, \Lambda)$ the category of locally free $\Lambda$-modules of rank $1$ in 
-$\mathcal{E}$, also referred to as invertible modules. For the multiplicative group object $G = \Lambda^\times$, 
+We denote by $\mathbf{Pic}(\mathcal{E}, \Lambda)$ the groupoid of locally free $\Lambda$-modules of rank $1$ in
+$\mathcal{E}$ (i.e., invertible modules and their isomorphisms).
+For the multiplicative group object $G = \Lambda^\times$, 
 there exists a classical correspondence between such $\Lambda$-modules and $G$-torsors. 
 Indeed, both categories are symmetric monoidal categories, $\mathbf{Pic}(\mathcal{E}, \Lambda)$ under the tensor product $\otimes_\Lambda$, with unit object $\Lambda$.
-And $\mathbf{Tors}(\mathcal{E}, G)$ Under contracted product $\times^G$, with unit object $G$ acting on itself by translation.
+And $\mathbf{Tors}(\mathcal{E}, G)$ under the product $\otimes^G$, with unit object $G$ acting on itself by translation.
 
 Throughout this thesis, we shall primarily adopt the language of $G$-torsors, with the understanding that the 
 associated $\Lambda$-module structure is implicitly inferred.
@@ -86,9 +93,9 @@ The following proposition formalizes this dictionary:
 
 \begin{prop}
     \label{prop:torsor_module_equivalence}
-    The associated module functor $\Phi: \mathcal{P} \mapsto \mathcal{P} \times^G \Lambda$ 
+    The associated module functor $\Phi: \mathcal{P} \mapsto \mathcal{P} \otimes^G \Lambda$ 
     induces a canonical equivalence of monoidal categories:
-    $$\Phi: (\mathbf{Tors}(\mathcal{E}, G), \times^G, G) \xrightarrow{\sim} (\mathbf{Pic}(\mathcal{E}, \Lambda), 
+    $$\Phi: (\mathbf{Tors}(\mathcal{E}, G), \otimes^G, G) \xrightarrow{\sim} (\mathbf{Pic}(\mathcal{E}, \Lambda), 
     \otimes_\Lambda, \Lambda)$$
     The inverse functor
     $\Psi: \mathcal{L} \mapsto \underline{\mathrm{Isom}}_\Lambda(\Lambda, \mathcal{L})$.
@@ -249,7 +256,7 @@ Let $\pi: G \to G/H$ be the natural quotient map.
 %  Consider the natural quotient homomorphism $\pi: G \to G/H$. Given a $G$-torsor $\mathcal{P} \to X$ (in the fppf or étale topology), we may associate to it a $G/H$-torsor, 
 %  denoted by $\pi_*(\mathcal{P})$ or $\mathcal{P}^{G/H}$, via the extension of scalars.
 %  The object $\mathcal{P}^{G/H}$ is defined as the contracted product:
-%  $$\mathcal{P}^{G/H} = \mathcal{P} \times^G (G/H)$$
+%  $$\mathcal{P}^{G/H} = \mathcal{P} \otimes^G (G/H)$$
 %  Recall that $\mathcal{P}^{G/H}$ is the quotient of the product $\mathcal{P} \times (G/H)$ by the $G$-action defined by 
 %  $g \cdot (p, \bar{g}') = (g \cdot p, \pi(g^{-1})\bar{g}')$. 
 %  Consequently, we have a canonical morphism of sheaves 
@@ -259,7 +266,7 @@ Let $\pi: G \to G/H$ be the natural quotient map.
 %  consider a local trivializing cover $\{U_i \to X\}$ for $\mathcal{P}$ as a $G$-torsor. 
 %  Over each $U_i$, we have an isomorphism $\mathcal{P}|_{U_i} \cong G_{U_i}$. 
 %  Under this isomorphism, the contracted product locally satisfies:
-%  $$(\mathcal{P} \times^G G/H)|_{U_i} \cong (G \times^G G/H)_{U_i} \cong (G/H)_{U_i}$$
+%  $$(\mathcal{P} \otimes^G G/H)|_{U_i} \cong (G \otimes^G G/H)_{U_i} \cong (G/H)_{U_i}$$
 %  Explicitly, the local identification $(g, \bar{g}') \sim (e, \pi(g)\bar{g}')$ 
 %  shows that every equivalence class in the fiber has a unique representative of the form 
 %  $[e, \bar{g}]$. 
