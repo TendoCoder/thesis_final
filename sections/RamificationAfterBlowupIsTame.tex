@@ -150,16 +150,33 @@ We finish by noticing that the upper numbering filtration on the absolute Galois
 \[ G_L^r = G_K^r \cap G_L \]}
 \end{proof}
 
+
 \begin{lemma}
     Let $G$ be a finite abelian group.
-    Let $X, X'$ be schemes and assume $X' \to X$ is a $G$-torsor. 
-    Let $X'^{(d)} = X'^d/S_d$ be the symmetric power of $X'$ as a scheme, and let 
-    $X'^{(d)}_G = G_d \backslash X'^d/S_d$ be the symmetric power of $X'$ as a $G$-torsor. 
-    By \Cref{prop:prop:symmetric_power_torsor} and the fact that $G_d, S_d$ actions commute, 
-    there is a natural qoutient map: $\pi: X'^{(d)} \to X'^{(d)}_G$.
-    
-
+    Assume we are given:
+    \[
+    \begin{tikzcd}
+    U' \arrow[r] \arrow[d] & X' \arrow[d] \\
+    U \arrow[r] & X
+    \end{tikzcd}
+    \]
+    Where $X$ and $X'$ are locally Noetherian schemes over a field $k$, $U \subset X$ and $U' \subset X'$ are dense open subsets,
+    and $U' \to U$ is a $G$-torsor.
+    Let 
+    \[
+        \begin{tikzcd}
+       \mathrm{Sym}_k^d(U') \arrow[rd] \arrow[r, "q"] & U'^{(d)} \arrow[r] \arrow[d, "\pi"] & \mathrm{Sym}_k^d(X') \arrow[d] \\
+       & \mathrm{Sym}_k^d(U) \arrow[r] & \mathrm{Sym}_k^d(X)
+        \end{tikzcd}
+    \]
+    be the associated symmetric product diagram where $q: \mathrm{Sym}_k^d(U') \to U'^{(d)}$ is the quotient map defined in \Cref{cor:sym-power-quotient}
+    and $\pi: U'^{(d)} \to \mathrm{Sym}_k^d(U)$ is a $G$-torsor. 
+    Let $(Z, \xi)$ be a prime divisor in $\mathrm{Sym}_k^d(X)$ such that $Z \cap \mathrm{Sym}_k^d(U) = \emptyset$ and let $(Z', \xi')$ be a prime divisor in $\mathrm{Sym}_k^d(X')$ such that $\pi(\xi') = \xi$.
+\textcolor{red}{complete tomorrow}
 \end{lemma}
+
+    %As in \Cref{cor:sym-power-quotient}
+%$\mathrm{Sym}_S^d(\cP) \to \cP^{(d)}$
 
 
 % \subsection{The Local Ring \texorpdfstring{$\Oo_{\eta_\ndls}$}{at the generic point of the blowup}}

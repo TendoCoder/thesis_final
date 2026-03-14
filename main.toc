@@ -8,9 +8,9 @@
 \contentsline {subsection}{\numberline {2.5}Algebraic Geometry}{14}{subsection.2.5}%
 \contentsline {section}{\numberline {3}Ramification After Blowup Is Tame}{16}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Ramification of $G$-Torsors}{17}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Proof of Theorem \ref {theorem:SymmetricPowerOfSheavesIsTamelyRamifiedReduction}}{19}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.2}Proof of Theorem \ref {theorem:SymmetricPowerOfSheavesIsTamelyRamifiedReduction}}{20}{subsection.3.2}%
 \contentsline {subsection}{\numberline {3.3}Extending To Product of Blowups}{24}{subsection.3.3}%
-\contentsline {section}{\numberline {4}Geometric Class Field Theory}{26}{section.4}%
+\contentsline {section}{\numberline {4}Geometric Class Field Theory}{27}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Etale Fundamental Groups and Tame Fundamental Groups}{27}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Generalized Picard Scheme}{27}{subsection.4.2}%
 \contentsline {subsection}{\numberline {4.3}The Abel-Jacobi Morphism and its Fibers}{29}{subsection.4.3}%
