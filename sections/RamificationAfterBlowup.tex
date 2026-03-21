@@ -3,7 +3,7 @@ The main theorem of this section is
 \begin{restatable}{theorem}{SymmetricPowerOfSheafIsTamelyRamified}\label{theorem:SymmetricPowerOfSheafIsTamelyRamified}
      Let $\Lambda$ be a finite ring of cardinality invertible in $k$, and let $\cF$ be an \'etale sheaf of $\Lambda$-modules, locally free of rank 1 on $U$, with ramification bounded by $\mdls$. 
      Considering $U^{(d)}$ as an open subscheme of the blowup $\tilde{C}^{(d)}_\mdls$ of $C^{(d)}$, we have that
-     for sufficiently large integer $d$, $\cF^{(d)}$ is tamely ramified on $H= \tilde{C}^{(d)}_\mdls \setminus U^{(d)}=E_0 \times_{C^{(d)}} \tilde{C}^{(d)}_\mdls $.
+     for sufficiently large integer $d$, $\cF^{[d]}$ is tamely ramified on $H= \tilde{C}^{(d)}_\mdls \setminus U^{(d)}=E_0 \times_{C^{(d)}} \tilde{C}^{(d)}_\mdls $.
 \end{restatable}
 
 Following the notation of \Cref{section:ramification_after_blowup_is_tame},
@@ -36,7 +36,7 @@ Z_\ndls \arrow[r, hook]           & C^{(\deg \ndls)}
 \theorem:SymmetricPowerOfSheavesIsTamelyRamifiedReduction
 % \begin{theorem}\label{theorem:SymmetricPowerOfSheavesIsTamelyRamifiedReduction}
 %      Let $\cF$ be a local system on $U$ with ramification at $P$ bounded by $\ndls = k_P P \subset \mdls$.
-%      Then $\cF^{(\deg \ndls)}$ is tamely ramified at $\eta_\ndls$ of $E_\ndls$
+%      Then $\cF^{[\deg \ndls]}$ is tamely ramified at $\eta_\ndls$ of $E_\ndls$
 % \end{theorem}
 
 In the upcoming section, we perform the reduction and derive \Cref{theorem:SymmetricPowerOfSheafIsTamelyRamified} from 
@@ -87,19 +87,19 @@ $C^{(d - \deg \mdls)} \to \Spec(k)$ (\Cref{prop:symmetric_power_flat_base_change
 (\textcolor{red}{Is this even smooth? })
 
 \[\begin{tikzcd}
-E_{\mdls} \times_k C^{(d-\deg \mdls)} \arrow[r] \arrow[d] & X_{\mdls} \times_k C^{(d-\deg \mdls)} \arrow[d] & \cF^{(\deg \mdls)} \times_k C^{(d-\deg \mdls)} \arrow[d, color=purple] \\
+E_{\mdls} \times_k C^{(d-\deg \mdls)} \arrow[r] \arrow[d] & X_{\mdls} \times_k C^{(d-\deg \mdls)} \arrow[d] & \cF^{[\deg \mdls]} \times_k C^{(d-\deg \mdls)} \arrow[d, color=purple] \\
 Z_\mdls \times_k C^{(d-\deg \mdls)} \arrow[r] & C^{(\deg \mdls)} \times_k C^{(d-\deg \mdls)} & U^{(\deg \mdls)} \times_k C^{(d-\deg \mdls)} \arrow[lu]
 \end{tikzcd}\]
 
 Note that $U^{(\deg \mdls)} \times_k C^{(d-\deg \mdls)}$ is dense open subscheme of $X_{\mdls} \times_k C^{(d-\deg \mdls)}$,
 And $E_{\mdls} \times_k C^{(d-\deg \mdls)}$ is a prime divisor of $X_{\mdls} \times_k C^{(d-\deg \mdls)}$.
 Hence it is well defined question according to \Cref{definition:tamely_ramified_in_codim_1} to ask whether
-$\cF^{(\deg \mdls)} \times_k C^{(d-\deg \mdls)}$ is tamely ramified at the generic point $\theta$ of
+$\cF^{[\deg \mdls]} \times_k C^{(d-\deg \mdls)}$ is tamely ramified at the generic point $\theta$ of
 $E_{\mdls} \times_k C^{(d-\deg \mdls)}$.
 
 \begin{lemma}\label{lemma:tame_ramification_persists}
-     If $\cF^{(\deg \mdls)}$ is tamely ramified at $\eta_\mdls$, then
-     $\cF^{(\deg \mdls)} \times_k C^{(d-\deg \mdls)}$ is tamely ramified at the generic point $\theta$ of
+     If $\cF^{[\deg \mdls]}$ is tamely ramified at $\eta_\mdls$, then
+     $\cF^{[\deg \mdls]} \times_k C^{(d-\deg \mdls)}$ is tamely ramified at the generic point $\theta$ of
      $E_{\mdls} \times_k C^{(d-\deg \mdls)}$.
 \end{lemma}
 \begin{proof}
@@ -109,17 +109,17 @@ $E_{\mdls} \times_k C^{(d-\deg \mdls)}$.
 
 
 Replacing $C^{(d - \deg \mdls)}$ with the dense open subscheme $U^{(d - \deg \mdls)} \subset C^{(d - \deg \mdls)}$,
-we get that the $G$-torsor $p_1^{-1} \cP^{(\deg \mdls)}$ ($\cP$ correspodns to $\cF$ under \Cref{prop:torsor_module_equivalence})
+we get that the $G$-torsor $p_1^{-1} \cP^{[\deg \mdls]}$ ($\cP$ correspodns to $\cF$ under \Cref{prop:torsor_module_equivalence})
 is tamely ramified at $\theta$ the generic point of
 $E_{\mdls} \times_k U^{(d-\deg \mdls)} \subset U^{(\deg \mdls)} \times_k U^{(d - \deg \mdls)}$,
 where $p_1: U^{(\deg \mdls)} \times_k U^{(d - \deg \mdls)} \to U^{(\deg \mdls)}$ is the projection to the first factor.
 
 Looking at the second projection $p_2:X_{\mdls} \times_k U^{(d - \deg \mdls)} \to U^{(d - \deg \mdls)}$, and the fact that 
-$\cP^{(d - \deg \mdls)}$ is \'etale on $U^{(d - \deg \mdls)}$ we get that 
-$p_2^{-1} \cP^{(d - \deg \mdls)}= X_{\mdls} \times_k \cP^{(d - \deg \mdls)}$ is \'etale on $X_{\mdls} \times_k U^{(d - \deg \mdls)}$.
+$\cP^{[d - \deg \mdls]}$ is \'etale on $U^{(d - \deg \mdls)}$ we get that 
+$p_2^{-1} \cP^{[d - \deg \mdls]}= X_{\mdls} \times_k \cP^{[d - \deg \mdls]}$ is \'etale on $X_{\mdls} \times_k U^{(d - \deg \mdls)}$.
 Hence, its restriction to $U^{(\deg \mdls)} \times_k U^{(d - \deg \mdls)}$ is unramified at $\theta$.
 
-Thus, by the following lemma, we conclude that $\boxP{\cP^{(\deg \mdls)}}{\cP^{(d - \deg \mdls)}} = p_1^{-1} \cP^{(\deg \mdls)} \otimes^G p_2^{-1} \cP^{(d - \deg \mdls)}$
+Thus, by the following lemma, we conclude that $\boxP{\cP^{[\deg \mdls]}}{\cP^{[d - \deg \mdls]}} = p_1^{-1} \cP^{[\deg \mdls]} \otimes^G p_2^{-1} \cP^{[d - \deg \mdls]}$
      is tamely ramified at $\theta$ the generic point of $E_{\mdls} \times_k U^{(d-\deg \mdls)}$.
 
 \begin{lemma}
@@ -137,13 +137,13 @@ Combining this with \Cref{cor:etale_at_generic_point} we get
 \begin{cor}\label{cor:tame-ramification-symmetric-product}
      Let $\mdls$ be a modulus as above, and let $\eta_\mdls$ be the generic point of $E_\mdls$.
      Let $\cP$ be a $G$-torsor on $U_{et}$ with ramification bounded by $\mdls$.
-     Assume $\cP^{(\deg \mdls)}$ is tamely ramified at $\eta_\mdls$.
-     Then $\boxP{\cP^{(\deg \mdls)}}{\cP^{(d - \deg \mdls)}}$ is tamely ramified at the generic point $\theta$ of 
+     Assume $\cP^{[\deg \mdls]}$ is tamely ramified at $\eta_\mdls$.
+     Then $\boxP{\cP^{[\deg \mdls]}}{\cP^{[d - \deg \mdls]}}$ is tamely ramified at the generic point $\theta$ of 
      $E_{\mdls} \times_k C^{(d-\deg \mdls)} \subset C^{(\deg \mdls)} \times_k C^{(d - \deg \mdls)}$,
-     and $\cP^{(d)}$ is tamely ramified at the generic point $\eta_0=\eta_{\mdls,d}$ of $E_0=E_{\mdls,d}$
+     and $\cP^{[d]}$ is tamely ramified at the generic point $\eta_0=\eta_{\mdls,d}$ of $E_0=E_{\mdls,d}$
 \end{cor}
 \begin{proof} 
-The first assertion, that $\mathcal{P}^{(\deg \mathfrak{m})} \boxtimes \mathcal{P}^{(d - \deg \mathfrak{m})}$ is tamely ramified at $\theta$, follows from the preceding discussion. Thus, it remains to show that $\mathcal{P}^{(d)}$ is tamely ramified at $\eta_0$.
+The first assertion, that $\mathcal{P}^{[\deg \mathfrak{m}]} \boxtimes \mathcal{P}^{[d - \deg \mathfrak{m}]}$ is tamely ramified at $\theta$, follows from the preceding discussion. Thus, it remains to show that $\mathcal{P}^{[d]}$ is tamely ramified at $\eta_0$.
 
 Consider the blowup diagram defining $X_{\mathfrak{m}, d}$:
 \[
@@ -177,15 +177,15 @@ The point $\theta$ defined in the Corollary is the generic point of $E_{\mathfra
  Let $\eta$ be the generic point of $\mathfrak{m} \times_k U^{(d-\deg \mathfrak{m})}$. 
  By \Cref{cor:etale_at_generic_point}, the map $+$ is étale at $\eta$. 
 Consequently, the lifted map $\tilde{+}$ is étale at $\theta$. 
-Given the isomorphism $(+^{-1})(\cP^{(d)}) \cong \cP ^{(\deg \mdls)} \boxtimes \cP ^{(d - \deg \mdls)}$ from \Cref{prop:symmetric_powers_on_curves},
-the tame ramification of the box product at $\theta$ descends to the tame ramification of $\mathcal{P}^{(d)}$ at $\eta_0$ by applying \Cref{lemma:descend_ramification_along_etale}.
+Given the isomorphism $(+^{-1})(\cP^{[d]}) \cong \cP^{[\deg \mdls]} \boxtimes \cP^{[d - \deg \mdls]}$ from \Cref{prop:symmetric_powers_on_curves},
+the tame ramification of the box product at $\theta$ descends to the tame ramification of $\mathcal{P}^{[d]}$ at $\eta_0$ by applying \Cref{lemma:descend_ramification_along_etale}.
 
 \end{proof}
 
 % \begin{lemma}
 %      Let $\ndls_1, \ndls_2 \subset \mdls$ be two moduli of the form $\ndls_1 = k_1 P_1$, $\ndls_2 = k_2 P_2$ where $P_1, P_2$ are distinct points.
-%      Assume $\cF ^{(\deg \ndls_1)}$, $\cF ^{(\deg \ndls_2)}$ are at most tamely ramified at $\eta_{\ndls_1}$, $\eta_{\ndls_2}$ respectively.
-%      Then $\cF^{(\deg \ndls_1 + \deg \ndls_2)}$ is at most tamely tamified at $\eta_{\ndls_1 + \ndls_2}$.
+%      Assume $\cF^{[\deg \ndls_1]}$, $\cF^{[\deg \ndls_2]}$ are at most tamely ramified at $\eta_{\ndls_1}$, $\eta_{\ndls_2}$ respectively.
+%      Then $\cF^{[\deg \ndls_1 + \deg \ndls_2]}$ is at most tamely tamified at $\eta_{\ndls_1 + \ndls_2}$.
 % \end{lemma}
 % \begin{proof}
 %      \textcolor{red}{Complete}
@@ -193,8 +193,8 @@ the tame ramification of the box product at $\theta$ descends to the tame ramifi
 
 \begin{lemma}\label{lemma:moduli_reduction}
      Let $\ndls_1, \ndls_2 \subset \mdls$ be two coprime sub moduli of $\mdls$.
-     Assume $\cP ^{(\deg \ndls_1)}$, $\cP ^{(\deg \ndls_2)}$ are at most tamely ramified at $\eta_{\ndls_1}$, $\eta_{\ndls_2}$ respectively.
-     Then $\cP^{(\deg \ndls_1 + \deg \ndls_2)}$ is at most tamely tamified at $\eta_{\ndls_1 + \ndls_2}$.
+     Assume $\cP^{[\deg \ndls_1]}$, $\cP^{[\deg \ndls_2]}$ are at most tamely ramified at $\eta_{\ndls_1}$, $\eta_{\ndls_2}$ respectively.
+     Then $\cP^{[\deg \ndls_1 + \deg \ndls_2]}$ is at most tamely tamified at $\eta_{\ndls_1 + \ndls_2}$.
 \end{lemma}
 
 \begin{proof}
@@ -204,9 +204,9 @@ the tame ramification of the box product at $\theta$ descends to the tame ramifi
 \subsection{\texorpdfstring{Proof of \Cref{theorem:SymmetricPowerOfSheafIsTamelyRamified}}{Proof of Theorem X}}
 \begin{proof}[Proof of \Cref{theorem:SymmetricPowerOfSheafIsTamelyRamified}]
      Let $\cF$ be as in \Cref{theorem:SymmetricPowerOfSheafIsTamelyRamified}, $\mdls = \sum_{i=1}^n k_P P$ with $\deg P = d_P$  
-     Then by \Cref{theorem:SymmetricPowerOfSheavesIsTamelyRamifiedReduction} for every $\ndls \subset \mdls$ of the form $\ndls = k_P P$, $\cF^{(\deg \ndls)}$ is at most tamely ramified at $\eta_\ndls$.
-     By \Cref{lemma:moduli_reduction}, $\cF^{(\deg \mdls)}$ is then at most tamely ramified at $\eta_\mdls$. And thus by \Cref{cor:tame-ramification-symmetric-product}
-     $\cF^{(d)}$ is tamely ramified at the generic point $\eta_0$  of $E_0$
+     Then by \Cref{theorem:SymmetricPowerOfSheavesIsTamelyRamifiedReduction} for every $\ndls \subset \mdls$ of the form $\ndls = k_P P$, $\cF^{[\deg \ndls]}$ is at most tamely ramified at $\eta_\ndls$.
+     By \Cref{lemma:moduli_reduction}, $\cF^{[\deg \mdls]}$ is then at most tamely ramified at $\eta_\mdls$. And thus by \Cref{cor:tame-ramification-symmetric-product}
+     $\cF^{[d]}$ is tamely ramified at the generic point $\eta_0$  of $E_0$
 \end{proof}
 
 

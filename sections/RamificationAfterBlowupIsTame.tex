@@ -18,7 +18,7 @@ Z_\ndls \arrow[r, hook]           & C^{(\deg \ndls)}
 Our main goal in this section is to prove \Cref{theorem:SymmetricPowerOfSheavesIsTamelyRamifiedReduction}:
 \begin{theorem}\label{theorem:torsors_after_blowup_is_tame}
     Let $G$ be a finite abelian group. And let $\cP \to U$ be a $G$-torsor in $U_{\text{\'Et}}$ with ramification bounded by $\mdls = \sum n_i P_i$.
-    Let $\ndls = n_i P_i \subset \mdls$ be a sub modulus of $\mdls$. Then $\cP^{(\deg \ndls)}$ is tamely ramified at $\eta_\ndls$.
+    Let $\ndls = n_i P_i \subset \mdls$ be a sub modulus of $\mdls$. Then $\cP^{[\deg \ndls]}$ is tamely ramified at $\eta_\ndls$.
 \end{theorem}
 
 Our approach proceeds in three stages. 
@@ -150,10 +150,10 @@ We finish by noticing that the upper numbering filtration on the absolute Galois
 \[ G_L^r = G_K^r \cap G_L \]}
 \end{proof}
 
-The following lemma suggests that the map $q: \mathrm{Sym}_k^d(U') \to U'^{(d)}$ from \Cref{cor:sym-power-quotient} is unramified in codimension 1 
+The following lemma suggests that the map $q: \mathrm{Sym}_k^d(U') \to U'^{[d]}$ from \Cref{cor:sym-power-quotient} is unramified in codimension 1 
 according to \Cref{definition:tamely_ramified_in_codim_1}. 
 While this is essentially true, the statement should not be taken literally in that specific context. 
-Strictly adhering to \Cref{definition:tamely_ramified_in_codim_1} would require choosing a compactification of $U'^{(d)}$, 
+Strictly adhering to \Cref{definition:tamely_ramified_in_codim_1} would require choosing a compactification of $U'^{[d]}$, 
 which we prefer to avoid. 
 Instead, we provide the following formulation, which suffices for our purposes and accurately characterizes the ramification behavior at codimension 1.
 
@@ -171,12 +171,12 @@ Instead, we provide the following formulation, which suffices for our purposes a
     Let 
     \[
         \begin{tikzcd}
-       \mathrm{Sym}_k^d(U') \arrow[rd] \arrow[r, "q"] & U'^{(d)} \arrow[r] \arrow[d, "\pi"] & \mathrm{Sym}_k^d(C') \arrow[d] \\
+       \mathrm{Sym}_k^d(U') \arrow[rd] \arrow[r, "q"] & U'^{[d]} \arrow[r] \arrow[d, "\pi"] & \mathrm{Sym}_k^d(C') \arrow[d] \\
        & \mathrm{Sym}_k^d(U) \arrow[r] & \mathrm{Sym}_k^d(C)
         \end{tikzcd}
     \]
-    be the associated symmetric product diagram where $q: \mathrm{Sym}_k^d(U') \to U'^{(d)}$ is the quotient map defined in \Cref{cor:sym-power-quotient}
-    and $\pi: U'^{(d)} \to \mathrm{Sym}_k^d(U)$ is a $G$-torsor. 
+    be the associated symmetric product diagram where $q: \mathrm{Sym}_k^d(U') \to U'^{[d]}$ is the quotient map defined in \Cref{cor:sym-power-quotient}
+    and $\pi: U'^{[d]} \to \mathrm{Sym}_k^d(U)$ is a $G$-torsor. 
     Let $(Z, \xi)$ be a prime divisor in $\mathrm{Sym}_k^d(C)$ such that $Z \cap \mathrm{Sym}_k^d(U) = \emptyset$,
     let $\Oo_{C, \xi}$ be the corresponding local ring, and let $K_\xi = \Frac(\Oo_{C, \xi})$ be its fraction field. 
     Then 
@@ -185,7 +185,7 @@ Instead, we provide the following formulation, which suffices for our purposes a
         \item 
     \end{enumerate}
     Then the base change of $q$ to $\Spec(K_\xi)$ is unramified, i.e. the morphism
-    \[ q_{K_\xi}: \mathrm{Sym}_k^d(U') \times_{\mathrm{Sym}_k^d(U)} \Spec(K_\xi) \to U'^{(d)} \times_{\mathrm{Sym}_k^d(U)} \Spec(K_\xi) \]
+    \[ q_{K_\xi}: \mathrm{Sym}_k^d(U') \times_{\mathrm{Sym}_k^d(U)} \Spec(K_\xi) \to U'^{[d]} \times_{\mathrm{Sym}_k^d(U)} \Spec(K_\xi) \]
     is unramified.
 \textcolor{red}{complete tomorrow}
 \end{lemma}
@@ -209,7 +209,7 @@ We say:
 
 
     %As in \Cref{cor:sym-power-quotient}
-%$\mathrm{Sym}_S^d(\cP) \to \cP^{(d)}$
+%$\mathrm{Sym}_S^d(\cP) \to \cP^{[d]}$
 
 
 % \subsection{The Local Ring \texorpdfstring{$\Oo_{\eta_\ndls}$}{at the generic point of the blowup}}
@@ -285,7 +285,7 @@ We say:
 
 % \begin{theorem}
 %     Assume $G=\Z/p\Z$ and let $\cP \to U$ be a $G$-torsor which is wildly ramified at $P$ with ramification bounded by $d$.
-%     Let $\ndls = dP$, the $G$-torsor $\cP^{(d)} \to U^{(d)}$ is unramified at $\eta_\ndls$- the generic point of 
+%     Let $\ndls = dP$, the $G$-torsor $\cP^{[d]} \to U^{(d)}$ is unramified at $\eta_\ndls$- the generic point of 
 %     $E_\mdls \subset X_{\mdls}$.
 % \end{theorem}
 % \begin{proof}
@@ -369,7 +369,7 @@ Our first result is:
           \item tamely ramified at $0$ 
           \item totally ramified at $0$ with $G=\Z/p\Z$ and ramificaiton bounded by $d$.
      \end{enumerate}
-     Then the ramification of the $G$-torsor $\cP^{(d)} \to \bG_m^{(d)}$ at $\eta_\mdls$ the generic point of $E_\mdls \subset X_{\mdls}$ is  
+     Then the ramification of the $G$-torsor $\cP^{[d]} \to \bG_m^{(d)}$ at $\eta_\mdls$ the generic point of $E_\mdls \subset X_{\mdls}$ is  
      \begin{enumerate}
           \item tamely ramified if $\cP$ was tamely ramified
           \item unramified if $\cP$ was totally ramified with $G=\Z/p\Z$ and ramification bounded by $d$
@@ -472,7 +472,7 @@ Our first result is:
           which concludes the proof.
      \end{proof}
 
-Finally, restricting $\cP^{(d)}$ to $\spec {\hat{K}}$ we get by \Cref{eq:complete_field_at_generic_point}
+Finally, restricting $\cP^{[d]}$ to $\spec {\hat{K}}$ we get by \Cref{eq:complete_field_at_generic_point}
 and \Cref{theorem:artin_schreier_ramification} the result. (that $\cP$ is unramified at the generic point of the exceptional divisor of the blowup).
 
 \textbf{Kummer Extensions:}
@@ -517,7 +517,7 @@ Few things are different in that case,
      Hence the qoutient ring is:
      $$\left( \frac{k[x_1^{\pm 1}, \dots, t_d^{\pm 1}][Y]}{(Y^n - \prod_{i=1}^d f_i)} \right)^{S_d} \cong 
      \frac{k[e_1, \dots, e_d, e_d^{-1}][Y]}{(Y^n - \tilde{F}(e_1, \dots, e_d))}$$
-     So we see again, that  restricting $\cP^{(d)}$ to $\spec {\hat{K}}$ we get by \Cref{eq:complete_field_at_generic_point} 
+     So we see again, that  restricting $\cP^{[d]}$ to $\spec {\hat{K}}$ we get by \Cref{eq:complete_field_at_generic_point} 
      and \Cref{theorem:kummer_ramification}, that $\cP$ is tamely ramified at the generic point of the exceptional divisor of the blowup.
 \end{proof}
 
@@ -525,19 +525,19 @@ So, we conclude
 \begin{cor}
     In the general settings of a curve $C$, and $\cP \to U=C \setminus \mdls$ a $G$-torsor with ramification bounded by $\ndls = n P \subset \mdls$ at $P$, we have:
     \begin{enumerate}
-        \item If $G=\Z/p\Z$ then $\cP^{(\deg \ndls)}$ is unramifeid at $\eta_\ndls$
-        \item If $\cP$ is tamely ramified $\ndls$ then $\cP^{(\deg \ndls)}$ is tamely ramified at $\eta_\ndls$
+        \item If $G=\Z/p\Z$ then $\cP^{[\deg \ndls]}$ is unramifeid at $\eta_\ndls$
+        \item If $\cP$ is tamely ramified $\ndls$ then $\cP^{[\deg \ndls]}$ is tamely ramified at $\eta_\ndls$
     \end{enumerate}
 \end{cor}
 
 Next, we prove the following.
 \begin{theorem}
-    Assume $G=\Z/p^r\Z$. Then $\cP^{(\deg (\ndls))}$ is unramified at $\eta_{\ndls}$
+    Assume $G=\Z/p^r\Z$. Then $\cP^{[\deg (\ndls)]}$ is unramified at $\eta_{\ndls}$
 \end{theorem}
 \begin{proof}
     Again, we can assume $k$ is algebraically closed. 
-    $\cP^{(\deg \ndls)}$ has bounded ramification at $n P$ by $n$. Let $R = \widehat{\Oo_{C, P}}$ and let $K=Frac(R)$
-    Then $\cP^{(\deg \ndls)}|_{\Spec K}$ correspond to $\rho: \Gal(K^{sep}/K) \to G$.
+    $\cP^{[\deg \ndls]}$ has bounded ramification at $n P$ by $n$. Let $R = \widehat{\Oo_{C, P}}$ and let $K=Frac(R)$
+    Then $\cP^{[\deg \ndls]}|_{\Spec K}$ correspond to $\rho: \Gal(K^{sep}/K) \to G$.
     Let $H = \rho(G^{0})$ be the image of the inertia subgroup. 
     Decompose $\cP \to U$ to $\cP \to \cP_{G/H} \to U$ as in \Cref{{prop:quotient_torsors}}, where $\cP \to \cP_{G/H}$ is an $H$-torsor and $\cP_{G/H} \to U$ is a $G/H$ torsor.
     Then $\cP_{G/H}$ is unramified at $P$. Thus $\cP_{G/H}$ extends to $U' = U \cup \{ P \}$, 

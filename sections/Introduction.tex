@@ -1,8 +1,8 @@
 In this thesis, we give an elementary proof of a certain imporant geometric theorem occuring in Deligne's approach to geometric class field theory.
 We (usually) work over a perfect field $k$, $C$ is a projective smooth geometrically connected curve over $k$, with genus $g$.
 One of the main geometric ingredients in the approach, is showing why a local system $\cF$ with ramification bounded by a modulus $\mdls = \sum n_i P_i$ on $U = C \setminus \mdls$ descends via the Abel-Jacobi $\Phi: U \to \PicCm[]$ to $\PicCm[]$. 
-The approach, innovated by Deligne, relies on analyzing the symmetric powers $\cF^{(d)}$ of $\cF$ on the symmetric powers $U^{(d)}$ of $U$,
-and showing that for sufficiently large $d$, $\cF^{(d)}$ descends to $\PicCm[d]$ via the degree $d$ Abel-Jacobi map $\Phi_d : U^{(d)} \to \PicCm[d]$.
+The approach, innovated by Deligne, relies on analyzing the symmetric powers $\cF^{[d]}$ of $\cF$ on the symmetric powers $U^{(d)}$ of $U$,
+and showing that for sufficiently large $d$, $\cF^{[d]}$ descends to $\PicCm[d]$ via the degree $d$ Abel-Jacobi map $\Phi_d : U^{(d)} \to \PicCm[d]$.
 The geometric-fibers of $\Phi_d$ (for $d \geq \deg \mdls +  2g - 1$) over any point are isomorphic to 
 $$
 \begin{cases}
@@ -15,12 +15,12 @@ The unramified case ($\mdls = 0$) is relatively simple, as the Abel-Jacobi map i
 Thus, by using the homotopy exact sequence for the \'etale fundamental group,
 one gets an isomorphism between the \'etale fundamental group of $U^{(d)} (=C^{(d)})$ and that of $\PicCm[d] (=\PicC[d])$.
 
-The ramified case ($\mdls > 0$) is more subtle, as the Abel-Jacobi map is not proper anymore, and one needs to analyze the ramification of $\cF^{(d)}$ "along the boundary" of $U^{(d)}$ in $C^{(d)}$.
+The ramified case ($\mdls > 0$) is more subtle, as the Abel-Jacobi map is not proper anymore, and one needs to analyze the ramification of $\cF^{[d]}$ "along the boundary" of $U^{(d)}$ in $C^{(d)}$.
 
 Previous work has generalized Deligne's approach to the ramified case, 
 most notably by Guignard \cite{Guignard2018} and Takeuchi \cite{takeuchi2019blow}. 
 Their approaches differ. 
-To descend, Guignard proves that the restriction of $\cF^{(d)}$ to any line in the fiber of the degree $d$ Abel-Jacobi map is a constant 
+To descend, Guignard proves that the restriction of $\cF^{[d]}$ to any line in the fiber of the degree $d$ Abel-Jacobi map is a constant 
 étale sheaf. He achieves this by demonstrating that the restriction is at most tamely ramified and invoking the triviality of the tame fundamental group 
 of $\mathbb{A}^1_k$. His analysis relies on local geometric class field theory. 
 It is also worth noting that Guignard's method generalizes to relative curves over arbitrary base schemes.
@@ -28,22 +28,22 @@ Takeuchi, on the other hand, constructs a compactification of $U^{(d)}$ by blowi
 This compactification, denoted by $\tilde{C}^{(d)}_\mdls$, has $U^{(d)}$ as an open subscheme with a codimension 1 closed subscheme $H$ as complement. 
 He then shows that the Abel-Jacobi map extends to a proper morphism from $\tilde{C}^{(d)}_\mdls$ to $\PicCm[d]$,
 which is a fibration in projective spaces. Thus, by the homotopy exact sequence for the \'etale fundamental group, one gets an isomorphism between the \'etale fundamental group of
-$\tilde{C}^{(d)}_\mdls$ and that of $\PicCm[d]$. To conclude the descent, Takeuchi analyzes the ramification of $\cF^{(d)}$ along the boundary $H$ of $\tilde{C}^{(d)}_\mdls$,
+$\tilde{C}^{(d)}_\mdls$ and that of $\PicCm[d]$. To conclude the descent, Takeuchi analyzes the ramification of $\cF^{[d]}$ along the boundary $H$ of $\tilde{C}^{(d)}_\mdls$,
 showing that it is tamely ramified there, which suffices. His methods relies on the theory of Witt vectors and refined Swan conductors.
 
 For an account of these approaches, see \cite{Guignard2018} and \cite{takeuchi2019blow}.
 For a full approach following Deligne's method in the unramified case, and the tamely ramified case see \cite{tendler2015geometricclassfieldtheory}, and \cite{Toth2011}.
 
-\textit{In this thesis}, we calculate the ramification of $\cF^{(d)}$ 
+\textit{In this thesis}, we calculate the ramification of $\cF^{[d]}$ 
 directly to show that it is at most tame at the generic point of $H$, 
 avoiding the use of Swan conductors. 
 To prove Geometric Class Field Theory, 
 we utilize Takeuchi's construction of the compactification $\tilde{C}^{(d)}_\mdls$ 
 of $U^{(d)}$ via the blowing up of $C^{(d)}$.
 
-% calculated the ramification of $\cF^{(d)}$ directly, in a more elementary way, enabling to show it is at most tame.
+% calculated the ramification of $\cF^{[d]}$ directly, in a more elementary way, enabling to show it is at most tame.
 % we combine techniques and ideas from the approaches, and from \cite{tendler2015geometricclassfieldtheory}, to give an elementary proof of the ramified case of Deligne's approach to geometric class field theory.
-% We follow Takeuchi's construction of the compactification $\tilde{C}^{(d)}_\mdls$ of $U^{(d)}$ by blowing up $C^{(d)}$ and calculate the ramification of $\cF^{(d)}$ along the boundary $H$ of $\tilde{C}^{(d)}_\mdls$ directly, avoiding 
+% We follow Takeuchi's construction of the compactification $\tilde{C}^{(d)}_\mdls$ of $U^{(d)}$ by blowing up $C^{(d)}$ and calculate the ramification of $\cF^{[d]}$ along the boundary $H$ of $\tilde{C}^{(d)}_\mdls$ directly, avoiding 
 % the use of Swan conductors. 
 
 In the rest of the introduction, we state the main theorem of geometric class field theory \Cref{thm:GCFT}, and its reductions to \Cref{thm:GCFT_reduced} and \Cref{theorem:SymmetricPowerOfSheavesIsTamelyRamifiedReduction}, which we prove in this thesis.
@@ -68,7 +68,7 @@ and generalizes Hecke eigensheaves in the context of \cite{tendler2015geometricc
 
 Let $d$ be a positive integer. 
 We denote by $U^{(d)}$ the $d$-th symmetric power of $U$ over $k$. 
-For an \'etale sheaf $\cF$ on $U_{\text{\'et}}$, we denote by $\cF^{(d)}$ the $d$-th symmetric power of $\cF$ on $U^{(d)}$ 
+For an \'etale sheaf $\cF$ on $U_{\text{\'et}}$, we denote by $\cF^{[d]}$ the $d$-th symmetric power of $\cF$ on $U^{(d)}$ 
 The degree $d$ Abel-Jacobi morphism is defined as the map
 $$ \Phi_d : U^{(d)} \to \PicCm[d] $$
 which sends a section $x_1 + \cdots + x_d$ of $U^{(d)}$ to the pair $(\cO(x_1 + \cdots + x_d), 1)$ .
@@ -79,7 +79,7 @@ Section 8.3 of \cite{tendler2015geometricclassfieldtheory}, or the proof of Theo
 
 \begin{restatable}{theorem}{GCFT_reduced}\label{thm:GCFT_reduced}
     Let $\Lambda$ be a finite ring of cardinality invertible in $k$, and let $\cF$ be an \'etale sheaf of $\Lambda$-modules, locally free of rank 1 on $U_{\text{\'et}}$, with ramification bounded by $\mdls$. 
-    Then, for sufficiently large integer $d$, there exists a unique (up to isomorphism) \'etale sheaf of $\Lambda$-modules $\cG_d$ on $\PicCm[d]$, locally free of rank 1, such that the pullback of $\cG_d$ by $\Phi_d$ is isomorphic to $\cF^{(d)}$.
+    Then, for sufficiently large integer $d$, there exists a unique (up to isomorphism) \'etale sheaf of $\Lambda$-modules $\cG_d$ on $\PicCm[d]$, locally free of rank 1, such that the pullback of $\cG_d$ by $\Phi_d$ is isomorphic to $\cF^{[d]}$.
 \end{restatable}
 
 
@@ -88,21 +88,21 @@ Section 8.3 of \cite{tendler2015geometricclassfieldtheory}, or the proof of Theo
 
 % \begin{restatable}{theorem}{GCFTtorsors} \label{thm:GCFT_torsors}
 %     Let $G=\Lambda^\times$ be a finite abelian group ($\Lambda$ as before), and let $\cP$ be a $G$-torsor on $U$, with ramification bounded by $\mdls$. 
-%     Then, for sufficiently large integer $d$, there exists a unique (up to isomorphism) $G$-torsor $\cQ_d$ on $\PicCm[d]$, such that the pullback of $\cQ_d$ by $\Phi_d$ is isomorphic to $\cP^{(d)}$.
+%     Then, for sufficiently large integer $d$, there exists a unique (up to isomorphism) $G$-torsor $\cQ_d$ on $\PicCm[d]$, such that the pullback of $\cQ_d$ by $\Phi_d$ is isomorphic to $\cP^{[d]}$.
 % \end{restatable}
 
 % To prove \Cref{thm:GCFT_torsors} we follow the work of \cite{takeuchi2019blow}, there he analyzed 
-% the ramification of $\cP^{(d)}$ after blowing up $C^{(d)}$, we analyze this ramification using elementary methods, drawing techniques and ideas
+% the ramification of $\cP^{[d]}$ after blowing up $C^{(d)}$, we analyze this ramification using elementary methods, drawing techniques and ideas
 % from the works of \cite{Guignard2018} and \cite{takeuchi2019blow}, and \cite{tendler2015geometricclassfieldtheory}.
 
 To prove \Cref{thm:GCFT_reduced} we follow the work of \cite{takeuchi2019blow} (and similiary done in \cite{Toth2011}),
-analyzing the ramification of $\cF^{(d)}$ after blowing up $C^{(d)}$. We analyze this ramification using elementary methods.
+analyzing the ramification of $\cF^{[d]}$ after blowing up $C^{(d)}$. We analyze this ramification using elementary methods.
 We prove the following Theorem:
 
 \begin{restatable}{theorem}{SymmetricPowerOfSheavesIsTamelyRamifiedReduction}\label{theorem:SymmetricPowerOfSheavesIsTamelyRamifiedReduction}
      Let $\Lambda$ be a finite ring of cardinality invertible in $k$, and let $\cF$ be an \'etale sheaf of $\Lambda$-modules, locally free of rank 1 on $U_{\text{\'et}}$, with ramification bounded by $\mdls = \sum n_i P_i$. 
      Let $\ndls = n_i P_i \subset \mdls$ be a sub modulus of $\mdls$.
-     Then $\cF^{(\deg \ndls)}$ is tamely ramified at the generic point $\eta_\ndls$ of the exceptional divisor $E_\ndls$ 
+     Then $\cF^{[\deg \ndls]}$ is tamely ramified at the generic point $\eta_\ndls$ of the exceptional divisor $E_\ndls$ 
      of the blowup $X_{\ndls}$ of $C^{(\deg \ndls)}$ at the closed point $\ndls$.
 \end{restatable}
 

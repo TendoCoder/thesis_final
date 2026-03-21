@@ -3,7 +3,7 @@ We work over $S=\Spec k$, for $k$ perfect.
 By \Cref{prop:torsor_module_equivalence}, its equivalent to prove: 
 \begin{restatable}{theorem}{GCFTtorsors} \label{thm:GCFT_torsors}
     Let $G=\Lambda^\times$ be a finite abelian group ($\Lambda$ as before), and let $\cP$ be a $G$-torsor on $U$, with ramification bounded by $\mdls$. 
-    Then, for sufficiently large integer $d$, there exists a unique (up to isomorphism) $G$-torsor $\cQ_d$ on $\PicCm[d]$, such that the pullback of $\cQ_d$ by $\Phi_d$ is isomorphic to $\cP^{(d)}$.
+    Then, for sufficiently large integer $d$, there exists a unique (up to isomorphism) $G$-torsor $\cQ_d$ on $\PicCm[d]$, such that the pullback of $\cQ_d$ by $\Phi_d$ is isomorphic to $\cP^{[d]}$.
 \end{restatable}
 
 \begin{proof}
@@ -28,20 +28,20 @@ Hence we get an isomorphism of etale fundamental groups:
 $$ \pi_1^{et}(\tilde{C}^{(d)}_\mdls) \cong \pi_1^{et}(\PicCm[d]) $$
 
 By \Cref{theorem:SymmetricPowerOfSheafIsTamelyRamified}, 
-$\cF^{(d)}$ is tamely ramified on the boundary divisor $H = \tilde{C}^{(d)}_\mdls \setminus U^{(d)}$.
+$\cF^{[d]}$ is tamely ramified on the boundary divisor $H = \tilde{C}^{(d)}_\mdls \setminus U^{(d)}$.
 
 Thus, by \Cref{lemma:ExtensionOfTamelyRamifiedSheaf} below, we have:
-$\cF^{(d)}$ extends to a locally constant sheaf $\tilde{\cF}^{(d)}$ on $\tilde{C}^{(d)}_\mdls$, 
+$\cF^{[d]}$ extends to a locally constant sheaf $\tilde{\cF}^{[d]}$ on $\tilde{C}^{(d)}_\mdls$, 
 which by the isomorphism of etale fundamental groups above, corresponds to a unique locally constant sheaf $\cG_d$ on $\PicCm[d]$,
-such that $\tilde{\Phi}_d^* \cG_d \cong \tilde{\cF}^{(d)}$.
-Restricting back to $U^{(d)}$, we get $\Phi_d^* \cG_d \cong \cF^{(d)}$,
+such that $\tilde{\Phi}_d^* \cG_d \cong \tilde{\cF}^{[d]}$.
+Restricting back to $U^{(d)}$, we get $\Phi_d^* \cG_d \cong \cF^{[d]}$,
 as required.
 \end{proof}
 
 
 \begin{lemma}\label{lemma:ExtensionOfTamelyRamifiedSheaf}
-    If $\cF^{(d)}$ is a locally constant sheaf on $U^{(d)}$ which is tamely ramified along the boundary divisor $H = \tilde{C}^{(d)}_\mdls \setminus U^{(d)}$, 
-    then $\cF^{(d)}$ extends to a locally constant sheaf $\tilde{\cF}^{(d)}$ on $\tilde{C}^{(d)}_\mdls$.
+    If $\cF^{[d]}$ is a locally constant sheaf on $U^{(d)}$ which is tamely ramified along the boundary divisor $H = \tilde{C}^{(d)}_\mdls \setminus U^{(d)}$, 
+    then $\cF^{[d]}$ extends to a locally constant sheaf $\tilde{\cF}^{[d]}$ on $\tilde{C}^{(d)}_\mdls$.
 \end{lemma}
 \begin{proof}
     \textcolor{red}{The lemma we are referencing above can be proved in two routes:

@@ -383,11 +383,11 @@ This action of ${S}_d$ commutes with the left action of $G$ on $G_d \backslash \
 
 \begin{prop}[\cite{Guignard2018} Proposition 2.32.]\label{prop:symmetric_power_torsor}
 If $X$ is Zariski-locally quasi-projective on $S$, then the right action of ${S}_d$ on $G_d \backslash \cP^{\times_S d}$ is admissible, 
-so that the quotient $\cP^{(d)}$ of $G_d \backslash \cP^{\times_S d}$ by ${S}_d$ exists as a scheme over $S$. 
-Moreover, the canonical morphism $\cP^{(d)} \to \mathrm{Sym}_S^d(X)$ is a $G$-torsor, 
+so that the quotient $\cP^{[d]}$ of $G_d \backslash \cP^{\times_S d}$ by ${S}_d$ exists as a scheme over $S$. 
+Moreover, the canonical morphism $\cP^{[d]} \to \mathrm{Sym}_S^d(X)$ is a $G$-torsor, 
 and the morphism
 \[
-p_1^{-1}\cP \otimes^G \cdots \otimes^G p_d^{-1}\cP \to r^{-1}\cP^{(d)}
+p_1^{-1}\cP \otimes^G \cdots \otimes^G p_d^{-1}\cP \to r^{-1}\cP^{[d]}
 \]
 where $r : X^{\times_S d} \to \mathrm{Sym}_S^d(X)$ is the canonical projection, is an isomorphism of $G$-torsors over $X^{\times_S d}$.
 \end{prop}
@@ -402,14 +402,12 @@ https://gemini.google.com/app/8d257f0b8e6f5927}
     \]
     between the symmetric power of $\cP$ as a scheme and the symmetric power of $\cP$ as a $G$-torsor.
     We make it a convention to denote the symmetric power of $\cP$ as a scheme by 
-    $\mathrm{Sym}_S^d(\cP)$ and the symmetric power of $\cP$ as a $G$-torsor by $\cP^{(d)}$. 
+    $\mathrm{Sym}_S^d(\cP)$ and the symmetric power of $\cP$ as a $G$-torsor by $\cP^{[d]}$. 
     So that the above qoutient map is also written as:
-    $q: \mathrm{Sym}_S^d(\cP) \to \cP^{(d)}$.
+    $q: \mathrm{Sym}_S^d(\cP) \to \cP^{[d]}$.
 \end{cor}
 
 
-\textcolor{red}{maybe make it obvios that a scheme as symmetric product is $ \mathrm{Sym}_S^d(X)$ and not $X^{(d)}$ or replace 
-torsor to $\cP^{[d]}$ instead of $\cP^{(d)}$}
 
 %     Let $X, X'$ be schemes and assume $X' \to X$ is a $G$-torsor. 
 %     Let $X'^{(d)} = X'^d/S_d$ be the symmetric power of $X'$ as a scheme, and let 
@@ -430,7 +428,7 @@ induced by the equivariant isomorphism $X^{\times_S d_1} \times_S X^{\times_S d_
 \begin{prop}\label{prop:symmetric_powers_on_curves}
     Let $\cP$ be a $G$-torsor over $X$. There is a canonical isomorphism of $G$-torsors over $X^{(d_1)} \times_S X^{(d_2)}$:
     \[
-    +_{d_1, d_2}^{-1} \left( \cP^{(d_1+d_2)} \right) \cong r_1^{-1} \cP^{(d_1)} \otimes r_2^{-1} \cP^{(d_2)}.
+    +_{d_1, d_2}^{-1} \left( \cP^{[d_1+d_2]} \right) \cong r_1^{-1} \cP^{[d_1]} \otimes r_2^{-1} \cP^{[d_2]}.
     \]
 \end{prop}
 \begin{proof}
@@ -443,11 +441,11 @@ X^{(d_1)} \times_S X^{(d_2)} \arrow[r, "+_{d_1, d_2}"] & X^{(d_1+d_2)}
 \]
 and applying \Cref{prop:symmetric_power_torsor}, we obtain canonical isomorphisms:
 \[
-\pi^{-1} \left( +_{d_1, d_2}^{-1} \cP^{(d_1+d_2)} \right) \cong r_{d_1+d_2}^{-1} \cP^{(d_1+d_2)} \cong \bigotimes_{i=1}^{d_1+d_2} p_i^{-1} \cP
+\pi^{-1} \left( +_{d_1, d_2}^{-1} \cP^{[d_1+d_2]} \right) \cong r_{d_1+d_2}^{-1} \cP^{[d_1+d_2]} \cong \bigotimes_{i=1}^{d_1+d_2} p_i^{-1} \cP
 \]
 and
 \[
-\pi^{-1} (r_1^{-1} \cP^{(d_1)} \otimes r_2^{-1} \cP^{(d_2)}) \cong \left( \bigotimes_{i=1}^{d_1} p_i^{-1} \cP \right) \otimes \left( \bigotimes_{j=d_1+1}^{d_1+d_2} p_j^{-1} \cP \right).
+\pi^{-1} (r_1^{-1} \cP^{[d_1]} \otimes r_2^{-1} \cP^{[d_2]}) \cong \left( \bigotimes_{i=1}^{d_1} p_i^{-1} \cP \right) \otimes \left( \bigotimes_{j=d_1+1}^{d_1+d_2} p_j^{-1} \cP \right).
 \]
 Since both pullbacks identify with $\bigotimes_{k=1}^{d_1+d_2} p_k^{-1} \cP$ in an $S_{d_1} \times S_{d_2}$-equivariant manner, the isomorphism descends to the quotient $X^{(d_1)} \times_S X^{(d_2)}$ by \Cref{prop:symmetric_power_flat_base_change}.
 \end{proof}
@@ -456,7 +454,7 @@ Since both pullbacks identify with $\bigotimes_{k=1}^{d_1+d_2} p_k^{-1} \cP$ in 
 
 % \begin{proof}
 %     This proof follow
-%     The claim follows from the fact that the construction of $\cP^{(d)}$ 
+%     The claim follows from the fact that the construction of $\cP^{[d]}$ 
 %     is compatible with base change (Proposition \ref{prop:symmetric_power_flat_base_change}) 
 %     and the identification of the group action on the fiber (\Cref{prop:symmetric_power_torsor}). 
 %     Specifically, the quotient of $G_{d_1+d_2} \backslash \cP^{d_1+d_2}$ by the subgroup $S_{d_1} \times S_{d_2}$ is isomorphic to the product of the individual symmetric torsors. The isomorphism is then induced by the universal property of the quotient $X^{(d_1+d_2)}$.
@@ -481,9 +479,9 @@ Since both pullbacks identify with $\bigotimes_{k=1}^{d_1+d_2} p_k^{-1} \cP$ in 
 % \end{tikzcd}
 % \] 
 
-% pullbacking $\cP^{(d_i)}$ along the projections we get a $G$-torsor
+% pullbacking $\cP^{[d_i]}$ along the projections we get a $G$-torsor
 
-% \[\cP ^{(d_1)} \boxtimes \cP ^{(d_2)} = p_1^{-1} \cP^{(d_1)} \otimes p_2^{-1} \cP^{(d_2)}\]
+% \[\cP^{[d_1]} \boxtimes \cP^{[d_2]} = p_1^{-1} \cP^{[d_1]} \otimes p_2^{-1} \cP^{[d_2]}\]
 % On $U^{(d_1)} \times_k U^{(d_2)}$
 
 % Note that the plus map $C^{(d_1)} \times_k C^{(d_2)} \xrightarrow{+}{} C^{(d_1 + d_2)}$
@@ -498,7 +496,7 @@ Since both pullbacks identify with $\bigotimes_{k=1}^{d_1+d_2} p_k^{-1} \cP$ in 
 
 % Hence, by \Cref{prop:symmetric_power_torsor} (and replacing $C$ with $U$ above) we get canonical identification:
 % \[
-%  (+^{-1})(\cP^{(d_1+d_2)}) \cong \cP ^{(d_1)} \boxtimes \cP ^{(d_2)}
+%  (+^{-1})(\cP^{[d_1+d_2]}) \cong \cP^{[d_1]} \boxtimes \cP^{[d_2]}
 % \]
 
 \subsection{Algebraic Preliminaries on Ramification}
