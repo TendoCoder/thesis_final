@@ -9,13 +9,13 @@
 \contentsline {section}{\numberline {3}Ramification After Blowup Is Tame}{16}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Ramification of $G$-Torsors}{17}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}Proof of Theorem \ref {theorem:SymmetricPowerOfSheavesIsTamelyRamifiedReduction}}{20}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Extending To Product of Blowups}{25}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.3}Extending To Product of Blowups}{24}{subsection.3.3}%
 \contentsline {section}{\numberline {4}Geometric Class Field Theory}{27}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Etale Fundamental Groups and Tame Fundamental Groups}{28}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.1}Etale Fundamental Groups and Tame Fundamental Groups}{27}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Generalized Picard Scheme}{28}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}The Abel-Jacobi Morphism and its Fibers}{30}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}Compactification of Blowup of Symmetric Powers of a Curve}{31}{subsection.4.4}%
-\contentsline {subsection}{\numberline {4.5}Proof of \Cref {theorem:SymmetricPowerOfSheafIsTamelyRamified}}{32}{subsection.4.5}%
-\contentsline {subsubsection}{\numberline {4.5.1}Reduction Lemmas}{32}{subsubsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.3}The Abel-Jacobi Morphism and its Fibers}{29}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Compactification of Blowup of Symmetric Powers of a Curve}{30}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Proof of \Cref {theorem:SymmetricPowerOfSheafIsTamelyRamified}}{31}{subsection.4.5}%
+\contentsline {subsubsection}{\numberline {4.5.1}Reduction Lemmas}{31}{subsubsection.4.5.1}%
 \contentsline {subsection}{\numberline {4.6}Proof of \Cref {theorem:SymmetricPowerOfSheafIsTamelyRamified}}{34}{subsection.4.6}%
-\contentsline {section}{\numberline {5}Proof of \Cref {thm:GCFT_reduced}}{35}{section.5}%
+\contentsline {section}{\numberline {5}Proof of \Cref {thm:GCFT_reduced}}{34}{section.5}%

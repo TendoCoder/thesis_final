@@ -150,62 +150,119 @@ We finish by noticing that the upper numbering filtration on the absolute Galois
 \[ G_L^r = G_K^r \cap G_L \]}
 \end{proof}
 
-The following lemma suggests that the map $q: \mathrm{Sym}_k^d(U') \to U'^{[d]}$ from \Cref{cor:sym-power-quotient} is unramified in codimension 1 
-according to \Cref{definition:tamely_ramified_in_codim_1}. 
-While this is essentially true, the statement should not be taken literally in that specific context. 
-Strictly adhering to \Cref{definition:tamely_ramified_in_codim_1} would require choosing a compactification of $U'^{[d]}$, 
-which we prefer to avoid. 
-Instead, we provide the following formulation, which suffices for our purposes and accurately characterizes the ramification behavior at codimension 1.
 
-\begin{lemma}\label{lemma:symmetric_powers_of_torsors_and_ramification}
-    Let $G$ be a finite abelian group.
-    Assume we are given:
-    \[
-    \begin{tikzcd}
-    U' \arrow[r] \arrow[d] & C' \arrow[d] \\
-    U \arrow[r] & C
-    \end{tikzcd}
-    \]
-    Where $C$ and $C'$ are smooth curves over a perfect field $k$, $U \subset C$ and $U' \subset C'$ are dense open subsets,
-    and $U' \to U$ is a $G$-torsor
-    Let 
-    \[
-        \begin{tikzcd}
-       \mathrm{Sym}_k^d(U') \arrow[rd] \arrow[r, "q"] & U'^{[d]} \arrow[r] \arrow[d, "\pi"] & \mathrm{Sym}_k^d(C') \arrow[d] \\
-       & \mathrm{Sym}_k^d(U) \arrow[r] & \mathrm{Sym}_k^d(C)
-        \end{tikzcd}
-    \]
-    be the associated symmetric product diagram where $q: \mathrm{Sym}_k^d(U') \to U'^{[d]}$ is the quotient map defined in \Cref{cor:sym-power-quotient}
-    and $\pi: U'^{[d]} \to \mathrm{Sym}_k^d(U)$ is a $G$-torsor. 
-    Let $(Z, \xi)$ be a prime divisor in $\mathrm{Sym}_k^d(C)$ such that $Z \cap \mathrm{Sym}_k^d(U) = \emptyset$,
-    let $\Oo_{C, \xi}$ be the corresponding local ring, and let $K_\xi = \Frac(\Oo_{C, \xi})$ be its fraction field. 
-    Then 
-    \begin{enumerate}
-        \item $q$ and $\pi$ are \'etale.
-        \item 
-    \end{enumerate}
-    Then the base change of $q$ to $\Spec(K_\xi)$ is unramified, i.e. the morphism
-    \[ q_{K_\xi}: \mathrm{Sym}_k^d(U') \times_{\mathrm{Sym}_k^d(U)} \Spec(K_\xi) \to U'^{[d]} \times_{\mathrm{Sym}_k^d(U)} \Spec(K_\xi) \]
-    is unramified.
-\textcolor{red}{complete tomorrow}
+Let $C$ be a smooth, proper (projective) curve over a field $k$, and let $U \subset C$ be a dense open subset.
+Let $G$ be a finite abelian group. and let $\pi_U: U' \to U$ be a $G$-torsor in $U_{\text{\'Et}}$. 
+Let $C'$ be the normal proper model of $U'$ over $k$ (i.e. the unique smooth proper curve which has $U'$ as a dense open subset).
+Let $\pi: C' \to C$ be the induced morphism. (which is finite generically \'etale over $U$). 
+Let $U'^{(d)}$ be the standard $d$-th symmetric product of $U'$ as a scheme, and let $U'^{[d]}$ be the torsor-theoetric symmetric product,
+by \Cref{cor:sym-power-quotient} we have a canonical morphism $q_U: U'^{(d)} \to U'^{[d]}$.
+Note that $C'^{(d)}$ is smooth and finite over $C^{(d)}$, hence it is the normalization of $C^{(d)}$ inside $K(C'^{(d)})$.
+$U'^{(d)}$ is a dense open subset of $C'^{(d)}$, hence $C'^{(d)}$ is a normal proper model of $U'^{(d)}$.
+Let $C'^{[d]}$ be the normalization of $C^{(d)}$ in the function field $K(U'^{[d]})$,
+then $q_U$ extends to a map $q: C'^{(d)} \to C'^{[d]}$, and we have the following diagrams:
+\[
+\begin{tikzcd}
+	U' \arrow[r, hook] \arrow[d, "\pi_U"'] & C' \arrow[d, "\pi"] \\
+	U \arrow[r, hook] & C
+\end{tikzcd}
+\qquad \qquad
+\begin{tikzcd}
+	{U'^{(d)}} \arrow[r, hook] \arrow[d, "q_U"'] & {C'^{(d)}} \arrow[d, "q"] \\
+	{U'^{[d]}} \arrow[r, hook] \arrow[d] & {C'^{[d]}} \arrow[d] \\
+	{U^{(d)}} \arrow[r, hook] & {C^{(d)}}
+\end{tikzcd}
+\]
+
+\begin{lemma}
+In the context of the preceding discussion, the morphism from $U'^{(d)}$ to $C'^{[d]}$ 
+is unramified in codimension $1$ (see \Cref{definition:tamely_ramified_in_codim_1}).
 \end{lemma}
-Generally speaking, assume we are given a locally Noetherian scheme $X$, 
-a dense open $U \subset X$, a finite \'etale morphsm $f: Y \to U$ and a prime divisor $Z \subset X$ such that $Z \cap U = \emptyset$
-and the local ring $\Oo_{X, \xi}$ of $X$ at the generic point $\xi$ of $Z$ is a discrete valuation ring. 
-Setting $K_\xi = \Frac(\Oo_{X, \xi})$ we obtain a cartesian square
-\[ \xymatrix{ \mathop{\mathrm{Spec}}(K_\xi ) \ar[r] \ar[d] & U \ar[d] \\ \mathop{\mathrm{Spec}}(\mathcal{O}_{X, \xi }) \ar[r] & X } \]
-of schemes. 
-In particular, we see that $Y \times _ U \mathop{\mathrm{Spec}}(K_\xi )$ is the spectrum of a finite separable algebra $L_\xi /K_\xi $. 
-
-We say: 
-\begin{enumerate}
-    \item $Y$ is \textit{unramified} over $X$ at $(Z, \xi)$ resp. $Y$ is \textit{tamely ramified} over $X$ at $(Z, \xi)$
-        if $L_\xi /K_\xi $ is unramified, resp. tamely ramified with respect to $\mathcal{O}_{X, \xi }$
-        (\Cref{definition:tamely_ramified_dvrs})
+\begin{proof}
+    Let $\eta$ be the generic point of an irreducible component $W$ of the boundary $C'^{(d)} \setminus U'^{(d)}$.
+    It is enough to show $\mathcal{O}_{C'^{[d]}, q(\eta)} \hookrightarrow \mathcal{O}_{C'^{(d)}, \eta}$ is weakly unramified (\Cref{definition:weakly_unramified_and_tamely_ramified_DVR}).
+    Let $C' \setminus U' = \{x_1, \ldots, x_m \}$
     
-    \item $Y$ is unramified over $X$ in codimension $1$, resp. $Y$ is tamely ramified over $X$ in codimension $1$ if $L_\xi /K_\xi $ is unramified, resp. tamely ramified 
-    with respect to $\mathcal{O}_{X, \xi }$ for every $(Z, \xi )$ as above. 
-\end{enumerate}
+    Then 
+
+
+
+
+
+\end{proof}
+
+
+                % Let $\eta$ be a generic point of an irreducible component of the boundary divisor $C'^{(d)} \setminus U'^{(d)}$.
+                %  Does the rational map $\Phi: C'^{(d)} \dashrightarrow C'^{[d]}$ extend to a morphism in an open neighborhood of $\eta$, and if so, is the corresponding local ring extension $\mathcal{O}_{C'^{[d]}, \Phi(\eta)} \hookrightarrow \mathcal{O}_{C'^{(d)}, \eta}$ unramified?
+
+                % % \[
+                % % \begin{tikzcd}
+                % % U'^{(d)} \arrow[r, "q_U"] \arrow[d] & U'^{[d]} \arrow[r] \arrow[d] & C'^{(d)} \arrow[d] \\
+                % % \mathrm{Sym}_k^d(U) \arrow[r] & \mathrm{Sym}_k^d(U) \arrow[r] & \mathrm{Sym}_k^d(C)
+                % % \end{tikzcd}
+                % % \]
+
+                % The following lemma suggests that the map $q: U'^{(d)} \to U'^{[d]}$ from \Cref{cor:sym-power-quotient} is unramified in codimension 1 
+                % according to \Cref{definition:tamely_ramified_in_codim_1}. 
+                % While this is essentially true, the statement should not be taken literally in that specific context. 
+                % Strictly adhering to \Cref{definition:tamely_ramified_in_codim_1} would require choosing a compactification of $U'^{[d]}$, 
+                % which we prefer to avoid. 
+                % Instead, we provide the following formulation, which suffices for our purposes and accurately characterizes the ramification behavior at codimension 1.
+
+                % \begin{lemma}\label{lemma:symmetric_powers_of_torsors_and_ramification}
+                    
+
+
+
+                %      Then $\pi$ is unramified in codimension 1, i.e. for every prime divisor $(Z, \xi)$ in $\mathrm{Sym}_k^d(C)$ such that $Z \cap \mathrm{Sym}_k^d(U) = \emptyset$, the base change of $\pi$ to $\Spec(K_\xi)$ is unramified.
+                %     Let $G$ be a finite abelian group.
+                %     Assume we are given:
+                %     \[
+                %     \begin{tikzcd}
+                %     U' \arrow[r] \arrow[d] & C' \arrow[d] \\
+                %     U \arrow[r] & C
+                %     \end{tikzcd}
+                %     \]
+                %     Where $C$ and $C'$ are smooth curves over a perfect field $k$, $U \subset C$ and $U' \subset C'$ are dense open subsets,
+                %     and $U' \to U$ is a $G$-torsor
+                %     Let 
+                %     \[
+                %         \begin{tikzcd}
+                %        \mathrm{Sym}_k^d(U') \arrow[rd] \arrow[r, "q"] & U'^{[d]} \arrow[r] \arrow[d, "\pi"] & \mathrm{Sym}_k^d(C') \arrow[d] \\
+                %        & \mathrm{Sym}_k^d(U) \arrow[r] & \mathrm{Sym}_k^d(C)
+                %         \end{tikzcd}
+                %     \]
+                %     be the associated symmetric product diagram where $q: \mathrm{Sym}_k^d(U') \to U'^{[d]}$ is the quotient map defined in \Cref{cor:sym-power-quotient}
+                %     and $\pi: U'^{[d]} \to \mathrm{Sym}_k^d(U)$ is a $G$-torsor. 
+                %     Let $(Z, \xi)$ be a prime divisor in $\mathrm{Sym}_k^d(C)$ such that $Z \cap \mathrm{Sym}_k^d(U) = \emptyset$,
+                %     let $\Oo_{C, \xi}$ be the corresponding local ring, and let $K_\xi = \Frac(\Oo_{C, \xi})$ be its fraction field. 
+                %     Then 
+                %     \begin{enumerate}
+                %         \item $q$ and $\pi$ are \'etale.
+                %         \item 
+                %     \end{enumerate}
+                %     Then the base change of $q$ to $\Spec(K_\xi)$ is unramified, i.e. the morphism
+                %     \[ q_{K_\xi}: \mathrm{Sym}_k^d(U') \times_{\mathrm{Sym}_k^d(U)} \Spec(K_\xi) \to U'^{[d]} \times_{\mathrm{Sym}_k^d(U)} \Spec(K_\xi) \]
+                %     is unramified.
+                % \textcolor{red}{complete tomorrow}
+                % \end{lemma}
+                % Generally speaking, assume we are given a locally Noetherian scheme $X$, 
+                % a dense open $U \subset X$, a finite \'etale morphsm $f: Y \to U$ and a prime divisor $Z \subset X$ such that $Z \cap U = \emptyset$
+                % and the local ring $\Oo_{X, \xi}$ of $X$ at the generic point $\xi$ of $Z$ is a discrete valuation ring. 
+                % Setting $K_\xi = \Frac(\Oo_{X, \xi})$ we obtain a cartesian square
+                % \[ \xymatrix{ \mathop{\mathrm{Spec}}(K_\xi ) \ar[r] \ar[d] & U \ar[d] \\ \mathop{\mathrm{Spec}}(\mathcal{O}_{X, \xi }) \ar[r] & X } \]
+                % of schemes. 
+                % In particular, we see that $Y \times _ U \mathop{\mathrm{Spec}}(K_\xi )$ is the spectrum of a finite separable algebra $L_\xi /K_\xi $. 
+
+                % We say: 
+                % \begin{enumerate}
+                %     \item $Y$ is \textit{unramified} over $X$ at $(Z, \xi)$ resp. $Y$ is \textit{tamely ramified} over $X$ at $(Z, \xi)$
+                %         if $L_\xi /K_\xi $ is unramified, resp. tamely ramified with respect to $\mathcal{O}_{X, \xi }$
+                %         (\Cref{definition:tamely_ramified_dvrs})
+                    
+                %     \item $Y$ is unramified over $X$ in codimension $1$, resp. $Y$ is tamely ramified over $X$ in codimension $1$ if $L_\xi /K_\xi $ is unramified, resp. tamely ramified 
+                %     with respect to $\mathcal{O}_{X, \xi }$ for every $(Z, \xi )$ as above. 
+                % \end{enumerate}
 
 
     %As in \Cref{cor:sym-power-quotient}

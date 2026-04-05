@@ -372,6 +372,7 @@ For each $i \in  \llbracket 1, d \rrbracket$ let $p_i : X^{\times_S d} \to X$ be
 p_1^{-1}\cP \otimes^G \cdots \otimes^G p_d^{-1}\cP = G_d \backslash \cP^{\times_S d}
 \]
 over $X^{\times_S d}$, where $G_d \subseteq G^d$ is the kernel of the multiplication morphism $G^d \to G$. 
+
 The object $G_d \backslash \cP^{\times_S d}$ of $S_{\text{Ét}}$ is too representable by an $S$-scheme which is finite étale over $X^{\times_S d}$. 
 The group ${S}_d$ acts on the right on $G_d \backslash \cP^{\times_S d}$ by the formula
 \[
@@ -392,20 +393,31 @@ p_1^{-1}\cP \otimes^G \cdots \otimes^G p_d^{-1}\cP \to r^{-1}\cP^{[d]}
 where $r : X^{\times_S d} \to \mathrm{Sym}_S^d(X)$ is the canonical projection, is an isomorphism of $G$-torsors over $X^{\times_S d}$.
 \end{prop}
 
-\textcolor{red}{This entire corollary is not exact, replace with: 
-https://gemini.google.com/app/8d257f0b8e6f5927}
+% %Note that there is a canonical map $\cP^{\times_S d}/S_d \to \cP^$, and the $S_d$-action on $G_d \backslash \cP^{\times_S d}$ is compatible with the $S_d$-action on $X^{\times_S d}$, so that we get a canonical morphism $\cP^{[d]} \to \mathrm{Sym}_S^d(X)$.
+% \textcolor{red}{This entire corollary is not exact, replace with: 
+% https://gemini.google.com/app/8d257f0b8e6f5927
+% or
+% https://gemini.google.com/app/f36ed1280d780bea
+% }
+
 \begin{cor}\label{cor:sym-power-quotient}
-    Under the assumptions of the proposition above, and since the $G_d$ and $S_d$ actions commute,
-    we get the following qoutient map
+    Under the assumptions of the proposition above, and given that $G$ is abelian, there is a canonical morphism of $G$-torsors over $\mathrm{Sym}_S^d(X)$:
     \[
          q: \cP^{\times_S d} / S_d \to G_d \backslash \cP^{\times_S d} / S_d
     \]
     between the symmetric power of $\cP$ as a scheme and the symmetric power of $\cP$ as a $G$-torsor.
     We make it a convention to denote the symmetric power of $\cP$ as a scheme by 
-    $\mathrm{Sym}_S^d(\cP)$ and the symmetric power of $\cP$ as a $G$-torsor by $\cP^{[d]}$. 
+    $\cP^{(d)}$,
+    %$\mathrm{Sym}_S^d(\cP)$
+    and the symmetric power of $\cP$ as a $G$-torsor by $\cP^{[d]}$. 
     So that the above qoutient map is also written as:
-    $q: \mathrm{Sym}_S^d(\cP) \to \cP^{[d]}$.
+    $q: \cP^{(d)} \to \cP^{[d]}$.
+    %$q: \mathrm{Sym}_S^d(\cP) \to \cP^{[d]}$.
 \end{cor}
+\begin{proof}
+    The morphism $q$ is induced by the canonical morphism $\cP^{\times_S d} \to G_d \backslash \cP^{\times_S d}$, and the fact that the $S_d$-action on $G_d \backslash \cP^{\times_S d}$ is compatible with the $S_d$-action on $\cP^{\times_S d}$
+    (Assuming $G$ is abelian).
+\end{proof}
 
 
 
@@ -505,7 +517,7 @@ integral closures in finite separable extensions.
 We then specialize to complete rings in Galois extensions to describe the ramification filtration via lower and upper numbering, 
 following the treatments in \stackstag{0EXQ} and \cite{serreLF}.
 
-\begin{definition}[\stackstag{09E4}]
+\begin{definition}[\stackstag{09E4}]\label{definition:weakly_unramified_and_tamely_ramified_DVR}
     We say that $A \to B$ or $A \subset B$ is an extension of discrete valuation rings if $A$ and $B$ are discrete valuation rings and $A \to B$ is injective and local. In particular, if $\pi _ A$ and $\pi _ B$ are uniformizers of $A$ and $B$, then $\pi _ A = u \pi _ B^ e$ for some $e \geq 1$ and unit $u$ of $B$. The integer $e$ does not depend on the choice of the uniformizers as it is also the unique integer $\geq 1$ such that
 \[ \mathfrak m_ A B = \mathfrak m_ B^ e \]
 The integer $e$ is called the \textit{ramification index} of $B$ over $A$. We say that $B$ is \textit{weakly unramified} over $A$ if $e = 1$. 
