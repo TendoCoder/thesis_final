@@ -175,19 +175,61 @@ then $q_U$ extends to a map $q: C'^{(d)} \to C'^{[d]}$, and we have the followin
 \]
 
 \begin{lemma}
-In the context of the preceding discussion, the morphism from $U'^{(d)}$ to $C'^{[d]}$ 
+In the context of the preceding discussion, the morphism $U'^{(d)} \to U'^{[d]} \hookrightarrow C'^{[d]}$
 is unramified in codimension $1$ (see \Cref{definition:tamely_ramified_in_codim_1}).
 \end{lemma}
 \begin{proof}
-    Let $\eta$ be the generic point of an irreducible component $W$ of the boundary $C'^{(d)} \setminus U'^{(d)}$.
-    It is enough to show $\mathcal{O}_{C'^{[d]}, q(\eta)} \hookrightarrow \mathcal{O}_{C'^{(d)}, \eta}$ is weakly unramified (\Cref{definition:weakly_unramified_and_tamely_ramified_DVR}).
-    Let $C' \setminus U' = \{x_1, \ldots, x_m \}$
-    
-    Then 
 
+Let $C' \setminus U' = \{x_1, \ldots, x_m \}$. For each $x \in C' \setminus U'$, define the locus 
+$$Z_x = \{D \in C'^{(d)} \mid x \in \mathrm{Supp}(D) \}.$$
+Each $Z_x$ is a prime divisor in the symmetric product $C'^{(d)}$, and the boundary $C'^{(d)} \setminus U'^{(d)}$ is precisely the finite union $\bigcup_{i=1}^m Z_{x_i}$. 
 
+Let $\eta$ be the generic point of $Z_x$. 
+It suffices to show that the local ring extension $\mathcal{O}_{C'^{[d]}, q(\eta)} \hookrightarrow \mathcal{O}_{C'^{(d)}, \eta}$ is weakly unramified (\Cref{definition:weakly_unramified_and_tamely_ramified_DVR}).
 
+Let $p: C'^d \to C'^{(d)}$ be the natural quotient. Consider the closed subvariety
+$$H = \{x\} \times C' \times \cdots \times C' \subset C'^d.$$
 
+The subvariety $H$ is irreducible, and its image under $p$ is exactly $Z_x$. 
+Consequently, $p$ maps the generic point $\eta_H$ of $H$ to the generic point $\eta$ of $Z_x$.
+\[
+\begin{tikzcd}
+\eta_H \arrow[d] \arrow[r] & H \arrow[r] \arrow[d] & C'^d \arrow[d, "p"] \\
+\eta \arrow[r] \arrow[d] & Z_x \arrow[r] \arrow[d] & C^{(d)} \arrow[d, "q"] \\
+q(\eta) \arrow[r] & q(Z_x) \arrow[r] & C'^{[d]}
+\end{tikzcd}
+\]
+It suffices to show that the local ring extension $\mathcal{O}_{C'^{[d]}, q(\eta)} \hookrightarrow \mathcal{O}_{C'^d, \eta_H}$ is weakly unramified.
+Let $R = \mathcal{O}_{C'^d, \eta_H}$. And let $A=\mathcal{O}_{C'^{[d]}, q(\eta)}$.
+
+Recall that $C'^{[d]}$ is the quotient of $C'^d$ by the finite group $\Xi = G_d \rtimes S_d$ (see \Cref{cor:sym-power-quotient}), 
+and the morphism $q \circ p : C'^d \to C'^{[d]}$ is \textit{branched Galois Cover} (finite, surjective map of normal integral schemes $X \to Y$, with function field extension $K(X)/K(Y)$ Galois).
+
+Hence the decomoposition group of $\eta_H$ in $\Xi$ and the inertia group of $\eta_H$ in $\Xi$ are defined:
+$$D_{\eta_H} = \{ g \in \Xi \mid g(\eta_H) = \eta_H \}$$
+$$I_{\eta_H} = \{ g \in D_{\eta_H} \mid g^*(u) \equiv u \pmod{\mathfrak{m}_{R}} \text{ for all } u \in R \}$$
+
+%Then $A=R^{\Xi}$ where $\Xi = G_d \rtimes S_d$\footnote{Recall $G_d = \{ (g_1, \dots, g_d) \in G^d \mid g_1 g_2 \dots g_d = 1_G \}$} is the finite group acting on $C'^d$ as in \Cref{cor:sym-power-quotient}.
+\textbf{Claim: } The inertia group $I_{\eta_H}$ is trivial.
+
+Let $K=K(C')$ be the function field of $C'$, then 
+$K(C'^d) = K^{\otimes_k d} \cong Frac(K_1 \otimes_k K_2 \otimes_k \cdots \otimes_k K_d)$
+Where $K_i$ is the copy of $K$ corresponding to the $i$-th factor of $C'^d$.
+The closed subscheme $H$ corresponds to the prime ideal $\pp_H \subset \Oo_{C'^d}$, and $R=\Oo_{C'^d, \pp_H}$. 
+The residue field of $R$ is exactly $K(H) \cong Frac(k(x) \otimes_k K_2 \otimes_k \cdots \otimes_k K_d)$ where $k(x)$ is the residue field of $x$.
+
+The action of $\gamma = (g_1, \ldots, g_d, \sigma) \in \Xi$, via the pullback $(\gamma^*)$ on $K(C'^d)$ does two things (in that order):
+\begin{enumerate}
+    \item It permutes the tensor factors according to $\sigma$. A function strictly in $K_i$ is mapped to a function in $K_{\sigma(i)}$.
+    \item It applies the field automorphism $g_i^* \in \mathrm{Aut}(K/k)$ to the respective factors.
+\end{enumerate}
+Let $\gamma \in I_{\eta_H} \subset \Xi$, Then the induced automorphism $\bar{\gamma}^*$ on $K(H)$ must be the identity map.
+This implies that $\sigma$ must fix $i$ for every $i \geq 2$ (The $K_i$ are linearly independent), and hence $\sigma=id$.
+The trivial action of $\bar{\gamma}^*$ restricts to a trivial action of $g_i^*$ on $K_{i}$ for every $i \geq 2$, and hence 
+$g_i = 1$ for every $i \geq 2$ (since the action of $G$ on $K(C')$ is faithful).
+Finally, since $g_1 g_2 \cdots g_d = 1$, we also have $g_1 = 1$.
+Since the inertia group $I_{\eta_H}$ is trivial, the local ring extension $A \hookrightarrow R$ is weakly unramified.
+(See for example \stackstag{09E3}, \stackstag{0BTF})
 
 \end{proof}
 
