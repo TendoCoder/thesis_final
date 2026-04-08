@@ -76,6 +76,80 @@
       \field{title}{Local Fields}
       \field{year}{1979}
     \endentry
+    \entry{koch1997algebraic}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=7dc9d693c2843e9c4b5102c0496436c2}{%
+           family={Koch},
+           familyi={K\bibinitperiod},
+           given={Helmut},
+           giveni={H\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Berlin, Heidelberg}%
+      }
+      \list{publisher}{1}{%
+        {Springer-Verlag}%
+      }
+      \strng{namehash}{7dc9d693c2843e9c4b5102c0496436c2}
+      \strng{fullhash}{7dc9d693c2843e9c4b5102c0496436c2}
+      \strng{fullhashraw}{7dc9d693c2843e9c4b5102c0496436c2}
+      \strng{bibnamehash}{7dc9d693c2843e9c4b5102c0496436c2}
+      \strng{authorbibnamehash}{7dc9d693c2843e9c4b5102c0496436c2}
+      \strng{authornamehash}{7dc9d693c2843e9c4b5102c0496436c2}
+      \strng{authorfullhash}{7dc9d693c2843e9c4b5102c0496436c2}
+      \strng{authorfullhashraw}{7dc9d693c2843e9c4b5102c0496436c2}
+      \field{labelalpha}{Koc97}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-3-540-63003-6}
+      \field{series}{Encyclopaedia of Mathematical Sciences}
+      \field{title}{Algebraic Number Theory}
+      \field{volume}{62}
+      \field{year}{1997}
+    \endentry
+    \entry{Thomas2005}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=fd665ccb2b3cfe25f7b054a99e9827ff}{%
+           family={Thomas},
+           familyi={T\bibinitperiod},
+           given={Lara},
+           giveni={L\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Université Bordeaux 1}%
+      }
+      \strng{namehash}{fd665ccb2b3cfe25f7b054a99e9827ff}
+      \strng{fullhash}{fd665ccb2b3cfe25f7b054a99e9827ff}
+      \strng{fullhashraw}{fd665ccb2b3cfe25f7b054a99e9827ff}
+      \strng{bibnamehash}{fd665ccb2b3cfe25f7b054a99e9827ff}
+      \strng{authorbibnamehash}{fd665ccb2b3cfe25f7b054a99e9827ff}
+      \strng{authornamehash}{fd665ccb2b3cfe25f7b054a99e9827ff}
+      \strng{authorfullhash}{fd665ccb2b3cfe25f7b054a99e9827ff}
+      \strng{authorfullhashraw}{fd665ccb2b3cfe25f7b054a99e9827ff}
+      \field{labelalpha}{Tho05}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal de théorie des nombres de Bordeaux}
+      \field{number}{2}
+      \field{title}{Ramification groups in {Artin-Schreier-Witt} extensions}
+      \field{volume}{17}
+      \field{year}{2005}
+      \field{pages}{689\bibrangedash 720}
+      \range{pages}{32}
+      \verb{doi}
+      \verb 10.5802/jtnb.514
+      \endverb
+      \verb{urlraw}
+      \verb https://jtnb.centre-mersenne.org/articles/10.5802/jtnb.514/
+      \endverb
+      \verb{url}
+      \verb https://jtnb.centre-mersenne.org/articles/10.5802/jtnb.514/
+      \endverb
+    \endentry
     \entry{milneAV}{misc}{}{}
       \name{author}{1}{}{%
         {{hash=638058cd23e53094700e44c2a4f389f5}{%
@@ -102,46 +176,6 @@
       \field{year}{2008}
       \field{pages}{166+vi}
       \range{pages}{-1}
-    \endentry
-    \entry{Kerz-Schmidt}{article}{}{}
-      \name{author}{2}{}{%
-        {{hash=fa8cc87e1d5583dd0dcd02f10413e8c3}{%
-           family={Kerz},
-           familyi={K\bibinitperiod},
-           given={Moritz},
-           giveni={M\bibinitperiod}}}%
-        {{hash=eae8e84585cf2e15f4e98904aa5aeb11}{%
-           family={Schmidt},
-           familyi={S\bibinitperiod},
-           given={Alexander},
-           giveni={A\bibinitperiod}}}%
-      }
-      \strng{namehash}{450b0f7d62d083e47806284d78c58a2b}
-      \strng{fullhash}{450b0f7d62d083e47806284d78c58a2b}
-      \strng{fullhashraw}{450b0f7d62d083e47806284d78c58a2b}
-      \strng{bibnamehash}{450b0f7d62d083e47806284d78c58a2b}
-      \strng{authorbibnamehash}{450b0f7d62d083e47806284d78c58a2b}
-      \strng{authornamehash}{450b0f7d62d083e47806284d78c58a2b}
-      \strng{authorfullhash}{450b0f7d62d083e47806284d78c58a2b}
-      \strng{authorfullhashraw}{450b0f7d62d083e47806284d78c58a2b}
-      \field{labelalpha}{KS10}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Math. Ann.}
-      \field{number}{3}
-      \field{title}{On different notions of tameness in arithmetic geometry}
-      \field{volume}{346}
-      \field{year}{2010}
-      \field{pages}{641\bibrangedash 668}
-      \range{pages}{28}
-      \verb{urlraw}
-      \verb https://dx.doi.org/10.1007/s00208-009-0409-6
-      \endverb
-      \verb{url}
-      \verb https://dx.doi.org/10.1007/s00208-009-0409-6
-      \endverb
     \endentry
     \entry{Toth2011}{article}{}{}
       \name{author}{1}{}{%
@@ -313,6 +347,37 @@
       \endverb
       \verb{url}
       \verb https://doi.org/10.2140/ant.2019.13.1327
+      \endverb
+    \endentry
+    \entry{YoucisTorsors}{unpublished}{}{}
+      \name{author}{1}{}{%
+        {{hash=9081e78fbef748a06eaabc3fa3d39755}{%
+           family={Youcis},
+           familyi={Y\bibinitperiod},
+           given={Alex},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{9081e78fbef748a06eaabc3fa3d39755}
+      \strng{fullhash}{9081e78fbef748a06eaabc3fa3d39755}
+      \strng{fullhashraw}{9081e78fbef748a06eaabc3fa3d39755}
+      \strng{bibnamehash}{9081e78fbef748a06eaabc3fa3d39755}
+      \strng{authorbibnamehash}{9081e78fbef748a06eaabc3fa3d39755}
+      \strng{authornamehash}{9081e78fbef748a06eaabc3fa3d39755}
+      \strng{authorfullhash}{9081e78fbef748a06eaabc3fa3d39755}
+      \strng{authorfullhashraw}{9081e78fbef748a06eaabc3fa3d39755}
+      \field{labelalpha}{You20}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Available at \url{https://alex-youcis.github.io/torsors.pdf}}
+      \field{title}{Notes on Torsors}
+      \field{year}{2020}
+      \verb{urlraw}
+      \verb https://alex-youcis.github.io/torsors.pdf
+      \endverb
+      \verb{url}
+      \verb https://alex-youcis.github.io/torsors.pdf
       \endverb
     \endentry
   \enddatalist

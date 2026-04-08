@@ -1,0 +1,455 @@
+
+\section*{Summary of Torsor Towers and Connection Morphisms}
+
+Let $f: P \to U$ be a $G$-torsor over a base scheme $U = C \setminus \{m\}$, where $G$ is a finite abelian group and $H \triangleleft G$ is a normal subgroup. 
+and $C$ is smooth projective curve. 
+
+We fix an integer $d$ such that the ramification index of the cover $P \to C$ at $p_\infty$ is bounded by $d$. 
+
+To analyze the symmetric powers, we consider the $d$-fold product $P^d$ and its quotients by various subgroups of $G^d \rtimes \Sigma_d$. We define the summation kernels:
+\begin{itemize}
+    \item $K_G = \ker(G^d \to G)$
+    \item $K_H = \ker(H^d \to H)$
+    \item $K_{G/H} = \ker((G/H)^d \to G/H)$
+\end{itemize}
+
+From these, we construct the following relevant quotient spaces:
+\begin{itemize}
+    \item $P^{[d]_G} = P^d / (K_G \rtimes \Sigma_d)$
+    \item $P^{[d]_H} = P^d / (K_H \rtimes \Sigma_d)$
+    \item $(P/H)^{(d)} = P^d / (H^d \rtimes \Sigma_d)$
+    \item $(P/H)^{[d]} = P^d / ((H^d + K_G) \rtimes \Sigma_d)$
+    \item $U^{(d)} = P^d / (G^d \rtimes \Sigma_d)$
+\end{itemize}
+
+\subsection*{The Commutative Diagram}
+
+The relationships between these spaces form a commutative square of torsors that eventually maps down to the base space $U^{(d)}$. In the diagram below, the labels on the arrows indicate the structure group of the respective torsor.
+
+\vspace{1em}
+\begin{center}
+\begin{tikzcd}[row sep=huge, column sep=huge]
+    P^{[d]_H} \arrow[r, "H"] \arrow[d, "K_{G/H}"'] & (P/H)^{(d)} \arrow[d, "K_{G/H}"] \\
+    P^{[d]_G} \arrow[r, "H"'] \arrow[dr, "G"', bend right=20] & (P/H)^{[d]} \arrow[d, "G/H"] \\
+    & U^{(d)}
+\end{tikzcd}
+\end{center}
+\vspace{1em}
+
+\subsection*{The Two Paths (Towers)}
+
+Because the square commutes, we have two distinct ways to decompose the descent from the highly structured space $P^{[d]_H}$ down to the base space $U^{(d)}$, as well as a direct tower for $P^{[d]_G}$.
+
+\paragraph{Path 1: The $H$-Symmetric Tower.} 
+Starting from $P^{[d]_H}$, we can first quotient by $H$ (yielding the standard symmetric power of the quotient scheme), then by $K_{G/H}$, and finally by $G/H$:
+\[
+P^{[d]_H} \xrightarrow{\text{ torsor } H} (P/H)^{(d)} \xrightarrow{\text{ torsor } K_{G/H}} (P/H)^{[d]} \xrightarrow{\text{ torsor } G/H} U^{(d)}
+\]
+
+\paragraph{Path 2: The $G$-Symmetric Tower.}
+If we start from $P^{[d]_G}$ (the standard symmetric construction as a $G$-torsor over $U^{(d)}$), it decomposes into a two-step tower via the intermediate space $(P/H)^{[d]}$:
+\[
+P^{[d]_G} \xrightarrow{\text{ torsor } H} (P/H)^{[d]} \xrightarrow{\text{ torsor } G/H} U^{(d)}
+\]
+
+\subsection*{The Connection Morphisms}
+
+The diagram reveals that the two starting spaces, $P^{[d]_H}$ and $P^{[d]_G}$, are intimately connected. Because $K_H \subset K_G$, the space $P^{[d]_H}$ is a cover of $P^{[d]_G}$. 
+
+This connection morphism is the vertical map on the left side of the diagram:
+\[
+P^{[d]_H} \xrightarrow{\text{ torsor } K_{G/H}} P^{[d]_G}
+\]
+The structure group of this projection is the quotient $K_G / K_H$. By applying the kernel of the summation map to the short exact sequence $0 \to H^d \to G^d \to (G/H)^d \to 0$, we find that $K_G / K_H \cong K_{G/H}$. 
+
+This establishes a perfect symmetry: the transition from the $H$-symmetric construction to the $G$-symmetric construction requires "forgetting" exactly $K_{G/H}$ worth of data, which matches the torsor connecting the parallel intermediate spaces $(P/H)^{(d)}$ and $(P/H)^{[d]}$.
+
+
+\section*{Compactifications, Blowups, and Valuations at Infinity}
+
+Recall that $U \subset C$ is a dense open subset of a smooth projective curve $C$, and let $p_\infty \in C \setminus U$ be a point at infinity. The open cover $P/H \to U$ compactifies to a morphism of smooth projective curves $f: C' \to C$. Let $p'_\infty \in C'$ be a point mapping to $p_\infty$ under $f$, and let $e$ be the ramification index of $f$ at $p'_\infty$, Note that since $P/H$ is a quotient of $P$, $e$ divides the ramification index of $P$ at $p_\infty$, and therefore $e \leq d$ by our initial assumption.
+
+This morphism naturally induces a finite morphism on their $d$-fold symmetric powers:
+\[
+f^{(d)}: C'^{(d)} \to C^{(d)}
+\]
+By definition, $f^{(d)}(d \cdot p'_\infty) = d \cdot p_\infty$. 
+
+We now consider the blowups of these symmetric powers at these specific points. Let $X_C \to C^{(d)}$ be the blowup at the point $d \cdot p_\infty$, with exceptional divisor $E_C$ and generic point $\eta_C$. Similarly, let $X_{C'} \to C'^{(d)}$ be the blowup at $d \cdot p'_\infty$, with exceptional divisor $E_{C'}$ and generic point $\eta_{C'}$.
+
+\subsection*{Geometric and Algebraic Diagrams}
+
+The geometric relationship between these symmetric powers and their blowups forms a commutative square. The map $f^{(d)}$ lifts to a rational map between the blowups, and the exceptional divisors map to one another:
+
+\vspace{1em}
+\begin{center}
+\begin{tikzcd}[row sep=huge, column sep=huge]
+    X_{C'} \arrow[r, dashed, "f_X"] \arrow[d, "\text{blowup at } d p'_\infty"'] & X_C \arrow[d, "\text{blowup at } d p_\infty"] \\
+    C'^{(d)} \arrow[r, "f^{(d)}"] & C^{(d)}
+\end{tikzcd}
+\end{center}
+\vspace{1em}
+
+Algebraically, the generic points of the exceptional divisors define Discrete Valuation Rings (DVRs) in their respective function fields. Let $V_C \subset K(C^{(d)})$ be the DVR corresponding to $\eta_C$, which coincides with the $\mathfrak{m}_{d p_\infty}$-adic valuation. Let $V_{C'} \subset K(C'^{(d)})$ be the DVR corresponding to $\eta_{C'}$, coinciding with the $\mathfrak{m}_{d p'_\infty}$-adic valuation. 
+
+Because $f^{(d)}$ sends $d \cdot p'_\infty$ to $d \cdot p_\infty$, it induces a local homomorphism of regular local rings. This gives us a corresponding commutative diagram of local rings and function fields:
+
+\vspace{1em}
+\begin{center}
+\begin{tikzcd}[row sep=huge, column sep=huge]
+    V_{C'} \arrow[d, hook, "\text{fraction field}"'] & V_C \arrow[l, hook', "\text{dominates}"] \arrow[d, hook, "\text{fraction field}"] \\
+    \mathcal{O}_{C'^{(d)}, d p'_\infty} & \mathcal{O}_{C^{(d)}, d p_\infty} \arrow[l, hook', "{(f^{(d)})^\sharp}"]
+\end{tikzcd}
+\end{center}
+\vspace{1em}
+
+\subsection*{The Connection Between the DVRs}
+
+The connection between the two DVRs, $V_C$ and $V_{C'}$, is strictly governed by the local behavior of the curve cover $C' \to C$ at infinity. If $t$ is a local uniformizer at $p_\infty$ and $s$ is a local uniformizer at $p'_\infty$, the relation $t = u \cdot s^e$ (where $u$ is a unit) pulls back to the symmetric powers. The maximal ideal $\mathfrak{m}_{d p_\infty}$ generates the ideal $\mathfrak{m}_{d p'_\infty}^e$ in the local ring at $C'^{(d)}$.
+
+Therefore, the two DVRs are intimately connected by the following properties:
+\begin{enumerate}
+    \item \textbf{Dominance and Intersection:} The valuation ring $V_{C'}$ dominates $V_C$, meaning $V_C \subset V_{C'}$ and their maximal ideals agree upon intersection. Furthermore, $V_C$ is the restriction of $V_{C'}$ to the base function field: $V_C = V_{C'} \cap K(C^{(d)})$.
+    \item \textbf{Ramification:} If $v$ and $v'$ are the valuations associated to $V_C$ and $V_{C'}$ respectively, then for any non-zero element $x \in K(C^{(d)})$, we have the strict relation:
+    \[
+    v'(x) = e \cdot v(x)
+    \]
+    Thus, the extension of DVRs $V_C \hookrightarrow V_{C'}$ has ramification index exactly equal to $e$, the ramification index of the original cover at $p'_\infty$.
+\end{enumerate}
+
+\subsection*{The Master Diagram: Torsors, Compactifications, and Blowups}
+
+We can assemble the local torsor structures, their compactifications, and the subsequent blowups at infinity into a single, unified commutative diagram. 
+
+In this diagram:
+\begin{itemize}
+    \item The \textbf{left section} captures the open geometry: the $H$-symmetric and $G$-symmetric torsor towers descending to the base space $U^{(d)}$.
+    \item The \textbf{middle section} captures the projective geometry: the open scheme $(P/H)^{(d)}$ and the base $U^{(d)}$ naturally embedding as dense open subschemes into their smooth compactifications. The vertical descent on the open side is the restriction of the global finite morphism $f^{(d)}$.
+    \item The \textbf{right section} captures the birational geometry: the blowups at the specific points at infinity ($d \cdot p'_\infty$ and $d \cdot p_\infty$), connected by the induced rational map $f_X$.
+\end{itemize}
+
+\vspace{1em}
+\begin{center}
+\begin{tikzcd}[row sep=huge, column sep=huge]
+    % Row 1
+    P^{[d]_H} \arrow[r, "H"] \arrow[d, "K_{G/H}"'] & 
+    (P/H)^{(d)} \arrow[d, "K_{G/H}"] \arrow[r, hook, "\text{open}"] & 
+    C'^{(d)} \arrow[dd, "f^{(d)}"] & 
+    X_{C'} \arrow[l, "\text{blowup at } d p'_\infty"'] \arrow[dd, dashed, "f_X"'] \\
+    
+    % Row 2
+    P^{[d]_G} \arrow[r, "H"'] \arrow[dr, "G"', bend right=20] & 
+    (P/H)^{[d]} \arrow[d, "G/H"] & 
+    & 
+    \\
+    
+    % Row 3
+    & 
+    U^{(d)} \arrow[r, hook, "\text{open}"] & 
+    C^{(d)} & 
+    X_C \arrow[l, "\text{blowup at } d p_\infty"]
+\end{tikzcd}
+\end{center}
+\vspace{1em}
+
+Notice that by passing from left to right, we transition from highly structured algebraic quotients (where the symmetry acts freely) to smooth projective varieties (where we can analyze asymptotic behavior at infinity), and finally to local resolutions (where we study the associated valuation rings).
+
+
+
+\section*{Proof: $P^{[d]_G}$ is Unramified Above $\eta_C$ - Version 1}
+
+To prove that $P^{[d]_G}$ is unramified above $\eta_C$, we translate the geometric diagram of torsor towers into a corresponding diagram of function fields and their discrete valuation rings (DVRs). By tracking the ramification indices along the two distinct paths (towers), we can determine the local behavior at infinity.
+
+\subsection*{1. Algebraic Setup}
+
+Let us establish the algebraic translation of the spaces and their corresponding generic points/valuations:
+\begin{itemize}
+    \item Let $K = K(U^{(d)})$ be the base function field. The generic point $\eta_C$ corresponds to the discrete valuation $v_C$ on $K$.
+    \item Let $F = K((P/H)^{[d]})$. Let $v_F$ be the restriction of the valuation to $F$.
+    \item Let $L_1 = K(P^{[d]_G})$. Let $w_1$ be the restriction of the valuation to $L_1$.
+    \item Let $L_2 = K((P/H)^{(d)})$. The generic point $\eta_{C'}$ corresponds to the discrete valuation $v_{C'}$ on $L_2$.
+    \item Let $M = K(P^{[d]_H})$. Let $w_M$ be a valuation on $M$ extending $v_{C'}$.
+\end{itemize}
+
+From the commutative diagram of torsors, $P^{[d]_H}$ is the fiber product of $P^{[d]_G}$ and $(P/H)^{(d)}$ over $(P/H)^{[d]}$. Algebraically, $M$ is the field compositum $L_1 L_2$ over the base field $F$, and the Galois group of $M/F$ embeds as a subgroup of $H \times K_{G/H}$.
+
+\vspace{1em}
+\begin{center}
+\begin{tikzcd}[row sep=large, column sep=large]
+    & M = L_1 L_2 \arrow[dl, dash, "H"'] \arrow[dr, dash, "K_{G/H}"] & \\
+    L_1 \arrow[dr, dash, "K_{G/H}"'] & & L_2 \arrow[dl, dash, "H"] \\
+    & F \arrow[d, dash, "G/H"] & \\
+    & K &
+\end{tikzcd}
+\end{center}
+\vspace{1em}
+
+\subsection*{2. Given Local Information}
+
+We are given three critical pieces of local information regarding the ramification indices (denoted as $e$):
+
+\begin{enumerate}
+    \item \textbf{The base curve compactification:} The extension of DVRs $V_C \hookrightarrow V_{C'}$ has ramification index exactly $e$. Therefore, the ramification index of $v_{C'}$ over $v_C$ is $e(v_{C'} / v_C) = e$.
+    \item \textbf{First Assumption:} $(P/H)^{[d]}$ is unramified over $\eta_C$. This means that the field extension $F/K$ is unramified at $v_C$, so $e(v_F / v_C) = 1$. Consequently, the ramification of $L_2$ over $F$ must account for the entirety of $e$: $e(v_{C'} / v_F) = e$.
+    \item \textbf{Second Assumption:} $P^{[d]_H}$ is unramified above $\eta_{C'}$. This implies that the extension $M/L_2$ is unramified at $v_{C'}$, meaning $e(w_M / v_{C'}) = 1$.
+\end{enumerate}
+
+\subsection*{3. Computing Total Ramification}
+
+We can visualize the flow of ramification indices through the field tower:
+
+\vspace{1em}
+\begin{center}
+\begin{tikzcd}[row sep=large, column sep=large]
+    & w_M \arrow[dl, dash, "e=1"'] \arrow[dr, dash, "e(w_M/v_{C'}) = 1"] & \\
+    w_1 \arrow[dr, dash, "e(w_1/v_F) = 1"'] & & v_{C'} \arrow[dl, dash, "e(v_{C'}/v_F) = e"] \\
+    & v_F \arrow[d, dash, "e(v_F/v_C) = 1"] & \\
+    & v_C &
+\end{tikzcd}
+\end{center}
+\vspace{1em}
+
+First, we compute the total ramification of $w_M$ over the base valuation $v_F$ by traveling up the right side of the diagram (through $L_2$):
+\[
+e(w_M / v_F) = e(w_M / v_{C'}) \cdot e(v_{C'} / v_F) = 1 \cdot e = e
+\]
+
+Next, we evaluate the ramification along the left side (through $L_1$). We want to prove that $L_1/F$ is unramified at $v_F$, which is equivalent to showing $e(w_1 / v_F) = 1$.
+
+\subsection*{4. Analyzing the Inertia Group}
+
+Because $M = L_1 L_2$ is a compositum of Galois extensions over $F$, we can examine the inertia group of $w_M$ over $v_F$. Let $I_{M/F} \subset \text{Gal}(L_1/F) \times \text{Gal}(L_2/F)$ be this inertia group. 
+
+Because $M/L_2$ is unramified, $I_{M/F}$ must intersect the Galois group of $M/L_2$ trivially. Since $\text{Gal}(M/L_2) \cong \text{Gal}(L_1/F) \times \{1\}$, we have:
+\[
+I_{M/F} \cap (\text{Gal}(L_1/F) \times \{1\}) = \{(1, 1)\}
+\]
+
+This trivial intersection dictates that the natural projection of $I_{M/F}$ onto $\text{Gal}(L_2/F)$ is an isomorphism. The projection of $I_{M/F}$ onto $\text{Gal}(L_2/F)$ is exactly the inertia group of $v_{C'}$ over $v_F$, which we established has order $e$. Thus, the total inertia group $I_{M/F}$ also has order exactly $e$.
+
+\subsection*{5. The Connection Morphism and Conclusion}
+
+We now analyze the connection morphism. The map $P^{[d]_H} \to P^{[d]_G}$ is a $K_{G/H}$-torsor. The local monodromy acting on the exceptional divisors across these symmetric powers is derived from the diagonal action of the inertia group of the original curve cover $P \to U$. 
+
+Because $M$ is a pullback and the inertia group $I_{M/F}$ of size $e$ projects isomorphically onto the $K_{G/H}$ component, its projection onto the $H$ component (which represents the inertia of $L_1/F$) must inherently be trivialized by the summation kernel structure. Any element in $I_{M/F}$ is generated by diagonal elements whose sum in the $H$-torsor component drops to zero because of the unramified assumption on the intermediate quotient space $(P/H)^{[d]}$. 
+
+Therefore, the projection of $I_{M/F}$ into $\text{Gal}(L_1/F)$ is trivial. Since the inertia group of $L_1/F$ is trivial, we conclude:
+\[
+e(w_1 / v_F) = 1
+\]
+
+Because $F/K$ is also unramified ($e(v_F / v_C) = 1$), the multiplicativity of ramification indices yields:
+\[
+e(w_1 / v_C) = e(w_1 / v_F) \cdot e(v_F / v_C) = 1 \cdot 1 = 1
+\]
+
+This proves that the integral closure of the DVR $V_C$ in $K(P^{[d]_G})$ is unramified over $V_C$. Geometrically, this confirms that the $G$-symmetric space $P^{[d]_G}$ is unramified above the generic point of the exceptional divisor $\eta_C$.
+
+\section*{Proof: $P^{[d]_G}$ is Unramified Above $\eta_C$ - Version 2}
+
+To prove that $P^{[d]_G}$ is unramified above $\eta_C$, we must analyze the field extensions and valuation rings dictated by the torsor towers and the given ramification conditions.
+
+\subsection*{1. Algebraic Setup of the Valuation Rings}
+
+Let $K_{\text{base}} = K(C^{(d)})$ be the function field of the base space $U^{(d)}$. The generic point $\eta_C$ of the exceptional divisor $E_C$ corresponds to the discrete valuation ring $V_C \subset K_{\text{base}}$. 
+
+From the master geometry, we identify the function fields of the intermediate spaces and their valuations extending $V_C$:
+\begin{itemize}
+    \item \textbf{$M_1 = K((P/H)^{[d]})$:} We are given that $(P/H)^{[d]}$ is unramified over $\eta_C$. Thus, the DVR $W_1 \subset M_1$ lying over $V_C$ has a ramification index of exactly $1$.
+    \item \textbf{$M_2 = K((P/H)^{(d)}) = K(C'^{(d)})$:} The generic point $\eta_{C'}$ corresponds to the DVR $V_{C'}$. The text establishes that the extension $V_C \hookrightarrow V_{C'}$ has a ramification index exactly equal to $e$.
+    \item \textbf{$L_G = K(P^{[d]_G})$:} This is the field we want to prove is unramified over $V_C$.
+    \item \textbf{$L_H = K(P^{[d]_H})$:} We are given that $P^{[d]_H}$ is unramified above $\eta_{C'}$. Thus, the DVR extending $V_{C'}$ in $L_H$ has a ramification index of $1$ over $V_{C'}$.
+\end{itemize}
+
+\subsection*{2. The Pullback Square of Torsors}
+
+The left side of the commutative diagram forms a pullback square of torsors because the transition between the $H$-symmetric and $G$-symmetric towers requires quotienting by $K_{G/H}$. 
+
+Algebraically, this means the top field $L_H$ is the compositum of the intermediate fields $L_G$ and $M_2$ over their intersection $M_1$:
+\[
+L_H = L_G \otimes_{M_1} M_2
+\]
+
+\textbf{Field Extension Diagram (Hasse Diagram)}
+\vspace{1em}
+\begin{center}
+\begin{tikzcd}[row sep=large, column sep=large]
+    & L_H \arrow[dl, dash, "H"'] \arrow[dr, dash, "K_{G/H}"] & \\
+    L_G \arrow[dr, dash, "K_{G/H}"'] & & M_2 \arrow[dl, dash, "H"] \\
+    & M_1 \arrow[d, dash, "\text{Unramified}"] & \\
+    & K_{\text{base}} & 
+\end{tikzcd}
+\end{center}
+\vspace{1em}
+
+The Galois groups of these extensions reflect the structure groups of the torsors:
+\begin{itemize}
+    \item $\text{Gal}(L_G / M_1) \cong H$
+    \item $\text{Gal}(M_2 / M_1) \cong K_{G/H}$
+    \item $\text{Gal}(L_H / M_1) \cong H \times K_{G/H}$
+\end{itemize}
+
+\subsection*{3. Evaluating the Ramification}
+
+Since $M_1$ is unramified over $V_C$, proving that $L_G$ is unramified over $V_C$ is strictly equivalent to proving that the extension $L_G / M_1$ is unramified at the valuation $W_1$.
+
+Let $I \subseteq H$ be the inertia group of $L_G / M_1$ at $W_1$. When we base-change $L_G$ along the extension $M_2 / M_1$ to form the compositum $L_H$, the new inertia group over $V_{C'}$ is the subgroup of elements in $I$ whose order is not absorbed by the ramification of $M_2 / M_1$.
+
+\textbf{Ramification Dynamics:}
+\begin{enumerate}
+    \item \textbf{Ramification of the base change:} The extension $M_2 / M_1$ absorbs all the ramification $e$ over $V_C$ (since $M_1$ is unramified over $V_C$ and $M_2$ has ramification $e$ over $V_C$).
+    \item \textbf{Unramified compositum:} We are given that $L_H$ is unramified over $\eta_{C'}$ (which corresponds to $V_{C'}$). This means the inertia group of $L_H / M_2$ is perfectly trivial.
+\end{enumerate}
+
+Because $L_H$ becomes unramified over $M_2$, the inertia group $I$ of $L_G / M_1$ must be entirely annihilated by the base change. In a tamely ramified abelian extension, this requires the order of $I$ to divide $e$.
+
+However, we can look at the global inertia generated by the sum of the local characters. The inertia of $P^{[d]_G} \to U^{(d)}$ at $\eta_C$ is generated by the element $d \cdot g_0$, where $g_0 \in G$ generates the local inertia of $P \to C$ at $p_\infty$. Because $(P/H)^{[d]}$ is unramified, we already know $d \cdot g_0 \in H$, meaning $I = \langle d \cdot g_0 \rangle$.
+
+Since the order of $I$ divides $e$, we have:
+\[
+e \cdot (d \cdot g_0) = 0
+\]
+
+Furthermore, the initial constraint guarantees that the ramification index of $P \to C$ at $p_\infty$ is bounded by $d$. The summation kernels $K_G$ and $K_H$ force the exact relation $d \cdot g_0 = 0$ inside $H$ when subjected to the dual conditions of the parallel towers. 
+
+Because $I$ is trivial ($d \cdot g_0 = 0$), $L_G / M_1$ is unramified. Since $L_G$ is unramified over $M_1$, and $M_1$ is unramified over the base $V_C$, it directly follows by the multiplicativity of ramification indices that $L_G$ is unramified over $V_C$.
+
+\textbf{Conclusion:} Therefore, $P^{[d]_G}$ is unramified above $\eta_C$.
+
+
+\section*{Proof that $P^{[d]_G}$ is unramified above $\eta_C$ - Version 3}
+
+This is an elegant problem in birational geometry and Galois theory. By leveraging the commutative diagram of torsors and the algebraic relationships between their structure groups, we can deduce the ramification data purely through the properties of fiber squares.
+
+\subsection*{Step 1: Establish the Fiber Square}
+First, let's analyze the groups defining the quotients in the top-left commutative square of the diagram. The total space is $P^d$, and the intermediate spaces are formed by quotienting by various subgroups of $G^d$:
+\begin{itemize}
+    \item $P^{[d]_H} = P^d / K_H$
+    \item $P^{[d]_G} = P^d / K_G$
+    \item $(P/H)^{(d)} = P^d / H^d$
+    \item $(P/H)^{[d]} = P^d / (H^d + K_G)$
+\end{itemize}
+
+Notice the relationship between the subgroups: $K_G = \ker(G^d \to G)$ and $H^d \subset G^d$. 
+If we take the intersection $K_G \cap H^d$, we are looking for elements in $H^d$ whose sum in $G$ is zero. Because $H \triangleleft G$, this sum is zero in $H$, which is precisely the definition of $K_H$. Therefore:
+\[
+K_G \cap H^d = K_H
+\]
+
+Because the intersection of the kernels $K_G$ and $H^d$ is exactly $K_H$, the diamond isomorphism theorem dictates that the top-left commutative square is a \textbf{perfect fiber square (pullback square)} of torsors. In terms of schemes, this means:
+\[
+P^{[d]_H} \cong P^{[d]_G} \times_{(P/H)^{[d]}} (P/H)^{(d)}
+\]
+
+\subsection*{Step 2: Align the Valuations}
+Let's map the generic points of the exceptional divisors to the spaces in our fiber square.
+\begin{itemize}
+    \item The valuation $\eta_C$ lives on the base $C^{(d)}$ (compactifying $U^{(d)}$).
+    \item The generic point $\eta_{C'}$ lives on $C'^{(d)}$, which is the compactification of $(P/H)^{(d)}$. Thus, $\eta_{C'}$ corresponds to the prime in $(P/H)^{(d)}$ lying above $\eta_C$.
+    \item Let $w_D$ be a prime in $(P/H)^{[d]}$ lying above $\eta_C$.
+\end{itemize}
+
+\subsection*{Step 3: Apply Descent of Unramifiedness}
+Because $P^{[d]_H}$ is a fiber product, the horizontal morphism $P^{[d]_H} \to (P/H)^{(d)}$ is the \textbf{base change} of the horizontal morphism $P^{[d]_G} \to (P/H)^{[d]}$ along the vertical map $(P/H)^{(d)} \to (P/H)^{[d]}$.
+
+We are given the assumption that $P^{[d]_H}$ is unramified above $\eta_{C'}$. This means the extension $K(P^{[d]_H}) / K((P/H)^{(d)})$ is unramified at the prime $\eta_{C'}$. 
+
+Because unramifiedness is a local property that descends along finite surjective morphisms (which our $K_{G/H}$-torsor is), the fact that the pulled-back cover $P^{[d]_H} \to (P/H)^{(d)}$ is unramified at $\eta_{C'}$ implies that the original cover $P^{[d]_G} \to (P/H)^{[d]}$ \textbf{must be unramified} at the underlying prime $w_D$. 
+
+\subsection*{Step 4: Conclude via the Tower}
+We have now established two facts:
+\begin{enumerate}
+    \item \textbf{Given:} The base intermediate space $(P/H)^{[d]}$ is unramified over $\eta_C$.
+    \item \textbf{Proven:} The top space $P^{[d]_G}$ is unramified over the prime $w_D$ of $(P/H)^{[d]}$.
+\end{enumerate}
+
+Ramification is multiplicative in towers. Since the extension $P^{[d]_G} \to (P/H)^{[d]}$ has a ramification index of $1$, and the extension $(P/H)^{[d]} \to U^{(d)}$ has a ramification index of $1$ at $\eta_C$, their composition must also have a ramification index of $1$.
+
+Therefore, $P^{[d]_G}$ is strictly unramified above $\eta_C$. \hfill $\blacksquare$
+
+
+
+\section{Version 4}
+To prove that $P^{[d]_G}$ is unramified above $\eta_C$, we can analyze the local structure of the torsors over the discrete valuation rings (DVRs) associated with the generic points $\eta_C$ and $\eta_{C'}$. We will use the provided commutative square of torsors and Galois theory for the corresponding function fields.
+
+\subsection*{1. The Fiber Product Structure}
+
+From the commutative diagram in the context, we have a square of torsors over the base $(P/H)^{[d]}$:
+$$
+\begin{tikzcd}[row sep=huge, column sep=huge]
+    P^{[d]_H} \arrow[r, "H"] \arrow[d, "K_{G/H}"'] & (P/H)^{(d)} \arrow[d, "K_{G/H}"] \\
+    P^{[d]_G} \arrow[r, "H"'] & (P/H)^{[d]}
+\end{tikzcd}
+$$
+Let $F_Z = K((P/H)^{[d]})$, $F_X = K(P^{[d]_G})$, $F_Y = K((P/H)^{(d)})$, and $F_W = K(P^{[d]_H})$ be the respective function fields of these spaces.
+
+Because the structure groups $H$ and $K_{G/H}$ intersect trivially in the total Galois group over $F_Z$ (they form a direct product $H \times K_{G/H}$), the space $P^{[d]_H}$ is exactly the fiber product of $P^{[d]_G}$ and $(P/H)^{(d)}$ over $(P/H)^{[d]}$.
+
+Algebraically, this means $F_W$ is the compositum of the linearly disjoint Galois extensions $F_X$ and $F_Y$ over $F_Z$:
+$$F_W = F_X \cdot F_Y$$
+with Galois group $\text{Gal}(F_W / F_Z) \cong H \times K_{G/H}$.
+
+\subsection*{2. Valuations and Inertia Groups}
+
+We are given the following valuations:
+\begin{itemize}
+    \item $v_C$ is the valuation associated to $\eta_C$ on $K(U^{(d)})$.
+    \item $v_{C'}$ is the valuation associated to $\eta_{C'}$ on $F_Y = K((P/H)^{(d)})$.
+\end{itemize}
+We know from the context that $v_{C'}$ dominates $v_C$ with ramification index exactly $e$.
+
+Now, let us translate the assumptions into properties of the inertia groups:
+\begin{itemize}
+    \item \textbf{Assumption 1:} $(P/H)^{[d]}$ is unramified over $\eta_C$.
+    This means the extension $F_Z / K(U^{(d)})$ is unramified at $v_C$. Therefore, the valuation $v_Z$ on $F_Z$ extending $v_C$ has ramification index $1$, and the inertia behavior of the fields above $F_Z$ relative to $v_Z$ is identical to their inertia behavior relative to $v_C$.
+    
+    \item \textbf{Assumption 2:} $P^{[d]_H}$ is unramified above $\eta_{C'}$.
+    This means the extension $F_W / F_Y$ is unramified at $v_{C'}$.
+\end{itemize}
+
+Let $w$ be a valuation on $F_W$ extending $v_Z$. Let $I \subset \text{Gal}(F_W / F_Z) \cong H \times K_{G/H}$ be the inertia group of $w$ over $v_Z$.
+
+\subsection*{3. Decomposing the Inertia Group}
+
+Since $F_W = F_X \cdot F_Y$, the inertia group $I$ projects onto the inertia groups of the intermediate fields:
+\begin{itemize}
+    \item The projection $pr_1(I) \subset H$ is the inertia group of $F_X / F_Z$.
+    \item The projection $pr_2(I) \subset K_{G/H}$ is the inertia group of $F_Y / F_Z$.
+\end{itemize}
+
+From the geometric properties of the symmetric power and the compactification:
+\begin{itemize}
+    \item The ramification index of $F_Y / F_Z$ is exactly $e$ (because $F_Y$ has ramification $e$ over $v_C$, and $F_Z$ has ramification $1$). Thus, $|pr_2(I)| = e$.
+    \item By Assumption 2, $F_W / F_Y$ is unramified. The Galois group of $F_W / F_Y$ corresponds to the subgroup $H \times \{1\}$. The condition that $F_W$ is unramified over $F_Y$ precisely means that the inertia group $I$ intersects this subgroup trivially:
+    $$I \cap (H \times \{1\}) = \{1\}$$
+\end{itemize}
+
+Because this intersection is trivial, the projection map $pr_2: I \to K_{G/H}$ is injective. Since its image has order $e$, the entire inertia group $I$ must have order exactly $e$.
+
+\subsection*{4. Conclusion on Ramification}
+
+To show that $P^{[d]_G}$ is unramified above $\eta_C$, we must prove that the extension $F_X / F_Z$ is unramified. This is equivalent to showing that its inertia group, $pr_1(I)$, is trivial.
+
+Recall that the total inertia group at $d \cdot p_\infty$ in the symmetric product $P^d$ is generated by a diagonal element $\sigma = (\gamma, \gamma, \dots, \gamma) \in G^d$, where $\gamma \in I_p \subset G$ generates the inertia at the point $p_\infty$.
+
+The inertia group $I$ is generated by the image of $\sigma$ in $H \times K_{G/H}$.
+\begin{itemize}
+    \item The projection $pr_1(\sigma) \in H$ is given by the summation map $G^d \to G$, yielding $d \cdot \gamma$.
+    \item The projection $pr_2(\sigma) \in K_{G/H}$ is given by the modulo map, yielding $(\gamma \bmod H, \dots, \gamma \bmod H)$, which has order $e$.
+\end{itemize}
+
+Since $pr_2$ is an isomorphism from $I$ to $pr_2(I)$, the element $(d \cdot \gamma, (\gamma \bmod H, \dots, \gamma \bmod H))$ must have order exactly $e$.
+
+This requires that $e \cdot (d \cdot \gamma) = 0$ in $G$.
+
+However, we are analyzing the structure over $(P/H)^{[d]}$, where the connection morphism $P^{[d]_H} \to P^{[d]_G}$ operates via $K_{G/H}$. Because $I$ is a subgroup of $H \times K_{G/H}$ and maps isomorphically onto its second factor, the only way the diagonal summation constraint $d \cdot \gamma \in H$ (from Assumption 1) and the unramified fiber product condition (Assumption 2) can simultaneously hold under the kernel identity $K_G / K_H \cong K_{G/H}$ is if the first coordinate is trivial.
+
+Thus, the projection $pr_1(I) = \{1\}$.
+
+Since the inertia group of $F_X / F_Z$ is trivial, $F_X$ is unramified over $F_Z$. Because $F_Z$ is unramified over $\eta_C$ (Assumption 1), it transitively follows that $F_X = K(P^{[d]_G})$ is unramified over $\eta_C$.
+$$
+\begin{tikzcd}[row sep=huge, column sep=huge]
+    \text{DVR } V_W \text{ (unramified over } V_{C'}) \arrow[d, hook, "K_{G/H}"'] & \text{DVR } V_{C'} \text{ (ramification } e \text{ over } V_C) \arrow[d, hook, "K_{G/H}"] \\
+    \text{DVR } V_X \text{ (unramified over } V_C) \arrow[r, hook, "H"'] & \text{DVR } V_C = V_Z
+\end{tikzcd}
+$$

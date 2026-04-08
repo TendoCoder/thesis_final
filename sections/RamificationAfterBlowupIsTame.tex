@@ -174,7 +174,7 @@ then $q_U$ extends to a map $q: C'^{(d)} \to C'^{[d]}$, and we have the followin
 \end{tikzcd}
 \]
 
-\begin{lemma}
+\begin{lemma}\label{lemma:torsor_unramified_codim_one}
 In the context of the preceding discussion, the morphism $U'^{(d)} \to U'^{[d]} \hookrightarrow C'^{[d]}$
 is unramified in codimension $1$ (see \Cref{definition:tamely_ramified_in_codim_1}).
 \end{lemma}
@@ -624,12 +624,12 @@ So, we conclude
 \begin{cor}
     In the general settings of a curve $C$, and $\cP \to U=C \setminus \mdls$ a $G$-torsor with ramification bounded by $\ndls = n P \subset \mdls$ at $P$, we have:
     \begin{enumerate}
-        \item If $G=\Z/p\Z$ then $\cP^{[\deg \ndls]}$ is unramifeid at $\eta_\ndls$
-        \item If $\cP$ is tamely ramified $\ndls$ then $\cP^{[\deg \ndls]}$ is tamely ramified at $\eta_\ndls$
+        \item If $G=\Z/p\Z$ then $\cP^{[\deg \ndls]}$ is unramified at $\eta_\ndls$
+        \item If $\cP$ is tamely ramified at $\ndls$ then $\cP^{[\deg \ndls]}$ is tamely ramified at $\eta_\ndls$
     \end{enumerate}
 \end{cor}
 
-Next, we prove the following.
+Next, we generalize by induction to the case of $G=\Z/p^r\Z$.
 \begin{theorem}
     Assume $G=\Z/p^r\Z$. Then $\cP^{[\deg (\ndls)]}$ is unramified at $\eta_{\ndls}$
 \end{theorem}
@@ -644,6 +644,29 @@ Next, we prove the following.
     But because $k$ is algebraically closed, we even have equality, 
     and deduce that locally the $G/H$ action on $\widehat{\Oo_{C, P}}$ is trivial.
     Thus, we can assume $G=H$ and that $\cP \to U$ is totally ramified at $P$.
+
+    We proceed by induction on $r$. The base case $r=1$ is done by the previous theorem.
+    Decompose $\cP \to U$ as $\cP \to \cP' \to U$ where $\cP \to \cP'$ is a $\Z/p\Z$-torsor and $\cP' \to U$ is a $\Z/p^{r-1}\Z$-torsor.
+
+    \textbf{(1)} By the induction hypothesis, $\cP'^{[\deg \ndls]}$ is unramified at $\eta_\ndls$.
+
+    Let $C'$ be the normal proper model of $\cP'$ viewed as a scheme, and let $\pi: C' \to C$ be the extension of $\cP' \to U$. 
+    Let $\ndls' = \pi^{-1} (\ndls)$ be the pullback of $\ndls$ to $C'$.
+    Let $\tilde{\ndls} $ be the pullback of $\ndls$ to $C'$.
+
+    
+    
+    Then, following \Cref{lemma:torsor_unramified_codim_one}, and the discussion surronding it,
+    with $U'$ being $\cP'$, we get that 
+    
+    
+    \textbf{(2)} $\cP'^{(\deg \ndls)} \to \cP'^{[\deg \ndls]}  \hookrightarrow C'^{[\deg \ndls]}$ is unramified at codimension one points.
+
+    And since $\cP \to \cP'$ is a $\Z/p\Z$-torsor, we can apply the previous theorem to deduce that $\cP^{[\deg \ndls]} \to \cP'^{(\deg \ndls)}$ is unramified at $\eta_\ndls$.
+
+
+
+
     
     \textcolor{red}{Not clear how to finish here without analyzing the ramification even further.}
     Thus, take a subgroup $H \subset G$ such that $G/H \cong \Z/p \Z$ and decompose $\cP \to U$ as:

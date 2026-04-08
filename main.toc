@@ -14,8 +14,11 @@
 \contentsline {subsection}{\numberline {4.1}Etale Fundamental Groups and Tame Fundamental Groups}{29}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Generalized Picard Scheme}{29}{subsection.4.2}%
 \contentsline {subsection}{\numberline {4.3}The Abel-Jacobi Morphism and its Fibers}{31}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}Compactification of Blowup of Symmetric Powers of a Curve}{31}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.4}Compactification of Blowup of Symmetric Powers of a Curve}{32}{subsection.4.4}%
 \contentsline {subsection}{\numberline {4.5}Proof of \Cref {theorem:SymmetricPowerOfSheafIsTamelyRamified}}{33}{subsection.4.5}%
 \contentsline {subsubsection}{\numberline {4.5.1}Reduction Lemmas}{33}{subsubsection.4.5.1}%
 \contentsline {subsection}{\numberline {4.6}Proof of \Cref {theorem:SymmetricPowerOfSheafIsTamelyRamified}}{35}{subsection.4.6}%
-\contentsline {section}{\numberline {5}Proof of \Cref {thm:GCFT_reduced}}{35}{section.5}%
+\contentsline {section}{\numberline {5}Proof of \Cref {thm:GCFT_reduced}}{36}{section.5}%
+\contentsline {paragraph}{Path 1: The $H$-Symmetric Tower.}{38}{section*.19}%
+\contentsline {paragraph}{Path 2: The $G$-Symmetric Tower.}{38}{section*.20}%
+\contentsline {section}{\numberline {6}Version 4}{46}{section.6}%
