@@ -12,7 +12,7 @@ implicitly throughout this thesis.
 \subsection{Torsors}
 % $X$ with etale site, but say things here work for toposes in general and flat sites in general.
 
-In what follows, we largely adhere to the treatment of torsors and group objects found in publised notes of Alex Youcis \cite{YoucisTorsors}.
+In what follows, we largely adhere to the treatment of torsors and group objects found in published notes of Alex Youcis \cite{YoucisTorsors}.
 Let $\sC=(\cC, J)$ be a site and let $\cE=Sh(\sC)$ be the associated topos. 
 Let $\mathcal{G}$ be a group object in $\mathcal{E}$. 
 We denote by $\mathcal{G}\mathcal{E}$ the category of objects in $\mathcal{E}$ endowed with a left $\mathcal{G}$-action. 
@@ -354,7 +354,7 @@ is an isomorphism.
 Now, let $G$ be a finite abelian group, let $\cP$ be a $G$-torsor over an $S$-scheme $X$ in $S_{\text{Ét}}$. 
 
 \textcolor{red}{insert here something about the equivilance of how we arrive at both G-torsors, one time as
-products d times and one time as $G_d$ qoutient}
+products d times and one time as $\KG$ qoutient}
 \begin{prop}[{[\cite{sga1}]}, IX.5.8]
 Assume that $\cP$ and $X$ are endowed with right actions from a finite group $\Gamma$ 
 such that the morphism $\cP \to X$ is $\Gamma$-equivariant, and that the following properties hold:
@@ -369,22 +369,22 @@ Then the action of $\Gamma$ on $\cP$ is admissible, and $\cP/\Gamma$ is a $G$-to
 By \Cref{theorem:torsors_are_realized_as_spaces}, $\cP$ is representable by a finite étale $X$-scheme.
 For each $i \in  \llbracket 1, d \rrbracket$ let $p_i : X^{\times_S d} \to X$ be the projection on $i$-th factor, and let us consider the $G$-torsor
 \[
-p_1^{-1}\cP \otimes^G \cdots \otimes^G p_d^{-1}\cP = G_d \backslash \cP^{\times_S d}
+p_1^{-1}\cP \otimes^G \cdots \otimes^G p_d^{-1}\cP = \KG \backslash \cP^{\times_S d}
 \]
-over $X^{\times_S d}$, where $G_d \subseteq G^d$ is the kernel of the multiplication morphism $G^d \to G$. 
+over $X^{\times_S d}$, where $\KG \subseteq G^d$ is the kernel of the multiplication morphism $G^d \to G$ (the dependence on $d$ is suppressed in the notation).
 
-The object $G_d \backslash \cP^{\times_S d}$ of $S_{\text{Ét}}$ is too representable by an $S$-scheme which is finite étale over $X^{\times_S d}$. 
-The group ${S}_d$ acts on the right on $G_d \backslash \cP^{\times_S d}$ by the formula
+The object $\KG \backslash \cP^{\times_S d}$ of $S_{\text{Ét}}$ is too representable by an $S$-scheme which is finite étale over $X^{\times_S d}$.
+The group ${S}_d$ acts on the right on $\KG \backslash \cP^{\times_S d}$ by the formula
 \[
 (p_i)_{i \in \llbracket 1, d \rrbracket} \cdot \sigma = (p_{\sigma(i)})_{i \in \llbracket 1, d \rrbracket}.
 \]
-This action of ${S}_d$ commutes with the left action of $G$ on $G_d \backslash \cP^{\times_S d}$.
+This action of ${S}_d$ commutes with the left action of $G$ on $\KG \backslash \cP^{\times_S d}$.
 
 \medskip
 
 \begin{prop}[\cite{Guignard2018} Proposition 2.32.]\label{prop:symmetric_power_torsor}
-If $X$ is Zariski-locally quasi-projective on $S$, then the right action of ${S}_d$ on $G_d \backslash \cP^{\times_S d}$ is admissible, 
-so that the quotient $\cP^{[d]}$ of $G_d \backslash \cP^{\times_S d}$ by ${S}_d$ exists as a scheme over $S$. 
+If $X$ is Zariski-locally quasi-projective on $S$, then the right action of ${S}_d$ on $\KG \backslash \cP^{\times_S d}$ is admissible,
+so that the quotient $\cP^{[d]}$ of $\KG \backslash \cP^{\times_S d}$ by ${S}_d$ exists as a scheme over $S$.
 Moreover, the canonical morphism $\cP^{[d]} \to \mathrm{Sym}_S^d(X)$ is a $G$-torsor, 
 and the morphism
 \[
@@ -392,9 +392,9 @@ p_1^{-1}\cP \otimes^G \cdots \otimes^G p_d^{-1}\cP \to r^{-1}\cP^{[d]}
 \]
 where $r : X^{\times_S d} \to \mathrm{Sym}_S^d(X)$ is the canonical projection, is an isomorphism of $G$-torsors over $X^{\times_S d}$.
 \end{prop}
-%the $S_d$-action on $G_d \backslash \cP^{\times_S d}$ is compatible with the $S_d$-action on $X^{\times_S d}$, so that we get a canonical morphism $\cP^{[d]} \to \mathrm{Sym}_S^d(X)$.
+%the $S_d$-action on $\KG \backslash \cP^{\times_S d}$ is compatible with the $S_d$-action on $X^{\times_S d}$, so that we get a canonical morphism $\cP^{[d]} \to \mathrm{Sym}_S^d(X)$.
 
-% %Note that there is a canonical map $\cP^{\times_S d}/S_d \to \cP^$, and the $S_d$-action on $G_d \backslash \cP^{\times_S d}$ is compatible with the $S_d$-action on $X^{\times_S d}$, so that we get a canonical morphism $\cP^{[d]} \to \mathrm{Sym}_S^d(X)$.
+% %Note that there is a canonical map $\cP^{\times_S d}/S_d \to \cP^$, and the $S_d$-action on $\KG \backslash \cP^{\times_S d}$ is compatible with the $S_d$-action on $X^{\times_S d}$, so that we get a canonical morphism $\cP^{[d]} \to \mathrm{Sym}_S^d(X)$.
 % \textcolor{red}{This entire corollary is not exact, replace with: 
 % https://gemini.google.com/app/8d257f0b8e6f5927
 % or
@@ -402,11 +402,11 @@ where $r : X^{\times_S d} \to \mathrm{Sym}_S^d(X)$ is the canonical projection, 
 % }
 
 When $G$ is abelian, and letting the $S_d$-action be a left action (via the inverse), then
-the condition  $\prod_{i=1}^d g_i = 1$ defining $G_d$ is invariant under permuting the coordinates.
-Therefore, the left action of $S_d$ normalizes the action of $G_d$. 
-The group generated by these two actions is the semidirect product $\Xi = G_d \rtimes S_d$, 
+the condition  $\prod_{i=1}^d g_i = 1$ defining $\KG$ is invariant under permuting the coordinates.
+Therefore, the left action of $S_d$ normalizes the action of $\KG$.
+The group generated by these two actions is the semidirect product $\Xi = \KG \rtimes S_d$,
 which is a finite group acting on the left on $\cP^d$.
-Then the double qoutient $(G_d \backslash \cP^{\times_S d}) / S_d \cong S_d \backslash (G_d \backslash \cP^{\times_S d})$ 
+Then the double qoutient $(\KG \backslash \cP^{\times_S d}) / S_d \cong S_d \backslash (\KG \backslash \cP^{\times_S d})$
 is the same as the quotient $\Xi \backslash \cP^{\times_S d}$, where
 $\Xi$ acts on $\cP^{\times_S d}$ by the formula:
 $$((g_1, \dots, g_d), \sigma) \star (p_1, \dots, p_d) = (g_1 p_{\sigma^{-1}(1)}, g_2 p_{\sigma^{-1}(2)}, \dots, g_d p_{\sigma^{-1}(d)})$$
@@ -416,7 +416,7 @@ $$((g_1, \dots, g_d), \sigma) \star (p_1, \dots, p_d) = (g_1 p_{\sigma^{-1}(1)},
     Under the assumptions of the above discussion, there is a natural canonical morphism 
     $$q: S_d \backslash \cP^{\times_S d} \to \Xi \backslash \cP^{\times_S d}$$
     or equivlantly
-    $$ q: S_d \backslash \cP^{\times_S d} \to (G_d \backslash \cP^{\times_S d}) / S_d$$
+    $$ q: S_d \backslash \cP^{\times_S d} \to (\KG \backslash \cP^{\times_S d}) / S_d$$
 
     between the symmetric power of $\cP$ as a scheme and the symmetric power of $\cP$ as a $G$-torsor.
     We make it a convention to denote the symmetric power of $\cP$ as a scheme by 
@@ -438,8 +438,8 @@ $$((g_1, \dots, g_d), \sigma) \star (p_1, \dots, p_d) = (g_1 p_{\sigma^{-1}(1)},
 
 %     Let $X, X'$ be schemes and assume $X' \to X$ is a $G$-torsor. 
 %     Let $X'^{(d)} = X'^d/S_d$ be the symmetric power of $X'$ as a scheme, and let 
-%     $X'^{(d)}_G = G_d \backslash X'^d/S_d$ be the symmetric power of $X'$ as a $G$-torsor. 
-%     By \Cref{prop:prop:symmetric_power_torsor} and the fact that $G_d, S_d$ actions commute, 
+%     $X'^{(d)}_G = \KG \backslash X'^d/S_d$ be the symmetric power of $X'$ as a $G$-torsor.
+%     By \Cref{prop:prop:symmetric_power_torsor} and the fact that $\KG, S_d$ actions commute, 
 %     there is a natural qoutient map: $\pi: X'^{(d)} \to X'^{(d)}_G$.    
 % \end{Corollary}
     
