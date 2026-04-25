@@ -49,7 +49,7 @@ Torsors exhibit functoriality with respect to the group object:
 
 \begin{definition}
 Let $\varphi: \mathcal{G}_1 \to \mathcal{G}_2$ be a morphism of group 
-sheaves on $\sC$, and let $\mathcal{P}$ be a $\mathcal{G}_1$-torsor. We define the \textbf{contracted product} $\mathcal{G}_2 \times^{\mathcal{G}_1} \mathcal{P}$ as the quotient sheaf $(\mathcal{G}_2 \times \mathcal{P}) / \mathcal{G}_1$, where $\mathcal{G}_1$ acts on the product by:
+sheaves on $\sC$, and let $\mathcal{P}$ be a $\mathcal{G}_1$-torsor. We define the \textbf{contracted product} $\mathcal{G}_2 \times^{\mathcal{G}_1} \mathcal{P}$ as the quotient sheaf $\mathcal{G}_1 \backslash (\mathcal{G}_2 \times \mathcal{P})$, where $\mathcal{G}_1$ acts on the product by:
 \[ g_1 \cdot (g_2, p) = (g_2 \varphi(g_1)^{-1}, g_1 \cdot p) \]
 
 The contracted product inherits a natural left $\mathcal{G}_2$-action given on local sections by $h \cdot [g_2, p] = [h g_2, p]$, which endows it with the structure of a $\mathcal{G}_2$-torsor. 
@@ -284,7 +284,7 @@ Let $\pi: G \to G/H$ be the natural quotient map.
 This section reviews the construction of quotients for schemes and torsors under finite group actions, specifically focusing on symmetric powers. 
 To ensure these quotients exist as schemes, we utilize the framework of admissible actions from \cite{sga1}. 
 Our treatment here closely follows the exposition in \cite{Guignard2018}
-The definitions and results presented below are adapted from their work. 
+The definitions and results presented below are adapted from their work, the difference being that we ask $\Gamma$ to act on the left, to make the later construction of symmetric powers more natural. 
 This foundation provides the necessary criteria for admissibility and base change required to define the symmetric powers of a scheme $X$
  and a $G$-torsor $\mathcal{P}$ over $X$.
 
@@ -350,11 +350,10 @@ is an isomorphism.
 \end{prop}
 
 
-%\subsubsection*{Symmetric Powers of Torsors}
-Now, let $G$ be a finite abelian group, let $\cP$ be a $G$-torsor over an $S$-scheme $X$ in $S_{\text{Ét}}$. 
+\subsubsection*{Symmetric Powers of Torsors}
+Let $G$ be a finite abelian group, let $\cP$ be a $G$-torsor over an $S$-scheme $X$ in $S_{\text{Ét}}$. 
 
-\textcolor{red}{insert here something about the equivilance of how we arrive at both G-torsors, one time as
-products d times and one time as $\KG$ qoutient}
+
 \begin{prop}[{[\cite{sga1}]}, IX.5.8]
 Assume that $\cP$ and $X$ are endowed with right actions from a finite group $\Gamma$ 
 such that the morphism $\cP \to X$ is $\Gamma$-equivariant, and that the following properties hold:
@@ -372,7 +371,9 @@ For each $i \in  \llbracket 1, d \rrbracket$ let $p_i : X^{\times_S d} \to X$ be
 p_1^{-1}\cP \otimes^G \cdots \otimes^G p_d^{-1}\cP = \KG \backslash \cP^{\times_S d}
 \]
 over $X^{\times_S d}$, where $\KG \subseteq G^d$ is the kernel of the multiplication morphism $G^d \to G$ (the dependence on $d$ is suppressed in the notation).
-
+\footnote{
+    Equivantly, the sum is obtained as the contracted product of the $G^d$-torsor $p_1^{-1}\cP_1 \times \dots \times p_d^{-1}\cP_d$ along the multiplication map
+$m: G^d \to G$. }
 The object $\KG \backslash \cP^{\times_S d}$ of $S_{\text{Ét}}$ is too representable by an $S$-scheme which is finite étale over $X^{\times_S d}$.
 The group ${S}_d$ acts on the right on $\KG \backslash \cP^{\times_S d}$ by the formula
 \[
@@ -435,19 +436,107 @@ $$((g_1, \dots, g_d), \sigma) \star (p_1, \dots, p_d) = (g_1 p_{\sigma^{-1}(1)},
     with a left $G$-action. 
 \end{rem*}
 
+%
+% QUOTIENT OF TORSORS TOWERS
+%
+\subsubsection*{Quotient of Torsors Towers}
 
-%     Let $X, X'$ be schemes and assume $X' \to X$ is a $G$-torsor. 
-%     Let $X'^{(d)} = X'^d/S_d$ be the symmetric power of $X'$ as a scheme, and let 
-%     $X'^{(d)}_G = \KG \backslash X'^d/S_d$ be the symmetric power of $X'$ as a $G$-torsor.
-%     By \Cref{prop:prop:symmetric_power_torsor} and the fact that $\KG, S_d$ actions commute, 
-%     there is a natural qoutient map: $\pi: X'^{(d)} \to X'^{(d)}_G$.    
-% \end{Corollary}
-    
+We now study how the symmetric power construction of \Cref{prop:symmetric_power_torsor} interacts with the canonical decomposition of \Cref{prop:quotient_torsors_finite}.
+Throughout this subsection, $G$ denotes a finite abelian group, $H \subseteq G$ a subgroup, and $\cP \to X$ a $G$-torsor over an $S$-scheme $X$ that is Zariski-locally quasi-projective over $S$.
+Recall that $\cP \to X$ factors canonically as
+\[
+\cP \xrightarrow{\phi} \cP_{G/H} \xrightarrow{\psi} X,
+\]
+where $\cP_{G/H} = \cP \times^G (G/H)$ is a $G/H$-torsor over $X$ and $\phi$ is an $H$-torsor.
+
+In addition to the kernel $\KG = \ker(G^d \to G)$ of the summation morphism appearing in \Cref{prop:symmetric_power_torsor}, we shall need the analogous \emph{summation kernels}
+\[
+K_H := \ker(H^d \to H), \qquad K_{G/H} := \ker((G/H)^d \to G/H).
+\]
+Applying the snake lemma to the commutative diagram
+\[
+\begin{tikzcd}[row sep=large, column sep=large]
+0 \arrow[r] & H^d \arrow[r] \arrow[d, twoheadrightarrow] & G^d \arrow[r] \arrow[d, twoheadrightarrow] & (G/H)^d \arrow[r] \arrow[d, twoheadrightarrow] & 0 \\
+0 \arrow[r] & H \arrow[r] & G \arrow[r] & G/H \arrow[r] & 0,
+\end{tikzcd}
+\]
+in which the vertical maps are the surjective summation morphisms, yields a short exact sequence
+\begin{equation}\label{eq:summation_kernels_ses}
+0 \to K_H \to \KG \to K_{G/H} \to 0.
+\end{equation}
+The induced isomorphism $\KG/K_H \cong K_{G/H}$ will play a central role below.
+
+We define four quotient schemes
+\begin{align*}
+    \cP^{[d]_G} &:= (\KG \rtimes S_d) \backslash \cP^{\times_S d}, \\
+    \cP^{[d]_H} &:= (K_H \rtimes S_d) \backslash \cP^{\times_S d}, \\
+    (\cP_{G/H})^{(d)} &:= (H^d \rtimes S_d) \backslash \cP^{\times_S d}, \\
+    (\cP_{G/H})^{[d]} &:= ((H^d + \KG) \rtimes S_d) \backslash \cP^{\times_S d},
+\end{align*}
+where $S_d$ acts on $\cP^{\times_S d}$ as in \Cref{cor:sym-power-quotient} and the subgroups $K_H \subseteq \KG \subseteq H^d + \KG$ and $H^d \subseteq H^d + \KG$ of $G^d$ act diagonally on $\cP^{\times_S d}$ via the $G$-action on $\cP$. The first space is the symmetric $G$-power of $\cP$ as in \Cref{prop:symmetric_power_torsor}; the remaining three are, respectively, the symmetric $H$-power of $\cP$ relative to $\phi$, the symmetric power of the scheme $\cP_{G/H}$, and the symmetric $G/H$-power of $\cP_{G/H}$.
+The latter two identifications follow from $(\cP_{G/H})^{\times_S d} \cong H^d \backslash \cP^{\times_S d}$ together with the fact that the preimage of $K_{G/H} \subseteq (G/H)^d$ under $G^d \twoheadrightarrow (G/H)^d$ equals $H^d + \KG$.
+\textcolor{red}{the last isomorphism like that, is from the correspondence theorem, claude generated at the end of the article, add it somewhere}
+
+\begin{prop}\label{prop:torsor_tower_diagram}
+The four quotient schemes above exist and fit into a canonical commutative diagram of torsors
+\[
+\begin{tikzcd}[row sep=large, column sep=large]
+    \cP^{[d]_H} \arrow[r, "H"] \arrow[d, "K_{G/H}"'] & (\cP_{G/H})^{(d)} \arrow[d, "K_{G/H}"] \\
+    \cP^{[d]_G} \arrow[r, "H"'] \arrow[dr, "G"', bend right=20] & (\cP_{G/H})^{[d]} \arrow[d, "G/H"] \\
+    & X^{(d)},
+\end{tikzcd}
+\]
+where each label indicates the structure group of the corresponding torsor. Moreover, the upper square is Cartesian:
+\[
+\cP^{[d]_H} \cong \cP^{[d]_G} \times_{(\cP_{G/H})^{[d]}} (\cP_{G/H})^{(d)}.
+\]
+\end{prop}
+
+\begin{proof}
+That all morphisms are torsors with the indicated structure groups is obtained by applying \Cref{prop:symmetric_power_torsor} and \Cref{cor:sym-power-quotient} to the three torsors at hand:
+\begin{itemize}
+    \item Applied to the $G$-torsor $\cP \to X$, we obtain the $G$-torsor $\cP^{[d]_G} \to X^{(d)}$.
+    \item Applied to the $H$-torsor $\phi: \cP \to \cP_{G/H}$ (taking $\cP_{G/H}$ in place of the base $X$), we obtain the $H$-torsor $\cP^{[d]_H} \to (\cP_{G/H})^{(d)}$.
+    \item Applied to the $G/H$-torsor $\psi: \cP_{G/H} \to X$, we obtain the $G/H$-torsor $(\cP_{G/H})^{[d]} \to X^{(d)}$, together with the canonical $K_{G/H}$-torsor $(\cP_{G/H})^{(d)} \to (\cP_{G/H})^{[d]}$ of \Cref{cor:sym-power-quotient}.
+\end{itemize}
+
+\textcolor{red}{understand this until the end...}
+The factorization $\cP^{[d]_G} \xrightarrow{H} (\cP_{G/H})^{[d]} \xrightarrow{G/H} X^{(d)}$ of the diagonal arrow is precisely the decomposition of \Cref{prop:quotient_torsors_finite}, applied to the $G$-torsor $\cP^{[d]_G} \to X^{(d)}$ and the subgroup $H \subseteq G$. Indeed, both $\cP^{[d]_G} \times^G (G/H)$ and $(\cP_{G/H})^{[d]}$ are realized as the admissible quotient $((H^d + \KG) \rtimes S_d) \backslash \cP^{\times_S d}$.
+
+The vertical morphism $\cP^{[d]_H} \to \cP^{[d]_G}$ on the left is the canonical projection induced by the inclusion of $S_d$-stable subgroups $K_H \rtimes S_d \subseteq \KG \rtimes S_d$ in $G^d \rtimes S_d$. Its structure group is therefore
+\[
+(\KG \rtimes S_d)/(K_H \rtimes S_d) \cong \KG/K_H,
+\]
+which by \Cref{eq:summation_kernels_ses} is isomorphic to $K_{G/H}$.
+
+To prove the upper square is Cartesian, set $F := \cP^{[d]_G} \times_{(\cP_{G/H})^{[d]}} (\cP_{G/H})^{(d)}$.
+The morphism $\cP^{[d]_G} \to (\cP_{G/H})^{[d]}$ is an $H$-torsor: the structure group $H \subseteq G$ acts on $\cP^{[d]_G}$ via the restriction of the $G$-action, while the $G$-action on $(\cP_{G/H})^{[d]}$ factors through $G/H$, so that $H$ acts trivially on the target. Base-changing this $H$-torsor along the $K_{G/H}$-torsor $(\cP_{G/H})^{(d)} \to (\cP_{G/H})^{[d]}$ exhibits $F$ as an $H$-torsor over $(\cP_{G/H})^{(d)}$.
+
+The universal property of the fiber product furnishes a canonical morphism $\cP^{[d]_H} \to F$ over $(\cP_{G/H})^{(d)}$, and it is $H$-equivariant since the $H$-actions on both source and target are induced by the diagonal $H$-action on $\cP^{\times_S d}$.
+Any morphism of $H$-torsors is an isomorphism, so $\cP^{[d]_H} \cong F$ and the upper square is Cartesian.
+\end{proof}
+
+\Cref{prop:torsor_tower_diagram} encodes two distinct factorizations of $\cP^{[d]_H} \to X^{(d)}$, which we shall refer to as the two \emph{torsor towers}:
+
+\begin{description}
+    \item[The $H$-symmetric tower,] obtained by traversing the top edge and the right column of the diagram:
+    \[
+    \cP^{[d]_H} \xrightarrow{\;H\;} (\cP_{G/H})^{(d)} \xrightarrow{\;K_{G/H}\;} (\cP_{G/H})^{[d]} \xrightarrow{\;G/H\;} X^{(d)};
+    \]
+    \item[The $G$-symmetric tower,] obtained by traversing the left column and the bottom row of the diagram:
+    \[
+    \cP^{[d]_H} \xrightarrow{\;K_{G/H}\;} \cP^{[d]_G} \xrightarrow{\;H\;} (\cP_{G/H})^{[d]} \xrightarrow{\;G/H\;} X^{(d)}.
+    \]
+\end{description}
+
+The Cartesian property in \Cref{prop:torsor_tower_diagram} expresses that the connection morphism $\cP^{[d]_H} \to \cP^{[d]_G}$ on the left is the base change of the $K_{G/H}$-torsor $(\cP_{G/H})^{(d)} \to (\cP_{G/H})^{[d]}$ along the structural map $\cP^{[d]_G} \to (\cP_{G/H})^{[d]}$.
+Properties of the torsor $(\cP_{G/H})^{(d)} \to (\cP_{G/H})^{[d]}$ that are stable under base change therefore descend automatically to the connection morphism on the left.
 
 %
-% SYMMETRIC POWERS OF LOCAL SYSTEMS ON CURVES
+% COMPATIBILITY WITH ADDITION
 %
-The construction of symmetric powers is compatible with a natural addition law. 
+\subsubsection*{Compatibility with Addition}
+The construction of symmetric powers is compatible with a natural addition law.
 For any integers $d_1, d_2 \geq 0$, there exists a canonical \textbf{addition morphism}
 \[ +_{d_1, d_2}: X^{(d_1)} \times_S X^{(d_2)} \to X^{(d_1+d_2)} \]
 induced by the equivariant isomorphism $X^{\times_S d_1} \times_S X^{\times_S d_2} \cong X^{\times_S (d_1+d_2)}$ with respect to the inclusion of the product of symmetric groups $S_{d_1} \times S_{d_2} \subseteq S_{d_1+d_2}$.
@@ -455,7 +544,7 @@ induced by the equivariant isomorphism $X^{\times_S d_1} \times_S X^{\times_S d_
 \begin{prop}\label{prop:symmetric_powers_on_curves}
     Let $\cP$ be a $G$-torsor over $X$. There is a canonical isomorphism of $G$-torsors over $X^{(d_1)} \times_S X^{(d_2)}$:
     \[
-    +_{d_1, d_2}^{-1} \left( \cP^{[d_1+d_2]} \right) \cong r_1^{-1} \cP^{[d_1]} \otimes r_2^{-1} \cP^{[d_2]}.
+    +_{d_1, d_2}^{-1} \left( \cP^{[d_1+d_2]} \right) \cong r_1^{-1} \cP^{[d_1]} \otimes^G r_2^{-1} \cP^{[d_2]}.
     \]
 \end{prop}
 \begin{proof}
@@ -468,13 +557,17 @@ X^{(d_1)} \times_S X^{(d_2)} \arrow[r, "+_{d_1, d_2}"] & X^{(d_1+d_2)}
 \]
 and applying \Cref{prop:symmetric_power_torsor}, we obtain canonical isomorphisms:
 \[
-\pi^{-1} \left( +_{d_1, d_2}^{-1} \cP^{[d_1+d_2]} \right) \cong r_{d_1+d_2}^{-1} \cP^{[d_1+d_2]} \cong \bigotimes_{i=1}^{d_1+d_2} p_i^{-1} \cP
+\pi^{-1} \left( +_{d_1, d_2}^{-1} \cP^{[d_1+d_2]} \right) \cong r_{d_1+d_2}^{-1} \cP^{[d_1+d_2]} \cong \sideset{}{^G}\bigotimes_{i=1}^{d_1+d_2} p_i^{-1} \cP
 \]
 and
 \[
-\pi^{-1} (r_1^{-1} \cP^{[d_1]} \otimes r_2^{-1} \cP^{[d_2]}) \cong \left( \bigotimes_{i=1}^{d_1} p_i^{-1} \cP \right) \otimes \left( \bigotimes_{j=d_1+1}^{d_1+d_2} p_j^{-1} \cP \right).
+\pi^{-1} (r_1^{-1} \cP^{[d_1]} \otimes^G r_2^{-1} \cP^{[d_2]}) \cong \left( \sideset{}{^G}\bigotimes_{i=1}^{d_1} p_i^{-1} \cP \right) \otimes^G \left( \sideset{}{^G}\bigotimes_{j=d_1+1}^{d_1+d_2} p_j^{-1} \cP \right).
 \]
-Since both pullbacks identify with $\bigotimes_{k=1}^{d_1+d_2} p_k^{-1} \cP$ in an $S_{d_1} \times S_{d_2}$-equivariant manner, the isomorphism descends to the quotient $X^{(d_1)} \times_S X^{(d_2)}$ by \Cref{prop:symmetric_power_flat_base_change}.
+Since both pullbacks identify with
+\[
+\sideset{}{^G}\bigotimes_{k=1}^{d_1+d_2} p_k^{-1} \cP
+\]
+in an $S_{d_1} \times S_{d_2}$-equivariant manner, the isomorphism descends to the quotient $X^{(d_1)} \times_S X^{(d_2)}$ by \Cref{prop:symmetric_power_flat_base_change}.
 \end{proof}
 
 

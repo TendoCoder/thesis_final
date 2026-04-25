@@ -1,4 +1,11 @@
 
+\section*{Setup}
+
+We adopt the setting and notation of the subsection \emph{Quotient of Torsors Towers} in the Preliminaries (\Cref{prop:torsor_tower_diagram} in particular), specialized to the case where the base $X$ is the open subset $U = C \setminus \{m\}$ of a smooth projective curve $C$.
+That is, $G$ is a finite abelian group, $H \subseteq G$ a subgroup, and $\cP \to U$ a $G$-torsor.
+We fix an integer $d$ such that the ramification index of the (compactified) cover $\cP \to C$ at the point at infinity $p_\infty \in C \setminus U$ is bounded by $d$.
+For brevity in this section we write $P = \cP$, $P/H = \cP_{G/H}$, and $U^{(d)}$ for the base of the torsor towers.
+
 \section*{Summary of Torsor Towers and Connection Morphisms}
 
 Let $f: P \to U$ be a $G$-torsor over a base scheme $U = C \setminus \{m\}$, where $G$ is a finite abelian group and $H \triangleleft G$ is a normal subgroup. 
@@ -453,3 +460,215 @@ $$
     \text{DVR } V_X \text{ (unramified over } V_C) \arrow[r, hook, "H"'] & \text{DVR } V_C = V_Z
 \end{tikzcd}
 $$
+
+\section{TEST}
+
+The claim is the equality of subgroups of $G^d$:
+\[
+\pi^{-1}(K_{G/H}) \;=\; H^d + \KG, \qquad \text{where } \pi : G^d \twoheadrightarrow (G/H)^d \text{ is the coordinatewise projection.}
+\]
+
+Here is why, broken into the two inclusions.
+
+\subsection*{Unwinding the definitions}
+Let $\Sigma_G : G^d \to G$ and $\Sigma_{G/H} : (G/H)^d \to G/H$ be the summation maps. By definition $\KG = \ker \Sigma_G$ and $K_{G/H} = \ker \Sigma_{G/H}$. The diagram
+\[
+\begin{tikzcd}[row sep=large, column sep=large]
+G^d \arrow[r, "\Sigma_G"] \arrow[d, "\pi"', twoheadrightarrow] & G \arrow[d, "q", twoheadrightarrow] \\
+(G/H)^d \arrow[r, "\Sigma_{G/H}"'] & G/H
+\end{tikzcd}
+\]
+commutes (both routes send $(g_1,\dots,g_d)$ to $\overline{\sum g_i}$). So an element $g = (g_1,\dots,g_d) \in G^d$ lies in $\pi^{-1}(K_{G/H})$ iff $\Sigma_{G/H}(\pi(g)) = 0$ iff $q(\Sigma_G(g)) = 0$ iff $\sum_i g_i \in H$. In other words,
+\[
+\pi^{-1}(K_{G/H}) \;=\; \bigl\{(g_1,\dots,g_d) \in G^d \;:\; \textstyle\sum_i g_i \in H\bigr\}.
+\]
+
+\subsection*{Inclusion ``$\supseteq$''}
+Take $(g_1,\dots,g_d) = (h_1,\dots,h_d) + (k_1,\dots,k_d)$ with $h_i \in H$ and $\sum k_i = 0$. Then
+\[
+\sum g_i \;=\; \sum h_i + \sum k_i \;=\; \sum h_i \;\in\; H,
+\]
+since $H$ is closed under addition. Hence $H^d + \KG \subseteq \pi^{-1}(K_{G/H})$.
+
+\subsection*{Inclusion ``$\subseteq$''}
+Suppose $\sum g_i = h$ for some $h \in H$. Decompose
+\[
+(g_1, g_2, \dots, g_d) \;=\; \underbrace{(h, 0, \dots, 0)}_{\in\, H^d} \;+\; \underbrace{(g_1 - h,\, g_2,\, \dots,\, g_d)}_{\in\, \KG}.
+\]
+The first summand lies in $H^d$ since $h \in H$. The second lies in $\KG$ because its coordinates sum to $(g_1 - h) + g_2 + \dots + g_d = (\sum g_i) - h = h - h = 0$. Hence $\pi^{-1}(K_{G/H}) \subseteq H^d + \KG$.
+
+This proves the group-theoretic identity.
+
+\subsection*{Why this gives the quotient identification}
+Now, why does this subgroup identity translate to
+\[
+(\cP_{G/H})^{[d]} \;=\; \bigl((H^d + \KG) \rtimes S_d\bigr) \;\backslash\; \cP^{\times_S d}\,?
+\]
+By definition (\Cref{prop:symmetric_power_torsor} applied to the $G/H$-torsor $\cP_{G/H}\to X$),
+\[
+(\cP_{G/H})^{[d]} \;=\; \bigl(K_{G/H} \rtimes S_d\bigr) \;\backslash\; (\cP_{G/H})^{\times_S d}.
+\]
+Use the first identification, $(\cP_{G/H})^{\times_S d} \cong H^d \backslash \cP^{\times_S d}$, to rewrite this as a \emph{two-step} quotient of $\cP^{\times_S d}$:
+\[
+\cP^{\times_S d} \;\xrightarrow{\;\;H^d\;\;}\; H^d \backslash \cP^{\times_S d} \;\xrightarrow{\;\;K_{G/H}\;\;}\; K_{G/H} \backslash \bigl(H^d \backslash \cP^{\times_S d}\bigr).
+\]
+The second arrow makes sense because the $K_{G/H}$-action on the middle space is induced from the $G^d/H^d = (G/H)^d$-action, which is the only well-defined action that descends from $G^d$ on $\cP^{\times_S d}$.
+
+Now apply the \textbf{correspondence theorem} (or ``third isomorphism theorem'') for group actions: a chain of quotients of $\cP^{\times_S d}$ first by $H^d$ and then by a subgroup $K \subseteq G^d/H^d$ is the same as the single quotient by the preimage $\pi^{-1}(K) \subseteq G^d$. Concretely, an element $\bar g \in K_{G/H}$ acts on a class $[p_1,\dots,p_d] \in H^d \backslash \cP^{\times_S d}$ by lifting to any $g \in \pi^{-1}(\bar g)$ and applying the $G^d$-action; since the lift is well-defined modulo $H^d$ and we are anyway quotienting by $H^d$, the result is well-defined.
+
+So
+\[
+K_{G/H} \backslash (H^d \backslash \cP^{\times_S d}) \;=\; \pi^{-1}(K_{G/H}) \backslash \cP^{\times_S d} \;=\; (H^d + \KG) \backslash \cP^{\times_S d},
+\]
+using our group-theoretic identity. Finally, $S_d$ permutes coordinates and normalizes each of $H^d$, $\KG$, and hence $H^d + \KG$, so the $S_d$-action descends and combines with the $(H^d+\KG)$-action into the semidirect product $(H^d + \KG) \rtimes S_d$. This gives the claimed identification.
+
+\subsection*{Intuition in one sentence}
+$(\cP_{G/H})^{[d]}$ should remember ``$d$ points of $\cP$, modulo (i) the $H$-action on each individual point --- that is $H^d$ --- and (ii) the constraint that the \emph{total sum} is zero in $G/H$ --- that is, the sum is in $H$, which is exactly the additional generators in $\KG$ on top of $H^d$.'' The subgroup $H^d + \KG$ is precisely the union of these two kinds of relations.
+
+\subsection*{Rigorous proof of the correspondence theorem}
+
+We now prove rigorously the categorical step we used in the argument above. The statement is essentially the third isomorphism theorem for groups, transported to admissible quotients of schemes.
+
+\begin{prop}[Correspondence theorem for admissible quotients]\label{prop:correspondence_admissible}
+Let $T$ be an $S$-scheme equipped with an admissible left action of a finite group $\Gamma$. Let $N \trianglelefteq \Gamma$ be a normal subgroup, and let $K$ be a subgroup of $\Gamma$ with $N \subseteq K$. Then:
+\begin{enumerate}[label=(\alph*)]
+    \item the actions of $N$ and $K$ on $T$, obtained by restriction, are admissible, so the quotients $T/N$ and $T/K$ exist as $S$-schemes;
+    \item the action of $\Gamma$ on $T$ descends uniquely to an action of $\Gamma/N$ on $T/N$;
+    \item the induced action of $K/N \subseteq \Gamma/N$ on $T/N$ is admissible, so the quotient $(T/N)/(K/N)$ exists;
+    \item the canonical morphism is an isomorphism of $S$-schemes
+    \[
+    T/K \;\xrightarrow{\;\sim\;}\; (T/N)/(K/N).
+    \]
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+Throughout, denote by $\rho_\gamma : T \to T$ the action of $\gamma \in \Gamma$ on $T$, and by $q_N : T \to T/N$ and $q_K : T \to T/K$ the canonical quotient morphisms (when they exist).
+
+\medskip
+\textit{Proof of (a).}
+By the equivalent characterization of admissibility (\cite{sga1}, V.1.8), the action of $\Gamma$ on $T$ is admissible if and only if $T$ admits an open cover $\{V_i\}_{i \in I}$ by $\Gamma$-invariant affine open subschemes. Any such $V_i$ is also $N$-invariant and $K$-invariant, since $N, K \subseteq \Gamma$. Hence the very same cover witnesses admissibility of $N$ and of $K$.
+
+\medskip
+\textit{Proof of (b).}
+Since $N$ is normal in $\Gamma$, conjugation by any $\gamma \in \Gamma$ preserves $N$: for $\gamma \in \Gamma$ and $n \in N$, $\gamma n \gamma^{-1} \in N$, hence
+\[
+\rho_\gamma \circ \rho_n \;=\; \rho_{\gamma n} \;=\; \rho_{(\gamma n \gamma^{-1}) \gamma} \;=\; \rho_{\gamma n \gamma^{-1}} \circ \rho_\gamma.
+\]
+Composing on the left with $q_N$ and using $N$-invariance of $q_N$ on the right-hand side ($\gamma n \gamma^{-1} \in N$):
+\[
+q_N \circ \rho_\gamma \circ \rho_n \;=\; q_N \circ \rho_{\gamma n \gamma^{-1}} \circ \rho_\gamma \;=\; q_N \circ \rho_\gamma.
+\]
+Thus $q_N \circ \rho_\gamma : T \to T/N$ is $N$-invariant. By the universal property of $T/N$, there exists a unique morphism $\bar\rho_\gamma : T/N \to T/N$ such that
+\begin{equation}\label{eq:descent_action}
+\bar\rho_\gamma \circ q_N \;=\; q_N \circ \rho_\gamma.
+\end{equation}
+The uniqueness clause guarantees that $\gamma \mapsto \bar\rho_\gamma$ is a group homomorphism: indeed, both $\bar\rho_{\gamma_1\gamma_2}$ and $\bar\rho_{\gamma_1} \circ \bar\rho_{\gamma_2}$ satisfy $(-) \circ q_N = q_N \circ \rho_{\gamma_1 \gamma_2}$, so they are equal. Similarly $\bar\rho_n = \id_{T/N}$ for every $n \in N$, since both $\bar\rho_n$ and $\id_{T/N}$ satisfy $(-) \circ q_N = q_N \circ \rho_n = q_N$. Hence the action of $\Gamma$ on $T/N$ factors through $\Gamma/N$, defining the desired action.
+
+\medskip
+\textit{Proof of (c).}
+Take an open cover $\{V_i\}_{i \in I}$ of $T$ by $K$-invariant affine open subschemes (which exists by part (a)). Each $V_i$ is in particular $N$-invariant.
+
+By \cite{sga1} V.1.9 (the base change property recalled in the Preliminaries), the formation of admissible quotients commutes with flat base change; applied to the open immersion $V_i \hookrightarrow T$, this shows that $V_i / N$ exists and is canonically isomorphic to the open subscheme $q_N(V_i) \subseteq T/N$. Concretely:
+\[
+q_N(V_i) \;\cong\; V_i / N,
+\]
+which is affine since $V_i$ is affine and $N$ is finite (the $N$-quotient of an affine scheme is again affine).
+
+Each $q_N(V_i)$ is also $K/N$-invariant: indeed, for any $\bar k \in K/N$ with lift $k \in K$, \Cref{eq:descent_action} together with the $K$-invariance of $V_i$ gives
+\[
+\bar\rho_{\bar k}(q_N(V_i)) \;=\; q_N(\rho_k(V_i)) \;=\; q_N(V_i).
+\]
+Finally, the open subschemes $\{q_N(V_i)\}_{i \in I}$ cover $T/N$ because $q_N$ is surjective on underlying sets and $\bigcup V_i = T$:
+\[
+\bigcup_i q_N(V_i) \;=\; q_N\Bigl(\bigcup_i V_i\Bigr) \;=\; q_N(T) \;=\; T/N.
+\]
+Thus $T/N$ is covered by $K/N$-invariant affine open subschemes, and again by V.1.8 the action of $K/N$ on $T/N$ is admissible, so $(T/N)/(K/N)$ exists.
+
+\medskip
+\textit{Proof of (d).}
+We compare the universal properties. By the definition of admissible quotient, for every $S$-scheme $U$:
+\begin{align}
+\Hom_S(T/K,\, U) &\;=\; \Hom_S(T,\, U)^K \;:=\; \{f : T \to U \mid f \circ \rho_k = f \text{ for all } k \in K\}, \label{eq:univ_TK}\\
+\Hom_S(T/N,\, U) &\;=\; \Hom_S(T,\, U)^N, \label{eq:univ_TN}\\
+\Hom_S\bigl((T/N)/(K/N),\, U\bigr) &\;=\; \Hom_S(T/N,\, U)^{K/N}. \label{eq:univ_TNK}
+\end{align}
+We claim there is a bijection
+\begin{equation}\label{eq:invariant_bijection}
+\Hom_S(T,\, U)^K \;\xrightarrow{\;\sim\;}\; \Hom_S(T/N,\, U)^{K/N}, \qquad f \;\longmapsto\; \bar f,
+\end{equation}
+where $\bar f$ is the unique factorization of $f$ through $q_N$ (which exists because $N \subseteq K$ implies $f$ is $N$-invariant).
+
+\textbf{Well-defined.} Suppose $f \in \Hom_S(T,U)^K$ and let $\bar f$ be the unique morphism with $f = \bar f \circ q_N$. Fix $\bar k \in K/N$ with lift $k \in K$. Using \Cref{eq:descent_action} and $K$-invariance of $f$:
+\[
+\bar f \circ \bar\rho_{\bar k} \circ q_N \;=\; \bar f \circ q_N \circ \rho_k \;=\; f \circ \rho_k \;=\; f \;=\; \bar f \circ q_N.
+\]
+By the uniqueness clause of the universal property of $T/N$ (i.e., $q_N$ is an epimorphism in the categorical sense among $S$-schemes), we conclude $\bar f \circ \bar\rho_{\bar k} = \bar f$. Thus $\bar f \in \Hom_S(T/N, U)^{K/N}$.
+
+\textbf{Inverse.} Conversely, given $\bar f \in \Hom_S(T/N, U)^{K/N}$, define $f := \bar f \circ q_N \in \Hom_S(T, U)^N$. For any $k \in K$ with image $\bar k \in K/N$,
+\[
+f \circ \rho_k \;=\; \bar f \circ q_N \circ \rho_k \;=\; \bar f \circ \bar\rho_{\bar k} \circ q_N \;=\; \bar f \circ q_N \;=\; f,
+\]
+so $f \in \Hom_S(T, U)^K$. The two assignments are evidently mutually inverse.
+
+\textbf{Conclusion.} The bijection \Cref{eq:invariant_bijection} is functorial in $U$: a morphism $U \to U'$ post-composes with both $f$ and $\bar f$ compatibly. Combining \Cref{eq:univ_TK}, \Cref{eq:univ_TNK}, and \Cref{eq:invariant_bijection}, we obtain a natural isomorphism of representable functors
+\[
+\Hom_S(T/K,\, -) \;\cong\; \Hom_S\bigl((T/N)/(K/N),\, -\bigr).
+\]
+By the Yoneda lemma, the representing objects are canonically isomorphic:
+\[
+T/K \;\cong\; (T/N)/(K/N).
+\]
+Tracing through the bijection, the isomorphism is the unique morphism induced from the universal property of $T/K$ applied to the $K$-invariant morphism $q_{K/N} \circ q_N : T \to (T/N)/(K/N)$ (which is $K$-invariant since for $k \in K$, $q_{K/N} \circ q_N \circ \rho_k = q_{K/N} \circ \bar\rho_{\bar k} \circ q_N = q_{K/N} \circ q_N$).
+\end{proof}
+
+\subsection*{A shorter proof of \Cref{prop:correspondence_admissible}}
+
+Most of the long proof above is bookkeeping for the existence of the various admissible quotients. The actual content is a single Yoneda comparison, which we now isolate.
+
+\begin{proof}[Shorter proof]
+\textbf{Existence.} A $\Gamma$-invariant affine open cover of $T$ (which exists by \cite{sga1}~V.1.8) is automatically $N$-invariant and $K$-invariant; its image in $T/N$ is $K/N$-invariant and affine (the $N$-quotient of an affine is affine). By V.1.8 again, the quotients $T/N$, $T/K$, and $(T/N)/(K/N)$ all exist as admissible quotients. The $\Gamma$-action on $T/N$ exists by the universal property of $q_N$ (since $N$ is normal in $\Gamma$, $q_N \circ \rho_\gamma$ is $N$-invariant for every $\gamma$) and factors through $\Gamma/N$ since $\bar\rho_n = \id$ for $n \in N$.
+
+\textbf{Identification.} For any $S$-scheme $U$, by the universal properties of admissible quotients,
+\[
+\Hom_S(T/K,U) = \Hom_S(T,U)^K \quad\text{and}\quad \Hom_S\bigl((T/N)/(K/N),U\bigr) = \Hom_S(T/N,U)^{K/N}.
+\]
+We exhibit a natural bijection between the right-hand sides given by $f \mapsto \bar f$, where $\bar f$ is the unique factorization $f = \bar f \circ q_N$ (which exists since $N \subseteq K$ makes $f$ automatically $N$-invariant).
+
+For $\bar k \in K/N$ with lift $k \in K$, the morphisms $\bar f \circ \bar\rho_{\bar k}$ and $\bar f$ both satisfy
+\[
+(-) \circ q_N \;=\; \bar f \circ q_N \circ \rho_k \;=\; f \circ \rho_k \;=\; f \;=\; \bar f \circ q_N
+\]
+(using $K$-invariance of $f$), so they coincide by the uniqueness clause of the universal property of $q_N$. Hence $\bar f$ is $K/N$-equivariant. Conversely, any $K/N$-equivariant $\bar f$ pulls back via $q_N$ to a $K$-invariant $f$, by the same calculation read in reverse.
+
+The bijection is natural in $U$, so by Yoneda $T/K \cong (T/N)/(K/N)$.
+\end{proof}
+
+The conceptual shape: ``$K$-invariant on $T$'' decomposes as ``$N$-invariant on $T$'' (i.e., descends to $T/N$) plus ``$K/N$-invariant on $T/N$''. Yoneda then turns this set-level identity into the scheme-level isomorphism.
+
+\subsection*{Application to our situation}
+
+The identification
+\[
+(\cP_{G/H})^{[d]} \;=\; \bigl((H^d + \KG) \rtimes S_d\bigr) \;\backslash\; \cP^{\times_S d}
+\]
+is the case of \Cref{prop:correspondence_admissible} with
+\[
+T = \cP^{\times_S d}, \qquad \Gamma = K = (H^d + \KG) \rtimes S_d, \qquad N = H^d.
+\]
+Indeed:
+\begin{itemize}
+    \item $H^d$ is normal in $\Gamma$: it is normal in $H^d + \KG$ (every subgroup of the abelian group $G^d$ is normal), and $S_d$ normalizes $H^d$ since $S_d$ permutes the coordinates of $H^d \subseteq G^d$.
+    \item The corresponding quotient is
+    \[
+    \Gamma/N \;=\; \bigl((H^d + \KG) \rtimes S_d\bigr) / H^d \;\cong\; \bigl((H^d + \KG)/H^d\bigr) \rtimes S_d \;\cong\; K_{G/H} \rtimes S_d,
+    \]
+    where the last isomorphism uses the second isomorphism theorem $(H^d + \KG)/H^d \cong \KG/(\KG \cap H^d) = \KG/K_H \cong K_{G/H}$.
+    \item The intermediate quotient is $T/N = \cP^{\times_S d}/H^d \cong (\cP_{G/H})^{\times_S d}$.
+\end{itemize}
+Substituting these into the conclusion of \Cref{prop:correspondence_admissible} yields
+\[
+\bigl((H^d + \KG) \rtimes S_d\bigr) \;\backslash\; \cP^{\times_S d} \;\cong\; \bigl(K_{G/H} \rtimes S_d\bigr) \;\backslash\; (\cP_{G/H})^{\times_S d} \;=\; (\cP_{G/H})^{[d]},
+\]
+where the final equality is the definition of $(\cP_{G/H})^{[d]}$ (\Cref{prop:symmetric_power_torsor} applied to $\cP_{G/H} \to X$).
+

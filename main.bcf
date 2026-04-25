@@ -2432,6 +2432,9 @@
     <bcf:citekey order="57" intorder="1">stacks-project</bcf:citekey>
     <bcf:citekey order="58" intorder="1">tendler2015geometricclassfieldtheory</bcf:citekey>
     <bcf:citekey order="59" intorder="1">Toth2011</bcf:citekey>
+    <bcf:citekey order="60" intorder="1">sga1</bcf:citekey>
+    <bcf:citekey order="61" intorder="1">sga1</bcf:citekey>
+    <bcf:citekey order="62" intorder="1">sga1</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="ynt">
