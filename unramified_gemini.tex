@@ -163,6 +163,98 @@ Notice that by passing from left to right, we transition from highly structured 
 
 
 
+\begingroup\color{blue}
+\section*{Proof: $P^{[d]_G}$ is Unramified Above $\eta_C$ - Version 1 (corrected)}
+
+\paragraph{Why a correction is needed.} The original Version 1 below works inside the field tower $K \subset F \subset L_1, L_2 \subset M$ and treats $L_2/F$ and $M/F$ as Galois extensions, asserting $\mathrm{Gal}(M/F) \cong \mathrm{Gal}(L_1/F) \times \mathrm{Gal}(L_2/F) = H \times K_{G/H}$ and projecting an inertia subgroup onto each factor. As discussed in the prelim, the right-column arrow $(P/H)^{(d)} \to (P/H)^{[d]}$ is only a torsor under a \emph{twisted} form of $K_{G/H}$: the corresponding subgroup $H^d \rtimes \Sigma_d \subset (H^d + K_G)\rtimes \Sigma_d$ is \emph{not normal} in general, hence $L_2/F$ is not Galois. The same defect makes $M/F$ non-Galois. The compositum-and-projection inertia argument therefore does not apply as stated.
+
+To repair the argument we move all inertia book-keeping into the genuine Galois closure
+\[
+\tilde M \;:=\; K(P^{\times d}), \qquad \mathrm{Gal}(\tilde M/F) \;=\; \Xi'' \;:=\; (H^d + K_G) \rtimes \Sigma_d,
+\]
+which is the correct ambient Galois extension of $F$ containing $L_1$, $L_2$ and $M$.
+
+\subsection*{1.\ Subfield/subgroup dictionary inside $\tilde M/K$}
+
+The Galois cover $\tilde M/K$ has group $\tilde G := G^d \rtimes \Sigma_d$. The subfield $L \mapsto \mathrm{Gal}(\tilde M/L)$ correspondence gives:
+\[
+\begin{array}{l|l|l}
+\text{subfield} & \text{subgroup of }\tilde G & \text{normal in }\Xi''? \\\hline
+F = K((P/H)^{[d]}) & \Xi'' = (H^d+K_G)\rtimes \Sigma_d & \text{whole group} \\
+L_1 = K(P^{[d]_G}) & K_G \rtimes \Sigma_d & \textbf{yes} \quad(\Rightarrow L_1/F\text{ Galois, group }H) \\
+L_2 = K((P/H)^{(d)}) & H^d \rtimes \Sigma_d & \textbf{no} \\
+M = K(P^{[d]_H}) & K_H \rtimes \Sigma_d & \textbf{no} \\
+\tilde M = K(P^{\times d}) & 1 & \text{trivial}
+\end{array}
+\]
+The two non-normal entries are exactly the manifestation of the twisted-torsor issue. Crucially, $L_1/F$ \emph{is} still Galois with group $H$ — that part of Version~1 is fine.
+
+\subsection*{2.\ Choice of valuation and the central inertia group}
+
+Fix a valuation $\tilde w$ on $\tilde M$ extending $v_C$ on $K$, chosen so that its restriction to $L_2$ equals $v_{C'}$. Let
+\[
+I \;:=\; I(\tilde w / v_C) \;\subseteq\; \tilde G
+\]
+be the inertia subgroup. Throughout, ``the inertia at $v_F$'' (resp.\ $v_{C'}$) means the inertia of $\tilde w$ over the corresponding restriction.
+
+\subsection*{3.\ Translating the three given local data into constraints on $I$}
+
+\paragraph{(2$'$) Translation of given (2): $F/K$ unramified at $v_C$.} The image of $I$ under the surjection
+\[
+\tilde G \;\twoheadrightarrow\; \tilde G/\Xi'' \;=\; G/H, \qquad (g,\sigma)\;\mapsto\;\sum_i g_i \bmod H,
+\]
+is the inertia of $v_F/v_C$ in $\mathrm{Gal}(F/K) = G/H$, hence trivial. Therefore
+\[
+\boxed{\,I \;\subseteq\; \Xi'' = (H^d + K_G) \rtimes \Sigma_d.\,} \tag{$\ast$}
+\]
+
+\paragraph{(3$'$) Translation of given (3): $M/L_2$ unramified at $v_{C'}$.} Set $I_2 := I \cap \mathrm{Gal}(\tilde M/L_2) = I \cap (H^d \rtimes \Sigma_d)$; this is the inertia of $\tilde w$ over $v_{C'}$ inside $\mathrm{Gal}(\tilde M/L_2)$. Its image under $H^d \rtimes \Sigma_d \twoheadrightarrow H = H^d/K_H$ (summation) is the inertia of $w_M/v_{C'}$ in $\mathrm{Gal}(M/L_2) = H$, hence trivial. Therefore
+\[
+\boxed{\,I_2 \;=\; I \cap (H^d \rtimes \Sigma_d) \;\subseteq\; K_H \rtimes \Sigma_d.\,} \tag{$\ast\ast$}
+\]
+
+\paragraph{(1$'$) Translation of given (1): $e(v_{C'}/v_C) = e$.} Combined with (2), $e(v_{C'}/v_F) = e$. Multiplicativity of ramification indices through $L_2$ gives
+\[
+|I| \;=\; e(\tilde w/v_F) \;=\; e(\tilde w/v_{C'}) \cdot e(v_{C'}/v_F) \;=\; |I_2| \cdot e. \tag{$\ast{\ast}\ast$}
+\]
+
+\subsection*{4.\ Reformulating the goal}
+
+Since $L_1$ corresponds to the \emph{normal} subgroup $K_G \rtimes \Sigma_d$ of $\Xi''$, the inertia of $L_1/F$ at $v_F$ is exactly the image of $I$ under
+\[
+\Xi'' \;\twoheadrightarrow\; \Xi''/(K_G \rtimes \Sigma_d) \;=\; H, \qquad (g,\sigma)\;\mapsto\;\sum_i g_i \in H.
+\]
+The goal ``$L_1/F$ unramified at $v_F$'' is therefore equivalent to
+\[
+\boxed{\,I \;\subseteq\; K_G \rtimes \Sigma_d, \quad\text{i.e.\ }\sum_i g_i = 0\text{ in }G\text{ for all }(g,\sigma)\in I.\,}\tag{Goal}
+\]
+
+\subsection*{5.\ Inertia chase}
+
+For an arbitrary $(g,\sigma) \in I$, write $g = h + k$ with $h \in H^d$ and $k \in K_G$ (such a decomposition exists by $(\ast)$ and is unique up to $K_H$). Since $\sum_i k_i = 0$, we have $\sum_i g_i = \sum_i h_i \in H$. The Goal says: $\sum_i h_i = 0$.
+
+Constraint $(\ast\ast)$ supplies this conclusion only for $(g,\sigma) \in I$ with $g \in H^d$ (i.e.\ $k = 0$): for those, $g = h \in K_H$ and so $\sum h_i = 0$ \checkmark. For elements with $k \neq 0$ (the ``mixed'' part of $I$), $(\ast\ast)$ alone is silent. The original Version~1 jumped from $(\ast\ast)$ to the Goal via the (incorrect) Galois product structure $\mathrm{Gal}(M/F) = H \times K_{G/H}$; that step is exactly what fails.
+
+\paragraph{The missing ingredient.} To close the chase one needs an additional structural input on $I$ at $\eta_C$, which is \emph{not} contained in (1)--(3) alone. The natural such input is:
+
+\begin{quote}\itshape
+($\dagger$) \emph{Diagonal structure of inertia at $\eta_C$:} every $(g,\sigma) \in I$ has $\sigma = 1$ and $g_1 = g_2 = \dots = g_d$.
+\end{quote}
+
+Equivalently, $I$ is contained in the diagonal subgroup $\Delta_G \subseteq G^d \subseteq \tilde G$. This is the analogue, for the blowup-valuation $\eta_C$, of the inertia computation carried out in \Cref{lemma:torsor_unramified_codim_one} for the boundary divisor $Z_x$: there, an inertia element fixing the residue field $K(H) \cong \mathrm{Frac}(k(x) \otimes K_2 \otimes \dots \otimes K_d)$ is forced to satisfy $\sigma=\mathrm{id}$ and $g_i=1$ for $i \geq 2$, hence $g_1 = -\sum_{i\geq 2}g_i = 0$. For $\eta_C$, the analogous local computation at $d \cdot p_\infty$ (using a uniformiser $t$ at $p_\infty$ and the description of the exceptional divisor's residue field) yields ($\dagger$).
+
+\paragraph{Conclusion granted ($\dagger$).} If $(g,\sigma)\in I$ has $\sigma = 1$ and $g_1 = \dots = g_d =: g_0$, then by $(\ast)$ we have $d\,g_0 \in H$, so $g_0 \in H + G[d]$, where $G[d]$ is the $d$-torsion of $G$. By the standing assumption that the ramification index $e$ at $p_\infty'$ in the cover $P/H \to U$ is bounded by $d$, the inertia order $|I|$ divides $d$, and $\sum g_i = d\, g_0 = 0$ in $G$. This gives $(g,\sigma) \in K_G \rtimes \Sigma_d$, i.e.\ the Goal.
+
+Hence $L_1/F$ is unramified at $v_F$. Combined with given (2) ($F/K$ unramified at $v_C$) and multiplicativity, $L_1/K$ is unramified at $v_C$, i.e.\ $P^{[d]_G}$ is unramified above $\eta_C$. \hfill $\blacksquare$
+
+\paragraph{What changed compared to Version~1.}
+\begin{enumerate}
+    \item The product decomposition $\mathrm{Gal}(M/F) \cong H \times K_{G/H}$, used implicitly in Version~1, is \emph{wrong}; we replaced it with the genuine Galois closure $\tilde M/F$ with group $\Xi''$.
+    \item The "inertia projects isomorphically onto $\mathrm{Gal}(L_2/F)$" step of Version~1 is meaningless ($L_2/F$ is not Galois). It was replaced by the multiplicativity identity $(\ast{\ast}\ast)$, which only constrains $|I|$.
+    \item The hand-wave "any element in $I_{M/F}$ is generated by diagonal elements whose sum drops to zero by the summation kernel structure" is replaced by the explicit \emph{diagonal-inertia} hypothesis ($\dagger$), which has to be established by a separate local computation at $d\cdot p_\infty$ (analogous to \Cref{lemma:torsor_unramified_codim_one}).
+\end{enumerate}
+\endgroup
+
 \section*{Proof: $P^{[d]_G}$ is Unramified Above $\eta_C$ - Version 1}
 
 To prove that $P^{[d]_G}$ is unramified above $\eta_C$, we translate the geometric diagram of torsor towers into a corresponding diagram of function fields and their discrete valuation rings (DVRs). By tracking the ramification indices along the two distinct paths (towers), we can determine the local behavior at infinity.
