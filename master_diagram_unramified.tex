@@ -1,0 +1,248 @@
+\documentclass[12pt]{amsart}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{tikz-cd}
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\newcommand{\cP}{\mathcal{P}}
+\newcommand{\KG}{K_G}
+\newcommand{\KH}{K_H}
+\newcommand{\KGH}{K_{G/H}}
+\newcommand{\mdls}{\mathfrak{m}}
+
+\newtheorem{prop}{Proposition}
+\newtheorem{thm}{Theorem}
+\newtheorem{lem}{Lemma}
+\newtheorem{cor}{Corollary}
+\theoremstyle{remark}
+\newtheorem{rmk}{Remark}
+
+\title{The Master Diagram and Unramifiedness of $\cP^{[d]_G}$ at $\eta_C$}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{Setup and notation}
+
+Let $\cP \to U$ be a $G$-torsor over $U = C \setminus \mdls$, where $G$ is a
+finite abelian group, $H \trianglelefteq G$, and $C$ is a smooth projective
+curve. Fix $p_\infty \in \mdls$ and an integer $d$ bounding the ramification
+of $\cP \to U$ at $p_\infty$.
+
+Recall the four quotient schemes
+\[
+\cP^{[d]_H},\qquad \cP^{[d]_G},\qquad (\cP_{G/H})^{(d)},\qquad (\cP_{G/H})^{[d]},
+\]
+together with the canonical Cartesian square
+\[
+\begin{tikzcd}[row sep=large, column sep=large]
+\cP^{[d]_H} \ar[r,"H"] \ar[d]
+  & (\cP_{G/H})^{(d)} \ar[d,"q"] \\
+\cP^{[d]_G} \ar[r,"H"'] \ar[dr,"G"',bend right=15]
+  & (\cP_{G/H})^{[d]} \ar[d,"G/H"] \\
+  & U^{(d)},
+\end{tikzcd}
+\]
+in which the arrows labelled $H$, $G/H$ and $G$ are torsors under the
+indicated finite constant groups (in particular, \emph{\'etale}), and the
+upper square is Cartesian (\Cref{prop:torsor_tower_diagram}).
+
+The $G/H$-torsor $\cP_{G/H} \to U$ compactifies to a finite map of smooth
+projective curves $f \colon C' \to C$. Pick $p'_\infty \in f^{-1}(p_\infty)$
+with ramification index $e \le d$. Write
+\[
+f^{(d)} \colon C'^{(d)} \to C^{(d)}
+\]
+for the induced map of $d$-fold symmetric powers; it sends
+$d \cdot p'_\infty \mapsto d \cdot p_\infty$. Let
+\[
+\pi_C \colon X_C \to C^{(d)},\qquad \pi_{C'} \colon X_{C'} \to C'^{(d)}
+\]
+be the blowups at $d \cdot p_\infty$ and $d \cdot p'_\infty$ respectively, with
+exceptional divisors $E_C,E_{C'}$ and generic points $\eta_C,\eta_{C'}$. The
+DVRs of these generic points are
+\[
+V_C := \mathcal{O}_{X_C,\eta_C} \subset K(C^{(d)}),\qquad
+V_{C'} := \mathcal{O}_{X_{C'},\eta_{C'}} \subset K(C'^{(d)}).
+\]
+The local relation $t = u\cdot s^{e}$ between uniformizers at
+$p_\infty,p'_\infty$ propagates to symmetric powers, giving
+\[
+v_{C'}(x) = e\cdot v_C(x) \quad\text{for all }x \in K(C^{(d)})^{\times},
+\]
+i.e.\ $V_{C'}/V_C$ is an extension of DVRs of ramification index exactly $e$.
+
+\section{The master diagram}\label{sec:master}
+
+The torsor tower over the open base $U^{(d)}$ embeds into the projective
+geometry of $C^{(d)}$ and $C'^{(d)}$, which in turn admit canonical blowups
+at the points at infinity. We assemble all of this into a single commutative
+diagram.
+
+\[
+\begin{tikzcd}[row sep=2.4em, column sep=2.2em]
+\cP^{[d]_H} \ar[r,"H"] \ar[d]
+  & (\cP_{G/H})^{(d)} \ar[d,"q"] \ar[r,hookrightarrow,"\iota'"]
+  & C'^{(d)} \ar[dd,"f^{(d)}"]
+  & X_{C'} \ar[l,"\pi_{C'}"'] \ar[dd,dashed,"f_X"] \\
+\cP^{[d]_G} \ar[r,"H"'] \ar[dr,"G"',bend right=10]
+  & (\cP_{G/H})^{[d]} \ar[d,"G/H"]
+  & & \\
+  & U^{(d)} \ar[r,hookrightarrow,"\iota"']
+  & C^{(d)}
+  & X_C \ar[l,"\pi_C"]
+\end{tikzcd}
+\]
+
+Reading the diagram:
+\begin{itemize}
+  \item The \textbf{left block} (columns 1--2) is the torsor tower of
+        \Cref{prop:torsor_tower_diagram}: $H$-torsors horizontally, the
+        $G/H$-torsor on the lower right, and the composite $G$-torsor
+        $\cP^{[d]_G} \to U^{(d)}$.
+  \item The \textbf{middle block} (column 3) records the compactifications.
+        The map $\iota$ is the canonical open immersion
+        $U^{(d)} \hookrightarrow C^{(d)}$. The map $\iota'$ is the open
+        immersion $(\cP_{G/H})^{(d)} \hookrightarrow C'^{(d)}$ obtained from
+        compactifying $\cP_{G/H} \subset C'$. The vertical $f^{(d)}$ is the
+        finite morphism of symmetric powers; restricting along $\iota'$
+        recovers the canonical map $(\cP_{G/H})^{(d)} \to U^{(d)}$, which is
+        the composite of $q$ with the $G/H$-torsor.
+  \item The \textbf{right block} (column 4) records the blowups at the
+        diagonal points at infinity. The dashed arrow
+        $f_X \colon X_{C'} \dashrightarrow X_C$ is the rational lift of
+        $f^{(d)}$, defined on the strict transform; on generic points of
+        the exceptional divisors it sends $\eta_{C'} \mapsto \eta_C$ and the
+        induced extension of DVRs $V_C \hookrightarrow V_{C'}$ has
+        ramification index $e$.
+\end{itemize}
+
+\section{Unramifiedness of $\cP^{[d]_G}$ at $\eta_C$}
+
+\begin{thm}\label{thm:main}
+Suppose
+\begin{enumerate}
+  \item[\textnormal{(H1)}] $(\cP_{G/H})^{[d]} \to U^{(d)}$ is unramified at
+        $\eta_C$; and
+  \item[\textnormal{(H2)}] $\cP^{[d]_H} \to (\cP_{G/H})^{(d)}$ is unramified
+        at $\eta_{C'}$.
+\end{enumerate}
+Then $\cP^{[d]_G} \to U^{(d)}$ is unramified at $\eta_C$.
+\end{thm}
+
+\begin{proof}
+By the tower
+\[
+\cP^{[d]_G} \xrightarrow{\;H\;} (\cP_{G/H})^{[d]} \xrightarrow{\;G/H\;} U^{(d)},
+\]
+unramifiedness of the composite at $\eta_C$ follows from unramifiedness of
+each factor at the corresponding point. The lower factor is unramified at
+$\eta_C$ by hypothesis (H1). It therefore suffices to prove the following.
+
+\medskip
+\noindent\textbf{Claim.} The $H$-torsor
+$\cP^{[d]_G} \to (\cP_{G/H})^{[d]}$ extends to an unramified cover at any
+point $\xi$ of $(\cP_{G/H})^{[d]}$ lying above $\eta_C$.
+\medskip
+
+Fix such a $\xi$. Pass to local rings:
+\[
+A := \mathcal{O}_{(\cP_{G/H})^{[d]},\,\xi}\,, \qquad
+B := \mathcal{O}_{\cP^{[d]_G}}\!\bigl(\text{base change}\bigr),
+\]
+where, more precisely, $B$ is the semilocal ring obtained from
+$\cP^{[d]_G} \times_{(\cP_{G/H})^{[d]}} \operatorname{Spec} A$. Since
+$\cP^{[d]_G} \to (\cP_{G/H})^{[d]}$ is finite, $A \to B$ is finite, and we
+must show that it is \'etale at every maximal ideal of $B$.
+
+By (H1), the local ring $A$ is a DVR (it is regular of dimension one,
+with residue field a finite separable extension of the residue field of
+$V_C$, by definition of unramifiedness at $\eta_C$). The point $\eta_{C'}$
+of $C'^{(d)}$ lies above $\eta_C$ via $f^{(d)}$, and via the open immersion
+$\iota'$ it lies in $(\cP_{G/H})^{(d)}$. Let $\xi'$ be the unique point of
+$(\cP_{G/H})^{(d)}$ above $\xi$ corresponding to $\eta_{C'}$ (so that $\xi'$
+maps to $\xi$ under $q$ and to $\eta_C$ under the composite to $U^{(d)}$).
+Set
+\[
+A' := \mathcal{O}_{(\cP_{G/H})^{(d)},\,\xi'}\,, \qquad
+B' := \mathcal{O}_{\cP^{[d]_H}}\!\bigl(\text{base change to }A'\bigr).
+\]
+The Cartesian square in \Cref{prop:torsor_tower_diagram} localizes to a
+Cartesian square of finite ring extensions
+\[
+\begin{tikzcd}[row sep=large, column sep=large]
+B \ar[r] & B' \\
+A \ar[u] \ar[r] & A' \ar[u]
+\end{tikzcd}
+\qquad B' \;=\; B \otimes_A A'.
+\]
+
+\textbf{Step 1: $A \to A'$ is faithfully flat.}
+Both $A$ and $A'$ are DVRs (the latter by construction, since $\xi'$
+specializes to the generic point of the exceptional divisor of
+$X_{C'} \to C'^{(d)}$, which is regular of codimension one). The map
+$A \to A'$ is the localization of the finite morphism $q$ at the chosen
+points, hence it is finite. A finite, injective, local homomorphism of DVRs
+is automatically flat (free of rank equal to the degree of the residue
+extension times the ramification index), and is faithfully flat because the
+maximal ideal of $A$ generates a non-unit ideal in $A'$.
+
+\textbf{Step 2: $A' \to B'$ is \'etale.}
+The cover $\cP^{[d]_H} \to (\cP_{G/H})^{(d)}$ is an $H$-torsor over the open
+base $U^{(d)}$ pulled back along $q$, hence \'etale wherever it is defined as
+such; by hypothesis (H2) it is moreover unramified at $\eta_{C'}$, hence
+\'etale at $\xi'$ (a finite, unramified, flat morphism is \'etale). Therefore
+$A' \to B'$ is \'etale at every maximal ideal of $B'$.
+
+\textbf{Step 3: \'Etale descent.}
+We have the Cartesian square
+\[
+B' = B \otimes_A A',
+\]
+with $A \to A'$ faithfully flat (Step 1) and $A' \to B'$ \'etale (Step 2).
+By fpqc descent of \'etale morphisms (\cite[\href{https://stacks.math.columbia.edu/tag/02L4}{Tag~02L4}]{stacks}; equivalently, \cite[Exp.~IX, Prop.~4.1]{SGA1}), \'etaleness descends along faithfully flat morphisms: if
+$A' \to B \otimes_A A'$ is \'etale and $A \to A'$ is faithfully flat, then
+$A \to B$ is \'etale.
+
+Therefore $A \to B$ is \'etale, i.e.\ $\cP^{[d]_G} \to (\cP_{G/H})^{[d]}$ is
+\'etale at $\xi$. Since $\xi$ was an arbitrary point above $\eta_C$, we
+conclude that $\cP^{[d]_G} \to (\cP_{G/H})^{[d]}$ is unramified above
+$\eta_C$.
+
+Combining with (H1), the composite $\cP^{[d]_G} \to U^{(d)}$ is unramified
+at $\eta_C$, which proves the claim.
+\end{proof}
+
+\begin{rmk}
+The proof is purely descent-theoretic: the only properties of the symmetric
+powers and blowups used are that the relevant local rings $A$ and $A'$ are
+DVRs, that $q$ is finite, and that the Cartesian square in
+\Cref{prop:torsor_tower_diagram} remains Cartesian after localization.
+In particular, no Abhyankar-style hypothesis on tameness or coprimality of
+$e$ with the residue characteristic is needed.
+\end{rmk}
+
+\begin{rmk}[Why descent and not multiplicativity]
+Naive multiplicativity of ramification indices in the diamond
+\[
+V_C \subset V_1 \subset W_1 \subset W_2,\qquad V_C \subset V_1 \subset V_2 \subset W_2
+\]
+gives only $e_1 \cdot e(W_2/W_1) = e$, where $e_1 = e(W_1/V_1)$ is the
+ramification of $\cP^{[d]_G}/(\cP_{G/H})^{[d]}$ at $\xi$ that we wish to
+control. Without further input this constrains $e_1$ only by $e_1 \mid e$
+(in the tame range, by Abhyankar's lemma). The Cartesian-ness of the upper
+square is precisely what upgrades this to the strict equality $e_1 = 1$:
+it identifies $B' = B \otimes_A A'$, which is the hypothesis of fpqc descent
+of \'etaleness.
+\end{rmk}
+
+\begin{thebibliography}{9}
+\bibitem{SGA1} A.~Grothendieck, \emph{Rev\^{e}tements \'Etales et Groupe
+Fondamental (SGA 1)}, LNM 224, Springer, 1971.
+\bibitem{stacks} The Stacks Project Authors, \emph{Stacks Project},
+\url{https://stacks.math.columbia.edu}.
+\end{thebibliography}
+
+\end{document}
