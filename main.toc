@@ -1,11 +1,12 @@
 \babel@toc {english}{}\relax 
 \contentsline {section}{\numberline {1}Introduction}{3}{section.1}%
 \contentsline {section}{\numberline {2}Preliminaries}{5}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Torsors}{5}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Torsors over the \'Etale's Sites}{7}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Symmetric Powers of Schemes and Torsors}{9}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}Algebraic Preliminaries on Ramification}{15}{subsection.2.4}%
-\contentsline {subsection}{\numberline {2.5}Algebraic Geometry}{18}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.1}Scheme Quotients in general}{5}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Torsors}{5}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Torsors over the \'Etale's Sites}{7}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Symmetric Powers of Schemes and Torsors}{9}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Algebraic Preliminaries on Ramification}{15}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}Algebraic Geometry}{18}{subsection.2.6}%
 \contentsline {section}{\numberline {3}Ramification After Blowup Is Tame}{20}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Ramification of $G$-Torsors}{20}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}Proof of Theorem \ref {theorem:SymmetricPowerOfSheavesIsTamelyRamifiedReduction}}{24}{subsection.3.2}%
