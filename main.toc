@@ -20,3 +20,6 @@
 \contentsline {subsubsection}{\numberline {4.5.1}Reduction Lemmas}{36}{subsubsection.4.5.1}%
 \contentsline {subsection}{\numberline {4.6}Proof of \Cref {theorem:SymmetricPowerOfSheafIsTamelyRamified}}{38}{subsection.4.6}%
 \contentsline {section}{\numberline {5}Proof of \Cref {thm:GCFT_reduced}}{39}{section.5}%
+\contentsline {section}{\numberline {6}Setup and notation}{40}{section.6}%
+\contentsline {section}{\numberline {7}The master diagram}{40}{section.7}%
+\contentsline {section}{\numberline {8}Unramifiedness of $\mathcal {P}^{[d]_G}$ at $\eta _C$}{41}{section.8}%

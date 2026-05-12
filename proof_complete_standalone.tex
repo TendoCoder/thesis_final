@@ -1,0 +1,444 @@
+% =============================================================================
+%  proof_complete_standalone.tex
+%
+%  Self-contained version of proof_complete.tex.  It reuses the same preamble
+%  (includes.tex / MacrosAndFigures.tex / Bib.bib) as main.tex.
+%
+%  Layout:
+%    1. Background        -- general facts on symmetric powers of torsors
+%                            (over an abstract base) that the proof quotes;
+%    2. Geometric setting -- specialise to a curve: bounded ramification,
+%                            the symmetric tower over U^(d), compactification,
+%                            blowup;
+%    3. The master diagram;
+%    4. The unramifiedness theorem and its proof.
+%
+%  Compile with:  latexmk -pdf proof_complete_standalone.tex   (uses biber)
+% =============================================================================
+\documentclass[11pt]{article}
+\usepackage{geometry}\geometry{margin=1in}
+\usepackage[T1]{fontenc}
+\usepackage{ifthen}
+
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0.5em}
+
+\input{includes}
+\input{MacrosAndFigures}
+
+\usepackage{csquotes}
+\usepackage[
+backend=biber,
+style=alphabetic,
+sorting=ynt
+]{biblatex}
+\addbibresource{Bib.bib}
+
+\newboolean{ThesisIntro}
+\setboolean{ThesisIntro}{false}
+
+\title{Unramifiedness of $\cP^{[d]_G}$ at the exceptional divisor\\[2pt]
+       {\large (standalone excerpt)}}
+\author{Assaf Marzan}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\noindent
+\textbf{Roadmap.} \Cref{sec:background} collects, without re-deriving them, the
+facts about symmetric powers of torsors that the proof uses, stated over an
+abstract base.  \Cref{sec:setting} specialises this to a smooth projective
+curve: it recalls the notion of bounded ramification and fixes the geometric
+data (the symmetric tower over $U^{(d)}$, the compactification $C' \to C$, the
+blowups at the points at infinity).  \Cref{sec:master} assembles everything into
+a single master diagram, and \Cref{sec:main} states and proves the
+unramifiedness theorem.
+
+% #############################################################################
+\section{Background}\label{sec:background}
+% #############################################################################
+
+Throughout this section $S$ is a base scheme, $G$ a finite abelian group,
+$H \subseteq G$ a subgroup, and $d \geq 0$ an integer.  All bases are assumed
+Zariski-locally quasi-projective over $S$, so that the symmetric-power quotients
+below exist as schemes.
+
+%------------------------------------------------------------------------------
+\subsection{Symmetric powers of torsors}\label{subsec:sym-powers}
+%------------------------------------------------------------------------------
+
+Let $\cP$ be a $G$-torsor over an $S$-scheme $X$.  For each
+$i \in \llbracket 1,d\rrbracket$ write $p_i : X^{\times_S d} \to X$ for the
+$i$-th projection and consider the $G$-torsor
+\[
+p_1^{-1}\cP \otimes^G \cdots \otimes^G p_d^{-1}\cP \;=\; \KG \backslash \cP^{\times_S d}
+\]
+over $X^{\times_S d}$, where $\KG \subseteq G^d$ is the kernel of the
+multiplication morphism $G^d \to G$ (the dependence on $d$ is suppressed in the
+notation).  The symmetric group $S_d$ acts on the right on
+$\KG \backslash \cP^{\times_S d}$ by $(p_i)_i \cdot \sigma = (p_{\sigma(i)})_i$,
+and this action commutes with the left $G$-action.
+
+\begin{prop}[\cite{Guignard2018}, Proposition 2.32]\label{prop:symmetric_power_torsor}
+The right action of $S_d$ on $\KG \backslash \cP^{\times_S d}$ is admissible, so
+that the quotient $\cP^{[d]}$ of $\KG \backslash \cP^{\times_S d}$ by $S_d$
+exists as a scheme over $S$.  Moreover, the canonical morphism
+$\cP^{[d]} \to \mathrm{Sym}_S^d(X)$ is a $G$-torsor, and the morphism
+\[
+p_1^{-1}\cP \otimes^G \cdots \otimes^G p_d^{-1}\cP \to r^{-1}\cP^{[d]},
+\]
+where $r : X^{\times_S d} \to \mathrm{Sym}_S^d(X)$ is the canonical projection,
+is an isomorphism of $G$-torsors over $X^{\times_S d}$.
+\end{prop}
+
+When $G$ is abelian the condition $\prod_{i=1}^d g_i = 1$ defining $\KG$ is
+invariant under permuting the coordinates, so the (left) $S_d$-action normalises
+the $\KG$-action.  Writing $\Xi = \KG \rtimes S_d$ for the resulting finite
+group, acting on $\cP^{\times_S d}$ by
+\[
+\bigl((g_1,\dots,g_d),\sigma\bigr) \star (p_1,\dots,p_d)
+   = \bigl(g_1 p_{\sigma^{-1}(1)},\,\dots,\,g_d p_{\sigma^{-1}(d)}\bigr),
+\]
+one has $(\KG \backslash \cP^{\times_S d})/S_d \cong \Xi \backslash \cP^{\times_S d}$.
+
+\begin{cor}\label{cor:sym-power-quotient}
+There is a natural canonical morphism
+\[
+q : S_d \backslash \cP^{\times_S d} \longrightarrow \Xi \backslash \cP^{\times_S d}
+\qquad\text{equivalently}\qquad
+q : S_d \backslash \cP^{\times_S d} \longrightarrow (\KG \backslash \cP^{\times_S d})/S_d ,
+\]
+the comparison between the symmetric power of $\cP$ \emph{as a scheme} and the
+symmetric power of $\cP$ \emph{as a $G$-torsor}.  We write $\cP^{(d)}$ for the
+former and $\cP^{[d]}$ for the latter, so that $q : \cP^{(d)} \to \cP^{[d]}$.
+\end{cor}
+\begin{proof}
+$S_d$ is a subgroup of $\Xi$, hence any $\Xi$-invariant morphism is
+automatically $S_d$-invariant.
+\end{proof}
+
+%------------------------------------------------------------------------------
+\subsection{The canonical decomposition of a torsor}\label{subsec:decomposition}
+%------------------------------------------------------------------------------
+
+\begin{prop}\label{prop:quotient_torsors_finite}\label{prop:quotient_torsors}
+Let $\cP \to X$ be a $G$-torsor in $X_{\text{\'et}}$ and let $H \subseteq G$ be
+a subgroup, with quotient map $\pi : G \to G/H$.  Then $\cP \to X$ factors
+\[
+\cP \xrightarrow{\;\phi\;} \cP_{G/H} \xrightarrow{\;\psi\;} X,
+\]
+uniquely up to a unique isomorphism commuting with the projections, where
+\begin{enumerate}
+    \item $\cP_{G/H} := \cP \times^G (G/H)$ is a $G/H$-torsor over $X$, and
+    \item $\cP$ is an $H$-torsor over the scheme $\cP_{G/H}$ via $\phi$.
+\end{enumerate}
+\end{prop}
+
+%------------------------------------------------------------------------------
+\subsection{The tower of symmetric quotients}\label{subsection:quotient_torsors_towers}
+%------------------------------------------------------------------------------
+
+Fix a $G$-torsor $\cP \to X$ and a subgroup $H \subseteq G$, with canonical
+factorisation $\cP \xrightarrow{\phi} \cP_{G/H} \xrightarrow{\psi} X$ as in
+\Cref{prop:quotient_torsors_finite} ($\phi$ an $H$-torsor, $\psi$ a
+$G/H$-torsor).  We record how the symmetric-power construction of
+\Cref{subsec:sym-powers} interacts with this factorisation.
+
+\paragraph{Summation kernels.}
+Besides $\KG = \ker(G^d \to G)$ we need
+\[
+K_H := \ker(H^d \to H), \qquad K_{G/H} := \ker\bigl((G/H)^d \to G/H\bigr).
+\]
+The snake lemma applied to
+\[
+\begin{tikzcd}[row sep=large, column sep=large]
+0 \arrow[r] & H^d \arrow[r] \arrow[d, twoheadrightarrow] & G^d \arrow[r] \arrow[d, twoheadrightarrow] & (G/H)^d \arrow[r] \arrow[d, twoheadrightarrow] & 0 \\
+0 \arrow[r] & H \arrow[r] & G \arrow[r] & G/H \arrow[r] & 0,
+\end{tikzcd}
+\]
+(the vertical maps being the surjective summation morphisms) gives a short exact
+sequence
+\begin{equation}\label{eq:summation_kernels_ses}
+0 \to K_H \to \KG \to K_{G/H} \to 0,
+\end{equation}
+hence $\KG/K_H \cong K_{G/H}$.  Inside $G^d$ we have the chains of subgroups
+\[
+K_H \;\subseteq\; \KG \;\subseteq\; H^d + \KG, \qquad H^d \;\subseteq\; H^d + \KG .
+\]
+
+\paragraph{Four quotient schemes.}
+Let $S_d$ act on $\cP^{\times_S d}$ as in \Cref{cor:sym-power-quotient}, and let
+each of the subgroups above act diagonally via the $G$-action on $\cP$.  Set
+\[
+\begin{aligned}
+    \cP^{[d]_G}        &:= (\KG \rtimes S_d)\backslash \cP^{\times_S d},
+        &&\text{the symmetric $G$-power of $\cP$;}\\
+    \cP^{[d]_H}        &:= (K_H \rtimes S_d)\backslash \cP^{\times_S d},
+        &&\text{the symmetric $H$-power of $\cP$ relative to $\phi$;}\\
+    (\cP_{G/H})^{(d)}  &:= (H^d \rtimes S_d)\backslash \cP^{\times_S d},
+        &&\text{the symmetric power of the scheme $\cP_{G/H}$;}\\
+    (\cP_{G/H})^{[d]}  &:= \bigl((H^d + \KG)\rtimes S_d\bigr)\backslash \cP^{\times_S d},
+        &&\text{the symmetric $G/H$-power of $\cP_{G/H}$.}
+\end{aligned}
+\]
+
+\begin{prop}\label{prop:torsor_tower_diagram}
+The four quotient schemes above exist and fit into a canonical commutative
+diagram
+\[
+\begin{tikzcd}[row sep=large, column sep=large]
+    \cP^{[d]_H} \arrow[r, "H"] \arrow[d] & (\cP_{G/H})^{(d)} \arrow[d, "q"] \\
+    \cP^{[d]_G} \arrow[r, "H"'] \arrow[dr, "G"', bend right=20] & (\cP_{G/H})^{[d]} \arrow[d, "G/H"] \\
+    & X^{(d)},
+\end{tikzcd}
+\]
+in which each labelled arrow is a torsor under the indicated constant group, the
+right-hand vertical $q$ is the canonical projection of
+\Cref{cor:sym-power-quotient} applied to $\cP_{G/H} \to X$, and the upper square
+is Cartesian:
+\[
+\cP^{[d]_H} \cong \cP^{[d]_G} \times_{(\cP_{G/H})^{[d]}} (\cP_{G/H})^{(d)}.
+\]
+The unlabelled left-hand vertical $\cP^{[d]_H} \to \cP^{[d]_G}$ is then the base
+change of $q$ along $\cP^{[d]_G} \to (\cP_{G/H})^{[d]}$.  Neither $q$ nor this
+left-hand vertical is, in general, a torsor under a constant group scheme.
+\end{prop}
+\begin{proof}
+The four labelled arrows are torsors under the indicated constant groups by
+applying \Cref{prop:symmetric_power_torsor} and
+\Cref{prop:quotient_torsors_finite}:
+\begin{itemize}
+    \item to the $G$-torsor $\cP \to X$, giving the $G$-torsor
+          $\cP^{[d]_G} \to X^{(d)}$ (the diagonal arrow);
+    \item to the $H$-torsor $\phi : \cP \to \cP_{G/H}$ (with $\cP_{G/H}$ as
+          base), giving the $H$-torsor $\cP^{[d]_H} \to (\cP_{G/H})^{(d)}$
+          (the top arrow);
+    \item to the $G/H$-torsor $\psi : \cP_{G/H} \to X$, giving the $G/H$-torsor
+          $(\cP_{G/H})^{[d]} \to X^{(d)}$ (the bottom-right vertical) and, via
+          \Cref{cor:sym-power-quotient}, the comparison map
+          $q : (\cP_{G/H})^{(d)} \to (\cP_{G/H})^{[d]}$.
+\end{itemize}
+The factorisation $\cP^{[d]_G} \xrightarrow{H} (\cP_{G/H})^{[d]} \xrightarrow{G/H} X^{(d)}$
+of the diagonal arrow is the canonical decomposition of
+\Cref{prop:quotient_torsors_finite} applied to $\cP^{[d]_G} \to X^{(d)}$ and
+$H \subseteq G$: both $\cP^{[d]_G} \times^G (G/H)$ and $(\cP_{G/H})^{[d]}$ are
+realised as the admissible quotient
+$\bigl((H^d + \KG)\rtimes S_d\bigr)\backslash \cP^{\times_S d}$.
+
+For the Cartesian property, set
+$F := \cP^{[d]_G} \times_{(\cP_{G/H})^{[d]}} (\cP_{G/H})^{(d)}$.  Base-changing
+the $H$-torsor $\cP^{[d]_G} \to (\cP_{G/H})^{[d]}$ along $q$ exhibits $F$ as an
+$H$-torsor over $(\cP_{G/H})^{(d)}$.  The universal property of the fibre
+product gives a canonical $H$-equivariant morphism $\cP^{[d]_H} \to F$ over
+$(\cP_{G/H})^{(d)}$; any morphism of $H$-torsors is an isomorphism, so
+$\cP^{[d]_H} \cong F$ and the upper square is Cartesian.  Via this square the
+left vertical $\cP^{[d]_H} \to \cP^{[d]_G}$ is identified with the base change
+of $q$ along $\cP^{[d]_G} \to (\cP_{G/H})^{[d]}$.
+\end{proof}
+
+% #############################################################################
+\section{The geometric setting}\label{sec:setting}
+% #############################################################################
+
+%------------------------------------------------------------------------------
+\subsection{Bounded ramification along a curve}\label{subsec:bounded-ram}
+%------------------------------------------------------------------------------
+
+Let $C$ be a smooth projective geometrically connected curve over a field $k$,
+let $\mdls$ be a fixed modulus, and put $U = C \setminus \mdls$.  Let
+$\cP \to U$ be a $G$-torsor with $G$ finite abelian.  For a closed point $P$ of
+$C$, passing to the completion $\widehat{\Oo}_{C,P}$ gives the complete local
+field $\widehat{K}_P$, and restricting $\cP$ to $\Spec(\widehat{K}_P)$ yields a
+$G$-torsor over a field, hence a disjoint union of spectra of finite separable
+field extensions
+\[
+\cP|_{\Spec(\widehat{K}_P)} \cong \bigsqcup \Spec(F),
+\]
+in which the extensions $F/\widehat{K}_P$ are all isomorphic and Galois,
+$H = \Gal(F/\widehat{K}_P)$ is the stabiliser of a connected component (a
+subgroup of $G$), and there are $[G:H]$ components.  Write $H^r$ for the $r$-th
+higher ramification group of $F/\widehat{K}_P$.
+
+\begin{definition}\label{definition:local_ramification_boundness}
+The extension $F/\widehat{K}_P$ \textit{has ramification bounded by $r$} if the
+ramification group $H^r$ is trivial.  We say \textit{$\cP$ has ramification
+bounded by $r$ at $P$} if the corresponding local extensions $F/\widehat{K}_P$
+satisfy this condition.
+\end{definition}
+
+%------------------------------------------------------------------------------
+\subsection{The symmetric tower over \texorpdfstring{$U^{(d)}$}{the symmetric power}}
+\label{subsec:tower-over-U}
+%------------------------------------------------------------------------------
+
+For the rest of the note we fix, in addition to the data above:
+\begin{itemize}
+  \item a normal subgroup $H \trianglelefteq G$;
+  \item a point $p_\infty \in \mdls$ and an integer $d \geq 1$;
+\end{itemize}
+and we assume that $\cP \to U$ has ramification bounded by $d$ at $p_\infty$ in
+the sense of \Cref{definition:local_ramification_boundness} (i.e.\ the $d$-th
+higher ramification group of the extension of DVRs at $p_\infty$ is trivial).
+
+Apply the construction of \Cref{subsection:quotient_torsors_towers} with
+$S = \Spec k$ and base $X = U$.  This produces the four quotient schemes
+\[
+\cP^{[d]_H},\qquad \cP^{[d]_G},\qquad (\cP_{G/H})^{(d)},\qquad (\cP_{G/H})^{[d]},
+\]
+and, by \Cref{prop:torsor_tower_diagram}, the canonical commutative diagram with
+Cartesian upper square
+\[
+\begin{tikzcd}[row sep=large, column sep=large]
+\cP^{[d]_H} \ar[r,"H"] \ar[d]
+  & (\cP_{G/H})^{(d)} \ar[d,"q"] \\
+\cP^{[d]_G} \ar[r,"H"'] \ar[dr,"G"',bend right=15]
+  & (\cP_{G/H})^{[d]} \ar[d,"G/H"] \\
+  & U^{(d)},
+\end{tikzcd}
+\]
+in which the arrows labelled $H$, $G/H$ and $G$ are torsors under the indicated
+finite constant groups (in particular, \'etale).
+
+%------------------------------------------------------------------------------
+\subsection{Compactification and blowup}\label{subsec:compactify-blowup}
+%------------------------------------------------------------------------------
+
+The $G/H$-torsor $\cP_{G/H} \to U$ compactifies to a finite morphism of smooth
+projective curves $f \colon C' \to C$; fix $p'_\infty \in f^{-1}(p_\infty)$.
+Taking $d$-fold symmetric powers gives the finite morphism
+\[
+f^{(d)} \colon C'^{(d)} \to C^{(d)}, \qquad d \cdot p'_\infty \longmapsto d \cdot p_\infty .
+\]
+Let
+\[
+\pi_C \colon X_C \to C^{(d)},\qquad \pi_{C'} \colon X_{C'} \to C'^{(d)}
+\]
+be the blowups at $d \cdot p_\infty$ and $d \cdot p'_\infty$ respectively, with
+exceptional divisors $E_C, E_{C'}$ and generic points $\eta_C, \eta_{C'}$.  The
+local rings at these generic points are the discrete valuation rings
+\[
+V_C := \mathcal{O}_{X_C,\eta_C} \subset K(C^{(d)}),\qquad
+V_{C'} := \mathcal{O}_{X_{C'},\eta_{C'}} \subset K(C'^{(d)}).
+\]
+
+% #############################################################################
+\section{The master diagram}\label{sec:master}
+% #############################################################################
+
+The torsor tower over $U^{(d)}$ embeds into the projective geometry of $C^{(d)}$
+and $C'^{(d)}$, which in turn carry the canonical blowups at the points at
+infinity.  Assembling all of this:
+\[
+\begin{tikzcd}[row sep=2.4em, column sep=2.2em]
+\cP^{[d]_H} \ar[r,"H"] \ar[d]
+  & (\cP_{G/H})^{(d)} \ar[d,"q"] \ar[r,hookrightarrow,"\iota'"]
+  & C'^{(d)} \ar[dd,"f^{(d)}"]
+  & X_{C'} \ar[l,"\pi_{C'}"'] \ar[dd,dashed,"f_X"] \\
+\cP^{[d]_G} \ar[r,"H"'] \ar[dr,"G"',bend right=10]
+  & (\cP_{G/H})^{[d]} \ar[d,"G/H"]
+  & & \\
+  & U^{(d)} \ar[r,hookrightarrow,"\iota"']
+  & C^{(d)}
+  & X_C \ar[l,"\pi_C"]
+\end{tikzcd}
+\]
+Reading the diagram from left to right:
+\begin{description}
+  \item[Left block (columns 1--2):] the torsor tower of
+        \Cref{prop:torsor_tower_diagram} over $U^{(d)}$ --- $H$-torsors
+        horizontally, the $G/H$-torsor on the lower right, and the composite
+        $G$-torsor $\cP^{[d]_G} \to U^{(d)}$.
+  \item[Middle block (column 3):] the compactifications.  Here $\iota$ is the
+        canonical open immersion $U^{(d)} \hookrightarrow C^{(d)}$, and $\iota'$
+        is the open immersion $(\cP_{G/H})^{(d)} \hookrightarrow C'^{(d)}$
+        coming from $\cP_{G/H} \subset C'$.  Restricting $f^{(d)}$ along
+        $\iota'$ recovers the canonical map $(\cP_{G/H})^{(d)} \to U^{(d)}$,
+        i.e.\ the composite of $q$ with the $G/H$-torsor.
+  \item[Right block (column 4):] the blowups at the diagonal points at infinity.
+        The dashed arrow $f_X \colon X_{C'} \dashrightarrow X_C$ is the rational
+        lift of $f^{(d)}$, defined on the strict transform; on generic points of
+        the exceptional divisors it sends $\eta_{C'} \mapsto \eta_C$, inducing
+        an extension of DVRs $V_C \hookrightarrow V_{C'}$.
+\end{description}
+
+% #############################################################################
+\section{Unramifiedness of \texorpdfstring{$\cP^{[d]_G}$}{P\^{}[d]\_G} at \texorpdfstring{$\eta_C$}{eta\_C}}\label{sec:main}
+% #############################################################################
+
+\begin{theorem}\label{thm:main}
+Suppose
+\begin{enumerate}
+  \item[\textnormal{(H1)}] $(\cP_{G/H})^{[d]} \to U^{(d)}$ is unramified at
+        $\eta_C$; and
+  \item[\textnormal{(H2)}] $\cP^{[d]_H} \to (\cP_{G/H})^{(d)}$ is unramified at
+        $\eta_{C'}$.
+\end{enumerate}
+Then $\cP^{[d]_G} \to U^{(d)}$ is unramified at $\eta_C$.
+\end{theorem}
+
+\textbf{Proof 1}
+\begin{proof}
+We translate the unramifiedness conditions into the language of function fields and valuation rings. Let $K = K(C^{(d)})$ and $K' = K(C'^{(d)})$ be the function fields of the base symmetric powers. The generic points $\eta_C$ and $\eta_{C'}$ of the respective exceptional divisors correspond to discrete valuations $v_C$ on $K$ and $v_{C'}$ on $K'$. The rational map $f_X$ induces an inclusion $K \hookrightarrow K'$, with $v_{C'}$ extending $v_C$.
+
+Let $M = K((\cP_{G/H})^{[d]})$ and $L = K(\cP^{[d]_G})$. From the torsor tower and the Cartesian square of \Cref{prop:torsor_tower_diagram}, we have field inclusions $K \subset M \subset L$ and $M \subset K'$, with $K(\cP^{[d]_H})$ identified as the compositum $L \cdot K'$.
+
+Let $w_H$ be a valuation on $L \cdot K'$ extending $v_{C'}$. This naturally induces valuations lower in the tower: $w_L = w_H|_L$ and $w_M = w_H|_M$. Because the ramification index $e$ is multiplicative in towers of finite extensions, we can compute $e(w_H | w_M)$ in two different ways: through $K'$ and through $L$.
+
+First, consider the tower $L \cdot K' / K' / M$. By hypothesis (H2), the extension $\cP^{[d]_H} \to (\cP_{G/H})^{(d)}$ is unramified at $\eta_{C'}$, which means $e(w_H | v_{C'}) = 1$. Furthermore, the map $q \colon (\cP_{G/H})^{(d)} \to (\cP_{G/H})^{[d]}$ is a quotient by the group $K_{G/H}$. Because the initial torsor $\cP \to U$ has ramification bounded by $d$ at $p_\infty$, the action of $K_{G/H}$ is free at $\eta_{C'}$. This ensures $K'/M$ is unramified at $w_M$, meaning $e(v_{C'} | w_M) = 1$. Multiplying these gives:
+\[
+e(w_H | w_M) = e(w_H | v_{C'}) \cdot e(v_{C'} | w_M) = 1 \cdot 1 = 1.
+\]
+
+Second, consider the tower $L \cdot K' / L / M$. We have:
+\[
+e(w_H | w_M) = e(w_H | w_L) \cdot e(w_L | w_M).
+\]
+Since we established that $e(w_H | w_M) = 1$, and ramification indices are positive integers, it immediately forces $e(w_L | w_M) = 1$.
+
+Finally, to show that $\cP^{[d]_G} \to U^{(d)}$ is unramified at $\eta_C$, we must show $e(w_L | v_C) = 1$. By hypothesis (H1), the extension $(\cP_{G/H})^{[d]} \to U^{(d)}$ is unramified at $\eta_C$, which gives $e(w_M | v_C) = 1$. Using multiplicativity one last time:
+\[
+e(w_L | v_C) = e(w_L | w_M) \cdot e(w_M | v_C) = 1 \cdot 1 = 1.
+\]
+This completes the proof.
+\end{proof}
+
+\textbf{Proof 2}
+\begin{proof}
+We translate the unramifiedness conditions into the language of function fields and valuation rings. Let $K = K(C^{(d)})$ and $K' = K(C'^{(d)})$ be the function fields of the base symmetric powers. The generic points $\eta_C$ and $\eta_{C'}$ of the respective exceptional divisors correspond to discrete valuation rings $V_C \subset K$ and $V_{C'} \subset K'$. The rational map $f_X$ induces an extension of these DVRs, $V_C \hookrightarrow V_{C'}$.
+
+Let $L = K(\cP^{[d]_G})$ and $M = K((\cP_{G/H})^{[d]})$. The sequence of torsors $\cP^{[d]_G} \xrightarrow{H} (\cP_{G/H})^{[d]} \xrightarrow{G/H} U^{(d)}$ yields a tower of Galois extensions of function fields $L / M / K$, with $\Gal(L/M) \cong H$ and $\Gal(M/K) \cong G/H$.
+
+By hypothesis (H1), the extension $M/K$ is unramified at $V_C$. Let $W_M \subset M$ be a valuation ring extending $V_C$; then $e(W_M / V_C) = 1$. To prove that $\cP^{[d]_G} \to U^{(d)}$ is unramified at $\eta_C$, it therefore suffices to show that the extension $L/M$ is unramified at $W_M$.
+
+Let $I_L \subseteq \Gal(L/M) \cong H$ denote the inertia group of $L/M$ at a valuation $w$ extending $W_M$. We wish to show $I_L = \{1\}$.
+
+From the Cartesian square of \Cref{prop:torsor_tower_diagram}, which holds over $U^{(d)}$ and thus induces a tensor product of function fields, we have
+\[
+L_H := K(\cP^{[d]_H}) \cong L \otimes_M K'.
+\]
+
+\textcolor{red}{maybe its true (with enough context, but not right away)}
+\textcolor{red}{This means $L_H$ is the compositum $L \cdot K'$. Because $L/M$ is a Galois extension, $L$ and $K'$ are linearly disjoint over $M$. Consequently, $\Gal(L_H/M) \cong \Gal(L/M) \times \Gal(K'/M)$.}
+
+
+Let $w'$ be a valuation of $L_H$ extending $w$ on $L$ and $V_{C'}$ on $K'$, and let $I_{L_H} \subseteq \Gal(L_H/M)$ be its inertia group. The projection maps
+\[
+p_1 : \Gal(L_H/M) \to \Gal(L/M) \cong H, \qquad p_2 : \Gal(L_H/M) \to \Gal(K'/M)
+\]
+restrict to the inertia groups, giving $p_1(I_{L_H}) = I_L$.
+
+The inertia group of the extension $L_H / K'$ at $w'$ is exactly $\ker(p_2) \cap I_{L_H}$. By hypothesis (H2), the extension $\cP^{[d]_H} \to (\cP_{G/H})^{(d)}$ is unramified at $\eta_{C'}$, meaning $L_H/K'$ is unramified at $V_{C'}$. Therefore,
+\[
+\ker(p_2) \cap I_{L_H} = \{1\}.
+\]
+This trivial intersection implies that the restriction $p_2|_{I_{L_H}} : I_{L_H} \to \Gal(K'/M)$ is injective.
+
+At the same time, the map $q \colon (\cP_{G/H})^{(d)} \to (\cP_{G/H})^{[d]}$ identifies $\Gal(K'/M)$ with the quotient group $\KG / K_H \cong K_{G/H}$. Crucially, the initial assumption that the torsor $\cP \to U$ has ramification bounded by $d$ at $p_\infty$ ensures that the action of $K_{G/H}$ on $C'^{(d)}$ is free at the generic point $\eta_{C'}$ of the exceptional divisor. Thus, the extension $K'/M$ is itself unramified at $W_M$, meaning its inertia group $p_2(I_{L_H}) \subseteq K_{G/H}$ is trivial.
+
+Since $p_2|_{I_{L_H}}$ is injective and its image is trivial, we conclude $I_{L_H} = \{1\}$. Finally, since $I_L = p_1(I_{L_H})$, it follows that $I_L = \{1\}$, so $L/M$ is unramified at $W_M$. This completes the proof.
+\end{proof}
+
+\printbibliography
+
+\end{document}

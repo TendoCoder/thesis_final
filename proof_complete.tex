@@ -1,0 +1,104 @@
+
+\section{Setup and notation}
+
+Let $\cP \to U$ be a $G$-torsor over $U = C \setminus \mdls$, where $G$ is a
+finite abelian group, $H \trianglelefteq G$, and $C$ is a smooth projective
+curve. Fix $p_\infty \in \mdls$ and an integer $d$.
+Assume the $G$ torsor $\cP \to U$ has ramification strictly bounded by $d$ at $p_\infty$. (i.e. $< d$)
+according to the definition in \Cref{definition:local_ramification_boundness}
+(i.e. the higher d'th-ramification group of the extension of DVRs at $p_\infty$ is trivial).
+
+Recall the four quotient schemes, defined in:
+\Cref{subsection:quotient_torsors_towers}
+\[
+\cP^{[d]_H},\qquad \cP^{[d]_G},\qquad (\cP_{G/H})^{(d)},\qquad (\cP_{G/H})^{[d]},
+\]
+together with the canonical Cartesian square
+\[
+\begin{tikzcd}[row sep=large, column sep=large]
+\cP^{[d]_H} \ar[r,"H"] \ar[d]
+  & (\cP_{G/H})^{(d)} \ar[d,"q"] \\
+\cP^{[d]_G} \ar[r,"H"'] \ar[dr,"G"',bend right=15]
+  & (\cP_{G/H})^{[d]} \ar[d,"G/H"] \\
+  & U^{(d)},
+\end{tikzcd}
+\]
+in which the arrows labelled $H$, $G/H$ and $G$ are torsors under the
+indicated finite constant groups (in particular, \emph{\'etale}), and the
+upper square is Cartesian (\Cref{prop:torsor_tower_diagram}).
+
+The $G/H$-torsor $\cP_{G/H} \to U$ compactifies to a finite map of smooth
+projective curves $f \colon C' \to C$. Pick $p'_\infty \in f^{-1}(p_\infty)$
+
+\[
+f^{(d)} \colon C'^{(d)} \to C^{(d)}
+\]
+for the induced map of $d$-fold symmetric powers; it sends
+$d \cdot p'_\infty \mapsto d \cdot p_\infty$. Let
+\[
+\pi_C \colon X_C \to C^{(d)},\qquad \pi_{C'} \colon X_{C'} \to C'^{(d)}
+\]
+be the blowups at $d \cdot p_\infty$ and $d \cdot p'_\infty$ respectively, with
+exceptional divisors $E_C,E_{C'}$ and generic points $\eta_C,\eta_{C'}$. The
+DVRs of these generic points are
+\[
+V_C := \mathcal{O}_{X_C,\eta_C} \subset K(C^{(d)}),\qquad
+V_{C'} := \mathcal{O}_{X_{C'},\eta_{C'}} \subset K(C'^{(d)}).
+\]
+
+\section{The master diagram}\label{sec:master}
+
+The torsor tower over the open base $U^{(d)}$ embeds into the projective
+geometry of $C^{(d)}$ and $C'^{(d)}$, which in turn admit canonical blowups
+at the points at infinity. We assemble all of this into a single commutative
+diagram.
+
+\[
+\begin{tikzcd}[row sep=2.4em, column sep=2.2em]
+\cP^{[d]_H} \ar[r,"H"] \ar[d]
+  & (\cP_{G/H})^{(d)} \ar[d,"q"] \ar[r,hookrightarrow,"\iota'"]
+  & C'^{(d)} \ar[dd,"f^{(d)}"]
+  & X_{C'} \ar[l,"\pi_{C'}"'] \ar[dd,dashed,"f_X"] \\
+\cP^{[d]_G} \ar[r,"H"'] \ar[dr,"G"',bend right=10]
+  & (\cP_{G/H})^{[d]} \ar[d,"G/H"]
+  & & \\
+  & U^{(d)} \ar[r,hookrightarrow,"\iota"']
+  & C^{(d)}
+  & X_C \ar[l,"\pi_C"]
+\end{tikzcd}
+\]
+
+Reading the diagram:
+\begin{itemize}
+  \item The \textbf{left block} (columns 1--2) is the torsor tower of
+        \Cref{prop:torsor_tower_diagram}: $H$-torsors horizontally, the
+        $G/H$-torsor on the lower right, and the composite $G$-torsor
+        $\cP^{[d]_G} \to U^{(d)}$.
+  \item The \textbf{middle block} (column 3) records the compactifications.
+        The map $\iota$ is the canonical open immersion
+        $U^{(d)} \hookrightarrow C^{(d)}$. The map $\iota'$ is the open
+        immersion $(\cP_{G/H})^{(d)} \hookrightarrow C'^{(d)}$ obtained from
+        compactifying $\cP_{G/H} \subset C'$. The vertical $f^{(d)}$ is the
+        finite morphism of symmetric powers; restricting along $\iota'$
+        recovers the canonical map $(\cP_{G/H})^{(d)} \to U^{(d)}$, which is
+        the composite of $q$ with the $G/H$-torsor.
+  \item The \textbf{right block} (column 4) records the blowups at the
+        diagonal points at infinity. The dashed arrow
+        $f_X \colon X_{C'} \dashrightarrow X_C$ is the rational lift of
+        $f^{(d)}$, defined on the strict transform; on generic points of
+        the exceptional divisors it sends $\eta_{C'} \mapsto \eta_C$ so we have
+        induced extension of DVRs $V_C \hookrightarrow V_{C'}$         
+\end{itemize}
+
+\section{Unramifiedness of $\cP^{[d]_G}$ at $\eta_C$}
+
+\begin{theorem}\label{thm:main}
+Suppose
+\begin{enumerate}
+  \item[\textnormal{(H1)}] $(\cP_{G/H})^{[d]} \to U^{(d)}$ is unramified at
+        $\eta_C$; and
+  \item[\textnormal{(H2)}] $\cP^{[d]_H} \to (\cP_{G/H})^{(d)}$ is unramified
+        at $\eta_{C'}$.
+\end{enumerate}
+Then $\cP^{[d]_G} \to U^{(d)}$ is unramified at $\eta_C$.
+\end{theorem}
