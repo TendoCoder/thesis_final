@@ -599,9 +599,9 @@ INPUT sections/GeometricClassFieldTheory.tex
 INPUT ./sections/GeometricCFT/ProofOfReducedTheorem.tex
 INPUT ./sections/GeometricCFT/ProofOfReducedTheorem.tex
 INPUT sections/GeometricCFT/ProofOfReducedTheorem.tex
-INPUT ./proof_complete.tex
-INPUT ./proof_complete.tex
-INPUT proof_complete.tex
+INPUT ./proof_completes/proof_complete.tex
+INPUT ./proof_completes/proof_complete.tex
+INPUT proof_completes/proof_complete.tex
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
@@ -615,6 +615,9 @@ INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/euler/eufm10.
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/stmaryrd/stmary10.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/rsfs/rsfs10.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/wasy/wasy10.tfm
+INPUT ./a_wrong_path/a_wrong_path.tex
+INPUT ./a_wrong_path/a_wrong_path.tex
+INPUT a_wrong_path/a_wrong_path.tex
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/eccc1095.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/ectt1095.tfm
 INPUT main.aux

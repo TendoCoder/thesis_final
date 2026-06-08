@@ -1,25 +1,32 @@
 \babel@toc {english}{}\relax 
-\contentsline {section}{\numberline {1}Introduction}{3}{section.1}%
-\contentsline {section}{\numberline {2}Preliminaries}{5}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Scheme Quotients in general}{5}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Torsors}{5}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Torsors over the \'Etale's Sites}{7}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}Symmetric Powers of Schemes and Torsors}{9}{subsection.2.4}%
-\contentsline {subsection}{\numberline {2.5}Algebraic Preliminaries on Ramification}{15}{subsection.2.5}%
-\contentsline {subsection}{\numberline {2.6}Algebraic Geometry}{18}{subsection.2.6}%
-\contentsline {section}{\numberline {3}Ramification After Blowup Is Tame}{20}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Ramification of $G$-Torsors}{20}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Proof of Theorem \ref {theorem:SymmetricPowerOfSheavesIsTamelyRamifiedReduction}}{24}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Extending To Product of Blowups}{29}{subsection.3.3}%
-\contentsline {section}{\numberline {4}Geometric Class Field Theory}{31}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Etale Fundamental Groups and Tame Fundamental Groups}{32}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Generalized Picard Scheme}{32}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}The Abel-Jacobi Morphism and its Fibers}{34}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}Compactification of Blowup of Symmetric Powers of a Curve}{35}{subsection.4.4}%
-\contentsline {subsection}{\numberline {4.5}Proof of \Cref {theorem:SymmetricPowerOfSheafIsTamelyRamified}}{36}{subsection.4.5}%
-\contentsline {subsubsection}{\numberline {4.5.1}Reduction Lemmas}{36}{subsubsection.4.5.1}%
-\contentsline {subsection}{\numberline {4.6}Proof of \Cref {theorem:SymmetricPowerOfSheafIsTamelyRamified}}{38}{subsection.4.6}%
-\contentsline {section}{\numberline {5}Proof of \Cref {thm:GCFT_reduced}}{39}{section.5}%
-\contentsline {section}{\numberline {6}Setup and notation}{40}{section.6}%
-\contentsline {section}{\numberline {7}The master diagram}{40}{section.7}%
-\contentsline {section}{\numberline {8}Unramifiedness of $\mathcal {P}^{[d]_G}$ at $\eta _C$}{41}{section.8}%
+\contentsline {section}{\numberline {1}Introduction}{4}{section.1}%
+\contentsline {section}{\numberline {2}Preliminaries}{6}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Scheme Quotients in general}{6}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Torsors}{6}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Torsors over the \'Etale's Sites}{8}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Symmetric Powers of Schemes and Torsors}{10}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Algebraic Preliminaries on Ramification}{16}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}Algebraic Geometry}{19}{subsection.2.6}%
+\contentsline {section}{\numberline {3}Ramification After Blowup Is Tame}{21}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Ramification of $G$-Torsors}{21}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Proof of Theorem \ref {theorem:SymmetricPowerOfSheavesIsTamelyRamifiedReduction}}{25}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Extending To Product of Blowups}{30}{subsection.3.3}%
+\contentsline {section}{\numberline {4}Geometric Class Field Theory}{32}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Etale Fundamental Groups and Tame Fundamental Groups}{33}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Generalized Picard Scheme}{33}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}The Abel-Jacobi Morphism and its Fibers}{35}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Compactification of Blowup of Symmetric Powers of a Curve}{36}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Proof of \Cref {theorem:SymmetricPowerOfSheafIsTamelyRamified}}{37}{subsection.4.5}%
+\contentsline {subsubsection}{\numberline {4.5.1}Reduction Lemmas}{37}{subsubsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.6}Proof of \Cref {theorem:SymmetricPowerOfSheafIsTamelyRamified}}{39}{subsection.4.6}%
+\contentsline {section}{\numberline {5}Proof of \Cref {thm:GCFT_reduced}}{40}{section.5}%
+\contentsline {section}{\numberline {6}Setup and notation}{41}{section.6}%
+\contentsline {section}{\numberline {7}The master diagram}{41}{section.7}%
+\contentsline {section}{\numberline {8}Unramifiedness of $\mathcal {P}^{[d]_G}$ at $\eta _C$}{42}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Proof Attempts}{42}{subsection.8.1}%
+\contentsline {subsubsection}{\numberline {8.1.1}Attempt 1}{42}{subsubsection.8.1.1}%
+\contentsline {section}{\numberline {9}A Wrong Path}{44}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Setup and notation}{44}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}The master diagram}{45}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}Unramifiedness of $\mathcal {P}^{[d]_G}$ at $\eta _C$}{46}{subsection.9.3}%
+\contentsline {subsection}{\numberline {9.4}Difficulties}{46}{subsection.9.4}%
