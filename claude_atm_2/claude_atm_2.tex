@@ -1,0 +1,340 @@
+% =============================================================================
+%  claude_atm_2.tex
+%
+%  A proof of \Cref{thm:main} (the unramifiedness theorem of
+%  proof_complete_standalone.tex) routed through *local* ramification theory:
+%  the cyclic-Herbrand convexity lemma is the new ingredient, and a
+%  separately-cited "local--global dictionary" relating geometric
+%  unramifiedness of $\cP^{[d]_\Gamma}$ at $\eta_C$ to the upper-ramification
+%  bound $\Gamma^d=1$ at $p_\infty$ does the rest.
+%
+%  This proof is *for comparison only* with the direct Cartesian-inertia
+%  argument of claude_atm_1.tex. It is strictly less self-contained --- the
+%  load-bearing claim is the dictionary, not the new lemma --- and we are
+%  explicit about that.
+%
+%  Compile with:  latexmk -pdf claude_atm_2.tex   (uses biber)
+% =============================================================================
+\documentclass[11pt]{article}
+\usepackage{geometry}\geometry{margin=1in}
+\usepackage[T1]{fontenc}
+\usepackage{ifthen}
+
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0.5em}
+
+\input{includes}
+\input{MacrosAndFigures}
+
+\usepackage{csquotes}
+\usepackage[
+backend=biber,
+style=alphabetic,
+sorting=ynt
+]{biblatex}
+\addbibresource{Bib.bib}
+
+\newboolean{ThesisIntro}
+\setboolean{ThesisIntro}{false}
+
+\title{Unramifiedness of $\cP^{[d]_G}$ at the exceptional divisor\\[2pt]
+       {\large (Herbrand-convexity route, for comparison)}}
+\author{Assaf Marzan}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\noindent
+\textbf{Scope.} This note gives a proof of \Cref{thm:main-herb} (= \texttt{thm:main}
+of \texttt{proof\_complete\_standalone.tex}) routed through local ramification
+theory. The new content is a convexity lemma for the Herbrand $\varphi$-function
+on a cyclic $p$-group (\Cref{lem:herbrand-convexity}). The route works only if
+one accepts the local--global dictionary stated in \Cref{prop:dictionary} below
+as a separately-established result; we discuss the resulting circularity at the
+end (\Cref{rem:circularity}).
+
+We adopt the notation of \texttt{proof\_complete\_standalone.tex} without
+restating the background: $C$ is a smooth projective curve over $k$, $p_\infty
+\in C$, $U = C \setminus \{p_\infty,\ldots\}$, $\cP \to U$ a $G$-torsor with
+$G \cong \Z/p^r\Z$ a cyclic $p$-group, $H \subseteq G$ a subgroup of order
+$p^s$, $f \colon C' \to C$ the compactification of the $G/H$-torsor
+$\cP_{G/H} \to U$, $p'_\infty \in f^{-1}(p_\infty)$, and $X_C, X_{C'}$ the
+blowups of $C^{(d)}, C'^{(d)}$ at $d\cdot p_\infty, d \cdot p'_\infty$ with
+exceptional generic points $\eta_C, \eta_{C'}$. Throughout, $0 < s < r$
+(the case $s = 0$ or $s = r$ being trivial).
+
+% #############################################################################
+\section{The Herbrand convexity lemma}\label{sec:herbrand}
+% #############################################################################
+
+The single new local ingredient. We work in the setting of a finite totally
+ramified Galois extension of complete (equivalently, henselian and defectless)
+discrete valuation fields with cyclic $p$-group Galois group. Lower and upper
+numbering for ramification follow \cite{Serre1979}, Ch.~IV.
+
+\begin{lemma}\label{lem:herbrand-convexity}
+Let $\mathcal{F}/\mathcal{K}$ be a finite totally ramified Galois extension of
+complete discrete valuation fields with Galois group $\Gamma \cong \Z/p^r\Z$,
+$r \geq 1$, and let $\Delta \subseteq \Gamma$ be the unique subgroup of order
+$p^s$ with $0 < s < r$, so that $\Gamma/\Delta \cong \Z/p^{r-s}\Z$ and
+$|\Delta| = p^s$. Fix an integer $d \geq 1$. If both
+\begin{enumerate}
+  \item[\textnormal{(a)}] $(\Gamma/\Delta)^d = \{1\}$, i.e.\ the upper
+        ramification filtration of $\Gamma/\Delta$ acting on
+        $\mathcal{F}^\Delta/\mathcal{K}$ is trivial in degree $\geq d$, and
+  \item[\textnormal{(b)}] $\Delta^d = \{1\}$, i.e.\ the upper ramification
+        filtration of $\Delta$ acting on $\mathcal{F}/\mathcal{F}^\Delta$ is
+        trivial in degree $\geq d$,
+\end{enumerate}
+then $\Gamma^d = \{1\}$, i.e.\ the upper ramification filtration of $\Gamma$
+acting on $\mathcal{F}/\mathcal{K}$ is trivial in degree $\geq d$.
+\end{lemma}
+
+\begin{proof}
+Let
+\[
+\Gamma = \Gamma_0 \supsetneq \Gamma_{m_1+1} \supsetneq \Gamma_{m_2+1} \supsetneq
+\cdots \supsetneq \Gamma_{m_r+1} = \{1\}
+\]
+be the lower-numbering ramification filtration of $\Gamma$ on
+$\mathcal{F}/\mathcal{K}$, with jumps at integers $m_1 < m_2 < \cdots < m_r$.
+Since $|\Gamma| = p^r$ and the extension is totally ramified, there are exactly
+$r$ jumps, and $|\Gamma_{m_j+1}| = p^{r-j}$. Set
+\[
+\Delta_0 := m_1, \qquad \Delta_j := m_{j+1} - m_j \quad (1 \leq j \leq r-1),
+\]
+so that $m_j = \Delta_0 + \Delta_1 + \cdots + \Delta_{j-1}$. (We reuse the
+letter $\Delta$ for the gap sequence; the subgroup $\Delta \subseteq \Gamma$
+will appear only as such, with subscripts to differentiate.)
+
+\paragraph{The three Herbrand functions.}
+Recall $\varphi_\Gamma(u) = \int_0^u |\Gamma_t|/|\Gamma_0|\,dt$. The integrand
+takes the constant value $p^{-j}$ on $(m_j, m_{j+1}]$ ($0 \leq j \leq r-1$,
+with $m_0 := 0$), so
+\begin{equation}\label{eq:phi-Gamma}
+\varphi_\Gamma(m_r) \;=\; \sum_{j=0}^{r-1} p^{-j}\,\Delta_j.
+\end{equation}
+
+For the subgroup $\Delta = \Gamma_{m_{r-s}+1}$ acting on
+$\mathcal{F}/\mathcal{F}^\Delta$, the lower ramification of $\Delta$ as a
+subgroup of $\Gamma$ is given by $\Delta_i = \Delta \cap \Gamma_i$
+(\cite{Serre1979}, Ch.~IV, \S1, Prop.~2). Therefore $\Delta_i = \Delta$ for
+$0 \leq i \leq m_{r-s}$, $\Delta_i = \Gamma_i$ for $i > m_{r-s}$, and the lower
+jumps of $\Delta$ occur precisely at $m_{r-s+1} < m_{r-s+2} < \cdots < m_r$.
+Hence
+\begin{equation}\label{eq:phi-Delta}
+\varphi_\Delta(m_r) \;=\; m_{r-s+1}
+   + \sum_{k=1}^{s-1} p^{-k}(m_{r-s+k+1} - m_{r-s+k})
+   \;=\; m_{r-s} + \sum_{k=0}^{s-1} p^{-k}\,\Delta_{r-s+k}.
+\end{equation}
+
+For the quotient $\Gamma/\Delta$ acting on $\mathcal{F}^\Delta/\mathcal{K}$,
+Herbrand's theorem (\cite{Serre1979}, Ch.~IV, \S3, Lemma~5) gives
+$(\Gamma/\Delta)^v = \Gamma^v \Delta / \Delta$. Writing
+$u_j := \varphi_\Gamma(m_j)$ for the upper jumps of $\Gamma$, one has
+$\Gamma^{u_j} = \Gamma_{m_j}$, so $\Gamma^{u_j} \Delta \supsetneq \Delta$ iff
+$\Gamma_{m_j} \not\subseteq \Delta$, iff $j \leq r-s$. The highest upper jump of
+$\Gamma/\Delta$ is therefore $u_{r-s} = \varphi_\Gamma(m_{r-s})$, and
+\begin{equation}\label{eq:phi-quotient}
+u_{r-s} \;=\; \varphi_\Gamma(m_{r-s}) \;=\; \sum_{j=0}^{r-s-1} p^{-j}\,\Delta_j.
+\end{equation}
+
+\paragraph{The fundamental identity.}
+Split the sum in \eqref{eq:phi-Gamma} at index $j = r-s$ and factor
+$p^{-(r-s)}$ from the tail:
+\begin{align*}
+\varphi_\Gamma(m_r)
+ &= \underbrace{\sum_{j=0}^{r-s-1} p^{-j}\Delta_j}_{= u_{r-s}\text{ by }\eqref{eq:phi-quotient}}
+   \;+\; p^{-(r-s)}\underbrace{\sum_{k=0}^{s-1} p^{-k}\Delta_{r-s+k}}_{= \varphi_\Delta(m_r) - m_{r-s}\text{ by }\eqref{eq:phi-Delta}}.
+\end{align*}
+Hence
+\begin{equation}\label{eq:fund-identity}
+\boxed{\;\varphi_\Gamma(m_r) \;=\; u_{r-s} \;+\; \frac{\varphi_\Delta(m_r) - m_{r-s}}{p^{r-s}}\;.\;}
+\end{equation}
+
+\paragraph{Convex combination.}
+Set $A := u_{r-s}$ and $B := \varphi_\Delta(m_r)$. Hypotheses (a) and (b) read
+$A < d$ and $B < d$ respectively, by the characterisation of the highest upper
+jump as the smallest $v$ such that the upper group is trivial in degree $> v$.
+Since the integrand defining $\varphi_\Gamma$ is bounded above by $1$, we have
+$\varphi_\Gamma(m_{r-s}) \leq m_{r-s}$, i.e.\ $A \leq m_{r-s}$. Substituting
+into \eqref{eq:fund-identity}, $B - m_{r-s} \leq B - A$, hence
+\[
+\varphi_\Gamma(m_r) \;\leq\; A + \frac{B - A}{p^{r-s}}
+                    \;=\; \left(1 - \tfrac{1}{p^{r-s}}\right) A
+                          + \tfrac{1}{p^{r-s}}\, B.
+\]
+The right-hand side is a convex combination of two quantities both strictly
+less than $d$, hence
+\[
+\varphi_\Gamma(m_r) \;<\; \left(1 - \tfrac{1}{p^{r-s}}\right) d
+                          + \tfrac{1}{p^{r-s}}\, d \;=\; d.
+\]
+The highest upper jump of $\Gamma$ is $\varphi_\Gamma(m_r) < d$, so
+$\Gamma^d = \{1\}$, as claimed.
+\end{proof}
+
+\begin{remark}
+The cyclic prime-power hypothesis is essential: it forces both the chain of
+lower-numbering ramification groups to pass through every subgroup of $\Gamma$
+(which lets us identify the lower jumps of $\Delta$ as a tail of the jumps of
+$\Gamma$) and the existence of a unique $\Delta$ of each order (so the
+hypotheses (a), (b) make unambiguous sense). For a non-cyclic abelian
+$p$-group, the analogous statement fails; the convexity step still works but
+the lower jumps of $\Delta \subseteq \Gamma$ need not be a tail.
+\end{remark}
+
+% #############################################################################
+\section{The dictionary, as a black box}\label{sec:dictionary}
+% #############################################################################
+
+The geometric-to-local translation we need takes the following form.
+
+\begin{proposition}[Local--global dictionary for symmetric-power torsors]\label{prop:dictionary}
+Let $Z$ be a smooth projective geometrically connected curve over a field $k$,
+$q \in Z$ a closed point, $\Gamma$ a finite abelian group, and $\cQ \to Z
+\setminus \{q\}$ a $\Gamma$-torsor with associated complete local extension
+$\mathcal{F}/\mathcal{K}_q$ at $q$ (in the sense of
+\Cref{definition:local_ramification_boundness} of
+\texttt{proof\_complete\_standalone.tex}). Let $\pi_Z \colon X_Z \to Z^{(d)}$
+be the blowup at $d\cdot q$, with exceptional divisor of generic point
+$\eta_Z$. Then
+\[
+\cQ^{[d]_\Gamma} \to (Z\setminus\{q\})^{(d)}\text{ is unramified at } \eta_Z
+\quad\Longleftrightarrow\quad \Gamma^d = \{1\}\text{ on }
+\mathcal{F}/\mathcal{K}_q .
+\]
+\end{proposition}
+
+We will use this proposition three times in the proof of \Cref{thm:main-herb}.
+We discuss its status in \Cref{rem:circularity}.
+
+% #############################################################################
+\section{The proof}\label{sec:proof}
+% #############################################################################
+
+\begin{theorem}\label{thm:main-herb}
+Suppose
+\begin{enumerate}
+  \item[\textnormal{(H1)}] $(\cP_{G/H})^{[d]} \to U^{(d)}$ is unramified at
+        $\eta_C$;
+  \item[\textnormal{(H2)}] $\cP^{[d]_H} \to (\cP_{G/H})^{(d)}$ is unramified at
+        $\eta_{C'}$;
+  \item[\textnormal{(H3)}] $G = \Z/p^r\Z$ is cyclic of prime-power order.
+\end{enumerate}
+Then $\cP^{[d]_G} \to U^{(d)}$ is unramified at $\eta_C$.
+\end{theorem}
+
+\begin{proof}
+After the standard reductions (replacing $G$ by the image of monodromy and $H$
+by its intersection; we may assume $\cP$ is a connected $G$-torsor and that
+$0 < |H| < |G|$), we work with the complete local extension
+$\mathcal{F}/\widehat{\mathcal{K}}_{p_\infty}$ corresponding to $\cP \to U$ at
+$p_\infty$, which is totally ramified with Galois group $G$ (after passing to a
+connected component of $\cP \mid_{\Spec \widehat{\mathcal{K}}_{p_\infty}}$ and
+extending scalars if needed). The subextension $\mathcal{F}^H \subseteq
+\mathcal{F}$ has $\Gal(\mathcal{F}^H/\widehat{\mathcal{K}}_{p_\infty}) = G/H$
+and $\Gal(\mathcal{F}/\mathcal{F}^H) = H$. The choice of $p'_\infty \in
+f^{-1}(p_\infty)$ corresponds to choosing a place of $\mathcal{F}^H$, with
+completion identified with $\widehat{\mathcal{K}}_{p'_\infty}$; the local
+extension of the $H$-torsor $\cP \to \cP_{G/H}$ at $p'_\infty$ is then
+$\mathcal{F}/\mathcal{F}^H$.
+
+\paragraph{Step 1: From (H1) to a local jump bound for $G/H$.}
+Apply \Cref{prop:dictionary} to the $(G/H)$-torsor $\cP_{G/H} \to U$ at
+$p_\infty$, with $\Gamma = G/H$. Hypothesis (H1) is the geometric side of the
+equivalence, so the local side gives
+\[
+(G/H)^d = \{1\} \text{ on } \mathcal{F}^H/\widehat{\mathcal{K}}_{p_\infty}.
+\]
+
+\paragraph{Step 2: From (H2) to a local jump bound for $H$.}
+Apply \Cref{prop:dictionary} to the $H$-torsor $\cP \to \cP_{G/H}$ at the
+closed point $p'_\infty \in C'$, with base curve $Z = C'$, group $\Gamma = H$,
+and the same integer $d$. The blowup of $C'^{(d)}$ at $d \cdot p'_\infty$ is
+exactly $X_{C'}$ of our master diagram, with exceptional generic point
+$\eta_{C'}$; the geometric side of the equivalence is therefore (H2). The local
+side reads
+\[
+H^d = \{1\} \text{ on } \mathcal{F}/\mathcal{F}^H.
+\]
+
+\paragraph{Step 3: Apply the Herbrand convexity lemma.}
+\Cref{lem:herbrand-convexity} applies with $\mathcal{K} =
+\widehat{\mathcal{K}}_{p_\infty}$, $\mathcal{F} = \mathcal{F}$, $\Gamma = G$,
+$\Delta = H$: hypotheses (a) and (b) are Steps~1 and~2 respectively, and (H3)
+is the cyclic prime-power assumption. We conclude
+\[
+G^d = \{1\} \text{ on } \mathcal{F}/\widehat{\mathcal{K}}_{p_\infty}.
+\]
+
+\paragraph{Step 4: Translate back via the dictionary.}
+Apply \Cref{prop:dictionary} once more, now to the $G$-torsor $\cP \to U$ at
+$p_\infty$ with $\Gamma = G$. The local side is Step~3; the geometric side
+reads
+\[
+\cP^{[d]_G} \to U^{(d)} \text{ is unramified at } \eta_C,
+\]
+which is the conclusion of \Cref{thm:main-herb}. \qedhere
+\end{proof}
+
+% #############################################################################
+\section{Discussion: where this proof is circular, and how to rescue it}\label{sec:discussion}
+% #############################################################################
+
+\begin{remark}[Circularity in Step~4]\label{rem:circularity}
+The application of \Cref{prop:dictionary} in Step~4 of the proof above is for
+the group $G$ itself --- the same group that appears in the conclusion of
+\Cref{thm:main-herb}. If \Cref{prop:dictionary} is read as a known theorem
+established elsewhere (say in the cited literature for sufficiently general
+abelian $\Gamma$), this is fine; but if the dictionary is itself the subject of
+the work and \Cref{thm:main-herb} is one of its building blocks, then Step~4 is
+circular.
+
+The standard way to rescue the argument is to embed it in an \emph{induction on
+$|G|$}. The dictionary for cyclic $p$-groups of order $< p^r$ is then the
+inductive hypothesis, Steps~1 and~2 use the dictionary in the easy direction
+for the strictly smaller groups $G/H$ and $H$, and Step~4 establishes the hard
+direction of the dictionary for $G$. This is presumably what the original
+draft \texttt{qwn\_atm\_1.txt} intended; making the induction explicit
+(including the base case $r = 1$, the trivial subgroup cases handled by the
+reductions, and a check that the smaller groups $G/H \cong \Z/p^{r-s}\Z$ and
+$H \cong \Z/p^s\Z$ are both of order $< p^r$ when $0 < s < r$) is what is
+required to make the present proof rigorous.
+\end{remark}
+
+\begin{remark}[Comparison with the direct Cartesian-inertia proof]
+The proof of the same theorem in \texttt{claude\_atm\_1.tex} avoids
+\Cref{prop:dictionary} entirely. It works directly with inertia groups in the
+function-field tower $K_C \subseteq F \subseteq E$ inside its compositum with
+$K_{C'}$, uses the Cartesian property of the master diagram to relate
+$I_{v_E}(E/F) \cap N$ to the trivially-inertia subgroup
+$I_{v_\star}(E\cdot K_{C'}/K_{C'})$ (which is trivial by (H2)), and then
+deploys (H3) via the chain-of-subgroups property of cyclic $p$-groups to
+conclude $I_{v_E}(E/F) = 1$.
+
+That proof has three advantages over the present one:
+\begin{itemize}
+  \item It uses no local ramification theory: no Herbrand function, no upper
+        numbering, no induction on $|G|$.
+  \item It does not invoke the dictionary at all, so the circularity issue of
+        \Cref{rem:circularity} does not arise.
+  \item The role of (H3) is transparent --- it is the chain property of cyclic
+        $p$-groups --- whereas the present proof loads (H3) into both
+        \Cref{lem:herbrand-convexity} (via the chain of lower-numbering
+        ramification groups) and the dictionary (via whatever proof of
+        \Cref{prop:dictionary} one cites).
+\end{itemize}
+The present proof's only structural advantage is that
+\Cref{lem:herbrand-convexity} is a clean, self-contained statement of local
+ramification theory that may be of independent interest, and that the proof
+factors cleanly through the (well-studied) local--global dictionary rather
+than through an ad-hoc Galois argument inside a particular tower. For thesis
+exposition the direct proof seems preferable; the Herbrand-route proof is
+better seen as motivation for the lemma than as the primary proof.
+\end{remark}
+
+\printbibliography
+
+\end{document}

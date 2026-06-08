@@ -29,4 +29,4 @@
 \contentsline {subsection}{\numberline {9.1}Setup and notation}{44}{subsection.9.1}%
 \contentsline {subsection}{\numberline {9.2}The master diagram}{45}{subsection.9.2}%
 \contentsline {subsection}{\numberline {9.3}Unramifiedness of $\mathcal {P}^{[d]_G}$ at $\eta _C$}{46}{subsection.9.3}%
-\contentsline {subsection}{\numberline {9.4}Difficulties}{46}{subsection.9.4}%
+\contentsline {subsection}{\numberline {9.4}Difficulties in Proving the Theorem}{46}{subsection.9.4}%

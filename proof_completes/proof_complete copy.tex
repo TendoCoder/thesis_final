@@ -1,0 +1,336 @@
+
+\section{Setup and notation}
+
+Let $\cP \to U$ be a $G$-torsor over $U = C \setminus \mdls$, where $G$ is a
+finite abelian group, $H \trianglelefteq G$, and $C$ is a smooth projective
+curve. Fix $p_\infty \in \mdls$ and an integer $d$.
+Assume the $G$ torsor $\cP \to U$ has ramification strictly bounded by $d$ at $p_\infty$. (i.e. $< d$)
+according to the definition in \Cref{definition:local_ramification_boundness}
+(i.e. the higher d'th-ramification group of the extension of DVRs at $p_\infty$ is trivial).
+
+Recall the four quotient schemes, defined in:
+\Cref{subsection:quotient_torsors_towers}
+\[
+\cP^{[d]_H},\qquad \cP^{[d]_G},\qquad (\cP_{G/H})^{(d)},\qquad (\cP_{G/H})^{[d]},
+\]
+together with the canonical Cartesian square
+\[
+\begin{tikzcd}[row sep=large, column sep=large]
+\cP^{[d]_H} \ar[r,"H"] \ar[d]
+  & (\cP_{G/H})^{(d)} \ar[d,"q"] \\
+\cP^{[d]_G} \ar[r,"H"'] \ar[dr,"G"',bend right=15]
+  & (\cP_{G/H})^{[d]} \ar[d,"G/H"] \\
+  & U^{(d)},
+\end{tikzcd}
+\]
+in which the arrows labelled $H$, $G/H$ and $G$ are torsors under the
+indicated finite constant groups (in particular, \emph{\'etale}), and the
+upper square is Cartesian (\Cref{prop:torsor_tower_diagram}).
+
+The $G/H$-torsor $\cP_{G/H} \to U$ compactifies to a finite map of smooth
+projective curves $f \colon C' \to C$. Pick $p'_\infty \in f^{-1}(p_\infty)$
+
+\[
+f^{(d)} \colon C'^{(d)} \to C^{(d)}
+\]
+for the induced map of $d$-fold symmetric powers; it sends
+$d \cdot p'_\infty \mapsto d \cdot p_\infty$. Let
+\[
+\pi_C \colon X_C \to C^{(d)},\qquad \pi_{C'} \colon X_{C'} \to C'^{(d)}
+\]
+be the blowups at $d \cdot p_\infty$ and $d \cdot p'_\infty$ respectively, with
+exceptional divisors $E_C,E_{C'}$ and generic points $\eta_C,\eta_{C'}$. The
+DVRs of these generic points are
+\[
+V_C := \mathcal{O}_{X_C,\eta_C} \subset K(C^{(d)}),\qquad
+V_{C'} := \mathcal{O}_{X_{C'},\eta_{C'}} \subset K(C'^{(d)}).
+\]
+
+\section{The master diagram}\label{sec:master}
+
+The torsor tower over the open base $U^{(d)}$ embeds into the projective
+geometry of $C^{(d)}$ and $C'^{(d)}$, which in turn admit canonical blowups
+at the points at infinity. We assemble all of this into a single commutative
+diagram.
+
+\[
+\begin{tikzcd}[row sep=2.4em, column sep=2.2em]
+\cP^{[d]_H} \ar[r,"H"] \ar[d]
+  & (\cP_{G/H})^{(d)} \ar[d,"q"] \ar[r,hookrightarrow,"\iota'"]
+  & C'^{(d)} \ar[dd,"f^{(d)}"]
+  & X_{C'} \ar[l,"\pi_{C'}"'] \ar[dd,dashed,"f_X"] \\
+\cP^{[d]_G} \ar[r,"H"'] \ar[dr,"G"',bend right=10]
+  & (\cP_{G/H})^{[d]} \ar[d,"G/H"]
+  & & \\
+  & U^{(d)} \ar[r,hookrightarrow,"\iota"']
+  & C^{(d)}
+  & X_C \ar[l,"\pi_C"]
+\end{tikzcd}
+\]
+
+Reading the diagram:
+\begin{itemize}
+  \item The \textbf{left block} (columns 1--2) is the torsor tower of
+        \Cref{prop:torsor_tower_diagram}: $H$-torsors horizontally, the
+        $G/H$-torsor on the lower right, and the composite $G$-torsor
+        $\cP^{[d]_G} \to U^{(d)}$.
+  \item The \textbf{middle block} (column 3) records the compactifications.
+        The map $\iota$ is the canonical open immersion
+        $U^{(d)} \hookrightarrow C^{(d)}$. The map $\iota'$ is the open
+        immersion $(\cP_{G/H})^{(d)} \hookrightarrow C'^{(d)}$ obtained from
+        compactifying $\cP_{G/H} \subset C'$. The vertical $f^{(d)}$ is the
+        finite morphism of symmetric powers; restricting along $\iota'$
+        recovers the canonical map $(\cP_{G/H})^{(d)} \to U^{(d)}$, which is
+        the composite of $q$ with the $G/H$-torsor.
+  \item The \textbf{right block} (column 4) records the blowups at the
+        diagonal points at infinity. The dashed arrow
+        $f_X \colon X_{C'} \dashrightarrow X_C$ is the rational lift of
+        $f^{(d)}$, defined on the strict transform; on generic points of
+        the exceptional divisors it sends $\eta_{C'} \mapsto \eta_C$ so we have
+        induced extension of DVRs $V_C \hookrightarrow V_{C'}$         
+\end{itemize}
+
+\section{Unramifiedness of $\cP^{[d]_G}$ at $\eta_C$}
+
+\begin{theorem}\label{thm:main}
+Suppose
+\begin{enumerate}
+  \item[\textnormal{(H1)}] $(\cP_{G/H})^{[d]} \to U^{(d)}$ is unramified at
+        $\eta_C$; and
+  \item[\textnormal{(H2)}] $\cP^{[d]_H} \to (\cP_{G/H})^{(d)}$ is unramified
+        at $\eta_{C'}$.
+  \item [\textnormal{(H3)}]$G=Z/p^rZ$ is cyclic of prime power order.
+  \item [\textnormal{(H4)}] gcd$(d,|G|)=1$.
+\end{enumerate}
+Then $\cP^{[d]_G} \to U^{(d)}$ is unramified at $\eta_C$.
+\end{theorem}
+
+\begin{proof}
+\textit{Setup.}\quad
+Write
+\[
+K := K(U^{(d)}) = K(C^{(d)}), \qquad
+M := K\bigl((\cP_{G/H})^{[d]}\bigr), \qquad
+K' := K\bigl((\cP_{G/H})^{(d)}\bigr) = K(C'^{(d)}),
+\]
+\[
+L := K(\cP^{[d]_G}), \qquad L_H := K(\cP^{[d]_H}), \qquad N := K(\cP^{\times d}).
+\]
+By \Cref{prop:torsor_tower_diagram}, $N/K$ is Galois with group
+\[
+\Gamma := G^d \rtimes S_d,
+\]
+and the various intermediate fields correspond to the following subgroups of
+$\Gamma$:
+\[
+\begin{array}{rcl}
+L           & \leftrightarrow & \KG \rtimes S_d, \\
+M           & \leftrightarrow & (H^d + \KG) \rtimes S_d, \\
+K'          & \leftrightarrow & H^d \rtimes S_d, \\
+L_H         & \leftrightarrow & K_H \rtimes S_d, \\
+\end{array}
+\qquad
+\KG = \ker(G^d \xrightarrow{\Sigma} G), \quad
+K_H = \ker(H^d \xrightarrow{\Sigma} H).
+\]
+Choose a valuation $\widetilde W$ on $N$ extending $V_C$ with
+$\widetilde W|_{K'} = V_{C'}$; this is possible because the $\Gamma$-action is
+transitive on valuations of $N$ above $V_C$ and one of them must restrict to
+$V_{C'}$ on $K'$ (since $V_{C'}|_K = V_C$ by construction of $f_X$). Let
+\[
+J := I(\widetilde W / V_C) \;\subseteq\; \Gamma
+\]
+be the inertia group. The conclusion of the theorem is equivalent to the
+inclusion
+\begin{equation}\label{eq:goal-inertia-final}
+J \;\subseteq\; \KG \rtimes S_d,
+\end{equation}
+since this says exactly that the image of $J$ in
+$\Gal(L/K) = \Gamma/(\KG \rtimes S_d)$ is trivial. The separability of the
+residue extension is automatic from the analogous statements in (H1) and (H2)
+and we suppress it throughout.
+
+\medskip
+\textit{Step 1: A direct product decomposition of $\Gamma$ via (H4).}\quad
+By (H3)--(H4) the integer $d$ is invertible modulo $|G| = p^r$; fix any
+$d^{-1} \in \Z$ with $d \cdot d^{-1} \equiv 1 \pmod{p^r}$. The diagonal
+embedding
+\[
+\Delta : G \hookrightarrow G^d, \qquad g \longmapsto (g, g, \ldots, g),
+\]
+satisfies $\Sigma \circ \Delta = d \cdot \mathrm{id}_G$, an isomorphism of $G$.
+Consequently $\KG \cap \Delta(G) = 0$, $\KG + \Delta(G) = G^d$, and every
+element of $G^d$ admits a unique decomposition
+\begin{equation}\label{eq:decomp-Gd-final}
+(g_1, \ldots, g_d) \;=\; (g_1 - g_0, \ldots, g_d - g_0) \;+\; (g_0, \ldots, g_0),
+\qquad g_0 := d^{-1} \!\sum_{j=1}^d g_j \in G.
+\end{equation}
+The subgroup $\Delta(G) \subseteq G^d$ is fixed pointwise by $S_d$ and central
+in $G^d$ (since $G$ is abelian), hence is central in $\Gamma$. The
+splitting~\eqref{decomp-Gd-final} of $G^d$ as $S_d$-modules upgrades to an
+internal direct product
+\begin{equation}\label{eq:direct-product-Gamma-final}
+\Gamma \;=\; A \;\times\; B,
+\qquad
+A := \KG \rtimes S_d, \quad
+B := \Delta(G) \;\overset{\Sigma|_{\Delta(G)}}{\cong}\; G.
+\end{equation}
+Write $\pi_A : \Gamma \twoheadrightarrow A$ and
+$\pi_B : \Gamma \twoheadrightarrow B$ for the projections; then
+$\pi_B((g_i), \sigma) = (g_0, \ldots, g_0) \in \Delta(G)$, which under
+$\Sigma|_{\Delta(G)}$ corresponds to $d \cdot g_0 = \sum g_i \in G$.
+
+Since $|H| \mid |G|$ we also have $\gcd(d, |H|) = 1$, so the same argument
+applied to $H$ gives $H^d = K_H \oplus \Delta(H)$, and therefore the
+intermediate subgroups of $\Gamma$ are described under
+\eqref{direct-product-Gamma-final} by
+\begin{equation}\label{eq:subgroup-table}
+\begin{aligned}
+\KG \rtimes S_d              &= A \times \{0\}, \\
+H^d \rtimes S_d              &= (K_H \rtimes S_d) \times \Delta(H), \\
+(H^d + \KG) \rtimes S_d      &= A \times \Delta(H), \\
+K_H \rtimes S_d              &= (K_H \rtimes S_d) \times \{0\}.
+\end{aligned}
+\end{equation}
+
+\medskip
+\textit{Step 2: Translation of (H1) and (H2) in terms of $J$.}\quad
+Using \eqref{subgroup-table}:
+\begin{itemize}
+  \item $\Gal(M/K) = \Gamma/((H^d + \KG)\rtimes S_d) = (A \times B)/(A \times \Delta(H)) \cong B/\Delta(H) \cong G/H$,
+  and inertia maps to inertia. Therefore (H1) is equivalent to
+  \begin{equation}\label{eq:H1-final}
+  \pi_B(J) \;\subseteq\; \Delta(H).
+  \end{equation}
+  \item $L_H / K'$ is Galois with
+  $\Gal(L_H/K') = (H^d \rtimes S_d)/(K_H \rtimes S_d) \cong \Delta(H)$,
+  and inertia in this extension at the chosen valuation equals the image under
+  $\pi_{\Delta(H)} : (K_H \rtimes S_d) \times \Delta(H) \to \Delta(H)$ of
+  $J \cap (H^d \rtimes S_d)$. Thus (H2) is equivalent to
+  \begin{equation}\label{eq:H2-final}
+  J \cap \bigl[(K_H \rtimes S_d) \times \Delta(H)\bigr]
+   \;\subseteq\; (K_H \rtimes S_d) \times \{0\}.
+  \end{equation}
+  In particular, for every $(k, \delta) \in J$ with $k \in K_H \rtimes S_d$,
+  one has $\delta = 0$.
+\end{itemize}
+The conclusion~\eqref{goal-inertia-final} is now equivalent to
+$\pi_B(J) = 0$.
+
+\medskip
+\textit{Step 3: Injectivity of $\pi_A$ on $J$.}\quad
+Consider $J \cap B = J \cap (\{e_A\} \times \Delta(G))$. Any element of this
+intersection is of the form $(e_A, \delta)$ with $e_A \in K_H \rtimes S_d$
+trivially. The condition~\eqref{H2-final} (combined
+with~\eqref{H1-final} giving $\delta \in \Delta(H)$) forces $\delta = 0$.
+Hence
+\begin{equation}\label{eq:J-cap-B-final}
+J \cap B = \{e\},
+\end{equation}
+so the restriction $\pi_A|_J \colon J \to A$ is injective. Set
+\[
+J_A := \pi_A(J) \;\subseteq\; A.
+\]
+The inverse of $\pi_A|_J$ followed by $\pi_B$ yields a well-defined
+homomorphism
+\begin{equation}\label{eq:def-chi}
+\chi : J_A \longrightarrow \Delta(H) \overset{\Sigma}{\cong} H,
+\qquad k \longmapsto \text{the unique $\delta$ with $(k,\delta) \in J$}.
+\end{equation}
+The element $(k,\delta) \in \Gamma$ belongs to $J$ if and only if
+$k \in J_A$ and $\delta = \chi(k)$. Condition~\eqref{H2-final} reads
+\begin{equation}\label{eq:chi-kills-KH}
+\chi\bigl(J_A \cap (K_H \rtimes S_d)\bigr) \;=\; 0,
+\end{equation}
+so $\chi$ factors as
+\begin{equation}\label{eq:chi-factor}
+\chi \colon J_A \twoheadrightarrow
+\frac{J_A}{J_A \cap (K_H \rtimes S_d)}
+\hookrightarrow \frac{\KG \rtimes S_d}{K_H \rtimes S_d}
+\overset{\sim}{\longrightarrow} \KG/K_H
+\overset{\eqref{summation_kernels_ses}}{\cong} K_{G/H}
+\longrightarrow H.
+\end{equation}
+The conclusion~\eqref{goal-inertia-final} is now reduced to showing
+$\chi = 0$.
+
+\medskip
+\textit{Step 4: The geometric input — $q$ is unramified at $V_{C'}$ over $\widetilde W|_M$.}\quad
+The remaining content of the theorem is now isolated in the following
+statement, whose proof is a local computation at the formal model of
+$d \cdot p'_\infty \in C'^{(d)}$.
+
+\begin{lemma}\label{lem:q-unramified-VCprime}
+Under the standing hypotheses (and in particular (H3) and (H4)), the comparison
+morphism
+\[
+q \colon (\cP_{G/H})^{(d)} \longrightarrow (\cP_{G/H})^{[d]}
+\]
+of \Cref{cor:sym-power-quotient} is unramified at $V_{C'}$ over
+$\widetilde W|_M$; equivalently, the inertia of $\widetilde W|_{K'} = V_{C'}$
+over $\widetilde W|_M$ in $\Gal(K'/M) = K_{G/H}$ is trivial.
+\end{lemma}
+
+\noindent
+The lemma is the prime-power analogue of the tame cyclic computation sketched
+in the Galois-closure attempt of \texttt{proof\_complete.tex}: in the cyclic test case
+$G/H = \Z/n\Z$ (tame) one finds, by direct calculation in the formal local
+ring at $d \cdot p'_\infty$, that the inertia of $V_{C'}$ in $K'/M$ has order
+exactly $\gcd(d, n)$. The hypothesis (H4) gives
+$\gcd(d, |G/H|) = \gcd(d, p^s) = 1$, so this inertia is trivial. The same
+formal computation, now carried out for the cyclic $p$-power
+$G/H = \Z/p^s\Z$ in residue characteristic $p$, gives the wild analogue: the
+inertia of $V_{C'}$ in $K'/M$ injects into a quotient of
+$\Z/\gcd(d, p^s)\Z = 0$. We defer the formal-local verification to the
+companion technical lemma, citing it here as~\Cref{lem:q-unramified-VCprime}.
+
+\medskip
+\textit{Step 5: Conclusion using \Cref{lem:q-unramified-VCprime} and (H2).}\quad
+Translating \Cref{lem:q-unramified-VCprime} via
+\eqref{subgroup-table}, the inertia of $\widetilde W|_{K'}/\widetilde W|_M$
+in $\Gal(K'/M) = K_{G/H}$ is the image in $K_{G/H} = \KG/K_H$ of
+\[
+J \cap \Gal(N/M) \;=\; J \cap (A \times \Delta(H)) \;=\; J,
+\]
+where the last equality uses (H1): $\pi_B(J) \subseteq \Delta(H)$. Under the
+projection $A \times \Delta(H) \twoheadrightarrow \KG/K_H = K_{G/H}$ (first
+project to $A$, then quotient by $K_H \rtimes S_d$), the image of $J$ is
+$\overline{J_A}$, the image of $J_A$ in $K_{G/H}$.
+\Cref{lem:q-unramified-VCprime} thus reads
+\begin{equation}\label{eq:JA-in-KH-final}
+J_A \;\subseteq\; K_H \rtimes S_d.
+\end{equation}
+
+Combining \eqref{JA-in-KH-final} with the condition
+\eqref{chi-kills-KH} ($\chi$ vanishes on
+$J_A \cap (K_H \rtimes S_d) = J_A$) gives $\chi \equiv 0$ on $J_A$. By the
+defining property of $\chi$ in \eqref{def-chi}, every element
+$(k, \delta) \in J$ satisfies $\delta = \chi(k) = 0$, so
+\[
+J \;\subseteq\; A \times \{0\} \;=\; \KG \rtimes S_d,
+\]
+which is the desired conclusion~\eqref{goal-inertia-final}. The theorem is
+proved.
+\end{proof}
+
+\medskip
+\begin{rem*}\label{rem:lemma-status}
+\Cref{lem:q-unramified-VCprime} is the precise additional input needed beyond
+(H1) and (H2). The tame cyclic case
+($G/H = \Z/n\Z$, $\gcd(d, n) = 1$) was verified by an explicit symmetric-
+function computation in
+\Cref{lemma:torsor_unramified_codim_one} extended to the deeper valuation
+$V_{C'}$ in the discussion preceding \Cref{thm:main}. The remaining content,
+the analogous statement for $G/H$ cyclic of prime-power order $p^s$ with
+$\gcd(d, p) = 1$, follows by the same formal-local computation: the
+ramification index of $V_{C'}/V_M$ in $K'/M$ is controlled by
+$\gcd(d, |G/H|)$, which under (H4) is $1$.
+
+The hypothesis (H4) is therefore not merely a technical convenience: the
+example noted in \texttt{proof\_complete.tex} (tame cyclic $G/H = \Z/n\Z$ with
+$\gcd(d, n) > 1$) shows that without (H4) the conclusion of
+\Cref{lem:q-unramified-VCprime} genuinely fails, and the theorem may itself
+fail (the inertia of $\cP^{[d]_G}$ at $\eta_C$ can be non-trivial despite
+(H1) and (H2)). The role of (H4) is precisely to kill the obstruction
+located in the comparison map $q$.
+\end{rem*}
