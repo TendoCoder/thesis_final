@@ -20,6 +20,7 @@ Recall the four quotient schemes, defined in:
 \cP^{[d]_H},\qquad \cP^{[d]_G},\qquad (\cP_{G/H})^{(d)},\qquad (\cP_{G/H})^{[d]},
 \]
 together with the canonical Cartesian square
+
 \[
 \begin{tikzcd}[row sep=large, column sep=large]
 \cP^{[d]_H} \ar[r,"H"] \ar[d]
@@ -108,7 +109,7 @@ Suppose
         $\eta_C$; and
   \item[\textnormal{(H2)}] $\cP^{[d]_H} \to (\cP_{G/H})^{(d)}$ is unramified
         at $\eta_{C'}$.
-  \item [\textnormal{(H3)}]$G=Z/p^rZ$ is cyclic of prime power order.
+  \item [\textnormal{(H3)}]$G=\Z/p^r\Z$ is cyclic of prime power order.
 \end{enumerate}
 Then $\cP^{[d]_G} \to U^{(d)}$ is unramified at $\eta_C$.
 \end{theorem}
@@ -118,5 +119,280 @@ and in fact, we were not able to prove it.
 
 \subsection{Difficulties in Proving the Theorem}
 
+First, note that we can assume $\cP \to U$ is connected, and that $H$ is non-trivial. 
+\begin{enumerate}
+\item[\textnormal{(R1)}] \emph{$\cP \to U$ is connected.}  Let
+      $\rho \colon \pi_1(U) \to G$ be the monodromy of $\cP$ and put
+      $G_0 := \mathrm{Im}(\rho)$, $H_0 := H \cap G_0$.  Pick a connected
+      component $\cP_0 \subseteq \cP$; it is a connected $G_0$-torsor, and
+      $\cP$ is the disjoint union of $[G : G_0]$ copies of $\cP_0$ permuted
+      by $G$.  Since the symmetric-power quotients of
+      \Cref{subsection:quotient_torsors_towers} commute with such disjoint
+      unions, each of the four schemes in \Cref{prop:torsor_tower_diagram}
+      for $(\cP, G, H)$ decomposes as a disjoint union of copies of the
+      corresponding scheme for $(\cP_0, G_0, H_0)$.  Unramifiedness at
+      $\eta_C$ (resp.\ $\eta_{C'}$) is detected componentwise, so (H1) and
+      (H2) are inherited by $(\cP_0, G_0, H_0)$; (H3) is inherited because
+      subgroups of cyclic $p$-groups are cyclic $p$-groups.  Replacing
+      $(\cP, G, H)$ by $(\cP_0, G_0, H_0)$ we may assume $\cP$ is connected
+      and $\rho$ is surjective.
+\item[\textnormal{(R2)}] \emph{$H \neq 0$.}  If $H = 0$ then
+      $\cP_{G/H} = \cP$ and $(\cP_{G/H})^{[d]} = \cP^{[d]_G}$, so (H1) is
+      literally the conclusion.
+\end{enumerate}
 
+We can read a decomposition of fields directly from the canonical Cartesian square of
+\Cref{prop:torsor_tower_diagram}. After the reduction (R1) all four corners are integral:
+the three corners $\cP^{[d]_G}$, $(\cP_{G/H})^{[d]}$ and $(\cP_{G/H})^{(d)}$ are integral,
+and the fourth, $\cP^{[d]_H} = (K_H \rtimes S_d)\backslash \cP^{\times_S d}$, is integral as
+a quotient of the integral scheme $\cP^{\times_S d}$
+(\Cref{theorem:int_geoint_implies_productint}). So we may take function fields; using the open
+immersions $\iota,\iota'$ of the master diagram together with
+$K_C = \Frac V_C = K(C^{(d)}) = K(U^{(d)})$ and
+$K_{C'} = \Frac V_{C'} = K(C'^{(d)}) = K\bigl((\cP_{G/H})^{(d)}\bigr)$, we identify
+\[
+K(U^{(d)}) = K_C,\qquad
+K\bigl((\cP_{G/H})^{[d]}\bigr) = F,\qquad
+K\bigl((\cP_{G/H})^{(d)}\bigr) = K_{C'},\qquad
+K\bigl(\cP^{[d]_G}\bigr) = E,
+\]
+with $E/F$ Galois of group $H$, $F/K_C$ Galois of group $G/H$, and the composite $E/K_C$
+Galois of group $G$. The fourth corner $\cP^{[d]_H}$ is the fibre product
+$\cP^{[d]_G} \times_{(\cP_{G/H})^{[d]}} (\cP_{G/H})^{(d)}$; being integral, its single function
+field is the compositum $E\cdot K_{C'}$. In particular its generic fibre $E \otimes_F K_{C'}$
+over $(\cP_{G/H})^{(d)}$ is a field, so by \Cref{lem:galois-base-change} the extensions $E$ and
+$K_{C'}$ are linearly disjoint over $F$; that is,
+\[
+E \cap K_{C'} = F ,
+\]
+and $E\cdot K_{C'}/K_{C'}$ is Galois with group $H$. We denote:
+\begin{enumerate}
+    \item $K_C := \Frac V_C$, $K_{C'} := \Frac V_{C'}$;
+    \item $F := K\bigl((\cP_{G/H})^{[d]}\bigr)$, $E := K(\cP^{[d]_G})$;
+    \item $V_F := V_{C'}|_F$;
+    \item a place $v_E$ of $E$ above $V_F$, and a place $v_\star$ of $E \cdot K_{C'}$
+          above both $v_E$ and $V_{C'}$.
+\end{enumerate}
 
+Thus we have:
+\[
+\begin{tikzcd}[row sep=1.6em, column sep=1.4em]
+ & E \cdot K_{C'} \arrow[dl, dash] \arrow[dr, dash, "H"] & \\
+E \arrow[dr, dash, "H"'] & & K_{C'} \arrow[dl, dash] \\
+ & F \arrow[d, dash, "G/H"] & \\
+ & K_C &
+\end{tikzcd}
+\qquad\qquad
+\begin{tikzcd}[row sep=1.6em, column sep=1.4em]
+ & v_\star \arrow[dl, dash] \arrow[dr, dash] & \\
+v_E \arrow[dr, dash] & & V_{C'} \arrow[dl, dash] \\
+ & V_F \arrow[d, dash] & \\
+ & V_C &
+\end{tikzcd}
+\]
+(lines denote field inclusion / place lying-over, read upwards; in the left
+diagram a label is the Galois group of the extension where it is Galois).  In
+addition $E/K_C$ is Galois with group $G$.
+
+Read through this dictionary, the hypotheses of the theorem become statements about
+the ramification of the places above:
+\begin{itemize}
+  \item[\textnormal{(H1)}] $(\cP_{G/H})^{[d]} \to U^{(d)}$ is unramified at $\eta_C$
+        means that the $G/H$-extension $F/K_C$ is unramified at $V_C$. In particular
+        $V_F$ is unramified over $V_C$, with $e(V_F \mid V_C) = 1$.
+  \item[\textnormal{(H2)}] $\cP^{[d]_H} \to (\cP_{G/H})^{(d)}$ is unramified at $\eta_{C'}$
+        means that the $H$-extension $E\cdot K_{C'}/K_{C'}$ is unramified at $V_{C'}$;
+        equivalently the inertia group $I(v_\star \mid V_{C'}) \leq H$ is trivial.
+  \item[\textnormal{(H3)}] $G = \Z/p^r\Z$ makes $G$, hence $H$ and every inertia group,
+        a cyclic $p$-group; as the residue characteristic is $p$, the ramification of
+        $E/F$ is potentially \emph{wild}.
+\end{itemize}
+
+The conclusion we are after --- that $\cP^{[d]_G} \to U^{(d)}$ is unramified at $\eta_C$ ---
+is the statement that the $G$-extension $E/K_C$ is unramified at $V_C$, i.e.\ that the inertia
+$I(v_E \mid V_C) \leq G$ is trivial. By (H1) the lower layer $F/K_C$ is already unramified at
+$V_C$, so this inertia lies in $H = \Gal(E/F)$ and coincides with the inertia of the top layer,
+\[
+I(v_E \mid V_C) \;=\; I(v_E \mid V_F) \;\leq\; H .
+\]
+The theorem therefore reduces to the single assertion
+\[
+E/F \text{ is unramified at } V_F, \qquad\text{i.e.}\qquad I(v_E \mid V_F) = 1 .
+\]
+
+Now $E\cdot K_{C'}/K_{C'}$ is the base change of $E/F$ along $F \hookrightarrow K_{C'}$, and under
+the restriction isomorphism $\Gal(E\cdot K_{C'}/K_{C'}) \cong \Gal(E/F) = H$ the inertia injects
+\[
+I(v_\star \mid V_{C'}) \;\hookrightarrow\; I(v_E \mid V_F) .
+\]
+Hypothesis (H2) says the source is trivial; the goal is that the target is trivial. These need
+\emph{not} coincide: the two differ precisely by the ramification of $K_{C'}/F$ at $V_{C'} \mid V_F$
+--- the ramification that the symmetric-power base change $q$ introduces at the point at infinity
+--- which can be wild and can absorb the ramification of $E/F$. It is exactly this discrepancy
+that obstructs deducing the goal from (H1)--(H3).
+
+\textcolor{red}{Put in other words:
+The base change $K_{C'} /F$ is wildly ramified, so the inertia comparison is not onto .}
+
+\subsubsection*{The inertia injection, and why \textnormal{(H2)} is not enough}
+
+The injection used above is an instance of the following general fact.
+
+\begin{lemma}\label{lem:inertia-injection}
+Let $E/F$ be a finite Galois extension, linearly disjoint over $F$ from a field extension
+$K/F$, with compositum $E\cdot K$; thus restriction is an isomorphism
+$r \colon \Gal(E\cdot K/K) \xrightarrow{\ \sim\ } \Gal(E/F)$, $\sigma \mapsto \sigma|_E$.
+Let $w$ be a place of $E\cdot K$, and write $w_K := w|_K$, $w_E := w|_E$, $w_F := w|_F$ for its
+restrictions. Then $r$ carries the inertia group of $w$ over $w_K$ into that of $w_E$ over $w_F$:
+\[
+  r\bigl(I(w \mid w_K)\bigr) \;\subseteq\; I(w_E \mid w_F),
+\]
+so that $I(w\mid w_K) \hookrightarrow I(w_E\mid w_F)$ is injective. Moreover, completing at $w$
+identifies $I(w\mid w_K)$ with the inertia group of the local compositum $\widehat E\cdot\widehat K$
+over $\widehat K$; in particular, if $\widehat E \subseteq \widehat K$ then $I(w\mid w_K) = 1$,
+no matter how ramified $E/F$ is at $w_F$.
+\end{lemma}
+
+\begin{proof}
+That $r$ is an isomorphism is the translation theorem for the Galois extension $E/F$ and the
+linearly disjoint $K/F$ (\Cref{lem:galois-base-change}(1) with $M = F$). For the inclusion, let
+$\sigma \in I(w\mid w_K)$. Since $E/F$ is Galois and $\sigma$ fixes $F \subseteq K$ pointwise,
+$\sigma(E) = E$ and $\sigma|_E \in \Gal(E/F)$ fixes $w_F$. As $\sigma$ lies in the decomposition
+group of $w$ we have $w\circ\sigma = w$; restricting to $E$ gives $w_E\circ\sigma|_E = w_E$, so
+$\sigma|_E \in D(w_E\mid w_F)$. Finally the residue extension
+$\kappa(w_E)\hookrightarrow\kappa(w)$ is equivariant and $\sigma$ acts trivially on $\kappa(w)$,
+hence $\sigma|_E$ acts trivially on $\kappa(w_E)$, i.e.\ $\sigma|_E\in I(w_E\mid w_F)$.
+Injectivity is inherited from that of $r$. For the last assertion, the completion of $E\cdot K$
+at $w$ is the local compositum $\widehat E\widehat K$, with $\Gal(\widehat E\widehat K/\widehat K)
+= D(w\mid w_K)$ and inertia subgroup $I(w\mid w_K)$; if $\widehat E\subseteq\widehat K$ then
+$\widehat E\widehat K = \widehat K$ and this group is trivial.
+\end{proof}
+
+Taking $w = v_\star$ (so $w_K = V_{C'}$, $w_E = v_E$, $w_F = V_F$) recovers the injection
+$I(v_\star\mid V_{C'}) \hookrightarrow I(v_E\mid V_F)$. The implication ``(H2) $\Rightarrow$ goal''
+would follow if this were always onto; the next example shows it need not be, already for
+$G = \Z/p^2\Z$ over $\F_p$.
+
+\begin{example}\label{ex:p2-counterexample}
+Take $k = \F_p$, $G = \Z/p^2\Z$, and $H = p\,\Z/p^2\Z \cong \Z/p\Z$ the unique subgroup of order
+$p$, so $G/H \cong \Z/p\Z$. We describe the local fields at the place $V_{C'}\mid V_F$ --- the only
+place where the obstruction lives --- writing $\widehat{(\,\cdot\,)}$ for completions.
+
+\smallskip
+\noindent\emph{The base and the $G$-tower.} Let $\widehat{K_C} = \F_p((t))$, and present the local
+$G$-extension $\widehat E/\widehat{K_C}$ (an Artin--Schreier--Witt extension) by its two layers:
+\begin{itemize}
+  \item lower layer $\widehat F/\widehat{K_C}$ (group $G/H$): \emph{split}, so $\widehat F = \F_p((t))$.
+        Then $F/K_C$ is unramified at $V_C$ --- this is \textnormal{(H1)} --- and $\widehat{V_F} = \widehat{V_C}$;
+  \item upper layer $\widehat E/\widehat F$ (group $H$): the Artin--Schreier extension
+        \[
+          \widehat E = \widehat F(y), \qquad y^p - y = t^{-1}.
+        \]
+        By \Cref{theorem:artin_schreier_ramification}(3) (with $m = 1$, prime to $p$) this is totally,
+        wildly ramified of degree $p$, with $I(v_E \mid V_F) = H \cong \Z/p\Z \neq 1$.
+\end{itemize}
+Hence $I(v_E\mid V_C) = I(v_E\mid V_F) = H \neq 1$: the extension $E/K_C$ is ramified at $V_C$, so
+\emph{the conclusion of the theorem fails}.
+
+\smallskip
+\noindent\emph{The base change.} The places of $K_{C'}$ over $V_F$ are governed by the
+symmetric-power cover $q$. Suppose at $V_{C'}$ this cover reproduces the \emph{same}
+Artin--Schreier extension,
+\[
+  \widehat{K_{C'}} = \widehat F(y),\quad y^p - y = t^{-1}, \qquad\text{i.e.}\qquad \widehat{K_{C'}} = \widehat E .
+\]
+This is compatible with the global linear disjointness $E\cap K_{C'} = F$: two \emph{distinct}
+degree-$p$ extensions of the global field $F$ may have isomorphic completions at a place. Now the
+local compositum is $\widehat{E\cdot K_{C'}} = \widehat E\cdot\widehat{K_{C'}} = \widehat E
+= \widehat{K_{C'}}$, so $E\cdot K_{C'}/K_{C'}$ is split, hence unramified, at $V_{C'}$:
+\[
+  I(v_\star\mid V_{C'}) = \Gal\bigl(\widehat E/\widehat{K_{C'}}\bigr) = 1 .
+\]
+Thus \textnormal{(H2)} holds, and \textnormal{(H3)} holds by construction.
+
+\smallskip
+\noindent\emph{Outcome.} All of \textnormal{(H1)--(H3)} hold, yet $E/K_C$ is wildly ramified at
+$V_C$ with inertia $H\cong\Z/p\Z$. The inertia injection of \Cref{lem:inertia-injection} is here
+\[
+  \underbrace{I(v_\star\mid V_{C'})}_{=\,1}\;\hookrightarrow\;\underbrace{I(v_E\mid V_F)}_{=\,\Z/p\Z},
+\]
+the inclusion of the trivial group: (H2) carries no information about the ramification of $E/F$,
+which has been entirely \emph{absorbed} by that of $K_{C'}/F$ --- the wild ramification introduced
+by $q$ at the point at infinity.
+\end{example}
+
+\begin{rem*}
+This is globally consistent with everything above. Since $\widehat E\otimes_{\widehat F}\widehat{K_{C'}}
+= \widehat E\otimes_{\widehat F}\widehat E$ is not a field, $\cP^{[d]_H}$ (function field
+$E\cdot K_{C'}$) \emph{splits} at $V_{C'}$ into several places and is therefore unramified at
+$\eta_{C'}$, as \textnormal{(H2)} demands; meanwhile $\cP^{[d]_G}$ stays ramified at $\eta_C$. The
+hypotheses simply do not see the local coincidence $\widehat{K_{C'}} = \widehat E$, and ruling out
+such coincidences for a given $(\cP, d)$ is exactly the global input the inductive argument lacks
+--- which is why this is a wrong path.
+\end{rem*}
+
+\subsubsection*{Absorption made explicit: two local fields}
+
+\Cref{ex:p2-counterexample} posited the local coincidence $\widehat{K_{C'}} = \widehat E$ abstractly.
+For completeness we exhibit it in the smallest possible setting --- two honest local fields and a
+one-line Artin--Schreier reduction --- to make the absorption phenomenon fully visible.
+
+\begin{example}[absorption of a wild break, explicit fields]\label{ex:absorption-explicit}
+Let $k = \bar{\F}_p$ and let $F = k((t))$. Define a second local field $K = k((\pi))$, and embed
+$F \hookrightarrow K$ by
+\[
+t \;=\; \frac{\pi^{p}}{1-\pi^{p-1}} \;=\; \pi^{p}\bigl(1+\pi^{p-1}+\pi^{2(p-1)}+\cdots\bigr),
+\qquad\text{so}\qquad v_\pi(t)=p .
+\]
+Since $t = \pi^p\cdot(\text{unit})$ and $\,dt/d\pi = -\pi^{2p-2}(1-\pi^{p-1})^{-2}\neq 0$, the extension
+$K/F$ is separable, \emph{totally (wildly) ramified of degree $p$}; equivalently it is the
+Artin--Schreier extension $\sigma^p-\sigma = t^{-1}$ with $\sigma=\pi^{-1}$, of break $1$
+(\Cref{theorem:artin_schreier_ramification}(3)).
+
+Now let $E/F$ be the Artin--Schreier extension
+\[
+E = F(y),\qquad y^p - y = t^{-1}.
+\]
+Over $F$ this is ramified: $v_t(t^{-1}) = -1$ is prime to $p$, so by
+\Cref{theorem:artin_schreier_ramification}(3) it is totally wildly ramified of degree $p$, break $1$,
+with $I(v_E\mid v_F) = \Z/p\Z \neq 1$.
+
+\smallskip
+\noindent\emph{Yet $E$ is absorbed by $K$.} Computing $t^{-1}$ inside $K$,
+\[
+t^{-1} \;=\; \pi^{-p}\bigl(1-\pi^{p-1}\bigr) \;=\; \pi^{-p}-\pi^{-1} \;=\; \wp\bigl(\pi^{-1}\bigr),
+\qquad \wp(x):=x^p-x ,
+\]
+so $y=\pi^{-1}\in K$ already solves $y^p-y=t^{-1}$. Hence $E = F(\pi^{-1}) \subseteq K$ (indeed
+$E = K$, both being degree $p$ over $F$), the compositum is $E\cdot K = K$, and
+\[
+E\cdot K / K \ \text{is trivial, hence unramified:}\qquad I(v_\star\mid v_K) = 1 ,
+\]
+while $E/F$ is ramified. The ramification of $E/F$ has been \emph{entirely absorbed} by the wild
+base change to $K$ --- exactly the failure of surjectivity in the inertia injection
+$I(v_\star\mid v_K)\hookrightarrow I(v_E\mid v_F)$, here $1 \hookrightarrow \Z/p\Z$.
+\end{example}
+
+\begin{rem*}
+\emph{The mechanism, and why $F$ cannot do it.} Read over $K$, the datum $t^{-1}$ has pole order
+$v_\pi(t^{-1}) = p$, \emph{divisible by $p$}; this is what licenses the Artin--Schreier reduction
+$y\mapsto y-\pi^{-1}$, which removes the pole completely because $\wp(\pi^{-1})$ matches $t^{-1}$ to
+all orders. The substitution is available over $K$ but \emph{not} over $F$: the reducing element
+$\pi^{-1}$ has valuation $-1$, whereas $v_\pi(F^\times) = p\,\Z$ contains no element of valuation
+$-1$ at all. Thus the wild base change does not ``fight'' the ramification of $E/F$; it
+\emph{supplies the one element of intermediate valuation} that the Artin--Schreier reduction
+needs. The ramification index $e(K/F)=p$ is the gate that turns the prime-to-$p$ break $1$ into the
+divisible-by-$p$ pole order $p$ over $K$.
+
+\emph{General $r$.} For $G=\Z/p^r$ the faithful local model has $\widehat{K_{C'}}/\widehat F$ totally
+ramified of degree $p^{r-1}$ (the residue field $k$ being algebraically closed, there is no residual
+part), and absorption is the proper inclusion $\widehat E \subsetneq \widehat{K_{C'}}$ of the
+top-layer $\Z/p$-extension. The explicit fields are obtained by iterating the recipe above: with
+$E = k((\pi))$, $\pi=y^{-1}$ as here, set $\pi = \rho^{p}(1-\rho^{p-1})^{-1}$ to get a degree-$p$
+overfield $k((\rho)) \supsetneq E$, and so on $r-1$ times. The pole order of the top datum is
+multiplied to $p^{r-1}\cdot 1 \equiv 0 \pmod p$ and reduced away by the same one-line substitution.
+Over an algebraically closed residue field, ``$E\cdot K/K$ unramified with $E/F$ ramified'' is
+\emph{equivalent} to $\widehat E\subseteq\widehat{K_{C'}}$ --- there are no nontrivial unramified
+extensions to hide in --- so absorption is precisely a containment of local fields, never a softer
+phenomenon.
+\end{rem*}

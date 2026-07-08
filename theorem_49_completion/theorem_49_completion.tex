@@ -1,0 +1,953 @@
+% =============================================================================
+%  theorem_49_completion.tex
+%
+%  A COMPLETE PROOF of Theorem 49
+%  (\Cref{theorem:ramification_after_blowup_is_tame_for_p_power}):
+%
+%      For G = Z/p^r Z, the symmetric-power torsor P^{[deg n]} is
+%      unramified at the generic point of the exceptional divisor of the
+%      blowup of C^{(deg n)} at n = nP.
+%
+%  The proof is direct (no induction on r, no Swan conductors).  It replaces
+%  the single Artin--Schreier equation of the thesis's Z/p computation
+%  (RamificationAfterBlowupIsTame.tex, lines 499-575) by a length-r Witt
+%  vector, and consists of three steps:
+%
+%    (1)  The Artin--Schreier--Witt datum of P^{[d]} at the exceptional
+%         divisor is the d-fold WITT SUM of the local datum of P
+%         (Theorem \ref{thm:datum} below -- proved by an explicit,
+%         elementary change of variables; this closes open point (1) of
+%         q_ramification_along_VF/general_witt_proof/general_witt_proof.tex).
+%
+%    (2)  The Witt-sum polynomials are ISOBARIC, so each component of the
+%         datum is a symmetric polynomial in y_i = 1/x_i of total degree
+%         at most the largest upper ramification break u < d
+%         (Lemma \ref{lem:isobaric-bound}).
+%
+%    (3)  A symmetric polynomial in the y_i of degree < d is a polynomial
+%         in e_1(y),...,e_{d-1}(y) = e_{d-1}(x)/e_d(x),...,e_1(x)/e_d(x),
+%         hence lies in the RESIDUE FIELD of the exceptional valuation --
+%         so the whole datum is integral, and the extension is unramified
+%         because the Artin--Schreier--Witt isogeny is etale
+%         (Lemma \ref{lem:integrality}, Corollary \ref{cor:integral-unramified}).
+%
+%  The only non-elementary input is the classical Schmid--Witt description
+%  of the ramification breaks of Artin--Schreier--Witt extensions
+%  (\cite{Thomas2005}), which the thesis already cites for r = 1
+%  (theorem:artin_schreier_ramification).  Everything else is proved here.
+%
+%  Sections 1-2 (Witt vectors, ASW theory) are background intended for the
+%  Preliminaries; Section 3-4 are the proof itself, intended to replace the
+%  broken inductive proof in RamificationAfterBlowupIsTame.tex (lines
+%  636-673).  See the final remarks for integration notes.
+%
+%  Compile: TEXINPUTS=../..: latexmk -pdf theorem_49_completion.tex  (biber)
+% =============================================================================
+\documentclass[11pt]{article}
+\usepackage{geometry}\geometry{margin=1in}
+\usepackage[T1]{fontenc}
+\usepackage{ifthen}
+
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0.5em}
+
+\input{includes}
+\input{MacrosAndFigures}
+
+\usepackage{csquotes}
+\usepackage[
+backend=biber,
+style=alphabetic,
+sorting=ynt
+]{biblatex}
+\addbibresource{Bib.bib}
+
+\newboolean{ThesisIntro}
+\setboolean{ThesisIntro}{false}
+
+% ---- local notation ---------------------------------------------------------
+\providecommand{\eps}{\varepsilon}                  % elementary symmetric in y
+\newcommand{\wv}[1]{\underline{#1}}                 % a Witt vector
+\newcommand{\Wsum}{\sideset{}{^{W}}\sum}            % Witt-vector sum
+\newcommand{\mm}{\mathfrak{m}_{k[[x]]}}             % maximal ideal x k[[x]]
+
+\title{Completion of the proof of
+\texorpdfstring{\Cref{theorem:ramification_after_blowup_is_tame_for_p_power}}{Theorem 49}:\\
+ramification after blowup is trivial for $G=\Z/p^r\Z$\\[4pt]
+{\large a direct proof via Artin--Schreier--Witt theory}}
+\author{}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\noindent\textbf{Goal.}
+Let $C$ be a projective smooth geometrically connected curve over $k$
+($\ch k = p$), $\mdls=\sum n_iP_i$ a modulus, $U=C\setminus\mdls$, and let
+$\cP\to U$ be a $G$-torsor with ramification bounded by $\mdls$, where
+$G=\Z/p^r\Z$.  Fix $P=P_i$, put $n=n_i$, $\ndls=nP$ and $d=\deg\ndls=n$.  Let
+$X_\ndls\to C^{(d)}$ be the blowup at the point $\ndls\in C^{(d)}$, with
+exceptional divisor $E_\ndls$ and generic point $\eta_\ndls$.  We prove:
+
+\begin{theorem*}[{= \Cref{theorem:ramification_after_blowup_is_tame_for_p_power}}]
+$\cP^{[d]}$ is unramified at $\eta_\ndls$.
+\end{theorem*}
+
+\noindent\textbf{Strategy.}
+The thesis already proves this for $r=1$ by an explicit computation: the
+Artin--Schreier datum of $\cP^{[d]}$ at $\eta_\ndls$ is the power sum
+$\sum_{i=1}^d f(x_i)$, which is a symmetric function of low degree in the
+$y_i=1/x_i$ and therefore lands in the \emph{residue field} of the
+exceptional valuation.  The inductive route from $\Z/p$ to $\Z/p^r$ stalls
+(see \texttt{a\_wrong\_path.tex}); instead we redo the $r=1$ computation
+verbatim with a length-$r$ \emph{Witt vector} in place of a single
+Artin--Schreier equation.  The datum of $\cP^{[d]}$ becomes the $d$-fold
+\emph{Witt sum} of the local datum of $\cP$; the Witt carries are controlled
+by the isobaric grading of the Witt addition polynomials, and the
+ramification bound $<d$ makes every component of the datum a symmetric
+polynomial of degree $<d$ in the $y_i$ --- hence integral at $\eta_\ndls$,
+hence unramified, because the Artin--Schreier--Witt isogeny is \'etale.
+
+No Swan conductors are used.  The only imported result is the classical
+Schmid--Witt computation of ramification breaks of Artin--Schreier--Witt
+extensions (\cite{Thomas2005}), whose $r=1$ case is
+\Cref{theorem:artin_schreier_ramification} of the thesis.
+\Cref{sec:witt,sec:asw} are supplementary background (intended for the
+Preliminaries); \Cref{sec:datum,sec:proof} contain the proof.
+
+% #############################################################################
+\section{Background I: Witt vectors}\label{sec:witt}
+% #############################################################################
+
+Fix a prime $p$.  We recall the $p$-typical Witt vectors of finite length
+$r\ge 1$; the standard reference is \cite[II \S6]{serreLF} (see also
+\cite{Rabinoff2014Witt}).
+
+For a commutative ring $A$, the set $W_r(A)=A^r$ of vectors
+$\wv a=(a_0,\dots,a_{r-1})$ carries a commutative ring structure, functorial
+in $A$, uniquely determined by the requirement that the \emph{ghost maps}
+\[
+w_n\colon W_r(A)\longrightarrow A,\qquad
+w_n(\wv a)=\sum_{l=0}^{n}p^{\,l}a_l^{\,p^{\,n-l}}
+=a_0^{p^n}+pa_1^{p^{n-1}}+\dots+p^na_n
+\qquad(0\le n\le r-1)
+\]
+are ring homomorphisms.  Concretely, there are universal polynomials with
+\emph{integer} coefficients computing the ring operations.  We will only
+need addition and subtraction, and only their following structural features.
+
+\begin{notation*}
+For $d\ge2$ let
+$S^{(d)}_n\in\Z\big[X^{(i)}_l : 1\le i\le d,\ 0\le l\le r-1\big]$,
+$0\le n\le r-1$, denote the $d$-fold Witt \emph{addition} polynomials,
+characterized by
+\begin{equation}\label{eq:ghost-sum}
+w_n\big(S^{(d)}_0,\dots,S^{(d)}_{n}\big)
+=\sum_{i=1}^{d}w_n\big(\wv X^{(i)}\big),
+\end{equation}
+so that
+$\wv X^{(1)}+_W\dots+_W\wv X^{(d)}
+=\big(S^{(d)}_0,\dots,S^{(d)}_{r-1}\big)$.
+Similarly let $D_n(\wv X;\wv Y)$ denote the subtraction polynomials,
+characterized by $w_n(\wv D)=w_n(\wv X)-w_n(\wv Y)$.
+We write $+_W$, $-_W$ and $\Wsum$ for Witt-vector operations, to
+distinguish them from componentwise ones, and $\wv 0=(0,\dots,0)$.
+\end{notation*}
+
+Expanding \cref{eq:ghost-sum} and using
+$w_n(\wv X)=p^nX_n+\sum_{l<n}p^lX_l^{p^{n-l}}$ we get the recursion
+(valid in $\Q[X^{(i)}_l]$, where the polynomials are uniquely determined):
+\begin{equation}\label{eq:recursion}
+p^{\,n}S^{(d)}_n
+=\sum_{i=1}^{d}w_n\big(\wv X^{(i)}\big)
+-\sum_{l=0}^{n-1}p^{\,l}\big(S^{(d)}_l\big)^{p^{\,n-l}},
+\end{equation}
+and the analogous recursion for $D_n$ with
+$\sum_i w_n(\wv X^{(i)})$ replaced by $w_n(\wv X)-w_n(\wv Y)$.
+That these recursions produce polynomials with integer coefficients is
+Witt's theorem \cite[II \S6, Thm.~6]{serreLF}.
+
+\begin{definition}[weights]\label{def:weight}
+Assign to the level-$l$ variable $X^{(i)}_l$ (resp.\ $X_l$, $Y_l$) the
+\emph{weight} $p^{\,l}$.  The weight of a monomial is the sum of the weights
+of its variables, counted with multiplicity.  A polynomial is
+\emph{isobaric of weight $w$} if every monomial occurring in it has weight
+exactly $w$.  (In particular an isobaric polynomial of weight $w>0$ has no
+constant term.)
+\end{definition}
+
+\begin{lemma}[isobaricity]\label{lem:isobaric}
+$S^{(d)}_n$ and $D_n$ are isobaric of weight $p^{\,n}$.
+\end{lemma}
+
+\begin{proof}
+The ghost polynomial $w_n$ is isobaric of weight $p^n$: its monomial
+$p^lX_l^{\,p^{n-l}}$ has weight $p^{\,l}\cdot p^{\,n-l}=p^{\,n}$.  We induct
+on $n$ using \cref{eq:recursion}.  For $n=0$,
+$S^{(d)}_0=\sum_iX^{(i)}_0$ is isobaric of weight $1$.  For $n>0$: each
+$w_n(\wv X^{(i)})$ is isobaric of weight $p^n$; by induction $S^{(d)}_l$ is
+isobaric of weight $p^{\,l}$ for $l<n$, hence $(S^{(d)}_l)^{p^{n-l}}$ is
+isobaric of weight $p^{\,l}\cdot p^{\,n-l}=p^{\,n}$.  So the right-hand side
+of \cref{eq:recursion} is isobaric of weight $p^n$ in $\Q[X^{(i)}_l]$, and
+dividing by $p^{\,n}$ does not change the set of monomials.  The same
+induction applies to $D_n$.
+\end{proof}
+
+\begin{lemma}[triangularity]\label{lem:triangular}
+\begin{enumerate}
+  \item $S^{(d)}_n=\sum_{i=1}^{d}X^{(i)}_n+T_n$ with
+        $T_n\in\Z\big[X^{(i)}_l : l<n\big]$, and
+        $D_n=X_n-Y_n+E_n$ with $E_n\in\Z[X_l,Y_l : l<n]$.
+        In words: \emph{the $n$-th component of a Witt sum or difference is
+        the plain sum or difference of the $n$-th components, plus an
+        integer polynomial in the components of levels $<n$.}
+  \item Consequently, if $\wv u,\wv v\in W_r(A)$ satisfy $u_l=v_l=0$ for all
+        $l<n$, then $\wv u\pm_W\wv v$ agrees with the componentwise sum or
+        difference up to and including level $n$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(1) Induct on $n$ via \cref{eq:recursion}: in
+$w_n(\wv X^{(i)})=p^nX^{(i)}_n+(\text{polynomial in }X^{(i)}_{l},\,l<n)$
+only the displayed term involves level $n$, and the correction terms
+$(S^{(d)}_l)^{p^{n-l}}$, $l<n$, involve only levels $\le l<n$ by induction.
+Divide by $p^n$; integrality of the result is part of Witt's theorem.
+(2) By (1), the components of level $\le n$ of $\wv u\pm_W \wv v$ are
+$u_l\pm v_l+(\text{polynomial without constant term in levels}<l)$,
+and the correction vanishes when all lower components vanish
+(\Cref{lem:isobaric} guarantees there is no constant term).
+\end{proof}
+
+\subsubsection*{Frobenius and the operator \texorpdfstring{$\wp$}{p}}
+
+From now on $A$ is an $\F_p$-algebra.  The absolute Frobenius
+$\phi\colon A\to A$, $a\mapsto a^p$, is a ring endomorphism, so by
+functoriality it induces a ring endomorphism
+\[
+F:=W_r(\phi)\colon W_r(A)\to W_r(A),\qquad
+F(a_0,\dots,a_{r-1})=(a_0^{\,p},\dots,a_{r-1}^{\,p}),
+\]
+which acts \emph{componentwise}.  (For $\F_p$-algebras this componentwise
+map coincides with the Witt-vector Frobenius of the general theory
+\cite[II \S6]{serreLF}; we will only ever use the componentwise
+description, which we may take as the definition.)  Define the
+\emph{Artin--Schreier--Witt operator}
+\[
+\wp:=F-\mathrm{id}\colon W_r(A)\longrightarrow W_r(A),
+\qquad \wp(\wv a)=F(\wv a)-_W\wv a .
+\]
+Since $F$ is a ring homomorphism, $\wp$ is an endomorphism of the additive
+group $W_r(A)$, functorial in $A$.  For $r=1$ it is the classical
+Artin--Schreier operator $a\mapsto a^p-a$.
+
+\begin{lemma}[shape of $\wp$]\label{lem:wp-triangular}
+For variables $\wv Y=(Y_0,\dots,Y_{r-1})$ over $\F_p$,
+\[
+\wp(\wv Y)_n \;=\; Y_n^{\,p}-Y_n+\Delta_n(Y_0,\dots,Y_{n-1}),
+\qquad 0\le n\le r-1,
+\]
+where $\Delta_n\in\F_p[Y_0,\dots,Y_{n-1}]$ has no constant term and
+$\Delta_0=0$.
+\end{lemma}
+
+\begin{proof}
+$\wp(\wv Y)_n=D_n\big(Y_0^{\,p},\dots,Y_{r-1}^{\,p};\,Y_0,\dots,Y_{r-1}\big)$.
+By \Cref{lem:triangular}(1) this equals
+$Y_n^{\,p}-Y_n+E_n(Y^{\,p}_{<n};Y_{<n})$, and we set
+$\Delta_n:=E_n(Y^{\,p}_{<n};Y_{<n})\bmod p$, a polynomial in
+$Y_0,\dots,Y_{n-1}$ only.  It has no constant term because $E_n$ has none
+(\Cref{lem:isobaric}).
+\end{proof}
+
+\begin{lemma}[kernel of $\wp$]\label{lem:kernel}
+If $A$ is an integral domain over $\F_p$, then
+$\ker\big(\wp\colon W_r(A)\to W_r(A)\big)=W_r(\F_p)\cong\Z/p^r\Z$.
+\end{lemma}
+
+\begin{proof}
+$\wp(\wv a)=\wv 0$ iff $F\wv a=\wv a$, i.e.\ $a_l^{\,p}=a_l$ for all $l$
+(both maps are componentwise), i.e.\ $a_l\in\F_p$ for all $l$ since $A$ is a
+domain.  Finally $W_r(\F_p)=W(\F_p)/V^rW(\F_p)=\Z_p/p^r\Z_p\cong\Z/p^r\Z$
+\cite[II \S6]{serreLF}.
+\end{proof}
+
+From now on we identify $G:=\Z/p^r\Z=W_r(\F_p)$.
+
+\begin{prop}[the Artin--Schreier--Witt isogeny is \'etale]\label{prop:etale}
+Let $A$ be an $\F_p$-algebra and $\wv a\in W_r(A)$.  Set
+\[
+A_{\wv a}\;:=\;A[Y_0,\dots,Y_{r-1}]\,/\,
+\big(\,\wp(\wv Y)_n-a_n\ :\ 0\le n\le r-1\,\big).
+\]
+Then:
+\begin{enumerate}
+  \item $A_{\wv a}$ is a free $A$-module of rank $p^{\,r}$, with basis the
+        monomials $\prod_l Y_l^{\,c_l}$, $0\le c_l\le p-1$;
+  \item $A_{\wv a}$ is \'etale over $A$;
+  \item the rule $\wv Y\mapsto\wv Y+_W\wv g$, $\wv g\in G=W_r(\F_p)$,
+        defines an action of $G$ on $A_{\wv a}$ by $A$-algebra
+        automorphisms, and if $A\ne 0$ this makes
+        $\cP_{\wv a}:=\Spec A_{\wv a}$ a $G$-torsor over $\Spec A$ in the
+        \'etale topology.
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+By \Cref{lem:wp-triangular} the defining equations are
+\[
+Y_n^{\,p}-Y_n \;=\; a_n-\Delta_n(Y_0,\dots,Y_{n-1}),\qquad n=0,\dots,r-1,
+\]
+a \emph{triangular tower} of Artin--Schreier equations: each is monic of
+degree $p$ in $Y_n$ with coefficients in
+$A[Y_0,\dots,Y_{n-1}]$.  (1) follows at once.
+
+(2) $A_{\wv a}$ is flat (free) over $A$; it remains to see it is
+unramified, i.e.\ $\Omega^1_{A_{\wv a}/A}=0$.  The module
+$\Omega^1_{A_{\wv a}/A}$ is generated by $dY_0,\dots,dY_{r-1}$ subject to
+the relations $\sum_m\big(\partial g_n/\partial Y_m\big)\,dY_m=0$, where
+$g_n=Y_n^p-Y_n+\Delta_n-a_n$.  The Jacobian matrix
+$\big(\partial g_n/\partial Y_m\big)_{n,m}$ is lower triangular with
+diagonal entries $pY_n^{\,p-1}-1=-1$, hence invertible; so
+$\Omega^1_{A_{\wv a}/A}=0$.
+
+(3) For $\wv g\in W_r(\F_p)$ we have $F\wv g=\wv g$, so
+$\wp(\wv Y+_W\wv g)=\wp(\wv Y)+_W\wp(\wv g)=\wp(\wv Y)$; hence the
+substitution $\wv Y\mapsto\wv Y+_W\wv g$ preserves the defining ideal
+and gives an $A$-algebra endomorphism, with inverse given by $-\wv g$; and
+$(\wv g,\wv g')\mapsto\wv g+_W\wv g'$ makes this an action of $G$.
+For the torsor property it suffices, since $\cP_{\wv a}\to\Spec A$ is
+finite \'etale and surjective of degree $p^r=|G|$, to check that $G$ acts
+simply transitively on geometric fibers.  Let $\Omega$ be an algebraically
+closed $A$-field; the $\Omega$-points of the fiber are the solutions
+$\wv b\in W_r(\Omega)$ of $\wp(\wv b)=\wv a$.  If $\wv b,\wv b'$ are two
+solutions then $\wp(\wv b'-_W\wv b)=\wv 0$, so
+$\wv b'-_W\wv b\in W_r(\F_p)=G$ by \Cref{lem:kernel}: the action is
+transitive; and it is free because translation by $\wv g\ne\wv 0$ in the
+group $W_r(\Omega)$ has no fixed points.
+\end{proof}
+
+\begin{cor}[integral datum $\Rightarrow$ unramified]\label{cor:integral-unramified}
+Let $\Oo$ be a discrete valuation ring containing $\F_p$, with fraction
+field $K$.  If $\wv a\in W_r(\Oo)\subset W_r(K)$, then every field factor
+of the \'etale $K$-algebra $K_{\wv a}=K\otimes_\Oo\Oo_{\wv a}$ is an
+\emph{unramified} extension of $K$ with respect to $\Oo$ (in the sense of
+\Cref{definition:tamely_ramified_dvrs}).
+\end{cor}
+
+\begin{proof}
+By \Cref{prop:etale}, $B:=\Oo_{\wv a}$ is finite \'etale over $\Oo$.  Being
+\'etale over a normal domain, $B$ is a finite product $\prod_j B_j$ of
+normal domains, each finite \'etale over $\Oo$; then
+$B_j$ is the integral closure of $\Oo$ in the field factor
+$L_j=\Frac(B_j)$ of $K_{\wv a}$, it is a semi-local Dedekind domain, and at
+each of its maximal ideals the extension of discrete valuation rings is
+flat and unramified: the ramification index is $1$ and the residue field
+extension is finite separable.  This is precisely the definition of
+$L_j/K$ being unramified with respect to $\Oo$.
+\end{proof}
+
+% #############################################################################
+\section{Background II: Artin--Schreier--Witt theory}\label{sec:asw}
+% #############################################################################
+
+\subsection{Classification of \texorpdfstring{$\Z/p^r\Z$}{Z/p\^{}r}-torsors on affine schemes}
+
+\begin{prop}\label{prop:classification}
+Let $U=\Spec A$ be an integral affine scheme over $\F_p$.  Then
+\Cref{prop:etale} induces a bijection
+\[
+W_r(A)\,/\,\wp\,W_r(A)\;\xrightarrow{\ \cong\ }\;
+\mathrm{Tors}\big(U_{\text{\'et}},\Z/p^r\Z\big),\qquad
+[\wv a]\longmapsto\big[\cP_{\wv a}\big].
+\]
+Moreover the bijection is functorial: for a morphism
+$\Spec B\to\Spec A$ the pullback of $\cP_{\wv a}$ is
+$\cP_{\wv a'}$ where $\wv a'$ is the image of $\wv a$ in $W_r(B)$.
+\end{prop}
+
+\begin{proof}
+The sequence of abelian sheaves on $U_{\text{\'et}}$
+\[
+0\longrightarrow \Z/p^r\Z\longrightarrow W_r(\Oo_U)
+\xrightarrow{\ \wp\ } W_r(\Oo_U)\longrightarrow 0
+\]
+is exact: the kernel is the constant sheaf $\Z/p^r\Z$ by
+\Cref{lem:kernel} (sections over a connected affine \'etale $V\to U$ with
+$V=\Spec B$, $B$ a domain --- and every \'etale $V$ is a disjoint union of
+such); and $\wp$ is surjective as a map of \'etale sheaves because for any
+$\wv a\in W_r(B)$ the finite \'etale surjective cover
+$\Spec B_{\wv a}\to\Spec B$ of \Cref{prop:etale} carries a tautological
+solution $\wv Y$ of $\wp(\wv Y)=\wv a$.
+
+The long exact cohomology sequence gives
+\[
+W_r(A)\xrightarrow{\ \wp\ }W_r(A)\xrightarrow{\ \delta\ }
+H^1\big(U_{\text{\'et}},\Z/p^r\Z\big)\longrightarrow
+H^1\big(U_{\text{\'et}},W_r(\Oo_U)\big),
+\]
+and the boundary map $\delta$ sends $\wv a$ to the class of the sheaf of
+solutions of $\wp(\wv Y)=\wv a$, i.e.\ of the torsor $\cP_{\wv a}$.
+It remains to show $H^1(U_{\text{\'et}},W_r(\Oo_U))=0$.  For $r=1$,
+$W_1(\Oo_U)=\bG_a$ and
+$H^1(U_{\text{\'et}},\bG_a)\cong H^1(U,\Oo_U)=0$ since $U$ is affine
+(\'etale and Zariski cohomology of quasi-coherent sheaves agree,
+\cite[III \S3]{milneEC}).  For $r>1$, \Cref{lem:triangular}(2) shows that
+$\{(0,\dots,0,a)\}\subset W_r$ is a subgroup isomorphic to $\bG_a$ and that
+truncation $(a_0,\dots,a_{r-1})\mapsto(a_0,\dots,a_{r-2})$ is a group
+homomorphism (by \Cref{lem:triangular}(1), level-$n$ components of a sum
+depend only on levels $\le n$), giving an exact sequence of \'etale sheaves
+$0\to\bG_a\to W_r(\Oo_U)\to W_{r-1}(\Oo_U)\to 0$; conclude by induction.
+Functoriality of the construction $\wv a\mapsto A_{\wv a}$ is clear.
+\end{proof}
+
+\begin{lemma}[torsor invariants]\label{lem:torsor-invariants}
+Let $\Gamma$ be a finite group and $\Spec B\to\Spec A$ a $\Gamma$-torsor.
+Then $B^{\Gamma}=A$.
+\end{lemma}
+
+\begin{proof}
+$A\to B$ is finite \'etale, in particular faithfully flat, and the torsor
+condition gives a $\Gamma$-equivariant isomorphism of $B$-algebras
+$B\otimes_AB\cong\mathrm{Maps}(\Gamma,B)$,
+$b\otimes b'\mapsto(\gamma\mapsto\gamma(b)\,b')$, where $\Gamma$ acts on
+the left tensor factor and, on the right side, by permuting arguments
+($\gamma_0$ sends a map $\varphi$ to $\gamma\mapsto\varphi(\gamma\gamma_0)$).
+Taking $\Gamma$-invariants, which commutes with the flat base change
+$A\to B$,
+\[
+B^\Gamma\otimes_AB=(B\otimes_AB)^{\Gamma\otimes 1}
+\cong\mathrm{Maps}(\Gamma,B)^{\Gamma}=\{\text{constant maps}\}=B
+=A\otimes_AB .
+\]
+By faithful flatness of $B$ over $A$, $B^\Gamma=A$.
+\end{proof}
+
+\begin{lemma}[additivity: contracted products]\label{lem:additivity}
+In the situation of \Cref{prop:classification}, for
+$\wv a,\wv b\in W_r(A)$ there is a canonical isomorphism of $G$-torsors
+\[
+\cP_{\wv a}\otimes^{G}\cP_{\wv b}\;\cong\;\cP_{\wv a+_W\wv b}.
+\]
+\end{lemma}
+
+\begin{proof}
+Write the contracted product as
+$(\cP_{\wv a}\times_U\cP_{\wv b})/G^{-}$, where
+$G^-=\{(\wv g,-\wv g)\}\le G\times G$; the ring of
+$\cP_{\wv a}\times_U\cP_{\wv b}$ is
+\[
+T=A[\wv X_1,\wv X_2]\,/\,
+\big(\wp(\wv X_1)-\wv a,\ \wp(\wv X_2)-\wv b\big),
+\]
+where, here and below, ``$\wp(\wv X)-\wv c$'' stands for the $r$
+componentwise equations, and $\wv X_1,\wv X_2$ are two batches of $r$
+variables.
+
+\emph{Change of variables.}  Put $\wv Y:=\wv X_1+_W\wv X_2$.  By
+\Cref{lem:triangular}(1),
+$Y_l=X_{1,l}+\big(\text{polynomial in }X_{1,<l}\text{ and }X_{2,\le l}\big)$,
+so the substitution $X_{1,l}\mapsto Y_l$ ($l=0,\dots,r-1$) is a
+triangular, unipotent change of polynomial generators:
+$A[\wv X_1,\wv X_2]=A[\wv Y,\wv X_2]$.
+
+\emph{The ideal in the new variables.}  We claim
+\[
+\big(\wp(\wv X_1)-\wv a,\ \wp(\wv X_2)-\wv b\big)
+=\big(\wp(\wv Y)-(\wv a+_W\wv b),\ \wp(\wv X_2)-\wv b\big).
+\]
+Both inclusions follow from the elementary fact that for any polynomial
+$P$ and tuples $u,v$ one has $P(u)-P(v)\in(u_1-v_1,u_2-v_2,\dots)$,
+combined with Witt-vector identities:
+for ``$\subseteq$'' use $\wv X_1=\wv Y-_W\wv X_2$ and the identity
+$\wp(\wv Y-_W\wv X_2)=\wp(\wv Y)-_W\wp(\wv X_2)$ (as polynomial identities
+in the components --- $\wp$ is additive), evaluating $P=$ each component of
+$\wp(\,\cdot\,-_W\,\cdot\,)$ at
+$u=(\wp\wv Y,\wp\wv X_2)$ and $v=(\wv a+_W\wv b,\wv b)$, and noting
+$(\wv a+_W\wv b)-_W\wv b=\wv a$; the inclusion ``$\supseteq$'' is the same
+computation run backwards, with $P=$ components of
+$\wp(\,\cdot\,+_W\,\cdot\,)$.  Hence
+\[
+T\;\cong\;A_{\wv a+_W\wv b}\ \otimes_A\ A_{\wv b},
+\qquad \wv Y\mapsto \wv Y\otimes 1,\quad \wv X_2\mapsto 1\otimes\wv X_2 .
+\]
+\emph{Invariants.}  The subgroup $G^-$ acts by
+$\wv Y\mapsto\wv Y+_W\wv g-_W\wv g=\wv Y$ and
+$\wv X_2\mapsto\wv X_2-_W\wv g$; i.e.\ trivially on the first tensor
+factor and through the full torsor action of $G$ on the second.  By
+\Cref{lem:torsor-invariants},
+$T^{G^-}=A_{\wv a+_W\wv b}\otimes_A(A_{\wv b})^{G}
+=A_{\wv a+_W\wv b}$.
+The residual $G=(G\times G)/G^-$-action is
+$\wv Y\mapsto\wv Y+_W\wv g$, as required.
+\end{proof}
+
+\subsection{Local theory over \texorpdfstring{$k((x))$}{k((x))}: reduced data and ramification breaks}
+
+Let $k$ be an algebraically closed field of characteristic $p$, let
+$K=k((x))$ with valuation $v$, valuation ring $k[[x]]$ and maximal ideal
+$\mm=xk[[x]]$.  By \Cref{prop:classification} applied to Galois cohomology
+(or see \cite{Thomas2005}), continuous characters
+$\rho\colon\Gal(K^{sep}/K)\to\Z/p^r\Z$ correspond to classes
+$[\wv f]\in W_r(K)/\wp W_r(K)$; the fixed field of $\ker\rho$ is the
+splitting field of $\wp(\wv Y)=\wv f$.
+
+\begin{definition}[reduced datum]\label{def:reduced}
+A Witt vector $\wv f=(f_0,\dots,f_{r-1})\in W_r(K)$ is \emph{reduced} if
+every component $f_l$ is a polynomial in $x^{-1}$ without constant term,
+and its degree $m_l:=\deg_{x^{-1}}f_l$ (the pole order of $f_l$; set
+$m_l=0$ if $f_l=0$) is either $0$ or prime to $p$.
+We call
+\[
+\mu(\wv f)\;:=\;\max_{0\le l\le r-1}\ p^{\,r-1-l}\,m_l
+\]
+the \emph{weighted pole order} of $\wv f$.
+\end{definition}
+
+\begin{lemma}[reduction to reduced form]\label{lem:reduction}
+Every class in $W_r(K)/\wp W_r(K)$ has a reduced representative.
+\end{lemma}
+
+\begin{proof}
+We first record two solvability facts, both immediate from the triangular
+shape of $\wp$ (\Cref{lem:wp-triangular}).
+
+\emph{(a) $\wp\colon W_r(\mm)\to W_r(\mm)$ is surjective.}
+Note $W_r(\mm):=\{\wv c: c_l\in\mm\ \forall l\}$ is a subgroup of
+$W_r(k[[x]])$, since the addition polynomials have no constant term.
+Given $\wv c\in W_r(\mm)$, solve $b_n^{\,p}-b_n=c_n-\Delta_n(b_{<n})$
+recursively: assuming $b_0,\dots,b_{n-1}\in\mm$, the right-hand side
+$t:=c_n-\Delta_n(b_{<n})$ lies in $\mm$ ($\Delta_n$ has no constant term),
+and $b_n:=-\big(t+t^{\,p}+t^{\,p^2}+\dots\big)\in\mm$ converges $x$-adically
+and satisfies $b_n^{\,p}-b_n=t$.
+
+\emph{(b) $\wp\colon W_r(k)\to W_r(k)$ is surjective}, since $k$ is
+algebraically closed and each equation
+$b_n^{\,p}-b_n=c_n-\Delta_n(b_{<n})$ is solvable in $k$.
+
+Now let $\wv a\in W_r(K)$.  We normalize the components from level $0$
+upwards; the key point, guaranteed by \Cref{lem:triangular}(2), is that
+subtracting $\wp\big(V^n(h)\big)$, where
+$V^n(h):=(0,\dots,0,h,0,\dots,0)$ ($h$ in level $n$), changes the level-$n$
+component by exactly $-\wp(h)=-(h^p-h)$, changes \emph{no} component of
+level $<n$, and changes the components of level $>n$ by elements of $K$.
+
+So suppose levels $0,\dots,n-1$ are already reduced.  Write
+$a_n=a_n^-+c+a_n^+$ with $a_n^-\in x^{-1}k[x^{-1}]$, $c\in k$,
+$a_n^+\in\mm$.
+\begin{itemize}
+  \item By (a) and (b) choose $h',h''$ with $\wp(h')=a_n^+$
+        ($h'\in\mm$) and $\wp(h'')=c$ ($h''\in k$); subtracting
+        $\wp\big(V^n(h'+h'')\big)$ we may assume $a_n=a_n^-$.
+  \item If the pole order $m$ of $a_n$ is positive and divisible by $p$,
+        with leading term $cx^{-m}$, subtract
+        $\wp\big(V^n(c^{1/p}x^{-m/p})\big)$: the level-$n$ component
+        changes by $-(cx^{-m}-c^{1/p}x^{-m/p})$, which strictly decreases
+        its pole order.  Iterate; after finitely many steps, and after
+        removing once more the constant and positive parts as above, the
+        level-$n$ component is a polynomial in $x^{-1}$ without constant
+        term, of degree $0$ or prime to $p$.
+\end{itemize}
+All modifications leave levels $<n$ untouched, so the process terminates
+after treating level $r-1$.
+\end{proof}
+
+The following classical theorem of Schmid and Witt describes the
+ramification of the corresponding extensions; it is the promised
+Artin--Schreier--Witt input.  For $r=1$ it is exactly
+\Cref{theorem:artin_schreier_ramification}.
+
+\begin{theorem}[Schmid--Witt; {\cite{Thomas2005}}]\label{thm:schmid-witt}
+Let $\wv f\in W_r(K)$ be reduced with weighted pole order $\mu=\mu(\wv f)$,
+and let $\rho\colon\Gal(K^{sep}/K)\to\Z/p^r\Z$ be the character of the
+class $[\wv f]$.  Then, in the upper-numbering convention of
+\Cref{theorem:artin_schreier_ramification}:
+\begin{enumerate}
+  \item if $\mu=0$ then $\rho\big(\Gal(K^{sep}/K)^{(u)}\big)=1$ for all
+        $u\ge 1$ (the extension cut out by $\rho$ is unramified);
+  \item if $\mu>0$ then the largest upper ramification break of the
+        extension cut out by $\rho$ equals $\mu$; that is,
+        $\rho\big(\Gal(K^{sep}/K)^{(\mu)}\big)\neq 1$ and
+        $\rho\big(\Gal(K^{sep}/K)^{(u)}\big)=1$ for $u>\mu$.
+\end{enumerate}
+In particular, in the sense of \Cref{definition:local_ramification_boundness},
+the class $[\wv f]$ has ramification bounded by $d$ if and only if
+$\mu(\wv f)\le d-1$.
+\end{theorem}
+
+\begin{rem*}
+Only the implication ``ramification bounded by $d$ $\Rightarrow$
+$\mu\le d-1$'' (i.e.\ the sharpness statement in (2)) is used below; the
+easy converse direction is not needed.  Note also that
+\Cref{thm:schmid-witt} does not require $\rho$ to be surjective: if the
+extension cut out by $\rho$ has degree $p^{r'}<p^r$, the statement is
+consistent with itself under the shift identification
+$W_{r'}\hookrightarrow W_r$ (Verschiebung), since
+$\mu$ is invariant under it.
+\end{rem*}
+
+% #############################################################################
+\section{The Artin--Schreier--Witt datum of the symmetric power}\label{sec:datum}
+% #############################################################################
+
+\subsection{Setting and reductions}\label{subsec:reductions}
+
+We place ourselves in the situation of
+\Cref{theorem:ramification_after_blowup_is_tame_for_p_power}, whose
+notation we keep: $G=\Z/p^r\Z$; $\cP\to U=C\setminus\mdls$ has ramification
+bounded by $\mdls$; $P\in\Supp\mdls$ with multiplicity $n$;
+$\ndls=nP$ and $d:=\deg\ndls=n$; and $\eta_\ndls$ is the generic point of
+the exceptional divisor of the blowup of $C^{(d)}$ at $\ndls$.
+
+As in the thesis we may assume $k$ algebraically closed (\'etale base
+change to $k^{sep}=\bar k$ does not change any of the ramification
+filtrations involved).  By the principle of invariance of local invariants
+under formal isomorphism (\Cref{section:ramification_after_blowup_is_tame},
+discussion preceding the $r=1$ theorem) the ramification of $\cP^{[d]}$ at
+$\eta_\ndls$ depends only on the completed local ring
+$\widehat{\Oo}_{C,P}\cong k[[x]]$ together with the restriction of $\cP$ to
+its punctured formal neighborhood, i.e.\ on the class
+\[
+[\wv a]\in W_r\big(k((x))\big)/\wp W_r\big(k((x))\big)
+\]
+corresponding to $\cP|_{\Spec\widehat K_P}$ under
+\Cref{prop:classification} (equivalently, on the local character $\rho$ of
+$G_{\widehat K_P}$).  By \Cref{lem:reduction} choose a \emph{reduced}
+representative $\wv f$ of $[\wv a]$; since $\cP$ has ramification bounded
+by $d$ at $P$, \Cref{thm:schmid-witt} gives
+\begin{equation}\label{eq:bound}
+\mu(\wv f)\;=\;\max_{0\le l\le r-1}p^{\,r-1-l}m_l\;\le\;d-1 .
+\end{equation}
+
+Now set $y:=x^{-1}$ and consider
+\[
+C\;=\;\bP^1_k,\qquad P\;=\;0,\qquad
+U\;=\;\bP^1_k\setminus\{0\}\;=\;\Spec k[y]\;\cong\;\A^1_k .
+\]
+The components $f_l$ of $\wv f$ are polynomials in $y$ without constant
+term, so $\wv f\in W_r(k[y])$ and
+$\cQ:=\cP_{\wv f}\to U$ (\Cref{prop:etale}) is a $G$-torsor on $U$ whose
+completed local datum at $0$ is $[\wv f]=[\wv a]$.  By the invariance
+principle it therefore suffices to prove the theorem for
+$(\bP^1,\,d\cdot 0,\,\cQ)$; \emph{we assume from now on that}
+\[
+\cP=\cP_{\wv f}\ \text{over}\ U=\Spec k[y],\qquad
+\wv f\ \text{reduced},\qquad \mu(\wv f)\le d-1 .
+\]
+
+\begin{rem*}[the case $C=\bP^1$ needs no formal-invariance principle]
+When $C=\bP^1$ to begin with, the replacement of $\cP$ by $\cP_{\wv f}$ is
+an honest isomorphism of torsors and the invariance principle is not
+needed.  Indeed the natural map
+\[
+W_r(k[y])/\wp W_r(k[y])\longrightarrow
+W_r\big(k((x))\big)/\wp W_r\big(k((x))\big)
+\]
+is \emph{injective}: suppose $\wv g\in W_r(k[y])$ and
+$\wv g=\wp(\wv h)$ with $\wv h\in W_r(k((x)))$.  At level $0$,
+$h_0^p-h_0=g_0\in k[y]=k[x^{-1}]$; writing $h_0=h^-+c+h^+$
+(pole part, constant, part in $\mm$) and using
+$\wp(h_0)=\wp(h^-)+\wp(c)+\wp(h^+)$ (Frobenius is additive), the
+$\mm$-part of $g_0$ is $\wp(h^+)=0$; if $h^+\neq0$ its lowest-degree term
+survives in $h^{+p}-h^+$, so $h^+=0$ and $h_0\in k[y]$.  Inductively, at
+level $n$, $h_n^p-h_n=g_n-\Delta_n(h_{<n})\in k[y]$
+(\Cref{lem:wp-triangular}, with $h_{<n}\in k[y]$ by induction), and the
+same argument gives $h_n\in k[y]$.  Hence $\wv g\in\wp W_r(k[y])$.
+Consequently any two Witt vectors in $W_r(k[y])$ with the same class over
+$k((x))$ define isomorphic torsors on $U$ (\Cref{prop:classification}).
+\end{rem*}
+
+\subsection{Coordinates on the symmetric power and the blowup}\label{subsec:coords}
+
+Since $U=\Spec k[y]\cong\A^1$, we have
+\[
+U^{d}=\Spec k[y_1,\dots,y_d],\qquad
+U^{(d)}=\Spec k[\eps_1,\dots,\eps_d],\qquad
+\eps_j:=e_j(y_1,\dots,y_d),
+\]
+with $e_j$ the elementary symmetric polynomials.  On the other side, $x$ is
+a coordinate at $P=0$, the point $\ndls=d\cdot 0\in C^{(d)}$ has the affine
+neighborhood $(\A^1_x)^{(d)}=\Spec k[e_1,\dots,e_d]$ with
+$e_j:=e_j(x_1,\dots,x_d)$ vanishing at $\ndls$, and (as computed in
+\Cref{section:ramification_after_blowup_is_tame} for the blowup of affine
+space at the origin) the local ring
+$R:=\Oo_{X_\ndls,\eta_\ndls}$ is a discrete valuation ring with
+\[
+v_{\eta}(e_j)=1\ (1\le j\le d),\qquad
+\kappa(\eta_\ndls)=k\Big(\tfrac{e_1}{e_d},\dots,\tfrac{e_{d-1}}{e_d}\Big),
+\qquad
+\widehat R=\kappa(\eta_\ndls)[[\,e_d\,]] .
+\]
+Since $y_i=1/x_i$, the two coordinate systems are related by
+\begin{equation}\label{eq:eps-vs-e}
+\eps_j\;=\;e_j(y_1,\dots,y_d)\;=\;\frac{e_{d-j}(x_1,\dots,x_d)}{e_d(x_1,\dots,x_d)}
+\;=\;\frac{e_{d-j}}{e_d}
+\qquad(1\le j\le d,\ e_0:=1).
+\end{equation}
+In particular:
+\begin{equation}\label{eq:eps-in-kappa}
+\eps_j\in\kappa(\eta_\ndls)\subset\widehat R
+\quad\text{for }1\le j\le d-1,
+\qquad\text{while}\qquad
+\eps_d=\frac{1}{e_d}\ \text{has}\ v_\eta(\eps_d)=-1 .
+\end{equation}
+Both systems generate the same function field
+$K(C^{(d)})=k(e_1,\dots,e_d)=k(\eps_1,\dots,\eps_d)$, and we write
+$\widehat K_\eta=\kappa(\eta_\ndls)((e_d))=\Frac(\widehat R)$.
+
+\subsection{The datum of \texorpdfstring{$\cP^{[d]}$}{P[d]} is the \texorpdfstring{$d$}{d}-fold Witt sum}
+
+Recall (\Cref{cor:sym-power-quotient}) that
+$\cP^{[d]}=\cP^{\times d}/\,\Xi$ with $\Xi=\KG\rtimes S_d$, where
+$\KG=\ker\big(\Sigma\colon G^d\to G\big)$; for affine $U$ this quotient is
+the spectrum of the ring of invariants.
+
+\begin{theorem}[the symmetric-power datum]\label{thm:datum}
+With $\cP=\cP_{\wv f}$ over $U=\Spec k[y]$ as in
+\Cref{subsec:reductions}, there is an isomorphism of $G$-torsors over
+$U^{(d)}=\Spec k[\eps_1,\dots,\eps_d]$
+\[
+\cP^{[d]}\;\cong\;\cP_{\wv F},
+\qquad\text{where}\qquad
+\wv F\;:=\;\Wsum_{i=1}^{d}\ \wv f(y_i)\;\in\;W_r\big(k[\eps_1,\dots,\eps_d]\big)
+\]
+is the $d$-fold Witt sum of the pullbacks of $\wv f$ along the $d$
+projections.  (Its components
+$F_j=S^{(d)}_j\big(\wv f(y_1),\dots,\wv f(y_d)\big)$ are symmetric
+polynomials in $y_1,\dots,y_d$, hence indeed lie in
+$k[\eps_1,\dots,\eps_d]$.)
+\end{theorem}
+
+\begin{proof}
+Write $A^{\otimes d}=k[y_1,\dots,y_d]$.  The fiber product
+$\cP^{\times d}=p_1^{-1}\cP\times_{U^d}\dots\times_{U^d}p_d^{-1}\cP$ is the
+spectrum of
+\[
+T\;=\;A^{\otimes d}\big[\wv X_1,\dots,\wv X_d\big]\,/\,
+\big(\wp(\wv X_i)-\wv f(y_i)\ :\ 1\le i\le d\big),
+\]
+a $G^d$-torsor over $U^d$, where $\wv g_i\in G$ acts by
+$\wv X_i\mapsto\wv X_i+_W\wv g_i$, and $S_d$ acts by permuting
+simultaneously the $y_i$ and the batches $\wv X_i$.
+
+\emph{Step 1: $\KG$-invariants.}
+Put $\wv Y:=\Wsum_{i=1}^{d}\wv X_i$.  Exactly as in the proof of
+\Cref{lem:additivity} (using \Cref{lem:triangular}(1) for the batch
+$\wv X_1$), the substitution
+$X_{1,l}\mapsto Y_l$ is a triangular unipotent change of polynomial
+generators, $A^{\otimes d}[\wv X_1,\dots,\wv X_d]
+=A^{\otimes d}[\wv Y,\wv X_2,\dots,\wv X_d]$, and the same two-sided
+ideal computation (with $\wv X_1=\wv Y-_W\wv X_2-_W\dots-_W\wv X_d$ and
+additivity of $\wp$) identifies the defining ideal with
+\[
+\big(\wp(\wv Y)-\wv F,\ \ \wp(\wv X_j)-\wv f(y_j)\ :\ 2\le j\le d\big).
+\]
+Hence
+\[
+T\;\cong\;
+\underbrace{A^{\otimes d}[\wv Y]/\big(\wp(\wv Y)-\wv F\big)}_{=:B}
+\ \otimes_{A^{\otimes d}}\ T',
+\qquad
+T':=A^{\otimes d}[\wv X_2,\dots,\wv X_d]/\big(\wp(\wv X_j)-\wv f(y_j)\big),
+\]
+and $\Spec T'\to U^d$ is a $G^{d-1}$-torsor (\Cref{prop:etale}).
+Parametrize $\KG\cong G^{d-1}$ by
+$(\wv g_2,\dots,\wv g_d)\mapsto
+\big(-\!\Wsum_{j\ge2}\wv g_j,\ \wv g_2,\dots,\wv g_d\big)$.
+Under this action $\wv Y\mapsto\wv Y+_W\Wsum_i\wv g_i=\wv Y$ is invariant,
+while $(\wv g_2,\dots,\wv g_d)$ acts on $T'$ through the full torsor
+action of $G^{d-1}$.  By \Cref{lem:torsor-invariants},
+\[
+T^{\KG}\;=\;B\otimes_{A^{\otimes d}}(T')^{G^{d-1}}
+\;=\;B\otimes_{A^{\otimes d}}A^{\otimes d}\;=\;B .
+\]
+The residual action of $G=G^d/\KG$ on $B$ is $\wv Y\mapsto\wv Y+_W\wv g$.
+
+\emph{Step 2: $S_d$-invariants.}
+The $S_d$-action on $T$ preserves the subring $B=T^{\KG}$ (it normalizes
+$\KG$ in $\Xi$); explicitly it permutes the $y_i$ and fixes each component
+$Y_l$ of $\wv Y$ (the Witt sum $\Wsum_i\wv X_i$ is invariant under
+permuting its summands), and it fixes each component of $\wv F$ (a
+symmetric polynomial).  By \Cref{prop:etale}(1), $B$ is a free
+$A^{\otimes d}$-module with basis the monomials
+$\prod_lY_l^{\,c_l}$ ($0\le c_l\le p-1$), and $S_d$ acts on $B$
+coefficientwise with respect to this basis.  Hence
+\[
+B^{S_d}
+=\big(A^{\otimes d}\big)^{S_d}\big[\wv Y\big]/\big(\wp(\wv Y)-\wv F\big)
+=k[\eps_1,\dots,\eps_d]\big[\wv Y\big]/\big(\wp(\wv Y)-\wv F\big),
+\]
+which is precisely the ring of $\cP_{\wv F}$ over
+$U^{(d)}=\Spec k[\eps_1,\dots,\eps_d]$.  Therefore
+$\cP^{[d]}=\Spec T^{\Xi}=\Spec B^{S_d}=\cP_{\wv F}$, compatibly with the
+$G$-actions.
+\end{proof}
+
+\begin{rem*}
+For $r=1$ this is literally the computation of the thesis
+(\Cref{section:ramification_after_blowup_is_tame}): $\wv Y$ is the single
+variable $Y=X_1+\dots+X_d$ and $\wv F$ the power sum $\sum_if(y_i)$.  The
+Witt sum is the correct $p^r$-analogue: the ``carries'' of Witt addition,
+which obstructed the inductive approach, are now explicit polynomial terms
+that the next two lemmas control.
+\end{rem*}
+
+% #############################################################################
+\section{Integrality at the exceptional divisor, and the proof}\label{sec:proof}
+% #############################################################################
+
+\begin{lemma}[isobaric degree bound]\label{lem:isobaric-bound}
+Let $\wv f$ be reduced with pole orders $m_l$ and weighted pole order
+$\mu=\mu(\wv f)$, and let
+$F_j=S^{(d)}_j\big(\wv f(y_1),\dots,\wv f(y_d)\big)$ be the components of
+the Witt sum $\wv F$ of \Cref{thm:datum}.  Then $F_j$ is a symmetric
+polynomial in $y_1,\dots,y_d$ of total degree
+\[
+\deg F_j\;\le\;p^{\,j-r+1}\mu\;\le\;\mu
+\qquad(0\le j\le r-1).
+\]
+\end{lemma}
+
+\begin{proof}
+By \Cref{lem:isobaric}, every monomial of $S^{(d)}_j$ has the form
+$\prod_{i,l}\big(X^{(i)}_l\big)^{n_{i,l}}$ with
+$\sum_{i,l}n_{i,l}\,p^{\,l}=p^{\,j}$.  Substituting
+$X^{(i)}_l\mapsto f_l(y_i)$, a polynomial of degree $m_l$ in $y_i$, the
+resulting term has total degree
+\[
+\sum_{i,l}n_{i,l}\,m_l
+\;\le\;\sum_{i,l}n_{i,l}\,p^{\,l}\cdot\max_{l}\frac{m_l}{p^{\,l}}
+\;=\;p^{\,j}\cdot p^{\,1-r}\max_l\,p^{\,r-1-l}m_l
+\;=\;p^{\,j-r+1}\mu\;\le\;\mu,
+\]
+using $j\le r-1$.  Symmetry of $F_j$ is clear since permuting the $y_i$
+permutes the summands of the Witt sum.
+\end{proof}
+
+\begin{lemma}[low-degree symmetric polynomials are residue-field constants]\label{lem:integrality}
+Let $F\in k[y_1,\dots,y_d]^{S_d}$ be a symmetric polynomial of total degree
+$D<d$.  Then $F\in k[\eps_1,\dots,\eps_{d-1}]$ ($\eps_d$ does not occur),
+and consequently, under \cref{eq:eps-vs-e,eq:eps-in-kappa}, the image of
+$F$ in $\widehat K_\eta$ lies in the residue field
+$\kappa(\eta_\ndls)\subset\widehat R$; in particular $v_\eta(F)\ge0$.
+\end{lemma}
+
+\begin{proof}
+By the fundamental theorem of symmetric polynomials, $F$ is a polynomial
+in $\eps_1,\dots,\eps_d$; we claim only $\eps_1,\dots,\eps_D$ occur.
+Recall the standard algorithm: if $y^{\lambda}
+=y_1^{\lambda_1}\cdots y_s^{\lambda_s}$
+($\lambda_1\ge\dots\ge\lambda_s>0$) is the lexicographically leading
+monomial of $F$, with coefficient $c$, one subtracts
+$c\,\eps_{1}^{\lambda_1-\lambda_2}\eps_2^{\lambda_2-\lambda_3}\cdots
+\eps_s^{\lambda_s}$, obtaining a symmetric polynomial of the same or
+smaller degree with a lexicographically smaller leading term, and
+iterates.  A monomial of degree $\le D$ involves at most $D$ distinct
+variables, so $s\le D$ at every step, and only
+$\eps_1,\dots,\eps_D$ with $D<d$ are ever used.  The last statement now
+follows from \cref{eq:eps-in-kappa}: each $\eps_j$ with $j\le d-1$ maps to
+the element $e_{d-j}/e_d$ of the coefficient field
+$\kappa(\eta_\ndls)$ of $\widehat R=\kappa(\eta_\ndls)[[e_d]]$.
+\end{proof}
+
+\begin{rem*}
+The hypothesis $D<d$ is exactly what excludes
+$\eps_d=1/e_d$, the unique pole at $\eta_\ndls$ among the
+$\eps_j$; this is the multi-level generalization of the thesis's $r=1$
+lemma on $\sum_if(y_i)$, and it is sharp --- see the concluding remarks.
+\end{rem*}
+
+\subsubsection*{Proof of \Cref{theorem:ramification_after_blowup_is_tame_for_p_power}}
+
+\begin{proof}
+By the reductions of \Cref{subsec:reductions} we may assume
+$k=\bar k$, $C=\bP^1$, $P=0$, $U=\Spec k[y]$ and $\cP=\cP_{\wv f}$ with
+$\wv f$ reduced and $\mu(\wv f)\le d-1$ (this used
+\Cref{lem:reduction} and the Schmid--Witt bound,
+\Cref{thm:schmid-witt}).
+
+By \Cref{thm:datum},
+$\cP^{[d]}\cong\cP_{\wv F}$ over $U^{(d)}$ with
+$\wv F=\Wsum_{i=1}^d\wv f(y_i)$.  Restricting to the completed field at
+the generic point of the exceptional divisor
+(\Cref{subsec:coords}), the torsor
+$\cP^{[d]}|_{\Spec\widehat K_\eta}$ is $\cP_{\wv F'}$ where
+$\wv F'\in W_r(\widehat K_\eta)$ is the image of $\wv F$.
+
+By \Cref{lem:isobaric-bound}, each component $F_j$ is a symmetric
+polynomial in $y_1,\dots,y_d$ of total degree $\le\mu(\wv f)\le d-1<d$;
+hence by \Cref{lem:integrality} each $F'_j$ lies in
+$\kappa(\eta_\ndls)\subset\widehat R$.  Therefore
+\[
+\wv F'\in W_r\big(\widehat R\big),
+\]
+and by \Cref{cor:integral-unramified} every field factor of
+$\cP_{\wv F'}$ is unramified over $\widehat R$.  Since ramification at
+$\eta_\ndls$ is computed exactly on this restriction
+(\Cref{definition:tamely_ramified_in_codim_1} and the surrounding
+discussion), $\cP^{[d]}$ is unramified at $\eta_\ndls$.
+\end{proof}
+
+% #############################################################################
+\section*{Concluding remarks}
+% #############################################################################
+
+\begin{rem*}[sharpness, and the boundary examples]
+\Cref{lem:isobaric-bound} is in fact an equality,
+$\deg F_{r-1}=\mu(\wv f)$: the extremal monomial
+$\big(X^{(i)}_{l_0}\big)^{p^{\,r-1-l_0}}$ realizing
+$\mu=p^{\,r-1-l_0}m_{l_0}$ occurs in $S^{(d)}_{r-1}$ with a nonzero
+coefficient mod $p$, and its top-degree part cannot cancel.  Hence the
+hypothesis $\mu\le d-1$ is optimal:
+if $\mu\ge d$ the top component of the datum genuinely involves
+$\eps_d=1/e_d$ and acquires a pole at $\eta_\ndls$.  This matches the
+boundary phenomena recorded in the thesis:
+for $p=2$, $r=2$, $m_0=1$ (so $\mu=2$) the symmetric square ($d=2$) is
+ramified at $\eta_\ndls$ (\Cref{ex:p2-counterexample}), while $d=3>\mu$ is
+unramified; and the machine verifications in
+\texttt{q\_ramification\_along\_VF/general\_witt\_proof}
+(\texttt{witt\_general.py}, \texttt{witt\_r3.py}) confirm
+$\deg F_j=p^{\,j-r+1}\mu$ exactly for $r=2,3$ and various $p$.
+\end{rem*}
+
+\begin{rem*}[why the induction stalled]
+The inductive route factored $\cP\to\cP'\to U$ through the intermediate
+curve and tried to reconstruct the ramification of $\cP^{[d]}$ from that
+of $\cP'^{[d]}$ across the base change $q$; the loss of information there
+(the ``absorption'' phenomenon of \texttt{a\_wrong\_path.tex}) is
+precisely the Witt carry.  In the present proof the carry is not
+estimated across a base change but computed in closed form inside the
+symmetric power, where the isobaric grading shows it obeys the same
+degree bound as the leading terms.  No induction on $r$, and no Swan
+conductor theory, is needed.
+\end{rem*}
+
+\begin{rem*}[integration into the thesis]
+\begin{enumerate}
+  \item \Cref{sec:witt} and \Cref{sec:asw} belong in the Preliminaries,
+        next to Kummer and Artin--Schreier theories
+        (\Cref{theorem:kummer_ramification},
+        \Cref{theorem:artin_schreier_ramification});
+        \Cref{thm:schmid-witt} generalizes the latter and can replace it.
+  \item \Cref{subsec:reductions,subsec:coords}, \Cref{thm:datum},
+        \Cref{lem:isobaric-bound,lem:integrality} and the final proof
+        replace the unfinished proof of
+        \Cref{theorem:ramification_after_blowup_is_tame_for_p_power} in
+        \texttt{RamificationAfterBlowupIsTame.tex}.  Note that
+        \Cref{thm:datum} at $r=1$ also subsumes the Artin--Schreier half
+        of the theorem preceding
+        \Cref{cor:ramification_after_blowup_is_tame}, so the two proofs
+        can be merged if desired.
+  \item The deduction of the general abelian case
+        (\Cref{theorem:torsors_after_blowup_is_tame}) is unchanged:
+        decompose $G$ by the structure theorem and combine the cyclic
+        cases via \Cref{prop:quotient_torsors} and
+        \Cref{lemma:bounding_ramification_of_contracted_product} (or
+        \Cref{prop:ramification-external-product}), exactly as outlined
+        in the thesis.
+\end{enumerate}
+\end{rem*}
+
+\printbibliography
+
+\end{document}

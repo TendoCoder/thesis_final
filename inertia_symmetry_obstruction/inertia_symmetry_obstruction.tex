@@ -1,0 +1,384 @@
+% =============================================================================
+%  inertia_symmetry_obstruction.tex
+%
+%  A post-mortem on the *inertia-group* route to \Cref{thm:main}
+%  (unramifiedness of \cP^{[d]_G} at \eta_C).  This was the first approach we
+%  tried: translate the geometric hypotheses (H1), (H2) into constraints on a
+%  single inertia group J sitting inside the big Galois group \Gamma = G^d
+%  \rtimes S_d, and try to conclude by Galois combinatorics -- it does not
+%  work.
+%
+%  The note holds TWO self-contained summaries of the same dead end, at two
+%  altitudes:
+%    Part I  (short form)  -- the abstract Goursat picture: (H1)+(H2) fix two
+%                             projections of J, a diagonal subgroup escapes.
+%    Part II (long form)   -- the explicit local-model computation from the
+%                             working session of 2026-05-14: J is computed
+%                             outright at d.p_infty, the diagonal is shown to
+%                             be populated, an apparent counterexample appears,
+%                             and the precise role of higher ramification is
+%                             pinned down.
+%
+%  Compile with:  latexmk -pdf inertia_symmetry_obstruction.tex   (uses biber)
+% =============================================================================
+\documentclass[11pt]{article}
+\usepackage{geometry}\geometry{margin=1in}
+\usepackage[T1]{fontenc}
+\usepackage{ifthen}
+\usepackage{booktabs}
+
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0.5em}
+
+\input{includes}
+\input{MacrosAndFigures}
+
+% --- local fallbacks for symbols not in the thesis macro file ---------------
+\providecommand{\PP}{\mathbb{P}}
+\providecommand{\fm}{\mathfrak{m}}
+
+\usepackage{csquotes}
+\usepackage[
+backend=biber,
+style=alphabetic,
+sorting=ynt
+]{biblatex}
+\addbibresource{Bib.bib}
+
+\newboolean{ThesisIntro}
+\setboolean{ThesisIntro}{false}
+
+\title{The inertia group is under-constrained\\[2pt]
+       {\large why the pure-symmetry route to ``$\cP^{[d]_G}$ unramified at
+        $\eta_C$'' stalls, and where higher ramification has to enter}}
+\author{Assaf Marzan}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\noindent\textbf{Purpose.}
+This note records, and explains the failure of, the first approach we tried
+for the unramifiedness theorem
+\[
+\textbf{(H1)} + \textbf{(H2)} + \textbf{(H3)}\ \Longrightarrow\
+\cP^{[d]_G}\to U^{(d)}\ \text{unramified at}\ \eta_C .
+\]
+The approach is attractive because it is purely formal: it stays inside the
+Galois group of the master diagram, encodes the whole theorem as a single
+containment of inertia groups, and never invokes local ramification theory.
+The outcome is sharp and negative.
+
+The note contains \emph{two} summaries of the same dead end, which may be read
+independently:
+\begin{description}
+  \item[\Cref{part:short} (short form).] The abstract reason it fails: (H1) and
+        (H2) determine only two projections of the relevant inertia group, and
+        by Goursat's lemma a \emph{diagonal} subgroup is left unconstrained --
+        precisely the one that breaks the conclusion.
+  \item[\Cref{part:long} (long form).] The detailed working session of
+        2026-05-14: we computed the inertia group \emph{outright} in the local
+        model at the degenerate point $d\cdot p_\infty$, found the diagonal is
+        genuinely populated, hit an apparent counterexample to the theorem as
+        first stated, and isolated exactly what higher ramification must (and
+        must not) be asked to do.
+\end{description}
+Throughout we assume the setup, notation and master diagram of the standalone
+proof note, recalling only what is needed. The common notation is fixed once,
+in \Cref{sec:recall}, and used by both parts.
+
+% #############################################################################
+\section{Common set-up}\label{sec:recall}
+% #############################################################################
+
+Recall the four symmetric quotients
+$\cP^{[d]_G},\ \cP^{[d]_H},\ (\cP_{G/H})^{(d)},\ (\cP_{G/H})^{[d]}$ and the master
+diagram with Cartesian upper square. All of them are quotients of the single
+connected $G^d$-cover $\cP^{\times d}\to U^d$, so the whole picture is governed
+by one Galois extension. Writing
+\[
+K := K(U^{(d)}) = K(C^{(d)}),\qquad N := K(\cP^{\times d}),
+\]
+the extension $N/K$ is Galois with group
+\[
+\Gamma \;:=\; G^d \rtimes S_d ,
+\]
+the $S_d$ permuting the $d$ factors of the diagonal $G^d$. With
+$\KG=\ker(G^d\xrightarrow{\,\Sigma\,}G)$ and $K_H=\ker(H^d\to H)$, the five fields
+are the fixed fields of subgroups of $\Gamma$:
+\[
+\begin{array}{llll}
+L  := K(\cP^{[d]_G})        & \leftrightarrow & \Xi := \KG\rtimes S_d,
+   & \Gal(L/K)\cong G,\\[2pt]
+M  := K\big((\cP_{G/H})^{[d]}\big) & \leftrightarrow & (H^d+\KG)\rtimes S_d,
+   & \Gal(M/K)\cong G/H,\\[2pt]
+K' := K\big((\cP_{G/H})^{(d)}\big) = K(C'^{(d)}) & \leftrightarrow & H^d\rtimes S_d,
+   & \\[2pt]
+L_H := K(\cP^{[d]_H})       & \leftrightarrow & K_H\rtimes S_d. &
+\end{array}
+\]
+The diagonal map $L/K$ has group $G$ via summation $\Sigma:\Gamma\to G$,
+$((g_i),\sigma)\mapsto\sum_i g_i$; the conclusion we want is that a certain
+inertia group lands in $\ker\Sigma=\KG\rtimes S_d$. The four fields $M,K',L,L_H$
+sit in a \emph{parallelogram} over $M$: one checks $M\subseteq K'$,
+$L\cap K' = M$ and $L\cdot K' = L_H$, so $L/M$ and $K'/M$ are linearly disjoint
+with compositum $L_H$ and
+\begin{equation}\label{eq:parallelogram}
+\Gal(L_H/M)\;=\;\underbrace{\Gal(L/M)}_{A}\ \oplus\ \underbrace{\Gal(K'/M)}_{B}.
+\end{equation}
+
+Fix a discrete valuation $\widetilde W$ on $N$ extending $V_C$, chosen so that
+$\widetilde W|_{K'} = V_{C'}$ (possible because $\Gamma$ acts transitively on the
+valuations above $V_C$), and let
+\[
+J \;:=\; I\big(\widetilde W / V_C\big)\;\subseteq\;\Gamma
+\]
+be its inertia group. The conclusion of the theorem is exactly the single
+containment
+\begin{equation}\label{eq:goal}
+J \;\subseteq\; \Xi=\KG\rtimes S_d ,
+\qquad\text{equivalently}\qquad
+\textstyle\sum_i g_i = 0\ \text{in}\ G\ \ \forall\,\big((g_i),\sigma\big)\in J ,
+\end{equation}
+since the image of $J$ in $G$ under $\Sigma$ is the inertia of $\widetilde W|_L$
+over $V_C$.
+
+% #############################################################################
+% #############################################################################
+\part{Short form: the Goursat gap}\label{part:short}
+% #############################################################################
+% #############################################################################
+
+\section{Three projections of one inertia group}\label{sec:attempt}
+
+We are forced up to $N$ by the \emph{hypotheses}, not the conclusion: (H1)
+lives in $\Gal(M/K)=G/H$, (H2) in $\Gal(L_H/K')=H$, the goal in
+$\Gal(L/K)=G$ -- three different quotients of $\Gamma$ with no common Galois
+field below $N$. So we read three projections off the single inertia group $J$:
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+projection of $J$ & equals inertia of & status\\
+\midrule
+$J\xrightarrow{\ \Sigma\ }G$ & $\widetilde W|_L$ over $V_C$ & the goal\\
+$J\xrightarrow{\ \Sigma\bmod H\ }G/H$ & $\widetilde W|_M$ over $V_C$ & trivial by (H1)\\
+$J\cap(H^d\rtimes S_d)\xrightarrow{\ \Sigma\ }H$ & $\widetilde W|_{L_H}$ over $V_{C'}$ & trivial by (H2)\\
+\bottomrule
+\end{tabular}
+\end{center}
+In symbols,
+\begin{align}
+\text{(H1)}:&\quad \textstyle\sum_i g_i \in H\quad\forall\,\big((g_i),\sigma\big)\in J ;
+\label{eq:H1}\\
+\text{(H2)}:&\quad J\cap\big(H^d\rtimes S_d\big)\subseteq K_H\rtimes S_d,\ \ \text{i.e.}\
+\textstyle\sum_i h_i=0\ \text{whenever}\ \big((h_i),\sigma\big)\in J,\ h_i\in H.
+\label{eq:H2}
+\end{align}
+By \cref{eq:H1} every element of $J$ has $(g_i)\in H^d+\KG$; writing
+$g_i=h_i+k_i$ with $(h_i)\in H^d$, $(k_i)\in\KG$ (so $\sum_i k_i=0$), the goal
+\cref{eq:goal} becomes
+\begin{equation}\label{eq:goal2}
+\textstyle\sum_i h_i = 0\ \text{in}\ H\qquad\forall\,\big((g_i),\sigma\big)\in J .
+\end{equation}
+
+\section{Where the symmetry runs out}\label{sec:stall}
+
+Hypothesis \cref{eq:H2} delivers \cref{eq:goal2} \emph{only} for elements that
+already lie in $H^d$ (the case $(k_i)=0$). For a general element with
+$(k_i)\neq0$ neither hypothesis says anything: \cref{eq:H2} is about elements
+\emph{inside} $H^d\rtimes S_d$, and \cref{eq:H1} only sees the $G/H$-component,
+which is vacuous here.
+
+Concretely, the obstruction is a \textbf{diagonal inertia subgroup}. Nothing in
+\cref{eq:H1,eq:H2} prevents
+\begin{equation}\label{eq:diagonal}
+J \;\supseteq\; \big\{\, \big(h,\ \kappa(h)\big) \;:\; h\in H_0 \,\big\}
+\;\subseteq\; H \oplus K_{G/H},
+\end{equation}
+glued along a homomorphism $\kappa:H_0\to K_{G/H}$: it projects trivially to
+$G/H$ (so \cref{eq:H1} holds) and meets $H^d\rtimes S_d$ only in $\kappa(h)=0$
+(so \cref{eq:H2} holds vacuously), yet has $\sum_i h_i\neq0$, breaking
+\cref{eq:goal2}.
+
+\paragraph{The structural reason.}
+The symmetry available to us -- the two quotient/restriction maps coming from
+$H\trianglelefteq G$ -- only resolves $J$ along the two coordinate axes of the
+split sequence $0\to K_H\to\KG\to K_{G/H}\to0$. An inertia group need not
+respect that splitting; it can sit diagonally across it. Knowing two coordinate
+projections of a subgroup of a product never determines the subgroup -- this is
+exactly the content of Goursat's lemma -- so there is simply \emph{not enough
+symmetry} in the discrete inertia data alone to collapse the diagonal. The same
+point inside the parallelogram \cref{eq:parallelogram}: an inertia subgroup
+$\widetilde I\subseteq A\oplus B$ compatible with (H1),(H2) can be either the
+harmless $B$ (then $L/M$ unramified, theorem holds) or the fatal diagonal
+$\Delta$ (then $L/M$ ramified, theorem fails), and the hypotheses cannot tell
+them apart.
+
+% #############################################################################
+% #############################################################################
+\part{Long form: the explicit local computation}\label{part:long}
+% #############################################################################
+% #############################################################################
+
+\noindent The short form leaves open whether the diagonal of \cref{eq:diagonal}
+is a real possibility or an artefact of weak bookkeeping. In the session of
+2026-05-14 we settled this by computing $J$ outright in the local model. The
+answer: the diagonal is genuinely there, the theorem as first stated has a
+counterexample, and higher ramification enters in a specific, limited way.
+
+\section{Computing \texorpdfstring{$J$}{J} in the local model}\label{sec:localmodel}
+
+Assume $\cP\to U$ is totally ramified at $p_\infty$ with inertia
+$G_0\subseteq G$ (else replace $G$ by $G_0$). Choose a uniformiser $t$ on $C$
+and $u_j$ on $\overline\cP$ with $t_j=u_j^{|G_0|}+\cdots$. The symmetric local
+ring is $k[[e_1,\dots,e_d]]$ in the elementary symmetric functions of the
+$t_j$, and the geometrically correct valuation $V_C$ is the \emph{weighted}
+blowup with
+\[
+w(e_i)=i ,\qquad \widetilde w(u_j)=1 .
+\]
+(With the ordinary unweighted blowup $V_C$ does not even extend to $V_{C'}$.)
+Decompose $J$ along $K\subseteq K(C^d)\subseteq N$.
+
+\paragraph{The $S_d$-part is trivial.}
+The residue field of $V_C$ is that of the weighted projective space
+$\PP(1,2,\dots,d)$, and $S_d$ acts faithfully on the residue field of the lift
+to $K(C^d)$ (it permutes the $\PP^{d-1}$-coordinates). So no nontrivial
+permutation lies in inertia: $J\to S_d$ is trivial, i.e.\ $J\subseteq G^d$.
+
+\paragraph{The $G^d$-part, tame case: $J=G_{\mathrm{diag}}$.}
+In the tame case $g_j$ acts by $u_j\mapsto\zeta^{g_j}u_j$ ($\zeta$ a primitive
+$|G_0|$-th root of unity). On the residue field $k(\PP^{d-1}_u)$ the tuple
+$(g_1,\dots,g_d)$ acts by
+$(u_1:\dots:u_d)\mapsto(\zeta^{g_1}u_1:\dots:\zeta^{g_d}u_d)$, trivial in
+$\mathrm{PGL}_d$ iff $g_1=\dots=g_d$. Hence
+\begin{equation}\label{eq:Jdiag}
+\boxed{\,J \;=\; G_{\mathrm{diag}}\;=\;\{((g,g,\dots,g),e):g\in G_0\}\,}\qquad(\text{tame, totally ramified}).
+\end{equation}
+
+\paragraph{The $G^d$-part, wild case: $J\supseteq G^d$.}
+If $G$ acts wildly with conductor $m\ge1$ then $g_j(u_j)=u_j+a\,u_j^{m+1}+\cdots$,
+and the correction has $\widetilde w$-value $\ge m+1>0$, hence \emph{vanishes in
+the residue field}. So \emph{every} tuple in $G^d$ acts trivially on the residue
+of $\widetilde W$: $J\supseteq G^d$, strictly larger than the diagonal.
+
+\paragraph{Reading off the image in $G$.}
+Under summation, $G_{\mathrm{diag}}\to G$ is $(g,\dots,g)\mapsto d\cdot g$, so
+\begin{equation}\label{eq:image}
+\operatorname{Im}(J\to G)\;=\;d\cdot G_0 ,
+\end{equation}
+trivial \emph{iff $|G_0|\mid d$}. The leading-order inertia at $\eta_C$ is thus
+the \emph{cardinality} condition $|G_0|\mid d$ -- nothing about the depth of
+ramification.
+
+\section{The diagonal is genuinely there: \texorpdfstring{$K'/M$}{K'/M} is ramified}\label{sec:Kprime}
+
+One might hope the diagonal is excluded by some automatic fact. It is not. The
+would-be saving hypothesis is
+\[
+\textnormal{(H3$'$)}\qquad K'/M\ \text{unramified at}\ V_{C'},
+\quad\text{i.e.}\quad J\cap\Gal(N/M)\subseteq H^d\rtimes S_d,
+\]
+which would force $(k_i)=0$ in \cref{eq:goal2} and finish the proof. But the
+same weighted-blowup computation gives the inertia of $K'/M$ explicitly. With
+$E=G/H$ acting on $C'$ by $u\mapsto\zeta u$, an element
+$\vec a\in E^d_+=\ker(\Sigma:E^d\to E)$ acts by
+$\epsilon_i\mapsto e_i(\zeta^{a_1}u_1,\dots)$; the \emph{diagonal}
+$\vec a=(a,\dots,a)$ scales $\epsilon_i\mapsto\zeta^{ia}\epsilon_i$ and so fixes
+every weight-zero coordinate $\xi_i=\epsilon_i/\epsilon_1^i$, while non-diagonal
+$\vec a$ act nontrivially. Hence
+\begin{equation}\label{eq:gcd}
+I_{V_{C'}}(K'/M)\;=\;E_{\mathrm{diag}}\cap E^d_+\;\cong\;\ker(d:E\to E)\;\cong\;\Z/\gcd(d,|E|),
+\end{equation}
+nontrivial as soon as $\gcd(d,|E|)>1$ -- e.g.\ \emph{totally ramified} when
+$d=|E|=2$. Two features make this fatal:
+\begin{itemize}
+  \item \textbf{It depends only on $E$ and $d$, not on $G$.} The map
+        $q:(\cP_{G/H})^{(d)}\to(\cP_{G/H})^{[d]}$ sees only $\cP_{G/H}$, so
+        \emph{no} hypothesis on the ambient $G$ -- cyclic, prime-power, or a
+        ramification bound on $\cP$ at $p_\infty$ -- can change \cref{eq:gcd}.
+  \item \textbf{The available lemma does not reach $V_{C'}$.} $q$ is known
+        unramified only at codimension-$1$ boundary valuations of $C'^{(d)}$,
+        whereas $V_{C'}$ sits over the codimension-$d$ point $d\cdot p'_\infty$,
+        where all $d$ points collide at the branch point and the diagonal
+        $E$-action stabilises the configuration most strongly.
+\end{itemize}
+
+\paragraph{An apparent counterexample to the theorem-as-stated.}
+Pushing through to $L/K$ produced not just a stalled proof but a concrete
+obstruction. Take $\operatorname{char}\neq2$, $G=\Z/4$, $H=\Z/2$, $E=\Z/2$,
+$d=2$, and $\cP\to U$ tamely totally ramified of index $4$ at $p_\infty$. Then
+(H3) holds ($G$ cyclic $2^2$), the ramification bound holds vacuously (tame:
+$G_1=0$, so $G_d=0$ for all $d$), and one checks (H1), (H2) both hold. Yet
+$L=K(\sqrt[4]{e_2})$ with $v_C(e_2)=2$, so $v_L(\sqrt[4]{e_2})=\tfrac12$ and
+$L/K$ is \emph{ramified} at $V_C$ with inertia of order $2$ -- exactly the
+predicted $d\cdot G_0=2\cdot\Z/4=H$ of \cref{eq:image}. The missing hypothesis
+is visibly $|G_0|\mid d$, which fails here ($4\nmid2$).
+
+\section{Why higher ramification is the right -- and necessary -- language}\label{sec:higher}
+
+The inertia group is the bottom step $G^0=G_0$ of the ramification filtration;
+it remembers \emph{whether} a place ramifies but discards the \emph{jumps}. The
+diagonal subgroup is invisible to (H1), (H2) precisely because those are
+statements about inertia, and inertia cannot separate the $H$-jump from the
+$G/H$-jump of a diagonally entangled extension. Two points pin down the role of
+higher ramification:
+
+\begin{enumerate}
+  \item \textbf{Upper numbering is the natural bookkeeping.} The argument keeps
+        passing to quotients $G\to G/H$, and the upper-numbering filtration is
+        functorial for quotients via Herbrand, $(G/H)^v=G^v\cdot H/H$, whereas
+        lower numbering is functorial for subgroups. So the bound should be read
+        in \emph{upper} numbering, $G^d=\{1\}$. This is exactly what makes the
+        eventual proof (Herbrand-convexity) work: for cyclic $G=\Z/p^r$ the
+        jumps form a single chain and
+        \[
+        \varphi_G(m_r)=\varphi_{G/H}(m_{r-s})+\frac{\varphi_H(m_r)-m_{r-s}}{p^{r-s}}
+        \]
+        is a \emph{convex combination}, so (H1),(H2) $\Rightarrow\varphi_G(m_r)<d$.
+        Convexity bounds the mixed jump by the two pure jumps \emph{no matter
+        how the extension is entangled} -- the very diagonal that defeated the
+        inertia argument.
+  \item \textbf{But reparameterising alone is not the fix.} The leading-order
+        obstruction \cref{eq:image} depends only on the \emph{cardinality}
+        $|G_0|=|G^0|$ relative to $d$, and upper vs.\ lower numbering are two
+        parameterisations of the \emph{same} filtration -- they do not change
+        $G_0$, nor the diagonal $J=G_{\mathrm{diag}}$ that summation sends to
+        $d\cdot G_0$. The higher filtration \emph{augments} the leading-order
+        picture (it controls the next-order action on tangent and higher
+        infinitesimal data at $p'_\infty$, hence the codimension at which the
+        ramification of $\cP$ becomes visible in $C^{(d)}$); it does not by
+        itself collapse the leading-order diagonal. In the genuinely useful
+        regime the bound $G^d=\{1\}$ is non-vacuous and is consumed by the
+        Herbrand-convexity estimate, not by a leading-order count.
+\end{enumerate}
+
+\section{Summary}\label{sec:summary}
+
+\begin{itemize}
+  \item \textbf{The route.} Encode the theorem as $J\subseteq\KG\rtimes S_d$ for
+        the inertia group $J\subseteq\Gamma=G^d\rtimes S_d$, and read three
+        projections of $J$ off (H1), (H2) and the goal.
+  \item \textbf{Why it stalls (short form).} (H1), (H2) fix only two
+        projections; by Goursat a diagonal subgroup $\Delta$ is left
+        unconstrained, and the hypotheses cannot tell the harmless inertia $B$
+        from the fatal $\Delta$.
+  \item \textbf{The diagonal is real (long form).} The explicit weighted-blowup
+        computation gives $J=G_{\mathrm{diag}}$ (tame) or $J\supseteq G^d$
+        (wild), with $\operatorname{Im}(J\to G)=d\cdot G_0$; and $K'/M$ has
+        inertia $\Z/\gcd(d,|E|)$, depending only on $E,d$. No hypothesis on $G$,
+        and no ramification bound on $\cP$, removes it; the theorem as first
+        stated even has a tame counterexample, missing the hypothesis
+        $|G_0|\mid d$.
+  \item \textbf{The moral.} Discrete inertia data is too coarse. The missing
+        rigidity lives in the \emph{higher ramification filtration}: read the
+        bound in upper numbering and feed it into the Herbrand-convexity lemma,
+        which is how the successful proofs of the unramifiedness theorem close
+        the gap. The
+        inertia/symmetry argument is non-load-bearing -- it cannot reach the
+        conclusion on its own.
+\end{itemize}
+
+\printbibliography
+
+\end{document}

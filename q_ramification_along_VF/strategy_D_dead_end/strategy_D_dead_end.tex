@@ -1,0 +1,293 @@
+% =============================================================================
+%  strategy_D_dead_end.tex
+%
+%  A post-mortem on STRATEGY D (q_ramification_along_VF.tex): "re-resolve so
+%  that eta_{C'} becomes a codimension-one point for q and apply the
+%  codimension-one lemma iteratively".
+%
+%  RESULT: Strategy D cannot work, and the reason is a one-line invariant
+%  computation:
+%
+%        e( V_{C'} | V_F ) = p^{r-1}  > 1   (r >= 2),
+%
+%  a WILD ramification index which is a birational invariant of the fixed
+%  divisorial place V_{C'}|V_F.  No resolution can remove it, so q is never
+%  unramified there and the codimension-one lemma (which only ever sees e=1)
+%  cannot reach it.
+%
+%  As a bonus the note answers the natural follow-up: a wild q-defect of index
+%  p^{r-1} does NOT prevent absorption of E/F -- on the contrary, the wildness
+%  is exactly what ENABLES it (it multiplies the break to p^{r-1}*beta_E, which
+%  is divisible by p, opening Artin-Schreier reduction over K_{C'}).  This
+%  reframes the real target for Strategies A/B/C.
+%
+%  Compile:  TEXINPUTS=../..: latexmk -pdf strategy_D_dead_end.tex   (biber)
+% =============================================================================
+\documentclass[11pt]{article}
+\usepackage{geometry}\geometry{margin=1in}
+\usepackage[T1]{fontenc}
+\usepackage{ifthen}
+\usepackage{booktabs}
+
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0.5em}
+
+\input{includes}
+\input{MacrosAndFigures}
+
+\providecommand{\PP}{\mathbb{P}}
+\providecommand{\fm}{\mathfrak{m}}
+\providecommand{\Bl}{\mathrm{Bl}}
+
+\usepackage{csquotes}
+\usepackage[
+backend=biber,
+style=alphabetic,
+sorting=ynt
+]{biblatex}
+\addbibresource{Bib.bib}
+
+\newboolean{ThesisIntro}
+\setboolean{ThesisIntro}{false}
+
+\title{Strategy D is a dead end\\[2pt]
+       {\large the $q$-defect at $V_F$ has wild ramification index $p^{r-1}$,
+        a birational invariant; and why wildness \emph{enables} absorption}}
+\author{Assaf Marzan}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\noindent\textbf{Purpose.}
+Strategy D of \texttt{q\_ramification\_along\_VF.tex} proposed to dodge the
+collision point by choosing a different resolution
+$X_{C'}'\to C'^{(d)}$ in which $\eta_{C'}$ is a codimension-one centre for
+$q:(\cP_{G/H})^{(d)}\to(\cP_{G/H})^{[d]}$, and then to apply the
+codimension-one unramifiedness lemma
+\Cref{lemma:torsor_unramified_codim_one} iteratively. This note shows the idea
+cannot succeed, by a single invariant computation, and then settles the
+follow-up question of whether the (necessarily) wild $q$-defect can still absorb
+the ramification of $E/F$.
+
+\medskip
+\noindent\textbf{Summary.}
+\begin{itemize}
+  \item \Cref{thm:index}: $e(V_{C'}\mid V_F)=p^{r-1}$. For $r\ge2$ this is
+        wild ($p\mid e$), so $q$ is wildly ramified along $V_F$.
+  \item \Cref{cor:Ddead}: a ramification index of a fixed divisorial place is a
+        birational invariant; no resolution changes $p^{r-1}$ to $1$. Strategy D
+        is impossible, and the codimension-one lemma --- which only ever
+        produces $e=1$ --- can never reach $V_{C'}$. This upgrades observation
+        (O2) of the parent note from heuristic to theorem.
+  \item \Cref{sec:absorb}: the wild index $p^{r-1}$ does \emph{not} block
+        absorption; it is the mechanism that \emph{permits} it. The real
+        obstruction is not the index but a finer, leading-term coincidence,
+        which is what the global hypotheses (B)+(C) must rule out.
+\end{itemize}
+
+% #############################################################################
+\section{The setup and the model}\label{sec:setup}
+% #############################################################################
+
+Notation as in \texttt{a\_wrong\_path.tex} and the parent note: after the
+standard reductions ($k=\bar k$, $\cP\to U$ totally ramified at $p_\infty$,
+\Cref{theorem:ramification_after_blowup_is_tame_for_p_power}), $G=\Z/p^r$,
+$H\cong\Z/p$ the top layer, $G/H\cong\Z/p^{r-1}$ the bottom layer, $f:C'\to C$
+the $G/H$-cover with $p'_\infty\mapsto p_\infty$. Write $\varpi$, $u$ for
+uniformisers at $p_\infty$, $p'_\infty$; total ramification of the bottom layer
+gives
+\begin{equation}\label{eq:totram}
+\varpi \;=\; u^{\,p^{r-1}}\cdot(\text{unit}) .
+\end{equation}
+
+We use the \emph{working} local model of the proven $\Z/p$ case
+(\texttt{RamificationAfterBlowupIsTame.tex}, eq.~\cref{eq:complete_field_at_generic_point}
+and the lines around it), \emph{not} the local models of the post-mortems
+\texttt{a\_wrong\_path.tex} / \texttt{inertia\_symmetry\_obstruction.tex} (those
+record dead ends and use mismatched valuations; e.g.\ the ``$J\supseteq G^d$''
+claim there would already contradict the proven $\Z/p$ base case). In the
+working model the exceptional-divisor valuation of the blowup of a $d$-fold
+symmetric power at the collision point has an \emph{explicit uniformiser}: the
+top elementary symmetric function. Thus
+\begin{equation}\label{eq:unifs}
+V_C:\quad \text{uniformiser } e_d=\textstyle\prod_{i=1}^d \varpi_i,\quad v_C(e_d)=1;
+\qquad
+V_{C'}:\quad \text{uniformiser } \epsilon_d=\textstyle\prod_{j=1}^d u_j,\quad v_{C'}(\epsilon_d)=1,
+\end{equation}
+where $\varpi_i$ (resp.\ $u_j$) are the base (resp.\ branch) coordinates of the
+$d$ points. (Legitimate by the isomorphic-completion principle of
+\texttt{RamificationAfterBlowupIsTame.tex}: only
+$\widehat{\Oo}_{C',p'_\infty}\cong k[[u]]$ enters.)
+
+% #############################################################################
+\section{The ramification index of the \texorpdfstring{$q$}{q}-defect}\label{sec:index}
+% #############################################################################
+
+\begin{theorem}\label{thm:index}
+$e(V_{C'}\mid V_F)=e(V_{C'}\mid V_C)=p^{r-1}$. In particular, for $r\ge2$ the
+extension $K_{C'}/F$ is \emph{wildly} ramified at $V_{C'}\mid V_F$.
+\end{theorem}
+
+\begin{proof}
+By \cref{eq:totram}, $\varpi_i=u_i^{\,p^{r-1}}\cdot(\text{unit})$ for each of the
+$d$ branches, so the base uniformiser of $V_C$ pulls back to
+\[
+e_d=\prod_{i=1}^d\varpi_i
+   =\Big(\prod_{j=1}^d u_j\Big)^{\!p^{r-1}}\!\!\cdot(\text{unit})
+   =\epsilon_d^{\,p^{r-1}}\cdot(\text{unit}).
+\]
+Hence $v_{C'}(e_d)=p^{r-1}\,v_{C'}(\epsilon_d)=p^{r-1}$ by \cref{eq:unifs}.
+Since $e_d$ is a uniformiser of $V_C$ and $\eta_{C'}\mapsto\eta_C$ under
+$f^{(d)}$ (so $V_{C'}\mid V_C$), the ramification index is
+\[
+e(V_{C'}\mid V_C)=v_{C'}\big(\text{uniformiser of }V_C\big)=v_{C'}(e_d)=p^{r-1}.
+\]
+Finally $F/K_C$ is unramified at $V_C$ --- this is hypothesis (H1), equivalently
+the $\Z/p^{r-1}$-symmetrised datum $\sum_i b(\varpi_i)$ lies in the residue field
+$\kappa_C$ by the bound $m<d$ (the lemma of the working $\Z/p$ proof) --- so
+$e(V_F\mid V_C)=1$ and
+$e(V_{C'}\mid V_F)=e(V_{C'}\mid V_C)/e(V_F\mid V_C)=p^{r-1}$.
+\end{proof}
+
+\begin{rem*}
+The same computation explains why \Cref{lemma:torsor_unramified_codim_one}
+succeeds at boundary \emph{divisors} and only there. At the generic point of a
+boundary divisor $Z_x$ exactly \emph{one} of the $d$ points sits at
+$p'_\infty$ and the other $d-1$ are free; only one factor $u_j$ contributes to
+the collision, the symmetric structure retains $d-1$ free copies of $K(C')$ in
+the residue field, and one finds $e=1$ (trivial inertia). At $V_{C'}$
+\emph{all $d$} points collide through the degree-$p^{r-1}$ wild cover, and
+\cref{eq:totram} forces $e=p^{r-1}$. The codimension-one lemma is therefore not
+``too weak to reach $V_{C'}$''; its conclusion is simply \emph{false} there.
+\end{rem*}
+
+% #############################################################################
+\section{Why Strategy D cannot be repaired}\label{sec:Ddead}
+% #############################################################################
+
+\begin{cor}\label{cor:Ddead}
+There is no birational model on which $q$ is unramified at the place
+$V_{C'}\mid V_F$, and no factorisation of $q$ into codimension-one steps to which
+\Cref{lemma:torsor_unramified_codim_one} applies and whose composite recovers
+$V_{C'}$. Strategy D is impossible.
+\end{cor}
+
+\begin{proof}
+The ramification index $e(w\mid w_F)$ of a fixed place $w=V_{C'}$ of $K_{C'}$
+over its restriction $w_F=V_F$ to $F$ is an invariant of the \emph{valuations}
+$w,w_F$ alone: it equals $[\,|w(K_{C'}^\times)| : |w_F(F^\times)|\,]$, the index
+of value groups, and does not refer to any model. (Equivalently: $w$ and $w_F$
+are intrinsic points of the Riemann--Zariski spaces of $K_{C'}$ and $F$; a
+resolution only re-presents $w$ as a divisor, it cannot alter $w$.) By
+\Cref{thm:index} this index is $p^{r-1}>1$. Any application of
+\Cref{lemma:torsor_unramified_codim_one} yields a place with $e=1$; a
+composite of such steps landing on $V_{C'}$ would give $e(V_{C'}\mid V_F)=1$,
+contradicting \Cref{thm:index}.
+\end{proof}
+
+\noindent So the only thing a resolution can buy is to \emph{realise} $V_{C'}$
+as a nice divisor for \emph{computing} its higher ramification (a service to
+Strategy A), never to make $q$ unramified there. Strategy D, as a route to the
+theorem, is closed.
+
+% #############################################################################
+\section{Does a wild $q$-defect still absorb $E/F$? Yes --- that is the point}
+\label{sec:absorb}
+% #############################################################################
+
+It is tempting to hope that a \emph{large} wild defect $e=p^{r-1}$ is ``too
+violent'' to let (H2) coexist with a ramified $E/F$, i.e.\ that wildness blocks
+absorption. The opposite is true: wildness is the \emph{enabling} mechanism.
+
+\paragraph{The mechanism.}
+Present the top layer locally as Artin--Schreier over $\widehat F$,
+\[
+\widehat E=\widehat F(y),\qquad y^p-y=a,\qquad v_F(a)=-\beta_E,\ \ \gcd(\beta_E,p)=1,
+\]
+so $E/F$ is (if ramified) totally wildly ramified of break $\beta_E\ge1$
+(\Cref{theorem:artin_schreier_ramification}(3)). Base-change along
+$\widehat F\hookrightarrow\widehat{K_{C'}}$, of ramification index
+$e=p^{r-1}$ (\Cref{thm:index}). The \emph{same} element $a$ now has
+\begin{equation}\label{eq:scale}
+v_{C'}(a)=e\cdot v_F(a)=-\,p^{r-1}\beta_E,
+\end{equation}
+and the pole order $p^{r-1}\beta_E$ is \textbf{divisible by $p$} (as $r\ge2$).
+Divisibility by $p$ is exactly the trigger for Artin--Schreier reduction over
+$\widehat{K_{C'}}$: writing $\pi$ for a uniformiser of $\widehat{K_{C'}}$ and
+$a=c\,\pi^{-p^{r-1}\beta_E}+\cdots$ with $c=c_0^{\,p}$ ($k$ algebraically
+closed), the substitution $y\mapsto y-c_0\pi^{-p^{r-2}\beta_E}$ replaces $a$ by
+\[
+a-\wp\!\big(c_0\pi^{-p^{r-2}\beta_E}\big)
+ \;=\; a-c_0^{\,p}\pi^{-p^{r-1}\beta_E}+c_0\pi^{-p^{r-2}\beta_E},
+\]
+killing the leading pole. Iterating, the pole order can descend
+$p^{r-1}\beta_E\to p^{r-2}\beta_E\to\cdots$, and \emph{if the lower-order data
+cooperate it can reach $\le0$}, i.e.\ $\widehat E\widehat{K_{C'}}/\widehat{K_{C'}}$
+becomes unramified --- (H2) holds while $E/F$ is ramified. This is precisely the
+coincidence $\widehat{K_{C'}}=\widehat E$ engineered in
+\Cref{ex:p2-counterexample}. Over $\widehat F$ no such reduction is available,
+because there $v_F(a)=-\beta_E$ is \emph{prime to $p$} and $\widehat F$ has no
+elements of the intermediate $\pi$-valuations $-p^{j}\beta_E$ ($j<r-1$) used by
+the substitutions; the wild base change is exactly what supplies them.
+
+\begin{quote}\itshape
+The index $p^{r-1}$ neither causes nor prevents absorption by itself; it is the
+gate that makes absorption arithmetically possible. Absorption \emph{completes}
+only when the reduction terminates at a non-positive pole, which is a
+\emph{leading-coefficient} condition, equivalent to $\widehat E\subseteq
+\widehat{K_{C'}}$.
+\end{quote}
+
+\paragraph{Consequences for the live strategies.}
+\begin{enumerate}
+  \item The correct target is \emph{not} ``$\beta_q<\beta_E$'' as a bare
+        inequality of indices, but the finer statement that the reduction of $a$
+        over $\widehat{K_{C'}}$ \textbf{halts with a positive break}, equivalently
+        $\widehat E\not\subseteq\widehat{K_{C'}}$. Generically the reduction
+        halts at break $\beta_E$ (the prime-to-$p$ tail $c_0\pi^{-\beta_E}$
+        cannot be removed), so $E\cdot K_{C'}/K_{C'}$ \emph{stays ramified} and
+        (H2) forces the Goal; absorption is the non-generic, conspiratorial
+        case.
+  \item This is exactly Strategy C of the parent note, now with a precise
+        criterion: show the global hypotheses
+        \[
+        \textbf{(B)}\ \mathrm{ram}(\cP)\le d,\qquad \textbf{(C)}\ r<d
+        \]
+        force the top-layer Artin--Schreier class $[a]\in
+        \widehat F/\wp(\widehat F)$ to remain nontrivial after the base-change
+        $\widehat F\hookrightarrow\widehat{K_{C'}}$, i.e.\ to survive in
+        $\widehat{K_{C'}}/\wp(\widehat{K_{C'}})$. The class $[a]$ is built from
+        the \emph{top} Witt component $a_{r-1}$ (break $\beta_E\sim u_r$), while
+        $\widehat{K_{C'}}$ is built from the \emph{bottom} cover (breaks
+        $u_1,\dots,u_{r-1}$); by Hasse--Arf $u_{r-1}<u_r$, and (B) keeps all
+        $u_i<d$ while (C) keeps the number of layers below the blow-up scale.
+        The task is to convert this separation of sources into non-containment
+        of the local extensions.
+  \item Strategy A is unaffected and remains the way to \emph{produce} the
+        number: compute the reduced break of $a$ over $\widehat{K_{C'}}$ directly
+        in the symmetric-power model. \Cref{thm:index} gives its starting input
+        ($v_{C'}(a)=-p^{r-1}\beta_E$) for free.
+\end{enumerate}
+
+% #############################################################################
+\section{Takeaway}\label{sec:takeaway}
+% #############################################################################
+\begin{itemize}
+  \item \textbf{Strategy D is dead}, by the invariant $e(V_{C'}\mid V_F)=p^{r-1}$
+        (\Cref{thm:index,cor:Ddead}). A fixed place cannot be de-ramified by
+        re-resolving.
+  \item \textbf{Wildness enables, not blocks, absorption} (\Cref{sec:absorb}):
+        the base change multiplies the break to $p^{r-1}\beta_E\equiv0\!\!\pmod p$,
+        opening Artin--Schreier reduction. The genuine obstruction lives one
+        order deeper, in the leading coefficients --- i.e.\ in whether
+        $\widehat E\subseteq\widehat{K_{C'}}$.
+  \item \textbf{The fight is over a class in $\widehat F/\wp(\widehat F)$}, not
+        over a ramification index. (B)+(C) must keep the top-layer class
+        nontrivial over $\widehat{K_{C'}}$; the small decisive computation of the
+        parent note ($r=2$, $d=3$) is precisely the test of this.
+\end{itemize}
+
+\printbibliography
+
+\end{document}

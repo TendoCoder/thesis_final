@@ -1,0 +1,66 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{ynt/global//global/global/global}
+    \entry{Thomas2005}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=fd665ccb2b3cfe25f7b054a99e9827ff}{%
+           family={Thomas},
+           familyi={T\bibinitperiod},
+           given={Lara},
+           giveni={L\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Université Bordeaux 1}%
+      }
+      \strng{namehash}{fd665ccb2b3cfe25f7b054a99e9827ff}
+      \strng{fullhash}{fd665ccb2b3cfe25f7b054a99e9827ff}
+      \strng{fullhashraw}{fd665ccb2b3cfe25f7b054a99e9827ff}
+      \strng{bibnamehash}{fd665ccb2b3cfe25f7b054a99e9827ff}
+      \strng{authorbibnamehash}{fd665ccb2b3cfe25f7b054a99e9827ff}
+      \strng{authornamehash}{fd665ccb2b3cfe25f7b054a99e9827ff}
+      \strng{authorfullhash}{fd665ccb2b3cfe25f7b054a99e9827ff}
+      \strng{authorfullhashraw}{fd665ccb2b3cfe25f7b054a99e9827ff}
+      \field{labelalpha}{Tho05}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal de théorie des nombres de Bordeaux}
+      \field{number}{2}
+      \field{title}{Ramification groups in {Artin-Schreier-Witt} extensions}
+      \field{volume}{17}
+      \field{year}{2005}
+      \field{pages}{689\bibrangedash 720}
+      \range{pages}{32}
+      \verb{doi}
+      \verb 10.5802/jtnb.514
+      \endverb
+      \verb{urlraw}
+      \verb https://jtnb.centre-mersenne.org/articles/10.5802/jtnb.514/
+      \endverb
+      \verb{url}
+      \verb https://jtnb.centre-mersenne.org/articles/10.5802/jtnb.514/
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

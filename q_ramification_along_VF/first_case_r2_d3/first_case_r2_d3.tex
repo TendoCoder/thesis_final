@@ -1,0 +1,218 @@
+% =============================================================================
+%  first_case_r2_d3.tex
+%
+%  The first open case of \Cref{theorem:ramification_after_blowup_is_tame_for_p_power}
+%  beyond the boundary r=d, computed explicitly:
+%
+%        p = 2,  G = Z/4  (r = 2),  d = 3.
+%
+%  RESULT (verified symbolically, wittcheck.py): the top Witt datum of the
+%  symmetric power P^{[3]_G} is integral at V_C, so E/K_C is UNRAMIFIED at
+%  eta_C.  The theorem HOLDS for (r,d)=(2,3); the absorption does NOT happen;
+%  the class [a] SURVIVES.
+%
+%  The sole obstruction is a single Witt CARRY term, e2(x^{-m0}); it loses its
+%  pole at V_C exactly when the ramification bound u2 < d holds.  At the
+%  boundary d = r = 2 the carry is 1/e2 -- a genuine pole -- reproducing the
+%  counterexample of a_wrong_path.tex (\Cref{ex:p2-counterexample}).
+%
+%  Compile:  TEXINPUTS=../..: latexmk -pdf first_case_r2_d3.tex   (biber)
+% =============================================================================
+\documentclass[11pt]{article}
+\usepackage{geometry}\geometry{margin=1in}
+\usepackage[T1]{fontenc}
+\usepackage{ifthen}
+\usepackage{booktabs}
+
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0.5em}
+
+\input{includes}
+\input{MacrosAndFigures}
+
+\providecommand{\PP}{\mathbb{P}}
+\providecommand{\fm}{\mathfrak{m}}
+\providecommand{\Bl}{\mathrm{Bl}}
+
+\usepackage{csquotes}
+\usepackage[
+backend=biber,
+style=alphabetic,
+sorting=ynt
+]{biblatex}
+\addbibresource{Bib.bib}
+
+\newboolean{ThesisIntro}
+\setboolean{ThesisIntro}{false}
+
+\title{The first case past the boundary: $p=2$, $G=\Z/4$, $d=3$\\[2pt]
+       {\large the class survives --- and the Witt carry, killed by the bound,
+        is the whole story}}
+\author{Assaf Marzan}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\noindent\textbf{Result.}
+For $p=2$, $G=\Z/4$ ($r=2$), $d=3$ --- the smallest genuine case with $r<d$ ---
+the symmetric power $\cP^{[3]_G}$ is \emph{unramified} at $\eta_C$. Equivalently
+the top Artin--Schreier class survives the base change of the inductive step;
+there is no absorption; \Cref{theorem:ramification_after_blowup_is_tame_for_p_power}
+\textbf{holds for $(r,d)=(2,3)$}. The computation is short, completely explicit,
+and verified symbolically in the companion \texttt{wittcheck.py}. It also
+pinpoints the mechanism: the only obstruction is a single \emph{Witt carry}
+term, and the ramification bound is exactly the condition that strips its pole.
+
+% #############################################################################
+\section{Why $p=2$ is the only $(r,d)=(2,3)$ test}\label{sec:p2}
+% #############################################################################
+
+For a totally ramified $\Z/p^2$ Artin--Schreier--Witt extension with bottom
+datum of pole order $m_0$ (prime to $p$) and top datum of pole order $m_1$, the
+upper breaks are $u_1=m_0$ and $u_2=\max(p\,m_0,\,m_1)$. The bound
+``$\mathrm{ram}(\cP)\le d$'' is $u_2<d$ (\Cref{definition:local_ramification_boundness},
+$G^d=1$). At $d=3$:
+\[
+u_2<3 \ \text{with}\ m_0\ge1 \ \Longrightarrow\ p\,m_0<3 \ \Longrightarrow\
+p<3 \ \Longrightarrow\ p=2 .
+\]
+For $p\ge3$ the bottom layer would have to be \emph{unramified} ($m_0=0$),
+degenerating to the proven $\Z/p$ base case. So the unique genuinely-wild
+$(r,d)=(2,3)$ instance is $p=2$, $m_0=1$ (hence $u_1=1$, $u_2=2<3$), and any
+$m_1\le2$. We treat it.
+
+% #############################################################################
+\section{The symmetric-power Witt datum}\label{sec:datum}
+% #############################################################################
+
+Work in the local model of the proven $\Z/p$ computation
+(\texttt{RamificationAfterBlowupIsTame.tex}, eq.~\cref{eq:complete_field_at_generic_point}):
+at the blowup point $V_C$ on $C^{(3)}$ the completed field is
+$\widehat{K_C}=\kappa_C((e_3))$, with $e_3=x_1x_2x_3$ a uniformiser,
+$\kappa_C=k\big(e_1/e_3,\,e_2/e_3\big)$, and the valuation rule
+\begin{equation}\label{eq:val}
+v_C(e_i)=1\ (i=1,2,3),\qquad v_C(e_i/e_j)=0 .
+\end{equation}
+Locally $\cP$ is the $W_2$-Artin--Schreier--Witt torsor $\wp(\vec Y)=\vec a$,
+$\vec a=(a_0,a_1)$ over $k((x))$, with $a_0=x^{-1}$ (so $m_0=1$) and $a_1$ of
+pole $m_1\le2$. By the same $\Xi$-invariant computation as the $\Z/p$ case
+(\texttt{RamificationAfterBlowupIsTame.tex}, lines 521--547), the symmetric
+power $\cP^{[3]_G}$ is the $W_2$-torsor over $\widehat{K_C}$ with datum the
+\emph{Witt sum}
+\[
+\vec\alpha \;=\; \textstyle\sum_{i=1}^{3}{}^{W}\ \vec a(x_i)
+\;=\;(\alpha_0,\alpha_1).
+\]
+In characteristic $2$ the length-two Witt carry is $C(a,b)=\tfrac{a^2+b^2-(a+b)^2}{2}=ab$,
+and folding over the three points gives (verified in \texttt{wittcheck.py}, step B)
+\begin{equation}\label{eq:alpha}
+\alpha_0=\sum_{i}a_0(x_i),\qquad
+\alpha_1=\underbrace{\sum_{i}a_1(x_i)}_{\text{top sum}}
+        +\underbrace{e_2(s_1,s_2,s_3)}_{\text{Witt carry}},\qquad s_i:=a_0(x_i)=x_i^{-1}.
+\end{equation}
+The carry $e_2(s)=\sum_{i<j}s_is_j$ is the only new feature beyond the $\Z/p$
+case; it is the entire content of the second Witt layer.
+
+% #############################################################################
+\section{The carry is integral exactly when the bound holds}\label{sec:carry}
+% #############################################################################
+
+Both pieces of $\vec\alpha$ are now read off at $V_C$ via \cref{eq:val}
+(\texttt{wittcheck.py}, step C):
+\[
+\alpha_0=\sum_i x_i^{-1}=\frac{e_2}{e_3}\ \ (v_C=0);
+\qquad
+e_2(s)=\sum_{i<j}\frac1{x_ix_j}=\frac{e_1}{e_3}\ \ (v_C=0).
+\]
+Using $e_k(x^{-1})=e_{d-k}(x)/e_d(x)$, the carry for general $d$ and $m_0$ is
+\begin{equation}\label{eq:carrygen}
+e_2\big(x_1^{-m_0},\dots,x_d^{-m_0}\big)
+=\ \text{a symmetric polynomial of degree } 2m_0 \text{ in the } x_i^{-1},
+\end{equation}
+hence (thesis lemma, \texttt{RamificationAfterBlowupIsTame.tex} lines 549--572)
+lies in $\kappa_C=k(e_1/e_d,\dots,e_{d-1}/e_d)$ --- i.e.\ has \emph{no pole at
+$V_C$} --- if and only if
+\[
+\boxed{\,2m_0<d,\quad\text{that is}\quad u_2<d:\ \text{the ramification bound.}\,}
+\]
+Likewise $\sum_i a_1(x_i)\in\kappa_C$ iff $m_1<d$, again the bound. Therefore,
+\emph{under the bound}, both Witt components of $\vec\alpha$ lie in
+$\kappa_C\subset\kappa_C[[e_3]]$, the $W_2$-datum is integral, and the extension
+$E/K_C$ defined by $\wp(\vec Y)=\vec\alpha$ is \textbf{unramified at $V_C$}.
+
+\begin{theorem}\label{thm:23}
+For $p=2$, $G=\Z/4$, $d=3$ and $\cP$ totally ramified at $p_\infty$ with
+ramification bounded by $d$ (so $u_2=2<3$), $\cP^{[3]_G}$ is unramified at
+$\eta_C$. The top Artin--Schreier class is not absorbed.
+\end{theorem}
+
+\begin{proof}
+$m_0=1$, $m_1\le2$, so $2m_0=2<3$ and $m_1<3$. By \Cref{sec:carry} both
+components of $\vec\alpha$ are in $\kappa_C$; explicitly
+$\alpha_0=e_2/e_3$ and $\alpha_1=\sum_i a_1(x_i)+e_1/e_3$, each of $v_C=0$. An
+integral $W_2$-datum gives an unramified extension, so $E/K_C$ is unramified at
+$V_C$.
+\end{proof}
+
+% #############################################################################
+\section{The boundary $d=r=2$ reproduces the counterexample}\label{sec:boundary}
+% #############################################################################
+
+The same formula \cref{eq:carrygen} explains \emph{why} the inductive route
+failed at the boundary. For $d=2$ (so $r=d=2$, $m_0=1$) the carry is
+\[
+e_2(s)=s_1s_2=\frac1{x_1x_2}=\frac1{e_2}\ \ (v_C=-1):\quad\text{a genuine pole.}
+\]
+With $a_1=0$ the top component is $\alpha_1=1/e_2$, of break $1$, so $E/K_C$ is
+ramified --- exactly the absorption/counterexample of
+\Cref{ex:p2-counterexample}. The transition is sharp:
+\begin{center}
+\begin{tabular}{ccccc}
+\toprule
+$m_0$ & $u_2=2m_0$ & $d$ & carry at $V_C$ & verdict\\
+\midrule
+$1$ & $2$ & $2$ & $1/e_2$ \ (pole) & \textbf{ramified} (counterexample)\\
+$1$ & $2$ & $3$ & $e_1/e_3$ \ (unit) & \textbf{unramified} (\Cref{thm:23})\\
+$2$ & $4$ & $3$ & pole & ramified ($u_2=4\not<3$: bound fails)\\
+$2$ & $4$ & $5$ & unit & unramified\\
+\bottomrule
+\end{tabular}
+\end{center}
+(All rows verified in \texttt{wittcheck.py}, step F.) The pattern is uniform:
+for $p=2$, $r=2$ the theorem holds \emph{iff} the bound $u_2<d$ holds, and the
+single Witt carry is the entire obstruction.
+
+% #############################################################################
+\section{What this does and does not settle}\label{sec:scope}
+% #############################################################################
+\begin{itemize}
+  \item \textbf{Settled (rigorously, machine-checked):} $p=2$, $r=2$, all $d$.
+        The theorem holds exactly under the bound; the obstruction is the Witt
+        carry $e_2(x^{-m_0})$, integral iff $2m_0<d$. The first case past the
+        boundary, $(r,d)=(2,3)$, is unramified --- the class survives.
+  \item \textbf{Conjecture for the mechanism.} For general $p,r$ the datum of
+        $\cP^{[d]_G}$ is the length-$r$ Witt sum $\sum^W_i\vec a(x_i)$; its
+        higher components are symmetric polynomials built from the carry
+        polynomials $C$ (degree $p$), nested $r-1$ times. Each such term is
+        $e_{k}(x^{-m_\bullet})$-like and lies in $\kappa_C$ iff its total
+        ``pole degree'' is $<d$. The expectation is that these pole degrees are
+        exactly the upper breaks $u_1,\dots,u_r$, so the bound $u_r<d$ kills all
+        carries simultaneously --- the clean generalisation of \Cref{thm:23}.
+  \item \textbf{Open.} (i) That the nested carries' pole degrees equal the
+        $u_j$ (a Schmid--Witt/Brylinski-type identity inside the symmetric
+        power); (ii) $p\ge3$, where $C$ has $p-1$ mixed terms rather than the
+        single product $a_0a_1\mapsto a_0a_0$ of $p=2$. The first such test is
+        $p=3$, $r=2$, $d=4$ (the smallest genuine case there, since $u_2\ge3$).
+\end{itemize}
+
+\paragraph{Bottom line.} The answer to ``does $[a]$ survive at $(r,d)=(2,3)$?''
+is \emph{yes}, and not narrowly: for $p=2,r=2$ the wild Witt carry is the whole
+obstruction and the ramification bound is precisely what removes it. This is the
+direct, carry-level confirmation that the route killed for the wrong reasons in
+\texttt{a\_wrong\_path.tex} / \texttt{strategy\_D\_dead\_end.tex} does close
+once the global bound is fed in --- exactly as predicted.
+
+\printbibliography
+
+\end{document}

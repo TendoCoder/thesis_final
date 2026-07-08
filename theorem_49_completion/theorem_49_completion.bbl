@@ -1,0 +1,160 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{ynt/global//global/global/global}
+    \entry{serreLF}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=523a41970d92b80420ca6d5307619da7}{%
+           family={Serre},
+           familyi={S\bibinitperiod},
+           given={Jean-Pierre},
+           giveni={J\bibinithyphendelim P\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{523a41970d92b80420ca6d5307619da7}
+      \strng{fullhash}{523a41970d92b80420ca6d5307619da7}
+      \strng{fullhashraw}{523a41970d92b80420ca6d5307619da7}
+      \strng{bibnamehash}{523a41970d92b80420ca6d5307619da7}
+      \strng{authorbibnamehash}{523a41970d92b80420ca6d5307619da7}
+      \strng{authornamehash}{523a41970d92b80420ca6d5307619da7}
+      \strng{authorfullhash}{523a41970d92b80420ca6d5307619da7}
+      \strng{authorfullhashraw}{523a41970d92b80420ca6d5307619da7}
+      \field{labelalpha}{Ser79}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Local Fields}
+      \field{year}{1979}
+    \endentry
+    \entry{milneEC}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=638058cd23e53094700e44c2a4f389f5}{%
+           family={Milne},
+           familyi={M\bibinitperiod},
+           given={James\bibnamedelima S.},
+           giveni={J\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Princeton, NJ}%
+      }
+      \list{publisher}{1}{%
+        {Princeton University Press}%
+      }
+      \strng{namehash}{638058cd23e53094700e44c2a4f389f5}
+      \strng{fullhash}{638058cd23e53094700e44c2a4f389f5}
+      \strng{fullhashraw}{638058cd23e53094700e44c2a4f389f5}
+      \strng{bibnamehash}{638058cd23e53094700e44c2a4f389f5}
+      \strng{authorbibnamehash}{638058cd23e53094700e44c2a4f389f5}
+      \strng{authornamehash}{638058cd23e53094700e44c2a4f389f5}
+      \strng{authorfullhash}{638058cd23e53094700e44c2a4f389f5}
+      \strng{authorfullhashraw}{638058cd23e53094700e44c2a4f389f5}
+      \field{labelalpha}{Mil80}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{series}{Princeton Mathematical Series}
+      \field{title}{Étale Cohomology}
+      \field{volume}{33}
+      \field{year}{1980}
+    \endentry
+    \entry{Thomas2005}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=fd665ccb2b3cfe25f7b054a99e9827ff}{%
+           family={Thomas},
+           familyi={T\bibinitperiod},
+           given={Lara},
+           giveni={L\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Université Bordeaux 1}%
+      }
+      \strng{namehash}{fd665ccb2b3cfe25f7b054a99e9827ff}
+      \strng{fullhash}{fd665ccb2b3cfe25f7b054a99e9827ff}
+      \strng{fullhashraw}{fd665ccb2b3cfe25f7b054a99e9827ff}
+      \strng{bibnamehash}{fd665ccb2b3cfe25f7b054a99e9827ff}
+      \strng{authorbibnamehash}{fd665ccb2b3cfe25f7b054a99e9827ff}
+      \strng{authornamehash}{fd665ccb2b3cfe25f7b054a99e9827ff}
+      \strng{authorfullhash}{fd665ccb2b3cfe25f7b054a99e9827ff}
+      \strng{authorfullhashraw}{fd665ccb2b3cfe25f7b054a99e9827ff}
+      \field{labelalpha}{Tho05}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal de théorie des nombres de Bordeaux}
+      \field{number}{2}
+      \field{title}{Ramification groups in {Artin-Schreier-Witt} extensions}
+      \field{volume}{17}
+      \field{year}{2005}
+      \field{pages}{689\bibrangedash 720}
+      \range{pages}{32}
+      \verb{doi}
+      \verb 10.5802/jtnb.514
+      \endverb
+      \verb{urlraw}
+      \verb https://jtnb.centre-mersenne.org/articles/10.5802/jtnb.514/
+      \endverb
+      \verb{url}
+      \verb https://jtnb.centre-mersenne.org/articles/10.5802/jtnb.514/
+      \endverb
+    \endentry
+    \entry{Rabinoff2014Witt}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=eedc1812a6a9cc76667536f702745c56}{%
+           family={Rabinoff},
+           familyi={R\bibinitperiod},
+           given={Joseph},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{eedc1812a6a9cc76667536f702745c56}
+      \strng{fullhash}{eedc1812a6a9cc76667536f702745c56}
+      \strng{fullhashraw}{eedc1812a6a9cc76667536f702745c56}
+      \strng{bibnamehash}{eedc1812a6a9cc76667536f702745c56}
+      \strng{authorbibnamehash}{eedc1812a6a9cc76667536f702745c56}
+      \strng{authornamehash}{eedc1812a6a9cc76667536f702745c56}
+      \strng{authorfullhash}{eedc1812a6a9cc76667536f702745c56}
+      \strng{authorfullhashraw}{eedc1812a6a9cc76667536f702745c56}
+      \field{labelalpha}{Rab14}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{math.RA}
+      \field{eprinttype}{arXiv}
+      \field{title}{The Theory of {Witt} Vectors}
+      \field{year}{2014}
+      \verb{eprint}
+      \verb 1409.7445
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/1409.7445
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/1409.7445
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

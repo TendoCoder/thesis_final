@@ -1,0 +1,408 @@
+% =============================================================================
+%  q_ramification_along_VF.tex
+%
+%  Research suggestions:  controlling the ramification of the symmetrisation
+%  map  q : (cP_{G/H})^{(d)} -> (cP_{G/H})^{[d]}  (equivalently the field
+%  extension  K_{C'} / F )  ALONG the place  V_F = V_{C'}|_F ,  and using the
+%  global hypotheses
+%
+%        ram(cP -> U) bounded by d        and        G = Z/p^r ,  r < d
+%
+%  to supply the "missing global input" that the inductive proof of
+%  \Cref{theorem:ramification_after_blowup_is_tame_for_p_power} lacks
+%  (the red TODO at RamificationAfterBlowupIsTame.tex:671, and the conclusion
+%  of a_wrong_path.tex).
+%
+%  Compile:  latexmk -pdf q_ramification_along_VF.tex   (uses biber)
+% =============================================================================
+\documentclass[11pt]{article}
+\usepackage{geometry}\geometry{margin=1in}
+\usepackage[T1]{fontenc}
+\usepackage{ifthen}
+\usepackage{booktabs}
+
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0.5em}
+
+\input{includes}
+\input{MacrosAndFigures}
+
+% --- local fallbacks for symbols not in the thesis macro file ---------------
+\providecommand{\PP}{\mathbb{P}}
+\providecommand{\fm}{\mathfrak{m}}
+\providecommand{\Bl}{\mathrm{Bl}}
+
+\usepackage{csquotes}
+\usepackage[
+backend=biber,
+style=alphabetic,
+sorting=ynt
+]{biblatex}
+\addbibresource{Bib.bib}
+
+\newboolean{ThesisIntro}
+\setboolean{ThesisIntro}{false}
+
+\title{Controlling the ramification of $q$ along $V_F$\\[2pt]
+       {\large how the global bound $\mathrm{ram}(\cP)\le d$ together with
+        $G=\Z/p^r$, $r<d$, can supply the input the induction is missing}}
+\author{Assaf Marzan}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\noindent\textbf{Purpose.}
+The inductive proof of
+\Cref{theorem:ramification_after_blowup_is_tame_for_p_power}
+($\cP^{[\deg\ndls]}$ unramified at $\eta_\ndls$ for $G=\Z/p^r$) stalls at one
+point (the red note ``\emph{not clear how to finish without analysing the
+ramification even further}'' in \texttt{RamificationAfterBlowupIsTame.tex}).
+The post-mortem in \texttt{a\_wrong\_path.tex} localised the stall to a single,
+sharp phenomenon: after reducing to
+\[
+\textbf{Goal:}\qquad E/F \text{ is unramified at } V_F,\qquad I(v_E\mid V_F)=1,
+\]
+the hypothesis (H2) only gives $I(v_\star\mid V_{C'})=1$, and the two are linked
+by an injection
+\begin{equation}\label{eq:inj}
+I(v_\star\mid V_{C'})\;\hookrightarrow\;I(v_E\mid V_F)
+\end{equation}
+that need not be onto. The cokernel is \emph{exactly} the ramification of
+\[
+K_{C'}/F \quad\text{at}\quad V_{C'}\mid V_F,
+\]
+i.e.\ the ramification that the symmetrisation map
+$q:(\cP_{G/H})^{(d)}\to(\cP_{G/H})^{[d]}$ introduces at the point at infinity.
+When that ramification is wild it can \emph{absorb} the ramification of $E/F$,
+and \texttt{a\_wrong\_path.tex} exhibits a local coincidence
+$\widehat{K_{C'}}=\widehat E$ making (H1)--(H3) hold while the Goal fails. Its
+closing remark names the cure:
+
+\begin{quote}\itshape
+``ruling out such coincidences for a given $(\cP,d)$ is exactly the global input
+the inductive argument lacks.''
+\end{quote}
+
+This note collects concrete suggestions for supplying that global input by
+\emph{measuring the ramification of $q$ along $V_F$} and bounding it by the two
+global hypotheses we have not yet used:
+\begin{equation}\label{eq:hyp}
+\textbf{(B)}\ \ \mathrm{ram}(\cP\to U)\ \text{bounded by}\ d\ \ (\text{i.e. }G^d=1),
+\qquad
+\textbf{(C)}\ \ G=\Z/p^r,\ \ r<d.
+\end{equation}
+None of (B), (C) appears in \texttt{a\_wrong\_path.tex}; supplying them is the
+whole game. \Cref{sec:object} fixes the object to be measured.
+\Cref{sec:obs} records three structural observations (in particular: the
+counterexample lives at $r=d$, and $r<d$ is essentially \emph{automatic} in the
+totally ramified case). \Cref{sec:strategies} gives four attack strategies,
+ranked. \Cref{sec:plan} proposes the smallest decisive computation.
+
+% #############################################################################
+\section{The object to be measured}\label{sec:object}
+% #############################################################################
+
+We keep the notation of \texttt{a\_wrong\_path.tex}: $G=\Z/p^r$ acting totally
+ramified at $p_\infty$ (after the standard reductions), $H=\ker(G\to G/H)$ the
+unique subgroup of order $p$ (the top Artin--Schreier layer), $G/H\cong
+\Z/p^{r-1}$ the bottom layer, $f:C'\to C$ the $G/H$-cover, $p'_\infty\mapsto
+p_\infty$. Blowing up $d\cdot p_\infty$ and $d\cdot p'_\infty$ gives the DVRs
+$V_C\subset K(C^{(d)})$ and $V_{C'}\subset K(C'^{(d)})$ at the generic points
+$\eta_C,\eta_{C'}$ of the exceptional divisors, and
+\[
+K_C=\Frac V_C,\quad
+F=K\!\big((\cP_{G/H})^{[d]}\big),\quad
+K_{C'}=\Frac V_{C'},\quad
+E=K(\cP^{[d]_G}),\quad V_F=V_{C'}|_F .
+\]
+
+\begin{definition}[the $q$-defect]\label{def:defect}
+Write $w:=V_{C'}$, $w_F:=V_F=w|_F$. The \textbf{ramification of $q$ along
+$V_F$} is the ramification of the local extension
+$\widehat{K_{C'}}/\widehat F$ at $w\mid w_F$: its inertia group
+$I(w\mid w_F)$, its ramification index $e(w\mid w_F)$, its different
+$\mathfrak d_{K_{C'}/F}(w\mid w_F)$, and (when wild and cyclic) its break
+$\beta_q$ in upper numbering. We call any of these data the \emph{$q$-defect}.
+\end{definition}
+
+By \cref{eq:inj} and the diagram of \texttt{a\_wrong\_path.tex}, the Goal is
+equivalent to surjectivity of \cref{eq:inj}, and the obstruction is precisely a
+nontrivial $q$-defect that is ``aligned'' with $E/F$. Three reformulations of the
+Goal, each a possible target:
+
+\begin{enumerate}
+\item \textbf{(Vanishing.)} $q$ is unramified along $V_F$, i.e.\
+      $I(w\mid w_F)=1$. Then \cref{eq:inj} is an isomorphism and (H2)
+      $\Rightarrow$ Goal immediately. \emph{Strongest; may be false in general
+      --- see \Cref{sec:obs}\,(O2).}
+\item \textbf{(Strict break separation.)} $E/F$ and $K_{C'}/F$ are cyclic
+      wildly ramified of breaks $\beta_E,\beta_q$ at $V_F$ with
+      $\beta_q\neq\beta_E$; more usefully $\beta_q<\beta_E$. Then
+      $\widehat{K_{C'}}\neq\widehat E$, the local compositum
+      $\widehat E\widehat{K_{C'}}$ is genuinely degree $p$ over
+      $\widehat{K_{C'}}$ and ramified, contradicting (H2) unless $E/F$ was
+      unramified to begin with. \emph{This is the cleanest sufficient
+      condition; it directly kills the coincidence $\widehat{K_{C'}}=\widehat E$
+      of \texttt{a\_wrong\_path.tex}.}
+\item \textbf{(Conductor/different bound.)} $\mathfrak d_{K_{C'}/F}(w\mid w_F)$
+      is too small to absorb $\mathfrak d_{E/F}(v_E\mid V_F)$ in the tower
+      $F\subset K_{C'}\subset E\cdot K_{C'}$ versus $F\subset E\subset
+      E\cdot K_{C'}$. \emph{Quantitative form of (2); good for an inequality
+      proof.}
+\end{enumerate}
+
+\noindent The whole point is that all three are statements about $q$ \emph{alone}
+(the $G/H$-cover and $d$), to be bounded by (B)+(C). They do not require
+re-opening the absorption; they forbid it.
+
+% #############################################################################
+\section{Three structural observations}\label{sec:obs}
+% #############################################################################
+
+\paragraph{(O1) The counterexample sits exactly at the boundary $r=d$ --- (C)
+excludes it.}
+The fatal coincidence in \texttt{a\_wrong\_path.tex},
+\Cref{ex:p2-counterexample}, is built with $G=\Z/p^2$ (so $r=2$) and the
+degree-$2$ symmetric power ($d=2$): it is an $r=d$ phenomenon. The tame
+companion in \texttt{inertia\_symmetry\_obstruction.tex} (eq.~``$d\cdot G_0$'')
+fails the count $|G_0|\mid d$ at $d=|G_0|$, again the boundary. The hypothesis
+$r<d$ in \cref{eq:hyp} is precisely the first regime \emph{not} covered by
+either counterexample. So the right reading of the task is: \emph{prove the
+obstruction is a boundary ($r\ge d$) phenomenon and disappears for $r<d$.}
+This is encouraging --- (C) is not an arbitrary convenience; it is the
+complement of the known bad locus.
+
+\paragraph{(O2) Do not aim for ``$q$ unramified'' --- aim for a break
+\emph{bound}.}
+The leading-order (inertia / tame-model) computation of
+\texttt{inertia\_symmetry\_obstruction.tex} already shows
+$q$ is genuinely ramified along $V_{C'}$ in general: the diagonal of the
+$E^d$-action survives, $I_{V_{C'}}(K_{C'}/F)\cong\Z/\gcd(d,|G/H|)$ in the tame
+toy model, and $J\supseteq G^d$ in the wild model. So target~(1) of
+\Cref{sec:object} is too much to hope for. The realistic targets are (2) and
+(3): bound the \emph{break} of the $q$-defect strictly below that of $E/F$.
+Higher ramification, not inertia, is the right invariant --- exactly the moral
+of \texttt{inertia\_symmetry\_obstruction.tex}.
+
+\paragraph{(O3) $r<d$ is essentially \emph{free} in the totally ramified case.}
+For a totally ramified $\Z/p^r$ extension in which every layer is genuinely wild,
+the upper-numbering breaks $u_1\le\cdots\le u_r$ are integers (Hasse--Arf) and
+strictly increase, $u_1<u_2<\cdots<u_r$, whence $u_r\ge u_1+(r-1)\ge r$. The
+bound (B) is $G^d=1$, i.e.\ $u_r<d$. Therefore
+\[
+r\;\le\;u_r\;<\;d ,
+\]
+so $r<d$ holds \emph{automatically} once $\cP$ is totally ramified with bound
+$d$. Two consequences: (i) carrying (C) as a hypothesis through the induction
+costs nothing in the case that matters; (ii) the genuinely dangerous regime
+$r\ge d$ can only occur with \emph{coinciding} breaks $u_i=u_{i+1}$, i.e.\ when
+some intermediate layer is \emph{not} wildly ramified --- which is the
+degenerate situation the counterexamples exploit. This sharpens the goal: the
+proof should \emph{use} the strict increase of the $u_i$.
+
+% #############################################################################
+\section{Four strategies}\label{sec:strategies}
+% #############################################################################
+
+\subsection*{Strategy A (recommended): compute the $q$-defect in the explicit
+weighted-blowup local model, in terms of the breaks $u_i$ and $d$}
+
+This is the direct continuation of the method that \emph{already works} for
+$r=1$ (\Cref{cor:ramification_after_blowup_is_tame}, via
+\Cref{theorem:artin_schreier_ramification} and the weighted blowup), and of the
+local model set up in \texttt{inertia\_symmetry\_obstruction.tex}.
+
+\smallskip
+\noindent\emph{Set-up.} Take $k=\bar k$, $\widehat{K_C}=k((t))$, uniformiser $t$
+at $p_\infty$. Present $\cP$ at $p_\infty$ as an Artin--Schreier--Witt
+$\Z/p^r$-extension by a Witt vector $\vec a=(a_0,\dots,a_{r-1})$ over $k((t))$,
+normalised so that the upper breaks are $u_1<\cdots<u_r<d$ (O3). The bottom
+layer $G/H=\Z/p^{r-1}$ is given by $(a_0,\dots,a_{r-2})$ (breaks
+$u_1,\dots,u_{r-1}$); the top layer $H=\Z/p$ adds $a_{r-1}$ (break $u_r$).
+On the curve $C'$, a uniformiser $u$ at $p'_\infty$ satisfies
+$t = u^{p^{r-1}}\cdot(\text{unit})$ (totally ramified $G/H$-cover).
+
+\smallskip
+\noindent\emph{Symmetric coordinates and the blowup valuation.} Use the $d$
+copies $t_1,\dots,t_d$ (resp.\ $u_1,\dots,u_d$) and the elementary symmetric
+functions $e_1,\dots,e_d$. By the thesis's own blowup computation
+(\texttt{RamificationAfterBlowupIsTame.tex}, affine case:
+$\nu_E(f)=\mathrm{ord}_0 f$) and the weighting of
+\texttt{inertia\_symmetry\_obstruction.tex},
+\[
+\nu(e_i)=i ,\qquad \widetilde\nu(u_j)=1 ,
+\]
+and $V_C$ (resp.\ $V_{C'}$) is read off this weighted blowup. A pole $t^{-m}$
+of a defining datum, rewritten in the $e_i$ and divided by the blowup scale,
+acquires \emph{effective order} $\approx m/d$: this is exactly why $r=1$ works
+($m<d\Rightarrow$ effective order $<1\Rightarrow$ the datum is a unit in the
+residue field $\Rightarrow$ unramified at $\eta_C$).
+
+\smallskip
+\noindent\emph{What to compute.} The two completions at $w=V_{C'}$:
+\begin{itemize}
+  \item $\widehat E/\widehat F$: the symmetrised \emph{top} layer $a_{r-1}$.
+        Extract its break $\beta_E$ at $V_F$ as a function of $u_r$ and $d$.
+  \item $\widehat{K_{C'}}/\widehat F$ (the $q$-defect): produced by comparing
+        the scheme symmetric power $(\cP_{G/H})^{(d)}$ with the torsor symmetric
+        power $(\cP_{G/H})^{[d]}$ at $d\cdot p'_\infty$. Extract $\beta_q$ as a
+        function of the \emph{bottom} breaks $u_1,\dots,u_{r-1}$ and $d$.
+\end{itemize}
+
+\noindent\emph{Target inequality.} Show
+\begin{equation}\label{eq:target}
+\boxed{\ \beta_q \;<\; \beta_E \quad\text{whenever}\quad u_r<d\ \text{and}\ r<d.\ }
+\end{equation}
+By target~(2) of \Cref{sec:object}, \cref{eq:target} forbids
+$\widehat{K_{C'}}=\widehat E$ and makes (H2) imply the Goal. The heuristic in
+its favour: $\beta_E$ is driven by the \emph{largest} break $u_r$, while
+$\beta_q$ is driven only by the \emph{bottom} breaks $u_{\le r-1}$ (the map $q$
+sees only $\cP_{G/H}$), and by (O3) $u_{r-1}<u_r$ strictly. The role of $r<d$ is
+to keep the Witt-vector \emph{carries} (which can lift effective orders when the
+$d$ branches collide) below the blowup scale $1$, so that no accumulation of the
+$r$ bottom layers reaches $\beta_E$.
+
+\smallskip
+\noindent\emph{Why this is the recommended route.} (i) It is the proven method
+for $r=1$, pushed one Witt-degree further. (ii) It computes
+$I(v_E\mid V_C)$ \emph{directly} and never base-changes along $q$, so the
+absorption mechanism cannot even be expressed --- it is structurally immune to
+the \texttt{a\_wrong\_path} obstruction. (iii) It produces a number ($\beta_q$),
+which is what every other strategy ultimately needs.
+
+\smallskip
+\noindent\emph{Risk.} The Witt-vector carry analysis in $d$ symmetric variables
+is the technical heart and is genuinely involved; the clean statement
+\cref{eq:target} must be checked, not assumed. \Cref{sec:plan} isolates the
+smallest instance.
+
+\subsection*{Strategy B: conductor / different accounting in the parallelogram}
+
+Stay abstract and use only the transitivity of the different. In the two towers
+\[
+\widehat F\subset\widehat E\subset \widehat E\widehat{K_{C'}}
+\qquad\text{and}\qquad
+\widehat F\subset\widehat{K_{C'}}\subset \widehat E\widehat{K_{C'}},
+\]
+transitivity gives
+$\mathfrak d_{E K_{C'}/F}
+   =\mathfrak d_{E K_{C'}/E}+\mathfrak d_{E/F}
+   =\mathfrak d_{E K_{C'}/K_{C'}}+\mathfrak d_{K_{C'}/F}$
+(pulled back appropriately). Hypothesis (H2) is
+$\mathfrak d_{E K_{C'}/K_{C'}}=0$. Hence
+\begin{equation}\label{eq:diff}
+\mathfrak d_{E/F}\ \big(\text{pulled up}\big)
+   \;=\;\mathfrak d_{E K_{C'}/E}\;-\;\mathfrak d_{K_{C'}/F}\ \big(\text{pulled up}\big).
+\end{equation}
+The Goal is $\mathfrak d_{E/F}=0$. So one must show the right-hand side of
+\cref{eq:diff} vanishes, i.e.\ that base-changing $K_{C'}/F$ up to $E$ does not
+\emph{increase} its different: $\mathfrak d_{E K_{C'}/E}=\mathfrak
+d_{K_{C'}/F}\cdot(\text{pullback})$. This is automatic when $E/F$ and
+$K_{C'}/F$ are arithmetically disjoint, e.g.\ when their breaks differ ---
+recovering \cref{eq:target} as the clean sufficient condition, now phrased via
+the different. Combine with the Hasse--Arf/Herbrand convexity already sketched
+in \texttt{inertia\_symmetry\_obstruction.tex}\,\S(higher):
+\[
+\varphi_G(m_r)=\varphi_{G/H}(m_{r-s})+\tfrac{\varphi_H(m_r)-m_{r-s}}{p^{\,r-s}}
+\quad\text{(convex combination)}\ \Rightarrow\ \varphi_G(m_r)<d ,
+\]
+to bound the \emph{total} conductor of $\cP$ by $d$ and split it across the
+layers. \emph{Pro:} no symmetric-variable bookkeeping; rests on standard
+ramification calculus. \emph{Con:} the disjointness/non-increase step is exactly
+where the absorption hides --- you still need an input equivalent to
+\cref{eq:target}, so B is best as the \emph{packaging} of A's output, not a
+replacement for it.
+
+\subsection*{Strategy C: rule out $\widehat{K_{C'}}=\widehat E$ by a global
+break invariant}
+
+Attack target~(2) head-on without computing $\beta_q$ exactly: find a
+\emph{global} invariant of $K_{C'}/F$ at $V_F$ that is forced by (B)+(C) to differ
+from the corresponding invariant of $E/F$. Candidates:
+\begin{itemize}
+  \item \textbf{Source of the break.} $\beta_E$ is a break of the $H$-layer
+        (top), $\beta_q$ a break of the symmetrised $G/H$-tower (bottom). If one
+        shows $\beta_q\in\{$values produced by $u_1,\dots,u_{r-1}\}$ and
+        $\beta_E\in\{$values produced by $u_r\}$, then (O3)'s strict increase
+        $u_{r-1}<u_r$ separates them.
+  \item \textbf{Divisibility / residue.} Even if breaks coincide numerically,
+        the leading coefficients (the ``$u^{-m}$ change of variable'' of
+        \Cref{theorem:artin_schreier_ramification}) may be forced distinct by
+        the explicit form of $q$. A coincidence $\widehat{K_{C'}}=\widehat E$
+        requires equality of Artin--Schreier classes in
+        $\widehat F/\wp(\widehat F)$; show $(B)+(C)$ make the class of
+        $K_{C'}/F$ land in a different coset than that of $E/F$.
+\end{itemize}
+\emph{Pro:} potentially a short, conceptual proof. \emph{Con:} ``find the right
+invariant'' is open-ended; likely needs A's local model to even identify the
+invariant.
+
+\subsection*{Strategy D (fallback): change the resolution to make $\eta_{C'}$
+codimension one for $q$}
+
+The reason the existing tool fails is purely that
+\Cref{lemma:torsor_unramified_codim_one} controls $q$ only in
+\emph{codimension one} on $C'^{(d)}$, whereas $V_{C'}$ sits over the
+codimension-$d$ point $d\cdot p'_\infty$. Idea: choose a modified
+blowup / weighted resolution $X_{C'}'\to C'^{(d)}$ in which the chosen valuation
+$\eta_{C'}$ \emph{is} a codimension-one point already on the source of $q$ (or
+factor $q$ through a sequence of codimension-one steps), then apply the
+codimension-one lemma iteratively. This trades a hard local computation for a
+careful birational geometry of the symmetric power along the small diagonal.
+\emph{Pro:} reuses a lemma you already have. \emph{Con:} you must check the
+modified resolution still computes the \emph{same} $V_C\hookrightarrow V_{C'}$
+and still detects the modulus bound $d$; the weighted blowup was chosen for a
+reason (the unweighted one ``does not even extend $V_C$ to $V_{C'}$'', per
+\texttt{inertia\_symmetry\_obstruction.tex}).
+
+% #############################################################################
+\section{Recommended next step: the decisive small computation}\label{sec:plan}
+% #############################################################################
+
+Everything hinges on one number, $\beta_q$. Compute it in the first open case
+and check \cref{eq:target}:
+\begin{quote}
+\textbf{Test case.} $k=\bar{\F}_p$, $G=\Z/p^2$ ($r=2$), $H=\Z/p$ bottom,
+$G/H=\Z/p$. Take $\cP$ totally ramified at $p_\infty$ with the bottom-layer
+break $u_1$ and top-layer break $u_2$, $u_1<u_2$. Choose $d$ with
+$u_2<d$ and $r=2<d$ --- the smallest honest choice is $d=3$ (so the
+\texttt{a\_wrong\_path} counterexample's $d=2=r$ is just excluded). Then:
+\begin{enumerate}
+  \item Write the $G/H=\Z/p$ cover $C'\to C$ locally as $y^p-y=t^{-u_1}$;
+        $u=$ uniformiser at $p'_\infty$, $t=u^{p}\cdot\text{unit}$.
+  \item Form $C'^{(3)}$, the elementary symmetric functions $e_1,e_2,e_3$ of the
+        three branches, and the weighted blowup $\nu(e_i)=i$. Identify $V_{C'}$,
+        $V_F=V_{C'}|_F$, and the local extension $\widehat{K_{C'}}/\widehat F$
+        induced by $q$. \textbf{Read off $\beta_q$.}
+  \item Symmetrise the top layer $a_1$ (break $u_2$) the same way; read off
+        $\beta_E$.
+  \item Check $\beta_q<\beta_E$. If it holds, (H2) $\Rightarrow$ Goal for
+        $(r,d)=(2,3)$; if it fails, the failure pattern tells you whether the
+        true hypothesis is $r<d$, or $p^{\,?}\mid d$, or something finer.
+\end{enumerate}
+\end{quote}
+
+\noindent A single clean computation here either (a) proves the first case and
+gives the template for the induction, or (b) produces a new, $r<d$
+counterexample that pins down the genuinely required hypothesis --- both are
+decisive outcomes. It is the cheapest experiment with the highest information
+content, and it directly resolves the red TODO at
+\texttt{RamificationAfterBlowupIsTame.tex:671}.
+
+\paragraph{Summary of the logic.}
+\begin{enumerate}
+  \item Goal $\equiv$ surjectivity of \cref{eq:inj} $\equiv$ no $q$-defect
+        aligned with $E/F$.
+  \item The missing input is a bound on the $q$-defect by $(\cP,d)$; (B) and
+        (C) are the unused hypotheses that can give it.
+  \item The known obstructions are $r=d$ boundary phenomena (O1), and $r<d$ is
+        free in the case that matters (O3); so the obstruction should vanish.
+  \item The decisive quantity is the break $\beta_q$; compute it (Strategy A,
+        \Cref{sec:plan}), package the conclusion via the different (Strategy B),
+        and the absorption is forbidden.
+\end{enumerate}
+
+\printbibliography
+
+\end{document}

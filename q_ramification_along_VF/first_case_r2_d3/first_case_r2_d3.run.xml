@@ -44,10 +44,10 @@
   <internal package="biblatex" priority="9" active="0">
     <generic>latex</generic>
     <provides type="dynamic">
-      <file>proof_complete_standalone.bcf</file>
+      <file>first_case_r2_d3.bcf</file>
     </provides>
     <requires type="dynamic">
-      <file>proof_complete_standalone.bbl</file>
+      <file>first_case_r2_d3.bbl</file>
     </requires>
     <requires type="static">
       <file>blx-dm.def</file>
@@ -64,19 +64,19 @@
     <generic>biber</generic>
     <cmdline>
       <binary>biber</binary>
-      <infile>proof_complete_standalone</infile>
+      <infile>first_case_r2_d3</infile>
     </cmdline>
     <input>
-      <file>proof_complete_standalone.bcf</file>
+      <file>first_case_r2_d3.bcf</file>
     </input>
     <output>
-      <file>proof_complete_standalone.bbl</file>
+      <file>first_case_r2_d3.bbl</file>
     </output>
     <provides type="dynamic">
-      <file>proof_complete_standalone.bbl</file>
+      <file>first_case_r2_d3.bbl</file>
     </provides>
     <requires type="dynamic">
-      <file>proof_complete_standalone.bcf</file>
+      <file>first_case_r2_d3.bcf</file>
     </requires>
     <requires type="editable">
       <file>Bib.bib</file>

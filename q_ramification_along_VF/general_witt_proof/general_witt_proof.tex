@@ -1,0 +1,291 @@
+% =============================================================================
+%  general_witt_proof.tex
+%
+%  A CANDIDATE DIRECT PROOF of
+%  \Cref{theorem:ramification_after_blowup_is_tame_for_p_power}
+%  for all G = Z/p^r, obtained by pushing the thesis's own Z/p computation
+%  (RamificationAfterBlowupIsTame.tex, lines 508-575) up to Witt vectors --
+%  NOT by the inductive/decomposition route of a_wrong_path.tex (which stalls).
+%
+%  Engine:  P^{[d]_G} has, at V_C, the Artin-Schreier-WITT datum
+%             alpha = sum^W_{i=1}^d  a(x_i)      (d-fold Witt sum)
+%  whose j-th component S_j is ISOBARIC of weight p^j, hence has pole order
+%  (degree in y=1/x) at most  u_{j+1} = max_l p^{j-l} m_l  -- the (j+1)-th
+%  upper break.  A symmetric Laurent polynomial with all poles of order < d is
+%  integral at V_C.  So the ramification bound u_r < d makes the whole Witt
+%  datum integral => E/K_C unramified at eta_C.
+%
+%  Status: machine-verified for r=2 (all p, the pole-degree=break identity is
+%  exact) and r=3; the test case p=3,r=2,d=4 is unramified.  Open points are
+%  flagged in section 6 -- the structural Lemma 1 deserves the author's
+%  scrutiny.
+%
+%  Verify:  python3 witt_general.py ; python3 witt_r3.py
+%  Compile: TEXINPUTS=../..: latexmk -pdf general_witt_proof.tex   (biber)
+% =============================================================================
+\documentclass[11pt]{article}
+\usepackage{geometry}\geometry{margin=1in}
+\usepackage[T1]{fontenc}
+\usepackage{ifthen}
+\usepackage{booktabs}
+
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0.5em}
+
+\input{includes}
+\input{MacrosAndFigures}
+
+\providecommand{\PP}{\mathbb{P}}
+\providecommand{\fm}{\mathfrak{m}}
+\providecommand{\Bl}{\mathrm{Bl}}
+\providecommand{\W}{\mathbb{W}}
+
+\usepackage{csquotes}
+\usepackage[
+backend=biber,
+style=alphabetic,
+sorting=ynt
+]{biblatex}
+\addbibresource{Bib.bib}
+
+\newboolean{ThesisIntro}
+\setboolean{ThesisIntro}{false}
+
+\title{A direct Witt-vector proof for $G=\Z/p^r$\\[2pt]
+       {\large the symmetric power kills every ramification break below $d$,
+        carries and all}}
+\author{Assaf Marzan}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\noindent\textbf{Claim.}
+\Cref{theorem:ramification_after_blowup_is_tame_for_p_power} follows directly,
+for every $G=\Z/p^r$, by repeating the proven $\Z/p$ computation
+(\texttt{RamificationAfterBlowupIsTame.tex}, lines 508--575) with \emph{Witt
+vectors} in place of a single Artin--Schreier equation. The inductive route of
+\texttt{a\_wrong\_path.tex} is bypassed entirely: there is no base change along
+$q$, hence no absorption to rule out. The mechanism that defeated the boundary
+$d=r$ (the Witt carry) reappears here as an explicit term whose pole is removed
+by the symmetric power precisely when the ramification bound holds.
+
+% #############################################################################
+\section{The datum of the symmetric power is a Witt sum}\label{sec:datum}
+% #############################################################################
+
+Reduce as in the thesis to $k=\bar k$ and $\cP\to U$ totally ramified at
+$p_\infty$ (\texttt{RamificationAfterBlowupIsTame.tex}, line 646). Locally
+$\widehat{\Oo}_{C,p_\infty}=k[[x]]$, and $\cP$ is the Artin--Schreier--Witt
+$W_r$-torsor
+\[
+\wp(\vec Y)=\vec a,\qquad \vec a=(a_0,\dots,a_{r-1})\in W_r\big(k((x))\big),\qquad
+\wp:=F-\mathrm{id},
+\]
+where $F$ is the Witt Frobenius. Normalise $\vec a$ to its reduced form, so
+$a_l$ has pole order $m_l$ at $x=0$ (prime to $p$, or $a_l$ regular). At the
+exceptional-divisor point $V_C$ of the blow-up of $C^{(d)}$ at $d\cdot p_\infty$,
+the completed field is $\widehat{K_C}=\kappa_C((e_d))$ with $e_d=\prod_i x_i$ a
+uniformiser, $\kappa_C=k(e_1/e_d,\dots,e_{d-1}/e_d)$, and (the thesis's blow-up
+model)
+\begin{equation}\label{eq:valrule}
+v_C(e_i)=1\ \ (1\le i\le d),\qquad v_C(e_i/e_j)=0 .
+\end{equation}
+
+\begin{lemma}[the symmetric-power datum]\label{lem:datum}
+Restricted to $\widehat{K_C}$, the $G$-cover $\cP^{[d]_G}$ is the $W_r$-Artin--
+Schreier--Witt extension
+\[
+\wp(\vec Y)=\vec\alpha,\qquad
+\vec\alpha=\sum_{i=1}^{d}{}^{\,W}\ \vec a(x_i)\ \in W_r\big(\widehat{K_C}\big),
+\]
+the $d$-fold \emph{Witt sum} of the local data at the $d$ colliding points.
+\end{lemma}
+
+\begin{proof}
+This is the $W_r$-analogue of the thesis computation
+(\texttt{RamificationAfterBlowupIsTame.tex}, lines 521--547). The cover
+$\cP^{[d]_G}$ is $\cP^{\times d}/(\KG\rtimes S_d)$ with
+$\KG=\ker(\Sigma:G^d\to G)$. On generators, $G^d$ acts by Witt translation
+$\vec X_i\mapsto \vec X_i+\vec g_i$, and the Witt sum $\vec Y:=\sum_i^{W}\vec X_i$
+satisfies, for $(\vec g_i)\in\KG$ (i.e.\ $\sum_i^{W}\vec g_i=0$),
+\[
+\vec Y\ \longmapsto\ \sum_i^{W}(\vec X_i+\vec g_i)=\vec Y+\sum_i^{W}\vec g_i=\vec Y,
+\]
+so $\vec Y$ is $\KG$-invariant; and since $\wp$ is a homomorphism of Witt
+vectors,
+\[
+\wp(\vec Y)=\sum_i^{W}\wp(\vec X_i)=\sum_i^{W}\vec a(x_i)=\vec\alpha .
+\]
+The extension $k((x_\bullet))(\vec Y)/k((x_\bullet))$ has degree $p^r=|G|$,
+which equals $[\,(\,\cdot\,)^{\KG}:R^{\otimes d}]=|G|^d/|\KG|$; hence
+$R^{\otimes d}[\vec Y]=(S^{\otimes d})^{\KG}$. Taking $S_d$-invariants (the Witt
+sum $\vec\alpha$ is symmetric in the $x_i$) gives $\cP^{[d]_G}$ over
+$K(C^{(d)})$, with datum $\vec\alpha$. Completing at $V_C$ gives the statement.
+\end{proof}
+
+% #############################################################################
+\section{Isobaric weight bounds the pole by the break}\label{sec:isobaric}
+% #############################################################################
+
+Write $\alpha_j=S_j\big(\vec a(x_1),\dots,\vec a(x_d)\big)$, where $S_j$ is the
+$j$-th universal Witt-sum polynomial. Set $y_i:=1/x_i$ and call the largest pole
+order of a symmetric Laurent expression $F$ at the collision $x_\bullet=0$ its
+\emph{$y$-degree} $\deg_y F$ (the top total degree in the $y_i$).
+
+\begin{lemma}[isobaric pole bound]\label{lem:isobaric}
+$S_j$ is isobaric of weight $p^j$, where the level-$l$ variable carries weight
+$p^l$. Consequently
+\begin{equation}\label{eq:degbound}
+\deg_y \alpha_j \ \le\ \max_{0\le l\le j} p^{\,j-l}\,m_l \ =:\ u_{j+1},
+\end{equation}
+the $(j{+}1)$-th upper ramification break of $\cP$ at $p_\infty$.
+\end{lemma}
+
+\begin{proof}
+Isobaricity is the defining property of the Witt-sum polynomials (from
+$w_n=\sum_{l\le n}p^l X_l^{p^{n-l}}$, each $w_n$ is isobaric of weight $p^n$, and
+$S_j$ is built from the $w_n$, $n\le j$). A monomial of $S_j$ is a product
+$\prod_t X^{(i_t)}_{l_t}$ with $\sum_t p^{l_t}=p^{j}$. Substituting
+$X^{(i)}_l\mapsto a_l(x_i)$, of pole order $m_l$, the monomial has
+$y$-degree $\sum_t m_{l_t}$. Maximising $\sum_t m_{l_t}$ subject to
+$\sum_t p^{l_t}=p^{j}$ is a linear program whose optimum is at a pure vertex
+($p^{j-l}$ factors all of one level $l$), giving $\max_l p^{j-l}m_l$. The last
+equality is the Schmid--Witt/Brylinski break formula for Artin--Schreier--Witt
+extensions (\cite{Thomas2005} for the $\Z/p$ layer; the general statement is
+classical).
+\end{proof}
+
+\begin{rem*}
+Inequality \cref{eq:degbound} is in fact an \emph{equality} (the optimal pure
+term survives mod $p$); see \Cref{sec:verify}. Only ``$\le$'' is needed below.
+\end{rem*}
+
+% #############################################################################
+\section{Low-degree symmetric functions are integral at \texorpdfstring{$V_C$}{V_C}}
+\label{sec:integral}
+% #############################################################################
+
+The following generalises the thesis lemma
+(\texttt{RamificationAfterBlowupIsTame.tex}, lines 549--572) from power sums
+$\sum_i f(x_i)$ to \emph{all} symmetric functions --- which is what
+\Cref{lem:datum} produces.
+
+\begin{lemma}[integrality]\label{lem:integral}
+Let $F\in k[x_1^{\pm1},\dots,x_d^{\pm1}]^{S_d}$ be symmetric with
+$\deg_y F<d$. Then $v_C(F)\ge0$; in fact $F\in\kappa_C$.
+\end{lemma}
+
+\begin{proof}
+Decompose $F=\sum_{D}F_D$ into parts $F_D$ homogeneous of $y$-degree $D<d$
+(parts of $y$-degree $\le0$ are polynomials in the $x_i$, hence in
+$k[e_1,\dots,e_d]$, of $v_C\ge0$). A homogeneous symmetric polynomial of degree
+$D$ in $y_1,\dots,y_d$ is a polynomial in the elementary symmetric functions
+$e_1(y),\dots,e_D(y)$ --- only these, since $e_k(y)$ has degree $k$ and $D<d$
+forbids $e_d(y)$. Using $e_k(y)=e_{d-k}(x)/e_d(x)$ with $1\le d-k\le d-1$, every
+monomial $\prod_k e_k(y)^{c_k}$ ($\sum_k kc_k=D$) becomes
+\[
+\frac{\prod_k e_{d-k}(x)^{c_k}}{e_d(x)^{\sum_k c_k}},\qquad
+v_C=\Big(\textstyle\sum_k c_k\Big)\cdot1-\Big(\textstyle\sum_k c_k\Big)\cdot1=0
+\]
+by \cref{eq:valrule}. Hence $v_C(F_D)\ge0$, and $F\in\kappa_C$.
+\end{proof}
+
+% #############################################################################
+\section{The theorem}\label{sec:theorem}
+% #############################################################################
+
+\begin{theorem}\label{thm:main}
+Let $\cP\to U$ be a totally ramified $\Z/p^r$-torsor at $p_\infty$ with
+ramification bounded by $d$ (i.e.\ the top upper break $u_r<d$, equivalently
+$\max_l p^{\,r-1-l}m_l<d$). Then $\cP^{[d]_G}$ is unramified at $\eta_C$.
+\end{theorem}
+
+\begin{proof}
+By \Cref{lem:datum}, $\cP^{[d]_G}|_{\widehat{K_C}}$ is $\wp(\vec Y)=\vec\alpha$
+with $\vec\alpha=\sum_i^{W}\vec a(x_i)$. By \Cref{lem:isobaric}, for each
+$0\le j\le r-1$,
+\[
+\deg_y\alpha_j\ \le\ u_{j+1}\ \le\ u_r\ <\ d .
+\]
+By \Cref{lem:integral}, $\alpha_j\in\kappa_C\subseteq\Oo_{V_C}$ for all $j$, so
+$\vec\alpha\in W_r(\Oo_{V_C})$. As $\wp:\W_r\to\W_r$ is étale (it is $F-\mathrm{id}$,
+with $d\wp=-\mathrm{id}$ invertible), an Artin--Schreier--Witt extension with
+\emph{integral} datum is unramified. Hence $E/K_C$ --- i.e.\ $\cP^{[d]_G}\to
+U^{(d)}$ --- is unramified at $V_C=\eta_C$.
+\end{proof}
+
+\noindent After the (already established) reductions to $G=\Z/p^r$ totally
+ramified, this is exactly
+\Cref{theorem:ramification_after_blowup_is_tame_for_p_power}; the general finite
+abelian case follows by the structure theorem and
+\Cref{prop:ramification-external-product} as in the thesis.
+
+% #############################################################################
+\section{The sharp form: pole degree $=$ break, and the boundary}\label{sec:sharp}
+% #############################################################################
+
+Equality in \cref{eq:degbound} gives the precise picture: the $j$-th Witt
+component of the symmetric-power datum has pole order \emph{exactly} the break
+$u_{j+1}$, and
+\[
+\cP^{[d]_G}\ \text{unramified at }\eta_C \iff u_r<d \iff \text{the bound.}
+\]
+This explains, uniformly, the boundary failures recorded elsewhere:
+\begin{itemize}
+  \item $p=2$, $r=2$, $m_0=1$: $u_2=2$. The carry $\alpha_1\supseteq e_2(x^{-1})$
+        is $1/e_2$ (pole) at $d=2=u_2$ but $e_1/e_3$ (unit) at $d=3>u_2$ ---
+        matching \texttt{first\_case\_r2\_d3.tex} and the counterexample of
+        \Cref{ex:p2-counterexample}.
+  \item $p=3$, $r=2$, $m_0=1$: $u_2=3$. Ramified at $d=3$ ($u_2=d$, bound fails),
+        unramified at $d=4$ (\Cref{sec:verify}). Note $r<d$ \emph{holds} at
+        $d=3$ yet the conclusion fails: the correct hypothesis is the bound
+        $u_r<d$, of which $r<d$ is only the weaker shadow (\Cref{lem:isobaric}
+        forces $u_r\ge r$ in the honest case).
+\end{itemize}
+
+% #############################################################################
+\section{Computational verification and open points}\label{sec:verify}
+% #############################################################################
+
+The companion scripts implement the Witt sum (via ghost components), compute
+$\alpha_j$ explicitly, and read off $\deg_y$ and $v_C$.
+\begin{itemize}
+  \item \texttt{witt\_general.py}: $r=2$. Confirms $\deg_y\alpha_1=\max(p\,m_0,m_1)=u_2$
+        \emph{exactly} for $p\in\{2,3,5\}$ and several $(m_0,m_1)$; the test case
+        $p=3,r=2,d=4$ is unramified ($v_C(\alpha_0)=v_C(\alpha_1)=0$); the
+        boundary $p=3,d=3$ is ramified ($v_C(\alpha_1)=-1$).
+  \item \texttt{witt\_r3.py}: $r=3$. Confirms $\deg_y\alpha_j=u_{j+1}=\max_l p^{j-l}m_l$
+        (the nested carries), hence unramifiedness for $d>u_3$.
+\end{itemize}
+
+\paragraph{What still needs the author's scrutiny.}
+\begin{enumerate}
+  \item \textbf{\Cref{lem:datum}} (the structural heart): that
+        $\cP^{[d]_G}|_{\widehat{K_C}}$ is given by the Witt sum
+        $\sum_i^{W}\vec a(x_i)$. The argument mirrors the thesis's $\Z/p$ case
+        line-for-line, but the $\KG$-invariant / degree count and the passage to
+        the completion should be checked with the same care the thesis spends on
+        \Cref{cor:sym-power-quotient}.
+  \item \textbf{Reduced representative.} \Cref{lem:isobaric} uses the reduced
+        Witt datum (pole orders $m_l$ realising the breaks). One should confirm
+        $\cP$ may be so normalised over $k((x))$ before forming $\vec\alpha$
+        (standard, and done for $\Z/p$ in \cite{Thomas2005}).
+  \item \textbf{Break formula.} The identification
+        $u_{j+1}=\max_l p^{j-l}m_l$ is classical for Artin--Schreier--Witt; cite
+        it precisely (e.g.\ Garuti/Brylinski/Kato) where the thesis cites
+        \cite{Thomas2005} for $r=1$. Only the inequality $\le$ enters
+        \Cref{thm:main}, so even a one-sided bound suffices.
+\end{enumerate}
+
+\paragraph{Bottom line.}
+Once the bound $u_r<d$ is fed in, the symmetric power makes the entire
+Artin--Schreier--Witt datum integral at $\eta_C$, carries included --- a direct
+proof, free of the absorption obstruction that the inductive route could not
+clear. The wrong path was wrong only because it tried to reconstruct the top
+break across the base change $q$; computed in one shot inside the symmetric
+power, every break below $d$ simply disappears.
+
+\printbibliography
+
+\end{document}

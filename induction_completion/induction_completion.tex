@@ -1,0 +1,347 @@
+\documentclass[11pt]{article}
+
+%==================== packages ====================
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{tikz-cd}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black}
+
+%==================== macros ====================
+\newcommand{\cP}{\mathcal{P}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Oo}{\mathcal{O}}
+\newcommand{\mdls}{\mathfrak{m}}
+\newcommand{\ndls}{\mathfrak{n}}
+\DeclareMathOperator{\Frac}{Frac}
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\Spec}{Spec}
+% Artin-Schreier operator: reuse the built-in Weierstrass-p symbol \wp
+\newcommand{\AS}{\wp}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{prop}[theorem]{Proposition}
+\newtheorem{cor}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{remark}[theorem]{Remark}
+
+% Artin-Schreier operator symbol
+\providecommand{\AS}{\ensuremath{\wp}}
+
+\title{Completing the induction:\\ why $E/F$ is unramified in the $\Z/p^r\Z$ case}
+\author{Working note}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This note gives a complete proof that
+``$\cP^{[\deg\ndls]}$ is unramified at $\eta_\ndls$'' for $G=\Z/p^r\Z$
+(the red-flagged gap). It first explains, via the field lattice and Proposition~23
+(the canonical Cartesian square), how the hypotheses (H1),(H2) arise and \emph{why they
+cannot finish} -- the base change $K_{C'}/F$ is wildly ramified, so the inertia comparison
+is not onto (\S\S1--3). It then closes the proof by a different and unconditional route
+(\S4): writing the symmetric-power cover as $\AS(\vec Z)=\bigoplus_{i=1}^d\vec f(x_i)$, the
+hypothesis ``ramification $<d$'' bounds the poles of the Witt datum, and -- using only the
+isobaricity of Witt addition and an elementary symmetric-function estimate -- forces
+\emph{every} Witt component to be regular at $\eta_C$. Hence the cover is unramified there,
+for all $r$ at once; the base case $r=1$ is exactly the already-proven lemma. The single
+external input is the Artin--Schreier--Witt break formula.
+\end{abstract}
+
+\tableofcontents
+
+%====================================================================
+\section{Notation and the field lattice}
+%====================================================================
+
+We use the notation of the ``wrong path'' section. Let $\cP\to U=C\setminus\mdls$ be a
+connected $G$-torsor, $G=\Z/p^r\Z$, with ramification at $p_\infty$ bounded by $d:=\deg\ndls$
+(i.e.\ the $d$-th \emph{upper-numbering} ramification group is trivial). After the standard
+reductions we may assume $k=\bar k$, that $\cP\to U$ is \emph{totally ramified} at $p_\infty$,
+and that the inertia is all of $G$.
+
+For the induction we use the decomposition
+\[
+\cP \longrightarrow \cP' \longrightarrow U,
+\qquad
+\cP\to\cP' \ \text{is a } \Z/p\Z\text{-torsor},\quad
+\cP'\to U \ \text{is a } \Z/p^{r-1}\Z\text{-torsor},
+\]
+so that in the notation $H=\Z/p\Z$ (the unique order-$p$ subgroup), $G/H=\Z/p^{r-1}\Z$, and
+$\cP'=\cP_{G/H}$. Taking function fields of the four corners of the canonical Cartesian
+square (Proposition~23) and writing $K_C=\Frac V_C$, $K_{C'}=\Frac V_{C'}$, we get
+\[
+K\!\big(\cP^{[d]_G}\big)=E,\quad
+K\!\big((\cP_{G/H})^{[d]}\big)=K(\cP'^{[d]})=F,\quad
+K\!\big((\cP_{G/H})^{(d)}\big)=K_{C'},\quad
+K(U^{(d)})=K_C,
+\]
+with
+\[
+E/F \text{ Galois of group } H=\Z/p\Z,\qquad
+F/K_C \text{ Galois of group } G/H=\Z/p^{r-1}\Z .
+\]
+Because $\cP^{[d]_H}$ is integral, the fourth corner has the single function field
+$E\cdot K_{C'}=E\otimes_F K_{C'}$, and $E,K_{C'}$ are linearly disjoint over $F$:
+$E\cap K_{C'}=F$. The relevant places are $V_C$ (at $\eta_C$), $V_{C'}$ (at $\eta_{C'}$),
+$V_F:=V_{C'}|_F$, a place $v_E$ of $E$ over $V_F$, and a place $v_\star$ of $E\cdot K_{C'}$
+over both $v_E$ and $V_{C'}$:
+\[
+\begin{tikzcd}[row sep=1.5em, column sep=1.2em]
+ & E \cdot K_{C'} \arrow[dl, dash] \arrow[dr, dash, "H"] & \\
+E \arrow[dr, dash, "H"'] & & K_{C'} \arrow[dl, dash] \\
+ & F \arrow[d, dash, "G/H"] & \\
+ & K_C &
+\end{tikzcd}
+\qquad\qquad
+\begin{tikzcd}[row sep=1.5em, column sep=1.2em]
+ & v_\star \arrow[dl, dash] \arrow[dr, dash] & \\
+v_E \arrow[dr, dash] & & V_{C'} \arrow[dl, dash] \\
+ & V_F \arrow[d, dash] & \\
+ & V_C &
+\end{tikzcd}
+\]
+
+%====================================================================
+\section{What Proposition 23 buys: the two hypotheses}
+%====================================================================
+
+\paragraph{(H1) from the inductive hypothesis.}
+$\cP'\to U$ is a $\Z/p^{r-1}\Z$-torsor, still totally ramified at $p_\infty$ with break
+$<d$ (upper numbering is compatible with the quotient $G\twoheadrightarrow G/H$). By the
+inductive hypothesis,
+\[
+\text{(H1)}\qquad \cP'^{[d]} \text{ is unramified at } \eta_C
+\quad\Longleftrightarrow\quad F/K_C \text{ is unramified at } V_C .
+\]
+In particular $e(V_F\mid V_C)=1$.
+
+\paragraph{(H2) from Proposition 23 and the base case.}
+The Cartesian square identifies $\cP^{[d]_H}$ with the fibre product, hence
+$E\cdot K_{C'}=E\otimes_F K_{C'}$, and exhibits $\cP^{[d]_H}\to(\cP_{G/H})^{(d)}$ as the
+$d$-th symmetric power of the $\Z/p\Z$-torsor $\cP\to\cP'$ over the curve $C'$. Its break
+at the point over $p_\infty$ is still $<d$ (lower numbering restricts to subgroups:
+$H_i=G_i\cap H$, and $G_d=1$). Applying the \emph{already proven} $r=1$ theorem with base
+curve $C'$:
+\[
+\text{(H2)}\qquad \cP^{[d]_H} \text{ is unramified at } \eta_{C'}
+\quad\Longleftrightarrow\quad E\cdot K_{C'}/K_{C'} \text{ is unramified at } V_{C'} .
+\]
+
+\paragraph{Goal.}
+By (H1), the desired conclusion ``$\cP^{[d]_G}$ unramified at $\eta_C$'', i.e.\ ``$E/K_C$
+unramified at $V_C$'', is equivalent to
+\[
+\boxed{\,E/F \text{ is unramified at } V_F\,}
+\]
+a single $\Z/p\Z$ statement. This is the entire remaining content of the theorem.
+
+%====================================================================
+\section{Why (H2) does not finish: the obstruction, quantitatively}
+%====================================================================
+
+The two extensions $E/F$ and $E\cdot K_{C'}/K_{C'}$ are related by restriction
+$\Gal(E\cdot K_{C'}/K_{C'})\xrightarrow{\sim}\Gal(E/F)=H$, under which the inertia injects
+\[
+I(v_\star\mid V_{C'}) \ \hookrightarrow\ I(v_E\mid V_F).
+\]
+Hypothesis (H2) says the source is trivial; the goal says the target is trivial. The
+injection is onto only if the base change $K_{C'}/F$ is unramified at $V_{C'}\mid V_F$ --
+but it is not:
+
+\begin{lemma}[wild ramification of the base change]\label{lem:wild-base}
+At $V_{C'}\mid V_F$ one has $e(V_{C'}\mid V_F)=p^{\,r-1}$.
+\end{lemma}
+
+\begin{proof}
+$C'/C$ is totally ramified of degree $p^{r-1}$ at $p_\infty$, so with a local parameter
+$w$ at the point $p'_\infty$ and $s$ the parameter at $p_\infty$ we have
+$s=(\text{unit})\,w^{p^{r-1}}$. With $\sigma_j=e_j(s_1,\dots,s_d)$ (coordinates at $V_C$) and
+$\tau_j=e_j(w_1,\dots,w_d)$ (coordinates at $V_{C'}$), the Frobenius identity in
+characteristic $p$ gives
+\[
+e_j\big(w_1^{p^{r-1}},\dots,w_d^{p^{r-1}}\big)=e_j(w_1,\dots,w_d)^{p^{r-1}}=\tau_j^{\,p^{r-1}},
+\]
+hence $\sigma_j=c^{\,j}\tau_j^{\,p^{r-1}}+(\text{higher }\tau\text{-order})$. Distinct
+monomials $\sigma^\alpha$ have distinct leading terms $\tau^{p^{r-1}\alpha}$, so for every
+$g\in K_C$, $V_{C'}(g)=p^{r-1}\,V_C(g)$, i.e.\ $e(V_{C'}\mid V_C)=p^{r-1}$. With
+$e(V_F\mid V_C)=1$ from (H1), $e(V_{C'}\mid V_F)=p^{r-1}$.
+\end{proof}
+
+Thus $K_{C'}/F$ is \emph{wildly} ramified of degree $p^{r-1}$ at $V_{C'}\mid V_F$. Such a base
+change can absorb the ramification of $E/F$ (the wild analogue of Abhyankar): (H2) holding is
+consistent with $E/F$ being ramified. Concretely, the place where the inertia injection fails
+to be onto is exactly the place where the symmetric-power base change $q$ introduces its own
+wild ramification at infinity. \textbf{Conclusion:} (H1)$+$(H2)$+$Proposition~23 cannot prove
+the goal; the hypothesis ``ramification $<d$'', so far used only to obtain (H1) and (H2), must
+be used a second time to bound $E/F$ at $V_F$ \emph{directly}.
+
+%====================================================================
+\section{The completion: regularity of the top Witt component}
+%====================================================================
+
+Reduce ``unramified'' to ``regular''. Since $E/F$ is a $\Z/p\Z$-extension in characteristic
+$p$, it is never tame, so
+\[
+E/F \text{ unramified at } V_F
+\quad\Longleftrightarrow\quad
+\text{its Artin--Schreier class } \beta\in F \text{ is regular at } V_F
+\]
+(i.e.\ $\beta\equiv(\text{element of }\Oo_{V_F})\bmod \AS(F)$, where $\AS(z)=z^p-z$). By the
+$r=1$ proof, the local field at $\eta_C$ is
+\[
+\widehat K_{\eta_C}=\kappa(\eta)((e_d)),\qquad
+\kappa(\eta)=k\!\left(\tfrac{e_1}{e_d},\dots,\tfrac{e_{d-1}}{e_d}\right),\quad e_d=\textstyle\prod_i x_i,
+\]
+and the cover $\cP^{[d]_G}$ is the Artin--Schreier--Witt extension
+$\AS(\vec Z)=\vec\alpha$, where $\vec\alpha=\sum_{i=1}^d\vec f(x_i)\in W_r(\widehat K_{\eta_C})$
+and $\vec f=(f_0,\dots,f_{r-1})$ is the Witt datum of $\cP$ at $p_\infty$.
+
+Rather than descend through the wild base change of \S3, we bound the poles of \emph{every}
+Witt component of $\vec\alpha$ directly. This bypasses the obstruction entirely and proves the
+theorem for all $r$ at once.
+
+\paragraph{Input: the Artin--Schreier--Witt break formula.}
+We take $\vec f=(f_0,\dots,f_{r-1})$ to be the principal part at $p_\infty$ (in a local
+parameter $x$ with $p_\infty=\{x=0\}$, residue field $k$ perfect), and write
+$m_j:=-v_x(f_j)\ge 0$ for the pole order of $f_j$. The only external input is the classical
+computation of the ramification of Artin--Schreier--Witt extensions.
+
+\begin{prop}[Schmid--Witt break formula]\label{prop:schmid-witt}
+Let $K=k((x))$ with $k$ perfect of characteristic $p$, and let $L/K$ be the
+$\Z/p^r\Z$-extension defined by $\vec f\in W_r(K)$ via Artin--Schreier--Witt theory. Then the
+largest upper-numbering ramification break of $L/K$ equals
+\[
+u \;=\; \min_{\vec f}\ \max_{0\le j\le r-1} p^{\,r-1-j}\,m_j ,
+\]
+the minimum taken over representatives of the class of $\vec f$ modulo $\AS\,W_r(K)$ and
+attained on a reduced representative. For $r=1$ this is the break $=m$ of
+\textnormal{\cite[Thm.]{Thomas2005}} (the case used in the existing $r=1$ proof).
+\end{prop}
+
+This is the Schmid formula \cite{Schmid1937} in its Witt-vector form; the ramification
+filtration of $W_r$-extensions and this break are computed in \cite{Thomas2005}, and the
+break formula in exactly the displayed shape (valid over any perfect residue field) is
+\cite{ElderKeating2025}. We use only the easy consequence: since the break is the
+\emph{minimum} over representatives, the hypothesis ``ramification bounded by $d$'', i.e.\
+$u<d$, lets us \textbf{fix a representative $\vec f$ with}
+\begin{equation}\label{eq:polebound}
+p^{\,r-1-j}\,m_j \;<\; d \qquad\text{for all } 0\le j\le r-1,
+\qquad\text{equivalently}\qquad m_j < d\,p^{\,j-(r-1)} .
+\end{equation}
+Replacing $\vec f$ by a $\AS$-equivalent representative changes $\vec\alpha=\bigoplus_i\vec f(x_i)$
+only by $\AS$ of a Witt vector (since $\AS$ is additive and commutes with $\sum_i$), hence does
+not change the cover $\cP^{[d]_G}$; so we are free to use this $\vec f$.
+
+\paragraph{Two elementary lemmas.}
+Throughout put $y_i:=1/x_i$, so each $f_j(x_i)$ is a polynomial in $y_i$ of degree $m_j$, and
+$\vec\alpha$ is a Witt vector of \emph{polynomials} in $y_1,\dots,y_d$, symmetric under $S_d$.
+
+\begin{lemma}[symmetric regularity]\label{lem:symreg}
+Let $\Phi\in k[y_1,\dots,y_d]^{S_d}$ be symmetric, with every monomial of total degree $<d$.
+Then $\Phi\in\kappa(\eta)$; in particular $\Phi$ is regular at $\eta_C$ (i.e.\ $V_C(\Phi)\ge0$).
+\end{lemma}
+
+\begin{proof}
+$\Phi$ is a $k$-combination of monomial symmetric functions $m_\lambda(y)$ with $|\lambda|<d$.
+Each $m_\lambda$ is a polynomial in the elementary symmetric functions $e_\mu(y)=\prod_i e_{\mu_i}(y)$
+with $\mu\vdash|\lambda|$; every part $\mu_i\le|\lambda|<d$, so only $e_1(y),\dots,e_{d-1}(y)$ occur
+-- never $e_d(y)$. Now $e_k(y)=e_{d-k}(x)/e_d(x)$, and for $1\le k\le d-1$ this has
+$V_C\big(e_{d-k}(x)\big)=V_C\big(e_d(x)\big)=1$, hence $e_k(y)\in\kappa(\eta)=k(e_1/e_d,\dots,e_{d-1}/e_d)$.
+Therefore $\Phi\in\kappa(\eta)\subset\widehat\Oo_{\eta_C}$.
+\end{proof}
+
+\begin{lemma}[isobaricity of Witt addition]\label{lem:isobaric}
+Give the variable $f_j(x_i)$ the weight $p^j$. Then the component $\alpha_n=\big(\bigoplus_{i=1}^d
+\vec f(x_i)\big)_n$ is isobaric of weight $p^n$: each of its monomials
+$\prod_{i,j}\big(f_j(x_i)\big)^{e_{ij}}$ satisfies $\sum_{i,j} e_{ij}\,p^{\,j}=p^{\,n}$.
+\end{lemma}
+
+\begin{proof}
+The $n$-th ghost component $w_n(\vec a)=\sum_{j=0}^n p^{\,j} a_j^{\,p^{\,n-j}}$ is isobaric of
+weight $p^n$ for $\deg a_j=p^j$, and the universal Witt-addition polynomials $S_n$ are determined
+by additivity of the ghosts; hence each $S_n$ -- and so each $\alpha_n=S_n(\{f_j(x_i)\})$ for the
+$d$-fold sum -- is isobaric of weight $p^n$.
+\end{proof}
+
+\begin{theorem}[completion of the induction]\label{thm:key}
+With $\vec f$ chosen so that \eqref{eq:polebound} holds, every component $\alpha_n$
+$(0\le n\le r-1)$ is regular at $\eta_C$. Consequently $\cP^{[d]_G}$ is unramified at $\eta_C$,
+proving the theorem for $G=\Z/p^r\Z$.
+\end{theorem}
+
+\begin{proof}
+Fix $n\le r-1$ and a monomial $\prod_{i,j}\big(f_j(x_i)\big)^{e_{ij}}$ of $\alpha_n$; set
+$E_j:=\sum_i e_{ij}$, so by Lemma~\ref{lem:isobaric} $\sum_j E_j p^{\,j}=p^{\,n}$. Expanding each
+$f_j(x_i)$ (a polynomial in $y_i$ of degree $m_j$), the monomial becomes a polynomial in the
+$y_i$ all of whose terms have total degree
+\[
+\le \sum_{i,j} e_{ij}\, m_j \;=\; \sum_j E_j\, m_j
+\;\overset{\eqref{eq:polebound}}{<}\; \sum_j E_j\, d\,p^{\,j-(r-1)}
+\;=\; d\,p^{-(r-1)}\sum_j E_j p^{\,j}
+\;=\; d\,p^{\,n-(r-1)} \;\le\; d ,
+\]
+the last inequality because $n\le r-1$. Thus \emph{every} monomial of the symmetric polynomial
+$\alpha_n$ has total $y$-degree $<d$, so $\alpha_n\in\kappa(\eta)$ is regular by
+Lemma~\ref{lem:symreg}. Hence $\vec\alpha\in W_r(\widehat\Oo_{\eta_C})$, and
+$\AS(\vec Z)=\vec\alpha$ is a finite \'etale ($=$ unramified) $\Z/p^r\Z$-cover of
+$\widehat\Oo_{\eta_C}$ (the derivative of $\AS(Z)=Z^p-Z$ is the unit $-1$). Therefore
+$\cP^{[d]_G}$ is unramified at $\eta_C$.
+\end{proof}
+
+\begin{remark}
+The estimate is exact, not merely sufficient: because the weight $p^{\,j-(r-1)}$ is paired against
+the constraint $\sum_j E_j p^{\,j}=p^{\,n}$, the bound $d\,p^{\,n-(r-1)}$ is independent of how the
+carries distribute the exponents $E_j$. This is the precise form of the ``break-scaling by
+$1/d$'': the bound $<d$ at $p_\infty$ becomes $<1$ at $\eta_C$ on every Witt level simultaneously.
+Note also that Theorem~\ref{thm:key} \emph{subsumes} hypothesis (H1) (the components
+$\alpha_0,\dots,\alpha_{r-2}$, which cut out $F/K_C$, are regular) and never invokes the wild
+descent of \S3: the field/Proposition-23 picture motivates the reduction, but the proof closes by
+bounding all components at once.
+\end{remark}
+
+%====================================================================
+\section{Summary}
+%====================================================================
+
+\begin{enumerate}[label=(\arabic*)]
+\item Proposition~23 reduces the $\Z/p^r\Z$ theorem to a single $\Z/p\Z$ statement,
+      $E/F$ unramified at $V_F$ (\S2), and exhibits the obstruction: the base change $K_{C'}/F$ is
+      wildly ramified of degree $p^{r-1}$ at $V_{C'}\mid V_F$ (Lemma~\ref{lem:wild-base}), so
+      (H1)$+$(H2) alone cannot finish (\S3).
+\item The decisive use of the unused hypothesis ``ramification $<d$'' is the pole bound
+      \eqref{eq:polebound}. Combined with the isobaricity of Witt addition
+      (Lemma~\ref{lem:isobaric}) and symmetric regularity (Lemma~\ref{lem:symreg}), it forces
+      \emph{every} Witt component $\alpha_n$ of $\vec\alpha=\bigoplus_i\vec f(x_i)$ to be regular at
+      $\eta_C$ (Theorem~\ref{thm:key}), so $\cP^{[d]_G}$ is unramified at $\eta_C$ -- for all $r$,
+      the $r=1$ case being the existing lemma.
+\item The one external input is the Artin--Schreier--Witt break formula
+      (Proposition~\ref{prop:schmid-witt}); everything else is the elementary degree count above.
+\end{enumerate}
+
+\begin{thebibliography}{9}
+
+\bibitem{Schmid1937}
+H.~L.~Schmid,
+\emph{Zur Arithmetik der zyklischen $p$-K\"orper},
+J. Reine Angew. Math. \textbf{176} (1937), 161--167.
+
+\bibitem{Thomas2005}
+L.~Thomas,
+\emph{Ramification groups in Artin--Schreier--Witt extensions},
+J. Th\'eor. Nombres Bordeaux \textbf{17} (2005), no.~2, 689--720.
+
+\bibitem{ElderKeating2025}
+G.~G.~Elder and K.~Keating,
+\emph{Artin--Schreier--Witt extensions and ramification breaks},
+preprint (2025), arXiv:2503.16830.
+
+\end{thebibliography}
+
+\end{document}

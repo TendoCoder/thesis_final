@@ -1,0 +1,9 @@
+[0] Config.pm:308> INFO - This is Biber 2.20
+[0] Config.pm:311> INFO - Logfile is 'strategy_D_dead_end.blg'
+[65] biber-darwin:340> INFO - === Tue Jun  9, 2026, 15:53:43
+[80] Biber.pm:420> INFO - Reading 'strategy_D_dead_end.bcf'
+[151] Biber.pm:994> INFO - Found 0 citekeys in bib section 0
+[170] bbl.pm:676> INFO - Writing 'strategy_D_dead_end.bbl' with encoding 'UTF-8'
+[171] bbl.pm:779> INFO - Output to strategy_D_dead_end.bbl
+[171] Biber.pm:131> WARN - The file 'strategy_D_dead_end.bcf' does not contain any citations!
+[171] Biber.pm:133> INFO - WARNINGS: 1
