@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.6.30)  10 JUN 2026 17:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.6.30)  9 JUL 2026 17:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1287,15 +1287,15 @@ Package hyperref Info: bookmark level for unknown lemma defaults to 0 on input l
 [25]
 
 [26]
-Overfull \hbox (6.28197pt too wide) in paragraph at lines 499--503
-\T1/cmr/m/n/10.95 generic point. Note that by [][]The-o-rem 29[][] and [][]The-o-rem 30[][] We can as-sume $\OMS/cmsy/m/n/10.95 P \OT1/cmr/m/n/10.95 = [] \OML/cmm/m/it/10.95 k\OT1/cmr/m/n/10.95 [\OML/cmm/m/it/10.95 x; x[]\OT1/cmr/m/n/10.95 ][\OML/cmm/m/it/10.95 X\OT1/cmr/m/n/10.95 ]\OML/cmm/m/it/10.95 =\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 X[] \OMS/cmsy/m/n/10.95 ^^@
+
+[27]
+Overfull \hbox (9.6162pt too wide) in paragraph at lines 512--519
+\T1/cmr/m/n/10.95 Finally, $\OML/cmm/m/it/10.95 k\OT1/cmr/m/n/10.95 [[\OML/cmm/m/it/10.95 x[]; [] ; x[]\OT1/cmr/m/n/10.95 ]][] = \OML/cmm/m/it/10.95 k\OT1/cmr/m/n/10.95 [[\OML/cmm/m/it/10.95 e[]; [] ; e[]\OT1/cmr/m/n/10.95 ]]$\T1/cmr/m/n/10.95 : the ring $\OML/cmm/m/it/10.95 k\OT1/cmr/m/n/10.95 [\OML/cmm/m/it/10.95 x[]; [] ; x[]\OT1/cmr/m/n/10.95 ]$ \T1/cmr/m/n/10.95 is a fi-nite free mod-ule over $\OML/cmm/m/it/10.95 k\OT1/cmr/m/n/10.95 [\OML/cmm/m/it/10.95 e[]; [] ; e[]\OT1/cmr/m/n/10.95 ]$\T1/cmr/m/n/10.95 ,
  []
 
 
-
-[27]
-Overfull \hbox (13.19939pt too wide) in paragraph at lines 550--553
-\T1/cmr/m/it/10.95 and de-onte by $\OML/cmm/m/it/10.95 e[]; :::; e[]$ \T1/cmr/m/it/10.95 the el-e-men-tary sym-met-ric poly-no-mi-als in $\OML/cmm/m/it/10.95 x[]; :::; x[]$\T1/cmr/m/it/10.95 . If $\OML/cmm/m/it/10.95 m < d$ \T1/cmr/m/it/10.95 then $\OML/cmm/m/it/10.95 \OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x[]; :::; x[]\OT1/cmr/m/n/10.95 ) \OMS/cmsy/m/n/10.95 2
+Overfull \hbox (7.60236pt too wide) in paragraph at lines 512--519
+\OML/cmm/m/it/10.95 k\OT1/cmr/m/n/10.95 [[\OML/cmm/m/it/10.95 e[]; [] ; e[]\OT1/cmr/m/n/10.95 ]]$ \T1/cmr/m/n/10.95 --- yields $\OML/cmm/m/it/10.95 k\OT1/cmr/m/n/10.95 [[\OML/cmm/m/it/10.95 e[]; [] ; e[]\OT1/cmr/m/n/10.95 ]]$\T1/cmr/m/n/10.95 . Un-der these iden-ti-fi-ca-tions the max-i-mal ideal of $[]$ is $\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 e[]; [] ; e[]\OT1/cmr/m/n/10.95 )$\T1/cmr/m/n/10.95 ,
  []
 
 
@@ -1307,8 +1307,13 @@ Overfull \hbox (13.19939pt too wide) in paragraph at lines 550--553
 [30]
 
 [31]
+Overfull \hbox (13.19939pt too wide) in paragraph at lines 768--771
+\T1/cmr/m/it/10.95 and de-onte by $\OML/cmm/m/it/10.95 e[]; :::; e[]$ \T1/cmr/m/it/10.95 the el-e-men-tary sym-met-ric poly-no-mi-als in $\OML/cmm/m/it/10.95 x[]; :::; x[]$\T1/cmr/m/it/10.95 . If $\OML/cmm/m/it/10.95 m < d$ \T1/cmr/m/it/10.95 then $\OML/cmm/m/it/10.95 \OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x[]; :::; x[]\OT1/cmr/m/n/10.95 ) \OMS/cmsy/m/n/10.95 2
+ []
 
-[32]) (./sections/GeometricClassFieldTheory.tex
+
+
+[32]
 
 [33]
 
@@ -1316,24 +1321,32 @@ Overfull \hbox (13.19939pt too wide) in paragraph at lines 550--553
 
 [35]
 
-[36]
+[36]) (./sections/GeometricClassFieldTheory.tex
 
 [37]
+
+[38]
+
+[39]
+
+[40]
+
+[41]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\new@ifnextchar' on input line 219.
 
 
 
-[38]
-
-[39]) (./sections/GeometricCFT/ProofOfReducedTheorem.tex
-
-[40]) (./proof_completes/proof_complete.tex
-
-[41]
-
 [42]
+
+[43]) (./sections/GeometricCFT/ProofOfReducedTheorem.tex
+
+[44]) (./proof_completes/proof_complete.tex
+
+[45]
+
+[46]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 93.
@@ -1367,33 +1380,35 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 93.
 
 
+
+[47]
 Overfull \hbox (4.45203pt too wide) detected at line 148
 []\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 L[]=K[]\OT1/cmr/m/n/10.95 ) [] \OML/cmm/m/it/10.95 H;  []\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 K[]=K\OT1/cmr/m/n/10.95 ) [] (\OML/cmm/m/it/10.95 G=H\OT1/cmr/m/n/10.95 )[] \U/msb/m/n/10.95 o \OML/cmm/m/it/10.95 S[]=S[] []
  []
 
 
-
-[43]
-
-LaTeX Warning: Reference `eq:eq:H1-inertia' on page 44 undefined on input line 194.
+LaTeX Warning: Reference `eq:eq:H1-inertia' on page 48 undefined on input line 194.
 
 
-LaTeX Warning: Reference `eq:eq:goal-inertia' on page 44 undefined on input line 199.
+LaTeX Warning: Reference `eq:eq:goal-inertia' on page 48 undefined on input line 199.
 
 
-LaTeX Warning: Reference `eq:eq:H2-inertia' on page 44 undefined on input line 207.
-
-
-LaTeX Warning: Reference `eq:eq:H2-inertia' on page 44 undefined on input line 217.
-
-
-LaTeX Warning: Reference `eq:eq:goal-restate' on page 44 undefined on input line 244.
+LaTeX Warning: Reference `eq:eq:H2-inertia' on page 48 undefined on input line 207.
 
 
 
-[44]) (./a_wrong_path/a_wrong_path.tex
+[48]
 
-[45]
+LaTeX Warning: Reference `eq:eq:H2-inertia' on page 49 undefined on input line 217.
+
+
+LaTeX Warning: Reference `eq:eq:goal-restate' on page 49 undefined on input line 244.
+
+) (./a_wrong_path/a_wrong_path.tex
+
+[49]
+
+[50]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 100.
@@ -1428,21 +1443,19 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 
 
-[46]
+[51]
 
-[47]
-
-[48]
+[52]
 Package hyperref Info: bookmark level for unknown example defaults to 0 on input line 276.
 
 
-[49]
+[53]
 
-[50])
+[54])
 
-[51]
+[55]
 
-[52] (./main.aux)
+[56] (./main.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -1461,18 +1474,18 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 45509 strings out of 473190
- 862862 string characters out of 5715800
- 1689288 words of memory out of 5000000
- 67665 multiletter control sequences out of 15000+600000
+ 45542 strings out of 473190
+ 863593 string characters out of 5715800
+ 1689668 words of memory out of 5000000
+ 67679 multiletter control sequences out of 15000+600000
  594793 words of font info for 153 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  107i,17n,110p,3296b,2300s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/euler/eufm7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbi1095.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfcc1095.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0600.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti0800.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/stmaryrd/stmary10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/stmaryrd/stmary8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/xypic/xyatip10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/xypic/xybtip10.pfb>
-Output written on main.pdf (52 pages, 821639 bytes).
+Output written on main.pdf (56 pages, 852386 bytes).
 PDF statistics:
- 1132 PDF objects out of 1200 (max. 8388607)
- 981 compressed objects within 10 object streams
- 327 named destinations out of 1000 (max. 500000)
+ 1195 PDF objects out of 1200 (max. 8388607)
+ 1039 compressed objects within 11 object streams
+ 346 named destinations out of 1000 (max. 500000)
  261 words of extra memory for PDF output out of 10000 (max. 10000000)
 

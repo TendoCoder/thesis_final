@@ -209,6 +209,41 @@
       \verb https://math.bu.edu/people/rmagner/Seminar/GCFTthesis.pdf
       \endverb
     \endentry
+    \entry{Rabinoff2014Witt}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=eedc1812a6a9cc76667536f702745c56}{%
+           family={Rabinoff},
+           familyi={R\bibinitperiod},
+           given={Joseph},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{eedc1812a6a9cc76667536f702745c56}
+      \strng{fullhash}{eedc1812a6a9cc76667536f702745c56}
+      \strng{fullhashraw}{eedc1812a6a9cc76667536f702745c56}
+      \strng{bibnamehash}{eedc1812a6a9cc76667536f702745c56}
+      \strng{authorbibnamehash}{eedc1812a6a9cc76667536f702745c56}
+      \strng{authornamehash}{eedc1812a6a9cc76667536f702745c56}
+      \strng{authorfullhash}{eedc1812a6a9cc76667536f702745c56}
+      \strng{authorfullhashraw}{eedc1812a6a9cc76667536f702745c56}
+      \field{labelalpha}{Rab14}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{math.RA}
+      \field{eprinttype}{arXiv}
+      \field{title}{The Theory of {Witt} Vectors}
+      \field{year}{2014}
+      \verb{eprint}
+      \verb 1409.7445
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/1409.7445
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/1409.7445
+      \endverb
+    \endentry
     \entry{tendler2015geometricclassfieldtheory}{misc}{}{}
       \name{author}{1}{}{%
         {{hash=eaa8d94f3e4daa8a9ae0ea55036908d6}{%

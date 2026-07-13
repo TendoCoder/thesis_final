@@ -10,23 +10,23 @@
 \contentsline {section}{\numberline {3}Ramification After Blowup Is Tame}{21}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Ramification of $G$-Torsors}{22}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}Proof of Theorem \ref {theorem:SymmetricPowerOfSheavesIsTamelyRamifiedReduction}}{26}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Extending To Product of Blowups}{30}{subsection.3.3}%
-\contentsline {section}{\numberline {4}Geometric Class Field Theory}{33}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Etale Fundamental Groups and Tame Fundamental Groups}{33}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Generalized Picard Scheme}{34}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}The Abel-Jacobi Morphism and its Fibers}{36}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}Compactification of Blowup of Symmetric Powers of a Curve}{36}{subsection.4.4}%
-\contentsline {subsection}{\numberline {4.5}Proof of \Cref {theorem:SymmetricPowerOfSheafIsTamelyRamified}}{38}{subsection.4.5}%
-\contentsline {subsubsection}{\numberline {4.5.1}Reduction Lemmas}{38}{subsubsection.4.5.1}%
-\contentsline {subsection}{\numberline {4.6}Proof of \Cref {theorem:SymmetricPowerOfSheafIsTamelyRamified}}{40}{subsection.4.6}%
-\contentsline {section}{\numberline {5}Proof of \Cref {thm:GCFT_reduced}}{40}{section.5}%
-\contentsline {section}{\numberline {6}Setup and notation}{41}{section.6}%
-\contentsline {section}{\numberline {7}The master diagram}{42}{section.7}%
-\contentsline {section}{\numberline {8}Unramifiedness of $\mathcal {P}^{[d]_G}$ at $\eta _C$}{43}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Proof Attempts}{43}{subsection.8.1}%
-\contentsline {subsubsection}{\numberline {8.1.1}Attempt 1}{43}{subsubsection.8.1.1}%
-\contentsline {section}{\numberline {9}A Wrong Path}{45}{section.9}%
-\contentsline {subsection}{\numberline {9.1}Setup and notation}{45}{subsection.9.1}%
-\contentsline {subsection}{\numberline {9.2}The master diagram}{46}{subsection.9.2}%
-\contentsline {subsection}{\numberline {9.3}Unramifiedness of $\mathcal {P}^{[d]_G}$ at $\eta _C$}{46}{subsection.9.3}%
-\contentsline {subsection}{\numberline {9.4}Difficulties in Proving the Theorem}{47}{subsection.9.4}%
+\contentsline {subsection}{\numberline {3.3}Extending To Product of Blowups}{35}{subsection.3.3}%
+\contentsline {section}{\numberline {4}Geometric Class Field Theory}{38}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Etale Fundamental Groups and Tame Fundamental Groups}{38}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Generalized Picard Scheme}{38}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}The Abel-Jacobi Morphism and its Fibers}{40}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Compactification of Blowup of Symmetric Powers of a Curve}{41}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Proof of \Cref {theorem:SymmetricPowerOfSheafIsTamelyRamified}}{42}{subsection.4.5}%
+\contentsline {subsubsection}{\numberline {4.5.1}Reduction Lemmas}{42}{subsubsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.6}Proof of \Cref {theorem:SymmetricPowerOfSheafIsTamelyRamified}}{44}{subsection.4.6}%
+\contentsline {section}{\numberline {5}Proof of \Cref {thm:GCFT_reduced}}{45}{section.5}%
+\contentsline {section}{\numberline {6}Setup and notation}{46}{section.6}%
+\contentsline {section}{\numberline {7}The master diagram}{46}{section.7}%
+\contentsline {section}{\numberline {8}Unramifiedness of $\mathcal {P}^{[d]_G}$ at $\eta _C$}{47}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Proof Attempts}{47}{subsection.8.1}%
+\contentsline {subsubsection}{\numberline {8.1.1}Attempt 1}{47}{subsubsection.8.1.1}%
+\contentsline {section}{\numberline {9}A Wrong Path}{49}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Setup and notation}{49}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}The master diagram}{50}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}Unramifiedness of $\mathcal {P}^{[d]_G}$ at $\eta _C$}{51}{subsection.9.3}%
+\contentsline {subsection}{\numberline {9.4}Difficulties in Proving the Theorem}{51}{subsection.9.4}%

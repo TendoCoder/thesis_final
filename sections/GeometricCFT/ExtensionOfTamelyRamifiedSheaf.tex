@@ -1,0 +1,482 @@
+% ============================================================================
+% A complete proof of \Cref{lemma:ExtensionOfTamelyRamifiedSheaf}.
+%
+% This file is intended to REPLACE the placeholder proof in
+%   sections/GeometricCFT/ProofOfReducedTheorem.tex (the lemma at lines 42-53,
+%   whose proof body is currently a red note).
+% The lemma is restated below with the SAME label
+%   \label{lemma:ExtensionOfTamelyRamifiedSheaf}
+% so all existing \Cref's continue to work. When integrating, delete the old
+% lemma+proof from ProofOfReducedTheorem.tex and \input this file in its place
+% (otherwise the label will be multiply defined).
+% ============================================================================
+
+We keep the notation of \Cref{section:BlowupOfSymmetricPowerOfCurves}:
+$C$ is a projective smooth geometrically connected curve over the perfect field $k$,
+$\mdls = \sum n_i P_i > 0$ is a modulus with complement $U = C \setminus \mdls$,
+and $d$ is an integer satisfying \Cref{equation:degree-condition}.
+We write $Z_0 = Z_0(\mdls, d) \subset C^{(d)}$ for the center of the blowup
+$\pi : X_{\mdls, d} \to C^{(d)}$, $E_0$ for its exceptional divisor with generic point $\eta_0$,
+$\Cmod{d} \subseteq X_{\mdls,d}$ for Takeuchi's compactification
+(\Cref{theorem:takeuchi-compactification-theorem}), and
+$H = \Cmod{d} \setminus U^{(d)} = E_0 \times_{C^{(d)}} \Cmod{d}$ for the boundary divisor.
+Throughout, $p$ denotes the characteristic of $k$ (the case $p=0$ only simplifies the arguments below).
+
+\begin{lemma}\label{lemma:ExtensionOfTamelyRamifiedSheaf}
+    If $\cF^{[d]}$ is a locally constant sheaf on $U^{(d)}$ which is tamely ramified along the boundary divisor $H = \tilde{C}^{(d)}_\mdls \setminus U^{(d)}$,
+    then $\cF^{[d]}$ extends to a locally constant sheaf $\tilde{\cF}^{[d]}$ on $\tilde{C}^{(d)}_\mdls$.
+\end{lemma}
+
+The proof occupies the rest of this subsection and proceeds in two independent steps.
+First (\Cref{prop:extension_via_purity}), by the Zariski--Nagata purity of the branch locus,
+extending $\cF^{[d]}$ across $H$ is possible as soon as the corresponding torsor is
+\emph{unramified} at the generic point $\eta_0$ of $H$; a priori tameness is weaker than this.
+Second (\Cref{prop:tame_at_boundary_implies_unramified}), we show that at $\eta_0$
+tameness in fact forces unramifiedness. This is where the global geometry enters:
+the wild ($p$-primary) part of the torsor is killed at $\eta_0$ by tameness alone,
+while the tame (prime-to-$p$) part is killed by an explicit Kummer-theoretic computation of valuations,
+using the projective bundle structure of $C^{(d)}$ over $\PicC[d]$.
+Note that the second step is exactly where ``tame'' is upgraded to ``unramified'':
+for a \emph{sub}modulus $\ndls \subsetneq \mdls$ the analogous statement at $\eta_\ndls$ is false in general
+(the computations of \Cref{section:ramification_after_blowup_is_tame} produce genuinely, tamely, ramified torsors there),
+and the argument below makes visible why the full modulus and the completed linear systems are needed.
+
+We first record the relevant geometry of the pair $(\Cmod{d}, H)$.
+
+\begin{lemma}\label{lemma:boundary_of_compactification}
+    With notation as above:
+    \begin{enumerate}
+        \item $\Cmod{d}$ is an integral scheme, smooth over $k$.
+        \item $H$ is a nonempty open subscheme of $E_0$. In particular $H$ is irreducible of
+              codimension $1$ in $\Cmod{d}$, its generic point is $\eta_0$, and $\eta_0 \in \Cmod{d}$.
+        \item $\eta_0$ is the unique point of $\Cmod{d} \setminus U^{(d)}$ whose local ring has dimension $1$,
+              and $\Oo_{\Cmod{d}, \eta_0} = \Oo_{X_{\mdls,d}, \eta_0}$ is a discrete valuation ring
+              with fraction field $K := k(C^{(d)})$.
+    \end{enumerate}
+\end{lemma}
+\begin{proof}
+    (1) $\Cmod{d}$ is an open subscheme of $X_{\mdls,d}$, which is integral as the blowup of the
+    integral scheme $C^{(d)}$; hence $\Cmod{d}$ is integral.
+    By \Cref{theorem:takeuchi-compactification-theorem}, $\Cmod{d}$ is a projective space bundle over
+    $\PicCm[d]$. The latter is smooth over $k$: $\PicCm[0]$ is a smooth group scheme and $\PicCm[d]$
+    is a torsor under it (see the properties of the generalized Picard scheme recalled above).
+    A projective space bundle over a smooth $k$-scheme is smooth over $k$.
+
+    (2) Since $\Cmod{d} \hookrightarrow X_{\mdls,d}$ is an open immersion, its base change
+    $H = E_0 \times_{C^{(d)}} \Cmod{d} = E_0 \times_{X_{\mdls,d}} \Cmod{d} \hookrightarrow E_0$
+    is an open immersion as well. To see $H \neq \emptyset$, suppose otherwise; then
+    $U^{(d)} = \Cmod{d}$ and $\Phi_d = \tilde{\Phi}_d$ would be a projective space bundle. But the
+    fibers of $\Phi_d$ are affine spaces of dimension $d - \deg \mdls - g + 1 \geq 1$
+    (\Cref{section:AbelJacobi}; positivity follows from \Cref{equation:degree-condition}),
+    and a positive dimensional affine space over a field is not proper --- a contradiction.
+    A nonempty open subscheme of the irreducible scheme $E_0$ is irreducible, dense, and contains the
+    generic point $\eta_0$ of $E_0$.
+
+    (3) By \Cref{theorem:takeuchi-compactification-theorem}, $\Cmod{d} \setminus U^{(d)} = H$,
+    which by (2) is irreducible of codimension $1$ with generic point $\eta_0$; every other point of $H$
+    is a proper specialization of $\eta_0$ and hence has local ring of dimension $\geq 2$.
+    By (1), $\Oo_{\Cmod{d}, \eta_0}$ is a regular local ring of dimension $1$, i.e.\ a discrete
+    valuation ring, and it equals $\Oo_{X_{\mdls,d}, \eta_0}$ because $\Cmod{d}$ is open in $X_{\mdls,d}$.
+    Its fraction field is the function field of $X_{\mdls,d}$, which equals $K = k(C^{(d)})$
+    since $\pi$ is birational.
+\end{proof}
+
+We denote by $v_{\eta_0}$ the discrete valuation on $K$ associated to $\Oo_{\Cmod{d}, \eta_0}$,
+and by $\widehat{K}_{\eta_0}$ the fraction field of the completion.
+
+\subsubsection*{Step 1: Purity, and extending unramified torsors}
+
+\begin{prop}\label{prop:extension_via_purity}
+    Let $G$ be a finite abelian group, let $\rho : \pi_1^{et}(U^{(d)}, \bar{u}) \to G$ be a continuous
+    homomorphism and let $\cQ$ be the corresponding $G$-torsor on $U^{(d)}_{\text{\'et}}$
+    (\Cref{cor:abelian_equivilance_fundamental_torsors}).
+    If $\cQ$ is unramified over $\Cmod{d}$ at $(H, \eta_0)$ in the sense of
+    \Cref{definition:tamely_ramified_in_codim_1}, then $\rho$ factors, necessarily uniquely, through the
+    canonical surjection
+    \[ \iota_* : \pi_1^{et}(U^{(d)}, \bar{u}) \twoheadrightarrow \pi_1^{et}(\Cmod{d}, \bar{u}), \]
+    where $\iota : U^{(d)} \hookrightarrow \Cmod{d}$ is the open immersion.
+    Consequently, $\cQ$ extends to a $G$-torsor on $(\Cmod{d})_{\text{\'et}}$, uniquely up to isomorphism.
+\end{prop}
+\begin{proof}
+    \textbf{Surjectivity of $\iota_*$.}
+    We first note that for every connected finite \'etale cover $T \to \Cmod{d}$, the restriction
+    $T \times_{\Cmod{d}} U^{(d)}$ is connected: $T$ is \'etale over the regular scheme $\Cmod{d}$, hence
+    regular, and being connected it is irreducible; $T \times_{\Cmod{d}} U^{(d)}$ is a nonempty open
+    subscheme of $T$ (nonempty since $T \to \Cmod{d}$ is surjective and $U^{(d)}$ is dense), hence
+    irreducible, hence connected.
+    This implies surjectivity of $\iota_*$: if the image were a proper closed subgroup, it would be
+    contained in a proper open subgroup $M \leq \pi_1^{et}(\Cmod{d}, \bar{u})$, and the connected cover
+    corresponding to $M$ would pull back to a disconnected cover of $U^{(d)}$ (the image of
+    $\pi_1^{et}(U^{(d)})$ does not act transitively on $\pi_1^{et}(\Cmod{d})/M$), a contradiction.
+
+    \textbf{The connected cover and its normalization.}
+    Let $G' = \rho\left(\pi_1^{et}(U^{(d)}, \bar{u})\right) \subseteq G$ and let $V \to U^{(d)}$ be the connected
+    finite \'etale Galois cover with group $G'$ corresponding to the open normal subgroup
+    $\ker \rho$ (\Cref{theorem:equivalence_fundamental_covers}). As a $U^{(d)}$-scheme, $\cQ$ is
+    isomorphic to a disjoint union of $[G : G']$ copies of $V$; hence at the generic point $\eta_0$ the
+    finite separable $\widehat{K}_{\eta_0}$-algebras of $\cQ$ and of $V$ have the same field factors, and
+    $V$ is unramified over $\Cmod{d}$ at $(H, \eta_0)$.
+
+    $V$ is \'etale over the smooth scheme $U^{(d)}$, hence smooth over $k$; being connected it is
+    integral, and $K(V)/K$ is a finite separable field extension. Let
+    $\nu : W \to \Cmod{d}$ be the normalization of $\Cmod{d}$ in $K(V)$, i.e.\ the relative spectrum of
+    the integral closure of $\Oo_{\Cmod{d}}$ in $K(V)$. Since $\Cmod{d}$ is of finite type over a field it
+    is Nagata (\stackstag{0335}), so $\nu$ is a finite morphism, and $W$ is integral and normal.
+    Over the open $U^{(d)}$, the scheme $V$ is finite over $U^{(d)}$, normal, with function field $K(V)$;
+    by uniqueness of normalization, $\nu^{-1}(U^{(d)}) \cong V$ as $U^{(d)}$-schemes.
+
+    \textbf{$\nu$ is \'etale, by purity of the branch locus.}
+    We apply \stackstag{0BMB} at each point $w \in W$ with image $y = \nu(w)$. The hypotheses hold:
+    $\Oo_{W,w}$ is normal; $\Oo_{\Cmod{d},y}$ is regular (\Cref{lemma:boundary_of_compactification});
+    $\nu$ is finite, hence quasi-finite at $w$; and
+    $\dim(\Oo_{W,w}) = \dim(\Oo_{\Cmod{d},y})$, since for a finite dominant morphism of integral schemes
+    of finite type over a field one has
+    $\dim(\Oo_{W,w}) = \dim W - \dim \overline{\{w\}}$, $\dim W = \dim \Cmod{d}$ and
+    $\dim \overline{\{w\}} = \dim \overline{\{y\}}$.
+    It remains to check the codimension-one condition: let $w' \rightsquigarrow w$ be a specialization
+    with $\dim(\Oo_{W, w'}) = 1$; then $y' = \nu(w')$ satisfies $\dim(\Oo_{\Cmod{d}, y'}) = 1$
+    by the same dimension count. If $y' \in U^{(d)}$, then $\nu$ is \'etale at $w'$ since
+    $\nu^{-1}(U^{(d)}) = V$ is \'etale over $U^{(d)}$. Otherwise
+    $y' \in \Cmod{d} \setminus U^{(d)}$, and by \Cref{lemma:boundary_of_compactification}(3) necessarily
+    $y' = \eta_0$; then $\Oo_{W, w'}$ is a localization of the integral closure of the discrete valuation
+    ring $\Oo_{\Cmod{d},\eta_0}$ in $K(V)$ at one of its maximal ideals, and the hypothesis that $V$ is
+    unramified at $(H, \eta_0)$ says precisely (\Cref{definition:tamely_ramified_dvrs}) that the
+    ramification index there is $1$ and the residue extension is separable, i.e.\ that $\nu$ is
+    unramified at $w'$. If $\dim(\Oo_{W,w}) = 0$ then $w$ is the generic point of $W$ and $\nu$ is \'etale
+    at $w$ because $K(V)/K$ is finite separable. In all cases \stackstag{0BMB} applies, and we conclude
+    that $\nu : W \to \Cmod{d}$ is finite \'etale.
+
+    \textbf{Factorization.}
+    The geometric point $\bar{u}$ of $U^{(d)}$ is also a geometric point of $\Cmod{d}$, and
+    $W_{\bar{u}} = V_{\bar{u}}$ as finite sets. The action of $\pi_1^{et}(U^{(d)}, \bar u)$ on
+    $V_{\bar u}$ is the restriction along $\iota_*$ of the action of $\pi_1^{et}(\Cmod{d}, \bar u)$ on
+    $W_{\bar u}$, because $V = W \times_{\Cmod{d}} U^{(d)}$. Since $V$ is Galois with group $G'$, the
+    kernel of the first action is exactly $\ker \rho$; hence
+    $\ker(\iota_*) \subseteq \ker \rho$. As $\iota_*$ is surjective, $\rho$ factors as
+    $\rho = \tilde{\rho} \circ \iota_*$ for a unique continuous
+    $\tilde{\rho} : \pi_1^{et}(\Cmod{d}, \bar u) \to G' \subseteq G$.
+    Let $\tilde{\cQ}$ be the $G$-torsor on $(\Cmod{d})_{\text{\'et}}$ corresponding to $\tilde{\rho}$
+    (\Cref{cor:abelian_equivilance_fundamental_torsors}); then
+    $\iota^* \tilde{\cQ} \cong \cQ$ since the corresponding characters of $\pi_1^{et}(U^{(d)}, \bar u)$
+    agree. Finally, if $\tilde{\cQ}_1, \tilde{\cQ}_2$ are two extensions of $\cQ$, their characters
+    $\tilde{\rho}_1, \tilde{\rho}_2$ satisfy $\tilde{\rho}_1 \circ \iota_* = \tilde{\rho}_2 \circ \iota_*$,
+    hence are equal by surjectivity of $\iota_*$, and $\tilde{\cQ}_1 \cong \tilde{\cQ}_2$.
+\end{proof}
+
+\subsubsection*{Step 2: At the boundary, tame implies unramified}
+
+\begin{prop}\label{prop:tame_at_boundary_implies_unramified}
+    Let $G$ be a finite abelian group and let $\cQ$ be a $G$-torsor on $U^{(d)}_{\text{\'et}}$.
+    If $\cQ$ is tamely ramified over $\Cmod{d}$ at $(H, \eta_0)$, then $\cQ$ is unramified at
+    $(H, \eta_0)$.
+\end{prop}
+
+Note that no bound on the ramification of $\cQ$ along $\mdls$ is assumed;
+being a torsor on all of $U^{(d)}$ is enough.
+
+\begin{proof}
+    As in \Cref{section:ramification_after_blowup_is_tame} (see the discussion following
+    \Cref{definition:local_ramification_boundness}), the restriction of $\cQ$ to
+    $\Spec(\widehat{K}_{\eta_0})$ decomposes as a disjoint union of copies of $\Spec(F)$ for a finite
+    Galois extension $F / \widehat{K}_{\eta_0}$ with Galois group a subgroup of $G$, and corresponds to a
+    continuous homomorphism
+    \[ \rho : G_{\widehat{K}_{\eta_0}} \to G \]
+    with image $\Gal(F/\widehat{K}_{\eta_0})$. Let $I \subseteq G_{\widehat{K}_{\eta_0}}$ be the inertia
+    subgroup. Then $\cQ$ is unramified at $(H,\eta_0)$ if and only if $\rho(I) = \{1\}$, and
+    $\rho(I)$ equals the inertia subgroup $G_0$ of $\Gal(F/\widehat{K}_{\eta_0})$.
+
+    \textbf{Reduction to $k$ algebraically closed.}
+    Let $k'/k$ be a finite separable extension. The projection
+    $\mathrm{pr} : (\Cmod{d})_{k'} \to \Cmod{d}$ is (finite) \'etale, and it identifies
+    $(\Cmod{d})_{k'} \setminus (U^{(d)})_{k'}$ with $\mathrm{pr}^{-1}(H)$. Since $C^{(n)}$ is
+    geometrically integral for every $n$ (see the Preliminaries), so are $Z_0$, $C^{(d)}$ and hence
+    $E_0$ (the exceptional divisor of a blowup of a geometrically integral smooth scheme along a
+    geometrically integral smooth center); therefore $\mathrm{pr}^{-1}(H)$ is irreducible with a unique
+    generic point $\eta'$ lying over $\eta_0$, and $\mathrm{pr}$ is \'etale at $\eta'$. By
+    \Cref{lemma:descend_ramification_along_etale} (and its proof: the completed local extensions at
+    $\eta'$ and at $\eta_0$ differ by the unramified base change
+    $\widehat{K}_{\eta'} / \widehat{K}_{\eta_0}$), the torsor $\mathrm{pr}^{-1}\cQ$ is tamely ramified,
+    resp.\ unramified, at $\eta'$ if and only if $\cQ$ is tamely ramified, resp.\ unramified, at
+    $\eta_0$. Passing to the colimit over all finite separable $k'/k$ (recall $k$ is perfect, so
+    $\bar{k} = k^{sep}$), we may and do assume for the rest of the proof that $k$ is algebraically
+    closed. In particular the points of $\mdls$ are $k$-rational; write
+    $\operatorname{supp}(\mdls) = \{P_1, \dots, P_s\}$.
+
+    \textbf{Splitting off the wild part.}
+    By the structure theorem for finite abelian groups, write $G = G_p \times G'$ with $G_p$ a $p$-group
+    and $|G'|$ prime to $p$ (if $p = 0$, take $G_p = \{1\}$). Then
+    $\rho(I) = \{1\}$ if and only if both compositions
+    $\rho_p := \mathrm{pr}_{G_p} \circ \rho$ and $\rho' := \mathrm{pr}_{G'} \circ \rho$ kill $I$.
+
+    Since $\cQ$ is tamely ramified at $(H, \eta_0)$, the extension $F/\widehat{K}_{\eta_0}$ is tamely
+    ramified with respect to $\Oo_{\Cmod{d}, \eta_0}$ (\Cref{definition:tamely_ramified_dvrs}): its
+    residue extension is separable and its ramification index $e$ is prime to $p$. For a Galois
+    extension of complete discrete valuation rings with separable residue extension, the inertia group
+    $G_0$ has order equal to the ramification index (\cite{serreLF}, Ch.\ IV); hence
+    $\rho(I) = G_0$ is a group of order prime to $p$. Its projection to the $p$-group $G_p$ is then
+    trivial, that is:
+    \[ \rho_p(I) = \{1\}, \qquad \rho(I) \subseteq \{1\} \times G'. \]
+    It therefore remains to prove $\rho'(I) = \{1\}$.
+
+    \textbf{The prime-to-$p$ part, via Kummer theory.}
+    Let $N = |G'|$, which is invertible in $k = \bar{k}$, so $\mu_N \subset k$. Since $G'$ is abelian,
+    $\rho'(I) = \{1\}$ holds if and only if $\chi(\rho'(I)) = \{1\}$ for every character
+    $\chi : G' \to \mu_N(k)$. Fix such a $\chi$ and let $e \mid N$ be the order of the character
+    \[ \chi \circ \rho'_{glob} : \pi_1^{et}(U^{(d)}, \bar{u}) \longrightarrow \mu_e(k), \]
+    where $\rho'_{glob}$ denotes the global character of $\cQ / G_p$ (\Cref{prop:quotient_torsors})
+    whose local restriction at $\eta_0$ is $\rho'$. It suffices to show that the $\mu_e$-torsor
+    corresponding to $\chi \circ \rho'_{glob}$ is unramified at $(H, \eta_0)$; indeed, the inertia $I$
+    then acts trivially on it, i.e.\ $\chi(\rho'(I)) = \{1\}$.
+
+    Restrict $\chi \circ \rho'_{glob}$ to the absolute Galois group of the function field
+    $K = k(U^{(d)}) = k(C^{(d)})$. Since $\mu_e \subset K$, Kummer theory identifies
+    $H^1(K, \mu_e) \cong K^\times / (K^\times)^e$; let $F \in K^\times$ be a representative of the
+    resulting class, so that the corresponding cyclic cover of $\Spec(K)$ is
+    $\Spec\left(K[y]/(y^e - F)\right)$, and $F$ is well defined up to $e$-th powers. Accordingly,
+    $\operatorname{div}_{C^{(d)}}(F)$ is well defined modulo $e \cdot \operatorname{Div}(C^{(d)})$.
+    We will show:
+    \begin{equation}\label{equation:kummer_valuation_at_boundary}
+        v_{\eta_0}(F) \equiv 0 \pmod{e}.
+    \end{equation}
+    Let us first explain why \eqref{equation:kummer_valuation_at_boundary} finishes the proof.
+    Let $\varpi$ be a uniformizer of $B_0 := \Oo_{\Cmod{d}, \eta_0}$ and write
+    $v_{\eta_0}(F) = e a$; replacing $F$ by $F \varpi^{-ea}$ (an allowed change modulo nothing --- it
+    changes neither the class in $H^1(\widehat{K}_{\eta_0}, \mu_e)$ nor the extension, since it changes
+    $F$ by the $e$-th power $\left(\varpi^{-a}\right)^e$), we may assume $F \in \widehat{B}_0^\times$, where
+    $\widehat{B}_0$ is the completion. Then
+    \[ B := \widehat{B}_0[y]/(y^e - F) \]
+    is finite \'etale over $\widehat{B}_0$: it is finite free, and the derivative $e y^{e-1}$ is a unit
+    in $B$ because $e$ is invertible in $k$ and $y^e = F$ is a unit. Consequently
+    $\widehat{K}_{\eta_0}[y]/(y^e - F) = B \otimes_{\widehat{B}_0} \widehat{K}_{\eta_0}$ is a product of
+    finite separable field extensions of $\widehat{K}_{\eta_0}$, each unramified with respect to
+    $\widehat{B}_0$ (\Cref{definition:tamely_ramified_dvrs}; compare
+    \Cref{theorem:kummer_ramification}(1),(2), whose proof for $e$ prime to $p$ does not use perfectness
+    of the residue field). Thus the $\mu_e$-torsor of $\chi \circ \rho'_{glob}$ is unramified at
+    $(H, \eta_0)$, as desired.
+
+    The rest of the proof establishes \eqref{equation:kummer_valuation_at_boundary}, in three claims.
+    For each $1 \leq i \leq s$ let
+    \[ \Delta_{P_i} := Z_0(P_i, d) \subset C^{(d)} \]
+    be the prime divisor obtained as the (closed) image of the morphism
+    $C^{(d-1)} \to C^{(d)}$, $D \mapsto D + P_i$; thus
+    $C^{(d)} \setminus U^{(d)} = \bigcup_{i=1}^{s} \Delta_{P_i}$, because a divisor of degree $d$ fails
+    to be prime to $\mdls$ exactly when it contains some $P_i$. Set
+    \[ c_i := v_{\Delta_{P_i}}(F) \in \Z. \]
+
+    \begin{claim}\label{claim:divisor_congruence}
+        $\operatorname{div}_{C^{(d)}}(F) \equiv \sum_{i=1}^{s} c_i \, \Delta_{P_i}
+        \pmod{e \cdot \operatorname{Div}(C^{(d)})}$.
+    \end{claim}
+    \begin{proof}
+        Let $W \subset C^{(d)}$ be a prime divisor different from all the $\Delta_{P_i}$, with generic
+        point $\xi_W$. Then $\xi_W \in U^{(d)}$, and the $\mu_e$-torsor of $\chi \circ \rho'_{glob}$,
+        being a torsor on all of $U^{(d)}$, is finite \'etale over a neighborhood of $\xi_W$, hence
+        unramified at $(W, \xi_W)$ (\Cref{definition:tamely_ramified_in_codim_1}, with ambient scheme
+        $C^{(d)}$). On the other hand, if $e \nmid v_W(F)$, then in any extension of the valuation $v_W$
+        to $K(y)/(y^e - F)$ one has $v(y) = v_W(F)/e \notin v_W(K^\times)$, so the ramification index at
+        $(W, \xi_W)$ is $e / \gcd(e, v_W(F)) > 1$ --- contradicting unramifiedness. Hence
+        $e \mid v_W(F)$ for every such $W$.
+    \end{proof}
+
+    Let $\zeta$ denote the generic point of $Z_0$ and let $A := \Oo_{C^{(d)}, \zeta}$, a regular local
+    ring of dimension $\deg \mdls$ (the codimension of $Z_0 \cong C^{(d - \deg\mdls)}$ in $C^{(d)}$)
+    with maximal ideal $\mdls_\zeta = I_{Z_0, \zeta}$ and residue field $\kappa(\zeta)$.
+    Since $E_0$ dominates $Z_0$, the center of $v_{\eta_0}$ on $C^{(d)}$ is $\zeta$, i.e.\
+    $A \subseteq \Oo_{X_{\mdls,d},\eta_0}$ with $\mdls_\zeta = A \cap \mathfrak{m}_{\eta_0}$;
+    in particular $v_{\eta_0} \geq 0$ on $A$ and $v_{\eta_0} = 0$ on $A^\times$.
+    For $0 \neq g \in A$ let
+    $\operatorname{ord}_\zeta(g) := \max\{ n : g \in \mdls_\zeta^n \}$
+    be the order of vanishing of $g$ along $Z_0$.
+
+    \begin{claim}\label{claim:exceptional_valuation_is_order}
+        For every $0 \neq g \in A$ we have $v_{\eta_0}(g) = \operatorname{ord}_\zeta(g)$.
+    \end{claim}
+    \begin{proof}
+        This is the general form of the local computation carried out explicitly (in coordinates) in
+        \Cref{section:ramification_after_blowup_is_tame}; we recall the argument.
+        Since $\Spec(A) \to C^{(d)}$ is flat and $I_{Z_0} \cdot A = \mdls_\zeta$, blowups commute with
+        this base change (\stackstag{0805}):
+        \[ X_{\mdls, d} \times_{C^{(d)}} \Spec(A) \cong \Bl_{\mdls_\zeta}(\Spec A), \]
+        the exceptional divisor pulls back to the exceptional divisor
+        $E_A = \mathbb{P}^{\deg\mdls - 1}_{\kappa(\zeta)}$, whose generic point maps to $\eta_0$ with
+        the same local ring. So we may compute $v_{\eta_0}$ on the blowup of the regular local ring $A$
+        at its maximal ideal. Choose a regular system of parameters $u_1, \dots, u_n$ of $A$
+        ($n = \deg \mdls$) and consider the chart $A' = A[\mdls_\zeta / u_n]$. One has
+        $\mdls_\zeta A' = (u_n)$ and, since $A$ is regular,
+        $A' / (u_n) \cong \kappa(\zeta)[\bar{v}_1, \dots, \bar{v}_{n-1}]$ is a polynomial ring in the
+        classes of $v_j := u_j / u_n$; in particular $(u_n) \subset A'$ is prime, the localization
+        $A'_{(u_n)} = \Oo_{X_{\mdls,d}, \eta_0}$ is a discrete valuation ring with uniformizer $u_n$,
+        and $E_A$ meets this chart in its generic point.
+        Now let $r = \operatorname{ord}_\zeta(g)$ and write $g = G_r(u_1, \dots, u_n) + g'$ where $G_r$
+        is a homogeneous form of degree $r$ with unit or zero coefficients, nonzero as an element of
+        $\operatorname{gr}^r_{\mdls_\zeta}(A) \cong \kappa(\zeta)[\bar{u}_1, \dots, \bar{u}_n]_r$, and
+        $g' \in \mdls_\zeta^{r+1}$. In the chart,
+        \[ g = u_n^{\,r}\left( G_r(v_1, \dots, v_{n-1}, 1) + u_n h \right), \qquad h \in A', \]
+        and the residue of $G_r(v_1, \dots, v_{n-1}, 1)$ in $A'/(u_n)$ is the dehomogenization of the
+        nonzero form $G_r$, hence nonzero; therefore $G_r(v, 1) + u_n h$ is a unit in $A'_{(u_n)}$ and
+        $v_{\eta_0}(g) = r$.
+    \end{proof}
+
+    \begin{claim}\label{claim:boundary_divisors_have_multiplicity_one}
+        For each $i$, every local equation $w_i \in A$ of $\Delta_{P_i}$ at $\zeta$ satisfies
+        $\operatorname{ord}_\zeta(w_i) = 1$; consequently $v_{\eta_0}(w_i) = 1$.
+    \end{claim}
+    \begin{proof}
+        First note $\zeta \in \Delta_{P_i}$: every divisor $D \geq \mdls$ contains $P_i$, i.e.\
+        $Z_0 \subseteq \Delta_{P_i}$. Since $A$ is regular local, hence a unique factorization domain,
+        the height one prime of $\Delta_{P_i}$ at $\zeta$ is principal; fix a generator $w_i$.
+
+        By \Cref{cor:etale_at_generic_point}, the addition morphism
+        \[ \sigma : C^{(\deg\mdls)} \times_k C^{(d - \deg\mdls)} \longrightarrow C^{(d)} \]
+        is \'etale at the point $\zeta' := (z_\mdls, \xi')$, where $z_\mdls \in C^{(\deg\mdls)}$ is the
+        closed point corresponding to $\mdls$ and $\xi'$ is the generic point of $C^{(d-\deg\mdls)}$;
+        moreover $\sigma(\zeta') = \zeta$, since $\sigma$ restricted to
+        $\{z_\mdls\} \times C^{(d-\deg\mdls)}$ is the isomorphism onto $Z_0$ defining it.
+        Because $\sigma$ is \'etale at $\zeta'$, the local homomorphism
+        $A \to A'' := \Oo_{C^{(\deg\mdls)} \times C^{(d-\deg\mdls)},\, \zeta'}$ is faithfully flat with
+        $\mdls_\zeta A'' = \mathfrak{m}_{\zeta'}$, so $\operatorname{ord}_\zeta(g) =
+        \operatorname{ord}_{\zeta'}(\sigma^* g)$ for all $g \in A$.
+
+        We identify $\sigma^* w_i$ near $\zeta'$. Set-theoretically,
+        \[ \sigma^{-1}(\Delta_{P_i}) =
+        \left( \Delta'_{P_i} \times_k C^{(d - \deg\mdls)} \right) \cup
+        \left( C^{(\deg\mdls)} \times_k \Delta''_{P_i} \right), \]
+        where $\Delta'_{P_i} \subset C^{(\deg\mdls)}$ and $\Delta''_{P_i} \subset C^{(d-\deg\mdls)}$ are
+        the analogous divisors of divisors containing $P_i$. The second component does not pass through
+        $\zeta'$ (the generic divisor of degree $d - \deg\mdls$ does not contain $P_i$), so near
+        $\zeta'$ the scheme-theoretic preimage $\sigma^{-1}(\Delta_{P_i}) = V(\sigma^* w_i)$ is
+        supported on the prime divisor $\Delta'_{P_i} \times_k C^{(d-\deg\mdls)}$ (a product of
+        integral schemes, integral by \Cref{theorem:int_geoint_implies_productint}). Moreover
+        $\sigma^{-1}(\Delta_{P_i})$ is reduced, being the \'etale pullback (near $\zeta'$) of the reduced
+        scheme $\Delta_{P_i}$. Hence $\sigma^* w_i$ is, up to a unit at $\zeta'$, a local equation
+        $w'_i \otimes 1$ of $\Delta'_{P_i} \times_k C^{(d-\deg\mdls)}$, where $w'_i$ is a local equation
+        of $\Delta'_{P_i}$ at $z_\mdls$. Writing $B := \Oo_{C^{(\deg\mdls)}, z_\mdls}$ and noting that
+        $A''$ is a localization of $B \otimes_k \kappa(\xi')$ at the prime $\mathfrak{m}_B \otimes \kappa(\xi')$,
+        the homomorphism $B \to A''$ is flat with $\mathfrak{m}_B A'' = \mathfrak{m}_{\zeta'}$, so
+        \[ \operatorname{ord}_\zeta(w_i) = \operatorname{ord}_{\zeta'}(w'_i \otimes 1)
+           = \operatorname{ord}_{z_\mdls}(w'_i), \]
+        and we are reduced to showing that $w'_i \notin \mathfrak{m}_{z_\mdls}^2$.
+
+        This is a computation at the closed point $z_\mdls = \sum_j n_j P_j$ of $C^{(\deg\mdls)}$,
+        for which we use the local description of symmetric powers from the Preliminaries
+        (proof of the smoothness of $C^{(n)}$): choosing pairwise disjoint opens $U_j \ni P_j$ and
+        local coordinates $t_j$ on $U_j$ vanishing exactly at $P_j$, a Zariski-open neighborhood of
+        $z_\mdls$ decomposes as $\prod_j U_j^{(n_j)}$, and the completed local ring is
+        \[ \widehat{\Oo}_{C^{(\deg\mdls)}, z_\mdls} \cong
+           k[[\, \varepsilon^{(j)}_l \; : \; 1 \leq j \leq s, \; 1 \leq l \leq n_j \,]], \]
+        where $\varepsilon^{(j)}_l$ is the $l$-th elementary symmetric function of the coordinates
+        $t_j(x_1), \dots, t_j(x_{n_j})$ of the points of the $j$-th block. Under the product
+        decomposition, $\Delta'_{P_i}$ is the preimage of the divisor
+        $\{D_i : D_i \ni P_i\} \subset U_i^{(n_i)}$, and the invariant function
+        \[ N_i := \prod_{l=1}^{n_i} t_i(x_l) = \varepsilon^{(i)}_{n_i} \]
+        is a regular function near $z_\mdls$ vanishing exactly on $\Delta'_{P_i}$
+        (as $t_i$ vanishes only at $P_i$ on $U_i$). In particular $w'_i$ divides
+        $\varepsilon^{(i)}_{n_i}$ in $\Oo_{C^{(\deg\mdls)}, z_\mdls}$. Orders with respect to the
+        maximal ideal are computed in the completion and are additive (the associated graded ring is a
+        polynomial ring, hence a domain); since $\varepsilon^{(i)}_{n_i}$ is one of the coordinates of
+        the power series ring, its order is $1$, and therefore
+        $\operatorname{ord}_{z_\mdls}(w'_i) = 1$ as well. The last statement of the claim follows from
+        \Cref{claim:exceptional_valuation_is_order}.
+    \end{proof}
+
+    \begin{claim}\label{claim:coefficients_sum_to_zero}
+        $\sum_{i=1}^{s} c_i \equiv 0 \pmod{e}$.
+    \end{claim}
+    \begin{proof}
+        Here we use the Abel--Jacobi morphism \emph{with trivial modulus}
+        \[ \varphi_d : C^{(d)} \longrightarrow \PicC[d]. \]
+        Since $d \geq 2g - 1 + \deg\mdls \geq 2g$ and $k$ is algebraically closed (so $C$ has a rational
+        point), $C^{(d)}$ is a projective space bundle over $\PicC[d]$ and the fiber over a point
+        $[\cL]$ is the complete linear system $|\cL| = \bP\left(H^0(C, \cL)\right)$
+        (\Cref{section:AbelJacobi}).
+        Let $\xi$ be the generic point of $\PicC[d]$, with residue field $\kappa(\xi)$, and let
+        \[ P_\xi := \varphi_d^{-1}(\xi) \cong \bP^{\,d-g}_{\kappa(\xi)} \]
+        be the generic fiber; it is a localization of $C^{(d)}$, so for every point
+        $w \in P_\xi$ we have $\Oo_{P_\xi, w} = \Oo_{C^{(d)}, w}$. In particular the codimension-one
+        points of $P_\xi$ are exactly the generic points of the prime divisors of $C^{(d)}$ that
+        dominate $\PicC[d]$, and for such a divisor $W$ with generic-fiber components
+        $w \in W \cap P_\xi$,
+        \begin{equation}\label{equation:restriction_to_generic_fiber}
+            \operatorname{div}_{P_\xi}\left( F|_{P_\xi} \right)
+            = \sum_{W} v_W(F) \cdot \left[ W \cap P_\xi \right],
+        \end{equation}
+        where the sum is over the prime divisors of $C^{(d)}$ dominating $\PicC[d]$ and
+        $[W \cap P_\xi]$ denotes the corresponding reduced cycle of codimension one on $P_\xi$.
+        (The generic point of $C^{(d)}$ lies in $P_\xi$, so $F$ restricts to a nonzero rational function
+        on $P_\xi$.)
+
+        Each $\Delta_{P_i}$ dominates $\PicC[d]$: for every $\cL$ of degree $d$ one has
+        $h^0(\cL(-P_i)) = d - g \geq 1$, so every fiber $|\cL|$ contains divisors through $P_i$.
+        Moreover, inside the generic fiber,
+        \[ \Delta_{P_i} \cap P_\xi = \left\{ D \in |\cL_\xi| \; : \; D \geq P_i \right\}
+           = \bP\left( H^0(C_{\kappa(\xi)}, \cL_\xi(-P_i)) \right)
+           \subset \bP\left( H^0(C_{\kappa(\xi)}, \cL_\xi) \right), \]
+        a linear subspace of codimension one (as $\deg \cL_\xi(-P_i) = d - 1 \geq 2g - 1$, so
+        $h^0(\cL_\xi(-P_i)) = d - g = h^0(\cL_\xi) - 1$). In particular $\Delta_{P_i} \cap P_\xi$ is
+        irreducible and, as a reduced linear subvariety of projective space, it has degree $1$.
+
+        Now take degrees in \eqref{equation:restriction_to_generic_fiber}. A principal divisor on
+        $\bP^{\,d-g}_{\kappa(\xi)}$ has degree $0$ (its homogeneous numerator and denominator have equal
+        degrees). By \Cref{claim:divisor_congruence}, every dominating prime divisor $W$ other than the
+        $\Delta_{P_i}$ contributes a multiple of $e$, while $\Delta_{P_i}$ contributes
+        $c_i \cdot \deg[\Delta_{P_i} \cap P_\xi] = c_i$. Hence
+        \[ 0 = \deg \operatorname{div}_{P_\xi}\left( F|_{P_\xi} \right)
+             \equiv \sum_{i=1}^{s} c_i \pmod{e}. \qedhere \]
+    \end{proof}
+
+    We can now conclude. Since $A$ is a unique factorization domain, we may write
+    \[ F = u \cdot \prod_{j} w_j^{\,a_j}, \qquad u \in A^\times, \]
+    where $w_j$ runs over generators of the height-one primes of $A$, i.e.\ over local equations at
+    $\zeta$ of the prime divisors $W_j$ of $C^{(d)}$ passing through $\zeta$, and $a_j = v_{W_j}(F)$.
+    Applying $v_{\eta_0}$ and using \Cref{claim:exceptional_valuation_is_order}:
+    \[ v_{\eta_0}(F) = \sum_j v_{W_j}(F) \cdot \operatorname{ord}_\zeta(w_j). \]
+    By \Cref{claim:divisor_congruence}, all terms with $W_j \notin \{\Delta_{P_1}, \dots, \Delta_{P_s}\}$
+    are divisible by $e$; by \Cref{claim:boundary_divisors_have_multiplicity_one},
+    $\operatorname{ord}_\zeta(w_i) = 1$ for the boundary divisors. Therefore, using
+    \Cref{claim:coefficients_sum_to_zero},
+    \[ v_{\eta_0}(F) \equiv \sum_{i=1}^{s} c_i \equiv 0 \pmod{e}, \]
+    which is \eqref{equation:kummer_valuation_at_boundary}. As explained above, this shows
+    $\chi(\rho'(I)) = \{1\}$ for every character $\chi$ of $G'$, hence $\rho'(I) = \{1\}$; combined
+    with $\rho_p(I) = \{1\}$ this gives $\rho(I) = \{1\}$, i.e.\ $\cQ$ is unramified at $(H, \eta_0)$.
+\end{proof}
+
+\subsubsection*{Conclusion of the proof}
+
+\begin{proof}[Proof of \Cref{lemma:ExtensionOfTamelyRamifiedSheaf}]
+    Let $G = \Lambda^\times$ and let $\cP^{[d]}$ be the $G$-torsor on $U^{(d)}_{\text{\'et}}$
+    corresponding to $\cF^{[d]}$ under \Cref{prop:torsor_module_equivalence}, with character
+    $\rho : \pi_1^{et}(U^{(d)}, \bar{u}) \to G$.
+    By \Cref{lemma:boundary_of_compactification}(3), the only codimension-one point of
+    $\Cmod{d} \setminus U^{(d)}$ is $\eta_0$, so the hypothesis that $\cF^{[d]}$ is tamely ramified
+    along $H$ means precisely that $\cP^{[d]}$ is tamely ramified over $\Cmod{d}$ at $(H, \eta_0)$
+    (\Cref{definition:tamely_ramified_in_codim_1}).
+    By \Cref{prop:tame_at_boundary_implies_unramified}, $\cP^{[d]}$ is then unramified at
+    $(H, \eta_0)$. By \Cref{prop:extension_via_purity}, the character $\rho$ factors uniquely as
+    $\rho = \tilde{\rho} \circ \iota_*$ through
+    $\pi_1^{et}(\Cmod{d}, \bar{u})$. Let $\tilde{\cF}^{[d]}$ be the locally constant sheaf of free
+    rank-one $\Lambda$-modules on $(\Cmod{d})_{\text{\'et}}$ corresponding to $\tilde{\rho}$
+    (\Cref{cor:abelian_equivilance_fundamental_torsors} together with
+    \Cref{prop:torsor_module_equivalence}). Since $\tilde{\rho} \circ \iota_* = \rho$, its restriction
+    to $U^{(d)}$ is isomorphic to $\cF^{[d]}$.
+\end{proof}
+
+\begin{rem*}
+    The proof also gives uniqueness: since $\iota_* : \pi_1^{et}(U^{(d)}) \to \pi_1^{et}(\Cmod{d})$ is
+    surjective (\Cref{prop:extension_via_purity}), the extension $\tilde{\cF}^{[d]}$ is unique up to
+    isomorphism, and more generally the restriction functor from locally constant sheaves on $\Cmod{d}$
+    to locally constant sheaves on $U^{(d)}$ is fully faithful. This is the source of the uniqueness
+    assertions in \Cref{thm:GCFT_torsors} and \Cref{thm:GCFT_reduced}.
+\end{rem*}
+
+\begin{rem*}
+    Statements of this kind appear in both of the works our approach follows, with different proofs.
+    Guignard (\cite{Guignard2018}, Lemmas 5.7 and 5.9) does not extend $\cF^{[d]}$ over a
+    compactification: he shows that $\cF^{[d]}$ is constant on the (affine space) fibers of $\Phi_d$,
+    using the triviality of the tame fundamental group of $\A^1$, and then descends it along $\Phi_d$
+    directly by a duality argument. Takeuchi (\cite{takeuchi2019blow}, proof of Theorem 1.2 in \S 4)
+    obtains the extension of the corresponding character over $\Cmod{d}$ from his refined
+    (Kato--Matsuda) Swan conductor computation (\cite{takeuchi2019blow}, Theorem 2.7 and Corollary 2.8),
+    which for $p$-power order characters shows unramifiedness at $\eta_0$ directly.
+    The proof given here is instead elementary: beyond the purity of the branch locus, it only uses
+    Kummer theory and the geometry of the linear systems $|\cL|$ inside $C^{(d)}$.
+\end{rem*}

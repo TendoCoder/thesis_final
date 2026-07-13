@@ -1,0 +1,660 @@
+\documentclass[11pt]{article}
+
+%==================== packages ====================
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black}
+
+%==================== macros ====================
+\newcommand{\cP}{\mathcal{P}}
+\newcommand{\cQ}{\mathcal{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\bG}{\mathbb{G}}
+\newcommand{\bP}{\mathbb{P}}
+\newcommand{\bA}{\mathbb{A}}
+\newcommand{\bW}{\mathbb{W}}
+\newcommand{\Oo}{\mathcal{O}}
+\newcommand{\mdls}{\mathfrak{m}}
+\newcommand{\ndls}{\mathfrak{n}}
+\DeclareMathOperator{\Frac}{Frac}
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\Spec}{Spec}
+\newcommand{\AS}{\wp}
+\newcommand{\vf}{\vec f}
+\newcommand{\va}{\vec a}
+\newcommand{\vX}{\vec X}
+\newcommand{\vY}{\vec Y}
+\newcommand{\vZ}{\vec Z}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{prop}[theorem]{Proposition}
+\newtheorem{cor}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+
+\title{Closing the gaps:\\ a complete proof that $\cP^{[\deg\ndls]}$ is unramified at $\eta_\ndls$ for $G=\Z/p^r\Z$}
+\author{Working note}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+The note \emph{Completing the induction} proves the theorem
+``$\cP^{[\deg\ndls]}$ is unramified at $\eta_\ndls$ for $G=\Z/p^r\Z$'' \emph{conditionally}
+on two unproven steps (Gaps~1 and~2 of the review): (1) that the Witt datum of the torsor
+at $p_\infty$ may be taken to be a \emph{reduced vector of polynomials in $x^{-1}$}
+satisfying the pole bound $p^{r-1-j}m_j<d$, and (2) that the symmetric-power cover at
+$\eta_C$ is the Artin--Schreier--Witt cover of the Witt sum
+$\bigoplus_{i=1}^d\vf(x_i)$. This note supplies both missing results.
+Gap~1 is closed by a $W_r$-analogue of the thesis's realization lemma over $\bG_m$:
+every class in $W_r(k((x)))/\AS$ admits a reduced representative with all components in
+$x^{-1}k[x^{-1}]$, produced by induction on $r$ through the truncation
+$W_r\twoheadrightarrow W_{r-1}$, using that adding $V^{r-1}(h)$ is carry-free. (The
+``principal part'' step of the earlier note is \emph{not} used: componentwise truncation of
+a Witt vector is not a legitimate operation.) Gap~2 is closed by the Witt-coordinate
+analogue of the thesis's invariant-ring computation: the Witt sum
+$\vY=\bigoplus_i\vX_i$ is invariant under the twisted $G^{d-1}$-action and under $S_d$,
+satisfies $\AS\vY=\bigoplus_i\vf(x_i)$, and the resulting map of $G$-torsors is
+automatically an isomorphism. Together with the (verified) degree count of the earlier
+note, reproduced here for completeness, this yields an unconditional proof of the theorem,
+directly for all $r$ at once. The single external input remains the
+Artin--Schreier--Witt break formula, stated here in the precise form and direction used.
+\end{abstract}
+
+\tableofcontents
+
+%====================================================================
+\section{Setting, conventions, and what is being proved}
+%====================================================================
+
+Throughout, $k$ is an algebraically closed field of characteristic $p>0$ and
+$K=k((x))$. We prove:
+
+\begin{theorem}[{main theorem; \texttt{theorem:ramification\_after\_blowup\_is\_tame\_for\_p\_power}}]\label{thm:main}
+Let $C$ be a projective smooth geometrically connected curve over $k$, let
+$G=\Z/p^r\Z$, and let $\cP\to U=C\setminus\mdls$ be a $G$-torsor with ramification bounded
+by $\mdls$. Let $\ndls=nP\subset\mdls$ and $d:=\deg\ndls=n$. Then $\cP^{[d]}$ is
+unramified at $\eta_\ndls$.
+\end{theorem}
+
+Here, as in the thesis, ``ramification bounded by $d$ at $P$'' means that the $d$-th
+\emph{upper-numbering} ramification group of the local extension at $P$ is trivial
+(\texttt{definition:local\_ramification\_boundness}); equivalently, the largest
+upper-numbering break $u$ of that extension satisfies $u<d$ \emph{strictly}.
+
+\paragraph{Standing reduction.}
+As in the current (partial) proof in the thesis, we may assume that $k$ is algebraically
+closed and that $\cP\to U$ is \emph{totally ramified} at $P$ with inertia equal to all of
+$G$: if the image $H$ of inertia at $P$ is a proper subgroup, decompose
+$\cP\to\cP_{G/H}\to U$; then $\cP_{G/H}$ is unramified at $P$, extends over $P$, and is
+locally trivial at any point over $P$ (as $k=\bar k$), which replaces $(G,\cP)$ by
+$(H,\cP\to\cP_{G/H})$ with $H\cong\Z/p^s\Z$. This reduction is valid for all $r$ and is
+kept unchanged; we do not repeat it below. After it, the restriction
+$\cQ:=\cP_x$ of $\cP$ to the punctured formal disc $\Spec k((x))$ at $P$ (with $x$ a
+uniformizer at $P$) is a \emph{connected} $\Z/p^r\Z$-torsor, i.e.\ $\cQ=\Spec L$ for a
+cyclic, totally ramified extension $L/K$ of degree $p^r$, with ramification bounded by
+$d$.
+
+\paragraph{Witt vector conventions.}
+$W_r$ denotes $p$-typical Witt vectors of length $r$, with components indexed
+$0,\dots,r-1$; $\oplus,\ominus$ denote Witt addition and subtraction, given by the
+universal polynomials $S_n$: the $n$-th component of $\va\oplus\vec b$ is
+\begin{equation}\label{eq:addition-shape}
+(\va\oplus\vec b)_n \;=\; a_n+b_n+C_n(a_0,\dots,a_{n-1};b_0,\dots,b_{n-1})
+\end{equation}
+for a universal polynomial $C_n$ over $\Z$ in the \emph{lower} components only.
+On $\F_p$-algebras the Frobenius $F$ is componentwise:
+$F(a_0,\dots,a_{r-1})=(a_0^p,\dots,a_{r-1}^p)$; we set
+$\AS:=F-\mathrm{id}$ (computed with $\ominus$), so for $r=1$, $\AS(u)=u^p-u$.
+The Verschiebung is $V(a_0,\dots,a_{r-2})=(0,a_0,\dots,a_{r-2})$, and
+$t\colon W_r\to W_{r-1}$, $t(a_0,\dots,a_{r-1})=(a_0,\dots,a_{r-2})$, is the truncation.
+$W_r$ is a functor: a ring homomorphism $\sigma\colon A\to B$ induces
+$W_r(\sigma)\colon W_r(A)\to W_r(B)$ acting \emph{componentwise},
+$W_r(\sigma)(a_0,\dots,a_{r-1})=(\sigma a_0,\dots,\sigma a_{r-1})$, and this is a ring
+homomorphism commuting with $F$, $V$, $t$, hence with $\AS$. In particular a ring
+automorphism $\sigma$ of $A$ commutes with $\oplus$ and $\ominus$, and a Witt vector
+$\va\in W_r(A)$ satisfies $W_r(\sigma)(\va)=\va$ if and only if each component $a_n$ is
+$\sigma$-invariant.
+By Artin--Schreier--Witt (ASW) theory, over a field $M\supseteq\F_p$ one has
+$H^1(M,\Z/p^r\Z)\cong W_r(M)/\AS W_r(M)$, the class of $\vec g$ corresponding to the
+torsor $\Spec M[\vX]/(\AS\vX\ominus\vec g)$ (notation of
+Lemma~\ref{lem:asw-etale} below); connected torsors correspond to classes of order
+$p^r$, and the extension is then cyclic of degree $p^r$, totally ramified when
+$M=k((x))$ with $k$ algebraically closed.
+
+We record the elementary Witt bookkeeping used repeatedly.
+
+\begin{lemma}\label{lem:bookkeeping}
+Let $A$ be an $\F_p$-algebra.
+\begin{enumerate}[label=(\roman*)]
+  \item $t\colon W_r(A)\to W_{r-1}(A)$ is a ring homomorphism commuting with $F$, hence
+        with $\AS$; its kernel is $V^{r-1}A=\{(0,\dots,0,c):c\in A\}$.
+  \item $V^{r-1}\colon A\to W_r(A)$ is additive, and $\AS\circ V^{r-1}=V^{r-1}\circ\AS$.
+  \item (carry-free top-level addition) For all $\va\in W_r(A)$ and $c\in A$,
+        \[
+        \va\oplus V^{r-1}(c)=(a_0,\dots,a_{r-2},\,a_{r-1}+c).
+        \]
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) is standard ($t$ is a natural transformation of ring functors; $F$ is componentwise
+in characteristic $p$), and the kernel is computed componentwise.
+(ii) Additivity of $V$ is standard; since $F$ is componentwise it commutes with $V$ on
+$\F_p$-algebras, hence so does $\AS=F-\mathrm{id}$.
+(iii) This is a universal identity, so it suffices to prove it over
+$\Z[a_0,\dots,a_{r-1},c]$, where the ghost components
+$w_n(\va)=\sum_{j\le n}p^ja_j^{p^{n-j}}$ are injective jointly with torsion-freeness.
+Put $\vec b=(0,\dots,0,c)$ and $\vec s=\va\oplus\vec b$. For $n<r-1$ we have
+$w_n(\vec b)=0$, so $w_n(\vec s)=w_n(\va)$, and by induction on $n$ (solving for $s_n$
+using torsion-freeness) $s_n=a_n$ for $n\le r-2$. For $n=r-1$,
+$w_{r-1}(\vec b)=p^{r-1}c$ gives
+$p^{r-1}s_{r-1}=p^{r-1}a_{r-1}+p^{r-1}c$, i.e.\ $s_{r-1}=a_{r-1}+c$.
+\end{proof}
+
+\begin{lemma}[ASW covers are \'etale torsors]\label{lem:asw-etale}
+Let $A$ be an $\F_p$-algebra and $\vec g\in W_r(A)$. Let
+\[
+B \;:=\; A[X_0,\dots,X_{r-1}]\big/\big(\text{the $r$ components of } \AS(\vX)\ominus\vec g\big),
+\qquad \vX=(X_0,\dots,X_{r-1}).
+\]
+Then $B$ is finite free over $A$ with basis
+$\{\prod_{n}X_n^{a_n}:0\le a_n\le p-1\}$, and \'etale over $A$. The translation action
+of $W_r(\F_p)\cong\Z/p^r\Z$, $\vX\mapsto\vX\oplus\underline m$ (where $\underline m$ is
+the image of $m$ under $\Z/p^r\Z\cong W_r(\F_p)$), makes $\Spec B$ a $\Z/p^r\Z$-torsor
+over $\Spec A$.
+\end{lemma}
+
+\begin{proof}
+By \eqref{eq:addition-shape} and componentwise $F$, the $n$-th defining equation has the
+triangular form
+\[
+X_n^p - X_n - g_n + C_n'(X_0,\dots,X_{n-1};\,g_0,\dots,g_{n-1}) \;=\; 0
+\]
+for universal polynomials $C_n'$. Triangularity gives the free basis; the Jacobian
+matrix of the system is lower triangular with diagonal entries
+$pX_n^{p-1}-1=-1$, a unit, so $B$ is \'etale over $A$. Finally, $\Spec B$ is the
+pullback along $\vec g\colon\Spec A\to\bW_r$ of the Lang covering
+$\AS\colon\bW_r\to\bW_r$ of the Witt group scheme over $\F_p$, which is a surjective
+\'etale group homomorphism with kernel $W_r(\F_p)$; hence $\Spec B$ is a
+$W_r(\F_p)$-torsor.
+\end{proof}
+
+\begin{lemma}\label{lem:torsor-mor}
+Let $G$ be a finite group scheme over a base $T$ and let $\phi\colon\cP_1\to\cP_2$ be a
+$G$-equivariant $T$-morphism of $G$-torsors (for the fppf or \'etale topology). Then
+$\phi$ is an isomorphism.
+\end{lemma}
+
+\begin{proof}
+Locally on a cover trivializing both torsors, $\phi$ is a $G$-equivariant endomorphism of
+the trivial torsor $G_T$, i.e.\ right translation by a section of $G$, hence an
+isomorphism; being an isomorphism descends.
+\end{proof}
+
+%====================================================================
+\section{Gap 1: reduced polynomial representatives and realization over $\bG_m$}
+%====================================================================
+
+The earlier note took $\vf$ to be ``the principal part'' of the Witt datum. As the review
+observes, this is not a legitimate operation (Witt addition is not componentwise, so
+componentwise truncation to polar parts changes the ASW class), and in any case no
+$W_r$-realization statement was available in the thesis, whose realization lemma
+(\texttt{lemma:realization\_over\_Gm}) covers only the tame case and $G=\Z/p\Z$. This
+section proves the correct statement.
+
+\begin{definition}\label{def:reduced}
+For $g\in k((x))$ put $m(g):=\max\bigl(0,-v_x(g)\bigr)$ (the pole order, or $0$ if $g$ is
+regular). A vector $\vec g=(g_0,\dots,g_{r-1})\in W_r(k((x)))$ is \emph{reduced} if for
+every $j$, either $m(g_j)=0$ or $p\nmid m(g_j)$. It is a \emph{reduced polynomial vector}
+if moreover every $g_j\in x^{-1}k[x^{-1}]$ (so that $m(g_j)=\deg_{x^{-1}}g_j$, and
+$m(g_j)=0$ if and only if $g_j=0$).
+\end{definition}
+
+\begin{lemma}[surjectivity of $\AS$ on integral Witt vectors]\label{lem:wp-surj}
+$\AS\colon W_r(k[[x]])\to W_r(k[[x]])$ is surjective.
+\end{lemma}
+
+\begin{proof}
+Induction on $r$. For $r=1$ this is proved in the thesis
+(\texttt{lemma:realization\_over\_Gm}, first bullet): given
+$h=\sum_{i\ge0}b_ix^i$, solve $u^p-u=h$ coefficientwise, using that $k$ is algebraically
+closed for the constant term. For $r>1$, let $\vec h\in W_r(k[[x]])$. By induction choose
+$\vec u'\in W_{r-1}(k[[x]])$ with $\AS\vec u'=t(\vec h)$, and lift it to
+$\tilde u:=(\vec u',0)\in W_r(k[[x]])$. By Lemma~\ref{lem:bookkeeping}(i),
+$t\bigl(\AS\tilde u\ominus\vec h\bigr)=\AS\vec u'\ominus t(\vec h)=0$, so
+$\AS\tilde u\ominus\vec h=V^{r-1}(g)$ for some $g\in k[[x]]$. Choose $w\in k[[x]]$ with
+$\AS w=-g$ (case $r=1$ again). Then by Lemma~\ref{lem:bookkeeping}(ii) and additivity of
+$V^{r-1}$,
+\[
+\AS\bigl(\tilde u\oplus V^{r-1}(w)\bigr)
+=\AS\tilde u\oplus V^{r-1}(\AS w)
+=\bigl(\vec h\oplus V^{r-1}(g)\bigr)\oplus V^{r-1}(-g)=\vec h. \qedhere
+\]
+\end{proof}
+
+\begin{prop}[reduced polynomial representatives]\label{prop:reduced-rep}
+Every class in $W_r(k((x)))/\AS W_r(k((x)))$ has a reduced polynomial representative:
+there exists $\vec u\in W_r(k((x)))$ such that $\vec g:=\vf\ominus\AS\vec u$ has all
+components in $x^{-1}k[x^{-1}]$ with pole orders either $0$ or prime to $p$.
+\end{prop}
+
+\begin{proof}
+Induction on $r$.
+
+\emph{Base case $r=1$.} This is the argument of
+\texttt{lemma:realization\_over\_Gm}(2) in the thesis: first, writing
+$f=f^-+f^+$ with $f^-\in x^{-1}k[x^{-1}]$ and $f^+\in k[[x]]$, surjectivity of $\AS$ on
+$k[[x]]$ removes $f^+$; then, as long as the leading term is $cx^{-m}$ with $p\mid m$,
+$m>0$, subtracting $\AS(c^{1/p}x^{-m/p})=cx^{-m}-c^{1/p}x^{-m/p}$ strictly decreases the
+pole order while staying inside $x^{-1}k[x^{-1}]$; this terminates at $0$ or at pole
+order prime to $p$.
+
+\emph{Inductive step.} Let $\vf\in W_r(k((x)))$. By induction there is
+$\vec u'\in W_{r-1}(k((x)))$ such that $\vec g':=t(\vf)\ominus\AS\vec u'$ is a reduced
+polynomial vector in $W_{r-1}$. Lift $\vec u'$ to $\tilde u:=(\vec u',0)\in
+W_r(k((x)))$ and set $\vec h:=\vf\ominus\AS\tilde u$. By
+Lemma~\ref{lem:bookkeeping}(i), $t(\vec h)=\vec g'$, i.e.
+\[
+\vec h=(g'_0,\dots,g'_{r-2},\,h_{r-1}),\qquad h_{r-1}\in k((x)),
+\]
+with the first $r-1$ components already reduced polynomials. It remains to repair the
+last component \emph{without touching the others}; by
+Lemma~\ref{lem:bookkeeping}(iii), adjustments of the form
+$\ominus\,\AS\bigl(V^{r-1}(z)\bigr)=\ominus\,V^{r-1}(\AS z)$ change only the last
+component, by $-\AS(z)$. So:
+\begin{itemize}
+  \item Write $h_{r-1}=h^-+h^+$ with $h^-\in x^{-1}k[x^{-1}]$, $h^+\in k[[x]]$, choose
+        $w\in k[[x]]$ with $\AS w=h^+$ (Lemma~\ref{lem:wp-surj} with $r=1$), and replace
+        $\vec h$ by $\vec h\ominus\AS(V^{r-1}w)$: the last component becomes $h^-$.
+  \item While the last component has leading term $cx^{-m}$ with $p\mid m$, $m>0$,
+        replace $\vec h$ by $\vec h\ominus\AS\bigl(V^{r-1}(c^{1/p}x^{-m/p})\bigr)$: the
+        last component changes by
+        $-\AS(c^{1/p}x^{-m/p})=-cx^{-m}+c^{1/p}x^{-m/p}$, so its pole order strictly
+        decreases and it stays in $x^{-1}k[x^{-1}]$. This terminates at $0$ or at pole
+        order prime to $p$.
+\end{itemize}
+The result is a reduced polynomial vector $\AS$-equivalent to $\vf$.
+\end{proof}
+
+\paragraph{The break formula.}
+The following is the single external input. It is due, over finite residue fields, to
+Kanesaka--Sekiguchi \cite{KanesakaSekiguchi1979} and Thomas \cite{Thomas2005}
+(building on Schmid \cite{Schmid1937} for $r=1$), and over arbitrary perfect residue
+fields to Elder--Keating \cite{ElderKeating2025}.
+
+\begin{prop}[Schmid--Witt break formula, direction used]\label{prop:break}
+Let $K=k((x))$ with $k$ perfect of characteristic $p$, and let $L/K$ be a cyclic totally
+ramified extension of degree $p^r$ whose ASW class is represented by a \emph{reduced}
+vector $\vec g\in W_r(K)$ (Definition~\ref{def:reduced}), with $m_j:=m(g_j)$. Then the
+largest upper-numbering ramification break of $L/K$ equals
+\[
+u \;=\; \max_{0\le j\le r-1}\; p^{\,r-1-j}\,m_j .
+\]
+For $r=1$ this is the classical statement (break $=m_0$) already used in the thesis.
+\end{prop}
+
+Note that reducedness is exactly what makes the formula exact: two nonzero terms
+$p^{r-1-j}m_j=p^{r-1-j'}m_{j'}$ with $j<j'$ would force $p\mid m_{j'}$, so the maximum is
+achieved at a unique level and no cancellation of breaks can occur. We use only the
+stated direction: \emph{evaluating the formula on one reduced representative computes
+$u$}; no minimization over representatives is needed.
+
+\begin{lemma}[realization over $\bG_m$ for $W_r$]\label{lem:realization-Wr}
+Let $k$ be algebraically closed of characteristic $p>0$ and let $\cQ$ be a
+\emph{connected} $\Z/p^r\Z$-torsor over $\Spec(k((x)))$ with ramification bounded by $d$
+(\texttt{definition:local\_ramification\_boundness}). Then there is a reduced polynomial
+vector $\vf=(f_0,\dots,f_{r-1})$, $f_j\in x^{-1}k[x^{-1}]$, such that, with
+$m_j:=\deg_{x^{-1}}f_j$:
+\begin{enumerate}
+  \item \label{it:polebound} $p^{\,r-1-j}\,m_j<d$ for all $0\le j\le r-1$; equivalently
+        $m_j<d\,p^{\,j-(r-1)}$;
+  \item \label{it:torsor} $\cP':=\Spec\Bigl(k[x,x^{-1}][X_0,\dots,X_{r-1}]\big/
+        \bigl(\AS\vX\ominus\vf\bigr)\Bigr)$ is a $\Z/p^r\Z$-torsor over $\bG_m$ with
+        $\cP'_x\cong\cQ$;
+  \item \label{it:infty} $\cP'$ extends to a torsor over $\bP^1_k\setminus\{0\}$ --- in
+        particular it is unramified at $\infty$ --- and has ramification bounded by $d$
+        at $0$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+$\cQ=\Spec L$ with $L/K$ cyclic totally ramified of degree $p^r$ and largest upper break
+$u<d$. Let $[\vf_0]\in W_r(K)/\AS$ be its ASW class and let $\vf$ be a reduced polynomial
+representative (Proposition~\ref{prop:reduced-rep}).
+
+First, $f_0\neq0$: if $f_0=0$ then $\vf=V(\vec b)$ for some $\vec b\in W_{r-1}(K)$, and
+$p^{r-1}\vf=(VF)^{r-1}V\vec b=V^{r}F^{r-1}\vec b=0$ in $W_r(K)$, so the class has order
+$\le p^{r-1}$, contradicting $[L:K]=p^r$. Hence $m_0\ge1$ and $p\nmid m_0$, and
+Proposition~\ref{prop:break} applies:
+$\max_j p^{r-1-j}m_j=u<d$, which is \ref{it:polebound}.
+
+For \ref{it:torsor}: by Lemma~\ref{lem:asw-etale} (with $A=k[x,x^{-1}]\ni f_j$), $\cP'$
+is a $\Z/p^r\Z$-torsor over $\bG_m$; its restriction to $\Spec k((x))$ is the ASW torsor
+of the class of $\vf$, i.e.\ $\cQ$.
+
+For \ref{it:infty}: in the coordinate $y=x^{-1}$ at $\infty$ we have
+$f_j\in y\,k[y]$, so $\vf\in W_r(k[y])$ and Lemma~\ref{lem:asw-etale} (with $A=k[y]$)
+extends $\cP'$ to a torsor over $\bA^1_k=\Spec k[y]=\bP^1_k\setminus\{0\}$; a torsor
+over the full local ring at $\infty$ is unramified there. The ramification bound at $0$
+holds because $\cP'_x\cong\cQ$.
+\end{proof}
+
+\begin{remark}
+Connectedness of $\cQ$ is guaranteed in the application by the standing reduction of
+\S1 (inertia equal to all of $G$). This replaces --- and corrects --- the ``take the
+principal part'' step: the components $f_j$ are honest polynomials in $x^{-1}$, so
+substituting $x\mapsto x_i$ and forming the Witt sum below are purely algebraic
+operations, and all subsequent $\AS$-adjustments were already performed \emph{before}
+symmetrization, inside $W_r(k((x)))$.
+\end{remark}
+
+\begin{remark}[sanity check]\label{rem:sanity}
+For every $j$ with $p^{\,r-1-j}\ge d$, the bound \ref{it:polebound} forces $m_j=0$, i.e.\
+$f_j=0$: all sufficiently low Witt components of a reduced representative vanish
+outright. This makes visible how strong the hypothesis $u<d$ is at the lower levels.
+\end{remark}
+
+%====================================================================
+\section{Gap 2: the symmetric-power cover at $\eta$ is the ASW cover of the Witt sum}
+%====================================================================
+
+We now generalize the invariant-ring computation of the thesis's $r=1$ proof
+(\texttt{theorem:ramification\_after\_blowup\_P1}, Artin--Schreier case) to Witt
+coordinates. Fix $\vf\in W_r(R)$, $R=k[x,x^{-1}]$, and let
+\[
+S \;=\; R[\vX]\big/\bigl(\AS\vX\ominus\vf\bigr)
+\]
+be the coordinate ring of the torsor $\cP'\to\bG_m$ of
+Lemma~\ref{lem:realization-Wr}. Write $R^{\otimes_kd}=k[x_1^{\pm1},\dots,x_d^{\pm1}]$
+and
+\[
+S^{\otimes_kd}
+= R^{\otimes_kd}[\vX_1,\dots,\vX_d]\big/\bigl(\AS\vX_1\ominus\vf(x_1),\dots,
+\AS\vX_d\ominus\vf(x_d)\bigr),
+\]
+where $\vX_i=(X_{i,0},\dots,X_{i,r-1})$ and $\vf(x_i)$ is the image of $\vf$ under
+$x\mapsto x_i$. Exactly as in the thesis, the $d$-fold product torsor
+$p_1^{-1}\cP'\otimes\cdots\otimes p_d^{-1}\cP'$ on $U^d$ is by definition the quotient of
+$\Spec S^{\otimes_kd}$ by $G^{d-1}$, embedded in $G^d$ as the kernel of the sum map, and
+acting (in Witt coordinates, writing $\vec g$ for the image of $g\in G$ under
+$\Z/p^r\Z\cong W_r(\F_p)$) by
+\[
+(g_1,\dots,g_{d-1})\colon\quad
+\vX_1\mapsto\vX_1\oplus\vec g_1,\qquad
+\vX_i\mapsto\vX_i\oplus\vec g_i\ominus\vec g_{i-1}\ (1<i<d),\qquad
+\vX_d\mapsto\vX_d\ominus\vec g_{d-1}.
+\]
+
+\begin{prop}[identification of the product torsor]\label{prop:cover-identification}
+Set
+\[
+\vY:=\bigoplus_{i=1}^d\vX_i\in W_r\bigl(S^{\otimes_kd}\bigr),
+\qquad
+\vec\alpha:=\bigoplus_{i=1}^d\vf(x_i)\in W_r\bigl(R^{\otimes_kd}\bigr),
+\]
+where $\bigoplus$ denotes the $d$-fold Witt vector sum $\oplus$ of
+\eqref{eq:addition-shape} (not a direct sum); in particular $\vY$ is a single Witt
+vector of length $r$. Then:
+\begin{enumerate}
+  \item \label{it:inv} Every component $Y_n$ of $\vY$ is $G^{d-1}$-invariant, and
+        \[
+        \bigl(S^{\otimes_kd}\bigr)^{G^{d-1}}
+        \;\cong\;
+        R^{\otimes_kd}[\vY]\big/\bigl(\AS\vY\ominus\vec\alpha\bigr)
+        \]
+        as $G$-torsors over $R^{\otimes_kd}$ (the residual $G=G^d/G^{d-1}$ acting by
+        $\vY\mapsto\vY\oplus\vec g$).
+  \item \label{it:symm} Every component $\alpha_n$ of $\vec\alpha$ is a symmetric Laurent
+        polynomial, i.e.\ lies in
+        $\bigl(R^{\otimes_kd}\bigr)^{S_d}=k[e_1,\dots,e_d,e_d^{-1}]$, and
+        \[
+        \Bigl(\bigl(S^{\otimes_kd}\bigr)^{G^{d-1}}\Bigr)^{S_d}
+        \;\cong\;
+        k[e_1,\dots,e_d,e_d^{-1}][\vY]\big/\bigl(\AS\vY\ominus\vec\alpha\bigr).
+        \]
+\end{enumerate}
+Consequently, restricting to the complete local field
+$\widehat K_\eta=\kappa(\eta)((e_d))$, $\kappa(\eta)=k(e_1/e_d,\dots,e_{d-1}/e_d)$, of
+\textup{\texttt{eq:complete\_field\_at\_generic\_point}},
+\[
+\cP'^{[d]}\big|_{\Spec\widehat K_\eta}
+\;\cong\;
+\Spec\;\widehat K_\eta[\vZ]\big/\bigl(\AS\vZ\ominus\vec\alpha\bigr).
+\]
+\end{prop}
+
+\begin{proof}
+\ref{it:inv} An element $\sigma=(g_1,\dots,g_{d-1})\in G^{d-1}$ acts as a ring
+automorphism of $S^{\otimes_kd}$: this is its \emph{original} action, defined on the
+generators $X_{i,n}$ by the twisted formulas above (which mix components through the
+carry polynomials of \eqref{eq:addition-shape}). By functoriality of $W_r$ (see the
+conventions), the induced map $W_r(\sigma)$ on $W_r(S^{\otimes_kd})$ is componentwise
+and commutes with $\oplus,\ominus$; on the generators it reproduces the twisted action,
+$W_r(\sigma)(\vX_i)=\vX_i\oplus\vec g_i\ominus\vec g_{i-1}$ (with $\vec g_0=\vec
+g_d=\vec 0$). Hence, using commutativity and associativity of $\oplus$, the Witt sum
+transforms by the telescoping constant
+\[
+W_r(\sigma)(\vY)\;=\;\bigoplus_{i=1}^dW_r(\sigma)(\vX_i)\;=\;\vY\oplus
+\vec g_1\oplus(\vec g_2\ominus\vec g_1)\oplus\cdots\oplus(\ominus\,\vec g_{d-1})
+=\vY.
+\]
+Since $W_r(\sigma)$ is componentwise, this equality of $r$-tuples says exactly
+$\sigma(Y_n)=Y_n$ for every $n$, i.e.\ each $Y_n\in S^{\otimes_kd}$ is invariant. Since $\AS=F-\mathrm{id}$ is additive
+($F$ is a ring endomorphism),
+\[
+\AS\vY=\bigoplus_{i=1}^d\AS\vX_i=\bigoplus_{i=1}^d\vf(x_i)=\vec\alpha .
+\]
+Hence there is a well-defined $R^{\otimes_kd}$-algebra homomorphism
+\[
+\phi\colon\; T:=R^{\otimes_kd}[\vZ]\big/\bigl(\AS\vZ\ominus\vec\alpha\bigr)
+\;\longrightarrow\;\bigl(S^{\otimes_kd}\bigr)^{G^{d-1}},
+\qquad \vZ\mapsto\vY .
+\]
+By Lemma~\ref{lem:asw-etale}, $\Spec T$ is a $G$-torsor over $U^d$. The target is the
+product torsor (the contracted product of the $p_i^{-1}\cP'$ along the sum map
+$G^d\to G$), a $G$-torsor over $U^d$ by the thesis's construction of torsor products;
+its residual $G$-action is induced by $(g,0,\dots,0)\in G^d$, i.e.\
+$\vX_1\mapsto\vX_1\oplus\vec g$, under which $\vY\mapsto\vY\oplus\vec g$. So
+$\Spec\phi$ is a $G$-equivariant morphism of $G$-torsors over $U^d$, hence an
+isomorphism by Lemma~\ref{lem:torsor-mor}.
+
+\ref{it:symm} $S_d$ acts on $S^{\otimes_kd}$ by permuting the tensor factors, i.e.\
+$x_i\mapsto x_{\sigma(i)}$, $\vX_i\mapsto\vX_{\sigma(i)}$. As in \ref{it:inv}, each
+$\sigma\in S_d$ is a ring automorphism, so $W_r(\sigma)$ is componentwise and commutes
+with $\oplus$. Since $\oplus$ is commutative
+and associative, permuting the summands of a Witt sum leaves it unchanged; thus
+$\vY$ is $S_d$-invariant (componentwise, as before) and
+$W_r(\sigma)(\vec\alpha)=\bigoplus_i\vf(x_{\sigma(i)})=\vec\alpha$, so each
+$\alpha_n\in R^{\otimes_kd}$ is a symmetric Laurent polynomial, hence lies in
+$k[e_1,\dots,e_d,e_d^{-1}]$ (the $S_d$-invariants of $R^{\otimes_kd}$, as in the
+thesis). By Lemma~\ref{lem:asw-etale}, $T$ is free over $R^{\otimes_kd}$ with basis the
+monomials $\prod_nY_n^{a_n}$, $0\le a_n<p$, each of which is $S_d$-invariant; writing an
+element in this basis, it is $S_d$-invariant if and only if all its coefficients are.
+Therefore
+\[
+T^{S_d}=\bigl(R^{\otimes_kd}\bigr)^{S_d}[\vY]\big/\bigl(\AS\vY\ominus\vec\alpha\bigr)
+=k[e_1,\dots,e_d,e_d^{-1}][\vY]\big/\bigl(\AS\vY\ominus\vec\alpha\bigr).
+\]
+
+The final statement follows exactly as in the $r=1$ case: by definition $\cP'^{[d]}$ is
+the $\Xi=G^{d-1}\rtimes S_d$-quotient above, and its restriction to
+$\Spec\widehat K_\eta$ along
+$k[e_1,\dots,e_d,e_d^{-1}]\to\widehat K_\eta$ is the ASW cover of the image of
+$\vec\alpha$ in $W_r(\widehat K_\eta)$.
+\end{proof}
+
+\begin{remark}
+The proof via Lemma~\ref{lem:torsor-mor} replaces the rank count of the $r=1$ argument
+($p^{rd}/p^{r(d-1)}=p^r$ together with irreducibility of the invariant's minimal
+equation); the rank count alone would still require showing that $\vY$ generates the
+invariant ring, which is exactly what equivariance gives for free. Note also that a pure
+restriction argument on $H^1$'s (``the class of the product torsor is the sum of the
+pulled-back characters'') identifies the cover over $k(x_1,\dots,x_d)$ but does
+\emph{not} by itself descend it to the symmetric base $k(e_1,\dots,e_d)$; the
+invariant-theoretic computation above is what effects the descent.
+\end{remark}
+
+%====================================================================
+\section{The degree count}
+%====================================================================
+
+This section reproduces, for completeness, the two elementary lemmas and the estimate of
+the earlier note (verified line by line in the review), now fed with the legitimate
+inputs provided by Lemma~\ref{lem:realization-Wr} and
+Proposition~\ref{prop:cover-identification}. Throughout, $\vf$ is the reduced polynomial
+vector of Lemma~\ref{lem:realization-Wr}, $m_j=\deg_{x^{-1}}f_j$ satisfies
+$m_j<d\,p^{\,j-(r-1)}$, and $y_i:=1/x_i$, so that $f_j(x_i)\in y_i\,k[y_i]$ is a
+polynomial in $y_i$ of degree $m_j$.
+
+\begin{lemma}[symmetric regularity]\label{lem:symreg}
+Let $\Phi\in k[y_1,\dots,y_d]^{S_d}$ be symmetric with every monomial of total degree
+$<d$. Then $\Phi\in\kappa(\eta)=k(e_1/e_d,\dots,e_{d-1}/e_d)$; in particular $\Phi$ is
+regular at $\eta$.
+\end{lemma}
+
+\begin{proof}
+$\Phi$ is a $k$-combination of monomial symmetric functions $m_\lambda(y)$ with
+$|\lambda|<d$. Each $m_\lambda(y)$ is an isobaric polynomial in the elementary symmetric
+functions $e_\mu(y)=\prod_ie_{\mu_i}(y)$ with $\mu\vdash|\lambda|$; every part
+$\mu_i\le|\lambda|<d$, so only $e_1(y),\dots,e_{d-1}(y)$ occur --- never $e_d(y)$. Now
+$e_k(y)=e_{d-k}(x)/e_d(x)$, which for $1\le k\le d-1$ lies in $\kappa(\eta)$. Hence
+$\Phi\in\kappa(\eta)\subset\widehat\Oo_\eta=\kappa(\eta)[[e_d]]$.
+\end{proof}
+
+\begin{lemma}[isobaricity of Witt addition]\label{lem:isobaric}
+Give the variable $f_j(x_i)$ the weight $p^j$. Then each component
+$\alpha_n=\bigl(\bigoplus_{i=1}^d\vf(x_i)\bigr)_n$ is isobaric of weight $p^n$: every
+monomial $\prod_{i,j}\bigl(f_j(x_i)\bigr)^{e_{ij}}$ of $\alpha_n$ satisfies
+$\sum_{i,j}e_{ij}\,p^{\,j}=p^{\,n}$.
+\end{lemma}
+
+\begin{proof}
+The $n$-th ghost component $w_n(\va)=\sum_{j\le n}p^ja_j^{p^{n-j}}$ is isobaric of weight
+$p^n$ when $\deg a_j=p^j$. The universal addition polynomials $S_n$ are determined over
+$\Z$ by additivity of the ghost components and the recursion
+$p^nS_n=\sum_jp^j\bigl(a_j^{p^{n-j}}+b_j^{p^{n-j}}\bigr)-\sum_{j<n}p^jS_j^{p^{n-j}}$,
+which preserves isobaricity of weight $p^n$ by induction; the same holds after reduction
+mod $p$ and under $d$-fold iteration of $\oplus$. Hence $\alpha_n$, a universal isobaric
+polynomial evaluated at the $f_j(x_i)$, is isobaric of weight $p^n$.
+\end{proof}
+
+\begin{theorem}[regularity of all Witt components]\label{thm:regularity}
+With $\vf$ as in Lemma~\ref{lem:realization-Wr}, every component $\alpha_n$
+$(0\le n\le r-1)$ of $\vec\alpha=\bigoplus_{i=1}^d\vf(x_i)$ lies in $\kappa(\eta)$; in
+particular $\vec\alpha\in W_r\bigl(\widehat\Oo_\eta\bigr)$.
+\end{theorem}
+
+\begin{proof}
+Fix $n\le r-1$ and a monomial $\prod_{i,j}\bigl(f_j(x_i)\bigr)^{e_{ij}}$ of $\alpha_n$;
+set $E_j:=\sum_ie_{ij}$, so $\sum_jE_jp^{\,j}=p^{\,n}$ by Lemma~\ref{lem:isobaric}.
+Expanding each $f_j(x_i)$ as a polynomial in $y_i$ of degree $m_j$, every resulting
+monomial in the $y_i$ has total degree
+\[
+\le\;\sum_{i,j}e_{ij}\,m_j\;=\;\sum_jE_j\,m_j
+\;<\;\sum_jE_j\,d\,p^{\,j-(r-1)}
+\;=\;d\,p^{-(r-1)}\sum_jE_jp^{\,j}
+\;=\;d\,p^{\,n-(r-1)}\;\le\;d,
+\]
+strictly: some $E_j>0$ (as $\sum_jE_jp^j=p^n>0$), and the pole bound
+$m_j<d\,p^{\,j-(r-1)}$ of Lemma~\ref{lem:realization-Wr}\ref{it:polebound} is strict
+even when $m_j=0$. Thus every monomial of $\alpha_n$ --- a symmetric polynomial in
+$y_1,\dots,y_d$ by Proposition~\ref{prop:cover-identification}\ref{it:symm} --- has
+total $y$-degree $<d$, and Lemma~\ref{lem:symreg} gives $\alpha_n\in\kappa(\eta)$.
+\end{proof}
+
+%====================================================================
+\section{Proof of the theorem}
+%====================================================================
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+By the standing reduction of \S1 we may assume $k$ algebraically closed and $\cP\to U$
+totally ramified at $P$ with inertia all of $G$, so that $\cQ:=\cP_x$ is a connected
+$\Z/p^r\Z$-torsor over $\Spec k((x))$ with ramification bounded by $d=\deg\ndls$.
+
+Lemma~\ref{lem:realization-Wr} produces a torsor $\cP'\to\bG_m$, defined by a reduced
+polynomial vector $\vf$ with $p^{r-1-j}m_j<d$, with $\cP'_x\cong\cQ$. By the reduction
+to $\bP^1$ (\texttt{cor:reduction\_to\_P1}, valid for arbitrary finite abelian $G$), the
+ramification of $\cP^{[d]}$ at $\eta_\ndls$ agrees with that of $\cP'^{[d]}$ at
+$\eta_{d\cdot0}$; so we may assume $C=\bP^1_k$, $\mdls=d\cdot0+\infty$,
+$\ndls=d\cdot0$, $\cP=\cP'$.
+
+By Proposition~\ref{prop:cover-identification},
+\[
+\cP'^{[d]}\big|_{\Spec\widehat K_\eta}
+\;\cong\;
+\Spec\;\widehat K_\eta[\vZ]\big/\bigl(\AS\vZ\ominus\vec\alpha\bigr),
+\qquad
+\vec\alpha=\bigoplus_{i=1}^d\vf(x_i),
+\]
+with $\widehat K_\eta=\kappa(\eta)((e_d))$ the complete local field at $\eta_\ndls$ and
+$\widehat\Oo_\eta=\kappa(\eta)[[e_d]]$ its valuation ring.
+
+By Theorem~\ref{thm:regularity}, $\vec\alpha\in W_r(\kappa(\eta))\subset
+W_r(\widehat\Oo_\eta)$. Hence, by Lemma~\ref{lem:asw-etale} applied over
+$A=\widehat\Oo_\eta$, the ASW cover $\AS\vZ=\vec\alpha$ is finite \'etale over
+$\widehat\Oo_\eta$, and $\cP'^{[d]}\big|_{\Spec\widehat K_\eta}$ is its generic fibre:
+every field factor of $\widehat K_\eta[\vZ]/(\AS\vZ\ominus\vec\alpha)$ is the fraction
+field of a finite \'etale $\widehat\Oo_\eta$-algebra, i.e.\ an unramified extension of
+$\widehat K_\eta$ with respect to the discrete valuation ring $\widehat\Oo_\eta$.
+By \texttt{definition:tamely\_ramified\_in\_codim\_1}, $\cP^{[d]}$ is unramified at
+$\eta_\ndls$.
+\end{proof}
+
+\begin{remark}[this is a direct proof, not an induction]\label{rem:direct}
+The argument proves all $r$ simultaneously; it reproves the case $r=1$
+(\texttt{cor:ramification\_after\_blowup\_is\_tame}(1)) as the special case of a vector
+of length one and never invokes it. In particular, when merging into the thesis, the
+current proof body of
+\texttt{theorem:ramification\_after\_blowup\_is\_tame\_for\_p\_power} from the sentence
+``We proceed by induction on $r$'' onward should be \emph{replaced} by
+\S\S2--5 above --- including the step which applies the $r=1$ theorem to the top layer
+$\cP\to\cP'$: that step is unjustified, since the hypothesis bounds the ramification of
+$\cP$ in \emph{upper} numbering, while the break of the top degree-$p$ layer is the
+largest \emph{lower}-numbering break, which can be of size about $p^{r-1}d$. The
+reduction paragraph preceding it (algebraically closed base, totally ramified, inertia
+all of $G$) is correct for all $r$ and is exactly the standing reduction of \S1.
+\end{remark}
+
+\begin{remark}[bookkeeping of the estimate]
+As in the earlier note, the bound is exact: the weight $p^{\,j-(r-1)}$ is paired against
+the isobaricity constraint $\sum_jE_jp^{\,j}=p^{\,n}$, so the estimate
+$d\,p^{\,n-(r-1)}\le d$ is independent of how the Witt carries distribute the exponents
+$E_j$; the hypothesis ``break $<d$ at $p_\infty$'' is used at \emph{every} Witt level at
+once. Remark~\ref{rem:sanity} records the extreme case: components with
+$p^{\,r-1-j}\ge d$ vanish outright in the reduced representative.
+\end{remark}
+
+\begin{thebibliography}{9}
+
+\bibitem{Schmid1937}
+H.~L.~Schmid,
+\emph{Zur Arithmetik der zyklischen $p$-K\"orper},
+J. Reine Angew. Math. \textbf{176} (1937), 161--167.
+
+\bibitem{KanesakaSekiguchi1979}
+K.~Kanesaka and K.~Sekiguchi,
+\emph{Representation of Witt vectors by formal power series and its applications},
+Tokyo J. Math. \textbf{2} (1979), no.~2, 349--370.
+
+\bibitem{Thomas2005}
+L.~Thomas,
+\emph{Ramification groups in Artin--Schreier--Witt extensions},
+J. Th\'eor. Nombres Bordeaux \textbf{17} (2005), no.~2, 689--720.
+
+\bibitem{ElderKeating2025}
+G.~G.~Elder and K.~Keating,
+\emph{Artin--Schreier--Witt extensions and ramification breaks},
+preprint (2025), arXiv:2503.16830.
+
+\end{thebibliography}
+
+\end{document}
