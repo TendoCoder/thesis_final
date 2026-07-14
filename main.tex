@@ -1,4 +1,4 @@
-\documentclass[11pt]{article}
+\documentclass[11pt]{report}
 \usepackage{geometry}\geometry{margin=1in}
 \usepackage[T1]{fontenc}
 % if using luatex to compile, the following is unnecessary 
@@ -41,26 +41,32 @@ following the subsequent extensions to the ramified case developed by Takeuchi a
 \newpage
 \tableofcontents
 \newpage
-\section{Introduction}
+\chapter*{Introduction}
+\addcontentsline{toc}{chapter}{Introduction}
 
 \input{sections/Introduction.tex}
 
 
+\chapter{Ramification After Blowup Is Tame}\label{section:ramification_after_blowup_is_tame}
+
+This chapter is devoted to the proof of \Cref{theorem:SymmetricPowerOfSheavesIsTamelyRamifiedReduction}.
+We begin with the necessary preliminaries, and then turn to the proof itself.
+
 \input{sections/Preliminaries/Preliminaries.tex}
 
 \input{sections/RamificationAfterBlowupIsTame.tex}
+
+\chapter{Geometric Class Field Theory}\label{section:gcft}
+
 \input{sections/GeometricClassFieldTheory.tex}
-
-
-
-
 
 % \section{Ramification of Sheaves after Blowup}
 % \input{sections/RamificationAfterBlowup.tex}
 \section{\texorpdfstring{Proof of \Cref{thm:GCFT_reduced}}{Proof of theorem 2}}
 \input{sections/GeometricCFT/ProofOfReducedTheorem.tex}
 
-\input{proof_completes/proof_complete.tex}
+\appendix
+\chapter{A Wrong Path}\label{section:a_wrong_path}
 \input{a_wrong_path/a_wrong_path.tex}
 \printbibliography
 

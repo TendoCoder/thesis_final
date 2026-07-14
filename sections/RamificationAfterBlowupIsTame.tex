@@ -1,5 +1,4 @@
-\section{Ramification After Blowup Is Tame}\label{section:ramification_after_blowup_is_tame}
-Throughout this section let $C$ be a projective smooth geometrically connected curve over $k$.
+Throughout this chapter let $C$ be a projective smooth geometrically connected curve over $k$.
 Let $\mdls = \sum n_i P_i$ be a fixed modulus. Let $U=C \setminus \mdls$.
 For any modulus $\ndls \subset \mdls$, we define $Z_\ndls$ as the closed subscheme of $C^{(\deg \ndls)} = \Sym_{k}^{\deg \ndls}(C)$ 
 defined by $\ndls$ as a point of $C^{(\deg \ndls)}$
@@ -15,7 +14,7 @@ Z_\ndls \arrow[r, hook]           & C^{(\deg \ndls)}
 \end{tikzcd}   
 \end{equation}
 
-Our main goal in this section is to prove \Cref{theorem:SymmetricPowerOfSheavesIsTamelyRamifiedReduction}:
+Our main goal in this chapter is to prove \Cref{theorem:SymmetricPowerOfSheavesIsTamelyRamifiedReduction}:
 \begin{theorem}\label{theorem:torsors_after_blowup_is_tame}
     Let $G$ be a finite abelian group. And let $\cP \to U$ be a $G$-torsor in $U_{\text{\'Et}}$ with ramification bounded by $\mdls = \sum n_i P_i$.
     Let $\ndls = n_i P_i \subset \mdls$ be a sub modulus of $\mdls$. Then $\cP^{[\deg \ndls]}$ is tamely ramified at $\eta_\ndls$.
@@ -28,7 +27,7 @@ Next, we extend the proof to cyclic $p$-groups $G = \mathbb{Z}/p^r\mathbb{Z}$.
 Finally, for a general finite abelian group $G$, we conclude by applying the structure theorem for finite abelian groups 
 and \Cref{prop:quotient_torsors} to decompose the torsor into these constituent cases.
 
-\subsection{\texorpdfstring{Ramification of $G$-Torsors}{Ramification of G-Torsors}}
+\section{\texorpdfstring{Ramification of $G$-Torsors}{Ramification of G-Torsors}}
 
 Generally speaking, assume we are given a locally Noetherian scheme $X$, 
 a dense open $U \subset X$, a finite \'etale morphsm $f: Y \to U$ and a prime divisor $Z \subset X$ such that $Z \cap U = \emptyset$
@@ -116,7 +115,7 @@ Under this correspondence, the torsor $\mathcal{P}$ has ramification bounded by 
 if and only if the homomorphism $\rho$ trivializes the $r$-th ramification group in the upper numbering:
 \[ \rho(G_{\widehat{K}_P}^r) = \{ 1 \} \]
 
-\subsubsection*{Basic Properties of Ramification of \texorpdfstring{$G$-Torsors}{G-Torsors}}
+\subsection*{Basic Properties of Ramification of \texorpdfstring{$G$-Torsors}{G-Torsors}}
 We now prove some elementary lemmas regarding the ramification of $G$-torsors.
 \begin{lemma}\label{lemma:bounding_ramification_of_contracted_product}
     Let $G$ be a finite abelian group and $X$ be a locally Noetherian scheme over a field $k$. 
@@ -424,7 +423,7 @@ Since the inertia group $I_{\eta_H}$ is trivial, the local ring extension $A \ho
 
 
 
-\subsection{Proof of Theorem \ref{theorem:SymmetricPowerOfSheavesIsTamelyRamifiedReduction}}
+\section{Proof of Theorem \ref{theorem:SymmetricPowerOfSheavesIsTamelyRamifiedReduction}}
 
 We argue that it is enough to prove \Cref{theorem:torsors_after_blowup_is_tame} for $C=\bP^1_k$, $\ndls = d \cdot 0$, and $\cP \to \bG_m = \bP^1_k \setminus \{0, \infty\}$ a $G$-torsor given by an explicit global equation.
 Informally, this is because \emph{the ramification of $\cP^{[d]}$ at $\eta_\ndls$ is a formal--local invariant of $\cP$ at $P$}:
@@ -437,7 +436,7 @@ constructions at hand, and it is proved by checking each construction separately
 The second ingredient of the reduction is \Cref{lemma:realization_over_Gm}: every local torsor class appearing in
 \Cref{theorem:torsors_after_blowup_is_tame} is realized by an explicit torsor over $\bG_m \subset \bP^1_k$.
 
-Throughout this subsection we assume that $k$ is algebraically closed; in particular every closed point of $C$ is $k$-rational, and $\ndls = dP$ with $P \in C(k)$ and $d = \deg \ndls$.
+Throughout this section we assume that $k$ is algebraically closed; in particular every closed point of $C$ is $k$-rational, and $\ndls = dP$ with $P \in C(k)$ and $d = \deg \ndls$.
 
 \begin{rem*}
     The assumption that $k$ is algebraically closed is harmless in our situation, for the following reasons.
@@ -847,7 +846,7 @@ So, we conclude
     \end{enumerate}
 \end{cor}
 \begin{proof}
-    By the remark opening this subsection we may assume $k$ is algebraically closed, so that $P \in C(k)$ and
+    By the remark opening this section we may assume $k$ is algebraically closed, so that $P \in C(k)$ and
     $\deg \ndls = n$. The restriction $\cP_x$ of $\cP$ to the punctured formal disc at $P$ is tamely ramified, resp.\ a
     $\Z/p\Z$-torsor with ramification bounded by $n$, so by \Cref{lemma:realization_over_Gm} there is a torsor
     $\cP' \to \bG_m$ of the corresponding explicit form with $\cP'_x \cong \cP_x$. By \Cref{cor:reduction_to_P1}, the
@@ -862,7 +861,7 @@ Idea: decompose $G$ be the structure theorem, and finish by the above.
 
 
 
-\subsection{Extending To Product of Blowups}\label{subsection:ram_prod_analysis}
+\section{Extending To Product of Blowups}\label{subsection:ram_prod_analysis}
 We conclude this sesction by proving sume auxilary results that would be useful in \Cref{section:gcft}.
 
 
@@ -893,7 +892,7 @@ The proposition is purely local in nature, it suffices to consider the case wher
 More precisely, by the smoothness of $X$ and $Y$, we may restrict our attention to open neighborhoods of $x$ and $y$ that are etale over affine spaces. 
 The rest of this section treats that case.
 
-\subsubsection*{The Affine Case}
+\subsection*{The Affine Case}
 Let $X = \mathbb{A}_k^n$ be the affine $n$-space over a field $k$, and let $0 \in X$ be the origin. 
 Let $\tilde{X} = \text{Bl}_0(X)$ be the blowup of $X$ at the origin. 
 Recall that $\tilde{X} \subset X \times_k \mathbb{P}^{n-1}_k$ is defined by the equations $x_i u_j = x_j u_i$, where $[u_1 : \dots : u_n]$ are the homogeneous coordinates of 
@@ -916,7 +915,7 @@ Since the term in parentheses is a unit in $R$, the valuation $\nu_E$ associated
 $$\nu_E(M) = \sum a_i = \deg M$$
 Consequently, for any polynomial $f = f_d + f_{d+1} + \dots + f_l$, where $f_i$ is the homogeneous part of degree $i$, we have $\nu_E(f) = d$ (the order of vanishing at the origin).
 
-\subsubsection*{The Product Case}
+\subsection*{The Product Case}
 Now, let $X = \mathbb{A}^n$ and $Y = \mathbb{A}^m$ with origins $x=0$ and $y=0$. 
 As before, $\text{Bl}_0(X) \subset X \times \mathbb{P}^{n-1}$ and $\text{Bl}_0(Y) \subset Y \times \mathbb{P}^{m-1}$ have exceptional divisors $E_X$ and $E_Y$ respectively.
 Consider the product $X \times_k Y \cong \mathbb{A}_k^{n+m}$. 
@@ -929,7 +928,7 @@ x_i w_{n+j} = y_j w_i & 1 \le i \le n, \,\, 1 \le j \le m
 \end{cases}$$
 where $[w_1 : \dots : w_{n+m}]$ are the homogeneous coordinates of $\mathbb{P}^{n+m-1}$. The exceptional divisor $E_{X \times Y}$ is isomorphic to $\mathbb{P}^{n+m-1}$.
 
-\subsubsection*{Comparison of Blowups}
+\subsection*{Comparison of Blowups}
 
 Both $\text{Bl}_0(X) \times_k \text{Bl}_0(Y)$ and $\text{Bl}_{(0,0)}(X \times_k Y)$ are birational to $X \times_k Y$. 
 They share a common dense open set $\tilde{U}$ defined by the condition that neither the $X$-coordinates nor the $Y$-coordinates vanish simultaneously in the projective space:
@@ -944,7 +943,7 @@ $$
     where $f_1$ maps the coordinates to the respective projectivizations $[w_1: \dots : w_n]$ and $[w_{n+1}: \dots : w_{n+m}]$.
     Also note that the generic point $\eta_{X \times Y}$  of $E_{X \times_k Y}$ is inside $\tilde{U}$
 
-\subsubsection*{Extensions of DVRs}
+\subsection*{Extensions of DVRs}
 Let $S$ be the local ring of the generic point $\eta_{X\times Y}$ of $E_{X \times Y}$ in $\tilde{U}$. 
 On the chart where $w_1 \neq 0$ and $w_{n+1} \neq 0$, we have 
 $x_1 = (\frac{w_1}{w_{n+1}}) y_1$. 
@@ -967,7 +966,7 @@ The pullback of $E_X \times_k \text{Bl}_0(Y)$ along $f_1$ induces an extension o
 \end{enumerate}
 Since this extension is generated by transcendental elements, it is separable and formally smooth at the maximal ideal (\stackstag{09E7}).
 
-\subsubsection*{Ramification of $G$-Torsors}
+\subsection*{Ramification of $G$-Torsors}
 Let $G$ be a finite abelian group. 
 Let $\mathcal{Q}$ be a $G$-torsor on an open $U \subset \text{Bl}_0(X)$ disjoint from $E_X$. 
 %Suppose $\mathcal{Q}$ has ramification bounded by $r$ at the generic point $\eta_X$ of $E_X$.

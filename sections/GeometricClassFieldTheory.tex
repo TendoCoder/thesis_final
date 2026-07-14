@@ -1,5 +1,4 @@
-\section{Geometric Class Field Theory}\label{section:gcft}
-The main theorem of this section is
+The main theorem of this chapter is
 \begin{restatable}{theorem}{SymmetricPowerOfSheafIsTamelyRamified}\label{theorem:SymmetricPowerOfSheafIsTamelyRamified}
      Let $\Lambda$ be a finite ring of cardinality invertible in $k$, and let $\cF$ be an \'etale sheaf of $\Lambda$-modules, locally free of rank 1 on $U$, with ramification bounded by $\mdls$. 
      Considering $U^{(d)}$ as an open subscheme of the blowup $\tilde{C}^{(d)}_\mdls$ of $C^{(d)}$, we have that
@@ -10,7 +9,7 @@ From which we will deduce \Cref{thm:GCFT_reduced}.
 
 We start by recalling the necessarily material, and then move to proving this theorem.
 
-\subsection{Etale Fundamental Groups and Tame Fundamental Groups}
+\section{Etale Fundamental Groups and Tame Fundamental Groups}
 We recall the definition and basic properties of the etale fundamental group, following stacks project 
 \stackstag{0BQ6}
 \begin{prop}[\stackstag{0C0J}]
@@ -36,13 +35,13 @@ of fundamental groups.
 
 
 
-\subsection{Generalized Picard Scheme}
+\section{Generalized Picard Scheme}
 We recall the notion of generalized Jacobian varieties and study their fundamental properties. The material presented here is primarily adapted from \cite{Guignard2018} and \cite{takeuchi2019blow}. For further background on the general theory of abelian varieties and Jacobians, the reader may also consult \cite{milneAV}.
 Let $S$ be a scheme and let $C$ be a projective smooth $S$-scheme whose geometric fibers are connected and of dimension 1. Let $\mdls$ be a modulus on $C$, defined as an effective Cartier divisor of $C/S$ 
 (i.e., a closed subscheme of $C$ which is finite flat of finite presentation over $S$).
 We denote the projection $C \times_S T \to T$ by $\text{pr}$ for any $S$-scheme $T$.
 
-\subsubsection*{The Functor of Points}
+\subsection*{The Functor of Points}
 Let $d$ be an integer. For an $S$-scheme $T$, we consider the set of data $(\cL, \psi)$ where:
 \begin{itemize}
     \item $\cL$ is an invertible sheaf of degree $d$ on $C_T$.
@@ -57,7 +56,7 @@ Two such pairs $(\cL, \psi)$ and $(\cL', \psi')$ are said to be isomorphic if th
 \]
 We define the presheaf $\text{Pic}_{C, \mdls}^{d, \text{pre}}$ on $\text{Sch}/S$ by assigning to $T$ the set of isomorphism classes of such pairs. Let $\PicCm[d]$ denote the \'etale sheafification of this presheaf.
 
-\subsubsection*{Representability and Structure}
+\subsection*{Representability and Structure}
 The fundamental properties of this functor are as follows:
 \begin{enumerate}
     \item $\text{Pic}_{C, \mdls}^{d}$ is represented by an $S$-scheme. (Note: If $\mdls$ is faithfully flat over $S$, the presheaf is already a \'etale sheaf).
@@ -65,7 +64,7 @@ The fundamental properties of this functor are as follows:
     \item For any $d$, $\text{Pic}_{C, \mdls}^{d}$ is a $\text{Pic}_{C, \mdls}^{0}$-torsor.
 \end{enumerate}
 In the case where $\mdls = 0$, we recover the standard Jacobian variety, denoted simply as $\text{Pic}_C^d$.
-\subsubsection*{Relation to the Standard Jacobian}
+\subsection*{Relation to the Standard Jacobian}
 We now examine the behavior of the generalized Picard scheme under the variation of the modulus. By viewing the structure along the modulus as an additional rigidification, we obtain natural transition maps corresponding to the inclusion of moduli.
 
 Let $\mdls_1$ and $\mdls_2$ be moduli such that $\mdls_1 \subset \mdls_2$. There exists a natural map 
@@ -79,7 +78,7 @@ In particular, for any modulus $\mdls$, there is a natural surjective morphism o
 \]
 
 
-\subsubsection*{Local Freeness and Base Change}
+\subsection*{Local Freeness and Base Change}
 %\textcolor{red}{there is ${\mdls}$ here - should fix that}
 Let $\mdls$ be a modulus which is everywhere strictly positive. Let $g$ denote the genus of $C$, which is a locally constant function on $S$. We restrict our attention to degrees $d$ satisfying the condition:
 \begin{equation} \label{equation:degree-condition}
@@ -100,7 +99,7 @@ In particular, following \cite{Guignard2018}, if $\cL$ is invertible $\cO_C$-mod
 
 For further background and verification of these constructions, we refer the reader to Milne's notes on abelian Varieties (\cite{milneAV}).
 
-\subsection{The Abel-Jacobi Morphism and its Fibers}\label{section:AbelJacobi}
+\section{The Abel-Jacobi Morphism and its Fibers}\label{section:AbelJacobi}
 
 
 Let $U = C \setminus \mdls$ be the complement of the modulus in $C$.
@@ -136,7 +135,7 @@ see \cite{tendler2015geometricclassfieldtheory} Propositions 3.13-3.14, or \cite
 \end{proof}
 
 
-\subsection{Compactification of Blowup of Symmetric Powers of a Curve}\label{section:BlowupOfSymmetricPowerOfCurves}
+\section{Compactification of Blowup of Symmetric Powers of a Curve}\label{section:BlowupOfSymmetricPowerOfCurves}
 We recall that our objective is to descend the local system $\cF^{[d]}$ from $U^{(d)}$ to $\PicCm[d]$ along the 
 Abel-Jacobi map $\Phi_d$:
 
@@ -216,9 +215,9 @@ Z_0 \arrow[r, "c.i"]           & C^{(d)}
 
 Also note that $ E_0 \times_{C^{(d)}} \Cmod{d} = Z_0 \times_{C^{(d)}} \Cmod{d}$
 
-\subsection{Proof of \Cref{theorem:SymmetricPowerOfSheafIsTamelyRamified}}
+\section{Proof of \Cref{theorem:SymmetricPowerOfSheafIsTamelyRamified}}
 In what follows we reduce \Cref{theorem:SymmetricPowerOfSheafIsTamelyRamified} to \Cref{theorem:torsors_after_blowup_is_tame}
-\subsubsection{Reduction Lemmas}
+\subsection{Reduction Lemmas}
 
 The following lemma is adapted from \cite{takeuchi2019blow} (Lemma 4.1)
 \begin{lemma}\label{lemma:takeuchi_lemma}
@@ -376,7 +375,7 @@ the tame ramification of the box product at $\theta$ descends to the tame ramifi
      It follows from \Cref{prop:ramification-external-product} and \Cref{prop:symmetric_powers_on_curves}
 \end{proof}
 
-\subsection{\texorpdfstring{Proof of \Cref{theorem:SymmetricPowerOfSheafIsTamelyRamified}}{Proof of Theorem X}}
+\section{\texorpdfstring{Proof of \Cref{theorem:SymmetricPowerOfSheafIsTamelyRamified}}{Proof of Theorem X}}
 \begin{proof}[Proof of \Cref{theorem:SymmetricPowerOfSheafIsTamelyRamified}]
      Let $\cF$ be as in \Cref{theorem:SymmetricPowerOfSheafIsTamelyRamified}, $\mdls = \sum_{i=1}^n k_P P$ with $\deg P = d_P$  
      Then by \Cref{theorem:SymmetricPowerOfSheavesIsTamelyRamifiedReduction} for every $\ndls \subset \mdls$ of the form $\ndls = k_P P$, $\cF^{[\deg \ndls]}$ is at most tamely ramified at $\eta_\ndls$.
