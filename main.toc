@@ -4,10 +4,11 @@
 \contentsline {section}{\numberline {1.1}Torsors and Rank-One Local Systems}{6}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Torsors on the \'Etale Sites}{8}{section.1.2}%
 \contentsline {section}{\numberline {1.3}Symmetric Powers of Schemes and Torsors}{10}{section.1.3}%
-\contentsline {chapter}{\numberline {2}Ramification After Blowup Is Tame}{17}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Local Ramification Preliminaries}{17}{section.2.1}%
-\contentsline {subsection}{\numberline {2.1.1}Witt Vectors and Artin--Schreier--Witt Theory}{20}{subsection.2.1.1}%
-\contentsline {section}{\numberline {2.2}Algebraic Geometry}{26}{section.2.2}%
+\contentsline {section}{\numberline {1.4}Basic Geometric Lemmas}{17}{section.1.4}%
+\contentsline {chapter}{\numberline {2}Ramification After Blowup Is Tame}{19}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Local Ramification Preliminaries}{19}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Witt Vectors and Artin--Schreier--Witt Theory}{22}{subsection.2.1.1}%
+\contentsline {section}{\numberline {2.2}A Base-Change Lemma for Galois Extensions}{28}{section.2.2}%
 \contentsline {section}{\numberline {2.3}Ramification of $G$-Torsors}{30}{section.2.3}%
 \contentsline {section}{\numberline {2.4}Proof of Theorem \ref {theorem:SymmetricPowerOfSheavesIsTamelyRamifiedReduction}}{34}{section.2.4}%
 \contentsline {section}{\numberline {2.5}Extending To Product of Blowups}{47}{section.2.5}%

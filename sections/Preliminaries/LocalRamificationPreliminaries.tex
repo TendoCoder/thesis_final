@@ -169,102 +169,7 @@ change of variables such that $a=u^{-m}$.
 %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%%
 \input{witt/WittVectorPrerequisites.tex}
 
-%%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%%
-%          ALGEBRAIC GEOMETRY
-%%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%%
-\section{Algebraic Geometry}
-In this section we group together some general theorems in algebraic geometry that we will be employing throughtout the text. 
-All schemes are assumed to be locally of finite type. 
-%% [REVIEW: never cited despite having a full proof -- likely needed when applying lemma:descend_ramification_along_etale (f(xi_X)=xi_Y hypotheses); add a label and cite it at those applications, or remove]
-\begin{theorem}
-    Let $f:X \to Y$ be a finite flat map between integral schemes, of finite type over a field $k$. if $Z \subset X$ is a prime divisor with generic point $\eta_Z$, then $f(Z) \subset X$
-    is a prime divisor with generic point $\eta_{f(Z)}$ satisfying $f(\eta_Z)= \eta_{f(Z)}$
-\end{theorem}
-\begin{proof}
-    $f$ is finite hence proper hence closed so $f(Z)$ is closed subset of $Y$, it is irreducible as the image of an irreducible.
-    Since $Z = \overline{\{ \eta_Z \}}$ we get: 
-    $$\{f(\eta_Z)\} \subset f(Z) = f(\overline{\{\eta_Z\}}) \subseteq \overline{f(\{\eta_Z\})} = \overline{\{f(\eta_Z)\}}$$
-    And since $f(Z)$ is closed we get $f(Z) = \overline{\{f(\eta_Z)\}}$.
-
-    For flat map of integral schemes we have for every $x \in X$, $y=f(x)$ the dimension formula:
-    $$\text{dim}(\mathcal{O}_{X,x}) = \text{dim}(\mathcal{O}_{Y,y}) + \text{dim}(\mathcal{O}_{X_y, x})$$
-    And since $\text{dim}(\mathcal{O}_{X_y, x}) = 0$ we get $\text{dim}(\mathcal{O}_{X,x}) = \text{dim}(\mathcal{O}_{Y,y})$
-    concluding that $f(Z)$ is a prime divisor as well. 
-\end{proof}
-
-A known theorem states that: 
-\begin{theorem}\label{theorem:int_geoint_implies_productint}
-    Let $X, Y$ be two integral schemes over a field $k$. If $X$ is geometrically integral then $X \times_k Y$ 
-    is integral.
-    If both $X,Y$ are geometrically integral, then $X \times_k Y$ is geometrically integral. 
-\end{theorem}
-
-%% [REVIEW: unlabeled & never cited -- smoothness/integrality of C^{(d)} is assumed silently throughout (e.g. RamificationAfterBlowupIsTame ~184, blowup integrality); add a label and cite it. Note: the proof environment is nested inside the theorem environment]
-\begin{theorem}
-    Let $C$ be smooth projective curve geometrically connected over a field $k$. Then:
-    \begin{enumerate}
-        \item $C^{(d)}$ is smooth
-        \item For every $d$, $C^{(d)}$ is integral.
-        \item For every $d$, $C^{(d)}$ is geometrically integral.
-        \item The product of every finite number of $C^{(d)}$ is geometrically integral. 
-    \end{enumerate}
-    \begin{proof}
-        \begin{enumerate}
-            \item Let $t_i$ be a local parameter for $C$ at $P_i$. The local ring of the product $C^d$ at the point $(P_1, \dots, P_d)$ is isomorphic $k[[t_1, t_2, \dots, t_d]]$
-            and the local ring of the qoutient at the divisor $D=\sum P_i$ is $k[[t_1, \dots, t_d]]^{S_d}$ which is 
-            isomorphic to $k[[t_1, \dots, t_d]]^{S_d} \cong k[[s_1, \dots, s_d]]$ where the $s_i$ are the 
-            symmetric polynomials, hence this ring is regular local ring. 
-            \item $C$ is irreducible hence $C^{d}$ is irreducible hence $C^{(d)}$ is irreducible. Since $C^{(d)}$ 
-            is smooth it is reduced.
-            \item By \stackstag{0366}, $C$ is geometrically integral, so it follows from the above. 
-            \item \Cref{theorem:int_geoint_implies_productint}
-        \end{enumerate}
-    \end{proof}
-\end{theorem}
-
-
-\subsection*{Blowups}
-
-%% [REVIEW: never cited by label -- invoked implicitly as 'blowups commute with flat base change' (RamificationAfterBlowupIsTame:432, GeometricClassFieldTheory:338); add a label and \Cref it there]
-\begin{theorem}[\stackstag{0805}]
-Let $X_1 \to X_2$ be a flat morphism of schemes. Let $Z_2 \subset X_2$ be a closed subscheme. Let $Z_1$ be the inverse image of $Z_2$ in $X_1$. Let $X'_ i$ be the blowup of $Z_ i$ in $X_ i$. Then there exists a cartesian diagram
-
-\[ \xymatrix{ X_1' \ar[r] \ar[d] & X_2' \ar[d] \\ X_1 \ar[r] & X_2 } \]
-of schemes.   
-\end{theorem}
-
-%% [REVIEW: never cited in the included text -- only used in sections/GeometricCFT/ExtensionOfTamelyRamifiedSheaf.tex, which is currently not \input anywhere; keep only if that file gets included]
-\begin{theorem}
-If $X$ is integral then $Bl_Z(X)$ is integral. %This can be checked locally
-\end{theorem}
-
-
-If $X$ is a smooth curve, we have the following result regarding its symmetric power:
-%% [REVIEW: unlabeled & never cited -- smoothness of the symmetric power is background used silently (Abel-Jacobi section, Takeuchi compactification); add a label and cite it, or drop the long proof]
-    \begin{prop}
-        Let $f: X \to S$ be a smooth morphism of relative dimension 1.
-        Suppose $f$ is flat and Zariski-locally quasi-projective.
-        Then the relative symmetric power $X_S^{(d)} = \text{Sym}^d_S(X)$ is smooth over $S$ of relative dimension $d$.
-    \end{prop}
-    
-    \begin{proof}Since $f: X \to S$ is smooth, the $d$-fold product $X_S^d$ is smooth over $S$. By \Cref{prop:symmetric_power_flat_base_change}, the quotient $X_S^{(d)}$ is flat over $S$. Smoothness is a fiberwise property for flat morphisms of finite presentation (cf. \stackstag{01V8}); thus, it suffices to verify the smoothness of the fibers. 
-        For every $s \in S$, the fiber of the symmetric power is given by:$$(\text{Sym}^d_S(X))_s \cong \text{Sym}^d_{\kappa(s)}(X_s)$$Consequently, we may reduce to the case where $S = \text{Spec}(k)$ for a field $k$. 
-        Since smoothness is preserved under  base change to the algebraic closure, we may further assume $k = \bar{k}$.
-        Let $z = \sum_{i=1}^{r} d_i \cdot x_i \in X^{(d)}$ be a point represented by an effective cycle of degree $d$, where the points $x_i \in X(k)$ are distinct and $\sum d_i = d$. Choose pairwise disjoint Zariski-open subsets $U_i \subset X$ such that $x_i \in U_i$. Let $W \subset X^{(d)}$ be the open subset consisting of cycles whose support is contained in $\bigcup U_i$ and which meet each $U_i$ with degree exactly $d_i$. There is a canonical isomorphism:
-$$W \cong \prod_{i=1}^r U_i^{(d_i)}$$
-Thus, it suffices to show that each $U_i^{(d_i)}$ is smooth of dimension $d_i$ at the point $d_i \cdot x_i$. 
-
-We may therefore restrict our attention to the "worst" case: the diagonal point $z = d \cdot x$. Let $R = \mathcal{O}_{X,x}$ be the local ring of the curve at $x$. Since $X$ is a smooth curve over $k$, $R$ is a regular local ring of dimension 1, i.e., a discrete valuation ring. Its completion is $\hat{R} \cong k[[t]]$. The completed local ring of the product $X^d$ at the point $(x, \dots, x)$ is:
-$$\hat{\mathcal{O}}_{X^d, (x, \dots, x)} \cong \hat{R} \hat{\otimes}_k \dots \hat{\otimes}_k \hat{R} \cong k[[t_1, \dots, t_d]]$$
-where $t_i$ is the uniformizer for the $i$-th copy of $X$. The symmetric group $S_d$ acts on this power series ring by permuting the variables 
-$t_i$. By the \textit{Fundamental Theorem of Symmetric Polynomials}, the ring of invariants is:
-$$\left( k[[t_1, \dots, t_d]] \right)^{S^d} = k[[e_1, \dots, e_d]]$$
-where $e_j$ is the $j$-th elementary symmetric power series in the variables $t_i$.
-
-The ring $k[[e_1, \dots, e_d]]$ is a formal power series ring in $d$ variables. A fundamental theorem in commutative algebra states that a local ring is regular if and only if its completion is a formal power series ring over a field. Since $\hat{\mathcal{O}}_{X^{(d)}, z} \cong k[[e_1, \dots, e_d]]$, the local ring $\mathcal{O}_{X^{(d)}, z}$ is a regular local ring of dimension $d$. This implies that $X^{(d)}$ is smooth over $k$ of dimension $d$, completing the proof.
-\end{proof}
-
-\subsection*{A Base-Change Lemma for Galois Extensions}
+\section{A Base-Change Lemma for Galois Extensions}
 
 Finally, we record a standard base-change lemma for Galois field extensions, used when
 comparing a Galois extension with the function field of a base change.
@@ -302,4 +207,3 @@ E \otimes_F K \;\cong\; K[x]/(g) \;\cong\; \prod_{i=1}^{m} K[x]/(g_i)
 the last step because $K[x]/(g_i) \cong K(\alpha) = E\cdot K$ for every $i$. This product is
 a single field exactly when $m = 1$, i.e.\ when $[M:F] = 1$, i.e.\ when $M = F$.
 \end{proof}
-

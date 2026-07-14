@@ -409,6 +409,57 @@ If $X$ is flat and Zariski-locally quasi-projective over $S$, then $\text{Sym}_S
 is an isomorphism.
 \end{prop}
 
+\subsection*{Geometric Properties of Symmetric Powers}
+
+We record the geometric properties of symmetric powers that will be used in
+both main parts of the thesis.
+
+\begin{theorem}\label{theorem:int_geoint_implies_productint}
+Let $X$ and $Y$ be integral schemes over a field $k$. If $X$ is geometrically
+integral, then $X \times_k Y$ is integral. If both $X$ and $Y$ are
+geometrically integral, then $X \times_k Y$ is geometrically integral.
+\end{theorem}
+
+\begin{prop}\label{prop:relative_symmetric_power_smooth}
+Let $f:X\to S$ be a smooth, Zariski-locally quasi-projective morphism of
+relative dimension one. Then the relative symmetric power
+$X_S^{(d)}=\operatorname{Sym}_S^d(X)$ is smooth over $S$ of relative dimension
+$d$.
+\end{prop}
+
+\begin{proof}Since $f: X \to S$ is smooth, the $d$-fold product $X_S^d$ is smooth over $S$. By \Cref{prop:symmetric_power_flat_base_change}, the quotient $X_S^{(d)}$ is flat over $S$. Smoothness is a fiberwise property for flat morphisms of finite presentation (cf. \stackstag{01V8}); thus, it suffices to verify the smoothness of the fibers.
+    For every $s \in S$, the fiber of the symmetric power is given by:$$(\text{Sym}^d_S(X))_s \cong \text{Sym}^d_{\kappa(s)}(X_s)$$Consequently, we may reduce to the case where $S = \text{Spec}(k)$ for a field $k$.
+    Since smoothness is preserved under base change to the algebraic closure, we may further assume $k = \bar{k}$.
+    Let $z = \sum_{i=1}^{r} d_i \cdot x_i \in X^{(d)}$ be a point represented by an effective cycle of degree $d$, where the points $x_i \in X(k)$ are distinct and $\sum d_i = d$. Choose pairwise disjoint Zariski-open subsets $U_i \subset X$ such that $x_i \in U_i$. Let $W \subset X^{(d)}$ be the open subset consisting of cycles whose support is contained in $\bigcup U_i$ and which meet each $U_i$ with degree exactly $d_i$. There is a canonical isomorphism:
+$$W \cong \prod_{i=1}^r U_i^{(d_i)}$$
+Thus, it suffices to show that each $U_i^{(d_i)}$ is smooth of dimension $d_i$ at the point $d_i \cdot x_i$.
+
+We may therefore restrict our attention to the "worst" case: the diagonal point $z = d \cdot x$. Let $R = \mathcal{O}_{X,x}$ be the local ring of the curve at $x$. Since $X$ is a smooth curve over $k$, $R$ is a regular local ring of dimension 1, i.e., a discrete valuation ring. Its completion is $\hat{R} \cong k[[t]]$. The completed local ring of the product $X^d$ at the point $(x, \dots, x)$ is:
+$$\hat{\mathcal{O}}_{X^d, (x, \dots, x)} \cong \hat{R} \hat{\otimes}_k \dots \hat{\otimes}_k \hat{R} \cong k[[t_1, \dots, t_d]]$$
+where $t_i$ is the uniformizer for the $i$-th copy of $X$. The symmetric group $S_d$ acts on this power series ring by permuting the variables
+$t_i$. By the \textit{Fundamental Theorem of Symmetric Polynomials}, the ring of invariants is:
+$$\left( k[[t_1, \dots, t_d]] \right)^{S^d} = k[[e_1, \dots, e_d]]$$
+where $e_j$ is the $j$-th elementary symmetric power series in the variables $t_i$.
+
+The ring $k[[e_1, \dots, e_d]]$ is a formal power series ring in $d$ variables. A fundamental theorem in commutative algebra states that a local ring is regular if and only if its completion is a formal power series ring over a field. Since $\hat{\mathcal{O}}_{X^{(d)}, z} \cong k[[e_1, \dots, e_d]]$, the local ring $\mathcal{O}_{X^{(d)}, z}$ is a regular local ring of dimension $d$. This implies that $X^{(d)}$ is smooth over $k$ of dimension $d$, completing the proof.
+\end{proof}
+
+\begin{cor}\label{cor:symmetric_power_curve_geometry}
+Let $C$ be a smooth, projective, geometrically connected curve over a field
+$k$. For every $d\geq 0$, the scheme $C^{(d)}$ is smooth and geometrically
+integral. Moreover, every finite product of symmetric powers of $C$ is
+geometrically integral.
+\end{cor}
+
+\begin{proof}
+The smoothness follows from \Cref{prop:relative_symmetric_power_smooth}.
+The curve $C$ is geometrically integral by \stackstag{0366}. After any field
+extension, $C^d$ is integral and its image under the quotient map
+$C^d\to C^{(d)}$ is irreducible. Since $C^{(d)}$ is smooth, it is geometrically
+reduced, and hence geometrically integral. The assertion about finite products
+now follows inductively from \Cref{theorem:int_geoint_implies_productint}.
+\end{proof}
+
 
 \subsection*{Symmetric Powers of Torsors}
 Let $G$ be a finite abelian group, let $\cP$ be a $G$-torsor over an $S$-scheme $X$ in $S_{\text{Ét}}$. 
@@ -667,3 +718,48 @@ Since both pullbacks identify with
 \]
 in an $S_{d_1} \times S_{d_2}$-equivariant manner, the isomorphism descends to the quotient $X^{(d_1)} \times_S X^{(d_2)}$ by \Cref{prop:symmetric_power_flat_base_change}.
 \end{proof}
+
+\section{Basic Geometric Lemmas}
+
+We conclude with two elementary facts about codimension-one points and
+blowups. They are placed here because they enter the geometric arguments in
+both later chapters.
+
+\begin{prop}\label{prop:finite_flat_prime_divisor}
+Let $f:X\to Y$ be a finite flat morphism between integral schemes of finite
+type over a field $k$. If $Z\subset X$ is a prime divisor with generic point
+$\eta_Z$, then $f(Z)\subset Y$ is a prime divisor, and its generic point is
+$f(\eta_Z)$.
+\end{prop}
+
+\begin{proof}
+    $f$ is finite hence proper hence closed so $f(Z)$ is closed subset of $Y$, it is irreducible as the image of an irreducible.
+    Since $Z = \overline{\{ \eta_Z \}}$ we get:
+    $$\{f(\eta_Z)\} \subset f(Z) = f(\overline{\{\eta_Z\}}) \subseteq \overline{f(\{\eta_Z\})} = \overline{\{f(\eta_Z)\}}$$
+    And since $f(Z)$ is closed we get $f(Z) = \overline{\{f(\eta_Z)\}}$.
+
+    For flat map of integral schemes we have for every $x \in X$, $y=f(x)$ the dimension formula:
+    $$\text{dim}(\mathcal{O}_{X,x}) = \text{dim}(\mathcal{O}_{Y,y}) + \text{dim}(\mathcal{O}_{X_y, x})$$
+    And since $\text{dim}(\mathcal{O}_{X_y, x}) = 0$ we get $\text{dim}(\mathcal{O}_{X,x}) = \text{dim}(\mathcal{O}_{Y,y})$
+    concluding that $f(Z)$ is a prime divisor as well.
+\end{proof}
+
+\subsection*{Blowups}
+
+\begin{theorem}[\stackstag{0805}]\label{theorem:blowup_flat_base_change}
+Let $X_1\to X_2$ be a flat morphism of schemes, let $Z_2\subset X_2$ be a
+closed subscheme, and let $Z_1$ be its inverse image in $X_1$. If $X'_i$ is
+the blowup of $X_i$ along $Z_i$, then the diagram
+\[
+\xymatrix{
+X'_1 \ar[r] \ar[d] & X'_2 \ar[d] \\
+X_1 \ar[r] & X_2
+}
+\]
+is cartesian.
+\end{theorem}
+
+\begin{theorem}[{\stackstag{01OF}, Lemma 31.33.9}]\label{theorem:blowup_integral}
+If $X$ is integral and $Z\subsetneq X$ is a proper closed subscheme, then the
+blowup $\operatorname{Bl}_Z(X)$ is integral.
+\end{theorem}
