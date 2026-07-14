@@ -1,0 +1,83 @@
+Throughout this chapter, let $C$ be a smooth, projective, geometrically connected
+curve over $k$. Fix a modulus
+
+\[
+    \mdls = \sum_i n_i P_i
+\]
+
+on $C$, and set $U = C \setminus \mdls$.
+
+For each single-point submodulus $\ndls = n_i P_i$ of $\mdls$, set
+$d_\ndls = \deg(\ndls)$. The effective divisor $\ndls$ determines a
+$k$-rational closed point
+
+\[
+    Z_\ndls \hookrightarrow C^{(d_\ndls)}
+        = \operatorname{Sym}^{d_\ndls}_k(C).
+\]
+
+Let
+
+\[
+    \pi_\ndls \colon
+    X_\ndls := \operatorname{Bl}_{Z_\ndls}\bigl(C^{(d_\ndls)}\bigr)
+    \longrightarrow C^{(d_\ndls)}
+\]
+
+be the blowup at this point. We denote its exceptional divisor by
+
+\[
+    E_\ndls := Z_\ndls \times_{C^{(d_\ndls)}} X_\ndls
+\]
+
+By
+\Cref{prop:relative_symmetric_power_smooth,prop:exceptional_divisor_smooth_point},
+$E_\ndls\cong\mathbb P_k^{d_\ndls-1}$; in particular, it is irreducible and
+has codimension $1$ in $X_\ndls$. We denote its unique generic point by
+$\eta_\ndls$, so that $\overline{\{\eta_\ndls\}}=E_\ndls$. Thus we have the
+Cartesian diagram
+
+\begin{equation}\label{equation:blowup_diagram_ndls}
+\begin{tikzcd}
+E_\ndls = \overline{\{\eta_\ndls\}}
+    \arrow[r, hook] \arrow[d]
+  & X_\ndls \arrow[d, "\pi_\ndls"] \\
+Z_\ndls \arrow[r, hook]
+  & C^{(d_\ndls)}.
+\end{tikzcd}
+\end{equation}
+
+The purpose of this chapter is to prove
+\Cref{theorem:SymmetricPowerOfSheavesIsTamelyRamifiedReduction}. Let $\cF$ be
+the rank-one $\Lambda$-local system appearing in that theorem, and let
+
+\[
+    \cP = \operatorname{Fr}(\cF)
+\]
+
+be its $G = \Lambda^\times$-torsor of frames. By
+\Cref{prop:torsor_module_equivalence,definition:symmetric_power_local_system},
+there is a canonical identification
+
+\[
+    \operatorname{Fr}\bigl(\cF^{[d_\ndls]}\bigr)
+        \cong \cP^{[d_\ndls]}.
+\]
+
+In particular, the two objects have the same ramification. It therefore
+suffices to prove the following torsor formulation.
+
+\begin{theorem}\label{theorem:torsors_after_blowup_is_tame}
+Let $G$ be a finite abelian group, and let $\cP \to U$ be a $G$-torsor whose
+ramification is bounded by $\mdls$. For every single-point submodulus
+$\ndls = n_iP_i$ of $\mdls$, the symmetric-power torsor
+$\cP^{[d_\ndls]}$ is tamely ramified at $\eta_\ndls$.
+\end{theorem}
+
+After recalling the necessary local ramification theory, we first treat
+tamely ramified torsors and $\mathbb{Z}/p\mathbb{Z}$-torsors by reducing the
+calculation to explicit Kummer and Artin--Schreier equations on $\mathbb{G}_m$.
+We then treat cyclic $p$-groups using Artin--Schreier--Witt theory. Finally,
+the general finite abelian case follows by decomposing $G$ into its primary
+cyclic factors and applying the compatibility of ramification with quotients
+and contracted products.

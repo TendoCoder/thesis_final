@@ -52,6 +52,53 @@ V_C := \mathcal{O}_{X_C,\eta_C} \subset K(C^{(d)}),\qquad
 V_{C'} := \mathcal{O}_{X_{C'},\eta_{C'}} \subset K(C'^{(d)}).
 \]
 
+\subsection*{A base-change lemma}
+
+We will use the following standard lemma when comparing a Galois extension
+with the function field of a base change.
+
+\begin{lemma}\label{lem:galois-base-change}
+Let $E/F$ be a finite Galois extension with group $H$, and let $K/F$ be an
+arbitrary field extension. Fix a common overfield $\Omega \supseteq E,K$ and
+form inside it the intersection $M := E \cap K$, the compositum $E \cdot K$,
+and the subgroup $N := \Gal(E/M) \leq H$. Then:
+\begin{enumerate}
+  \item $E \cdot K/K$ is Galois, and restriction induces an isomorphism
+        \[
+        \Gal(E \cdot K/K) \xrightarrow{\ \sim\ } \Gal(E/M)=N;
+        \]
+  \item as $K$-algebras,
+        \[
+        E \otimes_F K \cong \prod_{i=1}^{[M:F]} E \cdot K.
+        \]
+\end{enumerate}
+In particular, $E \otimes_F K$ is a field if and only if $M=F$, equivalently,
+if and only if $E$ and $K$ are linearly disjoint over $F$.
+\end{lemma}
+
+\begin{proof}
+Write $E=F[\alpha]$ and let $g\in F[x]$ be the minimal polynomial of $\alpha$.
+Then $\deg(g)=|H|$, and $g$ splits completely in $E$ because $E/F$ is
+Galois. The classical translation theorem shows that $E\cdot K/K$ is Galois
+and that restriction identifies its Galois group with the subgroup of $H$
+fixing $E\cap K=M$ pointwise, namely $\Gal(E/M)=N$.
+
+For the second assertion, factor $g=g_1\cdots g_m$ into monic irreducible
+polynomials over $K$. Adjoining any root of $g$ to $K$ produces $E\cdot K$,
+so each $g_i$ has degree
+\[
+    [E\cdot K:K]=[E:M]=|N|.
+\]
+It follows that $m=|H|/|N|=[M:F]$, and hence
+\[
+E\otimes_F K
+  \cong K[x]/(g)
+  \cong \prod_{i=1}^{m} K[x]/(g_i)
+  \cong \prod_{i=1}^{[M:F]} E\cdot K.
+\]
+This product is a field exactly when $m=1$, or equivalently when $M=F$.
+\end{proof}
+
 \section{The master diagram}\label{sec:master}
 
 The torsor tower over the open base $U^{(d)}$ embeds into the projective

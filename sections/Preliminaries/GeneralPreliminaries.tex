@@ -759,6 +759,53 @@ X_1 \ar[r] & X_2
 is cartesian.
 \end{theorem}
 
+\begin{prop}\label{prop:exceptional_divisor_smooth_point}
+Let $X$ be a smooth $k$-scheme of pure dimension $d\geq 1$, let $z\in X(k)$, and
+let
+\[
+\pi:\widetilde X=\operatorname{Bl}_z(X)\longrightarrow X
+\]
+be the blowup at $z$. Then the exceptional divisor
+$E=\pi^{-1}(z)$ is isomorphic to $\mathbb P_k^{d-1}$. In particular, $E$ is
+irreducible and has codimension $1$ in $\widetilde X$. Consequently, it has
+a unique generic point $\eta_E$, and $\overline{\{\eta_E\}}=E$.
+\end{prop}
+
+\begin{proof}
+Because $X$ is smooth of dimension $d$ at the $k$-rational point $z$, after
+replacing $X$ by a sufficiently small open neighborhood of $z$ there is an
+étale morphism
+\[
+f:X\longrightarrow \mathbb A_k^d
+\]
+that sends $z$ to the origin $0$. We may shrink this neighborhood further so
+that $z$ is the scheme-theoretic inverse image of $0$. Since an étale
+morphism is flat, \Cref{theorem:blowup_flat_base_change} reduces the assertion
+to the blowup of $\mathbb A_k^d$ at the origin.
+
+Write $x_1,\ldots,x_d$ for the affine coordinates on $\mathbb A_k^d$ and
+$[u_1:\cdots:u_d]$ for the homogeneous coordinates on
+$\mathbb P_k^{d-1}$. The blowup of the origin is the closed subscheme
+\[
+\operatorname{Bl}_0(\mathbb A_k^d)
+=
+\left\{
+((x_1,\ldots,x_d),[u_1:\cdots:u_d])
+\ \middle|\
+x_i u_j=x_j u_i\text{ for all }i,j
+\right\}
+\subset \mathbb A_k^d\times_k\mathbb P_k^{d-1}.
+\]
+Over the origin all the $x_i$ vanish, so the displayed equations impose no
+condition on $[u_1:\cdots:u_d]$. Hence the exceptional fiber is
+\[
+\{0\}\times_k\mathbb P_k^{d-1}\cong\mathbb P_k^{d-1}.
+\]
+It is therefore irreducible of dimension $d-1$. The blowup has dimension
+$d$ (for example, each standard chart $u_i\neq0$ has $d$ affine
+coordinates), so the exceptional divisor has codimension $1$.
+\end{proof}
+
 \begin{theorem}[{\stackstag{01OF}, Lemma 31.33.9}]\label{theorem:blowup_integral}
 If $X$ is integral and $Z\subsetneq X$ is a proper closed subscheme, then the
 blowup $\operatorname{Bl}_Z(X)$ is integral.

@@ -1,39 +1,3 @@
-Throughout this chapter let $C$ be a projective smooth geometrically connected curve over $k$.
-Let $\mdls = \sum n_i P_i$ be a fixed modulus. Let $U=C \setminus \mdls$.
-For any modulus $\ndls \subset \mdls$, we define $Z_\ndls$ as the closed subscheme of $C^{(\deg \ndls)} = \Sym_{k}^{\deg \ndls}(C)$ 
-defined by $\ndls$ as a point of $C^{(\deg \ndls)}$
-We then define $X_\ndls$ as the blowup of $C^{(\deg \ndls)}$ at $Z_\ndls$,
-and we denote by $E_\ndls = Z_\ndls \times_{C^{(d)}} X_\ndls$ the exceptional divisor of this blowup, it is irreducible of codimension 1.
-We denote by $\eta_\ndls$ the generic point of $E_\ndls$. 
-
-Diagrammatically:
-\begin{equation}\label{equation:blowup_diagram_ndls}
-  \begin{tikzcd}
-\overline{\{\eta_\ndls \}} =  E_\ndls \arrow[r, hook] \arrow[d] & X_\ndls \arrow[d, "\pi_\ndls"] \\
-Z_\ndls \arrow[r, hook]           & C^{(\deg \ndls)}          
-\end{tikzcd}   
-\end{equation}
-
-Our main goal in this chapter is to prove
-\Cref{theorem:SymmetricPowerOfSheavesIsTamelyRamifiedReduction}. Let
-$\cF$ be the rank-one $\Lambda$-local system occurring there and let
-$\cP=\operatorname{Fr}(\cF)$ be its $G=\Lambda^\times$-torsor of frames.
-By \Cref{prop:torsor_module_equivalence,definition:symmetric_power_local_system},
-$\cP^{[\deg\ndls]}$ is the frame torsor of
-$\cF^{[\deg\ndls]}$, and the two have identical ramification. Consequently,
-it is enough to prove the following torsor formulation.
-\begin{theorem}\label{theorem:torsors_after_blowup_is_tame}
-    Let $G$ be a finite abelian group. And let $\cP \to U$ be a $G$-torsor in $U_{\text{\'Et}}$ with ramification bounded by $\mdls = \sum n_i P_i$.
-    Let $\ndls = n_i P_i \subset \mdls$ be a sub modulus of $\mdls$. Then $\cP^{[\deg \ndls]}$ is tamely ramified at $\eta_\ndls$.
-\end{theorem}
-
-Our approach proceeds in three stages. 
-First, we establish the result for the cyclic case 
-$G = \mathbb{Z}/p\mathbb{Z}$ and for groups $G$ where $\gcd(|G|, p) = 1$.
-Next, we extend the proof to cyclic $p$-groups $G = \mathbb{Z}/p^r\mathbb{Z}$. 
-Finally, for a general finite abelian group $G$, we conclude by applying the structure theorem for finite abelian groups 
-and \Cref{prop:quotient_torsors} to decompose the torsor into these constituent cases.
-
 \section{\texorpdfstring{Ramification of $G$-Torsors}{Ramification of G-Torsors}}
 
 Generally speaking, assume we are given a locally Noetherian scheme $X$, 
@@ -430,7 +394,7 @@ Since the inertia group $I_{\eta_H}$ is trivial, the local ring extension $A \ho
 
 
 
-\section{Proof of Theorem \ref{theorem:SymmetricPowerOfSheavesIsTamelyRamifiedReduction}}
+\section{Proof of the Torsor Formulation}
 
 We argue that it is enough to prove \Cref{theorem:torsors_after_blowup_is_tame} for $C=\bP^1_k$, $\ndls = d \cdot 0$, and $\cP \to \bG_m = \bP^1_k \setminus \{0, \infty\}$ a $G$-torsor given by an explicit global equation.
 Informally, this is because \emph{the ramification of $\cP^{[d]}$ at $\eta_\ndls$ is a formal--local invariant of $\cP$ at $P$}:
@@ -870,7 +834,7 @@ Idea: decompose $G$ be the structure theorem, and finish by the above.
 
 
 
-\section{Extending To Product of Blowups}\label{subsection:ram_prod_analysis}
+\section{Ramification on Products of Blowups}\label{subsection:ram_prod_analysis}
 We conclude this sesction by proving sume auxilary results that would be useful in \Cref{section:gcft}.
 
 
@@ -990,4 +954,3 @@ Therefore, the pullback $\pi_X^{-1}(\mathcal{Q})$ has ramification bounded by $r
 the original torsor $\mathcal{Q}$ has ramification bounded by $r$ at the generic point $\eta_X$ of $E_X$
 
 And we finish by \Cref{lemma:bounding_ramification_of_contracted_product}.
-

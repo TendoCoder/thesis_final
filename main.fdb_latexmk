@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 1784025392.45292 "main.bcf" "main.bbl" "main" 1784025858.7323 0
+["biber main"] 1784026966.06493 "main.bcf" "main.bbl" "main" 1784028961.7328 0
   "Bib.bib" 1783958185.24578 6638 b64112559fc93c821da2bfcdf8aaec52 ""
-  "main.bcf" 1784025854.57056 113736 c6ff0ef3804ff284a436f8423442757e "pdflatex"
+  "main.bcf" 1784028960.86393 113736 c6ff0ef3804ff284a436f8423442757e "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1784025824.9801 "main.tex" "main.pdf" "main" 1784025858.7367 0
+["pdflatex"] 1784028950.53032 "main.tex" "main.pdf" "main" 1784028961.73376 0
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -360,21 +360,22 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1751287751 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1751287697 3345733 c2dcab6b4eb5ba942e93b730ad63bb36 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "MacrosAndFigures.tex" 1777127094.47633 11156 7a333c86ee489e849f91c40c43e49134 ""
-  "a_wrong_path/a_wrong_path.tex" 1784017194.12109 20868 2d6bfd4179fb30a1bb87af2063cd9f81 ""
+  "MacrosAndFigures.tex" 1784028945.44446 11243 ec38155b0b9b3bd7da86011de390efee ""
+  "a_wrong_path/a_wrong_path.tex" 1784026848.12431 22603 b6bd7f84ffb59d5b955c2fa9692d4690 ""
   "includes.tex" 1767864350.34224 1310 cf7ab68fb51c35bc2c470f3fe887a208 ""
-  "main.aux" 1784025854.40823 48345 369f5eec1117c267848b0c818ded0ccd "pdflatex"
-  "main.bbl" 1784025398.1126 20715 9278861474a4392d30acc250729b4f46 "biber main"
-  "main.out" 1784025854.49658 5686 56468bb89a3145031d8952e589a4a848 "pdflatex"
-  "main.run.xml" 1784025854.58451 2304 acce9008716093b6b3dd5b3ca74ce283 "pdflatex"
-  "main.tex" 1784020508.38296 2785 8c70d16320ee77c0c096a1814e2a6720 ""
-  "main.toc" 1784025854.58483 2615 b9fb6930a825272ac055b58a253e0867 "pdflatex"
+  "main.aux" 1784028960.82553 48413 b31eaa9f348de94a9ef6e2d5d063f8ef "pdflatex"
+  "main.bbl" 1784026969.36955 20715 9278861474a4392d30acc250729b4f46 "biber main"
+  "main.out" 1784028960.85324 5499 fb9036f469252ff7670f48ca54407d94 "pdflatex"
+  "main.run.xml" 1784028960.8672 2304 acce9008716093b6b3dd5b3ca74ce283 "pdflatex"
+  "main.tex" 1784026800.62481 2434 5d7dbbe34581f5d4aa06934272e4ec23 ""
+  "main.toc" 1784028960.86754 2468 9cc27ecec68d7cc17ffdf7bd76282340 "pdflatex"
   "sections/GeometricCFT/ProofOfReducedTheorem.tex" 1784020672.67187 4040 72dbf637a3d977d8220a64e902abd7f7 ""
   "sections/GeometricClassFieldTheory.tex" 1784022956.80064 25146 8618d7be5435d7f566b5ce4682317739 ""
   "sections/Introduction.tex" 1784022922.63306 12466 e2d99e51f2d50b27cebab81dabcc29ff ""
-  "sections/Preliminaries/GeneralPreliminaries.tex" 1784025820.07319 51499 f111973d9cfa87903e98ecda4aefaeee ""
-  "sections/Preliminaries/LocalRamificationPreliminaries.tex" 1784023443.72951 13145 dfa46c28f802644db921ac672a8758e0 ""
-  "sections/RamificationAfterBlowupIsTame.tex" 1784022922.22236 72189 5a3b5fd023600f2fa99f00a28e441c78 ""
+  "sections/Preliminaries/GeneralPreliminaries.tex" 1784028945.80577 53199 61fb64089aca6ff9399323e754997b0b ""
+  "sections/Preliminaries/LocalRamificationPreliminaries.tex" 1784026847.37009 11009 802a89d8a6d0299cd38168e6fbc2fd3b ""
+  "sections/RamificationAfterBlowupIntroduction.tex" 1784028806.60393 2704 a0ed396f0f367f3edc6dfd8bbbe611c7 ""
+  "sections/RamificationAfterBlowupIsTame.tex" 1784026800.94625 69913 4080b9310ff243b23ae658cb7d06cfb4 ""
   "sections/RamificationAfterBlowupPPower.tex" 1783958848.62236 25452 2653850c20b9888301c23f62aa4fad23 ""
   "witt/WittVectorPrerequisites.tex" 1783958344.13707 24733 ba3f38311e572b109fc3313c781d0259 ""
   (generated)

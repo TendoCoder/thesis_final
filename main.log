@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.6.30)  14 JUL 2026 13:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.6.30)  14 JUL 2026 14:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1122,7 +1122,7 @@ Package thmtools Info: Key `numbered' (with value `no')
 \c@problem=\count352
 \symwasy=\mathgroup8
 LaTeX Font Info:    Overwriting symbol font `wasy' in version `bold'
-(Font)                  U/wasy/m/n --> U/wasy/b/n on input line 154.
+(Font)                  U/wasy/m/n --> U/wasy/b/n on input line 156.
 \c@diagram=\count353
 )
 (/usr/local/texlive/2025/texmf-dist/tex/latex/csquotes/csquotes.sty
@@ -1538,7 +1538,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.27 ...P}^{[d]_G}$ at $\eta _C$}{61}{section.A.3}
+l.27 ...s in Proving the Theorem}{63}{section.A.4}
                                                   % [1
 
 ])
@@ -1603,15 +1603,17 @@ c}]
 
 [18]
 Chapter 2.
-(./sections/Preliminaries/LocalRamificationPreliminaries.tex
+(./sections/RamificationAfterBlowupIntroduction.tex
 
 [19
 
-]
+]) (./sections/Preliminaries/LocalRamificationPreliminaries.tex
 
 [20]
 
-[21] (./witt/WittVectorPrerequisites.tex
+[21]
+
+[22] (./witt/WittVectorPrerequisites.tex
 Overfull \hbox (27.8096pt too wide) detected at line 48
 \OML/cmm/m/it/10.95 w[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 S[]; [] ; S[]\OT
 1/cmr/m/n/10.95 ) = \OML/cmm/m/it/10.95 w[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10
@@ -1625,12 +1627,12 @@ T1/cmr/m/n/10.95 ) \OMS/cmsy/m/n/10.95 ^^A \OML/cmm/m/it/10.95 w[]\OT1/cmr/m/n/
 
 
 
-[22]
+[23]
 Package hyperref Info: bookmark level for unknown lemma defaults to 0 on input 
 line 94.
 
 Overfull \hbox (84.97499pt too wide) in paragraph at lines 113--116
-[]\T1/cmr/bx/n/10.95 Proposition 41 \T1/cmr/m/n/10.95 (shape of Witt ad-di-tion
+[]\T1/cmr/bx/n/10.95 Proposition 43 \T1/cmr/m/n/10.95 (shape of Witt ad-di-tion
 )\T1/cmr/bx/n/10.95 . []\T1/cmr/m/it/10.95 For ev-ery $\OML/cmm/m/it/10.95 n \O
 MS/cmsy/m/n/10.95 ^^U \OT1/cmr/m/n/10.95 0$ \T1/cmr/m/it/10.95 there is a poly-
 no-mial $\OML/cmm/m/it/10.95 C[] \OMS/cmsy/m/n/10.95 2 \U/msb/m/n/10.95 Z\OT1/c
@@ -1640,22 +1642,20 @@ it/10.95 Y[]; [] ; Y[]\OT1/cmr/m/n/10.95 ]$\T1/cmr/m/it/10.95 ,
 
 
 
-[23]
-
 [24]
+
+[25]
 Package hyperref Info: bookmark level for unknown example defaults to 0 on inpu
 t line 216.
 
 
-[25]
-
 [26]
 
-[27])
+[27]
 
-[28]) (./sections/RamificationAfterBlowupIsTame.tex
+[28])) (./sections/RamificationAfterBlowupIsTame.tex <xymatrix 2x2 154>
 
-[29] <xymatrix 2x2 154>
+[29]
 
 [30]
 
@@ -1666,7 +1666,7 @@ t line 216.
 [33]
 
 [34]
-Overfull \hbox (9.6162pt too wide) in paragraph at lines 519--526
+Overfull \hbox (9.6162pt too wide) in paragraph at lines 483--490
 \T1/cmr/m/n/10.95 Finally, $\OML/cmm/m/it/10.95 k\OT1/cmr/m/n/10.95 [[\OML/cmm/
 m/it/10.95 x[]; [] ; x[]\OT1/cmr/m/n/10.95 ]][] = \OML/cmm/m/it/10.95 k\OT1/cmr
 /m/n/10.95 [[\OML/cmm/m/it/10.95 e[]; [] ; e[]\OT1/cmr/m/n/10.95 ]]$\T1/cmr/m/n
@@ -1677,7 +1677,7 @@ m/it/10.95 x[]; [] ; x[]\OT1/cmr/m/n/10.95 ]][] = \OML/cmm/m/it/10.95 k\OT1/cmr
  []
 
 
-Overfull \hbox (7.60236pt too wide) in paragraph at lines 519--526
+Overfull \hbox (7.60236pt too wide) in paragraph at lines 483--490
 \OML/cmm/m/it/10.95 k\OT1/cmr/m/n/10.95 [[\OML/cmm/m/it/10.95 e[]; [] ; e[]\OT1
 /cmr/m/n/10.95 ]]$ \T1/cmr/m/n/10.95 --- yields $\OML/cmm/m/it/10.95 k\OT1/cmr/
 m/n/10.95 [[\OML/cmm/m/it/10.95 e[]; [] ; e[]\OT1/cmr/m/n/10.95 ]]$\T1/cmr/m/n/
@@ -1697,7 +1697,7 @@ mr/m/n/10.95 (\OML/cmm/m/it/10.95 e[]; [] ; e[]\OT1/cmr/m/n/10.95 )$\T1/cmr/m/n
 [38]
 
 [39]
-Overfull \hbox (13.19939pt too wide) in paragraph at lines 776--779
+Overfull \hbox (13.19939pt too wide) in paragraph at lines 740--743
 \T1/cmr/m/it/10.95 and de-onte by $\OML/cmm/m/it/10.95 e[]; :::; e[]$ \T1/cmr/m
 /it/10.95 the el-e-men-tary sym-met-ric poly-no-mi-als in $\OML/cmm/m/it/10.95 
 x[]; :::; x[]$\T1/cmr/m/it/10.95 . If $\OML/cmm/m/it/10.95 m < d$ \T1/cmr/m/it/
@@ -1771,40 +1771,40 @@ Appendix A.
 
 ]
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 99.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 99.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 99.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 99.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 99.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\eta' on input line 99.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 99.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 99.
-
-
-
 [61]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 146.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `superscript' on input line 146.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 146.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 146.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 146.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\eta' on input line 146.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 146.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 146.
+
+
 
 [62]
 
@@ -1812,11 +1812,13 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 [64]
 
-[65])
+[65]
 
-[66]
+[66])
 
-[67
+[67]
+
+[68
 
 ] (./main.aux)
  ***********
@@ -1824,19 +1826,19 @@ LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 56468BB89A3145031D8952E589A4A848;5686.
+(rerunfilecheck)             Checksum: FB9036F469252FF7670F48CA54407D94;5499.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 45613 strings out of 473190
- 865637 string characters out of 5715800
- 1694771 words of memory out of 5000000
- 67661 multiletter control sequences out of 15000+600000
+ 45639 strings out of 473190
+ 866424 string characters out of 5715800
+ 1695162 words of memory out of 5000000
+ 67681 multiletter control sequences out of 15000+600000
  596350 words of font info for 155 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 107i,17n,110p,3253b,2296s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 107i,17n,110p,3253b,2304s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb>
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.p
@@ -1879,10 +1881,10 @@ ic/cm-super/sftt1095.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public
 tmaryrd/stmary8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/xypi
 c/xyatip10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/xypic/xyb
 tip10.pfb>
-Output written on main.pdf (69 pages, 907847 bytes).
+Output written on main.pdf (70 pages, 910107 bytes).
 PDF statistics:
- 1441 PDF objects out of 1728 (max. 8388607)
- 1272 compressed objects within 13 object streams
- 428 named destinations out of 1000 (max. 500000)
- 229 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1440 PDF objects out of 1440 (max. 8388607)
+ 1270 compressed objects within 13 object streams
+ 431 named destinations out of 1000 (max. 500000)
+ 221 words of extra memory for PDF output out of 10000 (max. 10000000)
 
