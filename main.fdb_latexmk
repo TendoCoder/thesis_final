@@ -1,12 +1,13 @@
 # Fdb version 4
-["biber main"] 1784016314.68834 "main.bcf" "main.bbl" "main" 1784016330.57906 0
+["biber main"] 1784016314.68834 "main.bcf" "main.bbl" "main" 1784018685.85727 0
   "Bib.bib" 1783958185.24578 6638 b64112559fc93c821da2bfcdf8aaec52 ""
-  "main.bcf" 1784016330.17819 113666 dce0a432ddea9a4d38fa0bfb8e4eef02 "pdflatex"
+  "main.bcf" 1784018684.97652 113666 dce0a432ddea9a4d38fa0bfb8e4eef02 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1784016325.22033 "main.tex" "main.pdf" "main" 1784016330.57958 0
+["pdflatex"] 1784018679.23534 "/Users/assaf/Desktop/Thesis/thesis final/main.tex" "main.pdf" "main" 1784018685.85834 0
+  "/Users/assaf/Desktop/Thesis/thesis final/main.tex" 1784015774.43371 2419 58a23a08c3af1a99dccad6732f4c14d7 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -361,19 +362,19 @@
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1751287697 3345733 c2dcab6b4eb5ba942e93b730ad63bb36 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
   "MacrosAndFigures.tex" 1777127094.47633 11156 7a333c86ee489e849f91c40c43e49134 ""
-  "a_wrong_path/a_wrong_path.tex" 1784015941.26273 20722 b93b61ca4becebcb114596b3d2a06fb1 ""
+  "a_wrong_path/a_wrong_path.tex" 1784017194.12109 20868 2d6bfd4179fb30a1bb87af2063cd9f81 ""
   "includes.tex" 1767864350.34224 1310 cf7ab68fb51c35bc2c470f3fe887a208 ""
-  "main.aux" 1784016330.16454 46500 44f05828721c77a1ce1e995b6f9ac913 "pdflatex"
+  "main.aux" 1784018684.95652 46195 6e8e51331f7e55c399b418eef0a732ac "pdflatex"
   "main.bbl" 1784016318.51016 20715 9278861474a4392d30acc250729b4f46 "biber main"
-  "main.out" 1784016330.17375 5508 53d0c54fe21fd52277738fc58f19ff45 "pdflatex"
-  "main.run.xml" 1784016330.17928 2304 acce9008716093b6b3dd5b3ca74ce283 "pdflatex"
+  "main.out" 1784018684.97026 5508 53d0c54fe21fd52277738fc58f19ff45 "pdflatex"
+  "main.run.xml" 1784018684.97836 2304 acce9008716093b6b3dd5b3ca74ce283 "pdflatex"
   "main.tex" 1784015774.43371 2419 58a23a08c3af1a99dccad6732f4c14d7 ""
-  "main.toc" 1784016330.17939 2635 b18f9853f0738a963ae6350bb02a9904 "pdflatex"
-  "sections/GeometricCFT/ProofOfReducedTheorem.tex" 1783972178.2775 3244 61c0440463e10946dfe01d0e38374517 ""
-  "sections/GeometricClassFieldTheory.tex" 1784015909.33689 24079 2fe2f211552ebf6ddb723ebdc3adcf55 ""
-  "sections/Introduction.tex" 1784015957.60686 11849 29a93d72e680978153869ecd7c9f7eec ""
-  "sections/Preliminaries/Preliminaries.tex" 1783958706.20958 61634 3f79f495a8019e3b7d7ad43bf284f7aa ""
-  "sections/RamificationAfterBlowupIsTame.tex" 1784015858.31954 71550 1a0ff671724a843ce3983efe29b0faa8 ""
+  "main.toc" 1784018684.97859 2635 9f9f7d79733f2cf98a06be7d971f9a8c "pdflatex"
+  "sections/GeometricCFT/ProofOfReducedTheorem.tex" 1784017194.11858 3499 90db2c84c2139c5e4581833518635b26 ""
+  "sections/GeometricClassFieldTheory.tex" 1784017194.118 25108 fbd318c21d9a76ba4ffbc906f3d180e5 ""
+  "sections/Introduction.tex" 1784017194.12031 12115 06a44e3ae4b62aaf5cb87480189511c5 ""
+  "sections/Preliminaries/Preliminaries.tex" 1784018670.23228 61452 e702d99b50159360ebce24e043bd687f ""
+  "sections/RamificationAfterBlowupIsTame.tex" 1784017194.11972 71727 159e63f1d3378147c6e7e4e24577a771 ""
   "sections/RamificationAfterBlowupPPower.tex" 1783958848.62236 25452 2653850c20b9888301c23f62aa4fad23 ""
   "witt/WittVectorPrerequisites.tex" 1783958344.13707 24733 ba3f38311e572b109fc3313c781d0259 ""
   (generated)

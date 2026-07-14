@@ -96,9 +96,8 @@ there exists a classical correspondence between such $\Lambda$-modules and $G$-t
 Indeed, both categories are symmetric monoidal categories, $\mathbf{Pic}(\mathcal{E}, \Lambda)$ under the tensor product $\otimes_\Lambda$, with unit object $\Lambda$.
 And $\mathbf{Tors}(\mathcal{E}, G)$ under the product $\otimes^G$, with unit object $G$ acting on itself by translation.
 
-Throughout this thesis, we shall primarily adopt the language of $G$-torsors, with the understanding that the 
+Throughout this thesis, we shall primarily adopt the language of $G$-torsors, with the understanding that the
 associated $\Lambda$-module structure is implicitly inferred.
-
 The following proposition formalizes this dictionary:
 
 \begin{prop}
@@ -111,7 +110,7 @@ The following proposition formalizes this dictionary:
     $\Psi: \mathcal{L} \mapsto \underline{\mathrm{Isom}}_\Lambda(\Lambda, \mathcal{L})$.
 \end{prop}
 
-Lastly, for any object $\cX \in \mathcal{E}$, there is a canonical identification between the slice category 
+Lastly, for any object $\cX \in \mathcal{E}$, there is a canonical identification between the slice category
 $(\mathcal{G}\mathcal{E})/\cX$ and the category of group objects $\mathcal{G}(\mathcal{E}/\cX)$, where $\cX$ is viewed as having the 
 trivial $\mathcal{G}$-action.
 
@@ -151,6 +150,7 @@ $G$-action. We now have:
     Similarly, the morphism sending $Y$ to $\mathrm{Hom}_X(-, Y)$ to the category of $G$-torsors on $X_{\text{ét}}$ is an equivalence.
 \end{theorem}
 
+%% [REVIEW: unlabeled & never cited -- the big/small-site comparison is used implicitly whenever torsors are realized as schemes; consider labeling it and citing it (e.g. line ~381), or merging into the theorem above]
 \begin{cor}
     There is a natural equivalence $\mathbf{Tors}(X_{\mathrm{\text{\'et}}}, G) \cong \mathbf{Tors}(X_{\text{\'Et}}, G)$ 
     inducing a bijection of pointed sets $\mathrm{Tors}(X_{\text{\'et}}, G) \xrightarrow{\cong} \mathrm{Tors}(X_{\text{\'Et}}, G)$ 
@@ -318,6 +318,7 @@ Let $S$ be a scheme.
 \end{itemize}
 \end{definition}
 
+%% [REVIEW: never cited -- admissibility facts are used only implicitly (e.g. 'admissible quotient' in cor:sym-power-quotient discussion); consider labeling + citing, or compressing into prose with the SGA1 citation]
 \begin{prop}
     The following holds:
     \begin{enumerate}
@@ -367,6 +368,7 @@ is an isomorphism.
 Let $G$ be a finite abelian group, let $\cP$ be a $G$-torsor over an $S$-scheme $X$ in $S_{\text{Ét}}$. 
 
 
+%% [REVIEW: never cited -- presumably the input for prop:symmetric_power_torsor (Guignard 2.32), but no proof ever invokes it; cite it there or remove]
 \begin{prop}[{[\cite{sga1}]}, IX.5.8]
 Assume that $\cP$ and $X$ are endowed with right actions from a finite group $\Gamma$ 
 such that the morphism $\cP \to X$ is $\Gamma$-equivariant, and that the following properties hold:
@@ -599,7 +601,6 @@ Since both pullbacks identify with
 in an $S_{d_1} \times S_{d_2}$-equivariant manner, the isomorphism descends to the quotient $X^{(d_1)} \times_S X^{(d_2)}$ by \Cref{prop:symmetric_power_flat_base_change}.
 \end{proof}
 
-
 \subsection{Algebraic Preliminaries on Ramification}
 This section reviews the ramification of discrete valuations, beginning with the general theory of \textit{discrete valuation rings} and their 
 integral closures in finite separable extensions. 
@@ -701,12 +702,14 @@ G^i H / H = (G/H)^i
 for all $i \geq -1$.
 
 
+%% [REVIEW: never used -- the structure of G_i/G_{i+1} is not invoked anywhere (tameness is always derived via Kummer/Artin-Schreier); consider deleting or reducing to a one-sentence remark]
 \begin{prop}[\Cite{serreLF}, IV Corollary 3]
     the quotients $G_i/G_{i+1}$, $i \geq 1$, are abelian groups, and are direct products of cyclic groups of order $p$. 
     The group $G_1$ is a $p$-group.
 \end{prop}
 
 
+%% [REVIEW: never used -- same as the proposition above; nothing downstream uses the semi-direct product structure of G_0]
 \begin{prop}[\Cite{serreLF}, IV Corollary 4]
     The inertia group $G_0$ has the following property:
     \textit{It is the semi-direct product of a cyclic group of order prime to $p$ with a normal subgroup whose order is a power of $p$.}
@@ -775,6 +778,7 @@ change of variables such that $a=u^{-m}$.
 \subsection{Algebraic Geometry}
 In this section we group together some general theorems in algebraic geometry that we will be employing throughtout the text. 
 All schemes are assumed to be locally of finite type. 
+%% [REVIEW: never cited despite having a full proof -- likely needed when applying lemma:descend_ramification_along_etale (f(xi_X)=xi_Y hypotheses); add a label and cite it at those applications, or remove]
 \begin{theorem}
     Let $f:X \to Y$ be a finite flat map between integral schemes, of finite type over a field $k$. if $Z \subset X$ is a prime divisor with generic point $\eta_Z$, then $f(Z) \subset X$
     is a prime divisor with generic point $\eta_{f(Z)}$ satisfying $f(\eta_Z)= \eta_{f(Z)}$
@@ -798,6 +802,7 @@ A known theorem states that:
     If both $X,Y$ are geometrically integral, then $X \times_k Y$ is geometrically integral. 
 \end{theorem}
 
+%% [REVIEW: unlabeled & never cited -- smoothness/integrality of C^{(d)} is assumed silently throughout (e.g. RamificationAfterBlowupIsTame ~184, blowup integrality); add a label and cite it. Note: the proof environment is nested inside the theorem environment]
 \begin{theorem}
     Let $C$ be smooth projective curve geometrically connected over a field $k$. Then:
     \begin{enumerate}
@@ -823,6 +828,7 @@ A known theorem states that:
 
 \subsubsection*{Blowups}
 
+%% [REVIEW: never cited by label -- invoked implicitly as 'blowups commute with flat base change' (RamificationAfterBlowupIsTame:432, GeometricClassFieldTheory:338); add a label and \Cref it there]
 \begin{theorem}[\stackstag{0805}]
 Let $X_1 \to X_2$ be a flat morphism of schemes. Let $Z_2 \subset X_2$ be a closed subscheme. Let $Z_1$ be the inverse image of $Z_2$ in $X_1$. Let $X'_ i$ be the blowup of $Z_ i$ in $X_ i$. Then there exists a cartesian diagram
 
@@ -830,12 +836,14 @@ Let $X_1 \to X_2$ be a flat morphism of schemes. Let $Z_2 \subset X_2$ be a clos
 of schemes.   
 \end{theorem}
 
+%% [REVIEW: never cited in the included text -- only used in sections/GeometricCFT/ExtensionOfTamelyRamifiedSheaf.tex, which is currently not \input anywhere; keep only if that file gets included]
 \begin{theorem}
 If $X$ is integral then $Bl_Z(X)$ is integral. %This can be checked locally
 \end{theorem}
 
 
 If $X$ is a smooth curve, we have the following result regarding its symmetric power:
+%% [REVIEW: unlabeled & never cited -- smoothness of the symmetric power is background used silently (Abel-Jacobi section, Takeuchi compactification); add a label and cite it, or drop the long proof]
     \begin{prop}
         Let $f: X \to S$ be a smooth morphism of relative dimension 1.
         Suppose $f$ is flat and Zariski-locally quasi-projective.

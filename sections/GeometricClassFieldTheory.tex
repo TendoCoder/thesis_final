@@ -12,6 +12,7 @@ We start by recalling the necessarily material, and then move to proving this th
 \section{Etale Fundamental Groups and Tame Fundamental Groups}
 We recall the definition and basic properties of the etale fundamental group, following stacks project 
 \stackstag{0BQ6}
+%% [REVIEW: unlabeled & never cited -- only feeds cor:etale_fundamental_group_smooth_proper below, which has no proof; either give the corollary a one-line proof citing this, or state only the corollary with the stacks tag]
 \begin{prop}[\stackstag{0C0J}]
 Let $f : X \to S$ be a flat proper morphism of finite presentation whose geometric fibres are connected and reduced. Assume $S$ is connected and let $\overline{s}$ be a geometric point of $S$. Then there is an exact sequence
 
@@ -119,6 +120,7 @@ Guignard (\cite{Guignard2018} Theorem 4.14) proves that for $\mdls > 0$ and $d$ 
 surjective smooth of relative dimension $d - \deg \mdls - g + 1$, with geometrically connected fibers. 
 
 When $S=\Spec (k)$, the geometric-fibers of $\Phi_d$ are well understood:
+%% [REVIEW: unlabeled -- Case 1 of the proof in ProofOfReducedTheorem.tex uses exactly this, but references \Cref{section:AbelJacobi} instead; add a label and reference the theorem directly]
 \begin{theorem}
     Assuming $S=\Spec (k)$ and $d \geq max \{2g - 1 + \deg \mdls, \deg \mdls\}$. Then, the geometric-fibers of the Abel-Jacobi morphism $$ \Phi_d : U^{(d)} \to \PicCm[d] $$ over any point are isomorphic to
 $$
@@ -220,6 +222,7 @@ In what follows we reduce \Cref{theorem:SymmetricPowerOfSheafIsTamelyRamified} t
 \subsection{Reduction Lemmas}
 
 The following lemma is adapted from \cite{takeuchi2019blow} (Lemma 4.1)
+%% [REVIEW: label lemma:takeuchi_lemma is never referenced -- cor:etale_at_generic_point below depends on it silently (and has no proof); add 'Immediate from \Cref{lemma:takeuchi_lemma}' there. Note: the proof is nested inside the lemma environment]
 \begin{lemma}\label{lemma:takeuchi_lemma}
      Let $C$ be a projective, smooth, and geometrically connected curve over a perfect field $k$. 
      Let $\mathfrak{m} = \sum_{i=1}^{r} k_i P_i$ be an effective divisor where $P_1, \dots, P_r$ are distinct closed points. 
@@ -271,6 +274,7 @@ Hence it is well defined question according to \Cref{definition:tamely_ramified_
 $\cF^{[\deg \mdls]} \times_k C^{(d-\deg \mdls)}$ is tamely ramified at the generic point $\theta$ of
 $E_{\mdls} \times_k C^{(d-\deg \mdls)}$.
 
+%% [REVIEW: label lemma:tame_ramification_persists is never referenced -- it is applied silently in the paragraph right after ('Replacing ... we get'); add an explicit \Cref there]
 \begin{lemma}\label{lemma:tame_ramification_persists}
      If $\cF^{[\deg \mdls]}$ is tamely ramified at $\eta_\mdls$, then
      $\cF^{[\deg \mdls]} \times_k C^{(d-\deg \mdls)}$ is tamely ramified at the generic point $\theta$ of
@@ -296,6 +300,7 @@ Hence, its restriction to $U^{(\deg \mdls)} \times_k U^{(d - \deg \mdls)}$ is un
 Thus, by the following lemma, we conclude that $\boxP{\cP^{[\deg \mdls]}}{\cP^{[d - \deg \mdls]}} = p_1^{-1} \cP^{[\deg \mdls]} \otimes^G p_2^{-1} \cP^{[d - \deg \mdls]}$
      is tamely ramified at $\theta$ the generic point of $E_{\mdls} \times_k U^{(d-\deg \mdls)}$.
 
+%% [REVIEW: unlabeled -- referenced only as 'the following lemma' in the preceding paragraph; works, but a label would make cor:tame-ramification-symmetric-product's proof traceable]
 \begin{lemma}
      Let $X \to \Spec k$ be a scheme over a field $k$, and let $\cP_1, \cP_2$ be two $G$-torsors on $U_{et}$.
      Let $\xi$ be the generic point of a prime divisor $D \subset X$.
