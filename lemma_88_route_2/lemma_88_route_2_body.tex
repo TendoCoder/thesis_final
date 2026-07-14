@@ -1,0 +1,650 @@
+% ============================================================================
+% A complete, self-contained "Route 2" proof of the extension lemma
+% (lemma:ExtensionOfTamelyRamifiedSheaf in
+%  sections/GeometricCFT/ProofOfReducedTheorem.tex, currently Lemma 88):
+%
+%   a locally constant sheaf on U^{(d)}, tamely ramified along the boundary
+%   H of Takeuchi's compactification, extends to the compactification.
+%
+% "Route 2" refers to the strategy sketched in the red note there: the tame
+% abelianized fundamental group of U^{(d)} maps isomorphically onto
+% pi_1^{ab}(Pic^d_{C,m}). The precise fundamental-group statement is
+% \Cref{cor:route_two_precise_r2} at the end of this file.
+%
+% This file is NOT part of the main build. It only uses labels of the main
+% document (Preliminaries, RamificationAfterBlowupIsTame,
+% GeometricClassFieldTheory); it does not depend on the draft
+% sections/GeometricCFT/ExtensionOfTamelyRamifiedSheaf.tex, and all labels
+% defined here carry the suffix "_r2" (resp. "RouteTwo" for the lemma itself),
+% so it can be \input anywhere after ProofOfReducedTheorem.tex without label
+% clashes. To make it THE proof of the lemma, delete the placeholder
+% lemma+proof in ProofOfReducedTheorem.tex, \input this file in its place, and
+% rename lemma:ExtensionOfTamelyRamifiedSheafRouteTwo back to
+% lemma:ExtensionOfTamelyRamifiedSheaf.
+% ============================================================================
+
+\subsection*{The extension lemma, via the compactified Abel--Jacobi fibration (``Route 2'')}
+
+We keep the notation of \Cref{section:BlowupOfSymmetricPowerOfCurves}:
+$C$ is a projective smooth geometrically connected curve over the perfect field $k$,
+$\mdls = \sum n_i P_i > 0$ is a modulus with complement $U = C \setminus \mdls$,
+and $d$ is an integer satisfying \Cref{equation:degree-condition}.
+We write $Z_0 = Z_0(\mdls, d) \subset C^{(d)}$ for the center of the blowup
+$\pi : X_{\mdls, d} \to C^{(d)}$, $E_0$ for its exceptional divisor with generic point $\eta_0$,
+$\Cmod{d} \subseteq X_{\mdls,d}$ for Takeuchi's compactification
+(\Cref{theorem:takeuchi-compactification-theorem}), and
+$H = \Cmod{d} \setminus U^{(d)} = E_0 \times_{C^{(d)}} \Cmod{d}$ for the boundary divisor.
+Throughout, $p$ denotes the characteristic of $k$; if $p = 0$, statements of the form
+``prime to $p$'' are to be read as no condition, and the arguments below only simplify.
+
+\begin{lemma}\label{lemma:ExtensionOfTamelyRamifiedSheafRouteTwo}
+    If $\cF^{[d]}$ is a locally constant sheaf on $U^{(d)}$ which is tamely ramified along the
+    boundary divisor $H = \tilde{C}^{(d)}_\mdls \setminus U^{(d)}$,
+    then $\cF^{[d]}$ extends to a locally constant sheaf $\tilde{\cF}^{[d]}$ on
+    $\tilde{C}^{(d)}_\mdls$.
+\end{lemma}
+
+The proof proceeds in two steps. First
+(\Cref{prop:extension_via_purity_r2}), by the Zariski--Nagata purity of the branch locus,
+extending $\cF^{[d]}$ across $H$ is possible as soon as the corresponding torsor is
+\emph{unramified} at the generic point $\eta_0$ of $H$; a priori tameness is weaker than this.
+Second (\Cref{prop:tame_at_boundary_implies_unramified_r2}), we show that at $\eta_0$ tameness
+in fact forces unramifiedness. This is where the global geometry enters, and where ``Route 2''
+differs from a direct computation on the blowup: the point $\eta_0$ is itself a point of the
+\emph{generic fiber} $P_\xi \cong \bP^N_\kappa$ of the compactified Abel--Jacobi morphism
+$\tilde{\Phi}_d : \Cmod{d} \to \PicCm[d]$, the boundary $H$ meets $P_\xi$ in an irreducible
+divisor whose complement is (geometrically) an affine space, and hence that divisor is
+geometrically a \emph{hyperplane}. Since a principal divisor on projective space has degree
+zero, a rational function whose divisor is, modulo $m$, supported on a single divisor of
+degree prime to $m$ must have $v_{\eta_0}$-valuation divisible by $m$; applied to a Kummer
+representative of (the prime-to-$p$ part of) our torsor, this kills the tame inertia at
+$\eta_0$. At the end we record the resulting description of the tame abelianized fundamental
+group of $U^{(d)}$ (\Cref{cor:route_two_precise_r2}), which is the precise form of ``Route 2'':
+the tame abelianized fundamental group of $U^{(d)}$ maps isomorphically (not merely
+injectively) onto $\pi_1^{et, ab}(\PicCm[d])$.
+
+We first record the relevant geometry of the pair $(\Cmod{d}, H)$.
+
+\begin{lemma}\label{lemma:boundary_of_compactification_r2}
+    With notation as above:
+    \begin{enumerate}
+        \item $\Cmod{d}$ is an integral scheme, smooth over $k$.
+        \item $H$ is a nonempty open subscheme of $E_0$. In particular $H$ is irreducible of
+              codimension $1$ in $\Cmod{d}$, its generic point is $\eta_0$, and $\eta_0 \in \Cmod{d}$.
+        \item $\eta_0$ is the unique point of $\Cmod{d} \setminus U^{(d)}$ whose local ring has dimension $1$,
+              and $\Oo_{\Cmod{d}, \eta_0} = \Oo_{X_{\mdls,d}, \eta_0}$ is a discrete valuation ring
+              with fraction field $K := k(C^{(d)})$.
+    \end{enumerate}
+\end{lemma}
+\begin{proof}
+    (1) $\Cmod{d}$ is an open subscheme of $X_{\mdls,d}$, which is integral as the blowup of the
+    integral scheme $C^{(d)}$; hence $\Cmod{d}$ is integral.
+    By \Cref{theorem:takeuchi-compactification-theorem}, $\Cmod{d}$ is a projective space bundle over
+    $\PicCm[d]$. The latter is smooth over $k$: $\PicCm[0]$ is a smooth group scheme and $\PicCm[d]$
+    is a torsor under it (see the properties of the generalized Picard scheme recalled in
+    \Cref{section:gcft}). A projective space bundle over a smooth $k$-scheme is smooth over $k$.
+
+    (2) Since $\Cmod{d} \hookrightarrow X_{\mdls,d}$ is an open immersion, its base change
+    $H = E_0 \times_{C^{(d)}} \Cmod{d} = E_0 \times_{X_{\mdls,d}} \Cmod{d} \hookrightarrow E_0$
+    is an open immersion as well. To see $H \neq \emptyset$, suppose otherwise; then
+    $U^{(d)} = \Cmod{d}$ and $\Phi_d = \tilde{\Phi}_d$ would be a projective space bundle. But the
+    geometric fibers of $\Phi_d$ are affine spaces of dimension $d - \deg \mdls - g + 1 \geq 1$
+    (\Cref{section:AbelJacobi}; positivity follows from \Cref{equation:degree-condition}),
+    and a positive dimensional affine space over a field is not proper --- a contradiction.
+    A nonempty open subscheme of the irreducible scheme $E_0$ is irreducible, dense, and contains the
+    generic point $\eta_0$ of $E_0$.
+
+    (3) By \Cref{theorem:takeuchi-compactification-theorem}, $\Cmod{d} \setminus U^{(d)} = H$,
+    which by (2) is irreducible of codimension $1$ with generic point $\eta_0$; every other point of $H$
+    is a proper specialization of $\eta_0$ and hence has local ring of dimension $\geq 2$.
+    By (1), $\Oo_{\Cmod{d}, \eta_0}$ is a regular local ring of dimension $1$, i.e.\ a discrete
+    valuation ring, and it equals $\Oo_{X_{\mdls,d}, \eta_0}$ because $\Cmod{d}$ is open in $X_{\mdls,d}$.
+    Its fraction field is the function field of $X_{\mdls,d}$, which equals $K = k(C^{(d)})$
+    since $\pi$ is birational.
+\end{proof}
+
+We denote by $v_{\eta_0}$ the discrete valuation on $K$ associated to $\Oo_{\Cmod{d}, \eta_0}$,
+and by $\widehat{K}_{\eta_0}$ the fraction field of the completion.
+
+\subsubsection*{Step 1: Purity, and extending unramified torsors}
+
+\begin{prop}\label{prop:extension_via_purity_r2}
+    Let $G$ be a finite abelian group, let $\rho : \pi_1^{et}(U^{(d)}, \bar{u}) \to G$ be a continuous
+    homomorphism and let $\cQ$ be the corresponding $G$-torsor on $U^{(d)}_{\text{\'et}}$
+    (\Cref{cor:abelian_equivilance_fundamental_torsors}).
+    If $\cQ$ is unramified over $\Cmod{d}$ at $(H, \eta_0)$ in the sense of
+    \Cref{definition:tamely_ramified_in_codim_1}, then $\rho$ factors, necessarily uniquely, through the
+    canonical surjection
+    \[ \iota_* : \pi_1^{et}(U^{(d)}, \bar{u}) \twoheadrightarrow \pi_1^{et}(\Cmod{d}, \bar{u}), \]
+    where $\iota : U^{(d)} \hookrightarrow \Cmod{d}$ is the open immersion.
+    Consequently, $\cQ$ extends to a $G$-torsor on $(\Cmod{d})_{\text{\'et}}$, uniquely up to isomorphism.
+\end{prop}
+\begin{proof}
+    \textbf{Surjectivity of $\iota_*$.}
+    We first note that for every connected finite \'etale cover $T \to \Cmod{d}$, the restriction
+    $T \times_{\Cmod{d}} U^{(d)}$ is connected: $T$ is \'etale over the regular scheme $\Cmod{d}$, hence
+    regular, and being connected it is irreducible; $T \times_{\Cmod{d}} U^{(d)}$ is a nonempty open
+    subscheme of $T$ (nonempty since $T \to \Cmod{d}$ is surjective and $U^{(d)}$ is dense), hence
+    irreducible, hence connected.
+    This implies surjectivity of $\iota_*$: if the image were a proper closed subgroup, it would be
+    contained in a proper open subgroup $M \leq \pi_1^{et}(\Cmod{d}, \bar{u})$, and the connected cover
+    corresponding to $M$ would pull back to a disconnected cover of $U^{(d)}$ (the image of
+    $\pi_1^{et}(U^{(d)})$ does not act transitively on $\pi_1^{et}(\Cmod{d})/M$), a contradiction.
+
+    \textbf{The connected cover and its normalization.}
+    Let $G' = \rho\left(\pi_1^{et}(U^{(d)}, \bar{u})\right) \subseteq G$ and let $V \to U^{(d)}$ be the connected
+    finite \'etale Galois cover with group $G'$ corresponding to the open normal subgroup
+    $\ker \rho$ (\Cref{theorem:equivalence_fundamental_covers}). As a $U^{(d)}$-scheme, $\cQ$ is
+    isomorphic to a disjoint union of $[G : G']$ copies of $V$; hence at the generic point $\eta_0$ the
+    finite separable $\widehat{K}_{\eta_0}$-algebras of $\cQ$ and of $V$ have the same field factors, and
+    $V$ is unramified over $\Cmod{d}$ at $(H, \eta_0)$.
+
+    $V$ is \'etale over the smooth scheme $U^{(d)}$, hence smooth over $k$; being connected it is
+    integral, and $K(V)/K$ is a finite separable field extension. Let
+    $\nu : W \to \Cmod{d}$ be the normalization of $\Cmod{d}$ in $K(V)$, i.e.\ the relative spectrum of
+    the integral closure of $\Oo_{\Cmod{d}}$ in $K(V)$. Since $\Cmod{d}$ is of finite type over a field it
+    is Nagata (\stackstag{0335}), so $\nu$ is a finite morphism, and $W$ is integral and normal.
+    Over the open $U^{(d)}$, the scheme $V$ is finite over $U^{(d)}$, normal, with function field $K(V)$;
+    by uniqueness of normalization, $\nu^{-1}(U^{(d)}) \cong V$ as $U^{(d)}$-schemes.
+
+    \textbf{$\nu$ is \'etale, by purity of the branch locus.}
+    We apply \stackstag{0BMB} at each point $w \in W$ with image $y = \nu(w)$. The hypotheses hold:
+    $\Oo_{W,w}$ is normal; $\Oo_{\Cmod{d},y}$ is regular (\Cref{lemma:boundary_of_compactification_r2});
+    $\nu$ is finite, hence quasi-finite at $w$; and
+    $\dim(\Oo_{W,w}) = \dim(\Oo_{\Cmod{d},y})$, since for a finite dominant morphism of integral schemes
+    of finite type over a field one has
+    $\dim(\Oo_{W,w}) = \dim W - \dim \overline{\{w\}}$, $\dim W = \dim \Cmod{d}$ and
+    $\dim \overline{\{w\}} = \dim \overline{\{y\}}$.
+    It remains to check the codimension-one condition: let $w' \rightsquigarrow w$ be a specialization
+    with $\dim(\Oo_{W, w'}) = 1$; then $y' = \nu(w')$ satisfies $\dim(\Oo_{\Cmod{d}, y'}) = 1$
+    by the same dimension count. If $y' \in U^{(d)}$, then $\nu$ is \'etale at $w'$ since
+    $\nu^{-1}(U^{(d)}) = V$ is \'etale over $U^{(d)}$. Otherwise
+    $y' \in \Cmod{d} \setminus U^{(d)}$, and by \Cref{lemma:boundary_of_compactification_r2}(3) necessarily
+    $y' = \eta_0$; then $\Oo_{W, w'}$ is a localization of the integral closure of the discrete valuation
+    ring $\Oo_{\Cmod{d},\eta_0}$ in $K(V)$ at one of its maximal ideals, and the hypothesis that $V$ is
+    unramified at $(H, \eta_0)$ says precisely (\Cref{definition:tamely_ramified_dvrs}) that the
+    ramification index there is $1$ and the residue extension is separable, i.e.\ that $\nu$ is
+    unramified at $w'$. If $\dim(\Oo_{W,w}) = 0$ then $w$ is the generic point of $W$ and $\nu$ is \'etale
+    at $w$ because $K(V)/K$ is finite separable. In all cases \stackstag{0BMB} applies, and we conclude
+    that $\nu : W \to \Cmod{d}$ is finite \'etale.
+
+    \textbf{Factorization.}
+    The geometric point $\bar{u}$ of $U^{(d)}$ is also a geometric point of $\Cmod{d}$, and
+    $W_{\bar{u}} = V_{\bar{u}}$ as finite sets. The action of $\pi_1^{et}(U^{(d)}, \bar u)$ on
+    $V_{\bar u}$ is the restriction along $\iota_*$ of the action of $\pi_1^{et}(\Cmod{d}, \bar u)$ on
+    $W_{\bar u}$, because $V = W \times_{\Cmod{d}} U^{(d)}$. Since $V$ is Galois with group $G'$, the
+    kernel of the first action is exactly $\ker \rho$; hence
+    $\ker(\iota_*) \subseteq \ker \rho$. As $\iota_*$ is surjective, $\rho$ factors as
+    $\rho = \tilde{\rho} \circ \iota_*$ for a unique continuous
+    $\tilde{\rho} : \pi_1^{et}(\Cmod{d}, \bar u) \to G' \subseteq G$.
+    Let $\tilde{\cQ}$ be the $G$-torsor on $(\Cmod{d})_{\text{\'et}}$ corresponding to $\tilde{\rho}$
+    (\Cref{cor:abelian_equivilance_fundamental_torsors}); then
+    $\iota^* \tilde{\cQ} \cong \cQ$ since the corresponding characters of $\pi_1^{et}(U^{(d)}, \bar u)$
+    agree. Finally, if $\tilde{\cQ}_1, \tilde{\cQ}_2$ are two extensions of $\cQ$, their characters
+    $\tilde{\rho}_1, \tilde{\rho}_2$ satisfy $\tilde{\rho}_1 \circ \iota_* = \tilde{\rho}_2 \circ \iota_*$,
+    hence are equal by surjectivity of $\iota_*$, and $\tilde{\cQ}_1 \cong \tilde{\cQ}_2$.
+\end{proof}
+
+\subsubsection*{Step 2: At the boundary, tame implies unramified}
+
+The following three lemmas set up the geometry of the generic fiber of $\tilde{\Phi}_d$.
+
+\begin{lemma}\label{lemma:generic_fiber_compactified_AJ_r2}
+    Let $\xi$ be the generic point of $\PicCm[d]$ and $\kappa := \kappa(\xi)$ its residue
+    field. Write
+    \[ P_\xi := \tilde{\Phi}_d^{-1}(\xi), \qquad
+       U_\xi := \Phi_d^{-1}(\xi) = P_\xi \cap U^{(d)}, \qquad
+       H_\xi := H \times_{\PicCm[d]} \Spec(\kappa), \]
+    where $H_\xi$ is a closed subscheme of $P_\xi$ with underlying set $P_\xi \setminus U_\xi$.
+    Then:
+    \begin{enumerate}
+        \item $P_\xi \cong \bP^{N}_{\kappa}$ with $N = d - \deg\mdls - g + 1 \geq 1$.
+        \item $P_\xi$ is a localization of $\Cmod{d}$: for every point $w \in P_\xi$ one has
+              $\Oo_{P_\xi, w} = \Oo_{\Cmod{d}, w}$. In particular the generic point of
+              $\Cmod{d}$ lies in $P_\xi$ and $\kappa(P_\xi) = K$.
+        \item $\eta_0 \in P_\xi$, the set $H_\xi$ is irreducible with generic point $\eta_0$,
+              and the reduced closed subscheme $Z_\xi := (H_\xi)_{red}$ is a prime divisor on
+              $P_\xi$ with $\Oo_{P_\xi, \eta_0} = \Oo_{\Cmod{d}, \eta_0}$, the discrete
+              valuation ring of $v_{\eta_0}$.
+        \item Every point $w \neq \eta_0$ of $P_\xi$ with $\dim(\Oo_{P_\xi, w}) = 1$ lies in
+              $U_\xi$.
+        \item $U_\xi \otimes_\kappa \bar{\kappa} \cong \A^N_{\bar{\kappa}}$, where
+              $\bar{\kappa}$ is an algebraic closure of $\kappa$.
+    \end{enumerate}
+\end{lemma}
+\begin{proof}
+    Throughout we use that $\PicCm[d]$ is integral: it is a torsor under the smooth group
+    scheme $\PicCm[0]$, which has geometrically connected fibers, hence it is smooth and
+    geometrically connected over $k$, and a connected scheme smooth over a field is integral.
+    Thus $\kappa = \kappa(\xi)$ is the function field of $\PicCm[d]$.
+
+    (1) By \Cref{theorem:takeuchi-compactification-theorem}, $\tilde{\Phi}_d$ is a projective
+    space bundle; choosing a trivializing open subset (any nonempty open contains the generic
+    point $\xi$) gives $P_\xi \cong \bP^{N}_\kappa$ for some $N$. Since $\Phi_d$ is smooth,
+    surjective, of relative dimension $d - \deg\mdls - g + 1$ (\Cref{section:AbelJacobi}) and
+    $U_\xi = \Phi_d^{-1}(\xi)$ is a nonempty open subscheme of $P_\xi$, we get
+    $N = d - \deg\mdls - g + 1$, and $N \geq 1$ by \Cref{equation:degree-condition} (as in the
+    proof of \Cref{lemma:boundary_of_compactification_r2}(2)).
+
+    (2) Let $w \in P_\xi$, choose an affine open $\Spec(R) \subseteq \PicCm[d]$ (it contains
+    $\xi$, and $\kappa = \Frac(R)$) and an affine open $\Spec(A) \subseteq \Cmod{d}$ containing
+    $w$ with $\tilde{\Phi}_d(\Spec A) \subseteq \Spec R$. Then
+    \[ P_\xi \cap \Spec(A) = \Spec\left( A \otimes_R \Frac(R) \right)
+       = \Spec\left( (R\setminus\{0\})^{-1} A \right) \]
+    is a localization of $\Spec(A)$, whence $\Oo_{P_\xi, w} = \Oo_{\Cmod{d}, w}$. For the last
+    assertion, let $\eta$ be the generic point of the integral scheme $\Cmod{d}$
+    (\Cref{lemma:boundary_of_compactification_r2}(1)). Since $\tilde{\Phi}_d$ is surjective,
+    $\PicCm[d] = \tilde{\Phi}_d\left(\overline{\{\eta\}}\right) \subseteq
+    \overline{\{\tilde{\Phi}_d(\eta)\}}$, so $\tilde{\Phi}_d(\eta) = \xi$ and $\eta \in P_\xi$.
+    As $\Oo_{P_\xi, \eta} = \Oo_{\Cmod{d}, \eta} = K$ is a field, $\eta$ is the generic point
+    of the integral scheme $P_\xi$ and $\kappa(P_\xi) = K$.
+
+    (3) We first claim that $H \to \PicCm[d]$ is surjective. It is proper, since $H$ is closed
+    in $\Cmod{d}$ and $\tilde{\Phi}_d$ is proper; hence its image is closed. The image contains
+    every closed point $y$: otherwise $\tilde{\Phi}_d^{-1}(y) \subseteq U^{(d)}$, i.e.\
+    $\Phi_d^{-1}(y) = \tilde{\Phi}_d^{-1}(y)$ would be proper over $\kappa(y)$; but the
+    geometric fibers of $\Phi_d$ are affine spaces of dimension $N \geq 1$
+    (\Cref{section:AbelJacobi}), which are not proper. A closed subset of the
+    Jacobson scheme $\PicCm[d]$ containing all closed points is the whole space. Now, since $H$
+    is irreducible with generic point $\eta_0$ (\Cref{lemma:boundary_of_compactification_r2}(2)),
+    \[ \PicCm[d] = \tilde{\Phi}_d(H) = \tilde{\Phi}_d\left(\overline{\{\eta_0\}}\right)
+       \subseteq \overline{\{\tilde{\Phi}_d(\eta_0)\}}, \]
+    so $\tilde{\Phi}_d(\eta_0) = \xi$ and $\eta_0 \in H_\xi$.
+
+    For irreducibility of $H_\xi$ we may replace $H$ by $H_{red}$, an integral scheme dominating
+    $\PicCm[d]$ (this does not change the underlying topological space of $H_\xi$). As in (2),
+    $H_\xi$ is covered by the open subschemes $\Spec\left((R\setminus\{0\})^{-1}A\right)$, where
+    $\Spec(A) \subseteq H_{red}$ runs over affine opens mapping into affine opens
+    $\Spec(R) \subseteq \PicCm[d]$. Each such $A$ is a domain and, since the nonempty open
+    $\Spec(A)$ of the irreducible $H_{red}$ dominates $\PicCm[d]$, the map $R \to A$ is
+    injective; hence $(R\setminus\{0\})^{-1}A$ is a nonzero localization of a domain, and each
+    nonempty piece is irreducible with generic point the generic point $\eta_0$ of $H_{red}$.
+    A topological space covered by irreducible opens all containing one common point is
+    irreducible; thus $H_\xi$ is irreducible with generic point $\eta_0$. Finally, by (2) and
+    \Cref{lemma:boundary_of_compactification_r2}(3),
+    $\Oo_{P_\xi, \eta_0} = \Oo_{\Cmod{d}, \eta_0}$ is a discrete valuation ring, so
+    $Z_\xi = \overline{\{\eta_0\}} \subseteq P_\xi$ (with its reduced structure) is a prime
+    divisor on $P_\xi \cong \bP^N_\kappa$.
+
+    (4) Let $w \in P_\xi$ with $\dim(\Oo_{P_\xi, w}) = 1$ and $w \neq \eta_0$. By (2),
+    $\dim(\Oo_{\Cmod{d}, w}) = 1$. If $w \notin U^{(d)}$ then, by
+    \Cref{lemma:boundary_of_compactification_r2}(3), $w = \eta_0$, a contradiction. Hence
+    $w \in U^{(d)} \cap P_\xi = U_\xi$.
+
+    (5) This is the description of the geometric fibers of $\Phi_d$ recalled in
+    \Cref{section:AbelJacobi}, applied to the geometric point
+    $\Spec(\bar{\kappa}) \to \PicCm[d]$ lying over $\xi$.
+\end{proof}
+
+The next two lemmas identify the divisor $Z_\xi$ inside $P_\xi \cong \bP^N_\kappa$. Note that
+$\kappa$ is in general neither perfect nor separably closed, so $Z_\xi$ need not be a
+hyperplane over $\kappa$; the lemmas show that it is a hyperplane geometrically, and that the
+inseparability phenomena can only affect its degree by a factor which is a power of $p$ ---
+which is all we shall need.
+
+\begin{lemma}\label{lemma:complement_of_affine_space_r2}
+    Let $L$ be an algebraically closed field, let $N \geq 1$, and let
+    $T \subsetneq \bP^N_L$ be a closed subset such that $\bP^N_L \setminus T \cong \A^N_L$ as
+    $L$-schemes. Then $T$ is a hyperplane.
+\end{lemma}
+\begin{proof}
+    Write $V := \bP^N_L \setminus T$ and fix an isomorphism $V \cong \A^N_L$, so
+    $\Oo(V) \cong L[t_1, \dots, t_N]$ and $\Oo(V)^\times = L^\times$. Let $T_1, \dots, T_r$ be
+    the irreducible components of $T$ of codimension $1$ in $\bP^N_L$; each is an integral
+    hypersurface $T_i = V_+(f_i)$ with $f_i$ an irreducible form of degree $d_i \geq 1$.
+
+    \emph{There is at least one component: $r \geq 1$.} Otherwise $T$ has codimension $\geq 2$,
+    and any $h \in \Oo(V)$, viewed as a rational function on $\bP^N_L$, has polar locus
+    contained in $T$, hence of codimension $\geq 2$; since $\bP^N_L$ is normal, $h$ is then
+    regular on all of $\bP^N_L$, hence constant. This contradicts
+    $\Oo(V) \cong L[t_1, \dots, t_N]$.
+
+    \emph{There is exactly one: $r = 1$.} If $r \geq 2$, then $h := f_1^{d_2} / f_2^{d_1}$ is a
+    well-defined rational function on $\bP^N_L$ (numerator and denominator are forms of the
+    same degree $d_1 d_2$), regular and invertible outside $T_1 \cup T_2 \subseteq T$. Thus
+    $h|_V \in \Oo(V)^\times = L^\times$, so $h$ is constant and
+    $0 = \operatorname{div}(h) = d_2 T_1 - d_1 T_2$, which is absurd as $T_1 \neq T_2$ are
+    distinct prime divisors.
+
+    \emph{$T$ has no components of codimension $\geq 2$: $T = T_1$.} Let
+    $V_1 := \bP^N_L \setminus T_1 \supseteq V$, an affine open (the complement of a
+    hypersurface in projective space), with $V_1 \setminus V = T \setminus T_1$ closed in
+    $V_1$ of codimension $\geq 2$. For $h \in \Oo(V)$, the polar locus of $h$ on the normal
+    scheme $V_1$ is either empty or of pure codimension one, and it is contained in
+    $V_1 \setminus V$; hence it is empty and $h \in \Oo(V_1)$. So the restriction
+    $\Oo(V_1) \to \Oo(V)$ is bijective (injectivity holds as $V$ is dense), and the open
+    immersion $V \hookrightarrow V_1$ of \emph{affine} schemes induces an isomorphism on
+    coordinate rings, hence is an isomorphism. Therefore $T = T_1$.
+
+    \emph{$d_1 = 1$.} Choose any hyperplane $W \subset \bP^N_L$ with $W \neq T_1$. Then
+    $W \cap V \neq \emptyset$ (otherwise $W \subseteq T_1$, and both being integral of the same
+    dimension, $W = T_1$), and $W \cap V$ is a prime divisor on $V \cong \A^N_L$. As
+    $L[t_1, \dots, t_N]$ is a unique factorization domain, the corresponding height-one prime
+    is principal, generated by an irreducible polynomial $h$, and
+    $\operatorname{div}_V(h) = [W \cap V]$. Viewing $h$ as a rational function on $\bP^N_L$,
+    all components of $\operatorname{div}_{\bP^N_L}(h)$ other than $\overline{W \cap V} = W$
+    are supported on $T$, whose unique codimension-one component is $T_1$; hence
+    $\operatorname{div}_{\bP^N_L}(h) = [W] + a\,[T_1]$ for some $a \in \Z$. Taking degrees,
+    $0 = 1 + a\, d_1$, so $d_1 \mid 1$, i.e.\ $d_1 = 1$.
+
+    Thus $T = T_1 = V_+(f_1)$ with $f_1$ of degree one: a hyperplane.
+\end{proof}
+
+\begin{lemma}\label{lemma:geometric_hyperplane_p_power_r2}
+    Let $\kappa$ be a field with algebraic closure $\bar{\kappa}$, and let
+    $Z \subset \bP^N_\kappa$ be an integral hypersurface of degree $\delta$ such that the
+    support of $Z \otimes_\kappa \bar{\kappa}$ is a single hyperplane of $\bP^N_{\bar\kappa}$.
+    If $\operatorname{char}(\kappa) = 0$ then $\delta = 1$; if $\operatorname{char}(\kappa) = p > 0$
+    then $\delta$ is a power of $p$.
+\end{lemma}
+\begin{proof}
+    Let $g \in \kappa[x_0, \dots, x_N]$ be an irreducible form defining $Z$, so
+    $\deg g = \delta$, and let $\ell$ be a linear form over $\bar{\kappa}$ defining the
+    hyperplane $\operatorname{supp}(Z_{\bar\kappa})$.
+
+    \emph{Step 1: $g = c\,\ell^{\delta}$ in $\bar{\kappa}[x_0, \dots, x_N]$ for some
+    $c \in \bar{\kappa}^\times$.}
+    Let $q$ be any irreducible factor of $g$ over $\bar{\kappa}$. Then $V_+(q)$ is an integral
+    hypersurface contained in $\operatorname{supp}(Z_{\bar\kappa}) = V_+(\ell)$; both are
+    irreducible closed subsets of dimension $N-1$, hence $V_+(q) = V_+(\ell)$. Since $(q)$ and
+    $(\ell)$ are prime ideals with the same zero set, they have the same radical, hence are
+    equal, and $q$ is a scalar multiple of $\ell$. As this holds for every irreducible factor,
+    $g = c\,\ell^{\delta}$.
+
+    \emph{Step 2: $g$ remains irreducible over the separable closure $\kappa^{sep}$.}
+    First, $g$ is squarefree in $\kappa^{sep}[x_0, \dots, x_N]$. Indeed, suppose $q^2 \mid g$
+    for some irreducible $q \in \kappa^{sep}[x_0, \dots, x_N]$ of positive degree. The
+    coefficients of $q$ lie in a finite Galois extension $\kappa'/\kappa$; normalize $q$ so
+    that its leading coefficient (in some fixed monomial order) is $1$, and let
+    $q = q_1, \dots, q_t$ be the distinct $\Gal(\kappa'/\kappa)$-conjugates of $q$, normalized
+    the same way. Applying elements of $\Gal(\kappa'/\kappa)$ to the relation $q^2 \mid g$
+    shows $q_j^2 \mid g$ for all $j$; the $q_j$ are pairwise coprime irreducibles, so
+    $M^2 \mid g$ in $\kappa'[x_0, \dots, x_N]$ where $M := q_1 \cdots q_t$. The polynomial $M$
+    is fixed by $\Gal(\kappa'/\kappa)$ (the Galois action permutes the normalized $q_j$), so
+    $M \in \kappa[x_0, \dots, x_N]$. Writing $g = M^2 h$ with
+    $h \in \kappa'[x_0, \dots, x_N]$, and expanding $h$ in a $\kappa$-basis of $\kappa'$, the
+    relation $g, M \in \kappa[x_0, \dots, x_N]$ forces $h \in \kappa[x_0, \dots, x_N]$
+    (clear denominators: if $D h \in \kappa[x_0,\dots,x_N]$ for some nonzero
+    $D \in \kappa[x_0,\dots,x_N]$, then all coordinates of $h$ outside $\kappa$ vanish). This
+    contradicts the irreducibility of $g$ over $\kappa$. Hence $g$ is squarefree over
+    $\kappa^{sep}$, say $g = c' \, q_1 \cdots q_t$ with $q_i \in \kappa^{sep}[x_0, \dots, x_N]$
+    pairwise non-associate irreducibles.
+    Second, $t = 1$: for each $i$, the closed subset $V_+(q_i \text{ over } \bar{\kappa})$ is
+    contained in $V_+(\ell)$ and has dimension $N - 1$, hence equals $V_+(\ell)$; since the
+    projection $\bP^N_{\bar\kappa} \to \bP^N_{\kappa^{sep}}$ is surjective and maps
+    $V_+(q_i \text{ over } \bar\kappa)$ onto $V_+(q_i)$, we get
+    $V_+(q_1) = V_+(q_2) = \dots$ in $\bP^N_{\kappa^{sep}}$, so (equality of radicals of
+    primes, as in Step 1) the $q_i$ are pairwise associate --- possible only if $t = 1$.
+    Thus $g$ is irreducible over $\kappa^{sep}$, and we may and do replace $\kappa$ by
+    $\kappa^{sep}$.
+
+    \emph{Step 3: conclusion.} If $\operatorname{char}(\kappa) = 0$, then
+    $\kappa^{sep} = \bar{\kappa}$ and $g = c\,\ell^\delta$ is irreducible, forcing
+    $\delta = 1$. Assume $\operatorname{char}(\kappa) = p > 0$ and $\kappa$ separably closed,
+    so $\bar{\kappa}/\kappa$ is purely inseparable. Write $\ell = \sum_i \lambda_i x_i$ with
+    $\lambda_i \in \bar{\kappa}$, and choose $r \geq 0$ with $\lambda_i^{p^r} \in \kappa$ for
+    all $i$. Then
+    \[ q := \ell^{\,p^r} = \sum\nolimits_i \lambda_i^{p^r} x_i^{p^r}
+       \; \in \; \kappa[x_0, \dots, x_N], \]
+    and $q^{\delta} = \ell^{\,p^r \delta} = c^{-p^r} g^{\,p^r}$. Both $q^\delta$ and
+    $g^{p^r}$ lie in $\kappa[x_0, \dots, x_N]$, so comparing any monomial appearing with
+    nonzero coefficient shows $c^{-p^r} \in \kappa^\times$. Now in the unique factorization
+    domain $\kappa[x_0, \dots, x_N]$, every irreducible factor of $q$ divides $g^{p^r}$, hence
+    is an associate of the irreducible $g$; therefore $q = c'' g^{\,s}$ for some $s \geq 1$ and
+    $c'' \in \kappa^\times$. Comparing degrees, $p^r = s\,\delta$, so $\delta$ divides $p^r$
+    and is a power of $p$.
+\end{proof}
+
+We can now prove the key proposition.
+
+\begin{prop}\label{prop:tame_at_boundary_implies_unramified_r2}
+    Let $G$ be a finite abelian group and let $\cQ$ be a $G$-torsor on $U^{(d)}_{\text{\'et}}$.
+    If $\cQ$ is tamely ramified over $\Cmod{d}$ at $(H, \eta_0)$, then $\cQ$ is unramified at
+    $(H, \eta_0)$.
+\end{prop}
+
+Note that no bound on the ramification of $\cQ$ along $\mdls$ is assumed;
+being a torsor on all of $U^{(d)}$ is enough.
+
+\begin{proof}
+    As in \Cref{section:ramification_after_blowup_is_tame} (see the discussion following
+    \Cref{definition:local_ramification_boundness}), the restriction of $\cQ$ to
+    $\Spec(\widehat{K}_{\eta_0})$ decomposes as a disjoint union of copies of $\Spec(M)$ for a
+    finite Galois extension $M / \widehat{K}_{\eta_0}$ with Galois group a subgroup of $G$, and
+    corresponds to a continuous homomorphism
+    \[ \rho : G_{\widehat{K}_{\eta_0}} \to G \]
+    with image $\Gal(M/\widehat{K}_{\eta_0})$. Let $I \subseteq G_{\widehat{K}_{\eta_0}}$ be the
+    inertia subgroup. Then $\cQ$ is unramified at $(H,\eta_0)$ if and only if
+    $\rho(I) = \{1\}$, and $\rho(I)$ equals the inertia subgroup $G_0$ of
+    $\Gal(M/\widehat{K}_{\eta_0})$.
+
+    \textbf{Reduction to $k$ algebraically closed.}
+    Let $k'/k$ be a finite separable extension. The projection
+    $\mathrm{pr} : (\Cmod{d})_{k'} \to \Cmod{d}$ is (finite) \'etale, and it identifies
+    $(\Cmod{d})_{k'} \setminus (U^{(d)})_{k'}$ with $\mathrm{pr}^{-1}(H)$. Since $C^{(n)}$ is
+    geometrically integral for every $n$ (see the Preliminaries), so are $Z_0$, $C^{(d)}$ and hence
+    $E_0$ (the exceptional divisor of a blowup of a geometrically integral smooth scheme along a
+    geometrically integral smooth center); therefore $\mathrm{pr}^{-1}(H)$ is irreducible with a unique
+    generic point $\eta'$ lying over $\eta_0$, and $\mathrm{pr}$ is \'etale at $\eta'$. By
+    \Cref{lemma:descend_ramification_along_etale} (and its proof: the completed local extensions at
+    $\eta'$ and at $\eta_0$ differ by the unramified base change
+    $\widehat{K}_{\eta'} / \widehat{K}_{\eta_0}$), the torsor $\mathrm{pr}^{-1}\cQ$ is tamely ramified,
+    resp.\ unramified, at $\eta'$ if and only if $\cQ$ is tamely ramified, resp.\ unramified, at
+    $\eta_0$. Passing to the colimit over all finite separable $k'/k$ (recall $k$ is perfect, so
+    $\bar{k} = k^{sep}$), we may and do assume for the rest of the proof that $k$ is algebraically
+    closed.
+
+    \textbf{The inertia image is cyclic of order prime to $p$.}
+    Set $G_0 := \rho(I)$, the inertia group of $M/\widehat{K}_{\eta_0}$. Since $\cQ$ is tamely
+    ramified at $(H, \eta_0)$, the extension $M/\widehat{K}_{\eta_0}$ is tamely ramified with
+    respect to $\Oo_{\Cmod{d}, \eta_0}$ (\Cref{definition:tamely_ramified_dvrs}): its residue
+    extension is separable and its ramification index $e$ is prime to $p$. For a Galois
+    extension of complete discrete valuation rings with separable residue extension, the
+    inertia group $G_0$ has order equal to the ramification index (\cite{serreLF}, Ch.\ IV);
+    hence $|G_0| = e$ is prime to $p$. Furthermore, the wild inertia subgroup
+    $G_1 \subseteq G_0$ is a $p$-group and $G_0/G_1$ is cyclic (\cite{serreLF}, Ch.\ IV;
+    recalled in the Preliminaries); since $|G_0|$ is prime to $p$ this forces $G_1 = \{1\}$,
+    so $G_0$ is cyclic of order $e$ prime to $p$.
+
+    \textbf{Choice of a character.}
+    Write $G = G_p \times G'$ with $G_p$ a $p$-group and $|G'|$ prime to $p$. Since
+    $\gcd(|G_0|, |G_p|) = 1$, the projection $\mathrm{pr}_{G'} : G \to G'$ is injective on
+    $G_0$. The image $\mathrm{pr}_{G'}(G_0)$ is cyclic, so it admits a faithful character
+    $\mathrm{pr}_{G'}(G_0) \to \Q/\Z$, which extends to a character $\chi_0 : G' \to \Q/\Z$
+    because $\Q/\Z$ is a divisible, hence injective, abelian group. Set
+    $\chi := \chi_0 \circ \mathrm{pr}_{G'} : G \to \Q/\Z$ and let $m := |\chi(G)|$, so that
+    $\chi(G) = \frac{1}{m}\Z/\Z \cong \Z/m$. Then $m$ divides $|G'|$, hence is prime to $p$,
+    and $\chi$ is injective on $G_0$. Since $k = \bar{k}$ and $p \nmid m$, we may fix an
+    isomorphism $\Z/m \cong \mu_m(k)$ and regard $\chi$ as a surjection $\chi : G \to \mu_m$.
+
+    Let $\cQ_\chi := \cQ \times^{G} \mu_m$ be the $\mu_m$-torsor on $U^{(d)}_{\text{\'et}}$
+    obtained from $\cQ$ by pushing forward along $\chi$ (\Cref{prop:quotient_torsors}, applied
+    to the quotient $G \to G/\ker\chi$ followed by the isomorphism
+    $G/\ker\chi \cong \mu_m$ induced by $\chi$). By functoriality of the correspondence of
+    \Cref{cor:abelian_equivilance_fundamental_torsors}, the restriction of $\cQ_\chi$ to
+    $\Spec(\widehat{K}_{\eta_0})$ corresponds to the character $\chi \circ \rho$. It therefore
+    suffices to prove that \emph{$\cQ_\chi$ is unramified at $(H, \eta_0)$}: this gives
+    $\chi(\rho(I)) = \{1\}$, and since $\chi$ is injective on $G_0 = \rho(I)$ we conclude
+    $\rho(I) = \{1\}$, as desired.
+
+    \textbf{Kummer representative.}
+    Restrict the character of $\cQ_\chi$ to the absolute Galois group of
+    $K = k(U^{(d)}) = k(C^{(d)})$. Since $\mu_m \subset k \subseteq K$, Kummer theory
+    identifies $H^1(K, \mu_m) \cong K^\times/(K^\times)^m$; let $F \in K^\times$ be a
+    representative of the resulting class, so that the corresponding $\mu_m$-cover of
+    $\Spec(K)$ is $\Spec\left( K[y]/(y^m - F) \right)$, and $F$ is well defined up to $m$-th
+    powers. We will show:
+    \begin{equation}\label{equation:kummer_valuation_route_two}
+        v_{\eta_0}(F) \equiv 0 \pmod{m}.
+    \end{equation}
+    Let us first explain why \Cref{equation:kummer_valuation_route_two} finishes the proof.
+    Let $\varpi$ be a uniformizer of $B_0 := \Oo_{\Cmod{d}, \eta_0}$ and write
+    $v_{\eta_0}(F) = m a$; replacing $F$ by $F \varpi^{-ma}$ (this changes neither the class in
+    $H^1(\widehat{K}_{\eta_0}, \mu_m)$ nor the extension, since it changes $F$ by the $m$-th
+    power $\left(\varpi^{-a}\right)^m$), we may assume $F \in \widehat{B}_0^\times$, where
+    $\widehat{B}_0$ is the completion. Then
+    \[ B := \widehat{B}_0[y]/(y^m - F) \]
+    is finite \'etale over $\widehat{B}_0$: it is finite free, and the derivative $m y^{m-1}$
+    is a unit in $B$ because $m$ is invertible in $k$ and $y^m = F$ is a unit. Consequently
+    $\widehat{K}_{\eta_0}[y]/(y^m - F) = B \otimes_{\widehat{B}_0} \widehat{K}_{\eta_0}$ is a
+    product of finite separable field extensions of $\widehat{K}_{\eta_0}$, each unramified
+    with respect to $\widehat{B}_0$ (\Cref{definition:tamely_ramified_dvrs}; compare
+    \Cref{theorem:kummer_ramification}(1),(2), whose proof for $m$ prime to $p$ does not use
+    perfectness of the residue field). Thus $\cQ_\chi$ is unramified at $(H, \eta_0)$, as
+    desired.
+
+    \textbf{The divisor of $F$ on the generic fiber.}
+    It remains to establish \Cref{equation:kummer_valuation_route_two}. We use the notation of
+    \Cref{lemma:generic_fiber_compactified_AJ_r2}. By part (2) of that lemma, $F$ is a nonzero
+    rational function on $P_\xi \cong \bP^N_\kappa$; write
+    \[ \operatorname{div}_{P_\xi}(F) = v_{\eta_0}(F)\cdot Z_\xi \;+\; \sum\nolimits_j a_j\, W_j, \]
+    where the $W_j$ are the prime divisors of $P_\xi$ other than $Z_\xi$ occurring in
+    $\operatorname{div}_{P_\xi}(F)$, and the coefficient of $Z_\xi$ is indeed $v_{\eta_0}(F)$
+    because $\Oo_{P_\xi, \eta_0} = \Oo_{\Cmod{d}, \eta_0}$
+    (\Cref{lemma:generic_fiber_compactified_AJ_r2}(3)).
+
+    \emph{All the $a_j$ are divisible by $m$.} Let $w_j$ be the generic point of $W_j$. By
+    \Cref{lemma:generic_fiber_compactified_AJ_r2}(4), $w_j \in U_\xi \subseteq U^{(d)}$, and
+    $A_j := \Oo_{P_\xi, w_j} = \Oo_{\Cmod{d}, w_j}$ is a discrete valuation ring with fraction
+    field $K$. The torsor $\cQ_\chi$ is a torsor on all of $U^{(d)}_{\text{\'et}}$, hence is
+    finite \'etale over a neighborhood of $w_j$, so it is unramified at $(W_j, w_j)$ (in the
+    sense of \Cref{definition:tamely_ramified_in_codim_1}, with ambient scheme $P_\xi$). On
+    the other hand, if $m \nmid a_j = v_{w_j}(F)$, then in any extension of the valuation
+    $v_{w_j}$ to the algebra $K[y]/(y^m - F)$ one has
+    $v(y) = v_{w_j}(F)/m \notin v_{w_j}(K^\times)$, so the ramification index over $A_j$ is
+    $m/\gcd(m, a_j) > 1$ --- contradicting unramifiedness. Hence $m \mid a_j$ for all $j$.
+
+    \emph{The degree of $Z_\xi$ is prime to $m$.} By
+    \Cref{lemma:generic_fiber_compactified_AJ_r2}(5) we have
+    $U_\xi \otimes_\kappa \bar{\kappa} \cong \A^N_{\bar\kappa}$, and the complement of this
+    open subset in $P_\xi \otimes_\kappa \bar{\kappa} \cong \bP^N_{\bar\kappa}$ is exactly the
+    support of $Z_\xi \otimes_\kappa \bar{\kappa}$ (taking supports and complements commutes
+    with the base change $\bar\kappa/\kappa$). By \Cref{lemma:complement_of_affine_space_r2},
+    this support is a single hyperplane of $\bP^N_{\bar\kappa}$. Therefore
+    \Cref{lemma:geometric_hyperplane_p_power_r2} applies to the integral hypersurface
+    $Z_\xi \subset \bP^N_\kappa$: its degree $\delta := \deg Z_\xi$ equals $1$ if $p = 0$, and
+    is a power of $p$ if $p > 0$. In either case $\gcd(\delta, m) = 1$, since $m$ is prime to
+    $p$.
+
+    \emph{Conclusion.} A principal divisor on $\bP^N_\kappa$ has degree zero (the numerator
+    and denominator of a rational function are forms of equal degrees). Taking degrees in the
+    displayed formula above,
+    \[ 0 = v_{\eta_0}(F)\cdot \delta + \sum\nolimits_j a_j \deg W_j
+         \equiv v_{\eta_0}(F) \cdot \delta \pmod{m}. \]
+    Since $\delta$ is invertible modulo $m$, this gives
+    $v_{\eta_0}(F) \equiv 0 \pmod{m}$, which is
+    \Cref{equation:kummer_valuation_route_two}. As explained above, this proves that
+    $\cQ_\chi$ is unramified at $(H, \eta_0)$, hence $\rho(I) = \{1\}$ and $\cQ$ is unramified
+    at $(H, \eta_0)$.
+\end{proof}
+
+\subsubsection*{Conclusion of the proof, and the fundamental-group formulation}
+
+\begin{proof}[Proof of \Cref{lemma:ExtensionOfTamelyRamifiedSheafRouteTwo}]
+    Let $G = \Lambda^\times$ and let $\cP^{[d]}$ be the $G$-torsor on $U^{(d)}_{\text{\'et}}$
+    corresponding to $\cF^{[d]}$ under \Cref{prop:torsor_module_equivalence}, with character
+    $\rho : \pi_1^{et}(U^{(d)}, \bar{u}) \to G$.
+    By \Cref{lemma:boundary_of_compactification_r2}(3), the only codimension-one point of
+    $\Cmod{d} \setminus U^{(d)}$ is $\eta_0$, so the hypothesis that $\cF^{[d]}$ is tamely ramified
+    along $H$ means precisely that $\cP^{[d]}$ is tamely ramified over $\Cmod{d}$ at $(H, \eta_0)$
+    (\Cref{definition:tamely_ramified_in_codim_1}).
+    By \Cref{prop:tame_at_boundary_implies_unramified_r2}, $\cP^{[d]}$ is then unramified at
+    $(H, \eta_0)$. By \Cref{prop:extension_via_purity_r2}, the character $\rho$ factors uniquely as
+    $\rho = \tilde{\rho} \circ \iota_*$ through
+    $\pi_1^{et}(\Cmod{d}, \bar{u})$. Let $\tilde{\cF}^{[d]}$ be the locally constant sheaf of free
+    rank-one $\Lambda$-modules on $(\Cmod{d})_{\text{\'et}}$ corresponding to $\tilde{\rho}$
+    (\Cref{cor:abelian_equivilance_fundamental_torsors} together with
+    \Cref{prop:torsor_module_equivalence}). Since $\tilde{\rho} \circ \iota_* = \rho$, its restriction
+    to $U^{(d)}$ is isomorphic to $\cF^{[d]}$.
+\end{proof}
+
+\begin{rem*}
+    The proof also gives uniqueness: since
+    $\iota_* : \pi_1^{et}(U^{(d)}) \to \pi_1^{et}(\Cmod{d})$ is surjective
+    (\Cref{prop:extension_via_purity_r2}), the extension $\tilde{\cF}^{[d]}$ is unique up to
+    isomorphism, and more generally the restriction functor from locally constant sheaves on
+    $\Cmod{d}$ to locally constant sheaves on $U^{(d)}$ is fully faithful. This is the source
+    of the uniqueness assertions in \Cref{thm:GCFT_torsors} and \Cref{thm:GCFT_reduced}.
+\end{rem*}
+
+We conclude with the promised fundamental-group formulation.
+
+\begin{cor}\label{cor:route_two_precise_r2}
+    Let $G$ be a finite abelian group, and call a continuous homomorphism
+    $\rho : \pi_1^{et}(U^{(d)}, \bar{u}) \to G$ \emph{tame} if the associated $G$-torsor on
+    $U^{(d)}_{\text{\'et}}$ (\Cref{cor:abelian_equivilance_fundamental_torsors}) is tamely
+    ramified over $\Cmod{d}$ at $(H, \eta_0)$. Then composition with the canonical
+    homomorphism
+    \[ \pi_1^{et}(U^{(d)}, \bar{u}) \longrightarrow \pi_1^{et}(\PicCm[d], \tilde{\Phi}_d(\bar{u}))
+       \qquad (\text{induced by } \Phi_d) \]
+    is a bijection
+    \[ \mathrm{Hom}_{\mathrm{cont}}\left( \pi_1^{et}(\PicCm[d]), G \right)
+       \xrightarrow{\;\cong\;}
+       \left\{ \rho \in \mathrm{Hom}_{\mathrm{cont}}\left( \pi_1^{et}(U^{(d)}), G \right)
+       \; : \; \rho \text{ is tame} \right\}. \]
+\end{cor}
+\begin{proof}
+    Since $\tilde{\Phi}_d$ is proper and smooth with geometrically connected fibers
+    (isomorphic to projective spaces), and projective spaces over separably closed fields are
+    simply connected (\cite{tendler2015geometricclassfieldtheory} Example 4.9, \cite{Toth2011}
+    Example 1.4.12), the exact sequence of
+    \Cref{cor:etale_fundamental_group_smooth_proper} shows that
+    $(\tilde{\Phi}_d)_* : \pi_1^{et}(\Cmod{d}) \to \pi_1^{et}(\PicCm[d])$ is an isomorphism.
+    Moreover $\iota_* : \pi_1^{et}(U^{(d)}) \to \pi_1^{et}(\Cmod{d})$ is surjective
+    (\Cref{prop:extension_via_purity_r2}), and the homomorphism in the statement is
+    $(\tilde{\Phi}_d)_* \circ \iota_*$.
+
+    \emph{The map lands in the tame classes, i.e.\ is well defined.} If
+    $\rho = \tilde{\rho} \circ (\tilde{\Phi}_d)_* \circ \iota_*$, the $G$-torsor of $\rho$ is
+    the restriction to $U^{(d)}$ of a $G$-torsor $\tilde{\cQ}$ on $(\Cmod{d})_{\text{\'et}}$.
+    As a scheme, $\tilde{\cQ}$ is finite \'etale over $\Cmod{d}$, so its restriction to
+    $\Spec(\widehat{K}_{\eta_0})$ is the generic fiber of a finite \'etale algebra over the
+    completed discrete valuation ring, hence a product of unramified extensions of
+    $\widehat{K}_{\eta_0}$. Thus the torsor of $\rho$ is unramified, in particular tamely
+    ramified, at $(H, \eta_0)$.
+
+    \emph{Injectivity} is immediate from the surjectivity of
+    $(\tilde{\Phi}_d)_* \circ \iota_*$.
+
+    \emph{Surjectivity.} Let $\rho$ be tame. By
+    \Cref{prop:tame_at_boundary_implies_unramified_r2} its torsor is unramified at
+    $(H, \eta_0)$, and by \Cref{prop:extension_via_purity_r2} $\rho$ factors through
+    $\iota_*$; composing with the inverse of $(\tilde{\Phi}_d)_*$ exhibits $\rho$ in the
+    image.
+\end{proof}
+
+\begin{rem*}
+    \Cref{cor:route_two_precise_r2} is the precise form of ``Route 2'': the canonical
+    surjection from the maximal ``tame-along-$H$'' abelian quotient of
+    $\pi_1^{et}(U^{(d)})$ to $\pi_1^{et, ab}(\PicCm[d])$ is an isomorphism --- not merely
+    injective onto its image. It also implies the statement of ``Route 1'': the kernel of
+    $\pi_1^{ab}(U^{(d)}) \to \pi_1^{ab}(\PicCm[d])$ is a pro-$p$ group. Indeed, let
+    $\mathrm{K}$ denote this kernel and suppose it had a nontrivial finite quotient of order
+    divisible by a prime $q \neq p$; then $\mathrm{K}$ admits a continuous character of order
+    $q$, which extends to a continuous character $\chi$ of $\pi_1^{ab}(U^{(d)})$ of some
+    finite order $p^b n$ with $p \nmid n$, and $\chi^{p^b}$ is a character of order prime to
+    $p$ that is still nontrivial on $\mathrm{K}$. But a character of order $n$ prime to $p$
+    is automatically tame at $(H, \eta_0)$: the corresponding local extensions of
+    $\widehat{K}_{\eta_0}$ have degree dividing $n$, so their ramification indices and residue
+    degrees are prime to $p$, making the residue extensions separable and the ramification
+    tame. By \Cref{cor:route_two_precise_r2}, $\chi^{p^b}$ then factors through
+    $\pi_1^{ab}(\PicCm[d])$, i.e.\ vanishes on $\mathrm{K}$ --- a contradiction. Hence every
+    finite quotient of $\mathrm{K}$ is a $p$-group.
+\end{rem*}
+
+\begin{rem*}
+    Statements of this kind appear in both of the works our approach follows, with different
+    proofs. Guignard (\cite{Guignard2018}, Lemmas 5.7 and 5.9) does not extend $\cF^{[d]}$
+    over a compactification: he shows that $\cF^{[d]}$ is constant on the (affine space)
+    fibers of $\Phi_d$, using the triviality of the tame fundamental group of $\A^1$, and then
+    descends it along $\Phi_d$ directly by a duality argument. Takeuchi
+    (\cite{takeuchi2019blow}, proof of Theorem 1.2 in \S 4) obtains the extension of the
+    corresponding character over $\Cmod{d}$ from his refined (Kato--Matsuda) Swan conductor
+    computation (\cite{takeuchi2019blow}, Theorem 2.7 and Corollary 2.8), which for $p$-power
+    order characters shows unramifiedness at $\eta_0$ directly. The proof given here is
+    elementary: beyond the purity of the branch locus, it only uses Kummer theory and the
+    geometry of the generic fiber of the compactified Abel--Jacobi fibration --- the boundary
+    of an affine space inside projective space is geometrically a hyperplane, and a principal
+    divisor on projective space has degree zero. It is in this sense the formal counterpart of
+    Guignard's approach.
+\end{rem*}

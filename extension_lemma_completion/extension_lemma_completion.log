@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.6.30)  13 JUL 2026 22:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.6.30)  13 JUL 2026 19:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**main.tex
-(./main.tex
+**extension_lemma_completion.tex
+(./extension_lemma_completion.tex
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
 (/usr/local/texlive/2025/texmf-dist/tex/latex/base/article.cls
@@ -54,8 +54,8 @@ Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
 )
 (/usr/local/texlive/2025/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
-) (./includes.tex
-(/usr/local/texlive/2025/texmf-dist/tex/latex/titling/titling.sty
+) (../includes.tex (/usr/local/texlive/2025/texmf-dist/tex/latex/titling/titlin
+g.sty
 Package: titling 2009/09/04 v2.1d maketitle typesetting
 \thanksmarkwidth=\skip51
 \thanksmargin=\skip52
@@ -1104,7 +1104,7 @@ Package: thm-amsthm 2023/05/04 v0.76
 (/usr/local/texlive/2025/texmf-dist/tex/generic/mleftright/mleftright.sty
 Package: mleftright 2019/12/03 v1.2 Math left/right delim. as open/close (HO)
 ))
-(./MacrosAndFigures.tex
+(../MacrosAndFigures.tex
 (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
 s/tikzlibrarypatterns.code.tex
 File: tikzlibrarypatterns.code.tex 2023-01-15 v3.1.10 (3.1.10)
@@ -1372,39 +1372,44 @@ Package biblatex Info: ... and expl3
 (/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/blx-case-expl3.sty
 Package: blx-case-expl3 2024/03/21 v3.20 expl3 case changing code for biblatex
 ))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/tools/xr.sty
+Package: xr 2024-04-10 v6.00 eXternal References (DPC)
+)
+Package xr Info: IMPORTING LABELS FROM ../main.aux on input line 51.
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'english'.
 
-(./main.aux
+(./extension_lemma_completion.aux
 
-LaTeX Warning: Label `sec:master' multiply defined.
+LaTeX Warning: Label `lemma:ExtensionOfTamelyRamifiedSheaf' multiply defined.
 
 
-LaTeX Warning: Label `sec:master@cref' multiply defined.
+LaTeX Warning: Label `lemma:ExtensionOfTamelyRamifiedSheaf@cref' multiply defin
+ed.
 
 )
-\openout1 = `main.aux'.
+\openout1 = `extension_lemma_completion.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1466,41 +1471,41 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: rotating package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring ON on input line 27.
+Package hyperref Info: Link coloring ON on input line 63.
 
-(./main.out) (./main.out)
+(./extension_lemma_completion.out) (./extension_lemma_completion.out)
 \@outlinefile=\write7
-\openout7 = `main.out'.
+\openout7 = `extension_lemma_completion.out'.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 27.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 63.
 
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 27.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 63.
 
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+stmry on input line 2
-7.
+LaTeX Font Info:    Trying to load font information for U+stmry on input line 6
+3.
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/stmaryrd/Ustmry.fd)
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 27
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 63
 .
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Font Info:    Trying to load font information for U+wasy on input line 27
+LaTeX Font Info:    Trying to load font information for U+wasy on input line 63
 .
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/wasysym/uwasy.fd
 File: uwasy.fd 2020/01/19 v2.4 Wasy-2 symbol font definitions
 )
-Package xypdf Info: Line width: 0.43799pt on input line 27.
+Package xypdf Info: Line width: 0.43799pt on input line 63.
 Package biblatex Info: Trying to load language 'english'...
 Package biblatex Info: ... file 'english.lbx' found.
 
@@ -1510,415 +1515,106 @@ File: english.lbx 2024/03/21 v3.20 biblatex localization (PK/MW)
 Package biblatex Info: Input encoding 'utf8' detected.
 Package biblatex Info: Automatic encoding selection.
 (biblatex)             Assuming data encoding 'utf8'.
-\openout6 = `main.bcf'.
+\openout6 = `extension_lemma_completion.bcf'.
 
 Package biblatex Info: Trying to load bibliographic data...
-Package biblatex Info: ... file 'main.bbl' found.
+Package biblatex Info: ... file 'extension_lemma_completion.bbl' found.
 
-(./main.bbl)
-Package biblatex Info: Reference section=0 on input line 27.
-Package biblatex Info: Reference segment=0 on input line 27.
-LaTeX Font Info:    Trying to load font information for U+euf on input line 34.
+(./extension_lemma_completion.bbl)
+Package biblatex Info: Reference section=0 on input line 63.
+Package biblatex Info: Reference segment=0 on input line 63.
+LaTeX Font Info:    Trying to load font information for U+euf on input line 69.
 
- (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/ueuf.fd
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 )
+(../sections/GeometricCFT/ExtensionOfTamelyRamifiedSheaf.tex
+Package hyperref Info: bookmark level for unknown lemma defaults to 0 on input 
+line 25.
+
 
 [1
 
 {/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/loc
 al/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}]
-(./main.toc
-
-[2])
-\tf@toc=\write8
-\openout8 = `main.toc'.
+Package hyperref Info: bookmark level for unknown prop defaults to 0 on input l
+ine 89.
 
 
+[2]
 
-[3] (./sections/Introduction.tex
+[3]
 
 [4]
-Package hyperref Info: bookmark level for unknown theorem defaults to 0 on inpu
-t line 60.
+Package hyperref Info: bookmark level for unknown claim defaults to 0 on input 
+line 266.
 
 
-[5]) (./sections/Preliminaries/Preliminaries.tex
-Package hyperref Info: bookmark level for unknown definition defaults to 0 on i
-nput line 24.
-
+[5]
 
 [6]
-Package hyperref Info: bookmark level for unknown prop defaults to 0 on input l
-ine 44.
-
 
 [7]
 Package hyperref Info: bookmark level for unknown rem* defaults to 0 on input l
-ine 139.
-Package hyperref Info: bookmark level for unknown cor defaults to 0 on input li
-ne 155.
+ine 464.
 
 
-[8]
+[8])
 
-[9]
-
-[10{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.en
-c}]
-
-[11]
-
-[12]
-
-[13]
-
-[14]
-
-[15]
-
-[16]
-
-[17] (./witt/WittVectorPrerequisites.tex
-
-[18]
-Overfull \hbox (27.8096pt too wide) detected at line 48
-\OML/cmm/m/it/10.95 w[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 S[]; [] ; S[]\OT
-1/cmr/m/n/10.95 ) = \OML/cmm/m/it/10.95 w[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10
-.95 X[]; [] ; X[]\OT1/cmr/m/n/10.95 ) + \OML/cmm/m/it/10.95 w[]\OT1/cmr/m/n/10.
-95 (\OML/cmm/m/it/10.95 Y[]; [] ; Y[]\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 ; 
- w[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 P[]; [] ; P[]\OT1/cmr/m/n/10.95 ) =
- \OML/cmm/m/it/10.95 w[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 X[]; [] ; X[]\O
-T1/cmr/m/n/10.95 ) \OMS/cmsy/m/n/10.95 ^^A \OML/cmm/m/it/10.95 w[]\OT1/cmr/m/n/
-10.95 (\OML/cmm/m/it/10.95 Y[]; [] ; Y[]\OT1/cmr/m/n/10.95 )
- []
-
-
-
-[19]
-Package hyperref Info: bookmark level for unknown lemma defaults to 0 on input 
-line 94.
-
-Overfull \hbox (84.97499pt too wide) in paragraph at lines 113--116
-[]\T1/cmr/bx/n/10.95 Proposition 34 \T1/cmr/m/n/10.95 (shape of Witt ad-di-tion
-)\T1/cmr/bx/n/10.95 . []\T1/cmr/m/it/10.95 For ev-ery $\OML/cmm/m/it/10.95 n \O
-MS/cmsy/m/n/10.95 ^^U \OT1/cmr/m/n/10.95 0$ \T1/cmr/m/it/10.95 there is a poly-
-no-mial $\OML/cmm/m/it/10.95 C[] \OMS/cmsy/m/n/10.95 2 \U/msb/m/n/10.95 Z\OT1/c
-mr/m/n/10.95 [\OML/cmm/m/it/10.95 X[]; [] ; X[]\OT1/cmr/m/n/10.95 ; \OML/cmm/m/
-it/10.95 Y[]; [] ; Y[]\OT1/cmr/m/n/10.95 ]$\T1/cmr/m/it/10.95 ,
- []
-
-
-
-[20]
-Package hyperref Info: bookmark level for unknown example defaults to 0 on inpu
-t line 216.
-
-
-[21]
-
-[22]
-
-[23]
-
-[24])
-
-[25] <xymatrix 2x2 154>
-
-[26]
-
-[27]) (./sections/RamificationAfterBlowupIsTame.tex <xymatrix 2x2 154>
-
-[28]
-
-[29]
-
-[30]
-
-[31]
-
-[32]
-
-[33]
-Overfull \hbox (9.6162pt too wide) in paragraph at lines 512--519
-\T1/cmr/m/n/10.95 Finally, $\OML/cmm/m/it/10.95 k\OT1/cmr/m/n/10.95 [[\OML/cmm/
-m/it/10.95 x[]; [] ; x[]\OT1/cmr/m/n/10.95 ]][] = \OML/cmm/m/it/10.95 k\OT1/cmr
-/m/n/10.95 [[\OML/cmm/m/it/10.95 e[]; [] ; e[]\OT1/cmr/m/n/10.95 ]]$\T1/cmr/m/n
-/10.95 : the ring $\OML/cmm/m/it/10.95 k\OT1/cmr/m/n/10.95 [\OML/cmm/m/it/10.95
- x[]; [] ; x[]\OT1/cmr/m/n/10.95 ]$ \T1/cmr/m/n/10.95 is a fi-nite free mod-ule
- over $\OML/cmm/m/it/10.95 k\OT1/cmr/m/n/10.95 [\OML/cmm/m/it/10.95 e[]; [] ; e
-[]\OT1/cmr/m/n/10.95 ]$\T1/cmr/m/n/10.95 ,
- []
-
-
-Overfull \hbox (7.60236pt too wide) in paragraph at lines 512--519
-\OML/cmm/m/it/10.95 k\OT1/cmr/m/n/10.95 [[\OML/cmm/m/it/10.95 e[]; [] ; e[]\OT1
-/cmr/m/n/10.95 ]]$ \T1/cmr/m/n/10.95 --- yields $\OML/cmm/m/it/10.95 k\OT1/cmr/
-m/n/10.95 [[\OML/cmm/m/it/10.95 e[]; [] ; e[]\OT1/cmr/m/n/10.95 ]]$\T1/cmr/m/n/
-10.95 . Un-der these iden-ti-fi-ca-tions the max-i-mal ideal of $[]$ is $\OT1/c
-mr/m/n/10.95 (\OML/cmm/m/it/10.95 e[]; [] ; e[]\OT1/cmr/m/n/10.95 )$\T1/cmr/m/n
-/10.95 ,
- []
-
-
-
-[34]
-
-[35]
-
-[36]
-
-[37]
-Overfull \hbox (13.19939pt too wide) in paragraph at lines 768--771
-\T1/cmr/m/it/10.95 and de-onte by $\OML/cmm/m/it/10.95 e[]; :::; e[]$ \T1/cmr/m
-/it/10.95 the el-e-men-tary sym-met-ric poly-no-mi-als in $\OML/cmm/m/it/10.95 
-x[]; :::; x[]$\T1/cmr/m/it/10.95 . If $\OML/cmm/m/it/10.95 m < d$ \T1/cmr/m/it/
-10.95 then $\OML/cmm/m/it/10.95 \OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x[]; :
-::; x[]\OT1/cmr/m/n/10.95 ) \OMS/cmsy/m/n/10.95 2
- []
-
-
-
-[38]
-
-[39] (./sections/RamificationAfterBlowupPPower.tex
-
-[40]
-
-[41]
-
-[42]
-Overfull \hbox (32.93033pt too wide) in paragraph at lines 258--261
-[]\T1/cmr/m/it/10.95 Every com-po-nent $\OML/cmm/m/it/10.95 []$ \T1/cmr/m/it/1
-0.95 of $[]$ is a sym-met-ric Lau-rent poly-no-mial, i.e. lies in $[]\OML/cmm/m
-/it/10.95 R[][][] \OT1/cmr/m/n/10.95 = \OML/cmm/m/it/10.95 k\OT1/cmr/m/n/10.95 
-[\OML/cmm/m/it/10.95 e[]; [] ; e[]; e[]\OT1/cmr/m/n/10.95 ]$\T1/cmr/m/it/10.95 
-,
- []
-
-
-
-[43]
-
-[44]
-
-[45])
-
-[46]
-
-[47]) (./sections/GeometricClassFieldTheory.tex
-
-[48]
-
-[49]
-
-[50]
-
-[51]
-
-[52]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\new@ifnextchar' on input line 219.
-
-
-
-[53]
-
-[54]) (./sections/GeometricCFT/ProofOfReducedTheorem.tex
-
-[55]) (./proof_completes/proof_complete.tex
-
-[56]
-
-[57]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 93.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 93.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 93.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 93.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 93.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\eta' on input line 93.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 93.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 93.
-
-
-
-[58]
-Overfull \hbox (4.45203pt too wide) detected at line 148
-[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 L[]=K[]\OT1/cmr/m/n/10.95 ) [] \OML/c
-mm/m/it/10.95 H;  []\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 K[]=K\OT1/cmr/m/n/1
-0.95 ) [] (\OML/cmm/m/it/10.95 G=H\OT1/cmr/m/n/10.95 )[] \U/msb/m/n/10.95 o \OM
-L/cmm/m/it/10.95 S[]=S[] []
- []
-
-
-LaTeX Warning: Reference `eq:eq:H1-inertia' on page 59 undefined on input line 
-194.
-
-
-LaTeX Warning: Reference `eq:eq:goal-inertia' on page 59 undefined on input lin
-e 199.
-
-
-LaTeX Warning: Reference `eq:eq:H2-inertia' on page 59 undefined on input line 
-207.
-
-
-
-[59]
-
-LaTeX Warning: Reference `eq:eq:H2-inertia' on page 60 undefined on input line 
-217.
-
-
-LaTeX Warning: Reference `eq:eq:goal-restate' on page 60 undefined on input lin
-e 244.
-
-) (./a_wrong_path/a_wrong_path.tex
-
-[60]
-
-[61]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 100.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 100.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 100.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 100.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 100.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\eta' on input line 100.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 100.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 100.
-
-
-
-[62]
-
-[63]
-
-[64]
-
-[65])
-
-[66]
-
-[67] (./main.aux)
+[9] (./extension_lemma_completion.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 
 
-LaTeX Warning: There were undefined references.
-
-
 LaTeX Warning: There were multiply-defined labels.
 
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 24C7F133C27EAC7C430159AFED7CCA74;6220.
-Package logreq Info: Writing requests to 'main.run.xml'.
-\openout1 = `main.run.xml'.
+Package rerunfilecheck Info: File `extension_lemma_completion.out' has not chan
+ged.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+Package logreq Info: Writing requests to 'extension_lemma_completion.run.xml'.
+\openout1 = `extension_lemma_completion.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 45750 strings out of 473190
- 868712 string characters out of 5715800
- 1692897 words of memory out of 5000000
- 67782 multiletter control sequences out of 15000+600000
- 594793 words of font info for 153 fonts, out of 8000000 for 9000
+ 43571 strings out of 473190
+ 819156 string characters out of 5715800
+ 1688907 words of memory out of 5000000
+ 66060 multiletter control sequences out of 15000+600000
+ 578747 words of font info for 97 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 107i,17n,110p,3253b,2300s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
-></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb>
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.p
-fb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pf
-b></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb
-></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><
-/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></u
-sr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr
-/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/l
-ocal/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/loc
-al/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/
-texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/tex
-live/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texliv
-e/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2
-025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/20
-25/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2025
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2025/tex
-mf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2025/t
-exmf-dist/fonts/type1/public/amsfonts/euler/eufm7.pfb></usr/local/texlive/2025/
-texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2
-025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texli
-ve/2025/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/local/texlive/2025/
-texmf-dist/fonts/type1/public/cm-super/sfbi1095.pfb></usr/local/texlive/2025/te
-xmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2025/texm
-f-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/local/texlive/2025/texmf-
-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2025/texmf-di
-st/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2025/texmf-dist
-/fonts/type1/public/cm-super/sfcc1095.pfb></usr/local/texlive/2025/texmf-dist/f
-onts/type1/public/cm-super/sfrm0600.pfb></usr/local/texlive/2025/texmf-dist/fon
-ts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2025/texmf-dist/fonts
-/type1/public/cm-super/sfrm0900.pfb></usr/local/texlive/2025/texmf-dist/fonts/t
-ype1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/typ
-e1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1
-/public/cm-super/sfrm1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/p
-ublic/cm-super/sfrm1728.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/pub
-lic/cm-super/sfti0800.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/publi
-c/cm-super/sfti1095.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/
-cm-super/sftt1095.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/st
-maryrd/stmary10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/stma
-ryrd/stmary8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/xypic/x
-yatip10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/xypic/xybtip
-10.pfb>
-Output written on main.pdf (67 pages, 932306 bytes).
+ 107i,8n,110p,3275b,1799s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
+></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.
+pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.p
+fb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb
+></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><
+/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></u
+sr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/
+local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/loc
+al/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/loca
+l/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/
+texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/te
+xlive/2025/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/
+texlive/2025/texmf-dist/fonts/type1/public/amsfonts/euler/eufm7.pfb></usr/local
+/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/l
+ocal/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></u
+sr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr
+/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/l
+ocal/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfcc1095.pfb></usr/loc
+al/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local
+/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/t
+exlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/tex
+live/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/local/texli
+ve/2025/texmf-dist/fonts/type1/public/cm-super/sfti0800.pfb></usr/local/texlive
+/2025/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb></usr/local/texlive/2
+025/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb>
+Output written on extension_lemma_completion.pdf (9 pages, 390174 bytes).
 PDF statistics:
- 1473 PDF objects out of 1728 (max. 8388607)
- 1303 compressed objects within 14 object streams
- 445 named destinations out of 1000 (max. 500000)
- 269 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 291 PDF objects out of 1000 (max. 8388607)
+ 227 compressed objects within 3 object streams
+ 41 named destinations out of 1000 (max. 500000)
+ 13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

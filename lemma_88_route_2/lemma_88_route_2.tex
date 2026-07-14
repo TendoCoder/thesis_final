@@ -1,0 +1,110 @@
+% =============================================================================
+%  lemma_88_route_2.tex
+%
+%  STANDALONE REVIEW COPY of a "Route 2" proof of the extension lemma
+%  (lemma:ExtensionOfTamelyRamifiedSheaf in the thesis, currently Lemma 88):
+%
+%      A locally constant sheaf on U^{(d)}, tamely ramified along the
+%      boundary divisor H of Takeuchi's compactification, extends to a
+%      locally constant sheaf on the whole compactification.
+%
+%  "Route 2" refers to the strategy sketched in the red placeholder note of
+%  sections/GeometricCFT/ProofOfReducedTheorem.tex: showing that the tame
+%  abelianized fundamental group of U^{(d)} maps isomorphically onto
+%  pi_1^{ab}(Pic^d_{C,m}). The precise statement is Corollary
+%  cor:route_two_precise_r2 at the end of this note; the geometric engine is
+%  the generic fiber of the compactified Abel--Jacobi fibration.
+%
+%  The proof body lives in
+%      lemma_88_route_2/lemma_88_route_2_body.tex
+%  and is fully self-contained: it does not depend on the draft
+%  sections/GeometricCFT/ExtensionOfTamelyRamifiedSheaf.tex, and all labels it
+%  defines carry the suffix "_r2" (resp. "RouteTwo" for the lemma itself), so
+%  the body can alternatively be \input into the thesis after
+%  ProofOfReducedTheorem.tex without label clashes.
+%
+%  Cross-references to thesis results (Takeuchi's theorem, the degree
+%  condition, the tameness definitions, etc.) are resolved against the
+%  thesis's main.aux via the xr package, so their numbering below matches the
+%  compiled thesis (main.pdf).
+%
+%  Compile (from inside this directory):
+%      TEXINPUTS=..: BIBINPUTS=..: latexmk -pdf lemma_88_route_2.tex
+% =============================================================================
+\documentclass[11pt]{article}
+\usepackage{geometry}\geometry{margin=1in}
+\usepackage[T1]{fontenc}
+\usepackage{ifthen}
+
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0.5em}
+
+\input{includes}
+\input{MacrosAndFigures}
+
+\usepackage{csquotes}
+\usepackage[
+backend=biber,
+style=alphabetic,
+sorting=ynt
+]{biblatex}
+\addbibresource{Bib.bib}
+
+\newboolean{ThesisIntro}
+\setboolean{ThesisIntro}{false}
+
+% Resolve references to thesis-internal results against the thesis aux file.
+\usepackage{xr}
+\externaldocument{../main}
+
+\title{A ``Route 2'' proof of
+\texorpdfstring{\Cref{lemma:ExtensionOfTamelyRamifiedSheaf}}{the extension lemma}:\\
+the tame fundamental group of \texorpdfstring{$U^{(d)}$}{U(d)} and the
+compactified Abel--Jacobi fibration}
+\author{}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\noindent\textbf{Goal.}
+The proof of \Cref{thm:GCFT_reduced} (``Theorem 2'') reduces, in the ramified
+case $\mdls > 0$, to the extension lemma whose proof in the thesis is
+currently a placeholder (\texttt{ProofOfReducedTheorem.tex}): a locally
+constant sheaf $\cF^{[d]}$ on $U^{(d)}$ which is \emph{tamely} ramified along
+the boundary divisor $H = \Cmod{d} \setminus U^{(d)}$ extends to a locally
+constant sheaf on all of $\Cmod{d}$. The placeholder suggests two routes;
+this note carries out \textbf{Route 2}, made precise as follows: for every
+finite abelian $G$, pullback along $\Phi_d$ identifies characters of
+$\pi_1^{et}(\PicCm[d])$ with the \emph{tame} characters of
+$\pi_1^{et}(U^{(d)})$ --- so the tame abelianized fundamental group of
+$U^{(d)}$ maps \emph{isomorphically} (not merely injectively) onto
+$\pi_1^{et,ab}(\PicCm[d])$. Route 1 (the kernel of
+$\pi_1^{ab}(U^{(d)}) \to \pi_1^{ab}(\PicCm[d])$ is pro-$p$) is deduced at the
+end as a corollary.
+
+The proof proceeds in two independent steps: by Zariski--Nagata purity, it
+suffices to show the corresponding torsor is \emph{unramified} at the generic
+point $\eta_0$ of $H$; then tameness at $\eta_0$ is upgraded to
+unramifiedness. For the second step, instead of computing valuations on the
+blowup of $C^{(d)}$, we work in the \emph{generic fiber}
+$P_\xi \cong \bP^N_\kappa$ of the compactified Abel--Jacobi morphism
+$\tilde{\Phi}_d$: the point $\eta_0$ lies in $P_\xi$ with the same local
+ring, the boundary meets $P_\xi$ in a divisor which is geometrically a
+hyperplane (its degree over $\kappa$ is a power of $p$), and the degree-zero
+property of principal divisors on projective space then forces the tame
+inertia at $\eta_0$ to vanish.
+
+All numbered references to results \emph{not} proved in this note
+(Takeuchi's compactification, the degree condition, the tameness
+definitions, purity inputs, etc.) carry the numbering of the compiled thesis
+(\texttt{main.pdf}).
+
+\bigskip
+\hrule
+\bigskip
+
+\input{lemma_88_route_2/lemma_88_route_2_body.tex}
+
+\printbibliography
+\end{document}

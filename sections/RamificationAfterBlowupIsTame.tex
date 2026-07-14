@@ -855,48 +855,7 @@ So, we conclude
     which was computed in \Cref{theorem:ramification_after_blowup_P1}.
 \end{proof}
 
-Next, we generalize by induction to the case of $G=\Z/p^r\Z$.
-\begin{theorem}\label{theorem:ramification_after_blowup_is_tame_for_p_power}
-    Assume $G=\Z/p^r\Z$. Then $\cP^{[\deg (\ndls)]}$ is unramified at $\eta_{\ndls}$
-\end{theorem}
-\begin{proof}
-    Again, we can assume $k$ is algebraically closed. 
-    $\cP^{[\deg \ndls]}$ has bounded ramification at $n P$ by $n$. Let $R = \widehat{\Oo_{C, P}}$ and let $K=Frac(R)$
-    Then $\cP^{[\deg \ndls]}|_{\Spec K}$ correspond to $\rho: \Gal(K^{sep}/K) \to G$.
-    Let $H = \rho(G^{0})$ be the image of the inertia subgroup. 
-    Decompose $\cP \to U$ to $\cP \to \cP_{G/H} \to U$ as in \Cref{{prop:quotient_torsors}}, where $\cP \to \cP_{G/H}$ is an $H$-torsor and $\cP_{G/H} \to U$ is a $G/H$ torsor.
-    Then $\cP_{G/H}$ is unramified at $P$. Thus $\cP_{G/H}$ extends to $U' = U \cup \{ P \}$, 
-    and taking any point $Q \in \cP_{G/H}$ over $P$, results in isomorphism $\widehat{\Oo_{\cP_{G/H}, Q}} \cong \widehat{\Oo_{C, P}}$.
-    But because $k$ is algebraically closed, we even have equality, 
-    and deduce that locally the $G/H$ action on $\widehat{\Oo_{C, P}}$ is trivial.
-    Thus, we can assume $G=H$ and that $\cP \to U$ is totally ramified at $P$.
-
-    We proceed by induction on $r$. The base case $r=1$ is done by the previous theorem.
-    Decompose $\cP \to U$ as $\cP \to \cP' \to U$ where $\cP \to \cP'$ is a $\Z/p\Z$-torsor and $\cP' \to U$ is a $\Z/p^{r-1}\Z$-torsor.
-
-    \textbf{(1)} By the induction hypothesis, $\cP'^{[\deg \ndls]}$ is unramified at $\eta_\ndls$.
-
-    Let $C'$ be the normal proper model of $\cP'$ viewed as a scheme, and let $\pi: C' \to C$ be the extension of $\cP' \to U$. 
-    Let $\ndls' = \pi^{-1} (\ndls)$ be the pullback of $\ndls$ to $C'$.
-    Let $\tilde{\ndls} $ be the pullback of $\ndls$ to $C'$.
-
-    
-    
-    Then, following \Cref{lemma:torsor_unramified_codim_one}, and the discussion surronding it,
-    with $U'$ being $\cP'$, we get that 
-    
-    
-    \textbf{(2)} $\cP'^{(\deg \ndls)} \to \cP'^{[\deg \ndls]}  \hookrightarrow C'^{[\deg \ndls]}$ is unramified at codimension one points.
-
-    And since $\cP \to \cP'$ is a $\Z/p\Z$-torsor, we can apply the previous theorem to deduce that $\cP^{[\deg \ndls]} \to \cP'^{(\deg \ndls)}$ is unramified at $\eta_\ndls$.
-
-
-
-
-    
-    \textcolor{red}{Not clear how to finish here without analyzing the ramification even further.}
-    Thus, take a subgroup $H \subset G$ such that $G/H \cong \Z/p \Z$ and decompose $\cP \to U$ as:
-\end{proof}
+\input{sections/RamificationAfterBlowupPPower.tex}
 
 Finally, \textbf{Proof of Theorem \cref{theorem:torsors_after_blowup_is_tame}}:
 Idea: decompose $G$ be the structure theorem, and finish by the above. 

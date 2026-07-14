@@ -1,0 +1,95 @@
+% =============================================================================
+%  extension_lemma_completion.tex
+%
+%  STANDALONE REVIEW COPY of the completed proof of
+%  \Cref{lemma:ExtensionOfTamelyRamifiedSheaf}:
+%
+%      A locally constant sheaf on U^{(d)}, tamely ramified along the
+%      boundary divisor H of Takeuchi's compactification, extends to a
+%      locally constant sheaf on the whole compactification.
+%
+%  This lemma is the missing step of the "Proof of Theorem 2"
+%  (sections/GeometricCFT/ProofOfReducedTheorem.tex), where its proof is
+%  currently a red placeholder note.
+%
+%  The proof body is \input directly from the canonical file
+%      sections/GeometricCFT/ExtensionOfTamelyRamifiedSheaf.tex
+%  so edits made there (or here, if you follow the \input) stay in sync.
+%
+%  Cross-references to thesis results (Takeuchi's theorem, the degree
+%  condition, etc.) are resolved against the thesis's main.aux via the xr
+%  package, so the numbering below matches the compiled thesis.
+%
+%  Compile (from inside this directory):
+%      TEXINPUTS=..: BIBINPUTS=..: latexmk -pdf extension_lemma_completion.tex
+% =============================================================================
+\documentclass[11pt]{article}
+\usepackage{geometry}\geometry{margin=1in}
+\usepackage[T1]{fontenc}
+\usepackage{ifthen}
+
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0.5em}
+
+\input{includes}
+\input{MacrosAndFigures}
+
+\usepackage{csquotes}
+\usepackage[
+backend=biber,
+style=alphabetic,
+sorting=ynt
+]{biblatex}
+\addbibresource{Bib.bib}
+
+\newboolean{ThesisIntro}
+\setboolean{ThesisIntro}{false}
+
+% Resolve references to thesis-internal results against the thesis aux file.
+\usepackage{xr}
+\externaldocument{../main}
+
+% The proof file uses \eqref{<label>}; the thesis preamble loads refstyle,
+% whose \eqref (defined at \begin{document}) expects "eq:"-prefixed labels.
+% Route \eqref through cleveref instead.
+\AtBeginDocument{\def\eqref#1{\Cref{#1}}}
+
+\title{Completion of the proof of
+\texorpdfstring{\Cref{lemma:ExtensionOfTamelyRamifiedSheaf}}{the extension lemma}:\\
+tamely ramified sheaves extend over the boundary of Takeuchi's compactification}
+\author{}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\noindent\textbf{Goal.}
+This note completes the proof of \Cref{thm:GCFT_reduced} (``Theorem 2'').
+The two-case argument of the thesis reduces everything, in the ramified case
+$\mdls > 0$, to the following extension lemma, whose proof in the thesis is
+currently a placeholder (\texttt{ProofOfReducedTheorem.tex}): a locally
+constant sheaf $\cF^{[d]}$ on $U^{(d)}$ which is \emph{tamely} ramified along
+the boundary divisor $H = \Cmod{d} \setminus U^{(d)}$ extends to a locally
+constant sheaf on all of $\Cmod{d}$.
+
+The proof below proceeds in two independent steps: by Zariski--Nagata purity,
+it suffices to show the corresponding torsor is \emph{unramified} at the
+generic point $\eta_0$ of $H$ (\Cref{prop:extension_via_purity}); then
+tameness at $\eta_0$ is upgraded to unramifiedness
+(\Cref{prop:tame_at_boundary_implies_unramified}) --- the wild part is killed
+by tameness alone, and the tame part by a Kummer-theoretic valuation
+computation using the projective bundle structure of $C^{(d)}$ over
+$\PicC[d]$.
+
+All numbered references to results \emph{not} proved in this note
+(Takeuchi's compactification, the degree condition, purity inputs, etc.)
+carry the numbering of the compiled thesis (\texttt{main.pdf}).
+
+\bigskip
+\hrule
+\bigskip
+
+\input{sections/GeometricCFT/ExtensionOfTamelyRamifiedSheaf.tex}
+
+\printbibliography
+\end{document}

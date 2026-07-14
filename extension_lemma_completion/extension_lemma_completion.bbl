@@ -1,0 +1,157 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{ynt/global//global/global/global}
+    \entry{serreLF}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=523a41970d92b80420ca6d5307619da7}{%
+           family={Serre},
+           familyi={S\bibinitperiod},
+           given={Jean-Pierre},
+           giveni={J\bibinithyphendelim P\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{523a41970d92b80420ca6d5307619da7}
+      \strng{fullhash}{523a41970d92b80420ca6d5307619da7}
+      \strng{fullhashraw}{523a41970d92b80420ca6d5307619da7}
+      \strng{bibnamehash}{523a41970d92b80420ca6d5307619da7}
+      \strng{authorbibnamehash}{523a41970d92b80420ca6d5307619da7}
+      \strng{authornamehash}{523a41970d92b80420ca6d5307619da7}
+      \strng{authorfullhash}{523a41970d92b80420ca6d5307619da7}
+      \strng{authorfullhashraw}{523a41970d92b80420ca6d5307619da7}
+      \field{labelalpha}{Ser79}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Local Fields}
+      \field{year}{1979}
+    \endentry
+    \entry{stacks-project}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=6b3a4953111be4867f48aef887bd0220}{%
+           family={Authors},
+           familyi={A\bibinitperiod},
+           given={The\bibnamedelimb Stacks\bibnamedelima Project},
+           giveni={T\bibinitperiod\bibinitdelim S\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+      }
+      \strng{namehash}{6b3a4953111be4867f48aef887bd0220}
+      \strng{fullhash}{6b3a4953111be4867f48aef887bd0220}
+      \strng{fullhashraw}{6b3a4953111be4867f48aef887bd0220}
+      \strng{bibnamehash}{6b3a4953111be4867f48aef887bd0220}
+      \strng{authorbibnamehash}{6b3a4953111be4867f48aef887bd0220}
+      \strng{authornamehash}{6b3a4953111be4867f48aef887bd0220}
+      \strng{authorfullhash}{6b3a4953111be4867f48aef887bd0220}
+      \strng{authorfullhashraw}{6b3a4953111be4867f48aef887bd0220}
+      \field{labelalpha}{Stacks}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://stacks.math.columbia.edu}}
+      \field{shorthand}{Stacks}
+      \field{title}{Stacks Project}
+      \field{year}{2018}
+    \endentry
+    \entry{Guignard2018}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=2ed142c654b9598d2f8eadf399cbbbc7}{%
+           family={Guignard},
+           familyi={G\bibinitperiod},
+           given={Quentin},
+           giveni={Q\bibinitperiod}}}%
+      }
+      \strng{namehash}{2ed142c654b9598d2f8eadf399cbbbc7}
+      \strng{fullhash}{2ed142c654b9598d2f8eadf399cbbbc7}
+      \strng{fullhashraw}{2ed142c654b9598d2f8eadf399cbbbc7}
+      \strng{bibnamehash}{2ed142c654b9598d2f8eadf399cbbbc7}
+      \strng{authorbibnamehash}{2ed142c654b9598d2f8eadf399cbbbc7}
+      \strng{authornamehash}{2ed142c654b9598d2f8eadf399cbbbc7}
+      \strng{authorfullhash}{2ed142c654b9598d2f8eadf399cbbbc7}
+      \strng{authorfullhashraw}{2ed142c654b9598d2f8eadf399cbbbc7}
+      \field{labelalpha}{Gui19}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{math.AG}
+      \field{eprinttype}{arXiv}
+      \field{journaltitle}{Algebra \& Number Theory}
+      \field{month}{5}
+      \field{note}{Revised version submitted on 29 May 2019}
+      \field{title}{On the ramified class field theory of relative curves}
+      \field{volume}{13}
+      \field{year}{2019}
+      \field{pages}{1299\bibrangedash 1326}
+      \range{pages}{28}
+      \verb{doi}
+      \verb 10.2140/ant.2019.13.1299
+      \endverb
+      \verb{eprint}
+      \verb 1804.02243
+      \endverb
+    \endentry
+    \entry{takeuchi2019blow}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=ca1ca5408035ebcb32c22da88c0cc886}{%
+           family={Takeuchi},
+           familyi={T\bibinitperiod},
+           given={Daichi},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Mathematical Sciences Publishers}%
+      }
+      \strng{namehash}{ca1ca5408035ebcb32c22da88c0cc886}
+      \strng{fullhash}{ca1ca5408035ebcb32c22da88c0cc886}
+      \strng{fullhashraw}{ca1ca5408035ebcb32c22da88c0cc886}
+      \strng{bibnamehash}{ca1ca5408035ebcb32c22da88c0cc886}
+      \strng{authorbibnamehash}{ca1ca5408035ebcb32c22da88c0cc886}
+      \strng{authornamehash}{ca1ca5408035ebcb32c22da88c0cc886}
+      \strng{authorfullhash}{ca1ca5408035ebcb32c22da88c0cc886}
+      \strng{authorfullhashraw}{ca1ca5408035ebcb32c22da88c0cc886}
+      \field{labelalpha}{Tak19}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Algebraic Number Theory}
+      \field{number}{6}
+      \field{title}{Blow-ups and the class field theory for curves}
+      \field{volume}{13}
+      \field{year}{2019}
+      \field{pages}{1327\bibrangedash 1351}
+      \range{pages}{25}
+      \verb{doi}
+      \verb 10.2140/ant.2019.13.1327
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.2140/ant.2019.13.1327
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.2140/ant.2019.13.1327
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

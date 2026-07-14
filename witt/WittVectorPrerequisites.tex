@@ -1,0 +1,499 @@
+% =====================================================================
+%  Witt-vector prerequisites
+%  ---------------------------------------------------------------
+%  This file collects the basic theory of ($p$-typical, finite-length)
+%  Witt vectors and of Artin--Schreier--Witt theory used in the proof
+%  that $\cP^{[\deg \ndls]}$ is unramified at $\eta_\ndls$ for
+%  $G = \Z/p^r\Z$.  It is meant to be \input inside the Preliminaries.
+%
+%  Macros: if \bW is not already defined in MacrosAndFigures.tex,
+%  the \providecommand below supplies it (consider moving it there).
+% =====================================================================
+\providecommand{\bW}{\mathbb{W}}
+
+\subsection{Witt Vectors and Artin--Schreier--Witt Theory}
+\phantomsection\label{subsection:witt_vector_prerequisites}
+
+Artin--Schreier theory, together with the ramification formula of
+\Cref{theorem:artin_schreier_ramification}, gives complete control over the cyclic
+extensions of degree $p$ of a local field of characteristic $p$. To treat the groups
+$G = \Z/p^r\Z$ we need the analogous control over cyclic extensions of degree $p^r$,
+which is provided by Witt's generalization: the field $K$ is replaced by the ring
+$W_r(K)$ of $p$-typical Witt vectors of length $r$, the operator $\wp(u) = u^p - u$ by
+its Witt-vector analogue $\wp = F - \mathrm{id}$, and the classical ramification-break
+formula by the Schmid--Witt formula. This subsection collects the definitions and the
+elementary lemmas that we use; our references for the general theory are
+\cite[II, \S6]{serreLF} and \cite{Rabinoff2014Witt}.
+
+Throughout, $p$ is a fixed prime, and $r \geq 1$ is an integer. All the Witt vectors
+appearing in this thesis are $p$-typical and of finite length.
+
+\subsubsection*{The ring of Witt vectors}
+
+For $n \geq 0$, the $n$-th \textbf{Witt polynomial} in the variables $X_0, \dots, X_n$
+is
+\[
+w_n(X_0, \dots, X_n) \;=\; \sum_{j=0}^{n} p^j X_j^{p^{n-j}}
+\;=\; X_0^{p^n} + p X_1^{p^{n-1}} + \dots + p^n X_n .
+\]
+
+\begin{theorem}[Witt; {\cite[II, \S6, Theorem~6]{serreLF}}, {\cite[\S1]{Rabinoff2014Witt}}]
+\label{theorem:witt_ring_structure}
+There exists a unique family of polynomials
+$S_n, P_n \in \Z[X_0, \dots, X_n; Y_0, \dots, Y_n]$, $n \geq 0$, such that
+\[
+w_n(S_0, \dots, S_n) = w_n(X_0,\dots,X_n) + w_n(Y_0,\dots,Y_n),
+\qquad
+w_n(P_0, \dots, P_n) = w_n(X_0,\dots,X_n) \cdot w_n(Y_0,\dots,Y_n)
+\]
+for all $n$. For any commutative ring $A$, the operations
+\[
+\vec a \oplus \vec b := \bigl(S_n(\vec a; \vec b)\bigr)_{0 \le n \le r-1},
+\qquad
+\vec a \odot \vec b := \bigl(P_n(\vec a; \vec b)\bigr)_{0 \le n \le r-1}
+\]
+make the set $A^r$ into a commutative ring $W_r(A)$, the ring of \textbf{$p$-typical
+Witt vectors of length $r$ over $A$}, with zero $(0, \dots, 0)$ and unit
+$(1, 0, \dots, 0)$. Additive inverses are likewise given by universal integral
+polynomials; we write $\ominus$ for Witt subtraction. The \textbf{ghost map}
+\[
+w \colon W_r(A) \longrightarrow A^r,
+\qquad
+\vec a \longmapsto \bigl(w_0(\vec a), w_1(\vec a), \dots, w_{r-1}(\vec a)\bigr)
+\]
+is a ring homomorphism to the product ring $A^r$; it is injective when $p$ is a
+non-zero-divisor in $A$, and bijective when $p \in A^\times$.
+\end{theorem}
+
+We index the components of a Witt vector $\vec a = (a_0, \dots, a_{r-1})$ by
+$0, \dots, r-1$. For $r = 1$ the polynomials reduce to $S_0 = X_0 + Y_0$ and
+$P_0 = X_0 Y_0$, so $W_1(A) = A$ as a ring.
+
+Since the ring operations are given by universal polynomials with integer
+coefficients, $W_r$ is a functor: a ring homomorphism $\sigma \colon A \to B$ induces
+the ring homomorphism
+\[
+W_r(\sigma) \colon W_r(A) \to W_r(B),
+\qquad
+W_r(\sigma)(a_0, \dots, a_{r-1}) = (\sigma a_0, \dots, \sigma a_{r-1}),
+\]
+acting \emph{componentwise}. Two consequences of this trivial-looking observation are
+used repeatedly and deserve emphasis: a ring automorphism $\sigma$ of $A$ commutes
+with $\oplus$ and $\ominus$ on $W_r(A)$, and a Witt vector $\vec a \in W_r(A)$
+satisfies $W_r(\sigma)(\vec a) = \vec a$ if and only if \emph{each component} $a_n$ is
+$\sigma$-invariant. In particular, for a group $\Gamma$ acting on $A$ by ring
+automorphisms,
+\begin{equation}\label{eq:witt_invariants_componentwise}
+W_r(A)^{\Gamma} \;=\; W_r\bigl(A^{\Gamma}\bigr)
+\qquad \text{inside } W_r(A).
+\end{equation}
+
+The uniqueness statement in \Cref{theorem:witt_ring_structure} is an instance of a
+general principle that we invoke several times, so we record it explicitly.
+
+\begin{lemma}[ghost principle]\label{lemma:ghost_principle}
+Let $\Phi$ and $\Psi$ be two operations on Witt vectors given by universal polynomials
+with integer coefficients in the components of their arguments. If
+$w \circ \Phi = w \circ \Psi$ holds over the polynomial ring
+$\Z[X_0, X_1, \dots]$ on the components of the arguments, then $\Phi = \Psi$ over
+every commutative ring.
+\end{lemma}
+
+\begin{proof}
+Over $\Z[X_0, X_1, \dots]$ the prime $p$ is a non-zero-divisor, so the ghost map is
+injective by \Cref{theorem:witt_ring_structure} and $\Phi = \Psi$ there; this is an
+identity of integral polynomials, which persists under every base change
+$\Z[X_0, X_1, \dots] \to A$.
+\end{proof}
+
+The only structural feature of the addition polynomials $S_n$ that we shall need is
+their ``triangular'' shape:
+
+\begin{prop}[shape of Witt addition]\label{prop:witt_addition_shape}
+For every $n \geq 0$ there is a polynomial
+$C_n \in \Z[X_0, \dots, X_{n-1}; Y_0, \dots, Y_{n-1}]$, involving only the variables of
+index \emph{strictly less} than $n$, such that
+\begin{equation}\label{eq:witt_addition_shape}
+(\vec a \oplus \vec b)_n \;=\; a_n + b_n + C_n(a_0, \dots, a_{n-1}; b_0, \dots, b_{n-1}).
+\end{equation}
+We refer to $C_n$ as the \textbf{carry polynomial}. The analogous statement holds for
+$\ominus$.
+\end{prop}
+
+\begin{proof}
+By induction on $n$, using the recursion defining $S_n$:
+\[
+p^n S_n \;=\; \sum_{j \leq n} p^j \bigl(X_j^{p^{n-j}} + Y_j^{p^{n-j}}\bigr)
+\;-\; \sum_{j < n} p^j S_j^{p^{n-j}} .
+\]
+The terms with $j = n$ contribute $p^n (X_n + Y_n)$, and all remaining terms involve
+only variables and polynomials $S_j$ of index $j < n$, which by induction lie in
+$\Z[X_{<n}; Y_{<n}]$. Since $S_n$ has integer coefficients
+(\Cref{theorem:witt_ring_structure}), $C_n := S_n - X_n - Y_n$ is an integral
+polynomial in the variables of index $< n$. The statement for $\ominus$ follows by the
+same argument applied to the inversion polynomials.
+\end{proof}
+
+\subsubsection*{Frobenius, Verschiebung and truncation}
+
+From now on, $A$ denotes an $\F_p$-algebra; this is the only case we use. Three
+operators act on the rings $W_r(A)$:
+
+\begin{definition}\label{definition:witt_operators}
+Let $A$ be an $\F_p$-algebra.
+\begin{enumerate}
+    \item The \textbf{Frobenius} $F \colon W_r(A) \to W_r(A)$ is
+    $F := W_r(\varphi_A)$, where $\varphi_A \colon a \mapsto a^p$ is the absolute
+    Frobenius of $A$. Explicitly, $F$ acts componentwise:
+    $F(a_0, \dots, a_{r-1}) = (a_0^p, \dots, a_{r-1}^p)$. By functoriality, $F$ is a
+    ring endomorphism of $W_r(A)$.
+    \item The \textbf{Verschiebung} is the shift
+    \[
+    V \colon W_{r-1}(A) \to W_r(A),
+    \qquad
+    V(a_0, \dots, a_{r-2}) = (0, a_0, \dots, a_{r-2}).
+    \]
+    Iterating, $V^j \colon W_{r-j}(A) \to W_r(A)$; in particular
+    $V^{r-1} \colon A = W_1(A) \to W_r(A)$ sends $c \mapsto (0, \dots, 0, c)$.
+    \item The \textbf{truncation} is
+    \[
+    t \colon W_r(A) \to W_{r-1}(A),
+    \qquad
+    t(a_0, \dots, a_{r-1}) = (a_0, \dots, a_{r-2}).
+    \]
+\end{enumerate}
+\end{definition}
+
+\begin{rem*}
+For a general (not necessarily $\F_p$-) algebra $A$, the Frobenius is defined by
+universal polynomials characterized by $w_n \circ F = w_{n+1}$, and the componentwise
+formula above holds precisely in characteristic $p$; see
+\cite[II, \S6]{serreLF} or \cite[\S2]{Rabinoff2014Witt}. We will not need the general
+case.
+\end{rem*}
+
+We record from the general theory (\cite[II, \S6]{serreLF},
+\cite[\S2]{Rabinoff2014Witt}) how multiplication by $p$ interacts with these
+operators.
+
+\begin{prop}\label{prop:witt_multiplication_by_p}
+Let $A$ be an $\F_p$-algebra. Then:
+\begin{enumerate}
+    \item $t$ is a natural ring homomorphism commuting with $F$, and its kernel is
+    \[
+    \ker\bigl(t \colon W_r(A) \to W_{r-1}(A)\bigr)
+    \;=\; V^{r-1} A \;=\; \{(0, \dots, 0, c) : c \in A\}.
+    \]
+    \item $V$ is additive, and $F V = V F$.
+    \item Multiplication by $p$ on $W_r(A)$ equals $V \circ F = F \circ V$
+    (composed with the appropriate truncation); explicitly,
+    \[
+    p \cdot (a_0, \dots, a_{r-1}) \;=\; (0,\, a_0^p,\, \dots,\, a_{r-2}^p).
+    \]
+    Iterating, $p^j \cdot \vec a = (0, \dots, 0, a_0^{p^j}, \dots, a_{r-1-j}^{p^j})$;
+    in particular $p^r = 0$ on $W_r(A)$, and
+    \begin{equation}\label{eq:witt_p_to_r_minus_1}
+    p^{r-1} \cdot (a_0, \dots, a_{r-1}) \;=\; \bigl(0, \dots, 0,\, a_0^{p^{r-1}}\bigr).
+    \end{equation}
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+(1) That $t$ is a ring homomorphism follows from the recursive definition of the
+$S_n, P_n$: the first $r-1$ components of a sum or product depend only on the first
+$r-1$ components of the arguments (\Cref{prop:witt_addition_shape}). Naturality and
+the commutation with the (componentwise) $F$ are clear, and the kernel is computed
+componentwise. (2) Additivity of $V$ follows from \Cref{lemma:ghost_principle} and
+the ghost identity $w_n(V\vec a) = p\, w_{n-1}(\vec a)$ (with $w_{-1} := 0$); the
+commutation $FV = VF$ is immediate since $F$ is componentwise. (3) The identity
+$F V = p$ holds over arbitrary rings for the general Frobenius, by
+\Cref{lemma:ghost_principle} applied to
+$w_n(FV\vec a) = w_{n+1}(V \vec a) = p\, w_n(\vec a) = w_n(p \vec a)$; in
+characteristic $p$ the general Frobenius is componentwise, giving the displayed
+formula. See \cite[II, \S6, Proposition~8 ff.]{serreLF} for details.
+\end{proof}
+
+\begin{example}\label{example:witt_of_Fp}
+$W_r(\F_p) \cong \Z/p^r\Z$ canonically. Indeed, by
+\Cref{eq:witt_p_to_r_minus_1} the unit $\underline 1 = (1, 0, \dots, 0)$ satisfies
+$p^j \cdot \underline 1 = (0, \dots, 0, 1, 0, \dots, 0)$ ($1$ in position $j$), so
+$\underline 1$ has additive order $p^r$; since $|W_r(\F_p)| = p^r$, the additive group
+is cyclic of order $p^r$ generated by the unit, and $m \mapsto m \cdot \underline 1$
+is a ring isomorphism $\Z/p^r\Z \xrightarrow{\;\cong\;} W_r(\F_p)$. We write
+$\underline m \in W_r(\F_p)$ for the image of $m \in \Z/p^r\Z$. (Similarly, the full
+ring of Witt vectors satisfies $W(\F_p) \cong \Z_p$; we shall not need this.)
+\end{example}
+
+\begin{definition}\label{definition:asw_operator}
+The \textbf{Artin--Schreier--Witt operator} on $W_r(A)$, $A$ an $\F_p$-algebra, is
+\[
+\wp \;:=\; F - \mathrm{id},
+\qquad
+\wp\,\vec u \;=\; F\vec u \ominus \vec u .
+\]
+For $r = 1$ this is the classical operator $\wp(u) = u^p - u$ of
+\Cref{theorem:artin_schreier_ramification}.
+\end{definition}
+
+Since $F$ is a ring endomorphism, $\wp$ is an endomorphism of the additive group
+$(W_r(A), \oplus)$:
+$\wp(\vec u \oplus \vec v) = \wp\vec u \oplus \wp\vec v$. Moreover $\wp$ commutes with
+$W_r(\sigma)$ for every ring homomorphism $\sigma$ (both $F$ and the ring operations
+are natural), and with $V$ and $t$ by \Cref{prop:witt_multiplication_by_p}.
+
+The following bookkeeping lemma is elementary but does the essential work of reducing
+statements about $W_r$ to statements about $W_{r-1}$ and about $A$ itself: the
+truncation $t$ and the inclusion $V^{r-1}$ of its kernel slice $W_r$ into lower-length
+pieces, compatibly with $\wp$, and \emph{addition of an element of the kernel is
+carry-free}.
+
+\begin{lemma}[Witt bookkeeping]\label{lemma:witt_bookkeeping}
+Let $A$ be an $\F_p$-algebra.
+\begin{enumerate}[label=(\roman*)]
+    \item $t \colon W_r(A) \to W_{r-1}(A)$ is a ring homomorphism commuting with $F$,
+    hence with $\wp$; its kernel is $V^{r-1} A$.
+    \item $V^{r-1} \colon A \to W_r(A)$ is additive, and
+    $\wp \circ V^{r-1} = V^{r-1} \circ \wp$, where on the left $\wp$ is the operator
+    on $W_r(A)$ and on the right the classical $\wp(c) = c^p - c$ on $A$.
+    \item (carry-free top-level addition) For all $\vec a \in W_r(A)$ and $c \in A$,
+    \[
+    \vec a \oplus V^{r-1}(c) \;=\; (a_0, \dots, a_{r-2},\, a_{r-1} + c).
+    \]
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) and (ii) restate parts of \Cref{prop:witt_multiplication_by_p} (for (ii): $V^{r-1}$
+is additive and commutes with the componentwise $F$, hence with
+$\wp = F - \mathrm{id}$).
+(iii) By \Cref{lemma:ghost_principle} it suffices to verify the identity over
+$\Z[a_0, \dots, a_{r-1}, c]$, where the ghost map is injective. Put
+$\vec b := (0, \dots, 0, c)$ and $\vec s := \vec a \oplus \vec b$. For $n < r-1$ we
+have $w_n(\vec b) = 0$, so $w_n(\vec s) = w_n(\vec a)$, and by induction on $n$
+(solving for $s_n$, using that $p$ is a non-zero-divisor) $s_n = a_n$ for
+$n \leq r-2$. For $n = r-1$, $w_{r-1}(\vec b) = p^{r-1} c$ gives
+$p^{r-1} s_{r-1} = p^{r-1} a_{r-1} + p^{r-1} c$, i.e.\ $s_{r-1} = a_{r-1} + c$.
+\end{proof}
+
+\begin{rem*}
+\Cref{lemma:witt_bookkeeping}(iii) fails for the addition of vectors supported in
+lower positions: in general the carry polynomials $C_n$ of
+\Cref{eq:witt_addition_shape} are non-zero, and Witt addition is \emph{not}
+componentwise. In particular, operations performed componentwise on a Witt vector ---
+such as discarding the regular parts of Laurent-series components --- do \emph{not}
+in general respect Witt addition, and will be carefully avoided.
+\end{rem*}
+
+\subsubsection*{The Artin--Schreier--Witt isogeny and its torsors}
+
+The componentwise ring operations make $\A^r_{\F_p}$ a ring scheme, the
+\textbf{Witt vector group scheme} $\bW_r$: its underlying scheme is
+$\A^r_{\F_p} = \Spec \F_p[T_0, \dots, T_{r-1}]$, with the group law given by the
+addition polynomials $S_n$, so that $\bW_r(A) = W_r(A)$ functorially. The operator
+$\wp = F - \mathrm{id}$ is an endomorphism of the group scheme $\bW_r$, and it is the
+Witt-vector instance of a \emph{Lang isogeny}: by \Cref{example:witt_of_Fp} and the
+lemma below, it sits in a short exact sequence of group schemes over $\F_p$ for the
+\'etale topology
+\begin{equation}\label{eq:asw_lang_sequence}
+0 \longrightarrow \Z/p^r\Z \cong W_r(\F_p)
+\longrightarrow \bW_r \xrightarrow{\;\wp\;} \bW_r \longrightarrow 0 .
+\end{equation}
+
+The corresponding covers admit the following completely explicit description, which
+is the form in which we use them. For $\vec g \in W_r(A)$ we write
+$A[\vec X]/(\wp \vec X \ominus \vec g)$, $\vec X = (X_0, \dots, X_{r-1})$, for the
+quotient of $A[X_0, \dots, X_{r-1}]$ by the ideal generated by the $r$ components of
+the Witt vector $\wp \vec X \ominus \vec g \in W_r(A[X_0, \dots, X_{r-1}])$.
+
+\begin{lemma}[ASW covers are \'etale torsors]\label{lemma:asw_etale_torsor}
+Let $A$ be an $\F_p$-algebra and $\vec g \in W_r(A)$. Let
+\[
+B \;:=\; A[\vec X]\big/\bigl(\wp \vec X \ominus \vec g\bigr).
+\]
+Then $B$ is finite free over $A$ with basis
+$\bigl\{\prod_{n} X_n^{a_n} : 0 \le a_n \le p-1\bigr\}$, and \'etale over $A$. The
+translation action of $W_r(\F_p) \cong \Z/p^r\Z$,
+\[
+m \colon \vec X \longmapsto \vec X \oplus \underline m ,
+\]
+makes $\Spec B$ a $\Z/p^r\Z$-torsor over $\Spec A$.
+\end{lemma}
+
+\begin{proof}
+By \Cref{eq:witt_addition_shape} and the componentwise formula for $F$, the $n$-th
+defining equation has the triangular form
+\[
+X_n^p - X_n - g_n + C_n'(X_0, \dots, X_{n-1};\, g_0, \dots, g_{n-1}) \;=\; 0
+\]
+for universal integral polynomials $C_n'$. Triangularity gives the free basis; the
+Jacobian matrix of the system is lower triangular with diagonal entries
+$p X_n^{p-1} - 1 = -1$, a unit, so $B$ is \'etale over $A$. Finally, $\Spec B$ is the
+pullback along $\vec g \colon \Spec A \to \bW_r$ of the covering
+$\wp \colon \bW_r \to \bW_r$; by the triangular form just established (over
+$A = \F_p[T_0,\dots,T_{r-1}]$, $\vec g = (T_0,\dots,T_{r-1})$), $\wp$ is a surjective
+\'etale homomorphism of group schemes, and its kernel is
+$\{\vec u : F \vec u = \vec u\} = W_r(\F_p)$ since $F$ is componentwise. A surjective
+\'etale group homomorphism is a torsor under its kernel, and torsors pull back to
+torsors; hence $\Spec B$ is a $W_r(\F_p)$-torsor over $\Spec A$.
+\end{proof}
+
+\subsubsection*{Artin--Schreier--Witt theory for fields}
+
+Over a field, the sequence \Cref{eq:asw_lang_sequence} computes all cyclic extensions
+of $p$-power degree, exactly as classical Artin--Schreier theory does for degree $p$.
+
+\begin{theorem}[Artin--Schreier--Witt theory; {\cite[\S3--4]{Thomas2005}}]
+\label{theorem:asw_theory}
+Let $M \supseteq \F_p$ be a field, $M^{s}$ a separable closure, and
+$\Gamma = \Gal(M^{s}/M)$. Then $\wp$ is surjective on $W_r(M^{s})$ with kernel
+$W_r(\F_p)$, and there is a canonical isomorphism of abelian groups
+\[
+\delta \colon\; W_r(M)\big/\wp\, W_r(M) \;\xrightarrow{\;\cong\;}\;
+\Hom_{\mathrm{cont}}\bigl(\Gamma,\, \Z/p^r\Z\bigr) \;=\; H^1\bigl(M, \Z/p^r\Z\bigr),
+\qquad
+[\vec g] \longmapsto \bigl(\sigma \mapsto \sigma(\vec u) \ominus \vec u\bigr),
+\]
+where $\vec u \in W_r(M^{s})$ is any solution of $\wp \vec u = \vec g$. Under the
+correspondence between characters and torsors
+(\Cref{cor:abelian_equivilance_fundamental_torsors}), the class $[\vec g]$ corresponds
+to the $\Z/p^r\Z$-torsor
+\[
+\Spec\, M[\vec X]\big/\bigl(\wp \vec X \ominus \vec g\bigr)
+\]
+of \Cref{lemma:asw_etale_torsor}. Moreover, for a class of order $p^s$ in
+$W_r(M)/\wp W_r(M)$, the fixed field $M(\vec u) := M(u_0, \dots, u_{r-1})$ of
+$\ker \delta[\vec g]$ is a cyclic extension of $M$ of degree $p^s$; the torsor is
+connected if and only if $[\vec g]$ has order $p^r$, in which case
+$\Spec M[\vec X]/(\wp \vec X \ominus \vec g) \cong \Spec M(\vec u)$ is (the spectrum
+of) a cyclic field extension of degree $p^r$. Every cyclic extension of $M$ of degree
+dividing $p^r$ arises this way.
+\end{theorem}
+
+\begin{proof}[Sketch of proof]
+Surjectivity of $\wp$ on $W_r(M^{s})$ and the computation of its kernel follow from
+the triangular equations in the proof of \Cref{lemma:asw_etale_torsor}: each component
+of a preimage is obtained by solving a separable equation $X_n^p - X_n = (\dots)$, and
+$F\vec u = \vec u$ holds if and only if $u_n^p = u_n$ for all $n$, i.e.\
+$\vec u \in W_r(\F_p)$. Given $\vec g$ and a solution $\wp\vec u = \vec g$, for
+$\sigma \in \Gamma$ we have
+$\wp(\sigma \vec u \ominus \vec u) = \sigma \vec g \ominus \vec g = 0$ (using
+\Cref{eq:witt_invariants_componentwise} and that $W_r(\sigma)$ commutes with $\wp$),
+so $\sigma \vec u \ominus \vec u \in W_r(\F_p)$; one checks it is a continuous
+homomorphism in $\sigma$ (the kernel is fixed pointwise by $\Gamma$), independent of
+the choices modulo nothing and of the representative $\vec g$ modulo $\wp W_r(M)$.
+Injectivity: if $\delta[\vec g] = 0$ then $\vec u$ is $\Gamma$-invariant, hence lies
+in $W_r(M)$ by \Cref{eq:witt_invariants_componentwise}, so
+$\vec g = \wp\vec u \in \wp W_r(M)$. Surjectivity of $\delta$ is the additive
+Hilbert~90: $H^1(\Gamma, W_r(M^{s})) = 0$, by induction on $r$ along the exact
+sequence $0 \to M^{s} \xrightarrow{V^{r-1}} W_r(M^{s}) \xrightarrow{t} W_{r-1}(M^{s})
+\to 0$ of $\Gamma$-modules (\Cref{lemma:witt_bookkeeping}(i)) and the classical case
+$H^1(\Gamma, M^{s}) = 0$. The remaining statements follow from
+\Cref{theorem:equivalence_fundamental_covers} applied to the character
+$\delta[\vec g]$, whose image has the same order as the class $[\vec g]$. For details
+see \cite[\S3--4]{Thomas2005} or \cite{Rabinoff2014Witt}.
+\end{proof}
+
+The order of a class is partially visible in its $0$-th component:
+
+\begin{cor}\label{cor:asw_class_order_and_first_component}
+Let $M \supseteq \F_p$ be a field and $\vec g \in W_r(M)$ with $g_0 = 0$. Then
+$p^{r-1}[\vec g] = 0$ in $W_r(M)/\wp W_r(M)$; equivalently, the cyclic extension
+attached to $[\vec g]$ has degree at most $p^{r-1}$. Consequently, if $[\vec g]$ has
+order $p^r$ (e.g.\ if $\vec g$ defines a connected torsor), then \emph{every}
+representative of the class has non-zero $0$-th component.
+\end{cor}
+
+\begin{proof}
+By \Cref{eq:witt_p_to_r_minus_1}, $p^{r-1} \vec g = (0, \dots, 0, g_0^{p^{r-1}}) = 0$
+already in $W_r(M)$.
+\end{proof}
+
+\begin{rem*}\label{rem:asw_local_totally_ramified}
+When $M = k((x))$ with $k$ algebraically closed, every finite separable extension
+$L/M$ is totally ramified: the residue field extension is trivial (as $k$ is
+algebraically closed) and $\Oo_L$ is a complete discrete valuation ring, so
+$[L : M] = ef = e$. Thus a class of order $p^r$ in $W_r(k((x)))/\wp$ corresponds to a
+cyclic, \emph{totally ramified} extension of degree $p^r$.
+\end{rem*}
+
+\subsubsection*{Isobaricity of the Witt addition polynomials}
+
+The following homogeneity property of the universal addition polynomials is what
+makes degree estimates on Witt sums possible: even though the carry polynomials $C_n$
+of \Cref{eq:witt_addition_shape} are complicated, they are \emph{isobaric} for the
+weighting in which the $j$-th component has weight $p^j$.
+
+\begin{lemma}[isobaricity of Witt addition]\label{lemma:witt_addition_isobaric}
+Assign to the variables $X_j$ and $Y_j$ the weight $p^j$. Then the $n$-th addition
+polynomial $S_n$ is isobaric of weight $p^n$: every monomial of $S_n$ has total weight
+exactly $p^n$. The same holds for each component of a $d$-fold iterated Witt sum
+$\bigoplus_{i=1}^{d} \vec a_i$, viewed as a universal polynomial in the components
+$a_{i,j}$ of weight $p^j$.
+\end{lemma}
+
+\begin{proof}
+The $n$-th ghost polynomial $w_n = \sum_{j \le n} p^j X_j^{p^{n-j}}$ is isobaric of
+weight $p^n$ for this weighting. The recursion
+\[
+p^n S_n = \sum_{j \le n} p^j \bigl(X_j^{p^{n-j}} + Y_j^{p^{n-j}}\bigr)
+- \sum_{j < n} p^j S_j^{p^{n-j}}
+\]
+preserves isobaricity of weight $p^n$ by induction on $n$: each $S_j$ is isobaric of
+weight $p^j$, so $S_j^{p^{n-j}}$ is isobaric of weight $p^n$. Isobaricity persists
+under iterated substitution of Witt sums into Witt sums (substituting an isobaric
+polynomial of weight $p^j$ for a variable of weight $p^j$ preserves weights), giving
+the statement for $d$-fold sums.
+\end{proof}
+
+\subsubsection*{Ramification breaks: the Schmid--Witt formula}
+
+Finally we state the generalization of the ramification formula of
+\Cref{theorem:artin_schreier_ramification} to Artin--Schreier--Witt extensions. As in
+the classical case, the formula reads off the largest upper-numbering ramification
+break from the pole orders of a defining Witt vector --- provided the representative
+is normalized so that no interference between the levels can occur. The relevant
+normalization is the following.
+
+\begin{definition}\label{definition:reduced_witt_vector}
+Let $K = k((x))$. For $g \in K$ put $m(g) := \max\bigl(0, -v_x(g)\bigr)$ (the pole
+order of $g$, or $0$ if $g$ is regular). A vector
+$\vec g = (g_0, \dots, g_{r-1}) \in W_r(K)$ is \textbf{reduced} if for every $j$,
+either $m(g_j) = 0$ or $p \nmid m(g_j)$.
+\end{definition}
+
+\begin{theorem}[Schmid--Witt break formula]\label{theorem:schmid_witt_break_formula}
+Let $K = k((x))$ with $k$ perfect of characteristic $p$, and let $L/K$ be a cyclic
+totally ramified extension of degree $p^r$ whose Artin--Schreier--Witt class
+(\Cref{theorem:asw_theory}) is represented by a \emph{reduced} vector
+$\vec g \in W_r(K)$, with $m_j := m(g_j)$. Then the largest upper-numbering
+ramification break of $L/K$ equals
+\[
+u \;=\; \max_{0 \le j \le r-1} \; p^{\,r-1-j}\, m_j .
+\]
+\end{theorem}
+
+This is due, for finite residue fields, to Kanesaka--Sekiguchi
+\cite{KanesakaSekiguchi1979} and Thomas \cite{Thomas2005} (building on Schmid
+\cite{Schmid1937} for $r = 1$), and for arbitrary perfect residue fields to
+Elder--Keating \cite{ElderKeating2025}. We use it as stated, in one direction only:
+\emph{evaluating the formula on one reduced representative computes $u$}; no
+minimization over representatives is needed.
+
+\begin{rem*}
+Reducedness is exactly what makes the formula exact. If two levels $j < j'$ with
+$m_j, m_{j'} \neq 0$ satisfied $p^{r-1-j} m_j = p^{r-1-j'} m_{j'}$, then
+$m_{j'} = p^{\,j'-j} m_j$ would be divisible by $p$, contradicting
+\Cref{definition:reduced_witt_vector}; hence the maximum is attained at a unique
+level, and no cancellation of breaks between levels can occur.
+\end{rem*}
+
+\begin{rem*}
+For $r = 1$, a reduced vector is a single element $g \in K$ whose pole order $m_0$ is
+zero or prime to $p$, and \Cref{theorem:schmid_witt_break_formula} recovers
+\Cref{theorem:artin_schreier_ramification}: the largest (indeed the only) upper break
+is $m_0$. The existence of reduced representatives --- and, over $K = k((x))$, of
+reduced representatives whose components are polynomials in $x^{-1}$ without constant
+term --- is not part of the general theory quoted here; it will be proved where it is
+used, by induction on $r$ through the truncation maps of
+\Cref{lemma:witt_bookkeeping}.
+\end{rem*}

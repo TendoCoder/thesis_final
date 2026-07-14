@@ -41,8 +41,15 @@ isomorphic, as a $\mathcal{G}|_{U_i}$-sheaf, to $\mathcal{G}|_{U_i}$ acting on i
 
 A \textbf{morphism of $\mathcal{G}$-torsors} $f: \mathcal{P}_1 \to \mathcal{P}_2$ is a morphism of sheaves that is equivariant with respect to the $\mathcal{G}$-action.
 
-It is a standard result that every morphism of $\mathcal{G}$-torsors is an isomorphism. 
-Consequently, the category of $\mathcal{G}$-torsors in $\mathcal{E}$ forms a groupoid.
+\begin{prop}\label{prop:torsor_morphism_iso}
+    Every morphism of $\mathcal{G}$-torsors is an isomorphism.
+    Consequently, the category of $\mathcal{G}$-torsors in $\mathcal{E}$ forms a groupoid.
+\end{prop}
+\begin{proof}
+    Locally on a cover trivializing both torsors, such a morphism is a $\mathcal{G}$-equivariant endomorphism
+    of the trivial torsor $\mathcal{G}$, i.e.\ right translation by a section of $\mathcal{G}$, hence an
+    isomorphism; and being an isomorphism may be checked on a cover.
+\end{proof}
 
 \begin{definition}
     We denote the groupoid of $\mathcal{G}$-torsors in $\mathcal{E}$ by $\mathbf{Tors}(\mathcal{E}, \mathcal{G})$ .  The set of isomorphism classes of $\mathcal{G}$-torsors is denoted by $\mathrm{Tors}(\mathcal{E}, \mathcal{G})$.
@@ -756,6 +763,11 @@ change of variables such that $a=u^{-m}$.
 \end{theorem}
 
 
+
+%%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%%
+%          WITT VECTORS
+%%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%%
+\input{witt/WittVectorPrerequisites.tex}
 
 %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%%
 %          ALGEBRAIC GEOMETRY
