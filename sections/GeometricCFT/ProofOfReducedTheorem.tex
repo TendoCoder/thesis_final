@@ -1,6 +1,7 @@
 We work over $S=\Spec k$, for $k$ perfect.
 
-By \Cref{prop:torsor_module_equivalence}, its equivalent to prove: 
+By \Cref{prop:torsor_module_equivalence}, it is equivalent to prove the
+following torsor formulation.
 %% [REVIEW: label thm:GCFT_torsors and restatable name GCFTtorsors are never used anywhere (the Introduction restatement is commented out); consider a plain theorem environment. Also: statement is about a torsor cP, but the proof argues about a sheaf cF]
 \begin{restatable}{theorem}{GCFTtorsors} \label{thm:GCFT_torsors}
     Let $G=\Lambda^\times$ be a finite abelian group ($\Lambda$ as before), and let $\cP$ be a $G$-torsor on $U$, with ramification bounded by $\mdls$. 
@@ -22,6 +23,9 @@ $$ \pi_1^{et}(C^{(d)}) \cong \pi_1^{et}(\PicC[d]) $$
 Implying the theorem in this case.
 
 \textbf{Case 2:} $\mdls > 0$.
+Let $\cF:=\cP\times^G\Lambda$ be the rank-one local system associated with
+$\cP$. By \Cref{definition:symmetric_power_local_system}, the frame torsor of
+$\cF^{[d]}$ is $\cP^{[d]}$.
 In this case by \Cref{theorem:takeuchi-compactification-theorem}, for $d$ large enough, the Abel-Jacobi morphism $\Phi_d : U^{(d)} \to \PicCm[d]$ 
 extends to a proper surjective and smooth map, with geometrically connected fibers isomorphic to projective spaces, 
 $$ \tilde{\Phi}_d : \tilde{C}^{(d)}_\mdls \to \PicCm[d] $$ 
@@ -36,7 +40,12 @@ $\cF^{[d]}$ extends to a locally constant sheaf $\tilde{\cF}^{[d]}$ on $\tilde{C
 which by the isomorphism of etale fundamental groups above, corresponds to a unique locally constant sheaf $\cG_d$ on $\PicCm[d]$,
 such that $\tilde{\Phi}_d^* \cG_d \cong \tilde{\cF}^{[d]}$.
 Restricting back to $U^{(d)}$, we get $\Phi_d^* \cG_d \cong \cF^{[d]}$,
-as required.
+as required in the local-system formulation. Finally, let
+$\cQ_d=\operatorname{Fr}(\cG_d)$. Since the frame construction commutes with
+pullback, the preceding isomorphism and
+\Cref{definition:symmetric_power_local_system} give
+$\Phi_d^*\cQ_d\cong\cP^{[d]}$. Uniqueness follows from the equivalence in
+\Cref{prop:torsor_module_equivalence}.
 \end{proof}
 
 
@@ -52,4 +61,3 @@ as required.
 }
 
 \end{proof}
-

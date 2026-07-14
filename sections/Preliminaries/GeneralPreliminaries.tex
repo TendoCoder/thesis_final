@@ -1,18 +1,19 @@
-\section{Preliminaries}
-This section establishes the foundational definitions and theorems necessary for the remainder of this work. 
-We focus specifically on the theory of $G$-torsors, which are central to our study due to their correspondence with 
-locally free sheaves of rank 1. 
-Subsequently, we review the relevant background on ramification theory from the existing literature. 
-Finally, we conclude with several algebraic geometric remarks and notational conventions that will be employed 
-implicitly throughout this thesis.
+This chapter collects the constructions and conventions used in both main parts of
+the thesis. Rank-one \'etale local systems are the natural objects in the statement
+of geometric class field theory. For the geometric and ramification-theoretic
+arguments, however, it is more convenient to work with torsors: they are represented
+by finite \'etale covers, admit concrete contracted products and quotients, and make
+ramification accessible through extensions of local fields.
 
-\subsection{Scheme Quotients in general}
-basic definitions, categorail qoutient, when it exists, etc, properties, universal properties, etc...
-prop 14 beolw
-%%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%%
-%               TORSORS
-%%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%%
-\subsection{Torsors}
+If \(\Lambda\) is a finite commutative ring and \(G=\Lambda^\times\), the sheaf of
+frames of a rank-one \(\Lambda\)-local system is a \(G\)-torsor, and conversely a
+\(G\)-torsor determines an associated rank-one local system. We establish this
+dictionary below and record its compatibility with pullback, tensor products,
+symmetric powers, and ramification. Thus, the main results will be stated in the
+language of local systems, while the constructions and ramification calculations
+will generally be carried out in the language of torsors.
+
+\section{Torsors and Rank-One Local Systems}
 % $X$ with etale site, but say things here work for toposes in general and flat sites in general.
 
 In what follows, we largely adhere to the treatment of torsors and group objects found in published notes of Alex Youcis \cite{YoucisTorsors}.
@@ -88,27 +89,64 @@ We define the sum $[\mathcal{P}_1] + [\mathcal{P}_2]$ to be the class $[\cP_1 \o
 This structure turns $\mathrm{Tors}(\cE, \mathcal{G})$ into an abelian group, 
 where the identity is the class of the trivial torsor and the inverse is obtained by the opposite action.
 
-Let $\Lambda$ be a commutative ring object in the topos $\mathcal{E}$. 
-We denote by $\mathbf{Pic}(\mathcal{E}, \Lambda)$ the groupoid of locally free $\Lambda$-modules of rank $1$ in
-$\mathcal{E}$ (i.e., invertible modules and their isomorphisms).
-For the multiplicative group object $G = \Lambda^\times$, 
-there exists a classical correspondence between such $\Lambda$-modules and $G$-torsors. 
-Indeed, both categories are symmetric monoidal categories, $\mathbf{Pic}(\mathcal{E}, \Lambda)$ under the tensor product $\otimes_\Lambda$, with unit object $\Lambda$.
-And $\mathbf{Tors}(\mathcal{E}, G)$ under the product $\otimes^G$, with unit object $G$ acting on itself by translation.
+We now record the dictionary that explains the role of torsors in this thesis.
+Let $\Lambda$ be a commutative ring object of $\mathcal{E}$ and let
+$G=\Lambda^\times$ be its group of units. We write
+$\mathbf{Pic}(\mathcal{E},\Lambda)$ for the groupoid of locally free
+$\Lambda$-modules of rank one. For $\mathcal{L}$ in this groupoid, its
+\textbf{frame torsor} is
+\[
+\operatorname{Fr}(\mathcal{L})
+  :=\underline{\operatorname{Isom}}_\Lambda(\Lambda,\mathcal{L}).
+\]
+The group $G$ acts on frames by precomposition with multiplication on $\Lambda$.
+Conversely, if $\mathcal{P}$ is a $G$-torsor, its \textbf{associated
+$\Lambda$-module} is the contracted product
+\[
+\mathcal{P}\times^G\Lambda
+  :=(\mathcal{P}\times\Lambda)/G,
+\qquad
+g\cdot(p,\lambda)=(gp,g^{-1}\lambda),
+\]
+where $G$ acts on $\Lambda$ by multiplication.
 
-Throughout this thesis, we shall primarily adopt the language of $G$-torsors, with the understanding that the
-associated $\Lambda$-module structure is implicitly inferred.
-The following proposition formalizes this dictionary:
-
-\begin{prop}
-    \label{prop:torsor_module_equivalence}
-    The associated module functor $\Phi: \mathcal{P} \mapsto \mathcal{P} \otimes^G \Lambda$ 
-    induces a canonical equivalence of monoidal categories:
-    $$\Phi: (\mathbf{Tors}(\mathcal{E}, G), \otimes^G, G) \xrightarrow{\sim} (\mathbf{Pic}(\mathcal{E}, \Lambda), 
-    \otimes_\Lambda, \Lambda)$$
-    with quasi-inverse functor given by
-    $\Psi: \mathcal{L} \mapsto \underline{\mathrm{Isom}}_\Lambda(\Lambda, \mathcal{L})$.
+\begin{prop}[The torsor--local-system dictionary]
+\label{prop:torsor_module_equivalence}
+The functors
+\[
+\mathcal{P}\longmapsto\mathcal{P}\times^G\Lambda,
+\qquad
+\mathcal{L}\longmapsto\operatorname{Fr}(\mathcal{L})
+\]
+are mutually quasi-inverse symmetric monoidal equivalences
+\[
+(\mathbf{Tors}(\mathcal{E},G),\otimes^G,G)
+\xrightarrow{\ \sim\ }
+(\mathbf{Pic}(\mathcal{E},\Lambda),\otimes_\Lambda,\Lambda).
+\]
+These equivalences commute with pullback.
 \end{prop}
+
+\begin{proof}
+Both assertions may be checked locally. On a cover on which $\mathcal{P}$ is
+the trivial torsor $G$, the associated module
+$\mathcal{P}\times^G\Lambda$ identifies with $\Lambda$. Conversely, on a
+cover on which $\mathcal{L}$ is free of rank one,
+$\operatorname{Fr}(\mathcal{L})$ identifies with $G$ acting on itself by
+translation. These local identifications are compatible with the descent
+data and give the two quasi-inverse equivalences. Applying the same argument
+to products of local trivializations identifies contracted products with
+tensor products. The construction is defined by fiber products and sheaf
+quotients, and therefore commutes with pullback.
+\end{proof}
+
+When $\mathcal{E}=\operatorname{Sh}(X_{\text{\'et}})$ and $\Lambda$
+is a finite constant ring, the objects of
+$\mathbf{Pic}(\mathcal{E},\Lambda)$ are precisely the rank-one
+$\Lambda$-local systems on $X$. We retain local-system language in the
+statements of the main theorems and use the equivalent torsor language for
+the geometric constructions and ramification calculations. We will pass
+between the two languages using \Cref{prop:torsor_module_equivalence}.
 
 Lastly, for any object $\cX \in \mathcal{E}$, there is a canonical identification between the slice category
 $(\mathcal{G}\mathcal{E})/\cX$ and the category of group objects $\mathcal{G}(\mathcal{E}/\cX)$, where $\cX$ is viewed as having the 
@@ -119,7 +157,7 @@ We denote by $\mathbf{Tors}(\cX, \cG)$ the category of $G$-torsors over $\cX$ in
 %%% %%% %%% %%% %%% %%% %%% %%%
 %       Torsors as Spaces
 %%% %%% %%% %%% %%% %%% %%% %%%
-\subsection{Torsors over the \'Etale's Sites}
+\section{Torsors on the \'Etale Sites}
 Fix a scheme $X$, and let $G$ be a smooth affine $X$-group scheme. 
 Denote by $X_{\text{Ét}}$ and $X_{\text{ét}}$ the big and small étale sites on $X$, respectively. 
 The functor of points of $G$, which we denote by $G(\cdot) = \mathrm{Hom}_X(-, G)$, defines a group sheaf on 
@@ -162,7 +200,7 @@ $G$-action. We now have:
 %       Torsors and Cohomology
 %%% %%% %%% %%% %%% %%% %%% %%%
 
-% \subsubsection*{Torsors and Cohomology}
+% \subsection*{Torsors and Cohomology}
 % We qoute without proof:
 % \begin{theorem}
 % There is a natural bijection of pointed sets     
@@ -187,7 +225,7 @@ $G$-action. We now have:
 %       Constant Finite Group Torsors
 %%% %%% %%% %%% %%% %%% %%% %%%
 
-\subsubsection*{Constant Finite Group Torsors}
+\subsection*{Constant Finite Group Torsors}
 
 Let $G$ be a finite group, within this section, we denote the associated constant group scheme over $X$ by $\underline{G}$ to maintain a clear distinction between the group as a set and the group as a scheme. In subsequent sections, we shall follow the standard practice of identifying $G$ with its constant group scheme and omit the underline for brevity.
 
@@ -231,7 +269,15 @@ If $G$ is abelian then $\mathrm{Inn}(G)$ is trivial, and we obtain:
     \end{equation}
 \end{cor}
 
-\subsubsection*{Decomposition of Torsors}
+For $G=\Lambda^\times$, the character in
+\Cref{cor:abelian_equivilance_fundamental_torsors} is also the monodromy
+character of the associated rank-one $\Lambda$-local system. In particular,
+the torsor and the local system have the same restrictions to inertia and to
+the upper ramification groups. Thus, one has ramification bounded by a given
+modulus, or is tamely ramified along a given divisor, if and only if the other
+does.
+
+\subsection*{Decomposition of Torsors}
 \textcolor{red}{because the contracted product is also P/H, we should add this!!! say this. etc... maybe have a section about qoutient of schemes.}
 In the case of finite groups, the functoriality of the contracted product has a concrete geometric interpretation as a tower of covers. Let $G$ be a finite abelian group and $H \subseteq G$ a subgroup. 
 Let $\pi: G \to G/H$ be the natural quotient map.
@@ -262,7 +308,7 @@ Let $\pi: G \to G/H$ be the natural quotient map.
 %       Qoutient of G-torsors
 %%% %%% %%% %%% %%% %%% %%% %%% %%% %%% %%% %%% %%% %%% %%% %%%
 
-% \subsubsection*{Qoutients of \texorpdfstring{$G$}{G}-Torsors}
+% \subsection*{Qoutients of \texorpdfstring{$G$}{G}-Torsors}
 % Let $G$ be a finite abelian group, and let $H \subseteq G$ be a subgroup. 
 %  Consider the natural quotient homomorphism $\pi: G \to G/H$. Given a $G$-torsor $\mathcal{P} \to X$ (in the fppf or étale topology), we may associate to it a $G/H$-torsor, 
 %  denoted by $\pi_*(\mathcal{P})$ or $\mathcal{P}^{G/H}$, via the extension of scalars.
@@ -292,7 +338,7 @@ Let $\pi: G \to G/H$ be the natural quotient map.
 %     where $\mathcal{P}^{G/H} \to X$ is a $G/H$-torsor and $\mathcal{P} \to \mathcal{P}^{G/H}$ is an $H$-torsor.
 % \end{prop}
 
-\subsection{Symmetric Powers of Schemes and Torsors}
+\section{Symmetric Powers of Schemes and Torsors}
 This section reviews the construction of quotients for schemes and torsors under finite group actions, specifically focusing on symmetric powers. 
 To ensure these quotients exist as schemes, we utilize the framework of admissible actions from \cite{sga1}. 
 Our treatment here closely follows the exposition in \cite{Guignard2018}
@@ -364,7 +410,7 @@ is an isomorphism.
 \end{prop}
 
 
-\subsubsection*{Symmetric Powers of Torsors}
+\subsection*{Symmetric Powers of Torsors}
 Let $G$ be a finite abelian group, let $\cP$ be a $G$-torsor over an $S$-scheme $X$ in $S_{\text{Ét}}$. 
 
 
@@ -408,6 +454,27 @@ p_1^{-1}\cP \otimes^G \cdots \otimes^G p_d^{-1}\cP \to r^{-1}\cP^{[d]}
 \]
 where $r : X^{\times_S d} \to \mathrm{Sym}_S^d(X)$ is the canonical projection, is an isomorphism of $G$-torsors over $X^{\times_S d}$.
 \end{prop}
+
+\begin{definition}[Symmetric powers of rank-one local systems]
+\label{definition:symmetric_power_local_system}
+Let $\Lambda$ be a finite commutative ring, let $G=\Lambda^\times$, and let
+$\mathcal{F}$ be a rank-one $\Lambda$-local system on $X$. If
+$\mathcal{P}=\operatorname{Fr}(\mathcal{F})$, we define
+\[
+\mathcal{F}^{[d]}:=\mathcal{P}^{[d]}\times^G\Lambda
+\]
+on $X^{(d)}$. Equivalently, $\mathcal{P}^{[d]}$ is the frame torsor of
+$\mathcal{F}^{[d]}$. By \Cref{prop:symmetric_power_torsor} and the monoidal
+compatibility in \Cref{prop:torsor_module_equivalence}, its pullback along
+$r:X^{\times_S d}\to X^{(d)}$ satisfies
+\[
+r^{-1}\mathcal{F}^{[d]}
+\cong p_1^{-1}\mathcal{F}\otimes_\Lambda\cdots\otimes_\Lambda
+p_d^{-1}\mathcal{F}.
+\]
+Thus this definition agrees with the usual descent construction of the
+symmetric power of a rank-one local system.
+\end{definition}
 %the $S_d$-action on $\KG \backslash \cP^{\times_S d}$ is compatible with the $S_d$-action on $X^{\times_S d}$, so that we get a canonical morphism $\cP^{[d]} \to \mathrm{Sym}_S^d(X)$.
 
 % %Note that there is a canonical map $\cP^{\times_S d}/S_d \to \cP^$, and the $S_d$-action on $\KG \backslash \cP^{\times_S d}$ is compatible with the $S_d$-action on $X^{\times_S d}$, so that we get a canonical morphism $\cP^{[d]} \to \mathrm{Sym}_S^d(X)$.
@@ -457,7 +524,7 @@ $$((g_1, \dots, g_d), \sigma) \star (p_1, \dots, p_d) = (g_1 p_{\sigma^{-1}(1)},
 %
 % QUOTIENT OF TORSORS TOWERS
 %
-\subsubsection*{Quotient of Torsors Towers}
+\subsection*{Quotient of Torsors Towers}
 \phantomsection\label{subsection:quotient_torsors_towers}
 
 We now study how the symmetric power construction of \Cref{prop:symmetric_power_torsor} interacts with the canonical decomposition of \Cref{prop:quotient_torsors_finite}.
@@ -566,7 +633,7 @@ The two vertical morphisms $q : (\cP_{G/H})^{(d)} \to (\cP_{G/H})^{[d]}$ and $\c
 %
 % COMPATIBILITY WITH ADDITION
 %
-\subsubsection*{Compatibility with Addition}
+\subsection*{Compatibility with Addition}
 The construction of symmetric powers is compatible with a natural addition law.
 For any integers $d_1, d_2 \geq 0$, there exists a canonical \textbf{addition morphism}
 \[ +_{d_1, d_2}: X^{(d_1)} \times_S X^{(d_2)} \to X^{(d_1+d_2)} \]
@@ -599,309 +666,4 @@ Since both pullbacks identify with
 \sideset{}{^G}\bigotimes_{k=1}^{d_1+d_2} p_k^{-1} \cP
 \]
 in an $S_{d_1} \times S_{d_2}$-equivariant manner, the isomorphism descends to the quotient $X^{(d_1)} \times_S X^{(d_2)}$ by \Cref{prop:symmetric_power_flat_base_change}.
-\end{proof}
-
-\subsection{Algebraic Preliminaries on Ramification}
-This section reviews the ramification of discrete valuations, beginning with the general theory of \textit{discrete valuation rings} and their 
-integral closures in finite separable extensions. 
-We then specialize to complete rings in Galois extensions to describe the ramification filtration via lower and upper numbering, 
-following the treatments in \stackstag{0EXQ} and \cite{serreLF}.
-
-\begin{definition}[\stackstag{09E4}]\label{definition:weakly_unramified_and_tamely_ramified_DVR}
-    We say that $A \to B$ or $A \subset B$ is an extension of discrete valuation rings if $A$ and $B$ are discrete valuation rings and $A \to B$ is injective and local. In particular, if $\pi _ A$ and $\pi _ B$ are uniformizers of $A$ and $B$, then $\pi _ A = u \pi _ B^ e$ for some $e \geq 1$ and unit $u$ of $B$. The integer $e$ does not depend on the choice of the uniformizers as it is also the unique integer $\geq 1$ such that
-\[ \mathfrak m_ A B = \mathfrak m_ B^ e \]
-The integer $e$ is called the \textit{ramification index} of $B$ over $A$. We say that $B$ is \textit{weakly unramified} over $A$ if $e = 1$. 
-If the extension of residue fields $\kappa _ A = A/\mathfrak m_ A \subset \kappa _ B = B/\mathfrak m_ B$ is finite, 
-then we set $f = [\kappa _ B : \kappa _ A]$ and we call it the \textit{residual degree} or residue degree of the extension $A \subset B$.
-
-Note that we do not require the extension of fraction fields to be finite.
-\end{definition}
-
-Now let $A$ be a discrete valuation ring with fraction field $K$, let  $L/K$ be a finite separable field extension and 
-let $B \subset L$ be the integral closure of $A$ in $L$.
-% \[ \xymatrix{ B \ar[r] & L \\ A \ar[u] \ar[r] & K \ar[u] } \]
-Then the ring extension $A \subset B$ is finite, hence $B$ is Noetherian. 
-The dimension of $B$ is $1$, hence $B$ is a Dedekind domain.
-Let $\mathfrak m_1, \ldots , \mathfrak m_ n$ be the maximal ideals of $B$ (i.e., the primes lying over $\mathfrak m_ A$). 
-We obtain extensions of discrete valuation rings
-
-\[ A \subset B_{\mathfrak m_ i} \]
-and hence ramification indices $e_ i$ and residue degrees $f_ i$. We have
-
-\[ [L : K] = \sum \nolimits _{i = 1, \ldots , n} e_ i f_ i \]
-Note that if $A$ is henselian (e.g. $A$ is complete) then $n=1$. 
-
-\begin{definition}[\stackstag{09E9}]\label{definition:tamely_ramified_dvrs}
-Let $A$ be a discrete valuation ring with fraction field $K$. Let $L/K$ be a finite separable extension. With $B$ and $\mathfrak m_ i$, $i = 1, \ldots , n$ 
-as above, we say the extension $L/K$ is
-\begin{enumerate}
-    \item unramified with respect to $A$ if $e_ i = 1$ and the extension $\kappa (\mathfrak m_ i)/\kappa _ A$ is separable for all $i$,
-    \item tamely ramified with respect to $A$ if either the characteristic of $\kappa _ A$ is $0$ or the characteristic of $\kappa _ A$ is $p > 0$, the field extensions $\kappa (\mathfrak m_ i)/\kappa _ A$ are separable, and the ramification indices $e_ i$ are prime to $p$, and
-    \item totally ramified with respect to $A$ if $n = 1$ and the residue field extension $\kappa (\mathfrak m_1)/\kappa _ A$ is trivial.
-\end{enumerate}
-If the discrete valuation ring $A$ is clear from context, then we sometimes say $L/K$ is unramified, totally ramified, or tamely ramified for short.
-\end{definition}
-
-% - %
-Now and for the rest of the section assume $A$ is a \textit{complete discrete valuation ring} with uniformizer $\pi$ 
-and residue field $\kappa$, which we assume to be perfect. When $A$ and $\kappa$ are of the same characteristic $p > 0$, 
-then $A$ contains a coefficient field $k \cong \kappa$ and a well known structure theorem holds: $A = k[[\pi ]] \cong k[[t]]$.
-Let $K$ be the fraction field of $A$, then $K=k((\pi))$.
-
-For the remainder of this section, assume $A$ is a \textit{complete discrete valuation ring} with uniformizer $\pi$ and a perfect residue 
-field $\kappa$. In the equal characteristic case, where $\text{char}(A) = \text{char}(\kappa) = p > 0$, the 
-Cohen Structure Theorem implies that $A$ contains a coefficient field $k \cong \kappa$, such that $A \cong k[[\pi]] \cong k[[t]]$. 
-Consequently, the fraction field is given by $K = k((\pi))$.
-Let $L/K$ be a finite Galois extension with Galois group $G$. 
-The integral closure $B$ of $A$ in $L$ is itself a complete discrete valuation ring. 
-Since the residue field $\kappa$ is perfect, the extension of residue fields is separable, and there exists a uniformizer 
-$\Pi \in B$ such that $B = A[\Pi]$.
-
-The \textit{lower numbering ramification filtration} of $G$, denoted by $(G_i)_{i \geq -1}$, is defined as:
-\[ 
-G_i = \{ \sigma \in G \mid v_B(\sigma (x) - x) \geq i + 1 \text{ for all } x \in B \} 
-\]
-where $v_B$ is the valuation on $L$ associated with $B$. In this indexing, $G_{-1} = G$ and $G_0$ 
-corresponds to the \textit{inertia group} of the extension $L/K$. Note that $L/K$ is unramified if and only if 
-$G_0 = \{1\}$, and it is tamely ramified if and only if $G_1 = \{1\}$.
-
-A standard result in the theory of local fields(complete local fields with a discrete valuation and perfect residue field) 
-ensures that the condition in the definition of $G_i$ need only be checked for the uniformizer $\Pi$ of $B$. 
-Specifically, if we define the function
-\[ 
-i^L_K(\sigma) = v_B(\sigma(\Pi) - \Pi) 
-\]
-for $\sigma \in G$, then $G_i = \{ \sigma \in G \mid i^L_K(\sigma) \geq i + 1 \}$. 
-The subgroups $G_i$ are normal in $G$ and become trivial for sufficiently large $i$.
-
-Consider a tower of fields $K \subset E \subset L$, and let $H = \text{Gal}(L/E) \subset G$. The lower numbering is compatible with subgroups:
-\[ 
-G_i \cap H = H_i \quad \text{for all } i \geq -1 
-\]
-which follows from the identity $i^L_E = i^L_K|_{H}$. 
-However, the lower numbering does not behave as simply with respect to quotients. If $H$ is normal in $G$, the image of $G_i$ in $G/H$ is generally not $(G/H)_i$. 
-Instead, we have $G_i H / H = (G/H)_j$, where the index $j$ is given by the formula:
-\[ 
-j = \frac{1}{e_{L/E}} \sum_{\tau \in H} \min(i^L_K(\tau), i+1) - 1 
-\]
-
-
-In the literature, one reindexes the ramification groups by defining the Herbrand function $\phi_{L/K} : [-1, \infty ) \to [-1, \infty )$:
-\[ \phi_{L/K}(i) = \frac{1}{e_{L/K}}\sum_{\sigma \in G} \min(i^L_K(\sigma), i+1)-1 = \int _0^i \frac{1}{[G_0 : G_t]} dt \]
-
-This function is continuous, strictly increasing, and piecewise linear, making it a bijection. 
-It satisfies the composition law $\phi_{L/K} = \phi_{E/K} \circ \phi_{L/E}$ for a tower of extensions $K \subset E \subset L$. 
-Using this function, we define the \textit{upper numbering ramification groups} as:
-\[ 
-G^i = G_{\phi_{L/K}^{-1}(i)} 
-\]
-The primary advantage of this reindexing is its compatibility with quotients: for any normal subgroup $H \subset G$, we have:
-\[ 
-G^i H / H = (G/H)^i 
-\]
-for all $i \geq -1$.
-
-
-%% [REVIEW: never used -- the structure of G_i/G_{i+1} is not invoked anywhere (tameness is always derived via Kummer/Artin-Schreier); consider deleting or reducing to a one-sentence remark]
-\begin{prop}[\Cite{serreLF}, IV Corollary 3]
-    the quotients $G_i/G_{i+1}$, $i \geq 1$, are abelian groups, and are direct products of cyclic groups of order $p$. 
-    The group $G_1$ is a $p$-group.
-\end{prop}
-
-
-%% [REVIEW: never used -- same as the proposition above; nothing downstream uses the semi-direct product structure of G_0]
-\begin{prop}[\Cite{serreLF}, IV Corollary 4]
-    The inertia group $G_0$ has the following property:
-    \textit{It is the semi-direct product of a cyclic group of order prime to $p$ with a normal subgroup whose order is a power of $p$.}
-\end{prop}
-
-% We deduce the following lemma, that will be helpful later:
-% \begin{lemma}
-% Let $L/K$ be finite galois extesntion with galois group $G=\Z/p^r\Z$
-% Assume there exists intermediate local field $K < M < L$ such that $M/K$ is unramified.
-% Then $L/K$ is unramified.
-% \end{lemma}
-
-
-
-
-\subsubsection*{Kummer and Artin-Schreier Theories}
-For cyclic extensions, Kummer and Artin-Schreier theories provide explicit ways to calculate ramification. 
-These results show how the valuation of a defining element $a \in K$ determines the ramification index and the jumps in the upper numbering filtration.
-Throughout this section, let $K$ be a discrete valuation field with a perfect residue field $\kappa$ of characteristic $p > 0$.
-
-\begin{theorem}[Ramification in Kummer Extensions, \cite{koch1997algebraic}, Proposition 1.83]\label{theorem:kummer_ramification}
-%Let $K$ be a local field of characteristic $\text{char}(K) =p$  
-Assume $K$ contains the $n$-th roots of unity $\mu_n$. 
-Let $L/K$ be the extension given by the equation $X^n = a$ for some 
-$a \in K^\times$ and denote by $G$ its Galois group. Then we have:
-
-\begin{enumerate}
-    \item If $v_K(a) \in n\mathbb{Z}$ and the image of $a\pi^{-v_K(a)}$ in the residue field $\kappa$ is an $n$-th power, the extension $L/K$ is trivial.
-    \item If $v_K(a) \in n\mathbb{Z}$ and the image of $a\pi^{-v_K(a)}$ in the residue field $\kappa$ is not an $n$-th power, the extension $L/K$ is cyclic and unramified.
-    \item If $v_K(a) \notin n\mathbb{Z}$, the extension $L/K$ is cyclic and ramified. Specifically, if $\gcd(|v_K(a)|, n) = 1$, the extension is totally ramified of degree $n$.
-     Otherwise it has ramification index $\frac{n}{|gcd(v_K(a)|, n)}$
-\end{enumerate}
-Conversly, Kummer theory ensures that every cyclic extension of degree $n$, prime to $p$ of a field that contains $n$-th roots of unity, is of the above form.
-Moreover, in the above we can always take $a \in \Oo_K$
-\end{theorem}
-Note that in the case of total ramification the extesntion is tamely ramified.
-
-
-\begin{theorem}[Ramification in Artin-Schreier Extensions, \cite{Thomas2005}]\label{theorem:artin_schreier_ramification}
-Let $\wp(x) = x^p - x$ be the Artin-Schreier opeartor.
-Let $L/K$ be the extension given by the equation $X^p - X = a$ for some $a \in K$ and denote by $G$ its Galois group. 
-Then we have:
-\begin{enumerate}
-    \item If $v_K(a) > 0$ or if $v_K(a) = 0$ and $a \in \wp(K)$, the extension $L/K$ is trivial.
-    \item If $v_K(a) = 0$ and if $a \notin \wp(K)$, the extension $L/K$ is cyclic of degree $p$ and unramified.
-    \item If $v_K(a) = -m < 0$ with $m \in \mathbb{Z}_{>0}$ and if $m$ is prime to $p$, the extension $L/K$ is cyclic of degree $p$ again and totally ramified. Moreover,
-     its ramification groups are given by:
-     $$G = G^{(-1)} = \dots = G^{(m)} \quad \text{and} \quad G^{(m+1)} = 1.$$
-\end{enumerate}
-Conversely, Artin-Schreier theory ensures that every cyclic extension of degree $p$ takes this form.
-Moreover, in the above and under the isomorphism $K \cong k((t))$, one can always take $a$ of the form 
-$c t^{-m} + a_{-m + 1} t^{-m + 1} + \cdots a_{-1}t^{-1} + a_0$. If $k$ is algebraically closed then there is a 
-change of variables such that $a=u^{-m}$.
-\end{theorem}
-
-
-
-%%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%%
-%          WITT VECTORS
-%%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%%
-\input{witt/WittVectorPrerequisites.tex}
-
-%%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%%
-%          ALGEBRAIC GEOMETRY
-%%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%%
-\subsection{Algebraic Geometry}
-In this section we group together some general theorems in algebraic geometry that we will be employing throughtout the text. 
-All schemes are assumed to be locally of finite type. 
-%% [REVIEW: never cited despite having a full proof -- likely needed when applying lemma:descend_ramification_along_etale (f(xi_X)=xi_Y hypotheses); add a label and cite it at those applications, or remove]
-\begin{theorem}
-    Let $f:X \to Y$ be a finite flat map between integral schemes, of finite type over a field $k$. if $Z \subset X$ is a prime divisor with generic point $\eta_Z$, then $f(Z) \subset X$
-    is a prime divisor with generic point $\eta_{f(Z)}$ satisfying $f(\eta_Z)= \eta_{f(Z)}$
-\end{theorem}
-\begin{proof}
-    $f$ is finite hence proper hence closed so $f(Z)$ is closed subset of $Y$, it is irreducible as the image of an irreducible.
-    Since $Z = \overline{\{ \eta_Z \}}$ we get: 
-    $$\{f(\eta_Z)\} \subset f(Z) = f(\overline{\{\eta_Z\}}) \subseteq \overline{f(\{\eta_Z\})} = \overline{\{f(\eta_Z)\}}$$
-    And since $f(Z)$ is closed we get $f(Z) = \overline{\{f(\eta_Z)\}}$.
-
-    For flat map of integral schemes we have for every $x \in X$, $y=f(x)$ the dimension formula:
-    $$\text{dim}(\mathcal{O}_{X,x}) = \text{dim}(\mathcal{O}_{Y,y}) + \text{dim}(\mathcal{O}_{X_y, x})$$
-    And since $\text{dim}(\mathcal{O}_{X_y, x}) = 0$ we get $\text{dim}(\mathcal{O}_{X,x}) = \text{dim}(\mathcal{O}_{Y,y})$
-    concluding that $f(Z)$ is a prime divisor as well. 
-\end{proof}
-
-A known theorem states that: 
-\begin{theorem}\label{theorem:int_geoint_implies_productint}
-    Let $X, Y$ be two integral schemes over a field $k$. If $X$ is geometrically integral then $X \times_k Y$ 
-    is integral.
-    If both $X,Y$ are geometrically integral, then $X \times_k Y$ is geometrically integral. 
-\end{theorem}
-
-%% [REVIEW: unlabeled & never cited -- smoothness/integrality of C^{(d)} is assumed silently throughout (e.g. RamificationAfterBlowupIsTame ~184, blowup integrality); add a label and cite it. Note: the proof environment is nested inside the theorem environment]
-\begin{theorem}
-    Let $C$ be smooth projective curve geometrically connected over a field $k$. Then:
-    \begin{enumerate}
-        \item $C^{(d)}$ is smooth
-        \item For every $d$, $C^{(d)}$ is integral.
-        \item For every $d$, $C^{(d)}$ is geometrically integral.
-        \item The product of every finite number of $C^{(d)}$ is geometrically integral. 
-    \end{enumerate}
-    \begin{proof}
-        \begin{enumerate}
-            \item Let $t_i$ be a local parameter for $C$ at $P_i$. The local ring of the product $C^d$ at the point $(P_1, \dots, P_d)$ is isomorphic $k[[t_1, t_2, \dots, t_d]]$
-            and the local ring of the qoutient at the divisor $D=\sum P_i$ is $k[[t_1, \dots, t_d]]^{S_d}$ which is 
-            isomorphic to $k[[t_1, \dots, t_d]]^{S_d} \cong k[[s_1, \dots, s_d]]$ where the $s_i$ are the 
-            symmetric polynomials, hence this ring is regular local ring. 
-            \item $C$ is irreducible hence $C^{d}$ is irreducible hence $C^{(d)}$ is irreducible. Since $C^{(d)}$ 
-            is smooth it is reduced.
-            \item By \stackstag{0366}, $C$ is geometrically integral, so it follows from the above. 
-            \item \Cref{theorem:int_geoint_implies_productint}
-        \end{enumerate}
-    \end{proof}
-\end{theorem}
-
-
-\subsubsection*{Blowups}
-
-%% [REVIEW: never cited by label -- invoked implicitly as 'blowups commute with flat base change' (RamificationAfterBlowupIsTame:432, GeometricClassFieldTheory:338); add a label and \Cref it there]
-\begin{theorem}[\stackstag{0805}]
-Let $X_1 \to X_2$ be a flat morphism of schemes. Let $Z_2 \subset X_2$ be a closed subscheme. Let $Z_1$ be the inverse image of $Z_2$ in $X_1$. Let $X'_ i$ be the blowup of $Z_ i$ in $X_ i$. Then there exists a cartesian diagram
-
-\[ \xymatrix{ X_1' \ar[r] \ar[d] & X_2' \ar[d] \\ X_1 \ar[r] & X_2 } \]
-of schemes.   
-\end{theorem}
-
-%% [REVIEW: never cited in the included text -- only used in sections/GeometricCFT/ExtensionOfTamelyRamifiedSheaf.tex, which is currently not \input anywhere; keep only if that file gets included]
-\begin{theorem}
-If $X$ is integral then $Bl_Z(X)$ is integral. %This can be checked locally
-\end{theorem}
-
-
-If $X$ is a smooth curve, we have the following result regarding its symmetric power:
-%% [REVIEW: unlabeled & never cited -- smoothness of the symmetric power is background used silently (Abel-Jacobi section, Takeuchi compactification); add a label and cite it, or drop the long proof]
-    \begin{prop}
-        Let $f: X \to S$ be a smooth morphism of relative dimension 1.
-        Suppose $f$ is flat and Zariski-locally quasi-projective.
-        Then the relative symmetric power $X_S^{(d)} = \text{Sym}^d_S(X)$ is smooth over $S$ of relative dimension $d$.
-    \end{prop}
-    
-    \begin{proof}Since $f: X \to S$ is smooth, the $d$-fold product $X_S^d$ is smooth over $S$. By \Cref{prop:symmetric_power_flat_base_change}, the quotient $X_S^{(d)}$ is flat over $S$. Smoothness is a fiberwise property for flat morphisms of finite presentation (cf. \stackstag{01V8}); thus, it suffices to verify the smoothness of the fibers. 
-        For every $s \in S$, the fiber of the symmetric power is given by:$$(\text{Sym}^d_S(X))_s \cong \text{Sym}^d_{\kappa(s)}(X_s)$$Consequently, we may reduce to the case where $S = \text{Spec}(k)$ for a field $k$. 
-        Since smoothness is preserved under  base change to the algebraic closure, we may further assume $k = \bar{k}$.
-        Let $z = \sum_{i=1}^{r} d_i \cdot x_i \in X^{(d)}$ be a point represented by an effective cycle of degree $d$, where the points $x_i \in X(k)$ are distinct and $\sum d_i = d$. Choose pairwise disjoint Zariski-open subsets $U_i \subset X$ such that $x_i \in U_i$. Let $W \subset X^{(d)}$ be the open subset consisting of cycles whose support is contained in $\bigcup U_i$ and which meet each $U_i$ with degree exactly $d_i$. There is a canonical isomorphism:
-$$W \cong \prod_{i=1}^r U_i^{(d_i)}$$
-Thus, it suffices to show that each $U_i^{(d_i)}$ is smooth of dimension $d_i$ at the point $d_i \cdot x_i$. 
-
-We may therefore restrict our attention to the "worst" case: the diagonal point $z = d \cdot x$. Let $R = \mathcal{O}_{X,x}$ be the local ring of the curve at $x$. Since $X$ is a smooth curve over $k$, $R$ is a regular local ring of dimension 1, i.e., a discrete valuation ring. Its completion is $\hat{R} \cong k[[t]]$. The completed local ring of the product $X^d$ at the point $(x, \dots, x)$ is:
-$$\hat{\mathcal{O}}_{X^d, (x, \dots, x)} \cong \hat{R} \hat{\otimes}_k \dots \hat{\otimes}_k \hat{R} \cong k[[t_1, \dots, t_d]]$$
-where $t_i$ is the uniformizer for the $i$-th copy of $X$. The symmetric group $S_d$ acts on this power series ring by permuting the variables 
-$t_i$. By the \textit{Fundamental Theorem of Symmetric Polynomials}, the ring of invariants is:
-$$\left( k[[t_1, \dots, t_d]] \right)^{S^d} = k[[e_1, \dots, e_d]]$$
-where $e_j$ is the $j$-th elementary symmetric power series in the variables $t_i$.
-
-The ring $k[[e_1, \dots, e_d]]$ is a formal power series ring in $d$ variables. A fundamental theorem in commutative algebra states that a local ring is regular if and only if its completion is a formal power series ring over a field. Since $\hat{\mathcal{O}}_{X^{(d)}, z} \cong k[[e_1, \dots, e_d]]$, the local ring $\mathcal{O}_{X^{(d)}, z}$ is a regular local ring of dimension $d$. This implies that $X^{(d)}$ is smooth over $k$ of dimension $d$, completing the proof.
-\end{proof}
-
-\subsubsection*{A Base-Change Lemma for Galois Extensions}
-
-Finally, we record a standard base-change lemma for Galois field extensions, used when
-comparing a Galois extension with the function field of a base change.
-
-\begin{lemma}\label{lem:galois-base-change}
-Let $E/F$ be a finite Galois extension with group $H$, and let $K/F$ be an arbitrary
-field extension. Fix a common overfield $\Omega \supseteq E,K$ (for instance an algebraic
-closure of $K$ together with an $F$-embedding $E \hookrightarrow \Omega$), and form inside
-it the intersection $M := E \cap K$, the compositum $E\cdot K$, and the subgroup
-$N := \Gal(E/M) \leq H$. Then
-\begin{enumerate}
-  \item $E\cdot K / K$ is Galois, and restriction is an isomorphism
-        $\Gal(E\cdot K/K) \xrightarrow{\ \sim\ } \Gal(E/M) = N$; and
-  \item as $K$-algebras,
-        $\displaystyle E \otimes_F K \;\cong\; \prod_{i=1}^{[M:F]} E\cdot K$.
-\end{enumerate}
-In particular $E\otimes_F K$ is a field if and only if $M = F$, i.e.\ if and only if $E$ and
-$K$ are linearly disjoint over $F$.
-\end{lemma}
-
-\begin{proof}
-Write $E = F[\alpha]$ and let $g \in F[x]$ be the minimal polynomial of $\alpha$, so
-$\deg g = |H|$ and $g$ splits completely in $E$ because $E/F$ is Galois. Part (1) is the
-classical translation theorem: $E\cdot K/K$ is Galois (it is generated over $K$ by the
-roots of the separable $g$, which all lie in $E$), and $\sigma \mapsto \sigma|_E$ embeds
-$\Gal(E\cdot K/K)$ into $H$ with image the subgroup fixing $E\cap K = M$ pointwise, namely
-$\Gal(E/M) = N$. For (2), factor $g = g_1 \cdots g_m$ into monic irreducibles over $K$.
-Adjoining any single root of $g$ to $K$ already produces all of $E\cdot K$ (since
-$E = F(\alpha)$ contains every conjugate of $\alpha$), so each $g_i$ has degree
-$[E\cdot K : K] = [E:M] = |N|$ by (1); hence $m = |H|/|N| = [M:F]$. Therefore
-\[
-E \otimes_F K \;\cong\; K[x]/(g) \;\cong\; \prod_{i=1}^{m} K[x]/(g_i)
-\;\cong\; \prod_{i=1}^{[M:F]} E\cdot K ,
-\]
-the last step because $K[x]/(g_i) \cong K(\alpha) = E\cdot K$ for every $i$. This product is
-a single field exactly when $m = 1$, i.e.\ when $[M:F] = 1$, i.e.\ when $M = F$.
 \end{proof}

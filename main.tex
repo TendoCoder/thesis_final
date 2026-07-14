@@ -46,13 +46,19 @@ following the subsequent extensions to the ramified case developed by Takeuchi a
 
 \input{sections/Introduction.tex}
 
+\chapter{General Preliminaries}\label{chapter:general_preliminaries}
+
+\input{sections/Preliminaries/GeneralPreliminaries.tex}
 
 \chapter{Ramification After Blowup Is Tame}\label{section:ramification_after_blowup_is_tame}
 
 This chapter is devoted to the proof of \Cref{theorem:SymmetricPowerOfSheavesIsTamelyRamifiedReduction}.
-We begin with the necessary preliminaries, and then turn to the proof itself.
+By the torsor--local-system dictionary of \Cref{prop:torsor_module_equivalence}, the
+rank-one local system in that theorem may be replaced by its
+$\Lambda^\times$-torsor of frames. We first collect the local ramification
+prerequisites needed for this calculation and then prove the torsor formulation.
 
-\input{sections/Preliminaries/Preliminaries.tex}
+\input{sections/Preliminaries/LocalRamificationPreliminaries.tex}
 
 \input{sections/RamificationAfterBlowupIsTame.tex}
 
@@ -72,5 +78,4 @@ We begin with the necessary preliminaries, and then turn to the proof itself.
 
 
 \end{document}
-
 

@@ -14,7 +14,14 @@ Z_\ndls \arrow[r, hook]           & C^{(\deg \ndls)}
 \end{tikzcd}   
 \end{equation}
 
-Our main goal in this chapter is to prove \Cref{theorem:SymmetricPowerOfSheavesIsTamelyRamifiedReduction}:
+Our main goal in this chapter is to prove
+\Cref{theorem:SymmetricPowerOfSheavesIsTamelyRamifiedReduction}. Let
+$\cF$ be the rank-one $\Lambda$-local system occurring there and let
+$\cP=\operatorname{Fr}(\cF)$ be its $G=\Lambda^\times$-torsor of frames.
+By \Cref{prop:torsor_module_equivalence,definition:symmetric_power_local_system},
+$\cP^{[\deg\ndls]}$ is the frame torsor of
+$\cF^{[\deg\ndls]}$, and the two have identical ramification. Consequently,
+it is enough to prove the following torsor formulation.
 \begin{theorem}\label{theorem:torsors_after_blowup_is_tame}
     Let $G$ be a finite abelian group. And let $\cP \to U$ be a $G$-torsor in $U_{\text{\'Et}}$ with ramification bounded by $\mdls = \sum n_i P_i$.
     Let $\ndls = n_i P_i \subset \mdls$ be a sub modulus of $\mdls$. Then $\cP^{[\deg \ndls]}$ is tamely ramified at $\eta_\ndls$.
@@ -982,6 +989,5 @@ Therefore, the pullback $\pi_X^{-1}(\mathcal{Q})$ has ramification bounded by $r
 the original torsor $\mathcal{Q}$ has ramification bounded by $r$ at the generic point $\eta_X$ of $E_X$
 
 And we finish by \Cref{lemma:bounding_ramification_of_contracted_product}.
-
 
 
