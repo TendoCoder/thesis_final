@@ -10,9 +10,9 @@ We now study how the symmetric power construction of \Cref{prop:symmetric_power_
 Throughout this section, $G$ denotes a finite abelian group, $H \subseteq G$ a subgroup, and $\cP \to X$ a $G$-torsor over an $S$-scheme $X$ that is Zariski-locally quasi-projective over $S$.
 Recall that $\cP \to X$ factors canonically as
 \[
-\cP \xrightarrow{\phi} \cP_{G/H} \xrightarrow{\psi} X,
+\cP \xrightarrow{\phi} \cP/H \xrightarrow{\psi} X,
 \]
-where $\cP_{G/H} = \cP \times^G (G/H)$ is a $G/H$-torsor over $X$ and $\phi$ is an $H$-torsor.
+where $\cP/H = (G/H) \times^G \cP$ is a $G/H$-torsor over $X$ and $\phi$ is an $H$-torsor.
 
 In addition to the kernel $\KG = \ker(G^d \to G)$ of the summation morphism appearing in \Cref{prop:symmetric_power_torsor}, we shall need the analogous \emph{summation kernels}
 \[
@@ -35,27 +35,27 @@ We define four quotient schemes
 \begin{align*}
     \cP^{[d]_G} &:= (\KG \rtimes S_d) \backslash \cP^{\times_S d}, \\
     \cP^{[d]_H} &:= (K_H \rtimes S_d) \backslash \cP^{\times_S d}, \\
-    (\cP_{G/H})^{(d)} &:= (H^d \rtimes S_d) \backslash \cP^{\times_S d}, \\
-    (\cP_{G/H})^{[d]} &:= ((H^d + \KG) \rtimes S_d) \backslash \cP^{\times_S d},
+    (\cP/H)^{(d)} &:= (H^d \rtimes S_d) \backslash \cP^{\times_S d}, \\
+    (\cP/H)^{[d]} &:= ((H^d + \KG) \rtimes S_d) \backslash \cP^{\times_S d},
 \end{align*}
-where $S_d$ acts on $\cP^{\times_S d}$ as in \Cref{cor:sym-power-quotient} and the subgroups $K_H \subseteq \KG \subseteq H^d + \KG$ and $H^d \subseteq H^d + \KG$ of $G^d$ act diagonally on $\cP^{\times_S d}$ via the $G$-action on $\cP$. The first space is the symmetric $G$-power of $\cP$ as in \Cref{prop:symmetric_power_torsor}; the remaining three are, respectively, the symmetric $H$-power of $\cP$ relative to $\phi$, the symmetric power of the scheme $\cP_{G/H}$, and the symmetric $G/H$-power of $\cP_{G/H}$.
-\textcolor{red}{\textbf{The latter two identifications follow from $(\cP_{G/H})^{\times_S d} \cong H^d \backslash \cP^{\times_S d}$ together with the fact that the preimage of $K_{G/H} \subseteq (G/H)^d$ under $G^d \twoheadrightarrow (G/H)^d$ equals $H^d + \KG$.}}
+where $S_d$ acts on $\cP^{\times_S d}$ as in \Cref{cor:sym-power-quotient} and the subgroups $K_H \subseteq \KG \subseteq H^d + \KG$ and $H^d \subseteq H^d + \KG$ of $G^d$ act diagonally on $\cP^{\times_S d}$ via the $G$-action on $\cP$. The first space is the symmetric $G$-power of $\cP$ as in \Cref{prop:symmetric_power_torsor}; the remaining three are, respectively, the symmetric $H$-power of $\cP$ relative to $\phi$, the symmetric power of the scheme $\cP/H$, and the symmetric $G/H$-power of $\cP/H$.
+\textcolor{red}{\textbf{The latter two identifications follow from $(\cP/H)^{\times_S d} \cong H^d \backslash \cP^{\times_S d}$ together with the fact that the preimage of $K_{G/H} \subseteq (G/H)^d$ under $G^d \twoheadrightarrow (G/H)^d$ equals $H^d + \KG$.}}
 \textcolor{red}{the last isomorphism like that, is from the correspondence theorem, claude generated at the end of the article, add it somewhere}
 
 \begin{prop}\label{prop:torsor_tower_diagram}
 The four quotient schemes above exist and fit into a canonical commutative diagram
 \[
 \begin{tikzcd}[row sep=large, column sep=large]
-    \cP^{[d]_H} \arrow[r, "H"] \arrow[d] & (\cP_{G/H})^{(d)} \arrow[d, "q"] \\
-    \cP^{[d]_G} \arrow[r, "H"'] \arrow[dr, "G"', bend right=20] & (\cP_{G/H})^{[d]} \arrow[d, "G/H"] \\
+    \cP^{[d]_H} \arrow[r, "H"] \arrow[d] & (\cP/H)^{(d)} \arrow[d, "q"] \\
+    \cP^{[d]_G} \arrow[r, "H"'] \arrow[dr, "G"', bend right=20] & (\cP/H)^{[d]} \arrow[d, "G/H"] \\
     & X^{(d)},
 \end{tikzcd}
 \]
-in which each labelled arrow is a torsor under the indicated constant group. The right-hand vertical $q$ is the canonical projection of \Cref{cor:sym-power-quotient}, applied to the $G/H$-torsor $\cP_{G/H} \to X$; in general it is \emph{not} a torsor under any constant group scheme (see the remark below). The unlabelled left-hand vertical $\cP^{[d]_H} \to \cP^{[d]_G}$ is the canonical projection induced by the inclusion of $S_d$-stable subgroups $K_H \rtimes S_d \subseteq \KG \rtimes S_d$ in $G^d \rtimes S_d$; it is the base change of $q$ along the structural map $\cP^{[d]_G} \to (\cP_{G/H})^{[d]}$ via the Cartesian property below, and likewise fails to be a torsor under a constant group scheme in general.
+in which each labelled arrow is a torsor under the indicated constant group. The right-hand vertical $q$ is the canonical projection of \Cref{cor:sym-power-quotient}, applied to the $G/H$-torsor $\cP/H \to X$; in general it is \emph{not} a torsor under any constant group scheme (see the remark below). The unlabelled left-hand vertical $\cP^{[d]_H} \to \cP^{[d]_G}$ is the canonical projection induced by the inclusion of $S_d$-stable subgroups $K_H \rtimes S_d \subseteq \KG \rtimes S_d$ in $G^d \rtimes S_d$; it is the base change of $q$ along the structural map $\cP^{[d]_G} \to (\cP/H)^{[d]}$ via the Cartesian property below, and likewise fails to be a torsor under a constant group scheme in general.
 
 Moreover, the upper square is Cartesian:
 \[
-\cP^{[d]_H} \cong \cP^{[d]_G} \times_{(\cP_{G/H})^{[d]}} (\cP_{G/H})^{(d)}.
+\cP^{[d]_H} \cong \cP^{[d]_G} \times_{(\cP/H)^{[d]}} (\cP/H)^{(d)}.
 \]
 \end{prop}
 
@@ -63,25 +63,25 @@ Moreover, the upper square is Cartesian:
 The four labelled arrows are torsors under the indicated constant groups by direct application of \Cref{prop:symmetric_power_torsor} and \Cref{prop:quotient_torsors_finite}:
 \begin{itemize}
     \item Applied to the $G$-torsor $\cP \to X$, \Cref{prop:symmetric_power_torsor} gives the $G$-torsor $\cP^{[d]_G} \to X^{(d)}$ (the diagonal arrow).
-    \item Applied to the $H$-torsor $\phi: \cP \to \cP_{G/H}$ (taking $\cP_{G/H}$ in place of the base $X$), \Cref{prop:symmetric_power_torsor} gives the $H$-torsor $\cP^{[d]_H} \to (\cP_{G/H})^{(d)}$ (the top arrow).
-    \item Applied to the $G/H$-torsor $\psi: \cP_{G/H} \to X$, \Cref{prop:symmetric_power_torsor} gives the $G/H$-torsor $(\cP_{G/H})^{[d]} \to X^{(d)}$ (the bottom-right vertical), and \Cref{cor:sym-power-quotient} produces the canonical morphism $q : (\cP_{G/H})^{(d)} \to (\cP_{G/H})^{[d]}$.
+    \item Applied to the $H$-torsor $\phi: \cP \to \cP/H$ (taking $\cP/H$ in place of the base $X$), \Cref{prop:symmetric_power_torsor} gives the $H$-torsor $\cP^{[d]_H} \to (\cP/H)^{(d)}$ (the top arrow).
+    \item Applied to the $G/H$-torsor $\psi: \cP/H \to X$, \Cref{prop:symmetric_power_torsor} gives the $G/H$-torsor $(\cP/H)^{[d]} \to X^{(d)}$ (the bottom-right vertical), and \Cref{cor:sym-power-quotient} produces the canonical morphism $q : (\cP/H)^{(d)} \to (\cP/H)^{[d]}$.
 \end{itemize}
 
-The factorization $\cP^{[d]_G} \xrightarrow{H} (\cP_{G/H})^{[d]} \xrightarrow{G/H} X^{(d)}$ of the diagonal arrow into an $H$-torsor followed by a $G/H$-torsor is the canonical decomposition of \Cref{prop:quotient_torsors_finite}, applied to the $G$-torsor $\cP^{[d]_G} \to X^{(d)}$ and the subgroup $H \subseteq G$.
-Indeed, both $\cP^{[d]_G} \times^G (G/H)$ and $(\cP_{G/H})^{[d]}$ are realized as the admissible quotient
+The factorization $\cP^{[d]_G} \xrightarrow{H} (\cP/H)^{[d]} \xrightarrow{G/H} X^{(d)}$ of the diagonal arrow into an $H$-torsor followed by a $G/H$-torsor is the canonical decomposition of \Cref{prop:quotient_torsors_finite}, applied to the $G$-torsor $\cP^{[d]_G} \to X^{(d)}$ and the subgroup $H \subseteq G$.
+Indeed, both $\cP^{[d]_G} \times^G (G/H)$ and $(\cP/H)^{[d]}$ are realized as the admissible quotient
 $((H^d + \KG) \rtimes S_d) \backslash \cP^{\times_S d}$.
 \textcolor{red}{here maybe add more info, like isomorphism theorem for torsors and qoutients, or something like that, to make it more clear, from which it follows}
 
-To prove the upper square is Cartesian, set $F := \cP^{[d]_G} \times_{(\cP_{G/H})^{[d]}} (\cP_{G/H})^{(d)}$.
-Base-changing the $H$-torsor $\cP^{[d]_G} \to (\cP_{G/H})^{[d]}$ along $q$ exhibits $F$ as an $H$-torsor over $(\cP_{G/H})^{(d)}$.
-The universal property of the fiber product furnishes a canonical morphism $\cP^{[d]_H} \to F$ over $(\cP_{G/H})^{(d)}$,
+To prove the upper square is Cartesian, set $F := \cP^{[d]_G} \times_{(\cP/H)^{[d]}} (\cP/H)^{(d)}$.
+Base-changing the $H$-torsor $\cP^{[d]_G} \to (\cP/H)^{[d]}$ along $q$ exhibits $F$ as an $H$-torsor over $(\cP/H)^{(d)}$.
+The universal property of the fiber product furnishes a canonical morphism $\cP^{[d]_H} \to F$ over $(\cP/H)^{(d)}$,
 which is $H$-equivariant since the $H$-actions on both source and target are induced by the diagonal $H$-action on $\cP^{\times_S d}$ \textcolor{red}{add earlier in the section of torsors that in fact base changing an $H$-torsor along a morphism gives another $H$-torsor
  is a torsor}.
- Any morphism of $H$-torsors is an isomorphism, so $\cP^{[d]_H} \cong F$ and the upper square is Cartesian. The left vertical $\cP^{[d]_H} \to \cP^{[d]_G}$ is then identified, via this Cartesian square, with the base change of $q$ along $\cP^{[d]_G} \to (\cP_{G/H})^{[d]}$.
+ Any morphism of $H$-torsors is an isomorphism, so $\cP^{[d]_H} \cong F$ and the upper square is Cartesian. The left vertical $\cP^{[d]_H} \to \cP^{[d]_G}$ is then identified, via this Cartesian square, with the base change of $q$ along $\cP^{[d]_G} \to (\cP/H)^{[d]}$.
 \end{proof}
 
 \begin{rem*}
-The two vertical morphisms $q : (\cP_{G/H})^{(d)} \to (\cP_{G/H})^{[d]}$ and $\cP^{[d]_H} \to \cP^{[d]_G}$ are not, in general, torsors under any constant group scheme. The obstruction is purely group-theoretic: in $\KG \rtimes S_d$ the subgroup $K_H \rtimes S_d$ is not normal, because the conjugation action of $S_d$ on $\KG$ by coordinate permutation is non-trivial — for $k \in \KG$ and $\sigma \in S_d$, the components of $k - \sigma\!\cdot\!k$ are $k_i - k_{\sigma^{-1}(i)} \in G$, which need not lie in $H$. Equivalently, $H^d \rtimes S_d$ is not normal in $(H^d + \KG) \rtimes S_d$. So the naive set-theoretic quotients $(\KG \rtimes S_d)/(K_H \rtimes S_d)$ and $((H^d + \KG) \rtimes S_d)/(H^d \rtimes S_d)$ are not groups, even though $\KG/K_H \cong K_{G/H}$ and $(H^d + \KG)/H^d \cong K_{G/H}$ as abstract groups.
+The two vertical morphisms $q : (\cP/H)^{(d)} \to (\cP/H)^{[d]}$ and $\cP^{[d]_H} \to \cP^{[d]_G}$ are not, in general, torsors under any constant group scheme. The obstruction is purely group-theoretic: in $\KG \rtimes S_d$ the subgroup $K_H \rtimes S_d$ is not normal, because the conjugation action of $S_d$ on $\KG$ by coordinate permutation is non-trivial — for $k \in \KG$ and $\sigma \in S_d$, the components of $k - \sigma\!\cdot\!k$ are $k_i - k_{\sigma^{-1}(i)} \in G$, which need not lie in $H$. Equivalently, $H^d \rtimes S_d$ is not normal in $(H^d + \KG) \rtimes S_d$. So the naive set-theoretic quotients $(\KG \rtimes S_d)/(K_H \rtimes S_d)$ and $((H^d + \KG) \rtimes S_d)/(H^d \rtimes S_d)$ are not groups, even though $\KG/K_H \cong K_{G/H}$ and $(H^d + \KG)/H^d \cong K_{G/H}$ as abstract groups.
 
 % A precise description of the structure these morphisms carry would require concepts not introduced in this thesis, namely:
 % \begin{itemize}
@@ -97,16 +97,16 @@ The two vertical morphisms $q : (\cP_{G/H})^{(d)} \to (\cP_{G/H})^{[d]}$ and $\c
 % \begin{description}
 %     \item[The $H$-symmetric tower,] obtained by traversing the top edge and the right column of the diagram:
 %     \[
-%     \cP^{[d]_H} \xrightarrow{\;H\;} (\cP_{G/H})^{(d)} \xrightarrow{\;q\;} (\cP_{G/H})^{[d]} \xrightarrow{\;G/H\;} X^{(d)};
+%     \cP^{[d]_H} \xrightarrow{\;H\;} (\cP/H)^{(d)} \xrightarrow{\;q\;} (\cP/H)^{[d]} \xrightarrow{\;G/H\;} X^{(d)};
 %     \]
 %     \item[The $G$-symmetric tower,] obtained by traversing the left column and the bottom row of the diagram:
 %     \[
-%     \cP^{[d]_H} \longrightarrow \cP^{[d]_G} \xrightarrow{\;H\;} (\cP_{G/H})^{[d]} \xrightarrow{\;G/H\;} X^{(d)}.
+%     \cP^{[d]_H} \longrightarrow \cP^{[d]_G} \xrightarrow{\;H\;} (\cP/H)^{[d]} \xrightarrow{\;G/H\;} X^{(d)}.
 %     \]
 % \end{description}
 % In each tower the labelled arrows are torsors under the indicated constant groups; the unlabelled arrow and the morphism $q$ are not, in general, torsors under a constant group scheme.
 
-% The Cartesian property in \Cref{prop:torsor_tower_diagram} expresses that the connection morphism $\cP^{[d]_H} \to \cP^{[d]_G}$ on the left is the base change of $q : (\cP_{G/H})^{(d)} \to (\cP_{G/H})^{[d]}$ along the structural map $\cP^{[d]_G} \to (\cP_{G/H})^{[d]}$.
+% The Cartesian property in \Cref{prop:torsor_tower_diagram} expresses that the connection morphism $\cP^{[d]_H} \to \cP^{[d]_G}$ on the left is the base change of $q : (\cP/H)^{(d)} \to (\cP/H)^{[d]}$ along the structural map $\cP^{[d]_G} \to (\cP/H)^{[d]}$.
 % Properties of $q$ that are stable under base change therefore descend automatically to the connection morphism on the left.
 
 \section{Setup and notation}
@@ -121,16 +121,16 @@ according to the definition in \Cref{definition:local_ramification_boundness}
 Recall the four quotient schemes, defined in:
 \Cref{subsection:quotient_torsors_towers}
 \[
-\cP^{[d]_H},\qquad \cP^{[d]_G},\qquad (\cP_{G/H})^{(d)},\qquad (\cP_{G/H})^{[d]},
+\cP^{[d]_H},\qquad \cP^{[d]_G},\qquad (\cP/H)^{(d)},\qquad (\cP/H)^{[d]},
 \]
 together with the canonical Cartesian square
 
 \[
 \begin{tikzcd}[row sep=large, column sep=large]
 \cP^{[d]_H} \ar[r,"H"] \ar[d]
-  & (\cP_{G/H})^{(d)} \ar[d,"q"] \\
+  & (\cP/H)^{(d)} \ar[d,"q"] \\
 \cP^{[d]_G} \ar[r,"H"'] \ar[dr,"G"',bend right=15]
-  & (\cP_{G/H})^{[d]} \ar[d,"G/H"] \\
+  & (\cP/H)^{[d]} \ar[d,"G/H"] \\
   & U^{(d)},
 \end{tikzcd}
 \]
@@ -138,7 +138,7 @@ in which the arrows labelled $H$, $G/H$ and $G$ are torsors under the
 indicated finite constant groups (in particular, \emph{\'etale}), and the
 upper square is Cartesian (\Cref{prop:torsor_tower_diagram}).
 
-The $G/H$-torsor $\cP_{G/H} \to U$ compactifies to a finite map of smooth
+The $G/H$-torsor $\cP/H \to U$ compactifies to a finite map of smooth
 projective curves $f \colon C' \to C$. Pick $p'_\infty \in f^{-1}(p_\infty)$
 
 \[
@@ -214,11 +214,11 @@ diagram.
 \[
 \begin{tikzcd}[row sep=2.4em, column sep=2.2em]
 \cP^{[d]_H} \ar[r,"H"] \ar[d]
-  & (\cP_{G/H})^{(d)} \ar[d,"q"] \ar[r,hookrightarrow,"\iota'"]
+  & (\cP/H)^{(d)} \ar[d,"q"] \ar[r,hookrightarrow,"\iota'"]
   & C'^{(d)} \ar[dd,"f^{(d)}"]
   & X_{C'} \ar[l,"\pi_{C'}"'] \ar[dd,dashed,"f_X"] \\
 \cP^{[d]_G} \ar[r,"H"'] \ar[dr,"G"',bend right=10]
-  & (\cP_{G/H})^{[d]} \ar[d,"G/H"]
+  & (\cP/H)^{[d]} \ar[d,"G/H"]
   & & \\
   & U^{(d)} \ar[r,hookrightarrow,"\iota"']
   & C^{(d)}
@@ -235,10 +235,10 @@ Reading the diagram:
   \item The \textbf{middle block} (column 3) records the compactifications.
         The map $\iota$ is the canonical open immersion
         $U^{(d)} \hookrightarrow C^{(d)}$. The map $\iota'$ is the open
-        immersion $(\cP_{G/H})^{(d)} \hookrightarrow C'^{(d)}$ obtained from
-        compactifying $\cP_{G/H} \subset C'$. The vertical $f^{(d)}$ is the
+        immersion $(\cP/H)^{(d)} \hookrightarrow C'^{(d)}$ obtained from
+        compactifying $\cP/H \subset C'$. The vertical $f^{(d)}$ is the
         finite morphism of symmetric powers; restricting along $\iota'$
-        recovers the canonical map $(\cP_{G/H})^{(d)} \to U^{(d)}$, which is
+        recovers the canonical map $(\cP/H)^{(d)} \to U^{(d)}$, which is
         the composite of $q$ with the $G/H$-torsor.
   \item The \textbf{right block} (column 4) records the blowups at the
         diagonal points at infinity. The dashed arrow
@@ -257,9 +257,9 @@ to proving the following theorem.
 \begin{theorem}
 Suppose
 \begin{enumerate}
-  \item[\textnormal{(H1)}] $(\cP_{G/H})^{[d]} \to U^{(d)}$ is unramified at
+  \item[\textnormal{(H1)}] $(\cP/H)^{[d]} \to U^{(d)}$ is unramified at
         $\eta_C$; and
-  \item[\textnormal{(H2)}] $\cP^{[d]_H} \to (\cP_{G/H})^{(d)}$ is unramified
+  \item[\textnormal{(H2)}] $\cP^{[d]_H} \to (\cP/H)^{(d)}$ is unramified
         at $\eta_{C'}$.
   \item [\textnormal{(H3)}]$G=\Z/p^r\Z$ is cyclic of prime power order.
 \end{enumerate}
@@ -289,30 +289,30 @@ First, note that we can assume $\cP \to U$ is connected, and that $H$ is non-tri
       $(\cP, G, H)$ by $(\cP_0, G_0, H_0)$ we may assume $\cP$ is connected
       and $\rho$ is surjective.
 \item[\textnormal{(R2)}] \emph{$H \neq 0$.}  If $H = 0$ then
-      $\cP_{G/H} = \cP$ and $(\cP_{G/H})^{[d]} = \cP^{[d]_G}$, so (H1) is
+      $\cP/H = \cP$ and $(\cP/H)^{[d]} = \cP^{[d]_G}$, so (H1) is
       literally the conclusion.
 \end{enumerate}
 
 We can read a decomposition of fields directly from the canonical Cartesian square of
 \Cref{prop:torsor_tower_diagram}. After the reduction (R1) all four corners are integral:
-the three corners $\cP^{[d]_G}$, $(\cP_{G/H})^{[d]}$ and $(\cP_{G/H})^{(d)}$ are integral,
+the three corners $\cP^{[d]_G}$, $(\cP/H)^{[d]}$ and $(\cP/H)^{(d)}$ are integral,
 and the fourth, $\cP^{[d]_H} = (K_H \rtimes S_d)\backslash \cP^{\times_S d}$, is integral as
 a quotient of the integral scheme $\cP^{\times_S d}$
 (\Cref{theorem:int_geoint_implies_productint}). So we may take function fields; using the open
 immersions $\iota,\iota'$ of the master diagram together with
 $K_C = \Frac V_C = K(C^{(d)}) = K(U^{(d)})$ and
-$K_{C'} = \Frac V_{C'} = K(C'^{(d)}) = K\bigl((\cP_{G/H})^{(d)}\bigr)$, we identify
+$K_{C'} = \Frac V_{C'} = K(C'^{(d)}) = K\bigl((\cP/H)^{(d)}\bigr)$, we identify
 \[
 K(U^{(d)}) = K_C,\qquad
-K\bigl((\cP_{G/H})^{[d]}\bigr) = F,\qquad
-K\bigl((\cP_{G/H})^{(d)}\bigr) = K_{C'},\qquad
+K\bigl((\cP/H)^{[d]}\bigr) = F,\qquad
+K\bigl((\cP/H)^{(d)}\bigr) = K_{C'},\qquad
 K\bigl(\cP^{[d]_G}\bigr) = E,
 \]
 with $E/F$ Galois of group $H$, $F/K_C$ Galois of group $G/H$, and the composite $E/K_C$
 Galois of group $G$. The fourth corner $\cP^{[d]_H}$ is the fibre product
-$\cP^{[d]_G} \times_{(\cP_{G/H})^{[d]}} (\cP_{G/H})^{(d)}$; being integral, its single function
+$\cP^{[d]_G} \times_{(\cP/H)^{[d]}} (\cP/H)^{(d)}$; being integral, its single function
 field is the compositum $E\cdot K_{C'}$. In particular its generic fibre $E \otimes_F K_{C'}$
-over $(\cP_{G/H})^{(d)}$ is a field, so by \Cref{lem:galois-base-change} the extensions $E$ and
+over $(\cP/H)^{(d)}$ is a field, so by \Cref{lem:galois-base-change} the extensions $E$ and
 $K_{C'}$ are linearly disjoint over $F$; that is,
 \[
 E \cap K_{C'} = F ,
@@ -320,7 +320,7 @@ E \cap K_{C'} = F ,
 and $E\cdot K_{C'}/K_{C'}$ is Galois with group $H$. We denote:
 \begin{enumerate}
     \item $K_C := \Frac V_C$, $K_{C'} := \Frac V_{C'}$;
-    \item $F := K\bigl((\cP_{G/H})^{[d]}\bigr)$, $E := K(\cP^{[d]_G})$;
+    \item $F := K\bigl((\cP/H)^{[d]}\bigr)$, $E := K(\cP^{[d]_G})$;
     \item $V_F := V_{C'}|_F$;
     \item a place $v_E$ of $E$ above $V_F$, and a place $v_\star$ of $E \cdot K_{C'}$
           above both $v_E$ and $V_{C'}$.
@@ -349,10 +349,10 @@ addition $E/K_C$ is Galois with group $G$.
 Read through this dictionary, the hypotheses of the theorem become statements about
 the ramification of the places above:
 \begin{itemize}
-  \item[\textnormal{(H1)}] $(\cP_{G/H})^{[d]} \to U^{(d)}$ is unramified at $\eta_C$
+  \item[\textnormal{(H1)}] $(\cP/H)^{[d]} \to U^{(d)}$ is unramified at $\eta_C$
         means that the $G/H$-extension $F/K_C$ is unramified at $V_C$. In particular
         $V_F$ is unramified over $V_C$, with $e(V_F \mid V_C) = 1$.
-  \item[\textnormal{(H2)}] $\cP^{[d]_H} \to (\cP_{G/H})^{(d)}$ is unramified at $\eta_{C'}$
+  \item[\textnormal{(H2)}] $\cP^{[d]_H} \to (\cP/H)^{(d)}$ is unramified at $\eta_{C'}$
         means that the $H$-extension $E\cdot K_{C'}/K_{C'}$ is unramified at $V_{C'}$;
         equivalently the inertia group $I(v_\star \mid V_{C'}) \leq H$ is trivial.
   \item[\textnormal{(H3)}] $G = \Z/p^r\Z$ makes $G$, hence $H$ and every inertia group,

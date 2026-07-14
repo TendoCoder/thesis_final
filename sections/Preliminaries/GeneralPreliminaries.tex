@@ -277,66 +277,85 @@ the upper ramification groups. Thus, one has ramification bounded by a given
 modulus, or is tamely ramified along a given divisor, if and only if the other
 does.
 
-\subsection*{Decomposition of Torsors}
-\textcolor{red}{because the contracted product is also P/H, we should add this!!! say this. etc... maybe have a section about qoutient of schemes.}
-In the case of finite groups, the functoriality of the contracted product has a concrete geometric interpretation as a tower of covers. Let $G$ be a finite abelian group and $H \subseteq G$ a subgroup. 
-Let $\pi: G \to G/H$ be the natural quotient map.
+\subsection*{Quotients and Decomposition of Torsors}
+
+Let $\mathcal{H}$ be a sheaf of groups acting on a sheaf $\mathcal{P}$ on a
+site $\sC$. The \textbf{quotient sheaf} $\mathcal{P}/\mathcal{H}$ is the
+coequalizer in $\operatorname{Sh}(\sC)$
+\[
+\mathcal{H}\times\mathcal{P}
+\rightrightarrows
+\mathcal{P}\longrightarrow\mathcal{P}/\mathcal{H},
+\]
+where the parallel arrows are the action and the projection.
+Equivalently, it is the sheaf associated with the presheaf of orbits
+$U\mapsto\mathcal{H}(U)\backslash\mathcal{P}(U)$. We use the notation
+$\mathcal{P}/\mathcal{H}$ even though our torsor actions are written on the
+left. In particular, the quotient always exists as a sheaf. It is
+characterized by the following universal property:
+for every sheaf $\mathcal{F}$, composition with
+$\mathcal{P}\to\mathcal{P}/\mathcal{H}$ identifies morphisms
+$\mathcal{P}/\mathcal{H}\to\mathcal{F}$ with the
+$\mathcal{H}$-invariant morphisms $\mathcal{P}\to\mathcal{F}$. A quotient
+sheaf need not in general be representable by a scheme; representability in
+the finite-torsor situation used here is part of the next proposition.
+
+Let $G$ be a finite abelian group, let $H\subseteq G$ be a subgroup, and let
+$\pi:G\to G/H$ be the quotient homomorphism.
 
 \begin{prop}\label{prop:quotient_torsors_finite}\label{prop:quotient_torsors}
-    Let $\mathcal{P} \to X$ be a $G$-torsor in $X_{\text{ét}}$. 
-    There exists a factorization of the morphism $\mathcal{P} \to X$:
-    \[ \mathcal{P} \xrightarrow{\phi} \mathcal{P}_{G/H} \xrightarrow{\psi} X \]
-    that is unique up to a unique isomorphism commuting with the projections, where:
-    \begin{enumerate}
-        \item $\mathcal{P}_{G/H} := \mathcal{P} \times^G (G/H)$ is a $G/H$-torsor over $X$.
-        \item $\mathcal{P}$ is an $H$-torsor over the scheme $\mathcal{P}_{G/H}$.
-    \end{enumerate}
+Let $\mathcal{P}\to X$ be a $G$-torsor in $X_{\text{ét}}$. The quotient sheaf
+$\mathcal{P}/H$ is represented by a finite étale $X$-scheme, and there is a
+canonical isomorphism of $G/H$-torsors
+\[
+\mathcal{P}/H \xrightarrow{\sim}
+\pi_*\mathcal{P}=(G/H)\times^G\mathcal{P}.
+\]
+Consequently, $\mathcal{P}\to X$ admits a canonical factorization
+\[
+\mathcal{P}\xrightarrow{\phi}\mathcal{P}/H\xrightarrow{\psi}X,
+\]
+where $\phi$ is an $H$-torsor and $\psi$ is a $G/H$-torsor. This
+factorization is unique up to a unique isomorphism commuting with the
+projections.
 \end{prop}
 
 \begin{proof}
-    The first assertion follows directly from the definition of the contracted product functor $\pi_*: \mathbf{Tors}(X, G) \to \mathbf{Tors}(X, G/H)$. To see the second assertion, we note that the map $\phi: \mathcal{P} \to \mathcal{P}_{G/H}$ is surjective. Locally on $X$, we may choose a cover $U \to X$ such that $\mathcal{P}|_U \cong G \times U$. 
-    Over this cover, the map $\phi$ is identified with the product of the quotient map and the identity:
-    \[ \pi \times \text{id}_U: G \times U \to (G/H) \times U \]
-    Since $G \to G/H$ is a trivial $H$-torsor (the fiber over any element $\bar{g} \in G/H$ is a coset $gH$, which is an $H$-set isomorphic to $H$ acting on itself), $\mathcal{P}$ is locally an $H$-torsor over $\mathcal{P}_{G/H}$. By the descent of torsors, $\mathcal{P}$ is an $H$-torsor over $\mathcal{P}_{G/H}$ globally.
+The canonical morphism
+\[
+\mathcal{P}\longrightarrow\pi_*\mathcal{P},
+\qquad p\longmapsto[1,p],
+\]
+is $H$-invariant because $\pi(H)=1$. The universal property of the quotient
+sheaf therefore gives a canonical morphism
+\[
+\mathcal{P}/H\longrightarrow\pi_*\mathcal{P}.
+\]
+Choose an étale cover $U\to X$ that trivializes $\mathcal{P}$. Over $U$ this
+morphism identifies with the identity of $(G/H)\times U$, since
+\[
+(G\times U)/H\cong(G/H)\times U
+\qquad\text{and}\qquad
+\pi_*\mathcal{P}|_U\cong(G/H)\times U.
+\]
+It is therefore an isomorphism of sheaves. The contracted product
+$\pi_*\mathcal{P}$ is a $G/H$-torsor and, by
+\Cref{theorem:torsors_are_realized_as_spaces}, is represented by a finite
+étale $X$-scheme. Hence the same is true of $\mathcal{P}/H$.
 
-    For uniqueness, suppose $\mathcal{P} \to \mathcal{Q} \to X$ is another such factorization. Because $\mathcal{P} \to \mathcal{Q}$ is an $H$-torsor, $\mathcal{Q}$ represents the categorical quotient $\mathcal{P}/H$ in $X_{\text{ét}}$. Since $\mathcal{P}_{G/H}$ also represents this quotient, the universal property of quotients yields a unique isomorphism $\mathcal{Q} \xrightarrow{\sim} \mathcal{P}_{G/H}$ making all associated diagrams commute.
-
+Under the same local trivialization, the morphism
+$\mathcal{P}\to\mathcal{P}/H$ is the product of the quotient map with the
+identity,
+\[
+G\times U\longrightarrow(G/H)\times U,
+\]
+and is thus an $H$-torsor. Finally, suppose
+$\mathcal{P}\to\mathcal{Q}\to X$ is another such factorization. Since an
+$H$-torsor is locally split, every $H$-invariant morphism out of
+$\mathcal{P}$ descends uniquely through $\mathcal{Q}$. Thus $\mathcal{Q}$
+satisfies the same universal property as $\mathcal{P}/H$, which gives the
+unique isomorphism compatible with the projections.
 \end{proof}
-%\textcolor{red}{Let us give a final note that, evidently, $\mathrm{Aut}(G)$ acts on $\mathrm{Hom}_{\mathrm{cont.}}(\pi_1^{\text{ét}}(X, x), G)$ on the right, and if we consider the quotient $\mathrm{Hom}_{\mathrm{cont.}}(\pi_1^{\text{ét}}(X, x), G)/\mathrm{Aut}(G)$ we get the pointed set of all connected finite Galois covers of $X$ with Galois group isomorphism to a subgroup of $G$.}
-
-%%% %%% %%% %%% %%% %%% %%% %%% %%% %%% %%% %%% %%% %%% %%% %%%
-%       Qoutient of G-torsors
-%%% %%% %%% %%% %%% %%% %%% %%% %%% %%% %%% %%% %%% %%% %%% %%%
-
-% \subsection*{Qoutients of \texorpdfstring{$G$}{G}-Torsors}
-% Let $G$ be a finite abelian group, and let $H \subseteq G$ be a subgroup. 
-%  Consider the natural quotient homomorphism $\pi: G \to G/H$. Given a $G$-torsor $\mathcal{P} \to X$ (in the fppf or étale topology), we may associate to it a $G/H$-torsor, 
-%  denoted by $\pi_*(\mathcal{P})$ or $\mathcal{P}^{G/H}$, via the extension of scalars.
-%  The object $\mathcal{P}^{G/H}$ is defined as the contracted product:
-%  $$\mathcal{P}^{G/H} = \mathcal{P} \otimes^G (G/H)$$
-%  Recall that $\mathcal{P}^{G/H}$ is the quotient of the product $\mathcal{P} \times (G/H)$ by the $G$-action defined by 
-%  $g \cdot (p, \bar{g}') = (g \cdot p, \pi(g^{-1})\bar{g}')$. 
-%  Consequently, we have a canonical morphism of sheaves 
-%  $\phi: \mathcal{P} \to \mathcal{P}^{G/H}$ which, on local sections, acts by 
-%  $p \mapsto [p, \bar{e}]$, where $\bar{e}$ is the identity element in $G/H$. 
-%  To see that $\mathcal{P}$ carries the structure of an $H$-torsor over $\mathcal{P}^{G/H}$, 
-%  consider a local trivializing cover $\{U_i \to X\}$ for $\mathcal{P}$ as a $G$-torsor. 
-%  Over each $U_i$, we have an isomorphism $\mathcal{P}|_{U_i} \cong G_{U_i}$. 
-%  Under this isomorphism, the contracted product locally satisfies:
-%  $$(\mathcal{P} \otimes^G G/H)|_{U_i} \cong (G \otimes^G G/H)_{U_i} \cong (G/H)_{U_i}$$
-%  Explicitly, the local identification $(g, \bar{g}') \sim (e, \pi(g)\bar{g}')$ 
-%  shows that every equivalence class in the fiber has a unique representative of the form 
-%  $[e, \bar{g}]$. 
-%  The map $\phi$ locally corresponds to the quotient map $G \to G/H$. 
-%  Since the kernel of this map is $H$, and $G$ is a trivial $H$-torsor over $G/H$, 
-%  it follows by descent that $\mathcal{P}$ is an $H$-torsor over $\mathcal{P}^{G/H}$.
-%  We summarize this construction in the following proposition:
-%  \begin{prop}\label{prop:quotient_torsors}
-%     Let $G$ be an abelian group and $H \subset G$ a subgroup. 
-%     Any $G$-torsor $\mathcal{P} \to X$ admits a natural factorization:
-%     $$\mathcal{P} \xrightarrow{} \mathcal{P}^{G/H} \xrightarrow{} X$$
-%     where $\mathcal{P}^{G/H} \to X$ is a $G/H$-torsor and $\mathcal{P} \to \mathcal{P}^{G/H}$ is an $H$-torsor.
-% \end{prop}
 
 \section{Symmetric Powers of Schemes and Torsors}
 This section reviews the construction of quotients for schemes and torsors under finite group actions, specifically focusing on symmetric powers. 
