@@ -1,35 +1,34 @@
-\section{Local Ramification Preliminaries}
-This section reviews the ramification of discrete valuations, beginning with the general theory of \textit{discrete valuation rings} and their 
-integral closures in finite separable extensions. 
-We then specialize to complete rings in Galois extensions to describe the ramification filtration via lower and upper numbering, 
+\section{Ramification of Discrete Valuations}\label{section:ramification_of_discrete_valuations}
+This section reviews the ramification of discrete valuations, beginning with the general theory of \textit{discrete valuation rings} and their
+integral closures in finite separable extensions.
+We then specialize to complete rings in Galois extensions to describe the ramification filtration via lower and upper numbering,
 following the treatments in \stackstag{0EXQ} and \cite{serreLF}.
 
 \begin{definition}[\stackstag{09E4}]\label{definition:weakly_unramified_and_tamely_ramified_DVR}
     We say that $A \to B$ or $A \subset B$ is an extension of discrete valuation rings if $A$ and $B$ are discrete valuation rings and $A \to B$ is injective and local. In particular, if $\pi _ A$ and $\pi _ B$ are uniformizers of $A$ and $B$, then $\pi _ A = u \pi _ B^ e$ for some $e \geq 1$ and unit $u$ of $B$. The integer $e$ does not depend on the choice of the uniformizers as it is also the unique integer $\geq 1$ such that
 \[ \mathfrak m_ A B = \mathfrak m_ B^ e \]
-The integer $e$ is called the \textit{ramification index} of $B$ over $A$. We say that $B$ is \textit{weakly unramified} over $A$ if $e = 1$. 
-If the extension of residue fields $\kappa _ A = A/\mathfrak m_ A \subset \kappa _ B = B/\mathfrak m_ B$ is finite, 
+The integer $e$ is called the \textit{ramification index} of $B$ over $A$. We say that $B$ is \textit{weakly unramified} over $A$ if $e = 1$.
+If the extension of residue fields $\kappa _ A = A/\mathfrak m_ A \subset \kappa _ B = B/\mathfrak m_ B$ is finite,
 then we set $f = [\kappa _ B : \kappa _ A]$ and we call it the \textit{residual degree} or residue degree of the extension $A \subset B$.
 
 Note that we do not require the extension of fraction fields to be finite.
 \end{definition}
 
-Now let $A$ be a discrete valuation ring with fraction field $K$, let  $L/K$ be a finite separable field extension and 
+Now let $A$ be a discrete valuation ring with fraction field $K$, let  $L/K$ be a finite separable field extension and
 let $B \subset L$ be the integral closure of $A$ in $L$.
-% \[ \xymatrix{ B \ar[r] & L \\ A \ar[u] \ar[r] & K \ar[u] } \]
-Then the ring extension $A \subset B$ is finite, hence $B$ is Noetherian. 
+Then the ring extension $A \subset B$ is finite, hence $B$ is Noetherian.
 The dimension of $B$ is $1$, hence $B$ is a Dedekind domain.
-Let $\mathfrak m_1, \ldots , \mathfrak m_ n$ be the maximal ideals of $B$ (i.e., the primes lying over $\mathfrak m_ A$). 
+Let $\mathfrak m_1, \ldots , \mathfrak m_ n$ be the maximal ideals of $B$ (i.e., the primes lying over $\mathfrak m_ A$).
 We obtain extensions of discrete valuation rings
 
 \[ A \subset B_{\mathfrak m_ i} \]
 and hence ramification indices $e_ i$ and residue degrees $f_ i$. We have
 
 \[ [L : K] = \sum \nolimits _{i = 1, \ldots , n} e_ i f_ i \]
-Note that if $A$ is henselian (e.g. $A$ is complete) then $n=1$. 
+Note that if $A$ is henselian (e.g. $A$ is complete) then $n=1$.
 
 \begin{definition}[\stackstag{09E9}]\label{definition:tamely_ramified_dvrs}
-Let $A$ be a discrete valuation ring with fraction field $K$. Let $L/K$ be a finite separable extension. With $B$ and $\mathfrak m_ i$, $i = 1, \ldots , n$ 
+Let $A$ be a discrete valuation ring with fraction field $K$. Let $L/K$ be a finite separable extension. With $B$ and $\mathfrak m_ i$, $i = 1, \ldots , n$
 as above, we say the extension $L/K$ is
 \begin{enumerate}
     \item unramified with respect to $A$ if $e_ i = 1$ and the extension $\kappa (\mathfrak m_ i)/\kappa _ A$ is separable for all $i$,
@@ -39,132 +38,70 @@ as above, we say the extension $L/K$ is
 If the discrete valuation ring $A$ is clear from context, then we sometimes say $L/K$ is unramified, totally ramified, or tamely ramified for short.
 \end{definition}
 
-% - %
-Now and for the rest of the section assume $A$ is a \textit{complete discrete valuation ring} with uniformizer $\pi$ 
-and residue field $\kappa$, which we assume to be perfect. When $A$ and $\kappa$ are of the same characteristic $p > 0$, 
-then $A$ contains a coefficient field $k \cong \kappa$ and a well known structure theorem holds: $A = k[[\pi ]] \cong k[[t]]$.
-Let $K$ be the fraction field of $A$, then $K=k((\pi))$.
-
-For the remainder of this section, assume $A$ is a \textit{complete discrete valuation ring} with uniformizer $\pi$ and a perfect residue 
-field $\kappa$. In the equal characteristic case, where $\text{char}(A) = \text{char}(\kappa) = p > 0$, the 
-Cohen Structure Theorem implies that $A$ contains a coefficient field $k \cong \kappa$, such that $A \cong k[[\pi]] \cong k[[t]]$. 
+For the remainder of this section, assume $A$ is a \textit{complete discrete valuation ring} with uniformizer $\pi$ and a perfect residue
+field $\kappa$. In the equal characteristic case, where $\text{char}(A) = \text{char}(\kappa) = p > 0$, the
+Cohen Structure Theorem implies that $A$ contains a coefficient field $k \cong \kappa$, such that $A \cong k[[\pi]] \cong k[[t]]$.
 Consequently, the fraction field is given by $K = k((\pi))$.
-Let $L/K$ be a finite Galois extension with Galois group $G$. 
-The integral closure $B$ of $A$ in $L$ is itself a complete discrete valuation ring. 
-Since the residue field $\kappa$ is perfect, the extension of residue fields is separable, and there exists a uniformizer 
+Let $L/K$ be a finite Galois extension with Galois group $G$.
+The integral closure $B$ of $A$ in $L$ is itself a complete discrete valuation ring.
+Since the residue field $\kappa$ is perfect, the extension of residue fields is separable, and there exists a uniformizer
 $\Pi \in B$ such that $B = A[\Pi]$.
 
 The \textit{lower numbering ramification filtration} of $G$, denoted by $(G_i)_{i \geq -1}$, is defined as:
-\[ 
-G_i = \{ \sigma \in G \mid v_B(\sigma (x) - x) \geq i + 1 \text{ for all } x \in B \} 
+\[
+G_i = \{ \sigma \in G \mid v_B(\sigma (x) - x) \geq i + 1 \text{ for all } x \in B \}
 \]
-where $v_B$ is the valuation on $L$ associated with $B$. In this indexing, $G_{-1} = G$ and $G_0$ 
-corresponds to the \textit{inertia group} of the extension $L/K$. Note that $L/K$ is unramified if and only if 
+where $v_B$ is the valuation on $L$ associated with $B$. In this indexing, $G_{-1} = G$ and $G_0$
+corresponds to the \textit{inertia group} of the extension $L/K$. Note that $L/K$ is unramified if and only if
 $G_0 = \{1\}$, and it is tamely ramified if and only if $G_1 = \{1\}$.
 
-A standard result in the theory of local fields(complete local fields with a discrete valuation and perfect residue field) 
-ensures that the condition in the definition of $G_i$ need only be checked for the uniformizer $\Pi$ of $B$. 
+A standard result in the theory of local fields (complete local fields with a discrete valuation and perfect residue field)
+ensures that the condition in the definition of $G_i$ need only be checked for the uniformizer $\Pi$ of $B$.
 Specifically, if we define the function
-\[ 
-i^L_K(\sigma) = v_B(\sigma(\Pi) - \Pi) 
+\[
+i^L_K(\sigma) = v_B(\sigma(\Pi) - \Pi)
 \]
-for $\sigma \in G$, then $G_i = \{ \sigma \in G \mid i^L_K(\sigma) \geq i + 1 \}$. 
+for $\sigma \in G$, then $G_i = \{ \sigma \in G \mid i^L_K(\sigma) \geq i + 1 \}$.
 The subgroups $G_i$ are normal in $G$ and become trivial for sufficiently large $i$.
 
 Consider a tower of fields $K \subset E \subset L$, and let $H = \text{Gal}(L/E) \subset G$. The lower numbering is compatible with subgroups:
-\[ 
-G_i \cap H = H_i \quad \text{for all } i \geq -1 
+\[
+G_i \cap H = H_i \quad \text{for all } i \geq -1
 \]
-which follows from the identity $i^L_E = i^L_K|_{H}$. 
-However, the lower numbering does not behave as simply with respect to quotients. If $H$ is normal in $G$, the image of $G_i$ in $G/H$ is generally not $(G/H)_i$. 
+which follows from the identity $i^L_E = i^L_K|_{H}$.
+However, the lower numbering does not behave as simply with respect to quotients. If $H$ is normal in $G$, the image of $G_i$ in $G/H$ is generally not $(G/H)_i$.
 Instead, we have $G_i H / H = (G/H)_j$, where the index $j$ is given by the formula:
-\[ 
-j = \frac{1}{e_{L/E}} \sum_{\tau \in H} \min(i^L_K(\tau), i+1) - 1 
+\[
+j = \frac{1}{e_{L/E}} \sum_{\tau \in H} \min(i^L_K(\tau), i+1) - 1
 \]
 
 
 In the literature, one reindexes the ramification groups by defining the Herbrand function $\phi_{L/K} : [-1, \infty ) \to [-1, \infty )$:
 \[ \phi_{L/K}(i) = \frac{1}{e_{L/K}}\sum_{\sigma \in G} \min(i^L_K(\sigma), i+1)-1 = \int _0^i \frac{1}{[G_0 : G_t]} dt \]
 
-This function is continuous, strictly increasing, and piecewise linear, making it a bijection. 
-It satisfies the composition law $\phi_{L/K} = \phi_{E/K} \circ \phi_{L/E}$ for a tower of extensions $K \subset E \subset L$. 
+This function is continuous, strictly increasing, and piecewise linear, making it a bijection.
+It satisfies the composition law $\phi_{L/K} = \phi_{E/K} \circ \phi_{L/E}$ for a tower of extensions $K \subset E \subset L$.
 Using this function, we define the \textit{upper numbering ramification groups} as:
-\[ 
-G^i = G_{\phi_{L/K}^{-1}(i)} 
+\[
+G^i = G_{\phi_{L/K}^{-1}(i)}
 \]
 The primary advantage of this reindexing is its compatibility with quotients: for any normal subgroup $H \subset G$, we have:
-\[ 
-G^i H / H = (G/H)^i 
+\[
+G^i H / H = (G/H)^i
 \]
 for all $i \geq -1$.
 
+We record, for orientation, the structure of the inertia group and of the
+graded pieces of the filtration; these facts are not used in the sequel, but
+they explain the dichotomy --- prime-to-$p$ versus $p$-power --- that shapes
+the whole chapter.
 
-%% [REVIEW: never used -- the structure of G_i/G_{i+1} is not invoked anywhere (tameness is always derived via Kummer/Artin-Schreier); consider deleting or reducing to a one-sentence remark]
 \begin{prop}[\Cite{serreLF}, IV Corollary 3]
-    the quotients $G_i/G_{i+1}$, $i \geq 1$, are abelian groups, and are direct products of cyclic groups of order $p$. 
+    The quotients $G_i/G_{i+1}$, $i \geq 1$, are abelian groups, and are direct products of cyclic groups of order $p$.
     The group $G_1$ is a $p$-group.
 \end{prop}
 
-
-%% [REVIEW: never used -- same as the proposition above; nothing downstream uses the semi-direct product structure of G_0]
 \begin{prop}[\Cite{serreLF}, IV Corollary 4]
     The inertia group $G_0$ has the following property:
     \textit{It is the semi-direct product of a cyclic group of order prime to $p$ with a normal subgroup whose order is a power of $p$.}
 \end{prop}
-
-% We deduce the following lemma, that will be helpful later:
-% \begin{lemma}
-% Let $L/K$ be finite galois extesntion with galois group $G=\Z/p^r\Z$
-% Assume there exists intermediate local field $K < M < L$ such that $M/K$ is unramified.
-% Then $L/K$ is unramified.
-% \end{lemma}
-
-
-
-
-\subsection*{Kummer and Artin-Schreier Theories}
-For cyclic extensions, Kummer and Artin-Schreier theories provide explicit ways to calculate ramification. 
-These results show how the valuation of a defining element $a \in K$ determines the ramification index and the jumps in the upper numbering filtration.
-Throughout this section, let $K$ be a discrete valuation field with a perfect residue field $\kappa$ of characteristic $p > 0$.
-
-\begin{theorem}[Ramification in Kummer Extensions, \cite{koch1997algebraic}, Proposition 1.83]\label{theorem:kummer_ramification}
-%Let $K$ be a local field of characteristic $\text{char}(K) =p$  
-Assume $K$ contains the $n$-th roots of unity $\mu_n$. 
-Let $L/K$ be the extension given by the equation $X^n = a$ for some 
-$a \in K^\times$ and denote by $G$ its Galois group. Then we have:
-
-\begin{enumerate}
-    \item If $v_K(a) \in n\mathbb{Z}$ and the image of $a\pi^{-v_K(a)}$ in the residue field $\kappa$ is an $n$-th power, the extension $L/K$ is trivial.
-    \item If $v_K(a) \in n\mathbb{Z}$ and the image of $a\pi^{-v_K(a)}$ in the residue field $\kappa$ is not an $n$-th power, the extension $L/K$ is cyclic and unramified.
-    \item If $v_K(a) \notin n\mathbb{Z}$, the extension $L/K$ is cyclic and ramified. Specifically, if $\gcd(|v_K(a)|, n) = 1$, the extension is totally ramified of degree $n$.
-     Otherwise it has ramification index $\frac{n}{|gcd(v_K(a)|, n)}$
-\end{enumerate}
-Conversly, Kummer theory ensures that every cyclic extension of degree $n$, prime to $p$ of a field that contains $n$-th roots of unity, is of the above form.
-Moreover, in the above we can always take $a \in \Oo_K$
-\end{theorem}
-Note that in the case of total ramification the extesntion is tamely ramified.
-
-
-\begin{theorem}[Ramification in Artin-Schreier Extensions, \cite{Thomas2005}]\label{theorem:artin_schreier_ramification}
-Let $\wp(x) = x^p - x$ be the Artin-Schreier opeartor.
-Let $L/K$ be the extension given by the equation $X^p - X = a$ for some $a \in K$ and denote by $G$ its Galois group. 
-Then we have:
-\begin{enumerate}
-    \item If $v_K(a) > 0$ or if $v_K(a) = 0$ and $a \in \wp(K)$, the extension $L/K$ is trivial.
-    \item If $v_K(a) = 0$ and if $a \notin \wp(K)$, the extension $L/K$ is cyclic of degree $p$ and unramified.
-    \item If $v_K(a) = -m < 0$ with $m \in \mathbb{Z}_{>0}$ and if $m$ is prime to $p$, the extension $L/K$ is cyclic of degree $p$ again and totally ramified. Moreover,
-     its ramification groups are given by:
-     $$G = G^{(-1)} = \dots = G^{(m)} \quad \text{and} \quad G^{(m+1)} = 1.$$
-\end{enumerate}
-Conversely, Artin-Schreier theory ensures that every cyclic extension of degree $p$ takes this form.
-Moreover, in the above and under the isomorphism $K \cong k((t))$, one can always take $a$ of the form 
-$c t^{-m} + a_{-m + 1} t^{-m + 1} + \cdots a_{-1}t^{-1} + a_0$. If $k$ is algebraically closed then there is a 
-change of variables such that $a=u^{-m}$.
-\end{theorem}
-
-
-
-%%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%%
-%          WITT VECTORS
-%%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%%
-\input{witt/WittVectorPrerequisites.tex}

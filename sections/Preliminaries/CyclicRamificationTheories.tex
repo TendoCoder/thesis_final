@@ -1,0 +1,48 @@
+\section{Kummer, Artin--Schreier, and Artin--Schreier--Witt Theories}\label{section:cyclic_extension_theories}
+
+\subsection*{Kummer and Artin-Schreier Theories}
+For cyclic extensions, Kummer and Artin-Schreier theories provide explicit ways to calculate ramification. 
+These results show how the valuation of a defining element $a \in K$ determines the ramification index and the jumps in the upper numbering filtration.
+Throughout this section, let $K$ be a discrete valuation field with a perfect residue field $\kappa$ of characteristic $p > 0$.
+
+\begin{theorem}[Ramification in Kummer Extensions, \cite{koch1997algebraic}, Proposition 1.83]\label{theorem:kummer_ramification}
+%Let $K$ be a local field of characteristic $\text{char}(K) =p$  
+Assume $K$ contains the $n$-th roots of unity $\mu_n$. 
+Let $L/K$ be the extension given by the equation $X^n = a$ for some 
+$a \in K^\times$ and denote by $G$ its Galois group. Then we have:
+
+\begin{enumerate}
+    \item If $v_K(a) \in n\mathbb{Z}$ and the image of $a\pi^{-v_K(a)}$ in the residue field $\kappa$ is an $n$-th power, the extension $L/K$ is trivial.
+    \item If $v_K(a) \in n\mathbb{Z}$ and the image of $a\pi^{-v_K(a)}$ in the residue field $\kappa$ is not an $n$-th power, the extension $L/K$ is cyclic and unramified.
+    \item If $v_K(a) \notin n\mathbb{Z}$, the extension $L/K$ is cyclic and ramified. Specifically, if $\gcd(|v_K(a)|, n) = 1$, the extension is totally ramified of degree $n$.
+     Otherwise it has ramification index $\frac{n}{|gcd(v_K(a)|, n)}$
+\end{enumerate}
+Conversly, Kummer theory ensures that every cyclic extension of degree $n$, prime to $p$ of a field that contains $n$-th roots of unity, is of the above form.
+Moreover, in the above we can always take $a \in \Oo_K$
+\end{theorem}
+Note that in the case of total ramification the extesntion is tamely ramified.
+
+
+\begin{theorem}[Ramification in Artin-Schreier Extensions, \cite{Thomas2005}]\label{theorem:artin_schreier_ramification}
+Let $\wp(x) = x^p - x$ be the Artin-Schreier opeartor.
+Let $L/K$ be the extension given by the equation $X^p - X = a$ for some $a \in K$ and denote by $G$ its Galois group. 
+Then we have:
+\begin{enumerate}
+    \item If $v_K(a) > 0$ or if $v_K(a) = 0$ and $a \in \wp(K)$, the extension $L/K$ is trivial.
+    \item If $v_K(a) = 0$ and if $a \notin \wp(K)$, the extension $L/K$ is cyclic of degree $p$ and unramified.
+    \item If $v_K(a) = -m < 0$ with $m \in \mathbb{Z}_{>0}$ and if $m$ is prime to $p$, the extension $L/K$ is cyclic of degree $p$ again and totally ramified. Moreover,
+     its ramification groups are given by:
+     $$G = G^{(-1)} = \dots = G^{(m)} \quad \text{and} \quad G^{(m+1)} = 1.$$
+\end{enumerate}
+Conversely, Artin-Schreier theory ensures that every cyclic extension of degree $p$ takes this form.
+Moreover, in the above and under the isomorphism $K \cong k((t))$, one can always take $a$ of the form 
+$c t^{-m} + a_{-m + 1} t^{-m + 1} + \cdots a_{-1}t^{-1} + a_0$. If $k$ is algebraically closed then there is a 
+change of variables such that $a=u^{-m}$.
+\end{theorem}
+
+
+
+%%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%%
+%          WITT VECTORS
+%%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%%
+\input{witt/WittVectorPrerequisites.tex}
