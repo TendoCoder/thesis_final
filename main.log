@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.6.30)  14 JUL 2026 20:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.6.30)  14 JUL 2026 20:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1564,40 +1564,40 @@ Overfull \hbox (32.93033pt too wide) in paragraph at lines 258--261
 
 [40]
 
-[41])
+[41]))
 
 [42]
-
-[43]
-
-[44])
-
-[45]
 Chapter 3.
 (./sections/GeometricClassFieldTheory.tex
 
-[46
+[43
 
 ]
+
+[44]
+
+[45]
+
+[46] (./sections/RamificationOnProductsOfBlowups.tex
 
 [47]
 
 [48]
 
-[49]
+[49])
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\new@ifnextchar' on input line 220.
+(hyperref)                removing `\new@ifnextchar' on input line 222.
 
 
 
 [50]
 
-[51]
+[51]) (./sections/GeometricCFT/ProofOfReducedTheorem.tex
 
-[52]) (./sections/GeometricCFT/ProofOfReducedTheorem.tex
+[52]) (./witt/WittVectorAlgebraAppendix.tex
 
-[53]) (./witt/WittVectorAlgebraAppendix.tex
+[53]
 
 [54]
 Appendix A.
@@ -1703,16 +1703,16 @@ LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 9B41912E831C47E60FBEED7040C349DE;6937.
+(rerunfilecheck)             Checksum: D64D1189531AA836F533C88F9393AFF0;6937.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 45482 strings out of 473190
- 862801 string characters out of 5715800
- 1695705 words of memory out of 5000000
- 67514 multiletter control sequences out of 15000+600000
+ 45488 strings out of 473190
+ 863079 string characters out of 5715800
+ 1693705 words of memory out of 5000000
+ 67517 multiletter control sequences out of 15000+600000
  596350 words of font info for 155 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  107i,17n,110p,3253b,2304s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1758,7 +1758,7 @@ ic/cm-super/sftt1095.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public
 tmaryrd/stmary8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/xypi
 c/xyatip10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/xypic/xyb
 tip10.pfb>
-Output written on main.pdf (71 pages, 910996 bytes).
+Output written on main.pdf (71 pages, 909100 bytes).
 PDF statistics:
  1468 PDF objects out of 1728 (max. 8388607)
  1297 compressed objects within 13 object streams

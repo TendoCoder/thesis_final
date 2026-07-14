@@ -12,16 +12,16 @@
 \contentsline {subsection}{\numberline {2.3.1}Artin--Schreier--Witt Theory}{25}{subsection.2.3.1}%
 \contentsline {paragraph}{Working Witt-vector notation.}{25}{section*.12}%
 \contentsline {section}{\numberline {2.4}Proof of the Torsor Formulation}{29}{section.2.4}%
-\contentsline {section}{\numberline {2.5}Ramification on Products of Blowups}{42}{section.2.5}%
-\contentsline {chapter}{\numberline {3}Geometric Class Field Theory}{46}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Etale Fundamental Groups and Tame Fundamental Groups}{46}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Generalized Picard Scheme}{47}{section.3.2}%
-\contentsline {section}{\numberline {3.3}The Abel-Jacobi Morphism and its Fibers}{48}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Compactification of Blowup of Symmetric Powers of a Curve}{49}{section.3.4}%
-\contentsline {section}{\numberline {3.5}Proof of \Cref {theorem:SymmetricPowerOfSheafIsTamelyRamified}}{50}{section.3.5}%
-\contentsline {subsection}{\numberline {3.5.1}Reduction Lemmas}{50}{subsection.3.5.1}%
-\contentsline {section}{\numberline {3.6}Proof of \Cref {theorem:SymmetricPowerOfSheafIsTamelyRamified}}{53}{section.3.6}%
-\contentsline {section}{\numberline {3.7}Proof of \Cref {thm:GCFT_reduced}}{53}{section.3.7}%
+\contentsline {chapter}{\numberline {3}Geometric Class Field Theory}{43}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Etale Fundamental Groups and Tame Fundamental Groups}{43}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Generalized Picard Scheme}{44}{section.3.2}%
+\contentsline {section}{\numberline {3.3}The Abel-Jacobi Morphism and its Fibers}{45}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Compactification of Blowup of Symmetric Powers of a Curve}{46}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Ramification on Products of Blowups}{47}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Proof of \Cref {theorem:SymmetricPowerOfSheafIsTamelyRamified}}{50}{section.3.6}%
+\contentsline {subsection}{\numberline {3.6.1}Reduction Lemmas}{50}{subsection.3.6.1}%
+\contentsline {section}{\numberline {3.7}Proof of \Cref {theorem:SymmetricPowerOfSheafIsTamelyRamified}}{52}{section.3.7}%
+\contentsline {section}{\numberline {3.8}Proof of \Cref {thm:GCFT_reduced}}{53}{section.3.8}%
 \contentsline {chapter}{\numberline {A}Witt Vector Algebra}{55}{appendix.A}%
 \contentsline {section}{\numberline {A.1}The ring of Witt vectors}{55}{section.A.1}%
 \contentsline {section}{\numberline {A.2}Frobenius, Verschiebung and truncation}{56}{section.A.2}%

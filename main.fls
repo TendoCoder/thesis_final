@@ -629,6 +629,9 @@ INPUT sections/RamificationAfterBlowupPPower.tex
 INPUT ./sections/GeometricClassFieldTheory.tex
 INPUT ./sections/GeometricClassFieldTheory.tex
 INPUT sections/GeometricClassFieldTheory.tex
+INPUT ./sections/RamificationOnProductsOfBlowups.tex
+INPUT ./sections/RamificationOnProductsOfBlowups.tex
+INPUT sections/RamificationOnProductsOfBlowups.tex
 INPUT ./sections/GeometricCFT/ProofOfReducedTheorem.tex
 INPUT ./sections/GeometricCFT/ProofOfReducedTheorem.tex
 INPUT sections/GeometricCFT/ProofOfReducedTheorem.tex
