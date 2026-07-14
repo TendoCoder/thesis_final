@@ -632,6 +632,9 @@ INPUT sections/GeometricClassFieldTheory.tex
 INPUT ./sections/GeometricCFT/ProofOfReducedTheorem.tex
 INPUT ./sections/GeometricCFT/ProofOfReducedTheorem.tex
 INPUT sections/GeometricCFT/ProofOfReducedTheorem.tex
+INPUT ./witt/WittVectorAlgebraAppendix.tex
+INPUT ./witt/WittVectorAlgebraAppendix.tex
+INPUT witt/WittVectorAlgebraAppendix.tex
 INPUT ./a_wrong_path/a_wrong_path.tex
 INPUT ./a_wrong_path/a_wrong_path.tex
 INPUT a_wrong_path/a_wrong_path.tex

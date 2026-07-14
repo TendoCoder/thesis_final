@@ -1,0 +1,234 @@
+\chapter{Witt Vector Algebra}\label{appendix:witt_vector_algebra}
+
+This appendix collects the general algebra of finite-length \(p\)-typical Witt
+vectors used in Chapter~2. The chapter itself retains the
+Artin--Schreier--Witt classification and ramification theory; here we record the
+Witt-polynomial construction, the ghost-map arguments, and the structural
+identities needed there.
+
+\providecommand{\bW}{\mathbb{W}}
+
+\section{The ring of Witt vectors}
+
+For $n \geq 0$, the $n$-th \textbf{Witt polynomial} in the variables $X_0, \dots, X_n$
+is
+\[
+w_n(X_0, \dots, X_n) \;=\; \sum_{j=0}^{n} p^j X_j^{p^{n-j}}
+\;=\; X_0^{p^n} + p X_1^{p^{n-1}} + \dots + p^n X_n .
+\]
+
+\begin{theorem}[Witt; {\cite[II, \S6, Theorem~6]{serreLF}}, {\cite[\S1]{Rabinoff2014Witt}}]
+\label{theorem:witt_ring_structure}
+There exists a unique family of polynomials
+$S_n, P_n \in \Z[X_0, \dots, X_n; Y_0, \dots, Y_n]$, $n \geq 0$, such that
+\[
+w_n(S_0, \dots, S_n) = w_n(X_0,\dots,X_n) + w_n(Y_0,\dots,Y_n),
+\qquad
+w_n(P_0, \dots, P_n) = w_n(X_0,\dots,X_n) \cdot w_n(Y_0,\dots,Y_n)
+\]
+for all $n$. For any commutative ring $A$, the operations
+\[
+\vec a \oplus \vec b := \bigl(S_n(\vec a; \vec b)\bigr)_{0 \le n \le r-1},
+\qquad
+\vec a \odot \vec b := \bigl(P_n(\vec a; \vec b)\bigr)_{0 \le n \le r-1}
+\]
+make the set $A^r$ into a commutative ring $W_r(A)$, the ring of \textbf{$p$-typical
+Witt vectors of length $r$ over $A$}, with zero $(0, \dots, 0)$ and unit
+$(1, 0, \dots, 0)$. Additive inverses are likewise given by universal integral
+polynomials; we write $\ominus$ for Witt subtraction. The \textbf{ghost map}
+\[
+w \colon W_r(A) \longrightarrow A^r,
+\qquad
+\vec a \longmapsto \bigl(w_0(\vec a), w_1(\vec a), \dots, w_{r-1}(\vec a)\bigr)
+\]
+is a ring homomorphism to the product ring $A^r$; it is injective when $p$ is a
+non-zero-divisor in $A$, and bijective when $p \in A^\times$.
+\end{theorem}
+
+We index the components of a Witt vector $\vec a = (a_0, \dots, a_{r-1})$ by
+$0, \dots, r-1$. For $r = 1$ the polynomials reduce to $S_0 = X_0 + Y_0$ and
+$P_0 = X_0 Y_0$, so $W_1(A) = A$ as a ring.
+
+Since the ring operations are given by universal polynomials with integer
+coefficients, $W_r$ is a functor: a ring homomorphism $\sigma \colon A \to B$ induces
+the ring homomorphism
+\[
+W_r(\sigma) \colon W_r(A) \to W_r(B),
+\qquad
+W_r(\sigma)(a_0, \dots, a_{r-1}) = (\sigma a_0, \dots, \sigma a_{r-1}),
+\]
+acting \emph{componentwise}. Two consequences of this trivial-looking observation are
+used repeatedly and deserve emphasis: a ring automorphism $\sigma$ of $A$ commutes
+with $\oplus$ and $\ominus$ on $W_r(A)$, and a Witt vector $\vec a \in W_r(A)$
+satisfies $W_r(\sigma)(\vec a) = \vec a$ if and only if \emph{each component} $a_n$ is
+$\sigma$-invariant. In particular, for a group $\Gamma$ acting on $A$ by ring
+automorphisms,
+\begin{equation}\label{eq:witt_invariants_componentwise}
+W_r(A)^{\Gamma} \;=\; W_r\bigl(A^{\Gamma}\bigr)
+\qquad \text{inside } W_r(A).
+\end{equation}
+
+The uniqueness statement in \Cref{theorem:witt_ring_structure} is an instance of a
+general principle that we invoke several times, so we record it explicitly.
+
+\begin{lemma}[ghost principle]\label{lemma:ghost_principle}
+Let $\Phi$ and $\Psi$ be two operations on Witt vectors given by universal polynomials
+with integer coefficients in the components of their arguments. If
+$w \circ \Phi = w \circ \Psi$ holds over the polynomial ring
+$\Z[X_0, X_1, \dots]$ on the components of the arguments, then $\Phi = \Psi$ over
+every commutative ring.
+\end{lemma}
+
+\begin{proof}
+Over $\Z[X_0, X_1, \dots]$ the prime $p$ is a non-zero-divisor, so the ghost map is
+injective by \Cref{theorem:witt_ring_structure} and $\Phi = \Psi$ there; this is an
+identity of integral polynomials, which persists under every base change
+$\Z[X_0, X_1, \dots] \to A$.
+\end{proof}
+
+The only structural feature of the addition polynomials $S_n$ that we shall need is
+their ``triangular'' shape:
+
+\begin{prop}[shape of Witt addition]\label{prop:witt_addition_shape}
+For every $n \geq 0$ there is a polynomial
+$C_n \in \Z[X_0, \dots, X_{n-1}; Y_0, \dots, Y_{n-1}]$, involving only the variables of
+index \emph{strictly less} than $n$, such that
+\begin{equation}\label{eq:witt_addition_shape}
+(\vec a \oplus \vec b)_n \;=\; a_n + b_n + C_n(a_0, \dots, a_{n-1}; b_0, \dots, b_{n-1}).
+\end{equation}
+We refer to $C_n$ as the \textbf{carry polynomial}. The analogous statement holds for
+$\ominus$.
+\end{prop}
+
+\begin{proof}
+By induction on $n$, using the recursion defining $S_n$:
+\[
+p^n S_n \;=\; \sum_{j \leq n} p^j \bigl(X_j^{p^{n-j}} + Y_j^{p^{n-j}}\bigr)
+\;-\; \sum_{j < n} p^j S_j^{p^{n-j}} .
+\]
+The terms with $j = n$ contribute $p^n (X_n + Y_n)$, and all remaining terms involve
+only variables and polynomials $S_j$ of index $j < n$, which by induction lie in
+$\Z[X_{<n}; Y_{<n}]$. Since $S_n$ has integer coefficients
+(\Cref{theorem:witt_ring_structure}), $C_n := S_n - X_n - Y_n$ is an integral
+polynomial in the variables of index $< n$. The statement for $\ominus$ follows by the
+same argument applied to the inversion polynomials.
+\end{proof}
+
+\section{Frobenius, Verschiebung and truncation}
+
+From now on, $A$ denotes an $\F_p$-algebra; this is the only case we use. Three
+operators act on the rings $W_r(A)$:
+
+\begin{definition}\label{definition:witt_operators}
+Let $A$ be an $\F_p$-algebra.
+\begin{enumerate}
+    \item The \textbf{Frobenius} $F \colon W_r(A) \to W_r(A)$ is
+    $F := W_r(\varphi_A)$, where $\varphi_A \colon a \mapsto a^p$ is the absolute
+    Frobenius of $A$. Explicitly, $F$ acts componentwise:
+    $F(a_0, \dots, a_{r-1}) = (a_0^p, \dots, a_{r-1}^p)$. By functoriality, $F$ is a
+    ring endomorphism of $W_r(A)$.
+    \item The \textbf{Verschiebung} is the shift
+    \[
+    V \colon W_{r-1}(A) \to W_r(A),
+    \qquad
+    V(a_0, \dots, a_{r-2}) = (0, a_0, \dots, a_{r-2}).
+    \]
+    Iterating, $V^j \colon W_{r-j}(A) \to W_r(A)$; in particular
+    $V^{r-1} \colon A = W_1(A) \to W_r(A)$ sends $c \mapsto (0, \dots, 0, c)$.
+    \item The \textbf{truncation} is
+    \[
+    t \colon W_r(A) \to W_{r-1}(A),
+    \qquad
+    t(a_0, \dots, a_{r-1}) = (a_0, \dots, a_{r-2}).
+    \]
+\end{enumerate}
+\end{definition}
+
+\begin{rem*}
+For a general (not necessarily $\F_p$-) algebra $A$, the Frobenius is defined by
+universal polynomials characterized by $w_n \circ F = w_{n+1}$, and the componentwise
+formula above holds precisely in characteristic $p$; see
+\cite[II, \S6]{serreLF} or \cite[\S2]{Rabinoff2014Witt}. We will not need the general
+case.
+\end{rem*}
+
+We record from the general theory (\cite[II, \S6]{serreLF},
+\cite[\S2]{Rabinoff2014Witt}) how multiplication by $p$ interacts with these
+operators.
+
+\begin{prop}\label{prop:witt_multiplication_by_p}
+Let $A$ be an $\F_p$-algebra. Then:
+\begin{enumerate}
+    \item $t$ is a natural ring homomorphism commuting with $F$, and its kernel is
+    \[
+    \ker\bigl(t \colon W_r(A) \to W_{r-1}(A)\bigr)
+    \;=\; V^{r-1} A \;=\; \{(0, \dots, 0, c) : c \in A\}.
+    \]
+    \item $V$ is additive, and $F V = V F$.
+    \item Multiplication by $p$ on $W_r(A)$ equals $V \circ F = F \circ V$
+    (composed with the appropriate truncation); explicitly,
+    \[
+    p \cdot (a_0, \dots, a_{r-1}) \;=\; (0,\, a_0^p,\, \dots,\, a_{r-2}^p).
+    \]
+    Iterating, $p^j \cdot \vec a = (0, \dots, 0, a_0^{p^j}, \dots, a_{r-1-j}^{p^j})$;
+    in particular $p^r = 0$ on $W_r(A)$, and
+    \begin{equation}\label{eq:witt_p_to_r_minus_1}
+    p^{r-1} \cdot (a_0, \dots, a_{r-1}) \;=\; \bigl(0, \dots, 0,\, a_0^{p^{r-1}}\bigr).
+    \end{equation}
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+(1) That $t$ is a ring homomorphism follows from the recursive definition of the
+$S_n, P_n$: the first $r-1$ components of a sum or product depend only on the first
+$r-1$ components of the arguments (\Cref{prop:witt_addition_shape}). Naturality and
+the commutation with the (componentwise) $F$ are clear, and the kernel is computed
+componentwise. (2) Additivity of $V$ follows from \Cref{lemma:ghost_principle} and
+the ghost identity $w_n(V\vec a) = p\, w_{n-1}(\vec a)$ (with $w_{-1} := 0$); the
+commutation $FV = VF$ is immediate since $F$ is componentwise. (3) The identity
+$F V = p$ holds over arbitrary rings for the general Frobenius, by
+\Cref{lemma:ghost_principle} applied to
+$w_n(FV\vec a) = w_{n+1}(V \vec a) = p\, w_n(\vec a) = w_n(p \vec a)$; in
+characteristic $p$ the general Frobenius is componentwise, giving the displayed
+formula. See \cite[II, \S6, Proposition~8 ff.]{serreLF} for details.
+\end{proof}
+
+\begin{example}\label{example:witt_of_Fp}
+$W_r(\F_p) \cong \Z/p^r\Z$ canonically. Indeed, by
+\Cref{eq:witt_p_to_r_minus_1} the unit $\underline 1 = (1, 0, \dots, 0)$ satisfies
+$p^j \cdot \underline 1 = (0, \dots, 0, 1, 0, \dots, 0)$ ($1$ in position $j$), so
+$\underline 1$ has additive order $p^r$; since $|W_r(\F_p)| = p^r$, the additive group
+is cyclic of order $p^r$ generated by the unit, and $m \mapsto m \cdot \underline 1$
+is a ring isomorphism $\Z/p^r\Z \xrightarrow{\;\cong\;} W_r(\F_p)$. We write
+$\underline m \in W_r(\F_p)$ for the image of $m \in \Z/p^r\Z$. (Similarly, the full
+ring of Witt vectors satisfies $W(\F_p) \cong \Z_p$; we shall not need this.)
+\end{example}
+
+\section{Isobaricity of the Witt addition polynomials}
+
+The following homogeneity property of the universal addition polynomials is what
+makes degree estimates on Witt sums possible: even though the carry polynomials $C_n$
+of \Cref{eq:witt_addition_shape} are complicated, they are \emph{isobaric} for the
+weighting in which the $j$-th component has weight $p^j$.
+
+\begin{lemma}[isobaricity of Witt addition]\label{lemma:witt_addition_isobaric}
+Assign to the variables $X_j$ and $Y_j$ the weight $p^j$. Then the $n$-th addition
+polynomial $S_n$ is isobaric of weight $p^n$: every monomial of $S_n$ has total weight
+exactly $p^n$. The same holds for each component of a $d$-fold iterated Witt sum
+$\bigoplus_{i=1}^{d} \vec a_i$, viewed as a universal polynomial in the components
+$a_{i,j}$ of weight $p^j$.
+\end{lemma}
+
+\begin{proof}
+The $n$-th ghost polynomial $w_n = \sum_{j \le n} p^j X_j^{p^{n-j}}$ is isobaric of
+weight $p^n$ for this weighting. The recursion
+\[
+p^n S_n = \sum_{j \le n} p^j \bigl(X_j^{p^{n-j}} + Y_j^{p^{n-j}}\bigr)
+- \sum_{j < n} p^j S_j^{p^{n-j}}
+\]
+preserves isobaricity of weight $p^n$ by induction on $n$: each $S_j$ is isobaric of
+weight $p^j$, so $S_j^{p^{n-j}}$ is isobaric of weight $p^n$. Isobaricity persists
+under iterated substitution of Witt sums into Witt sums (substituting an isobaric
+polynomial of weight $p^j$ for a variable of weight $p^j$ preserves weights), giving
+the statement for $d$-fold sums.
+\end{proof}
