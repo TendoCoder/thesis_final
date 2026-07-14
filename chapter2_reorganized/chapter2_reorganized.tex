@@ -1,0 +1,95 @@
+% =============================================================================
+%  chapter2_reorganized.tex
+%
+%  STANDALONE REVIEW COPY of a reorganized Chapter 2
+%  ("Ramification After Blowup Is Tame").
+%
+%  Purpose: side-by-side comparison with the current chapter 2 of main.pdf.
+%  NO existing thesis file is modified; the body below COPIES content from
+%      sections/RamificationAfterBlowupIntroduction.tex
+%      sections/Preliminaries/LocalRamificationPreliminaries.tex
+%      sections/RamificationAfterBlowupIsTame.tex
+%      sections/RamificationAfterBlowupPPower.tex
+%  and \inputs witt/WittVectorPrerequisites.tex unchanged.
+%
+%  The reorganization:
+%    2.1  Ramification of Discrete Valuations
+%    2.2  Ramification of G-Torsors                     (defs BEFORE the theories)
+%    2.3  Kummer / Artin--Schreier / Artin--Schreier--Witt theories,
+%         in parallel subsections + a comparison table   (basic theory only)
+%    2.4  Prelude: local geometry of blowups of symmetric powers
+%         (shared background propositions, each stated once)
+%    2.5  The symmetric-power computations for G = Z/eZ, Z/pZ, Z/p^rZ,
+%         side by side with the same three-step skeleton, followed by the
+%         NEWLY WRITTEN assembly proof for general finite abelian G
+%    2.6  Ramification on products of blowups
+%
+%  Labels: all chapter-2 labels are copied verbatim (unprefixed).  References
+%  to results OUTSIDE chapter 2 (chapter 1 preliminaries, the appendix) are
+%  prefixed "main:" and resolve against ../main.aux via the xr package, so
+%  their numbers match the compiled thesis.
+%
+%  Compile (from inside this directory):
+%      TEXINPUTS=..: BIBINPUTS=..: latexmk -pdf chapter2_reorganized.tex
+% =============================================================================
+\documentclass[11pt]{report}
+\usepackage{geometry}\geometry{margin=1in}
+\usepackage[T1]{fontenc}
+\usepackage{ifthen}
+
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0.5em}
+
+\input{includes}
+\input{MacrosAndFigures}
+
+\usepackage{csquotes}
+\usepackage[
+backend=biber,
+style=alphabetic,
+sorting=ynt
+]{biblatex}
+\addbibresource{Bib.bib}
+
+\newboolean{ThesisIntro}
+\setboolean{ThesisIntro}{false}
+
+% A NUMBERED remark environment (the thesis only defines the unnumbered rem*),
+% so that the algebraically-closed remark can be \Cref'd from later sections.
+\declaretheorem[name=Remark, sibling=theorem, style=remarkstyle, numbered=yes]{remnum}
+
+% Resolve references to thesis results OUTSIDE this chapter (prefixed main:)
+% against the thesis aux file, so numbering matches main.pdf.
+\usepackage{xr}
+\externaldocument[main:]{../main}
+
+% witt/WittVectorPrerequisites.tex is \input UNCHANGED, and it refers to two
+% chapter-1 labels without a prefix; alias them to the main:-imported ones.
+\makeatletter
+\newcommand{\aliasexternallabel}[2]{%
+  \AtBeginDocument{%
+    \global\expandafter\let\csname r@#1\expandafter\endcsname\csname r@#2\endcsname
+    \global\expandafter\let\csname r@#1@cref\expandafter\endcsname\csname r@#2@cref\endcsname
+  }%
+}
+\makeatother
+\aliasexternallabel{cor:abelian_equivilance_fundamental_torsors}{main:cor:abelian_equivilance_fundamental_torsors}
+\aliasexternallabel{theorem:equivalence_fundamental_covers}{main:theorem:equivalence_fundamental_covers}
+
+\title{Reorganized Chapter 2: Ramification After Blowup Is Tame\\
+\large A standalone review copy for comparison with the current chapter}
+\author{}
+\date{\today}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+% Number the chapter as "2", matching its position in the thesis.
+\setcounter{chapter}{1}
+
+\input{chapter2_body}
+
+\printbibliography
+
+\end{document}

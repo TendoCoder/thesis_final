@@ -1,0 +1,2618 @@
+Rc files read:
+  NONE
+Latexmk: This is Latexmk, John Collins, 27 Dec. 2024. Version 4.86a.
+Latexmk: applying rule 'pdflatex'...
+Rule 'pdflatex':  Reasons for rerun
+Changed files or newly in use/created:
+  chapter2_reorg.tex
+Category 'changed_user':
+  chapter2_reorg.tex
+
+------------
+Run number 1 of rule 'pdflatex'
+------------
+------------
+Running 'pdflatex  -interaction=nonstopmode -halt-on-error -recorder  "chapter2_reorg.tex"'
+------------
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./chapter2_reorg.tex
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-01-18>
+(/usr/local/texlive/2025/texmf-dist/tex/latex/base/report.cls
+Document Class: report 2024/06/29 v1.4n Standard LaTeX document class
+(/usr/local/texlive/2025/texmf-dist/tex/latex/base/size11.clo))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/geometry/geometry.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/keyval.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/iftex/ifvtex.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/iftex/iftex.sty)))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/base/fontenc.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/base/ifthen.sty) (../includes.tex
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/titling/titling.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/color.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics-cfg/color.cfg)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics-def/pdftex.def)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/mathcolor.ltx))
+(/usr/local/texlive/2025/texmf-dist/tex/generic/babel/babel.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/babel/txtbabel.def)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/babel-english/english.ldf))
+(/usr/local/texlive/2025/texmf-dist/tex/generic/babel/locale/en/babel-english.t
+ex) (/usr/local/texlive/2025/texmf-dist/tex/latex/refstyle/refstyle.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/refstyle/refstyle.cfg))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/float/float.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amscls/amsthm.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/makecell/makecell.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/tools/array.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/bbm-macros/bbm.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/amssymb.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/amsfonts.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/stmaryrd/stmaryrd.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/enumitem/enumitem.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/setspace/setspace.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/comment/comment.sty
+Excluding comment 'comment')
+(/usr/local/texlive/2025/texmf-dist/tex/latex/mathtools/mathtools.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/tools/calc.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/mathtools/mhsetup.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/caption/subcaption.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/caption/caption.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/caption/caption3.sty)))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.te
+x)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
+) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/pgf.revision.tex)))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/graphicx.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/trig.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics-cfg/graphics.cfg)))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfil
+tered.code.tex))
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.d
+ef
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-p
+df.def)))
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.
+code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.
+code.tex)) (/usr/local/texlive/2025/texmf-dist/tex/latex/xcolor/xcolor.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics-cfg/color.cfg)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/mathcolor.ltx))
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
+)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.
+tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic
+.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigo
+nometric.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.rando
+m.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.compa
+rison.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.
+code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round
+.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.
+code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integ
+erarithmetics.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex)
+) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfint.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.co
+de.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconst
+ruct.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage
+.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.co
+de.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicst
+ate.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransform
+ations.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.cod
+e.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.c
+ode.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathproce
+ssing.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.co
+de.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.cod
+e.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.cod
+e.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.
+code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.co
+de.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretranspare
+ncy.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.
+code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.code.
+tex)))
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.cod
+e.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.
+tex)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version
+-0-65.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version
+-1-18.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/utilities/pgffor.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex)
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/math/pgfmath.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex))
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex))
+
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.cod
+e.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothan
+dlers.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.cod
+e.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarytopaths.code.tex)))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/rotating.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/fontawesome/fontawesome.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/iftex/ifxetex.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/iftex/ifluatex.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/fontawesome/fontawesomesymbols-ge
+neric.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/fontawesome/fontawesomesymbols-pd
+ftex.tex)) (/usr/local/texlive/2025/texmf-dist/tex/latex/ifsym/ifsym.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/tikz-3dplot/tikz-3dplot.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarycalc.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrary3d.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibraryarrows.code.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.
+code.tex))) (/usr/local/texlive/2025/texmf-dist/tex/generic/xstring/xstring.sty
+ (/usr/local/texlive/2025/texmf-dist/tex/generic/xstring/xstring.tex))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/todonotes/todonotes.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xkeyval/xkvutils.tex)))
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarypositioning.code.tex))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/oberdiek/aliascnt.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/hyperref.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/infwarerr/infwarerr.sty)))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/hycolor/hycolor.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/nameref.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/refcount/refcount.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/gettitlestring/gettitlestring.s
+ty (/usr/local/texlive/2025/texmf-dist/tex/latex/kvoptions/kvoptions.sty)))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/etoolbox/etoolbox.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/stringenc/stringenc.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/intcalc/intcalc.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/puenc.def)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/url/url.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/bitset/bitset.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/base/atbegshi-ltx.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/hpdftex.def
+(/usr/local/texlive/2025/texmf-dist/tex/latex/base/atveryend-ltx.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+
+(/usr/local/texlive/2025/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+))) (/usr/local/texlive/2025/texmf-dist/tex/latex/cleveref/cleveref.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/tools/verbatim.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/tikz-cd/tikz-cd.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/tikz-cd/tikzlibrarycd.code.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarymatrix.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibraryquotes.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.
+meta.code.tex)))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/l3kernel/expl3.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def)))
+ (/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xy.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xy.tex Bootstrap'ing:
+catcodes, docmode,
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xyrecat.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xyidioms.tex)
+
+ Xy-pic version 3.8.9 <2013/10/06>
+ Copyright (c) 1991-2013 by Kristoffer H. Rose <krisrose@tug.org> and others
+ Xy-pic is free software: see the User's Guide for details.
+
+Loading kernel: messages; fonts; allocations: state, direction,
+utility macros; pictures: \xy, positions, objects, decorations;
+kernel objects: directionals, circles, text; options; algorithms: directions,
+edges, connections;  Xy-pic loaded)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/iftex/ifpdf.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xyall.tex
+ Xy-pic option: All features v.3.8
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xycurve.tex
+ Xy-pic option: Curve and Spline extension v.3.12 curve, circles, loaded)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xyframe.tex
+ Xy-pic option: Frame and Bracket extension v.3.14 loaded)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xycmtip.tex
+ Xy-pic option: Computer Modern tip extension v.3.7
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xytips.tex
+ Xy-pic option: More Tips extension v.3.11 loaded) loaded)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xyline.tex
+ Xy-pic option: Line styles extension v.3.10 loaded)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xyrotate.tex
+ Xy-pic option: Rotate and Scale extension v.3.8 loaded)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xycolor.tex
+ Xy-pic option: Colour extension v.3.11 loaded)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xymatrix.tex
+ Xy-pic option: Matrix feature v.3.14 loaded)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xyarrow.tex
+ Xy-pic option: Arrow and Path feature v.3.9 path, \ar, loaded)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xygraph.tex
+ Xy-pic option: Graph feature v.3.11 loaded) loaded)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xypdf.tex
+ Xy-pic option: PDF driver v.1.7 Xy-pic pdf driver: `color' extension support
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xypdf-co.tex loaded)
+Xy-pic pdf driver: `curve' extension support
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xypdf-cu.tex loaded)
+Xy-pic pdf driver: `frame' extension support
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xypdf-fr.tex loaded)
+Xy-pic pdf driver: `line' extension support
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xypdf-li.tex loaded)
+Xy-pic pdf driver: `rotate' extension support
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xypdf-ro.tex loaded)
+loaded)) (/usr/local/texlive/2025/texmf-dist/tex/latex/jknapltx/mathrsfs.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/thmtools/thmtools.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/thmtools/thm-patch.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/thmtools/parseargs.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/thmtools/thm-kv.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/thmtools/thm-autoref.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/thmtools/aliasctr.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/thmtools/thm-listof.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/thmtools/thm-restate.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/thmtools/thm-amsthm.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/generic/mleftright/mleftright.sty))
+(../MacrosAndFigures.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarypatterns.code.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/pgflibrarypattern
+s.code.tex)))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/csquotes/csquotes.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/csquotes/csquotes.def)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/csquotes/csquotes.cfg))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/biblatex.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/logreq/logreq.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/logreq/logreq.def))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/blx-dm.def)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/blx-compat.def)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/biblatex.def)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/bbx/alphabetic.bbx
+(/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/bbx/standard.bbx))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/cbx/alphabetic.cbx)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/biblatex.cfg)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/blx-case-expl3.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/tools/xr.sty)
+(./chapter2_reorg.aux)
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+(/usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg))
+(./chapter2_reorg.out) (./chapter2_reorg.out)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/stmaryrd/Ustmry.fd)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/jknapltx/ursfs.fd)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/wasysym/uwasy.fd)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/lbx/english.lbx)
+No file chapter2_reorg.bbl.
+
+[1{/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/l
+ocal/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}]
+(../chapter2_reorg/chapter2_reorg_body.tex
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.4 \chapter
+            {Ramification After Blowup Is Tame} [1]
+Chapter 1.
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/ueuf.fd)
+[2]
+
+LaTeX Warning: Reference `table:cyclic_theory_dictionary:reorg' on page 1 undef
+ined on input line 94.
+
+
+LaTeX Warning: Reference `table:cyclic_computation_dictionary:reorg' on page 1 
+undefined on input line 100.
+
+
+LaTeX Warning: Citation 'stacks-project' on page 3 undefined on input line 113.
+
+
+
+LaTeX Warning: Citation 'serreLF' on page 3 undefined on input line 113.
+
+
+LaTeX Warning: Citation 'stacks-project' on page 3 undefined on input line 115.
+
+
+
+[3{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
+}]
+
+LaTeX Warning: Citation 'stacks-project' on page 4 undefined on input line 139.
+
+
+
+[4]
+
+LaTeX Warning: Citation 'serreLF' on page 5 undefined on input line 211.
+
+
+LaTeX Warning: Citation 'serreLF' on page 5 undefined on input line 218.
+
+<xymatrix 2x2 154>
+[5]
+[6]
+[7]
+[8]
+
+LaTeX Warning: Citation 'stacks-project' on page 9 undefined on input line 436.
+
+
+
+LaTeX Warning: Citation 'stacks-project' on page 9 undefined on input line 436.
+
+
+
+[9]
+
+LaTeX Warning: Reference `theorem:kummer_ramification:reorg' on page 1 undefine
+d on input line 464.
+
+
+LaTeX Warning: Reference `theorem:artin_schreier_ramification:reorg' on page 1 
+undefined on input line 464.
+
+
+LaTeX Warning: Reference `theorem:asw_theory:reorg' on page 1 undefined on inpu
+t line 464.
+
+
+LaTeX Warning: Reference `theorem:schmid_witt_break_formula:reorg' on page 1 un
+defined on input line 464.
+
+
+LaTeX Warning: Reference `table:cyclic_theory_dictionary:reorg' on page 1 undef
+ined on input line 474.
+
+
+LaTeX Warning: Citation 'koch1997algebraic' on page 10 undefined on input line 
+479.
+
+
+LaTeX Warning: Citation 'Thomas2005' on page 10 undefined on input line 497.
+
+
+[10]
+
+LaTeX Warning: Reference `table:cyclic_theory_dictionary:reorg' on page 1 undef
+ined on input line 530.
+
+
+LaTeX Warning: Reference `theorem:artin_schreier_ramification:reorg' on page 1 
+undefined on input line 534.
+
+
+LaTeX Warning: Reference `theorem:schmid_witt_break_formula:reorg' on page 1 un
+defined on input line 535.
+
+
+LaTeX Warning: Reference `theorem:asw_theory:reorg' on page 1 undefined on inpu
+t line 537.
+
+
+LaTeX Warning: Reference `theorem:schmid_witt_break_formula:reorg' on page 1 un
+defined on input line 538.
+
+
+LaTeX Warning: Reference `theorem:ramification_after_blowup_P1:reorg' on page 1
+ undefined on input line 539.
+
+
+LaTeX Warning: Reference `theorem:artin_schreier_ramification:reorg' on page 1 
+undefined on input line 542.
+
+
+LaTeX Warning: Citation 'serreLF' on page 11 undefined on input line 550.
+
+
+LaTeX Warning: Citation 'Rabinoff2014Witt' on page 11 undefined on input line 5
+50.
+
+
+LaTeX Warning: Citation 'serreLF' on page 11 undefined on input line 564.
+
+
+LaTeX Warning: Citation 'Rabinoff2014Witt' on page 11 undefined on input line 5
+64.
+
+
+Overfull \hbox (27.8096pt too wide) detected at line 572
+\OML/cmm/m/it/10.95 w[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 S[]; [] ; S[]\OT
+1/cmr/m/n/10.95 ) = \OML/cmm/m/it/10.95 w[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10
+.95 X[]; [] ; X[]\OT1/cmr/m/n/10.95 ) + \OML/cmm/m/it/10.95 w[]\OT1/cmr/m/n/10.
+95 (\OML/cmm/m/it/10.95 Y[]; [] ; Y[]\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 ; 
+ w[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 P[]; [] ; P[]\OT1/cmr/m/n/10.95 ) =
+ \OML/cmm/m/it/10.95 w[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 X[]; [] ; X[]\O
+T1/cmr/m/n/10.95 ) \OMS/cmsy/m/n/10.95 ^^A \OML/cmm/m/it/10.95 w[]\OT1/cmr/m/n/
+10.95 (\OML/cmm/m/it/10.95 Y[]; [] ; Y[]\OT1/cmr/m/n/10.95 )
+
+[11]
+
+LaTeX Warning: Reference `theorem:witt_ring_structure:reorg' on page 1 undefine
+d on input line 615.
+
+
+LaTeX Warning: Reference `theorem:witt_ring_structure:reorg' on page 1 undefine
+d on input line 628.
+
+
+Overfull \hbox (84.97499pt too wide) in paragraph at lines 637--640
+[]\T1/cmr/bx/n/10.95 Proposition 17 \T1/cmr/m/n/10.95 (shape of Witt ad-di-tion
+)\T1/cmr/bx/n/10.95 . []\T1/cmr/m/it/10.95 For ev-ery $\OML/cmm/m/it/10.95 n \O
+MS/cmsy/m/n/10.95 ^^U \OT1/cmr/m/n/10.95 0$ \T1/cmr/m/it/10.95 there is a poly-
+no-mial $\OML/cmm/m/it/10.95 C[] \OMS/cmsy/m/n/10.95 2 \U/msb/m/n/10.95 Z\OT1/c
+mr/m/n/10.95 [\OML/cmm/m/it/10.95 X[]; [] ; X[]\OT1/cmr/m/n/10.95 ; \OML/cmm/m/
+it/10.95 Y[]; [] ; Y[]\OT1/cmr/m/n/10.95 ]$\T1/cmr/m/it/10.95 ,
+
+LaTeX Warning: Reference `theorem:witt_ring_structure:reorg' on page 1 undefine
+d on input line 656.
+
+
+[12]
+
+LaTeX Warning: Citation 'serreLF' on page 13 undefined on input line 695.
+
+
+LaTeX Warning: Citation 'Rabinoff2014Witt' on page 13 undefined on input line 6
+95.
+
+
+LaTeX Warning: Citation 'serreLF' on page 13 undefined on input line 699.
+
+
+LaTeX Warning: Citation 'Rabinoff2014Witt' on page 13 undefined on input line 7
+00.
+
+
+LaTeX Warning: Reference `prop:witt_addition_shape:reorg' on page 1 undefined o
+n input line 728.
+
+
+LaTeX Warning: Reference `lemma:ghost_principle:reorg' on page 1 undefined on i
+nput line 730.
+
+
+LaTeX Warning: Reference `lemma:ghost_principle:reorg' on page 1 undefined on i
+nput line 734.
+
+
+LaTeX Warning: Citation 'serreLF' on page 13 undefined on input line 737.
+
+
+LaTeX Warning: Reference `eq:witt_p_to_r_minus_1:reorg' on page 1 undefined on 
+input line 742.
+
+
+[13]
+
+LaTeX Warning: Reference `theorem:artin_schreier_ramification:reorg' on page 1 
+undefined on input line 759.
+
+
+LaTeX Warning: Reference `prop:witt_multiplication_by_p:reorg' on page 1 undefi
+ned on input line 766.
+
+
+LaTeX Warning: Reference `prop:witt_multiplication_by_p:reorg' on page 1 undefi
+ned on input line 790.
+
+
+LaTeX Warning: Reference `lemma:ghost_principle:reorg' on page 1 undefined on i
+nput line 793.
+
+
+LaTeX Warning: Reference `lemma:witt_bookkeeping:reorg' on page 1 undefined on 
+input line 803.
+
+
+LaTeX Warning: Reference `eq:witt_addition_shape:reorg' on page 1 undefined on 
+input line 805.
+
+
+LaTeX Warning: Reference `example:witt_of_Fp:reorg' on page 1 undefined on inpu
+t line 818.
+
+
+[14]
+
+LaTeX Warning: Reference `eq:witt_addition_shape:reorg' on page 1 undefined on 
+input line 847.
+
+
+LaTeX Warning: Reference `eq:asw_lang_sequence:reorg' on page 1 undefined on in
+put line 866.
+
+
+LaTeX Warning: Citation 'Thomas2005' on page 15 undefined on input line 869.
+
+
+LaTeX Warning: Reference `lemma:asw_etale_torsor:reorg' on page 1 undefined on 
+input line 887.
+
+
+LaTeX Warning: Reference `lemma:asw_etale_torsor:reorg' on page 1 undefined on 
+input line 898.
+
+
+LaTeX Warning: Reference `eq:witt_invariants_componentwise:reorg' on page 1 und
+efined on input line 904.
+
+
+LaTeX Warning: Reference `eq:witt_invariants_componentwise:reorg' on page 1 und
+efined on input line 909.
+
+
+LaTeX Warning: Reference `lemma:witt_bookkeeping:reorg' on page 1 undefined on 
+input line 913.
+
+
+LaTeX Warning: Citation 'Thomas2005' on page 15 undefined on input line 917.
+
+
+LaTeX Warning: Citation 'Rabinoff2014Witt' on page 15 undefined on input line 9
+17.
+
+
+[15]
+
+LaTeX Warning: Reference `eq:witt_p_to_r_minus_1:reorg' on page 1 undefined on 
+input line 931.
+
+
+LaTeX Warning: Reference `eq:witt_addition_shape:reorg' on page 1 undefined on 
+input line 947.
+
+
+LaTeX Warning: Reference `theorem:artin_schreier_ramification:reorg' on page 1 
+undefined on input line 975.
+
+
+[16]
+
+LaTeX Warning: Reference `theorem:asw_theory:reorg' on page 1 undefined on inpu
+t line 991.
+
+
+LaTeX Warning: Citation 'KanesakaSekiguchi1979' on page 17 undefined on input l
+ine 1000.
+
+
+LaTeX Warning: Citation 'Thomas2005' on page 17 undefined on input line 1000.
+
+
+LaTeX Warning: Citation 'Schmid1937' on page 17 undefined on input line 1001.
+
+
+LaTeX Warning: Citation 'ElderKeating2025' on page 17 undefined on input line 1
+002.
+
+
+LaTeX Warning: Reference `definition:reduced_witt_vector:reorg' on page 1 undef
+ined on input line 1010.
+
+
+LaTeX Warning: Reference `theorem:schmid_witt_break_formula:reorg' on page 1 un
+defined on input line 1016.
+
+
+LaTeX Warning: Reference `theorem:artin_schreier_ramification:reorg' on page 1 
+undefined on input line 1017.
+
+
+LaTeX Warning: Reference `lemma:witt_bookkeeping:reorg' on page 1 undefined on 
+input line 1022.
+
+
+LaTeX Warning: Reference `lemma:formal_local_invariance:reorg' on page 1 undefi
+ned on input line 1036.
+
+
+LaTeX Warning: Reference `cor:reduction_to_P1:reorg' on page 1 undefined on inp
+ut line 1036.
+
+
+LaTeX Warning: Reference `lemma:realization_over_Gm:reorg' on page 1 undefined 
+on input line 1037.
+
+
+[17]
+[18]
+Overfull \hbox (9.6162pt too wide) in paragraph at lines 1112--1119
+\T1/cmr/m/n/10.95 Finally, $\OML/cmm/m/it/10.95 k\OT1/cmr/m/n/10.95 [[\OML/cmm/
+m/it/10.95 x[]; [] ; x[]\OT1/cmr/m/n/10.95 ]][] = \OML/cmm/m/it/10.95 k\OT1/cmr
+/m/n/10.95 [[\OML/cmm/m/it/10.95 e[]; [] ; e[]\OT1/cmr/m/n/10.95 ]]$\T1/cmr/m/n
+/10.95 : the ring $\OML/cmm/m/it/10.95 k\OT1/cmr/m/n/10.95 [\OML/cmm/m/it/10.95
+ x[]; [] ; x[]\OT1/cmr/m/n/10.95 ]$ \T1/cmr/m/n/10.95 is a fi-nite free mod-ule
+ over $\OML/cmm/m/it/10.95 k\OT1/cmr/m/n/10.95 [\OML/cmm/m/it/10.95 e[]; [] ; e
+[]\OT1/cmr/m/n/10.95 ]$\T1/cmr/m/n/10.95 ,
+
+Overfull \hbox (7.60236pt too wide) in paragraph at lines 1112--1119
+\OML/cmm/m/it/10.95 k\OT1/cmr/m/n/10.95 [[\OML/cmm/m/it/10.95 e[]; [] ; e[]\OT1
+/cmr/m/n/10.95 ]]$ \T1/cmr/m/n/10.95 --- yields $\OML/cmm/m/it/10.95 k\OT1/cmr/
+m/n/10.95 [[\OML/cmm/m/it/10.95 e[]; [] ; e[]\OT1/cmr/m/n/10.95 ]]$\T1/cmr/m/n/
+10.95 . Un-der these iden-ti-fi-ca-tions the max-i-mal ideal of $[]$ is $\OT1/c
+mr/m/n/10.95 (\OML/cmm/m/it/10.95 e[]; [] ; e[]\OT1/cmr/m/n/10.95 )$\T1/cmr/m/n
+/10.95 ,
+
+[19]
+
+LaTeX Warning: Reference `lemma:formal_local_invariance:reorg' on page 1 undefi
+ned on input line 1186.
+
+
+[20]
+
+LaTeX Warning: Reference `theorem:kummer_ramification:reorg' on page 1 undefine
+d on input line 1214.
+
+
+LaTeX Warning: Reference `theorem:artin_schreier_ramification:reorg' on page 1 
+undefined on input line 1244.
+
+
+LaTeX Warning: Reference `cor:reduction_to_P1:reorg' on page 1 undefined on inp
+ut line 1252.
+
+
+LaTeX Warning: Reference `lemma:realization_over_Gm:reorg' on page 1 undefined 
+on input line 1252.
+
+
+[21]
+
+LaTeX Warning: Reference `lemma:realization_over_Gm:reorg' on page 1 undefined 
+on input line 1256.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `superscript' on input line 1259.
+
+
+LaTeX Warning: Reference `theorem:ramification_after_blowup_P1:reorg' on page 1
+ undefined on input line 1281.
+
+
+LaTeX Warning: Reference `table:cyclic_computation_dictionary:reorg' on page 1 
+undefined on input line 1283.
+
+
+[22]
+
+LaTeX Warning: Reference `cor:reduction_to_P1:reorg' on page 1 undefined on inp
+ut line 1364.
+
+
+LaTeX Warning: Reference `lemma:realization_over_Gm:reorg' on page 1 undefined 
+on input line 1364.
+
+
+[23]
+Overfull \hbox (13.19939pt too wide) in paragraph at lines 1415--1418
+\T1/cmr/m/it/10.95 and de-onte by $\OML/cmm/m/it/10.95 e[]; :::; e[]$ \T1/cmr/m
+/it/10.95 the el-e-men-tary sym-met-ric poly-no-mi-als in $\OML/cmm/m/it/10.95 
+x[]; :::; x[]$\T1/cmr/m/it/10.95 . If $\OML/cmm/m/it/10.95 m < d$ \T1/cmr/m/it/
+10.95 then $\OML/cmm/m/it/10.95 \OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x[]; :
+::; x[]\OT1/cmr/m/n/10.95 ) \OMS/cmsy/m/n/10.95 2
+
+[24]
+
+LaTeX Warning: Reference `eq:complete_field_at_generic_point:reorg' on page 1 u
+ndefined on input line 1439.
+
+
+LaTeX Warning: Reference `theorem:artin_schreier_ramification:reorg' on page 1 
+undefined on input line 1440.
+
+
+[25]
+
+LaTeX Warning: Reference `eq:complete_field_at_generic_point:reorg' on page 1 u
+ndefined on input line 1484.
+
+
+LaTeX Warning: Reference `theorem:kummer_ramification:reorg' on page 1 undefine
+d on input line 1485.
+
+
+LaTeX Warning: Reference `lemma:realization_over_Gm:reorg' on page 1 undefined 
+on input line 1499.
+
+
+LaTeX Warning: Reference `cor:reduction_to_P1:reorg' on page 1 undefined on inp
+ut line 1500.
+
+
+LaTeX Warning: Reference `theorem:ramification_after_blowup_P1:reorg' on page 1
+ undefined on input line 1502.
+
+
+LaTeX Warning: Reference `table:cyclic_computation_dictionary:reorg' on page 1 
+undefined on input line 1519.
+
+
+LaTeX Warning: Reference `theorem:ramification_after_blowup_P1:reorg' on page 1
+ undefined on input line 1521.
+
+
+LaTeX Warning: Reference `subsection:witt_vector_prerequisites:reorg' on page 1
+ undefined on input line 1526.
+
+
+LaTeX Warning: Reference `cor:ramification_after_blowup_is_tame:reorg' on page 
+1 undefined on input line 1534.
+
+
+LaTeX Warning: Reference `theorem:ramification_after_blowup_P1:reorg' on page 1
+ undefined on input line 1536.
+
+
+LaTeX Warning: Reference `subsection:witt_vector_prerequisites:reorg' on page 1
+ undefined on input line 1540.
+
+
+LaTeX Warning: Reference `cor:ramification_after_blowup_is_tame:reorg' on page 
+1 undefined on input line 1549.
+
+
+[26]
+
+LaTeX Warning: Reference `lemma:realization_over_Gm:reorg' on page 1 undefined 
+on input line 1573.
+
+
+LaTeX Warning: Reference `definition:reduced_witt_vector:reorg' on page 1 undef
+ined on input line 1577.
+
+
+LaTeX Warning: Reference `definition:reduced_witt_vector:reorg' on page 1 undef
+ined on input line 1581.
+
+
+LaTeX Warning: Reference `lemma:realization_over_Gm:reorg' on page 1 undefined 
+on input line 1592.
+
+
+LaTeX Warning: Reference `lemma:witt_bookkeeping:reorg' on page 1 undefined on 
+input line 1597.
+
+
+LaTeX Warning: Reference `lemma:witt_bookkeeping:reorg' on page 1 undefined on 
+input line 1601.
+
+
+LaTeX Warning: Reference `lemma:realization_over_Gm:reorg' on page 1 undefined 
+on input line 1620.
+
+
+LaTeX Warning: Reference `lemma:witt_bookkeeping:reorg' on page 1 undefined on 
+input line 1631.
+
+
+LaTeX Warning: Reference `lemma:witt_bookkeeping:reorg' on page 1 undefined on 
+input line 1638.
+
+
+[27]
+
+LaTeX Warning: Reference `lemma:wp_surjective_on_integral_witt:reorg' on page 1
+ undefined on input line 1644.
+
+
+LaTeX Warning: Reference `eq:witt_addition_shape:reorg' on page 1 undefined on 
+input line 1659.
+
+
+LaTeX Warning: Reference `prop:reduced_polynomial_representatives:reorg' on pag
+e 1 undefined on input line 1661.
+
+
+LaTeX Warning: Reference `theorem:asw_theory:reorg' on page 1 undefined on inpu
+t line 1686.
+
+
+LaTeX Warning: Reference `prop:reduced_polynomial_representatives:reorg' on pag
+e 1 undefined on input line 1689.
+
+
+LaTeX Warning: Reference `cor:asw_class_order_and_first_component:reorg' on pag
+e 1 undefined on input line 1692.
+
+
+LaTeX Warning: Reference `theorem:schmid_witt_break_formula:reorg' on page 1 un
+defined on input line 1695.
+
+
+LaTeX Warning: Reference `item:realization_Wr_polebound:reorg' on page 28 undef
+ined on input line 1696.
+
+
+LaTeX Warning: Reference `item:realization_Wr_torsor:reorg' on page 28 undefine
+d on input line 1698.
+
+
+LaTeX Warning: Reference `lemma:asw_etale_torsor:reorg' on page 1 undefined on 
+input line 1698.
+
+
+LaTeX Warning: Reference `theorem:asw_theory:reorg' on page 1 undefined on inpu
+t line 1701.
+
+
+LaTeX Warning: Reference `item:realization_Wr_infty:reorg' on page 28 undefined
+ on input line 1703.
+
+
+LaTeX Warning: Reference `lemma:asw_etale_torsor:reorg' on page 1 undefined on 
+input line 1705.
+
+
+LaTeX Warning: Reference `item:realization_Wr_polebound:reorg' on page 28 undef
+ined on input line 1714.
+
+
+LaTeX Warning: Reference `theorem:ramification_after_blowup_P1:reorg' on page 1
+ undefined on input line 1723.
+
+
+[28]
+
+LaTeX Warning: Reference `lemma:realization_over_Gm_Wr:reorg' on page 1 undefin
+ed on input line 1729.
+
+
+LaTeX Warning: Reference `theorem:ramification_after_blowup_P1:reorg' on page 1
+ undefined on input line 1738.
+
+
+LaTeX Warning: Reference `example:witt_of_Fp:reorg' on page 1 undefined on inpu
+t line 1743.
+
+
+Overfull \hbox (32.93033pt too wide) in paragraph at lines 1771--1774
+[]\T1/cmr/m/it/10.95 Every com-po-nent $\OML/cmm/m/it/10.95 []$ \T1/cmr/m/it/1
+0.95 of $[]$ is a sym-met-ric Lau-rent poly-no-mial, i.e. lies in $[]\OML/cmm/m
+/it/10.95 R[][][] \OT1/cmr/m/n/10.95 = \OML/cmm/m/it/10.95 k\OT1/cmr/m/n/10.95 
+[\OML/cmm/m/it/10.95 e[]; [] ; e[]; e[]\OT1/cmr/m/n/10.95 ]$\T1/cmr/m/it/10.95 
+,
+
+LaTeX Warning: Reference `eq:complete_field_at_generic_point:reorg' on page 1 u
+ndefined on input line 1783.
+
+
+LaTeX Warning: Reference `item:witt_cover_invariance:reorg' on page 29 undefine
+d on input line 1792.
+
+
+LaTeX Warning: Reference `eq:witt_addition_shape:reorg' on page 1 undefined on 
+input line 1796.
+
+
+LaTeX Warning: Reference `subsection:witt_vector_prerequisites:reorg' on page 1
+ undefined on input line 1797.
+
+
+LaTeX Warning: Reference `definition:asw_operator:reorg' on page 1 undefined on
+ input line 1813.
+
+
+[29]
+
+LaTeX Warning: Reference `lemma:asw_etale_torsor:reorg' on page 1 undefined on 
+input line 1824.
+
+
+LaTeX Warning: Reference `item:witt_cover_symmetry:reorg' on page 30 undefined 
+on input line 1834.
+
+
+LaTeX Warning: Reference `item:witt_cover_invariance:reorg' on page 30 undefine
+d on input line 1837.
+
+
+LaTeX Warning: Reference `theorem:ramification_after_blowup_P1:reorg' on page 1
+ undefined on input line 1844.
+
+
+LaTeX Warning: Reference `lemma:asw_etale_torsor:reorg' on page 1 undefined on 
+input line 1845.
+
+
+LaTeX Warning: Reference `lemma:realization_over_Gm_Wr:reorg' on page 1 undefin
+ed on input line 1877.
+
+
+LaTeX Warning: Reference `lemma:realization_over_Gm_Wr:reorg' on page 1 undefin
+ed on input line 1898.
+
+
+[30]
+
+LaTeX Warning: Reference `lemma:witt_addition_isobaric:reorg' on page 1 undefin
+ed on input line 1907.
+
+
+LaTeX Warning: Reference `lemma:realization_over_Gm_Wr:reorg' on page 1 undefin
+ed on input line 1919.
+
+
+LaTeX Warning: Reference `item:realization_Wr_polebound:reorg' on page 31 undef
+ined on input line 1919.
+
+
+LaTeX Warning: Reference `prop:witt_cover_identification:reorg' on page 1 undef
+ined on input line 1922.
+
+
+LaTeX Warning: Reference `item:witt_cover_symmetry:reorg' on page 31 undefined 
+on input line 1922.
+
+
+LaTeX Warning: Reference `lemma:symmetric_regularity:reorg' on page 1 undefined
+ on input line 1923.
+
+
+LaTeX Warning: Reference `lemma:realization_over_Gm_Wr:reorg' on page 1 undefin
+ed on input line 1933.
+
+
+LaTeX Warning: Reference `theorem:ramification_after_blowup_is_tame_for_p_power
+:reorg' on page 1 undefined on input line 1939.
+
+
+LaTeX Warning: Reference `lemma:realization_over_Gm_Wr:reorg' on page 1 undefin
+ed on input line 1945.
+
+
+LaTeX Warning: Reference `cor:reduction_to_P1:reorg' on page 1 undefined on inp
+ut line 1947.
+
+
+LaTeX Warning: Reference `prop:witt_cover_identification:reorg' on page 1 undef
+ined on input line 1952.
+
+
+LaTeX Warning: Reference `eq:complete_field_at_generic_point:reorg' on page 1 u
+ndefined on input line 1961.
+
+
+LaTeX Warning: Reference `theorem:witt_components_regularity:reorg' on page 1 u
+ndefined on input line 1964.
+
+
+LaTeX Warning: Reference `lemma:asw_etale_torsor:reorg' on page 1 undefined on 
+input line 1966.
+
+
+LaTeX Warning: Reference `cor:ramification_after_blowup_is_tame:reorg' on page 
+1 undefined on input line 1979.
+
+
+[31]
+
+LaTeX Warning: Reference `cor:ramification_after_blowup_is_tame:reorg' on page 
+1 undefined on input line 2009.
+
+
+LaTeX Warning: Reference `theorem:ramification_after_blowup_is_tame_for_p_power
+:reorg' on page 1 undefined on input line 2012.
+
+
+[32]
+[33]
+
+LaTeX Warning: Citation 'stacks-project' on page 34 undefined on input line 212
+4.
+
+)
+
+LaTeX Warning: Empty bibliography on input line 47.
+
+
+[34] (./chapter2_reorg.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `chapter2_reorg.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+
+Package biblatex Warning: Please (re)run Biber on the file:
+(biblatex)                chapter2_reorg
+(biblatex)                and rerun LaTeX afterwards.
+
+ )
+(see the transcript file for additional information)</usr/local/texlive/2025/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/tex
+mf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/local/texlive/2025/
+texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb></usr/local/texlive/20
+25/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/202
+5/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2025
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2025/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2025/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2025/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2025/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/font
+s/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2025/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/pu
+blic/amsfonts/euler/eufm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/
+public/amsfonts/euler/eufm7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1
+/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/t
+ype1/public/cm-super/sfbi1095.pfb></usr/local/texlive/2025/texmf-dist/fonts/typ
+e1/public/cm-super/sfbx0900.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1
+/public/cm-super/sfbx1095.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/p
+ublic/cm-super/sfbx1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/pub
+lic/cm-super/sfbx1440.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/publi
+c/cm-super/sfbx2074.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/
+cm-super/sfbx2488.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm
+-super/sfrm0600.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-s
+uper/sfrm0800.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-sup
+er/sfrm0900.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super
+/sfrm1095.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/s
+frm1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfr
+m1728.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti0
+800.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti109
+5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sftt1095.
+pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/xypic/xyatip10.pfb><
+/usr/local/texlive/2025/texmf-dist/fonts/type1/public/xypic/xybtip10.pfb>
+Output written on chapter2_reorg.pdf (35 pages, 716024 bytes).
+Transcript written on chapter2_reorg.log.
+Latexmk: Getting log file 'chapter2_reorg.log'
+Latexmk: Examining 'chapter2_reorg.fls'
+Latexmk: Examining 'chapter2_reorg.log'
+Latexmk: Missing bbl file 'chapter2_reorg.bbl' in following:
+ No file chapter2_reorg.bbl.
+Latexmk: References changed.
+Latexmk: References changed.
+Latexmk: Log file says output to 'chapter2_reorg.pdf'
+Latexmk: Bibliography file(s) from .bcf file:
+  ../Bib.bib
+Latexmk: applying rule 'biber chapter2_reorg'...
+Rule 'biber chapter2_reorg':  Reasons for rerun
+Changed files or newly in use/created:
+  chapter2_reorg.bcf
+Category 'no_dest':
+  biber chapter2_reorg
+
+------------
+Run number 1 of rule 'biber chapter2_reorg'
+------------
+------------
+Running 'biber  "chapter2_reorg.bcf"'
+------------
+INFO - This is Biber 2.20
+INFO - Logfile is 'chapter2_reorg.blg'
+INFO - Reading 'chapter2_reorg.bcf'
+INFO - Found 8 citekeys in bib section 0
+INFO - Processing section 0
+INFO - Looking for bibtex file 'Bib.bib' for section 0
+INFO - LaTeX decoding ...
+INFO - Found BibTeX data source '../Bib.bib'
+INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+INFO - Sorting list 'ynt/global//global/global/global' of type 'entry' with template 'ynt' and locale 'en-US'
+INFO - No sort tailoring available for locale 'en-US'
+INFO - Writing 'chapter2_reorg.bbl' with encoding 'UTF-8'
+INFO - Output to chapter2_reorg.bbl
+Latexmk: Found biber source file(s) [../Bib.bib, chapter2_reorg.bcf]
+Latexmk: applying rule 'pdflatex'...
+Rule 'pdflatex':  Reasons for rerun
+Changed files or newly in use/created:
+  chapter2_reorg.aux
+  chapter2_reorg.bbl
+  chapter2_reorg.out
+
+------------
+Run number 2 of rule 'pdflatex'
+------------
+------------
+Running 'pdflatex  -interaction=nonstopmode -halt-on-error -recorder  "chapter2_reorg.tex"'
+------------
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./chapter2_reorg.tex
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-01-18>
+(/usr/local/texlive/2025/texmf-dist/tex/latex/base/report.cls
+Document Class: report 2024/06/29 v1.4n Standard LaTeX document class
+(/usr/local/texlive/2025/texmf-dist/tex/latex/base/size11.clo))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/geometry/geometry.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/keyval.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/iftex/ifvtex.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/iftex/iftex.sty)))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/base/fontenc.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/base/ifthen.sty) (../includes.tex
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/titling/titling.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/color.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics-cfg/color.cfg)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics-def/pdftex.def)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/mathcolor.ltx))
+(/usr/local/texlive/2025/texmf-dist/tex/generic/babel/babel.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/babel/txtbabel.def)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/babel-english/english.ldf))
+(/usr/local/texlive/2025/texmf-dist/tex/generic/babel/locale/en/babel-english.t
+ex) (/usr/local/texlive/2025/texmf-dist/tex/latex/refstyle/refstyle.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/refstyle/refstyle.cfg))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/float/float.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amscls/amsthm.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/makecell/makecell.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/tools/array.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/bbm-macros/bbm.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/amssymb.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/amsfonts.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/stmaryrd/stmaryrd.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/enumitem/enumitem.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/setspace/setspace.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/comment/comment.sty
+Excluding comment 'comment')
+(/usr/local/texlive/2025/texmf-dist/tex/latex/mathtools/mathtools.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/tools/calc.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/mathtools/mhsetup.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/caption/subcaption.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/caption/caption.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/caption/caption3.sty)))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.te
+x)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
+) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/pgf.revision.tex)))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/graphicx.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/trig.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics-cfg/graphics.cfg)))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfil
+tered.code.tex))
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.d
+ef
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-p
+df.def)))
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.
+code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.
+code.tex)) (/usr/local/texlive/2025/texmf-dist/tex/latex/xcolor/xcolor.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics-cfg/color.cfg)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/mathcolor.ltx))
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
+)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.
+tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic
+.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigo
+nometric.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.rando
+m.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.compa
+rison.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.
+code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round
+.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.
+code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integ
+erarithmetics.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex)
+) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfint.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.co
+de.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconst
+ruct.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage
+.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.co
+de.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicst
+ate.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransform
+ations.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.cod
+e.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.c
+ode.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathproce
+ssing.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.co
+de.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.cod
+e.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.cod
+e.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.
+code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.co
+de.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretranspare
+ncy.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.
+code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.code.
+tex)))
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.cod
+e.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.
+tex)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version
+-0-65.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version
+-1-18.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/utilities/pgffor.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex)
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/math/pgfmath.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex))
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex))
+
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.cod
+e.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothan
+dlers.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.cod
+e.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarytopaths.code.tex)))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/rotating.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/fontawesome/fontawesome.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/iftex/ifxetex.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/iftex/ifluatex.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/fontawesome/fontawesomesymbols-ge
+neric.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/fontawesome/fontawesomesymbols-pd
+ftex.tex)) (/usr/local/texlive/2025/texmf-dist/tex/latex/ifsym/ifsym.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/tikz-3dplot/tikz-3dplot.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarycalc.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrary3d.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibraryarrows.code.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.
+code.tex))) (/usr/local/texlive/2025/texmf-dist/tex/generic/xstring/xstring.sty
+ (/usr/local/texlive/2025/texmf-dist/tex/generic/xstring/xstring.tex))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/todonotes/todonotes.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xkeyval/xkvutils.tex)))
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarypositioning.code.tex))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/oberdiek/aliascnt.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/hyperref.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/infwarerr/infwarerr.sty)))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/hycolor/hycolor.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/nameref.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/refcount/refcount.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/gettitlestring/gettitlestring.s
+ty (/usr/local/texlive/2025/texmf-dist/tex/latex/kvoptions/kvoptions.sty)))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/etoolbox/etoolbox.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/stringenc/stringenc.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/intcalc/intcalc.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/puenc.def)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/url/url.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/bitset/bitset.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/base/atbegshi-ltx.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/hpdftex.def
+(/usr/local/texlive/2025/texmf-dist/tex/latex/base/atveryend-ltx.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+
+(/usr/local/texlive/2025/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+))) (/usr/local/texlive/2025/texmf-dist/tex/latex/cleveref/cleveref.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/tools/verbatim.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/tikz-cd/tikz-cd.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/tikz-cd/tikzlibrarycd.code.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarymatrix.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibraryquotes.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.
+meta.code.tex)))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/l3kernel/expl3.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def)))
+ (/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xy.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xy.tex Bootstrap'ing:
+catcodes, docmode,
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xyrecat.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xyidioms.tex)
+
+ Xy-pic version 3.8.9 <2013/10/06>
+ Copyright (c) 1991-2013 by Kristoffer H. Rose <krisrose@tug.org> and others
+ Xy-pic is free software: see the User's Guide for details.
+
+Loading kernel: messages; fonts; allocations: state, direction,
+utility macros; pictures: \xy, positions, objects, decorations;
+kernel objects: directionals, circles, text; options; algorithms: directions,
+edges, connections;  Xy-pic loaded)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/iftex/ifpdf.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xyall.tex
+ Xy-pic option: All features v.3.8
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xycurve.tex
+ Xy-pic option: Curve and Spline extension v.3.12 curve, circles, loaded)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xyframe.tex
+ Xy-pic option: Frame and Bracket extension v.3.14 loaded)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xycmtip.tex
+ Xy-pic option: Computer Modern tip extension v.3.7
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xytips.tex
+ Xy-pic option: More Tips extension v.3.11 loaded) loaded)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xyline.tex
+ Xy-pic option: Line styles extension v.3.10 loaded)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xyrotate.tex
+ Xy-pic option: Rotate and Scale extension v.3.8 loaded)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xycolor.tex
+ Xy-pic option: Colour extension v.3.11 loaded)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xymatrix.tex
+ Xy-pic option: Matrix feature v.3.14 loaded)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xyarrow.tex
+ Xy-pic option: Arrow and Path feature v.3.9 path, \ar, loaded)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xygraph.tex
+ Xy-pic option: Graph feature v.3.11 loaded) loaded)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xypdf.tex
+ Xy-pic option: PDF driver v.1.7 Xy-pic pdf driver: `color' extension support
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xypdf-co.tex loaded)
+Xy-pic pdf driver: `curve' extension support
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xypdf-cu.tex loaded)
+Xy-pic pdf driver: `frame' extension support
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xypdf-fr.tex loaded)
+Xy-pic pdf driver: `line' extension support
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xypdf-li.tex loaded)
+Xy-pic pdf driver: `rotate' extension support
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xypdf-ro.tex loaded)
+loaded)) (/usr/local/texlive/2025/texmf-dist/tex/latex/jknapltx/mathrsfs.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/thmtools/thmtools.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/thmtools/thm-patch.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/thmtools/parseargs.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/thmtools/thm-kv.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/thmtools/thm-autoref.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/thmtools/aliasctr.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/thmtools/thm-listof.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/thmtools/thm-restate.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/thmtools/thm-amsthm.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/generic/mleftright/mleftright.sty))
+(../MacrosAndFigures.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarypatterns.code.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/pgflibrarypattern
+s.code.tex)))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/csquotes/csquotes.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/csquotes/csquotes.def)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/csquotes/csquotes.cfg))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/biblatex.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/logreq/logreq.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/logreq/logreq.def))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/blx-dm.def)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/blx-compat.def)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/biblatex.def)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/bbx/alphabetic.bbx
+(/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/bbx/standard.bbx))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/cbx/alphabetic.cbx)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/biblatex.cfg)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/blx-case-expl3.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/tools/xr.sty)
+(./chapter2_reorg.aux)
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+(/usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg))
+(./chapter2_reorg.out) (./chapter2_reorg.out)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/stmaryrd/Ustmry.fd)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/jknapltx/ursfs.fd)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/wasysym/uwasy.fd)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/lbx/english.lbx)
+(./chapter2_reorg.bbl)
+[1{/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/l
+ocal/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}]
+(../chapter2_reorg/chapter2_reorg_body.tex
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.4 \chapter
+            {Ramification After Blowup Is Tame} [1]
+Chapter 1.
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/ueuf.fd)
+[2]
+[3{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
+}]
+[4] <xymatrix 2x2 154>
+[5]
+[6]
+[7]
+[8]
+[9]
+[10]
+Overfull \hbox (27.8096pt too wide) detected at line 572
+\OML/cmm/m/it/10.95 w[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 S[]; [] ; S[]\OT
+1/cmr/m/n/10.95 ) = \OML/cmm/m/it/10.95 w[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10
+.95 X[]; [] ; X[]\OT1/cmr/m/n/10.95 ) + \OML/cmm/m/it/10.95 w[]\OT1/cmr/m/n/10.
+95 (\OML/cmm/m/it/10.95 Y[]; [] ; Y[]\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 ; 
+ w[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 P[]; [] ; P[]\OT1/cmr/m/n/10.95 ) =
+ \OML/cmm/m/it/10.95 w[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 X[]; [] ; X[]\O
+T1/cmr/m/n/10.95 ) \OMS/cmsy/m/n/10.95 ^^A \OML/cmm/m/it/10.95 w[]\OT1/cmr/m/n/
+10.95 (\OML/cmm/m/it/10.95 Y[]; [] ; Y[]\OT1/cmr/m/n/10.95 )
+
+[11]
+Overfull \hbox (84.97499pt too wide) in paragraph at lines 637--640
+[]\T1/cmr/bx/n/10.95 Proposition 17 \T1/cmr/m/n/10.95 (shape of Witt ad-di-tion
+)\T1/cmr/bx/n/10.95 . []\T1/cmr/m/it/10.95 For ev-ery $\OML/cmm/m/it/10.95 n \O
+MS/cmsy/m/n/10.95 ^^U \OT1/cmr/m/n/10.95 0$ \T1/cmr/m/it/10.95 there is a poly-
+no-mial $\OML/cmm/m/it/10.95 C[] \OMS/cmsy/m/n/10.95 2 \U/msb/m/n/10.95 Z\OT1/c
+mr/m/n/10.95 [\OML/cmm/m/it/10.95 X[]; [] ; X[]\OT1/cmr/m/n/10.95 ; \OML/cmm/m/
+it/10.95 Y[]; [] ; Y[]\OT1/cmr/m/n/10.95 ]$\T1/cmr/m/it/10.95 ,
+
+[12]
+[13]
+[14]
+[15]
+[16]
+[17]
+[18]
+Overfull \hbox (9.6162pt too wide) in paragraph at lines 1112--1119
+\T1/cmr/m/n/10.95 Finally, $\OML/cmm/m/it/10.95 k\OT1/cmr/m/n/10.95 [[\OML/cmm/
+m/it/10.95 x[]; [] ; x[]\OT1/cmr/m/n/10.95 ]][] = \OML/cmm/m/it/10.95 k\OT1/cmr
+/m/n/10.95 [[\OML/cmm/m/it/10.95 e[]; [] ; e[]\OT1/cmr/m/n/10.95 ]]$\T1/cmr/m/n
+/10.95 : the ring $\OML/cmm/m/it/10.95 k\OT1/cmr/m/n/10.95 [\OML/cmm/m/it/10.95
+ x[]; [] ; x[]\OT1/cmr/m/n/10.95 ]$ \T1/cmr/m/n/10.95 is a fi-nite free mod-ule
+ over $\OML/cmm/m/it/10.95 k\OT1/cmr/m/n/10.95 [\OML/cmm/m/it/10.95 e[]; [] ; e
+[]\OT1/cmr/m/n/10.95 ]$\T1/cmr/m/n/10.95 ,
+
+Overfull \hbox (7.60236pt too wide) in paragraph at lines 1112--1119
+\OML/cmm/m/it/10.95 k\OT1/cmr/m/n/10.95 [[\OML/cmm/m/it/10.95 e[]; [] ; e[]\OT1
+/cmr/m/n/10.95 ]]$ \T1/cmr/m/n/10.95 --- yields $\OML/cmm/m/it/10.95 k\OT1/cmr/
+m/n/10.95 [[\OML/cmm/m/it/10.95 e[]; [] ; e[]\OT1/cmr/m/n/10.95 ]]$\T1/cmr/m/n/
+10.95 . Un-der these iden-ti-fi-ca-tions the max-i-mal ideal of $[]$ is $\OT1/c
+mr/m/n/10.95 (\OML/cmm/m/it/10.95 e[]; [] ; e[]\OT1/cmr/m/n/10.95 )$\T1/cmr/m/n
+/10.95 ,
+
+[19]
+[20]
+[21]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `superscript' on input line 1259.
+
+
+[22]
+[23]
+Overfull \hbox (13.19939pt too wide) in paragraph at lines 1415--1418
+\T1/cmr/m/it/10.95 and de-onte by $\OML/cmm/m/it/10.95 e[]; :::; e[]$ \T1/cmr/m
+/it/10.95 the el-e-men-tary sym-met-ric poly-no-mi-als in $\OML/cmm/m/it/10.95 
+x[]; :::; x[]$\T1/cmr/m/it/10.95 . If $\OML/cmm/m/it/10.95 m < d$ \T1/cmr/m/it/
+10.95 then $\OML/cmm/m/it/10.95 \OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x[]; :
+::; x[]\OT1/cmr/m/n/10.95 ) \OMS/cmsy/m/n/10.95 2
+
+[24]
+[25]
+[26]
+[27]
+[28]
+Overfull \hbox (32.93033pt too wide) in paragraph at lines 1771--1774
+[]\T1/cmr/m/it/10.95 Every com-po-nent $\OML/cmm/m/it/10.95 []$ \T1/cmr/m/it/1
+0.95 of $[]$ is a sym-met-ric Lau-rent poly-no-mial, i.e. lies in $[]\OML/cmm/m
+/it/10.95 R[][][] \OT1/cmr/m/n/10.95 = \OML/cmm/m/it/10.95 k\OT1/cmr/m/n/10.95 
+[\OML/cmm/m/it/10.95 e[]; [] ; e[]; e[]\OT1/cmr/m/n/10.95 ]$\T1/cmr/m/it/10.95 
+,
+
+[29]
+[30]
+[31]
+[32]
+[33]
+[34])
+[35]
+[36] (./chapter2_reorg.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package biblatex Warning: Please rerun LaTeX.
+
+ )
+(see the transcript file for additional information)</usr/local/texlive/2025/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/tex
+mf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/local/texlive/2025/
+texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb></usr/local/texlive/20
+25/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/202
+5/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2025
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2025/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2025/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2025/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2025/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/font
+s/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2025/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/pu
+blic/amsfonts/euler/eufm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/
+public/amsfonts/euler/eufm7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1
+/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/t
+ype1/public/cm-super/sfbi1095.pfb></usr/local/texlive/2025/texmf-dist/fonts/typ
+e1/public/cm-super/sfbx0900.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1
+/public/cm-super/sfbx1095.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/p
+ublic/cm-super/sfbx1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/pub
+lic/cm-super/sfbx1440.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/publi
+c/cm-super/sfbx2074.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/
+cm-super/sfbx2488.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm
+-super/sfcc1095.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-s
+uper/sfrm0600.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-sup
+er/sfrm0800.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super
+/sfrm0900.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/s
+frm1095.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfr
+m1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1
+728.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti080
+0.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti1095.
+pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sftt1095.pf
+b></usr/local/texlive/2025/texmf-dist/fonts/type1/public/xypic/xyatip10.pfb></u
+sr/local/texlive/2025/texmf-dist/fonts/type1/public/xypic/xybtip10.pfb>
+Output written on chapter2_reorg.pdf (37 pages, 755164 bytes).
+Transcript written on chapter2_reorg.log.
+Latexmk: Getting log file 'chapter2_reorg.log'
+Latexmk: Examining 'chapter2_reorg.fls'
+Latexmk: Examining 'chapter2_reorg.log'
+Latexmk: Found input bbl file 'chapter2_reorg.bbl'
+Latexmk: References changed.
+Latexmk: Log file says output to 'chapter2_reorg.pdf'
+Latexmk: Bibliography file(s) from .bcf file:
+  ../Bib.bib
+Latexmk: applying rule 'pdflatex'...
+Rule 'pdflatex':  Reasons for rerun
+Changed files or newly in use/created:
+  chapter2_reorg.aux
+  chapter2_reorg.run.xml
+
+------------
+Run number 3 of rule 'pdflatex'
+------------
+------------
+Running 'pdflatex  -interaction=nonstopmode -halt-on-error -recorder  "chapter2_reorg.tex"'
+------------
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./chapter2_reorg.tex
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-01-18>
+(/usr/local/texlive/2025/texmf-dist/tex/latex/base/report.cls
+Document Class: report 2024/06/29 v1.4n Standard LaTeX document class
+(/usr/local/texlive/2025/texmf-dist/tex/latex/base/size11.clo))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/geometry/geometry.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/keyval.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/iftex/ifvtex.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/iftex/iftex.sty)))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/base/fontenc.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/base/ifthen.sty) (../includes.tex
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/titling/titling.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/color.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics-cfg/color.cfg)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics-def/pdftex.def)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/mathcolor.ltx))
+(/usr/local/texlive/2025/texmf-dist/tex/generic/babel/babel.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/babel/txtbabel.def)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/babel-english/english.ldf))
+(/usr/local/texlive/2025/texmf-dist/tex/generic/babel/locale/en/babel-english.t
+ex) (/usr/local/texlive/2025/texmf-dist/tex/latex/refstyle/refstyle.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/refstyle/refstyle.cfg))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/float/float.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amscls/amsthm.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/makecell/makecell.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/tools/array.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/bbm-macros/bbm.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/amssymb.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/amsfonts.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/stmaryrd/stmaryrd.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/enumitem/enumitem.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/setspace/setspace.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/comment/comment.sty
+Excluding comment 'comment')
+(/usr/local/texlive/2025/texmf-dist/tex/latex/mathtools/mathtools.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/tools/calc.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/mathtools/mhsetup.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/caption/subcaption.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/caption/caption.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/caption/caption3.sty)))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.te
+x)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
+) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/pgf.revision.tex)))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/graphicx.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/trig.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics-cfg/graphics.cfg)))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfil
+tered.code.tex))
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.d
+ef
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-p
+df.def)))
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.
+code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.
+code.tex)) (/usr/local/texlive/2025/texmf-dist/tex/latex/xcolor/xcolor.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics-cfg/color.cfg)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/mathcolor.ltx))
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
+)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.
+tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic
+.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigo
+nometric.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.rando
+m.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.compa
+rison.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.
+code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round
+.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.
+code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integ
+erarithmetics.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex)
+) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfint.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.co
+de.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconst
+ruct.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage
+.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.co
+de.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicst
+ate.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransform
+ations.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.cod
+e.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.c
+ode.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathproce
+ssing.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.co
+de.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.cod
+e.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.cod
+e.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.
+code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.co
+de.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretranspare
+ncy.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.
+code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.code.
+tex)))
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.cod
+e.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.
+tex)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version
+-0-65.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version
+-1-18.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/utilities/pgffor.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex)
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/math/pgfmath.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex))
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex))
+
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.cod
+e.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothan
+dlers.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.cod
+e.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarytopaths.code.tex)))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/rotating.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/fontawesome/fontawesome.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/iftex/ifxetex.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/iftex/ifluatex.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/fontawesome/fontawesomesymbols-ge
+neric.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/fontawesome/fontawesomesymbols-pd
+ftex.tex)) (/usr/local/texlive/2025/texmf-dist/tex/latex/ifsym/ifsym.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/tikz-3dplot/tikz-3dplot.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarycalc.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrary3d.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibraryarrows.code.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.
+code.tex))) (/usr/local/texlive/2025/texmf-dist/tex/generic/xstring/xstring.sty
+ (/usr/local/texlive/2025/texmf-dist/tex/generic/xstring/xstring.tex))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/todonotes/todonotes.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xkeyval/xkvutils.tex)))
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarypositioning.code.tex))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/oberdiek/aliascnt.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/hyperref.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/infwarerr/infwarerr.sty)))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/hycolor/hycolor.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/nameref.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/refcount/refcount.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/gettitlestring/gettitlestring.s
+ty (/usr/local/texlive/2025/texmf-dist/tex/latex/kvoptions/kvoptions.sty)))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/etoolbox/etoolbox.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/stringenc/stringenc.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/intcalc/intcalc.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/puenc.def)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/url/url.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/bitset/bitset.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/base/atbegshi-ltx.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/hpdftex.def
+(/usr/local/texlive/2025/texmf-dist/tex/latex/base/atveryend-ltx.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+
+(/usr/local/texlive/2025/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+))) (/usr/local/texlive/2025/texmf-dist/tex/latex/cleveref/cleveref.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/tools/verbatim.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/tikz-cd/tikz-cd.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/tikz-cd/tikzlibrarycd.code.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarymatrix.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibraryquotes.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.
+meta.code.tex)))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/l3kernel/expl3.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def)))
+ (/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xy.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xy.tex Bootstrap'ing:
+catcodes, docmode,
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xyrecat.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xyidioms.tex)
+
+ Xy-pic version 3.8.9 <2013/10/06>
+ Copyright (c) 1991-2013 by Kristoffer H. Rose <krisrose@tug.org> and others
+ Xy-pic is free software: see the User's Guide for details.
+
+Loading kernel: messages; fonts; allocations: state, direction,
+utility macros; pictures: \xy, positions, objects, decorations;
+kernel objects: directionals, circles, text; options; algorithms: directions,
+edges, connections;  Xy-pic loaded)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/iftex/ifpdf.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xyall.tex
+ Xy-pic option: All features v.3.8
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xycurve.tex
+ Xy-pic option: Curve and Spline extension v.3.12 curve, circles, loaded)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xyframe.tex
+ Xy-pic option: Frame and Bracket extension v.3.14 loaded)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xycmtip.tex
+ Xy-pic option: Computer Modern tip extension v.3.7
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xytips.tex
+ Xy-pic option: More Tips extension v.3.11 loaded) loaded)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xyline.tex
+ Xy-pic option: Line styles extension v.3.10 loaded)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xyrotate.tex
+ Xy-pic option: Rotate and Scale extension v.3.8 loaded)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xycolor.tex
+ Xy-pic option: Colour extension v.3.11 loaded)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xymatrix.tex
+ Xy-pic option: Matrix feature v.3.14 loaded)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xyarrow.tex
+ Xy-pic option: Arrow and Path feature v.3.9 path, \ar, loaded)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xygraph.tex
+ Xy-pic option: Graph feature v.3.11 loaded) loaded)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xypdf.tex
+ Xy-pic option: PDF driver v.1.7 Xy-pic pdf driver: `color' extension support
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xypdf-co.tex loaded)
+Xy-pic pdf driver: `curve' extension support
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xypdf-cu.tex loaded)
+Xy-pic pdf driver: `frame' extension support
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xypdf-fr.tex loaded)
+Xy-pic pdf driver: `line' extension support
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xypdf-li.tex loaded)
+Xy-pic pdf driver: `rotate' extension support
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xypdf-ro.tex loaded)
+loaded)) (/usr/local/texlive/2025/texmf-dist/tex/latex/jknapltx/mathrsfs.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/thmtools/thmtools.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/thmtools/thm-patch.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/thmtools/parseargs.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/thmtools/thm-kv.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/thmtools/thm-autoref.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/thmtools/aliasctr.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/thmtools/thm-listof.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/thmtools/thm-restate.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/thmtools/thm-amsthm.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/generic/mleftright/mleftright.sty))
+(../MacrosAndFigures.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarypatterns.code.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/pgflibrarypattern
+s.code.tex)))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/csquotes/csquotes.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/csquotes/csquotes.def)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/csquotes/csquotes.cfg))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/biblatex.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/logreq/logreq.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/logreq/logreq.def))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/blx-dm.def)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/blx-compat.def)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/biblatex.def)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/bbx/alphabetic.bbx
+(/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/bbx/standard.bbx))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/cbx/alphabetic.cbx)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/biblatex.cfg)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/blx-case-expl3.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/tools/xr.sty)
+(./chapter2_reorg.aux)
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+(/usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg))
+(./chapter2_reorg.out) (./chapter2_reorg.out)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/stmaryrd/Ustmry.fd)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/jknapltx/ursfs.fd)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/wasysym/uwasy.fd)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/lbx/english.lbx)
+(./chapter2_reorg.bbl)
+[1{/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/l
+ocal/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}]
+(../chapter2_reorg/chapter2_reorg_body.tex
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.4 \chapter
+            {Ramification After Blowup Is Tame} [1]
+Chapter 1.
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/ueuf.fd)
+[2]
+[3{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
+}]
+[4] <xymatrix 2x2 154>
+[5]
+[6]
+[7]
+[8]
+[9]
+[10]
+Overfull \hbox (27.8096pt too wide) detected at line 572
+\OML/cmm/m/it/10.95 w[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 S[]; [] ; S[]\OT
+1/cmr/m/n/10.95 ) = \OML/cmm/m/it/10.95 w[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10
+.95 X[]; [] ; X[]\OT1/cmr/m/n/10.95 ) + \OML/cmm/m/it/10.95 w[]\OT1/cmr/m/n/10.
+95 (\OML/cmm/m/it/10.95 Y[]; [] ; Y[]\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 ; 
+ w[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 P[]; [] ; P[]\OT1/cmr/m/n/10.95 ) =
+ \OML/cmm/m/it/10.95 w[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 X[]; [] ; X[]\O
+T1/cmr/m/n/10.95 ) \OMS/cmsy/m/n/10.95 ^^A \OML/cmm/m/it/10.95 w[]\OT1/cmr/m/n/
+10.95 (\OML/cmm/m/it/10.95 Y[]; [] ; Y[]\OT1/cmr/m/n/10.95 )
+
+[11]
+Overfull \hbox (84.97499pt too wide) in paragraph at lines 637--640
+[]\T1/cmr/bx/n/10.95 Proposition 17 \T1/cmr/m/n/10.95 (shape of Witt ad-di-tion
+)\T1/cmr/bx/n/10.95 . []\T1/cmr/m/it/10.95 For ev-ery $\OML/cmm/m/it/10.95 n \O
+MS/cmsy/m/n/10.95 ^^U \OT1/cmr/m/n/10.95 0$ \T1/cmr/m/it/10.95 there is a poly-
+no-mial $\OML/cmm/m/it/10.95 C[] \OMS/cmsy/m/n/10.95 2 \U/msb/m/n/10.95 Z\OT1/c
+mr/m/n/10.95 [\OML/cmm/m/it/10.95 X[]; [] ; X[]\OT1/cmr/m/n/10.95 ; \OML/cmm/m/
+it/10.95 Y[]; [] ; Y[]\OT1/cmr/m/n/10.95 ]$\T1/cmr/m/it/10.95 ,
+
+[12]
+[13]
+[14]
+[15]
+[16]
+[17]
+[18]
+Overfull \hbox (9.6162pt too wide) in paragraph at lines 1112--1119
+\T1/cmr/m/n/10.95 Finally, $\OML/cmm/m/it/10.95 k\OT1/cmr/m/n/10.95 [[\OML/cmm/
+m/it/10.95 x[]; [] ; x[]\OT1/cmr/m/n/10.95 ]][] = \OML/cmm/m/it/10.95 k\OT1/cmr
+/m/n/10.95 [[\OML/cmm/m/it/10.95 e[]; [] ; e[]\OT1/cmr/m/n/10.95 ]]$\T1/cmr/m/n
+/10.95 : the ring $\OML/cmm/m/it/10.95 k\OT1/cmr/m/n/10.95 [\OML/cmm/m/it/10.95
+ x[]; [] ; x[]\OT1/cmr/m/n/10.95 ]$ \T1/cmr/m/n/10.95 is a fi-nite free mod-ule
+ over $\OML/cmm/m/it/10.95 k\OT1/cmr/m/n/10.95 [\OML/cmm/m/it/10.95 e[]; [] ; e
+[]\OT1/cmr/m/n/10.95 ]$\T1/cmr/m/n/10.95 ,
+
+Overfull \hbox (7.60236pt too wide) in paragraph at lines 1112--1119
+\OML/cmm/m/it/10.95 k\OT1/cmr/m/n/10.95 [[\OML/cmm/m/it/10.95 e[]; [] ; e[]\OT1
+/cmr/m/n/10.95 ]]$ \T1/cmr/m/n/10.95 --- yields $\OML/cmm/m/it/10.95 k\OT1/cmr/
+m/n/10.95 [[\OML/cmm/m/it/10.95 e[]; [] ; e[]\OT1/cmr/m/n/10.95 ]]$\T1/cmr/m/n/
+10.95 . Un-der these iden-ti-fi-ca-tions the max-i-mal ideal of $[]$ is $\OT1/c
+mr/m/n/10.95 (\OML/cmm/m/it/10.95 e[]; [] ; e[]\OT1/cmr/m/n/10.95 )$\T1/cmr/m/n
+/10.95 ,
+
+[19]
+[20]
+[21]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `superscript' on input line 1259.
+
+
+[22]
+[23]
+Overfull \hbox (13.19939pt too wide) in paragraph at lines 1415--1418
+\T1/cmr/m/it/10.95 and de-onte by $\OML/cmm/m/it/10.95 e[]; :::; e[]$ \T1/cmr/m
+/it/10.95 the el-e-men-tary sym-met-ric poly-no-mi-als in $\OML/cmm/m/it/10.95 
+x[]; :::; x[]$\T1/cmr/m/it/10.95 . If $\OML/cmm/m/it/10.95 m < d$ \T1/cmr/m/it/
+10.95 then $\OML/cmm/m/it/10.95 \OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x[]; :
+::; x[]\OT1/cmr/m/n/10.95 ) \OMS/cmsy/m/n/10.95 2
+
+[24]
+[25]
+[26]
+[27]
+[28]
+Overfull \hbox (32.93033pt too wide) in paragraph at lines 1771--1774
+[]\T1/cmr/m/it/10.95 Every com-po-nent $\OML/cmm/m/it/10.95 []$ \T1/cmr/m/it/1
+0.95 of $[]$ is a sym-met-ric Lau-rent poly-no-mial, i.e. lies in $[]\OML/cmm/m
+/it/10.95 R[][][] \OT1/cmr/m/n/10.95 = \OML/cmm/m/it/10.95 k\OT1/cmr/m/n/10.95 
+[\OML/cmm/m/it/10.95 e[]; [] ; e[]; e[]\OT1/cmr/m/n/10.95 ]$\T1/cmr/m/it/10.95 
+,
+
+[29]
+[30]
+[31]
+[32]
+[33]
+[34])
+[35]
+[36] (./chapter2_reorg.aux) )
+(see the transcript file for additional information)</usr/local/texlive/2025/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/tex
+mf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/local/texlive/2025/
+texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb></usr/local/texlive/20
+25/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/202
+5/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2025
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2025/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2025/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2025/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2025/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/font
+s/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2025/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/pu
+blic/amsfonts/euler/eufm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/
+public/amsfonts/euler/eufm7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1
+/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/t
+ype1/public/cm-super/sfbi1095.pfb></usr/local/texlive/2025/texmf-dist/fonts/typ
+e1/public/cm-super/sfbx0900.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1
+/public/cm-super/sfbx1095.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/p
+ublic/cm-super/sfbx1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/pub
+lic/cm-super/sfbx1440.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/publi
+c/cm-super/sfbx2074.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/
+cm-super/sfbx2488.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm
+-super/sfcc1095.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-s
+uper/sfrm0600.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-sup
+er/sfrm0800.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super
+/sfrm0900.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/s
+frm1095.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfr
+m1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1
+728.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti080
+0.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti1095.
+pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sftt1095.pf
+b></usr/local/texlive/2025/texmf-dist/fonts/type1/public/xypic/xyatip10.pfb></u
+sr/local/texlive/2025/texmf-dist/fonts/type1/public/xypic/xybtip10.pfb>
+Output written on chapter2_reorg.pdf (37 pages, 755164 bytes).
+Transcript written on chapter2_reorg.log.
+Latexmk: Getting log file 'chapter2_reorg.log'
+Latexmk: Examining 'chapter2_reorg.fls'
+Latexmk: Examining 'chapter2_reorg.log'
+Latexmk: Found input bbl file 'chapter2_reorg.bbl'
+Latexmk: Log file says output to 'chapter2_reorg.pdf'
+Latexmk: Bibliography file(s) from .bcf file:
+  ../Bib.bib
+Latexmk: applying rule 'pdflatex'...
+Rule 'pdflatex':  Reasons for rerun
+Changed files or newly in use/created:
+  chapter2_reorg.run.xml
+
+------------
+Run number 4 of rule 'pdflatex'
+------------
+------------
+Running 'pdflatex  -interaction=nonstopmode -halt-on-error -recorder  "chapter2_reorg.tex"'
+------------
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./chapter2_reorg.tex
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-01-18>
+(/usr/local/texlive/2025/texmf-dist/tex/latex/base/report.cls
+Document Class: report 2024/06/29 v1.4n Standard LaTeX document class
+(/usr/local/texlive/2025/texmf-dist/tex/latex/base/size11.clo))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/geometry/geometry.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/keyval.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/iftex/ifvtex.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/iftex/iftex.sty)))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/base/fontenc.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/base/ifthen.sty) (../includes.tex
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/titling/titling.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/color.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics-cfg/color.cfg)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics-def/pdftex.def)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/mathcolor.ltx))
+(/usr/local/texlive/2025/texmf-dist/tex/generic/babel/babel.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/babel/txtbabel.def)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/babel-english/english.ldf))
+(/usr/local/texlive/2025/texmf-dist/tex/generic/babel/locale/en/babel-english.t
+ex) (/usr/local/texlive/2025/texmf-dist/tex/latex/refstyle/refstyle.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/refstyle/refstyle.cfg))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/float/float.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amscls/amsthm.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/makecell/makecell.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/tools/array.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/bbm-macros/bbm.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/amssymb.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/amsfonts.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/stmaryrd/stmaryrd.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/enumitem/enumitem.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/setspace/setspace.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/comment/comment.sty
+Excluding comment 'comment')
+(/usr/local/texlive/2025/texmf-dist/tex/latex/mathtools/mathtools.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/tools/calc.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/mathtools/mhsetup.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/caption/subcaption.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/caption/caption.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/caption/caption3.sty)))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.te
+x)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
+) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/pgf.revision.tex)))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/graphicx.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/trig.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics-cfg/graphics.cfg)))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfil
+tered.code.tex))
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.d
+ef
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-p
+df.def)))
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.
+code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.
+code.tex)) (/usr/local/texlive/2025/texmf-dist/tex/latex/xcolor/xcolor.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics-cfg/color.cfg)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/mathcolor.ltx))
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
+)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.
+tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic
+.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigo
+nometric.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.rando
+m.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.compa
+rison.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.
+code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round
+.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.
+code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integ
+erarithmetics.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex)
+) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfint.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.co
+de.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconst
+ruct.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage
+.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.co
+de.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicst
+ate.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransform
+ations.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.cod
+e.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.c
+ode.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathproce
+ssing.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.co
+de.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.cod
+e.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.cod
+e.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.
+code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.co
+de.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretranspare
+ncy.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.
+code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.code.
+tex)))
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.cod
+e.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.
+tex)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version
+-0-65.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version
+-1-18.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/utilities/pgffor.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex)
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/math/pgfmath.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex))
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex))
+
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.cod
+e.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothan
+dlers.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.cod
+e.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarytopaths.code.tex)))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/rotating.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/fontawesome/fontawesome.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/iftex/ifxetex.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/iftex/ifluatex.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/fontawesome/fontawesomesymbols-ge
+neric.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/fontawesome/fontawesomesymbols-pd
+ftex.tex)) (/usr/local/texlive/2025/texmf-dist/tex/latex/ifsym/ifsym.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/tikz-3dplot/tikz-3dplot.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarycalc.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrary3d.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibraryarrows.code.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.
+code.tex))) (/usr/local/texlive/2025/texmf-dist/tex/generic/xstring/xstring.sty
+ (/usr/local/texlive/2025/texmf-dist/tex/generic/xstring/xstring.tex))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/todonotes/todonotes.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xkeyval/xkvutils.tex)))
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarypositioning.code.tex))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/oberdiek/aliascnt.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/hyperref.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/infwarerr/infwarerr.sty)))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/hycolor/hycolor.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/nameref.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/refcount/refcount.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/gettitlestring/gettitlestring.s
+ty (/usr/local/texlive/2025/texmf-dist/tex/latex/kvoptions/kvoptions.sty)))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/etoolbox/etoolbox.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/stringenc/stringenc.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/intcalc/intcalc.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/puenc.def)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/url/url.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/bitset/bitset.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/base/atbegshi-ltx.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/hpdftex.def
+(/usr/local/texlive/2025/texmf-dist/tex/latex/base/atveryend-ltx.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+
+(/usr/local/texlive/2025/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+))) (/usr/local/texlive/2025/texmf-dist/tex/latex/cleveref/cleveref.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/tools/verbatim.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/tikz-cd/tikz-cd.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/tikz-cd/tikzlibrarycd.code.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarymatrix.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibraryquotes.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.
+meta.code.tex)))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/l3kernel/expl3.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def)))
+ (/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xy.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xy.tex Bootstrap'ing:
+catcodes, docmode,
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xyrecat.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xyidioms.tex)
+
+ Xy-pic version 3.8.9 <2013/10/06>
+ Copyright (c) 1991-2013 by Kristoffer H. Rose <krisrose@tug.org> and others
+ Xy-pic is free software: see the User's Guide for details.
+
+Loading kernel: messages; fonts; allocations: state, direction,
+utility macros; pictures: \xy, positions, objects, decorations;
+kernel objects: directionals, circles, text; options; algorithms: directions,
+edges, connections;  Xy-pic loaded)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/iftex/ifpdf.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xyall.tex
+ Xy-pic option: All features v.3.8
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xycurve.tex
+ Xy-pic option: Curve and Spline extension v.3.12 curve, circles, loaded)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xyframe.tex
+ Xy-pic option: Frame and Bracket extension v.3.14 loaded)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xycmtip.tex
+ Xy-pic option: Computer Modern tip extension v.3.7
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xytips.tex
+ Xy-pic option: More Tips extension v.3.11 loaded) loaded)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xyline.tex
+ Xy-pic option: Line styles extension v.3.10 loaded)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xyrotate.tex
+ Xy-pic option: Rotate and Scale extension v.3.8 loaded)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xycolor.tex
+ Xy-pic option: Colour extension v.3.11 loaded)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xymatrix.tex
+ Xy-pic option: Matrix feature v.3.14 loaded)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xyarrow.tex
+ Xy-pic option: Arrow and Path feature v.3.9 path, \ar, loaded)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xygraph.tex
+ Xy-pic option: Graph feature v.3.11 loaded) loaded)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xypdf.tex
+ Xy-pic option: PDF driver v.1.7 Xy-pic pdf driver: `color' extension support
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xypdf-co.tex loaded)
+Xy-pic pdf driver: `curve' extension support
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xypdf-cu.tex loaded)
+Xy-pic pdf driver: `frame' extension support
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xypdf-fr.tex loaded)
+Xy-pic pdf driver: `line' extension support
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xypdf-li.tex loaded)
+Xy-pic pdf driver: `rotate' extension support
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xypic/xypdf-ro.tex loaded)
+loaded)) (/usr/local/texlive/2025/texmf-dist/tex/latex/jknapltx/mathrsfs.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/thmtools/thmtools.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/thmtools/thm-patch.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/thmtools/parseargs.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/thmtools/thm-kv.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/thmtools/thm-autoref.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/thmtools/aliasctr.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/thmtools/thm-listof.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/thmtools/thm-restate.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/thmtools/thm-amsthm.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/generic/mleftright/mleftright.sty))
+(../MacrosAndFigures.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarypatterns.code.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/pgflibrarypattern
+s.code.tex)))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/csquotes/csquotes.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/csquotes/csquotes.def)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/csquotes/csquotes.cfg))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/biblatex.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/logreq/logreq.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/logreq/logreq.def))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/blx-dm.def)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/blx-compat.def)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/biblatex.def)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/bbx/alphabetic.bbx
+(/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/bbx/standard.bbx))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/cbx/alphabetic.cbx)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/biblatex.cfg)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/blx-case-expl3.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/tools/xr.sty)
+(./chapter2_reorg.aux)
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+(/usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg))
+(./chapter2_reorg.out) (./chapter2_reorg.out)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/stmaryrd/Ustmry.fd)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/jknapltx/ursfs.fd)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/wasysym/uwasy.fd)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/lbx/english.lbx)
+(./chapter2_reorg.bbl)
+[1{/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/l
+ocal/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}]
+(../chapter2_reorg/chapter2_reorg_body.tex
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.4 \chapter
+            {Ramification After Blowup Is Tame} [1]
+Chapter 1.
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/ueuf.fd)
+[2]
+[3{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
+}]
+[4] <xymatrix 2x2 154>
+[5]
+[6]
+[7]
+[8]
+[9]
+[10]
+Overfull \hbox (27.8096pt too wide) detected at line 572
+\OML/cmm/m/it/10.95 w[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 S[]; [] ; S[]\OT
+1/cmr/m/n/10.95 ) = \OML/cmm/m/it/10.95 w[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10
+.95 X[]; [] ; X[]\OT1/cmr/m/n/10.95 ) + \OML/cmm/m/it/10.95 w[]\OT1/cmr/m/n/10.
+95 (\OML/cmm/m/it/10.95 Y[]; [] ; Y[]\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 ; 
+ w[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 P[]; [] ; P[]\OT1/cmr/m/n/10.95 ) =
+ \OML/cmm/m/it/10.95 w[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 X[]; [] ; X[]\O
+T1/cmr/m/n/10.95 ) \OMS/cmsy/m/n/10.95 ^^A \OML/cmm/m/it/10.95 w[]\OT1/cmr/m/n/
+10.95 (\OML/cmm/m/it/10.95 Y[]; [] ; Y[]\OT1/cmr/m/n/10.95 )
+
+[11]
+Overfull \hbox (84.97499pt too wide) in paragraph at lines 637--640
+[]\T1/cmr/bx/n/10.95 Proposition 17 \T1/cmr/m/n/10.95 (shape of Witt ad-di-tion
+)\T1/cmr/bx/n/10.95 . []\T1/cmr/m/it/10.95 For ev-ery $\OML/cmm/m/it/10.95 n \O
+MS/cmsy/m/n/10.95 ^^U \OT1/cmr/m/n/10.95 0$ \T1/cmr/m/it/10.95 there is a poly-
+no-mial $\OML/cmm/m/it/10.95 C[] \OMS/cmsy/m/n/10.95 2 \U/msb/m/n/10.95 Z\OT1/c
+mr/m/n/10.95 [\OML/cmm/m/it/10.95 X[]; [] ; X[]\OT1/cmr/m/n/10.95 ; \OML/cmm/m/
+it/10.95 Y[]; [] ; Y[]\OT1/cmr/m/n/10.95 ]$\T1/cmr/m/it/10.95 ,
+
+[12]
+[13]
+[14]
+[15]
+[16]
+[17]
+[18]
+Overfull \hbox (9.6162pt too wide) in paragraph at lines 1112--1119
+\T1/cmr/m/n/10.95 Finally, $\OML/cmm/m/it/10.95 k\OT1/cmr/m/n/10.95 [[\OML/cmm/
+m/it/10.95 x[]; [] ; x[]\OT1/cmr/m/n/10.95 ]][] = \OML/cmm/m/it/10.95 k\OT1/cmr
+/m/n/10.95 [[\OML/cmm/m/it/10.95 e[]; [] ; e[]\OT1/cmr/m/n/10.95 ]]$\T1/cmr/m/n
+/10.95 : the ring $\OML/cmm/m/it/10.95 k\OT1/cmr/m/n/10.95 [\OML/cmm/m/it/10.95
+ x[]; [] ; x[]\OT1/cmr/m/n/10.95 ]$ \T1/cmr/m/n/10.95 is a fi-nite free mod-ule
+ over $\OML/cmm/m/it/10.95 k\OT1/cmr/m/n/10.95 [\OML/cmm/m/it/10.95 e[]; [] ; e
+[]\OT1/cmr/m/n/10.95 ]$\T1/cmr/m/n/10.95 ,
+
+Overfull \hbox (7.60236pt too wide) in paragraph at lines 1112--1119
+\OML/cmm/m/it/10.95 k\OT1/cmr/m/n/10.95 [[\OML/cmm/m/it/10.95 e[]; [] ; e[]\OT1
+/cmr/m/n/10.95 ]]$ \T1/cmr/m/n/10.95 --- yields $\OML/cmm/m/it/10.95 k\OT1/cmr/
+m/n/10.95 [[\OML/cmm/m/it/10.95 e[]; [] ; e[]\OT1/cmr/m/n/10.95 ]]$\T1/cmr/m/n/
+10.95 . Un-der these iden-ti-fi-ca-tions the max-i-mal ideal of $[]$ is $\OT1/c
+mr/m/n/10.95 (\OML/cmm/m/it/10.95 e[]; [] ; e[]\OT1/cmr/m/n/10.95 )$\T1/cmr/m/n
+/10.95 ,
+
+[19]
+[20]
+[21]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `superscript' on input line 1259.
+
+
+[22]
+[23]
+Overfull \hbox (13.19939pt too wide) in paragraph at lines 1415--1418
+\T1/cmr/m/it/10.95 and de-onte by $\OML/cmm/m/it/10.95 e[]; :::; e[]$ \T1/cmr/m
+/it/10.95 the el-e-men-tary sym-met-ric poly-no-mi-als in $\OML/cmm/m/it/10.95 
+x[]; :::; x[]$\T1/cmr/m/it/10.95 . If $\OML/cmm/m/it/10.95 m < d$ \T1/cmr/m/it/
+10.95 then $\OML/cmm/m/it/10.95 \OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x[]; :
+::; x[]\OT1/cmr/m/n/10.95 ) \OMS/cmsy/m/n/10.95 2
+
+[24]
+[25]
+[26]
+[27]
+[28]
+Overfull \hbox (32.93033pt too wide) in paragraph at lines 1771--1774
+[]\T1/cmr/m/it/10.95 Every com-po-nent $\OML/cmm/m/it/10.95 []$ \T1/cmr/m/it/1
+0.95 of $[]$ is a sym-met-ric Lau-rent poly-no-mial, i.e. lies in $[]\OML/cmm/m
+/it/10.95 R[][][] \OT1/cmr/m/n/10.95 = \OML/cmm/m/it/10.95 k\OT1/cmr/m/n/10.95 
+[\OML/cmm/m/it/10.95 e[]; [] ; e[]; e[]\OT1/cmr/m/n/10.95 ]$\T1/cmr/m/it/10.95 
+,
+
+[29]
+[30]
+[31]
+[32]
+[33]
+[34])
+[35]
+[36] (./chapter2_reorg.aux) )
+(see the transcript file for additional information)</usr/local/texlive/2025/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/tex
+mf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/local/texlive/2025/
+texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb></usr/local/texlive/20
+25/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/202
+5/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2025
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2025/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2025/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2025/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2025/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/font
+s/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2025/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/pu
+blic/amsfonts/euler/eufm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/
+public/amsfonts/euler/eufm7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1
+/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/t
+ype1/public/cm-super/sfbi1095.pfb></usr/local/texlive/2025/texmf-dist/fonts/typ
+e1/public/cm-super/sfbx0900.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1
+/public/cm-super/sfbx1095.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/p
+ublic/cm-super/sfbx1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/pub
+lic/cm-super/sfbx1440.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/publi
+c/cm-super/sfbx2074.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/
+cm-super/sfbx2488.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm
+-super/sfcc1095.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-s
+uper/sfrm0600.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-sup
+er/sfrm0800.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super
+/sfrm0900.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/s
+frm1095.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfr
+m1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1
+728.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti080
+0.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti1095.
+pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sftt1095.pf
+b></usr/local/texlive/2025/texmf-dist/fonts/type1/public/xypic/xyatip10.pfb></u
+sr/local/texlive/2025/texmf-dist/fonts/type1/public/xypic/xybtip10.pfb>
+Output written on chapter2_reorg.pdf (37 pages, 755164 bytes).
+Transcript written on chapter2_reorg.log.
+Latexmk: Getting log file 'chapter2_reorg.log'
+Latexmk: Examining 'chapter2_reorg.fls'
+Latexmk: Examining 'chapter2_reorg.log'
+Latexmk: Found input bbl file 'chapter2_reorg.bbl'
+Latexmk: Log file says output to 'chapter2_reorg.pdf'
+Latexmk: Bibliography file(s) from .bcf file:
+  ../Bib.bib
+Latexmk: All targets (chapter2_reorg.pdf) are up-to-date
+

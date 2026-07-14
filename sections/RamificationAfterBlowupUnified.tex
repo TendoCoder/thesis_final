@@ -1,0 +1,1095 @@
+% Proposed unified replacement for the current Chapter 2 inputs.
+% This file is intentionally not included by main.tex, so that it can be
+% compared with the current chapter before any replacement is made.
+
+\providecommand{\bW}{\mathbb{W}}
+
+Throughout this chapter, let $C$ be a smooth, projective, geometrically connected
+curve over a field $k$ of characteristic $p>0$. Fix a modulus
+\[
+    \mdls=\sum_i n_iP_i,
+    \qquad U=C\setminus\mdls.
+\]
+For a single-point submodulus $\ndls=n_iP_i$, put
+$d_\ndls=\deg(\ndls)$. The divisor $\ndls$ determines a $k$-rational point
+$Z_\ndls\in C^{(d_\ndls)}$. We write
+\[
+    \pi_\ndls:X_\ndls:=\Bl_{Z_\ndls}\bigl(C^{(d_\ndls)}\bigr)
+      \longrightarrow C^{(d_\ndls)}
+\]
+for the blowup, $E_\ndls$ for its exceptional divisor, and $\eta_\ndls$ for
+the generic point of $E_\ndls$. By
+\Cref{prop:relative_symmetric_power_smooth,prop:exceptional_divisor_smooth_point},
+$E_\ndls\cong\bP_k^{d_\ndls-1}$ and in particular is an irreducible prime
+divisor. Thus
+\begin{equation}\label{equation:blowup_diagram_ndls}
+\begin{tikzcd}
+E_\ndls=\overline{\{\eta_\ndls\}}
+  \arrow[r,hook]\arrow[d]&X_\ndls\arrow[d,"\pi_\ndls"]\\
+Z_\ndls\arrow[r,hook]&C^{(d_\ndls)}.
+\end{tikzcd}
+\end{equation}
+
+The purpose of the chapter is to prove
+\Cref{theorem:SymmetricPowerOfSheavesIsTamelyRamifiedReduction}. If $\cF$ is
+the rank-one $\Lambda$-local system in that theorem and
+$\cP=\operatorname{Fr}(\cF)$ is its $G=\Lambda^\times$-torsor of frames, then
+\Cref{prop:torsor_module_equivalence,definition:symmetric_power_local_system}
+gives
+\[
+    \operatorname{Fr}\bigl(\cF^{[d_\ndls]}\bigr)
+       \cong \cP^{[d_\ndls]}.
+\]
+The local system and its frame torsor therefore have the same ramification. It
+is enough to prove the following torsor statement.
+
+\begin{theorem}\label{theorem:torsors_after_blowup_is_tame}
+Let $G$ be a finite abelian group and let $\cP\to U$ be a $G$-torsor whose
+ramification is bounded by $\mdls$. For every single-point submodulus
+$\ndls=n_iP_i$, the symmetric-power torsor $\cP^{[d_\ndls]}$ is tamely
+ramified at $\eta_\ndls$.
+\end{theorem}
+
+The organization is deliberately parallel. We first define ramification for
+finite covers and torsors. We then place Kummer, Artin--Schreier, and
+Artin--Schreier--Witt theory next to one another, separating this general
+background from the calculation particular to the thesis. A common prelude
+collects the formal-local reduction, the contracted-product mechanism, and the
+geometry of the exceptional valuation. Finally, the three cyclic calculations
+are presented in the same order and with the same internal steps. The general
+finite abelian case follows by primary decomposition.
+
+% =====================================================================
+\section{Ramification of Finite Covers and Torsors}
+% =====================================================================
+
+\subsection{Discrete valuation fields}
+
+\begin{definition}[\stackstag{09E4}]
+\label{definition:weakly_unramified_and_tamely_ramified_DVR}
+An extension of discrete valuation rings is an injective local homomorphism
+$A\subset B$ of discrete valuation rings. If $\pi_A$ and $\pi_B$ are
+uniformizers, then $\pi_A=u\pi_B^e$ for a unit $u\in B$ and a uniquely
+determined integer $e\geq1$. The integer $e$ is the \emph{ramification index}.
+The extension is \emph{weakly unramified} if $e=1$.
+\end{definition}
+
+Let $A$ have fraction field $K$, let $L/K$ be finite separable, and let $B$ be
+the integral closure of $A$ in $L$. For the maximal ideals $\mathfrak m_i$ of
+$B$ above $\mathfrak m_A$, write $e_i$ and $f_i$ for the ramification indices
+and residue degrees. Then
+\[
+    [L:K]=\sum_i e_if_i.
+\]
+When $A$ is henselian, there is only one prime above $\mathfrak m_A$.
+
+\begin{definition}[\stackstag{09E9}]
+\label{definition:tamely_ramified_dvrs}
+With the notation above, $L/K$ is
+\begin{enumerate}
+    \item \emph{unramified} if every $e_i=1$ and every residue extension is
+    separable;
+    \item \emph{tamely ramified} if every residue extension is separable and,
+    when the residue characteristic is $p>0$, every $e_i$ is prime to $p$;
+    \item \emph{totally ramified} if there is one prime above
+    $\mathfrak m_A$ and its residue extension is trivial.
+\end{enumerate}
+\end{definition}
+
+Now suppose $A$ is complete with perfect residue field, $L/K$ is finite
+Galois, and $G=\Gal(L/K)$. Let $B$ be the valuation ring of $L$ and $v_B$ its
+valuation. The lower ramification groups are
+\[
+    G_i=\{\sigma\in G:v_B(\sigma(b)-b)\geq i+1
+       \text{ for every }b\in B\},\qquad i\geq-1.
+\]
+Thus $G_{-1}=G$, $G_0$ is inertia, $L/K$ is unramified exactly when
+$G_0=1$, and it is tame exactly when $G_1=1$. The Herbrand function
+\[
+    \phi_{L/K}(u)=\int_0^u\frac{dt}{[G_0:G_t]}
+\]
+reindexes the filtration by $G^v=G_{\phi_{L/K}^{-1}(v)}$. The reason for using
+upper numbering in this thesis is its compatibility with quotients: if
+$H\triangleleft G$, then
+\[
+    (G/H)^v=G^vH/H.
+\]
+
+\subsection{Ramification along a divisor}
+
+Let $X$ be locally Noetherian, let $U\subset X$ be dense, and let
+$Y\to U$ be finite etale. If $Z\subset X\setminus U$ is a prime divisor with
+generic point $\xi$ and $\Oo_{X,\xi}$ is a discrete valuation ring, put
+$K_\xi=\Frac(\Oo_{X,\xi})$. The pullback of $Y$ to $\Spec K_\xi$ is the
+spectrum of a finite separable $K_\xi$-algebra $L_\xi$.
+
+\begin{definition}\label{definition:tamely_ramified_in_codim_1}
+The cover $Y\to U$ is \emph{unramified}, respectively \emph{tamely
+ramified}, at $(Z,\xi)$ if every field factor of $L_\xi$ is unramified,
+respectively tamely ramified, with respect to $\Oo_{X,\xi}$. It is unramified,
+respectively tamely ramified, in codimension one if this holds at every prime
+divisor in $X\setminus U$.
+\end{definition}
+
+Return to the curve $C$. For $P\in C\setminus U$, put
+$\widehat K_P=\Frac(\widehat\Oo_{C,P})$. If $\cP\to U$ is a $G$-torsor,
+then
+\[
+    \cP\big|_{\Spec\widehat K_P}\cong\coprod_{G/H}\Spec F,
+\]
+where $F/\widehat K_P$ is Galois and $H\subseteq G$ is the stabilizer of a
+connected component.
+
+\begin{definition}\label{definition:local_ramification_boundness}
+The extension $F/\widehat K_P$ has \emph{ramification bounded by $r$} if
+$H^r=1$. The torsor $\cP$ has ramification bounded by $r$ at $P$ if its
+connected field factors have this property. It has \emph{ramification bounded
+by $\mdls=\sum n_iP_i$} if its ramification at every $P_i$ is bounded by
+$n_i$.
+\end{definition}
+
+Equivalently, the local torsor is classified by a continuous homomorphism
+\[
+   \rho_P:G_{\widehat K_P}\longrightarrow G,
+\]
+and the bound is the condition $\rho_P(G_{\widehat K_P}^{\,r})=1$. This
+character formulation also shows that the definition is unchanged after
+passing to the geometric points over $P$.
+
+\subsection{Operations on ramified torsors}
+
+\begin{lemma}\label{lemma:bounding_ramification_of_contracted_product}
+Let $G$ be finite abelian and let $\cP_1,\cP_2$ be $G$-torsors on a dense open
+$U\subset X$. If their ramification at a prime divisor is bounded by $r_1$
+and $r_2$, then the ramification of
+$\cP_1\otimes^G\cP_2$ is bounded by $\max(r_1,r_2)$.
+\end{lemma}
+\begin{proof}
+Over the completed local field the two torsors correspond to characters
+$\rho_1,\rho_2:G_K\to G$, while their contracted product corresponds to
+$\rho_1+\rho_2$. Both characters vanish on
+$G_K^{\max(r_1,r_2)}$, so their sum does as well.
+\end{proof}
+
+\begin{lemma}\label{lemma:descend_ramification_along_etale}
+Let $f:X\to Y$ carry a prime divisor $(Z_X,\xi_X)$ to a prime divisor
+$(Z_Y,\xi_Y)$ and be etale at $\xi_X$. If $\cP$ is a finite abelian torsor on
+a dense open of $Y$, then $f^{-1}\cP$ has ramification bounded by $r$ at
+$\xi_X$ if and only if $\cP$ has ramification bounded by $r$ at $\xi_Y$.
+\end{lemma}
+\begin{proof}
+The induced extension of completed discrete valuation fields is unramified.
+The upper-numbering filtration of the absolute Galois group is preserved under
+unramified base change, so the two local characters kill the same $r$-th
+ramification group.
+\end{proof}
+
+If $H\subseteq G$, the quotient $\cP/H$ corresponds locally to the composite
+$G_K\to G\to G/H$. Consequently ramification bounds descend to quotient
+torsors. Together with the preceding two lemmas, this is the functoriality used
+in the final reduction from cyclic groups to arbitrary finite abelian groups.
+
+% =====================================================================
+\section{Three Parallel Theories of Cyclic Torsors}
+% =====================================================================
+
+This section contains general background, not the symmetric-power calculation
+specific to the thesis. The three theories have the same formal shape:
+\[
+\begin{array}{c|c|c|c}
+\text{theory}&H&\varphi:H\to H&\ker(\varphi)\\ \hline
+\text{Kummer}&\bG_m&z\mapsto z^e&\mu_e\cong\Z/e\Z\\
+\text{Artin--Schreier}&\bG_a&z\mapsto z^p-z&\F_p\cong\Z/p\Z\\
+\text{Artin--Schreier--Witt}&\bW_r&F-\mathrm{id}&W_r(\F_p)\cong\Z/p^r\Z.
+\end{array}
+\]
+In every row, pulling back $\varphi$ along a section $a$ produces a torsor
+$\varphi(X)=a$, and changing $a$ by an element of $\varphi(H)$ does not change
+its class.
+
+\subsection{\texorpdfstring{Kummer theory: order prime to $p$}{Kummer theory: order prime to p}}
+
+Let $e$ be prime to $p$ and suppose the field $K$ contains $\mu_e$. The Kummer
+sequence
+\[
+    1\longrightarrow\mu_e\longrightarrow\bG_m
+      \xrightarrow{(-)^e}\bG_m\longrightarrow1
+\]
+identifies
+\[
+    H^1(K,\mu_e)\cong K^\times/(K^\times)^e.
+\]
+The class of $a\in K^\times$ is represented by
+$K[T]/(T^e-a)$, with $\zeta\in\mu_e$ acting by $T\mapsto\zeta T$.
+
+\begin{theorem}[Ramification in Kummer extensions,
+{\cite[Proposition~1.83]{koch1997algebraic}}]
+\label{theorem:kummer_ramification}
+Let $K$ be a discretely valued field containing $\mu_e$, with residue
+characteristic prime to $e$, and let $L=K[T]/(T^e-a)$. Write $a=\pi^m u$ with
+$u$ a unit. Then the ramification index is
+\[
+    e(L/K)=\frac{e}{\gcd(e,m)}.
+\]
+If $e\mid m$, the extension is unramified or trivial according to the residue
+class of $u$; if $\gcd(e,m)=1$, it is totally and tamely ramified of degree
+$e$. Conversely, every cyclic extension of degree prime to $p$ over a field
+containing the required roots of unity is Kummer.
+\end{theorem}
+
+\subsection{\texorpdfstring{Artin--Schreier theory: order $p$}{Artin--Schreier theory: order p}}
+
+For a field $K$ of characteristic $p$, the Artin--Schreier sequence
+\[
+  0\longrightarrow\F_p\longrightarrow\bG_a
+    \xrightarrow{\wp}\bG_a\longrightarrow0,
+  \qquad \wp(z)=z^p-z,
+\]
+identifies
+\[
+    H^1(K,\Z/p\Z)\cong K/\wp(K).
+\]
+The class of $a\in K$ is represented by $K[X]/(X^p-X-a)$, with
+$g\in\F_p$ acting by $X\mapsto X+g$.
+
+\begin{theorem}[Ramification in Artin--Schreier extensions,
+{\cite{Thomas2005}}]\label{theorem:artin_schreier_ramification}
+Let $K=k((x))$, with $k$ perfect of characteristic $p$, and let $a$ be a
+reduced representative of a class in $K/\wp(K)$: either $a$ is regular, or
+$v_x(a)=-m<0$ with $p\nmid m$. If the class is nonzero and regular, the
+corresponding extension is unramified. If $v_x(a)=-m<0$, it is totally
+ramified of degree $p$ and its unique upper ramification break is $m$.
+Every cyclic extension of degree $p$ arises in this way.
+\end{theorem}
+
+\subsection{\texorpdfstring{Artin--Schreier--Witt theory: order $p^r$}{Artin--Schreier--Witt theory: order p-power}}
+\phantomsection\label{subsection:witt_vector_prerequisites}
+
+We recall only the Witt-vector structure used later. For $n\geq0$, the
+$n$-th $p$-typical Witt polynomial is
+\[
+    w_n(X_0,\dots,X_n)=\sum_{j=0}^n p^jX_j^{p^{n-j}}.
+\]
+There are unique integral polynomials defining addition and multiplication on
+$A^r$ for which the ghost map $(w_0,\dots,w_{r-1})$ is a ring map. The
+resulting ring is denoted $W_r(A)$.
+
+\begin{theorem}[Witt; {\cite[II, \S6]{serreLF}}]
+\label{theorem:witt_ring_structure}
+The functor $A\mapsto W_r(A)$ is a commutative ring functor. Witt addition is
+given by universal polynomials $S_n$, and the $n$-th component has triangular
+form
+\begin{equation}\label{eq:witt_addition_shape}
+   (\vec a\oplus\vec b)_n=a_n+b_n+C_n(a_0,\dots,a_{n-1};b_0,\dots,b_{n-1}).
+\end{equation}
+The ghost map is injective when $p$ is a non-zero-divisor and bijective when
+$p$ is invertible.
+\end{theorem}
+
+\begin{lemma}[Ghost principle]\label{lemma:ghost_principle}
+Two universal polynomial operations on Witt vectors are equal if their ghost
+components agree over an integral polynomial ring.
+\end{lemma}
+\begin{proof}
+Over that polynomial ring $p$ is a non-zero-divisor, so the ghost map is
+injective. The resulting polynomial identity remains true after arbitrary
+base change.
+\end{proof}
+
+\begin{prop}[Shape of Witt addition]\label{prop:witt_addition_shape}
+The carry polynomial $C_n$ in \Cref{eq:witt_addition_shape} involves only
+components of index strictly less than $n$. The analogous statement holds for
+Witt subtraction $\ominus$.
+\end{prop}
+\begin{proof}
+Solve recursively for $S_n$ in the identity
+$w_n(S_0,\dots,S_n)=w_n(\vec X)+w_n(\vec Y)$. The terms containing $X_n,Y_n$
+contribute $p^n(X_n+Y_n)$; all remaining terms involve lower components.
+\end{proof}
+
+For an $\F_p$-algebra $A$, Frobenius is componentwise,
+$F(a_0,\dots,a_{r-1})=(a_0^p,\dots,a_{r-1}^p)$. Verschiebung and truncation are
+\[
+ V(a_0,\dots,a_{r-2})=(0,a_0,\dots,a_{r-2}),\qquad
+ t(a_0,\dots,a_{r-1})=(a_0,\dots,a_{r-2}).
+\]
+
+\begin{definition}\label{definition:witt_operators}
+We use $F$, $V$, and $t$ for these three operators on finite-length
+$p$-typical Witt vectors.
+\end{definition}
+
+\begin{prop}\label{prop:witt_multiplication_by_p}
+The map $t$ is a ring homomorphism with kernel $V^{r-1}A$; the map $V$ is
+additive and commutes with $F$; and multiplication by $p$ is $VF=FV$. In
+particular,
+\begin{equation}\label{eq:witt_p_to_r_minus_1}
+ p^{r-1}(a_0,\dots,a_{r-1})=(0,\dots,0,a_0^{p^{r-1}}).
+\end{equation}
+\end{prop}
+
+\begin{example}\label{example:witt_of_Fp}
+The additive group $W_r(\F_p)$ is canonically $\Z/p^r\Z$; the unit
+$(1,0,\dots,0)$ is a generator.
+\end{example}
+
+\begin{definition}\label{definition:asw_operator}
+The Artin--Schreier--Witt operator is the additive endomorphism
+\[
+    \wp=F-\mathrm{id}:W_r(A)\longrightarrow W_r(A).
+\]
+For $r=1$ this is $z\mapsto z^p-z$.
+\end{definition}
+
+\begin{lemma}[Witt bookkeeping]\label{lemma:witt_bookkeeping}
+For an $\F_p$-algebra $A$:
+\begin{enumerate}[label=(\roman*)]
+ \item $t$ commutes with $F$ and $\wp$, and $\ker(t)=V^{r-1}A$;
+ \item $V^{r-1}$ is additive and $\wp V^{r-1}=V^{r-1}\wp$;
+ \item addition in the top component is carry-free:
+ \[
+   \vec a\oplus V^{r-1}(c)=(a_0,\dots,a_{r-2},a_{r-1}+c).
+ \]
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+The first two assertions follow from the preceding proposition. For the last,
+compare ghost components: $V^{r-1}(c)$ has zero ghost components below level
+$r-1$ and last ghost component $p^{r-1}c$.
+\end{proof}
+
+The Witt-vector group scheme $\bW_r$ has underlying scheme $\A^r_{\F_p}$ and
+group law given by Witt addition. The operator $\wp$ gives the exact sequence
+\begin{equation}\label{eq:asw_lang_sequence}
+0\longrightarrow\Z/p^r\Z\cong W_r(\F_p)
+ \longrightarrow\bW_r\xrightarrow{\wp}\bW_r\longrightarrow0.
+\end{equation}
+
+\begin{lemma}[ASW covers are etale torsors]\label{lemma:asw_etale_torsor}
+Let $A$ be an $\F_p$-algebra and $\vec g\in W_r(A)$. Then
+\[
+ B=A[\vec X]/(\wp\vec X\ominus\vec g)
+\]
+is finite free of rank $p^r$ and etale over $A$. Translation
+$\vec X\mapsto\vec X\oplus\underline m$ by
+$m\in W_r(\F_p)\cong\Z/p^r\Z$ makes $\Spec B$ a $\Z/p^r\Z$-torsor.
+\end{lemma}
+\begin{proof}
+By triangularity, the $n$-th equation is monic of degree $p$ in $X_n$ and
+only involves lower variables otherwise. Hence the monomials
+$\prod X_n^{a_n}$, $0\leq a_n<p$, form a basis. The Jacobian is triangular
+with diagonal entries $-1$, so the algebra is etale. Its translations are the
+kernel $W_r(\F_p)$ of $\wp$.
+\end{proof}
+
+\begin{theorem}[Artin--Schreier--Witt theory; {\cite[\S\S3--4]{Thomas2005}}]
+\label{theorem:asw_theory}
+For a field $K$ of characteristic $p$ there is a canonical isomorphism
+\[
+ W_r(K)/\wp W_r(K)\xrightarrow{\sim}
+ H^1(K,\Z/p^r\Z)=\Hom_{\mathrm{cont}}(G_K,\Z/p^r\Z).
+\]
+The class of $\vec g$ corresponds to the torsor
+$\wp\vec X=\vec g$. Its order is the order of the image of the associated
+character; in particular, the torsor is connected of degree $p^r$ exactly
+when $[\vec g]$ has order $p^r$. Every cyclic extension of degree dividing
+$p^r$ arises this way.
+\end{theorem}
+
+\begin{cor}\label{cor:asw_class_order_and_first_component}
+If $\vec g=(g_0,\dots,g_{r-1})$ has $g_0=0$, then $p^{r-1}[\vec g]=0$.
+Consequently every representative of a class of order $p^r$ has nonzero
+first component.
+\end{cor}
+\begin{proof}
+Apply \Cref{eq:witt_p_to_r_minus_1}.
+\end{proof}
+
+\begin{rem*}\label{rem:asw_local_totally_ramified}
+If $K=k((x))$ and $k$ is algebraically closed, every finite extension of $K$
+is totally ramified. Hence a class of order $p^r$ defines a cyclic totally
+ramified extension of degree $p^r$.
+\end{rem*}
+
+\begin{lemma}[Isobaricity of Witt addition]\label{lemma:witt_addition_isobaric}
+Give the $j$-th component weight $p^j$. Every monomial in the $n$-th component
+of a Witt sum has total weight $p^n$. The same is true for an iterated Witt
+sum.
+\end{lemma}
+\begin{proof}
+Each ghost polynomial $w_n$ is isobaric of weight $p^n$. The recursion defining
+$S_n$ preserves that weight, and the assertion for iterated sums follows by
+substitution.
+\end{proof}
+
+\begin{definition}\label{definition:reduced_witt_vector}
+For $K=k((x))$, put $m(g)=\max(0,-v_x(g))$. A vector
+$\vec g=(g_0,\dots,g_{r-1})\in W_r(K)$ is \emph{reduced} if every nonzero pole
+order $m(g_j)$ is prime to $p$.
+\end{definition}
+
+\begin{theorem}[Schmid--Witt break formula]\label{theorem:schmid_witt_break_formula}
+Let $K=k((x))$, with $k$ perfect, and let a reduced vector $\vec g$ represent
+a cyclic totally ramified extension of degree $p^r$. Its largest upper
+ramification break is
+\[
+    u=\max_{0\leq j<r}p^{r-1-j}m(g_j).
+\]
+\end{theorem}
+
+For $r=1$ this is the Artin--Schreier break formula. The weighted maximum is
+the exact feature that replaces the single pole-order bound in the degree-$p$
+case.
+
+% =====================================================================
+\section{Prelude to the Explicit Ramification Calculations}
+% =====================================================================
+
+This section isolates everything shared by the three calculations. Its main
+point is that Kummer multiplication, Artin--Schreier addition, and Witt
+addition are instances of a single contracted-product construction.
+
+\subsection{A common torsor equation}
+
+Let $S$ be a scheme, let $H$ be a commutative $S$-group scheme, and let
+$\varphi:H\to H$ be a finite etale surjective homomorphism with constant
+kernel $G$. For a section $a:X\to H$ over an $S$-scheme $X$, write
+\[
+    \mathcal T_a:=X\times_{a,H,\varphi}H.
+\]
+It is a $G$-torsor on $X$. We write $\star$ for the group law of $H$; thus
+$\star$ means multiplication for $H=\bG_m$, ordinary addition for
+$H=\bG_a$, and Witt addition for $H=\bW_r$.
+
+\begin{prop}[The common cyclic product calculation]
+\label{prop:parallel_cyclic_product_torsor}
+Let $a_i:X\to H$, $1\leq i\leq d$, be sections. There is a canonical
+isomorphism of $G$-torsors
+\[
+    \mathcal T_{a_1}\otimes^G\cdots\otimes^G\mathcal T_{a_d}
+       \cong \mathcal T_{a_1\star\cdots\star a_d}.
+\]
+On equation coordinates it is induced by
+\[
+    (X_1,\dots,X_d)\longmapsto Y:=X_1\star\cdots\star X_d,
+    \qquad
+    \varphi(Y)=a_1\star\cdots\star a_d.
+\]
+If a group $\Gamma$ permutes the indices, then $Y$ and the resulting datum are
+$\Gamma$-invariant, so the isomorphism is compatible with descent to the
+quotient by $\Gamma$.
+\end{prop}
+\begin{proof}
+The product $\prod_i\mathcal T_{a_i}$ is a $G^d$-torsor. Contracting along the sum
+map $G^d\to G$ gives its quotient by the kernel $\KG$. The displayed map is
+$\KG$-invariant because the kernel translations cancel under $\star$; it is
+equivariant for the residual $G$-action. Its target is a $G$-torsor because it
+is the pullback of $\varphi$. Hence it is an isomorphism by
+\Cref{prop:torsor_morphism_iso}. Commutativity and associativity of $\star$
+give the permutation-equivariance.
+\end{proof}
+
+The three concrete instances are therefore
+\[
+\begin{array}{c|c|c}
+G&Y&\text{new defining datum}\\ \hline
+\Z/e\Z&\prod_iX_i&\prod_i a(x_i)\\
+\Z/p\Z&\sum_iX_i&\sum_i a(x_i)\\
+\Z/p^r\Z&\bigoplus_i\vec X_i&\bigoplus_i\vec a(x_i).
+\end{array}
+\]
+This is the precise sense in which the three symmetric-power calculations are
+the same calculation.
+
+\subsection{Formal-local invariance and the exceptional valuation}
+
+From now on assume $k$ is algebraically closed. This is the setting in which
+the theorem is used later, and it makes every point of $C$ rational. Fix
+$P\in C(k)$, put $\ndls=dP$, and choose a uniformizer $x$ at $P$. Let
+$x_1,\dots,x_d$ be the induced parameters on $C^d$, and let
+$e_1,\dots,e_d$ be their elementary symmetric polynomials. Set
+\[
+ V=\Spec k[[e_1,\dots,e_d]][e_d^{-1}],\qquad
+ W=\Spec k[[x_1,\dots,x_d]][(x_1\cdots x_d)^{-1}].
+\]
+For each $i$, let $q_i:W\to\Spec k((x))$ be given by $x\mapsto x_i$.
+
+\begin{lemma}[Formal-local invariance]\label{lemma:formal_local_invariance}
+With the notation above:
+\begin{enumerate}
+ \item $\widehat\Oo_{C^{(d)},dP}\cong k[[e_1,\dots,e_d]]$, and the preimage of
+ $U^{(d)}$ is $V$;
+ \item if $\eta_{dP}$ is the generic point of the exceptional divisor, then
+ \begin{equation}\label{eq:complete_field_at_generic_point}
+   \widehat\Oo_{X_{dP},\eta_{dP}}\cong\kappa[[e_d]],\qquad
+   \widehat K_{\eta_{dP}}\cong\kappa((e_d)),
+   \quad
+   \kappa=k(e_1/e_d,\dots,e_{d-1}/e_d);
+ \end{equation}
+ \item for every finite abelian $G$-torsor $\cP\to U$, with local restriction
+ $\cP_x$ to $\Spec k((x))$, there is a canonical isomorphism over $V$
+ \[
+   \cP^{[d]}\big|_V\cong
+   \Xi\backslash
+   \bigl(q_1^{-1}\cP_x\times_W\cdots\times_Wq_d^{-1}\cP_x\bigr).
+ \]
+\end{enumerate}
+Consequently the ramification of $\cP^{[d]}$ at $\eta_{dP}$ depends only on
+$d$ and the isomorphism class of $\cP_x$.
+\end{lemma}
+\begin{proof}
+Completion of $C^d$ at $(P,\dots,P)$ is
+$k[[x_1,\dots,x_d]]$. Taking $S_d$-invariants commutes with the flat
+completion and gives
+\[
+ k[[x_1,\dots,x_d]]^{S_d}=k[[e_1,\dots,e_d]].
+\]
+The boundary divisor consisting of cycles containing $P$ pulls back to
+$V(x_1\cdots x_d)=V(e_d)$, proving (1).
+
+Blowups commute with flat base change. On the blowup chart where the
+$e_d$-direction is nonzero, write $e_i=(e_i/e_d)e_d$ for $i<d$. At the
+generic point of the exceptional divisor the ratios $e_i/e_d$ are
+algebraically independent residue parameters and $e_d$ is a uniformizer.
+This gives (2).
+
+Finally, the formation of the finite quotient
+$\cP^{[d]}=\Xi\backslash\cP^d$ commutes with flat base change: the quotient
+ring is an invariant subring, hence a kernel, and kernels commute with flat
+base change. Pulling $\cP^d$ to $W$ gives the displayed product of the local
+torsors. Restricting further along
+$\Spec\kappa((e_d))\to V$ proves the consequence.
+\end{proof}
+
+\begin{cor}[Reduction to $\bP^1$]\label{cor:reduction_to_P1}
+Suppose $\cP\to C\setminus\mdls$ and
+$\cP'\to C'\setminus\mdls'$ are $G$-torsors and their restrictions to the
+punctured formal discs at rational points $P,P'$ are isomorphic after matching
+uniformizers. Then $\cP^{[d]}$ and $\cP'^{[d]}$ have identical ramification at
+$\eta_{dP}$ and $\eta_{dP'}$.
+\end{cor}
+\begin{proof}
+Both local symmetric-power torsors are obtained from the same local torsor by
+the construction in \Cref{lemma:formal_local_invariance}.
+\end{proof}
+
+We will repeatedly use the following valuation interpretation. If a symmetric
+Laurent polynomial belongs to
+\[
+   \kappa=k(e_1/e_d,\dots,e_{d-1}/e_d),
+\]
+then it is a unit or zero in $\kappa[[e_d]]$ and hence has no pole along the
+exceptional divisor. By contrast, a power $e_d^a$ has valuation $a$.
+
+\subsection{\texorpdfstring{Polynomial normal forms on $\bG_m$}{Polynomial normal forms on Gm}}
+
+The formal-local reduction becomes useful once a local cyclic torsor is
+realized by an equation on $\bG_m$.
+
+\begin{lemma}[Surjectivity on integral Witt vectors]
+\label{lemma:wp_surjective_on_integral_witt}
+For algebraically closed $k$, the map
+$\wp:W_r(k[[x]])\to W_r(k[[x]])$ is surjective.
+\end{lemma}
+\begin{proof}
+For $r=1$, solve $u^p-u=h$ coefficientwise; algebraic closedness solves the
+constant term. Induct on $r$. Solve after truncation, lift the solution to
+length $r$, and use \Cref{lemma:witt_bookkeeping} to correct the remaining top
+component by an element of $V^{r-1}k[[x]]$.
+\end{proof}
+
+\begin{definition}\label{definition:reduced_polynomial_vector}
+A Witt vector $\vec f=(f_0,\dots,f_{r-1})\in W_r(k((x)))$ is a
+\emph{reduced polynomial vector} if it is reduced and every
+$f_j\in x^{-1}k[x^{-1}]$. Put $m_j=\deg_{x^{-1}}f_j$, with $m_j=0$ when
+$f_j=0$.
+\end{definition}
+
+\begin{prop}[Reduced polynomial representatives]
+\label{prop:reduced_polynomial_representatives}
+Every class in $W_r(k((x)))/\wp W_r(k((x)))$ has a reduced polynomial
+representative.
+\end{prop}
+\begin{proof}
+Induct on $r$. For $r=1$, remove the integral part using surjectivity on
+$k[[x]]$. If the remaining leading pole $cx^{-m}$ has $p\mid m$, subtract
+\[
+   \wp(c^{1/p}x^{-m/p})=cx^{-m}-c^{1/p}x^{-m/p};
+\]
+this strictly lowers the pole order, and iteration produces a reduced
+polynomial.
+
+For the induction step, first reduce the truncation to length $r-1$ and lift
+the change of representative. The lower components are now reduced
+polynomials. By \Cref{lemma:witt_bookkeeping}, subtracting
+$\wp(V^{r-1}z)$ changes only the last component, by $-\wp(z)$. Apply the
+length-one procedure to that component. Every operation subtracts an actual
+element of $\wp W_r(k((x)))$, so the class is unchanged.
+\end{proof}
+
+\begin{lemma}[Parallel realization over $\bG_m$]
+\label{lemma:realization_over_Gm}\label{lemma:realization_over_Gm_Wr}
+Let $k$ be algebraically closed and let $\cQ$ be a connected cyclic torsor on
+$\Spec k((x))$.
+\begin{enumerate}
+ \item If $G=\Z/e\Z$, $(e,p)=1$, then for some $a$ prime to $e$ the torsor is
+ represented by
+ \[
+     T^e=x^a.
+ \]
+ The same equation defines a torsor on $\bG_m$.
+ \item If $G=\Z/p\Z$ and the ramification is bounded by $d$, then the torsor is
+ represented by
+ \[
+     X^p-X=f(x),\qquad f\in x^{-1}k[x^{-1}],\qquad
+     m:=\deg_{x^{-1}}f<d,\qquad p\nmid m,
+ \]
+ with the convention $f=0$ for the trivial class. The same equation defines a
+ torsor on $\bG_m$ extending etale across $\infty$.
+ \item If $G=\Z/p^r\Z$ and the ramification is bounded by $d$, then the torsor
+ is represented by
+ \[
+     \wp\vec X=\vec f,
+ \]
+ where $\vec f$ is a reduced polynomial vector satisfying
+ \begin{equation}\label{eq:parallel_witt_pole_bound}
+       p^{r-1-j}m_j<d\qquad(0\leq j<r).
+ \end{equation}
+ The same equation defines a torsor on $\bG_m$ extending etale across
+ $\infty$.
+\end{enumerate}
+More generally, a tamely ramified $G$-torsor for finite abelian $G$ is induced
+from the Kummer torsor in (1) along an injection $\Z/e\Z\hookrightarrow G$.
+\end{lemma}
+\begin{proof}
+For (1), $k((x))$ has no nontrivial unramified extension and its tame quotient
+is procyclic. Kummer theory identifies its connected quotient of order $e$
+with the class of $x^a$ for $a\in(\Z/e\Z)^\times$.
+
+For (2), Artin--Schreier theory identifies the class with an element of
+$k((x))/\wp(k((x)))$. The length-one reduction in the proof of
+\Cref{prop:reduced_polynomial_representatives} produces $f$ of the stated
+form. The break formula gives $m<d$. Since $f$ is a polynomial in $x^{-1}$
+without constant term, the equation is etale over $k[x^{-1}]$.
+
+For (3), choose a reduced polynomial representative using
+\Cref{prop:reduced_polynomial_representatives}. Connectedness and
+\Cref{cor:asw_class_order_and_first_component} imply $f_0\neq0$. The
+Schmid--Witt formula gives
+\[
+   \max_j p^{r-1-j}m_j<d,
+\]
+which is \Cref{eq:parallel_witt_pole_bound}. The torsor and its extension
+across $\infty$ follow from \Cref{lemma:asw_etale_torsor} applied over
+$k[x,x^{-1}]$ and $k[x^{-1}]$.
+\end{proof}
+
+\begin{rem*}\label{rem:realization_Wr_sanity}
+The Witt pole bound forces $f_j=0$ whenever $p^{r-1-j}\geq d$. Thus the
+strong restriction imposed by ``break $<d$'' is visible in every Witt
+component, not only in the last one.
+\end{rem*}
+
+\subsection{Symmetric regularity}
+
+Put $y_i=x_i^{-1}$. The identity
+\[
+   e_j(y_1,\dots,y_d)=\frac{e_{d-j}(x_1,\dots,x_d)}{e_d(x_1,\dots,x_d)}
+\]
+relates symmetric polynomials in the poles $y_i$ to the residue field
+$\kappa$ of the exceptional valuation.
+
+\begin{lemma}[Symmetric regularity]\label{lemma:symmetric_regularity}
+If $\Phi\in k[y_1,\dots,y_d]^{S_d}$ and every monomial of $\Phi$ has total
+degree strictly less than $d$, then
+\[
+    \Phi\in k(e_1/e_d,\dots,e_{d-1}/e_d)=\kappa.
+\]
+In particular, $\Phi$ is regular at $\eta_{dP}$.
+\end{lemma}
+\begin{proof}
+Expand $\Phi$ in monomial symmetric functions. A symmetric function of degree
+$<d$ is a polynomial in $e_1(y),\dots,e_{d-1}(y)$; $e_d(y)$ cannot occur.
+The displayed identity puts each of these generators in $\kappa$.
+\end{proof}
+
+\subsection{The scheme-theoretic symmetric power causes no new divisor}
+
+The torsor-theoretic symmetric power is a quotient of the ordinary symmetric
+power of the covering scheme. The comparison is harmless in codimension one.
+
+\begin{lemma}\label{lemma:torsor_unramified_codim_one}
+Let $\cP=U'\to U$ be a finite abelian $G$-torsor on a smooth curve, and let
+$C'$ be the smooth proper model of $U'$. The natural morphism from the ordinary
+symmetric power $U'^{(d)}$ to the torsor-theoretic symmetric power
+$U'^{[d]}$ is unramified along every codimension-one boundary component of
+$C'^{(d)}$.
+\end{lemma}
+\begin{proof}
+A boundary component has generic point represented in $C'^d$ by
+$(Q,Q_2,\dots,Q_d)$, where the last $d-1$ entries are generic and independent.
+The quotient group is $\Xi=\KG\rtimes S_d$. An element of the inertia group at
+this generic point must fix each of the independent function-field factors,
+so its permutation part and its last $d-1$ group components are trivial. The
+condition that it lie in $\KG$ then forces its first component to be trivial.
+Thus the inertia group is trivial, and the induced extension of discrete
+valuation rings is weakly unramified.
+\end{proof}
+
+\section{Three Parallel Explicit Calculations}
+% =====================================================================
+
+We now perform the thesis-specific calculation. In all three cases we make the
+same reductions and carry out the same five steps:
+\[
+\begin{array}{c|c|c|c}
+&\Z/e\Z&(\Z/p\Z)&\Z/p^r\Z\\ \hline
+\text{normal form}&T^e=x^a&X^p-X=f&\wp\vec X=\vec f\\
+\text{product coordinate}&\prod_iT_i&\sum_iX_i&\bigoplus_i\vec X_i\\
+\text{new datum}&e_d^a&\sum_i f(x_i)&\bigoplus_i\vec f(x_i)\\
+\text{exceptional behavior}&v(e_d^a)=a&\text{regular}&\text{componentwise regular}\\
+\text{conclusion}&\text{tame}&\text{unramified}&\text{unramified}.
+\end{array}
+\]
+
+By \Cref{cor:reduction_to_P1,lemma:realization_over_Gm}, it is enough in each
+case to take
+\[
+ C=\bP^1_k,\qquad U=\bG_m,\qquad \ndls=d\cdot0,
+\]
+and one of the displayed equations. The complete local field at the generic
+point of the exceptional divisor is always
+\[
+   \widehat K_\eta=\kappa((e_d)),
+   \qquad \widehat\Oo_\eta=\kappa[[e_d]],
+   \qquad \kappa=k(e_1/e_d,\dots,e_{d-1}/e_d).
+\]
+
+\begin{theorem}\label{theorem:ramification_after_blowup_P1}
+In the preceding model:
+\begin{enumerate}
+ \item if $\cP$ is a $\Z/e\Z$-torsor with $(e,p)=1$, then
+ $\cP^{[d]}$ is tamely ramified at $\eta_{d\cdot0}$;
+ \item if $\cP$ is a $\Z/p\Z$-torsor whose ramification at $0$ is bounded by
+ $d$, then $\cP^{[d]}$ is unramified at $\eta_{d\cdot0}$;
+ \item if $\cP$ is a $\Z/p^r\Z$-torsor whose ramification at $0$ is bounded by
+ $d$, then $\cP^{[d]}$ is unramified at $\eta_{d\cdot0}$.
+\end{enumerate}
+\end{theorem}
+
+\subsection{\texorpdfstring{The Kummer calculation: $G=\Z/e\Z$, $(e,p)=1$}{The Kummer calculation}}
+
+\subsubsection*{Local normal form and realization}
+
+By the realization lemma, the connected local torsor is represented by
+\[
+    T^e=x^a,
+    \qquad \gcd(a,e)=1.
+\]
+The same equation over $k[x,x^{-1}]$ gives a $\Z/e\Z$-torsor on $\bG_m$.
+
+\subsubsection*{Contracted product and descent}
+
+Pull the equation back along the $d$ projections from $\bG_m^d$. By
+\Cref{prop:parallel_cyclic_product_torsor}, the contracted product has
+coordinate
+\[
+    Y=\prod_{i=1}^dT_i
+\]
+and equation
+\[
+    Y^e=\prod_{i=1}^d x_i^a=(x_1\cdots x_d)^a=e_d^a.
+\]
+Both $Y$ and $e_d^a$ are $S_d$-invariant. Hence this equation descends from
+$\bG_m^d$ to the torsor $\cP^{[d]}$ on
+\[
+   \bG_m^{(d)}=\Spec k[e_1,\dots,e_d,e_d^{-1}].
+\]
+
+\subsubsection*{Restriction to the exceptional divisor}
+
+Over $\widehat K_\eta=\kappa((e_d))$, the equation remains
+\[
+     Y^e=e_d^a.
+\]
+Its defining element has valuation $a$, and the ramification index divides
+$e$. Since $(e,p)=1$, \Cref{theorem:kummer_ramification} shows that every
+field factor is tamely ramified. Thus $\cP^{[d]}$ is tame at $\eta$.
+
+\subsection{\texorpdfstring{The Artin--Schreier calculation: $G=\Z/p\Z$}{The Artin--Schreier calculation}}
+
+\subsubsection*{Local normal form and realization}
+
+The local torsor has an equation
+\[
+    X^p-X=f(x),
+    \qquad f\in x^{-1}k[x^{-1}],
+    \qquad m:=\deg_{x^{-1}}f<d.
+\]
+It extends to a torsor on $\bG_m$ that is unramified at $\infty$.
+
+\subsubsection*{Contracted product and descent}
+
+By the common product calculation, the $d$-fold contracted product on
+$\bG_m^d$ has coordinate
+\[
+    Y=\sum_{i=1}^dX_i
+\]
+and equation
+\[
+    Y^p-Y=\alpha,
+    \qquad \alpha:=\sum_{i=1}^df(x_i).
+\]
+The coordinate $Y$ and the datum $\alpha$ are $S_d$-invariant. Therefore
+\[
+  \cP^{[d]}\cong
+  \Spec\frac{k[e_1,\dots,e_d,e_d^{-1}][Y]}{(Y^p-Y-\alpha)}.
+\]
+
+\subsubsection*{Degree estimate and exceptional restriction}
+
+Writing $y_i=x_i^{-1}$, the expression $\alpha$ is a symmetric polynomial in
+$y_1,\dots,y_d$ of total degree at most $m<d$. By
+\Cref{lemma:symmetric_regularity},
+\[
+    \alpha\in\kappa\subset\widehat\Oo_\eta.
+\]
+Consequently the equation $Y^p-Y=\alpha$ defines a finite etale algebra over
+$\widehat\Oo_\eta$: its derivative with respect to $Y$ is $-1$. Its generic
+fiber is the restriction of $\cP^{[d]}$ to $\widehat K_\eta$, so every field
+factor is unramified. This proves the degree-$p$ case.
+
+\subsection{\texorpdfstring{The Artin--Schreier--Witt calculation: $G=\Z/p^r\Z$}{The Artin--Schreier--Witt calculation}}
+
+\subsubsection*{Local normal form and realization}
+
+First quotient away the unramified part of the local character. The remaining
+inertia group is cyclic of order $p^s$ for some $s\leq r$; since the argument
+treats all lengths at once, rename $s$ as $r$. We may therefore assume that the
+local torsor is connected and totally ramified. By
+\Cref{lemma:realization_over_Gm}, it has an equation
+\[
+     \wp\vec X=\vec f=(f_0,\dots,f_{r-1}),
+     \qquad f_j\in x^{-1}k[x^{-1}],
+\]
+where, with $m_j=\deg_{x^{-1}}f_j$,
+\[
+     p^{r-1-j}m_j<d.
+\]
+
+\subsubsection*{Contracted product and descent}
+
+Put $R=k[x,x^{-1}]$ and
+\[
+ S=R[\vec X]/(\wp\vec X\ominus\vec f).
+\]
+After pulling to $\bG_m^d$, define
+\[
+   \vec Y=\bigoplus_{i=1}^d\vec X_i,
+   \qquad
+   \vec\alpha=\bigoplus_{i=1}^d\vec f(x_i).
+\]
+
+\begin{prop}[Identification of the Witt product torsor]
+\label{prop:witt_cover_identification}
+Every component of $\vec Y$ is $\KG$-invariant, every component of
+$\vec\alpha$ is a symmetric Laurent polynomial, and
+\[
+ (S^{\otimes_k d})^{\KG}
+ \cong
+ R^{\otimes_k d}[\vec Y]/(\wp\vec Y\ominus\vec\alpha).
+\]
+Taking $S_d$-invariants gives
+\[
+ \bigl((S^{\otimes_k d})^{\KG}\bigr)^{S_d}
+ \cong
+ k[e_1,\dots,e_d,e_d^{-1}][\vec Y]
+      /(\wp\vec Y\ominus\vec\alpha).
+\]
+Thus
+\[
+  \cP^{[d]}\big|_{\Spec\widehat K_\eta}
+   \cong
+  \Spec\widehat K_\eta[\vec Y]/(\wp\vec Y\ominus\vec\alpha).
+\]
+\end{prop}
+\begin{proof}
+The $\KG$-translations telescope in the Witt sum $\vec Y$, so it is invariant,
+and additivity of $\wp$ gives $\wp\vec Y=\vec\alpha$. The resulting morphism
+from the displayed ASW torsor to the contracted product is equivariant between
+$G$-torsors, hence an isomorphism by \Cref{prop:torsor_morphism_iso}; this is
+also \Cref{prop:parallel_cyclic_product_torsor} for $H=\bW_r$.
+
+Permuting the tensor factors preserves both iterated Witt sums because Witt
+addition is commutative and associative. Since the action on Witt vectors is
+componentwise, every component of $\vec Y$ and $\vec\alpha$ is invariant. The
+ASW algebra is free over the base with basis
+$\prod_nY_n^{a_n}$, $0\leq a_n<p$, and each basis element is invariant.
+Therefore taking $S_d$-invariants acts only on the coefficients and produces
+the second displayed algebra.
+\end{proof}
+
+\subsubsection*{Weighted degree estimate}
+
+The Witt components are not ordinary componentwise sums, so the
+Artin--Schreier degree estimate must be weighted.
+
+\begin{theorem}[Regularity of all Witt components]
+\label{theorem:witt_components_regularity}
+Every component $\alpha_n$ of
+$\vec\alpha=\bigoplus_i\vec f(x_i)$ belongs to $\kappa$. Consequently
+$\vec\alpha\in W_r(\widehat\Oo_\eta)$.
+\end{theorem}
+\begin{proof}
+Give $f_j(x_i)$ weight $p^j$. By
+\Cref{lemma:witt_addition_isobaric}, every monomial
+\[
+   \prod_{i,j}f_j(x_i)^{a_{ij}}
+\]
+appearing in $\alpha_n$ satisfies
+\[
+   \sum_{i,j}a_{ij}p^j=p^n.
+\]
+Writing $A_j=\sum_i a_{ij}$ and expanding in $y_i=x_i^{-1}$, its total
+$y$-degree is at most
+\[
+ \sum_jA_jm_j
+   <d\sum_jA_jp^{j-(r-1)}
+   =d\,p^{n-(r-1)}\leq d.
+\]
+The inequality is strict. The whole component $\alpha_n$ is symmetric by
+\Cref{prop:witt_cover_identification}, so
+\Cref{lemma:symmetric_regularity} gives $\alpha_n\in\kappa$.
+\end{proof}
+
+\subsubsection*{Restriction to the exceptional divisor}
+
+By \Cref{theorem:witt_components_regularity}, the equation
+\[
+    \wp\vec Y=\vec\alpha
+\]
+is defined over $\widehat\Oo_\eta$. By
+\Cref{lemma:asw_etale_torsor}, it is a finite etale
+$\widehat\Oo_\eta$-algebra. Its generic fiber is precisely the restriction of
+$\cP^{[d]}$ to $\widehat K_\eta$, hence every field factor is unramified.
+
+\begin{proof}[Proof of \Cref{theorem:ramification_after_blowup_P1}]
+The Kummer, Artin--Schreier, and Artin--Schreier--Witt subsections prove parts
+(1), (2), and (3), respectively.
+\end{proof}
+
+\begin{cor}\label{cor:ramification_after_blowup_is_tame}
+Let $\cP\to C\setminus\mdls$ be a finite abelian torsor and
+$\ndls=dP$ a single-point submodulus.
+\begin{enumerate}
+ \item If $G=\Z/p\Z$ and the ramification at $P$ is bounded by $d$, then
+ $\cP^{[d]}$ is unramified at $\eta_\ndls$.
+ \item If $\cP$ is tamely ramified at $P$, then $\cP^{[d]}$ is tamely
+ ramified at $\eta_\ndls$.
+\end{enumerate}
+\end{cor}
+\begin{proof}
+Use \Cref{lemma:realization_over_Gm} to match the punctured-formal-disc
+restriction with the appropriate explicit torsor on $\bG_m$, then use
+\Cref{cor:reduction_to_P1} and the first two calculations above. For a tame
+$G$-torsor, induce the cyclic Kummer calculation along the injection of its
+cyclic inertia group into $G$.
+\end{proof}
+
+\begin{theorem}\label{theorem:ramification_after_blowup_is_tame_for_p_power}
+Let $G=\Z/p^r\Z$ and suppose the ramification of $\cP$ at $P$ is bounded by
+$d=\deg\ndls$. Then $\cP^{[d]}$ is unramified at $\eta_\ndls$.
+\end{theorem}
+\begin{proof}
+Quotient away the unramified part, apply the length-$r$ realization in
+\Cref{lemma:realization_over_Gm}, transfer the calculation by
+\Cref{cor:reduction_to_P1}, and use the Artin--Schreier--Witt calculation.
+\end{proof}
+
+% =====================================================================
+\section{Assembly for a Finite Abelian Group}
+% =====================================================================
+
+We can now prove the torsor formulation stated at the beginning of the
+chapter.
+
+\begin{proof}[Proof of \Cref{theorem:torsors_after_blowup_is_tame}]
+Fix $\ndls=dP$. Choose a decomposition
+\[
+   G\cong G_{p'}\times G_p,
+   \qquad
+   G_{p'}\cong\prod_i\Z/e_i\Z\quad((e_i,p)=1),
+   \qquad
+   G_p\cong\prod_j\Z/p^{r_j}\Z.
+\]
+Projecting the character of $\cP$ to these cyclic factors gives cyclic torsors
+$\cP_i$ and $\cQ_j$. Conversely, $\cP$ is their product after extending
+structure groups along the inclusions of the factors. Symmetric powers commute
+with these products because both are obtained by contracting the product
+torsor along the relevant homomorphism of finite abelian groups.
+
+Every $\cP_i$ is tamely ramified at $P$, so its $d$-th symmetric power is tame
+at $\eta_\ndls$ by the Kummer calculation. The ramification bound on $\cP$
+descends to every quotient character; hence each $\cQ_j$ has ramification
+bounded by $d$, and \Cref{theorem:ramification_after_blowup_is_tame_for_p_power}
+shows that $\cQ_j^{[d]}$ is unramified at $\eta_\ndls$. Finally,
+\Cref{lemma:bounding_ramification_of_contracted_product} shows that the product
+of the tame prime-to-$p$ factors and the unramified $p$-primary factors is
+tame. This product is $\cP^{[d]}$.
+\end{proof}
+
+% =====================================================================
+\section{Ramification on Products of Blowups}
+\label{subsection:ram_prod_analysis}
+% =====================================================================
+
+We finish with the compatibility needed in
+\Cref{section:gcft}. Let $X$ and $Y$ be smooth $k$-schemes, let $x\in X$ and
+$y\in Y$ be closed points, and write
+\[
+ \widetilde X=\Bl_x(X),\qquad
+ \widetilde Y=\Bl_y(Y),\qquad
+ \widetilde{X\times Y}=\Bl_{(x,y)}(X\times_kY).
+\]
+Denote the generic points of the three exceptional divisors by
+$\eta_X,\eta_Y$, and $\eta_{X\times Y}$.
+
+\begin{prop}\label{prop:ramification-external-product}
+Let $G$ be a finite abelian group. Let $\cG_X$ and $\cG_Y$ be $G$-torsors on
+open subsets of $\widetilde X$ and $\widetilde Y$ disjoint from the exceptional
+divisors. If their ramification at $\eta_X$ and $\eta_Y$ is bounded by $r$,
+then the external contracted product
+\[
+    \operatorname{pr}_1^{-1}\cG_X
+       \otimes^G
+    \operatorname{pr}_2^{-1}\cG_Y
+\]
+has ramification bounded by $r$ at $\eta_{X\times Y}$.
+\end{prop}
+\begin{proof}
+The assertion is etale-local at $x$ and $y$, so by smoothness it is enough to
+take $X=\A_k^n$, $Y=\A_k^m$, and $x=y=0$. Write the affine coordinates as
+$x_1,\dots,x_n,y_1,\dots,y_m$. At the generic point of the exceptional divisor
+of $\Bl_0(\A_k^{n+m})$, every coordinate is a uniformizer times a unit. On the
+chart in which the $x_1$-direction is nonzero, the completed local ring is
+\[
+ k\left(\frac{x_2}{x_1},\dots,\frac{x_n}{x_1},
+          \frac{y_1}{x_1},\dots,
+          \frac{y_m}{x_1}\right)[[x_1]].
+\]
+
+There is a dense open neighborhood of $\eta_{X\times Y}$ mapping to both
+$\widetilde X$ and $\widetilde Y$: it is the locus where neither the
+$X$-directions nor the $Y$-directions vanish. The induced homomorphism from the
+exceptional DVR of $\widetilde X$ to the displayed DVR sends the uniformizer
+$x_1$ to a uniformizer and enlarges the residue field by purely transcendental
+elements. It is therefore weakly unramified with separable residue extension.
+The corresponding statement holds for $\widetilde Y$ (using any $y_j$ as
+uniformizer on the overlap).
+
+Upper ramification groups are preserved by such a weakly unramified,
+residually separable extension. Hence both pulled-back torsors have
+ramification bounded by $r$ at $\eta_{X\times Y}$. Their contracted product
+has the same bound by
+\Cref{lemma:bounding_ramification_of_contracted_product}.
+\end{proof}

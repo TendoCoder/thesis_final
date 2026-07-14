@@ -1,0 +1,16 @@
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{\numberline {2}Ramification After Blowup Is Tame}{2}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Ramification of Discrete Valuations}{3}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Ramification of $G$-Torsors}{5}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Kummer, Artin--Schreier, and Artin--Schreier--Witt Theories}{8}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Kummer Theory}{9}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Artin--Schreier Theory}{10}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}Witt Vectors and Artin--Schreier--Witt Theory}{11}{subsection.2.3.3}%
+\contentsline {subsection}{\numberline {2.3.4}Reduced Representatives for Artin--Schreier--Witt Classes}{17}{subsection.2.3.4}%
+\contentsline {section}{\numberline {2.4}Prelude: The Local Geometry of Blowups of Symmetric Powers}{19}{section.2.4}%
+\contentsline {section}{\numberline {2.5}The Symmetric-Power Computations}{27}{section.2.5}%
+\contentsline {subsection}{\numberline {2.5.1}The Tame Case}{27}{subsection.2.5.1}%
+\contentsline {subsection}{\numberline {2.5.2}The Wild Case $G = \mathbb {Z}/p\mathbb {Z}$}{29}{subsection.2.5.2}%
+\contentsline {subsection}{\numberline {2.5.3}The Wild Case $G = \mathbb {Z}/p^r\mathbb {Z}$}{31}{subsection.2.5.3}%
+\contentsline {subsection}{\numberline {2.5.4}The General Finite Abelian Case}{35}{subsection.2.5.4}%
+\contentsline {section}{\numberline {2.6}Ramification on Products of Blowups}{36}{section.2.6}%

@@ -1,0 +1,48 @@
+% =============================================================================
+%  chapter2_reorg.tex  --  STANDALONE COMPARISON DRAFT of the chapter
+%  "Ramification After Blowup Is Tame" (currently Chapter 2), REORGANIZED:
+%    * a prelude section (DVR ramification -> G-torsor ramification defs ->
+%      the three cyclic-extension theories in parallel, behind a dictionary
+%      table);
+%    * the symmetric-power computation for Z/eZ, Z/pZ, Z/p^rZ shown as one
+%      calculation with a dictionary table and shared Step A-D signposts.
+%  It modifies no thesis source: math is mined verbatim from
+%      sections/Preliminaries/LocalRamificationPreliminaries.tex,
+%      sections/RamificationAfterBlowupIsTame.tex,
+%      sections/RamificationAfterBlowupPPower.tex,
+%      sections/RamificationAfterBlowupIntroduction.tex, witt/WittVectorPrerequisites.tex.
+%  Copied labels carry the suffix ":reorg"; cross-chapter refs resolve against
+%  main.aux via xr (numbers match main.pdf).
+%  Compile from inside this dir:  TEXINPUTS=..: BIBINPUTS=..: latexmk -pdf chapter2_reorg.tex
+% =============================================================================
+\documentclass[11pt]{report}
+\usepackage{geometry}\geometry{margin=1in}
+\usepackage[T1]{fontenc}
+\usepackage{ifthen}
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0.5em}
+\input{includes}
+\input{MacrosAndFigures}
+\providecommand{\bW}{\mathbb{W}}
+\usepackage{csquotes}
+\usepackage[backend=biber,style=alphabetic,sorting=ynt]{biblatex}
+\addbibresource{Bib.bib}
+\newboolean{ThesisIntro}\setboolean{ThesisIntro}{false}
+\usepackage{xr}
+\externaldocument{../main}
+\title{Ramification After Blowup Is Tame\\[2pt]\large (reorganized comparison draft)}
+\author{}\date{\today}
+\begin{document}
+\maketitle
+\noindent\textbf{About this draft.}
+This is a reorganized copy of the chapter for side-by-side comparison with the
+current version in \texttt{main.pdf}. The mathematics is unchanged; only the
+order of the material and the framing (dictionary tables and shared
+\mbox{Step A--D} signposts making the Kummer / Artin--Schreier /
+Artin--Schreier--Witt parallelism explicit) differ. Cross-references such as
+\Cref{cor:sym-power-quotient} point into the other chapters and carry the
+numbering of the compiled thesis.
+\bigskip\hrule\bigskip
+\input{chapter2_reorg/chapter2_reorg_body.tex}
+\printbibliography
+\end{document}

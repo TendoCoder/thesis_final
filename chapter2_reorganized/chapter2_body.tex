@@ -1,0 +1,2141 @@
+% =============================================================================
+%  chapter2_body.tex --- reorganized Chapter 2, full body.
+%  Content copied/adapted from:
+%    sections/RamificationAfterBlowupIntroduction.tex        (opening)
+%    sections/Preliminaries/LocalRamificationPreliminaries.tex  (2.1, 2.3.1-2)
+%    sections/RamificationAfterBlowupIsTame.tex              (2.2, 2.4, 2.5, 2.6)
+%    sections/RamificationAfterBlowupPPower.tex              (2.3.3, 2.5.3)
+%    witt/WittVectorPrerequisites.tex                        (\input, unchanged)
+%  References prefixed "main:" point outside this chapter and resolve against
+%  ../main.aux (xr).
+% =============================================================================
+
+\chapter{Ramification After Blowup Is Tame}
+
+% ---------------------------------------------------------------------------
+%  Chapter opening: setup, the torsor formulation, roadmap.
+%  [Source: RamificationAfterBlowupIntroduction.tex; roadmap rewritten.]
+% ---------------------------------------------------------------------------
+
+Throughout this chapter, let $C$ be a smooth, projective, geometrically connected
+curve over $k$. Fix a modulus
+
+\[
+    \mdls = \sum_i n_i P_i
+\]
+
+on $C$, and set $U = C \setminus \mdls$.
+
+For each single-point submodulus $\ndls = n_i P_i$ of $\mdls$, set
+$d_\ndls = \deg(\ndls)$. The effective divisor $\ndls$ determines a
+$k$-rational closed point
+
+\[
+    Z_\ndls \hookrightarrow C^{(d_\ndls)}
+        = \operatorname{Sym}^{d_\ndls}_k(C).
+\]
+
+Let
+\[
+    \pi_\ndls \colon
+    X_\ndls := \operatorname{Bl}_{Z_\ndls}\bigl(C^{(d_\ndls)}\bigr)
+    \longrightarrow C^{(d_\ndls)}
+\]
+
+be the blowup at this point. We denote its exceptional divisor by
+
+\[
+    E_\ndls := Z_\ndls \times_{C^{(d_\ndls)}} X_\ndls
+\]
+
+By
+\Cref{main:prop:relative_symmetric_power_smooth,main:prop:exceptional_divisor_smooth_point},
+$E_\ndls\cong\mathbb P_k^{d_\ndls-1}$; in particular, it is irreducible and
+has codimension $1$ in $X_\ndls$. We denote its unique generic point by
+$\eta_\ndls$, so that $\overline{\{\eta_\ndls\}}=E_\ndls$. Thus we have the
+Cartesian diagram
+
+\begin{equation}\label{equation:blowup_diagram_ndls}
+\begin{tikzcd}
+E_\ndls = \overline{\{\eta_\ndls\}}
+    \arrow[r, hook] \arrow[d]
+  & X_\ndls \arrow[d, "\pi_\ndls"] \\
+Z_\ndls \arrow[r, hook]
+  & C^{(d_\ndls)}.
+\end{tikzcd}
+\end{equation}
+
+The purpose of this chapter is to prove
+\Cref{main:theorem:SymmetricPowerOfSheavesIsTamelyRamifiedReduction}. Let $\cF$ be
+the rank-one $\Lambda$-local system appearing in that theorem, and let
+
+\[
+    \cP = \operatorname{Fr}(\cF)
+\]
+
+be its $G = \Lambda^\times$-torsor of frames. By
+\Cref{main:prop:torsor_module_equivalence,main:definition:symmetric_power_local_system},
+there is a canonical identification
+
+\[
+    \operatorname{Fr}\bigl(\cF^{[d_\ndls]}\bigr)
+        \cong \cP^{[d_\ndls]}.
+\]
+
+In particular, the two objects have the same ramification. It therefore
+suffices to prove the following torsor formulation.
+
+\begin{theorem}\label{theorem:torsors_after_blowup_is_tame}
+Let $G$ be a finite abelian group, and let $\cP \to U$ be a $G$-torsor whose
+ramification is bounded by $\mdls$. For every single-point submodulus
+$\ndls = n_iP_i$ of $\mdls$, the symmetric-power torsor
+$\cP^{[d_\ndls]}$ is tamely ramified at $\eta_\ndls$.
+\end{theorem}
+
+The chapter is organized around a single observation: the proof of
+\Cref{theorem:torsors_after_blowup_is_tame} is essentially the \emph{same
+computation carried out three times}, once for each of the cyclic building
+blocks of $G$:
+\[
+    G = \Z/e\Z \ \ (\gcd(e,p)=1), \qquad
+    G = \Z/p\Z, \qquad
+    G = \Z/p^r\Z,
+\]
+governed respectively by Kummer theory, Artin--Schreier theory, and
+Artin--Schreier--Witt theory. We therefore proceed as follows.
+\Cref{section:ramification_of_discrete_valuations} reviews the ramification
+theory of discrete valuations, and
+\Cref{section:ramification_of_torsors} defines what it means for a $G$-torsor
+to be (tamely) ramified, or to have ramification bounded by a modulus, and
+establishes the basic stability properties of these notions.
+\Cref{section:cyclic_extension_theories} then presents the three cyclic
+theories \emph{in parallel}: each one classifies cyclic extensions by an
+explicit equation, and reads the ramification off the valuation of a reduced
+representative; a comparison table summarizes the correspondence.
+\Cref{section:blowup_prelude} is a prelude collecting the geometric
+background propositions shared by the three computations --- the local ring at
+the generic point of the exceptional divisor, the formal--local invariance of
+the problem, the reduction to $\bP^1$, and the invariant-theoretic
+description of the symmetric-power cover. With these tools in place,
+\Cref{section:symmetric_power_computations} carries out the three
+computations side by side, following the same three-step skeleton
+(\emph{realize} the local torsor by an explicit equation over $\bG_m$;
+\emph{identify} the symmetric-power cover at $\eta_\ndls$; \emph{count}
+valuations to conclude), and then assembles the general case of
+\Cref{theorem:torsors_after_blowup_is_tame} by decomposing $G$ into primary
+cyclic factors. Finally, \Cref{subsection:ram_prod_analysis} proves auxiliary
+results on products of blowups used in \Cref{main:section:gcft}.
+
+% ---------------------------------------------------------------------------
+%  2.1  Ramification of Discrete Valuations
+%  [Source: LocalRamificationPreliminaries.tex, minus the Kummer/AS theorems
+%   (moved to 2.3) and the Witt input (moved to 2.3.3); duplicate
+%   Cohen-structure paragraph merged.]
+% ---------------------------------------------------------------------------
+
+\section{Ramification of Discrete Valuations}\label{section:ramification_of_discrete_valuations}
+This section reviews the ramification of discrete valuations, beginning with the general theory of \textit{discrete valuation rings} and their
+integral closures in finite separable extensions.
+We then specialize to complete rings in Galois extensions to describe the ramification filtration via lower and upper numbering,
+following the treatments in \stackstag{0EXQ} and \cite{serreLF}.
+
+\begin{definition}[\stackstag{09E4}]\label{definition:weakly_unramified_and_tamely_ramified_DVR}
+    We say that $A \to B$ or $A \subset B$ is an extension of discrete valuation rings if $A$ and $B$ are discrete valuation rings and $A \to B$ is injective and local. In particular, if $\pi _ A$ and $\pi _ B$ are uniformizers of $A$ and $B$, then $\pi _ A = u \pi _ B^ e$ for some $e \geq 1$ and unit $u$ of $B$. The integer $e$ does not depend on the choice of the uniformizers as it is also the unique integer $\geq 1$ such that
+\[ \mathfrak m_ A B = \mathfrak m_ B^ e \]
+The integer $e$ is called the \textit{ramification index} of $B$ over $A$. We say that $B$ is \textit{weakly unramified} over $A$ if $e = 1$.
+If the extension of residue fields $\kappa _ A = A/\mathfrak m_ A \subset \kappa _ B = B/\mathfrak m_ B$ is finite,
+then we set $f = [\kappa _ B : \kappa _ A]$ and we call it the \textit{residual degree} or residue degree of the extension $A \subset B$.
+
+Note that we do not require the extension of fraction fields to be finite.
+\end{definition}
+
+Now let $A$ be a discrete valuation ring with fraction field $K$, let  $L/K$ be a finite separable field extension and
+let $B \subset L$ be the integral closure of $A$ in $L$.
+Then the ring extension $A \subset B$ is finite, hence $B$ is Noetherian.
+The dimension of $B$ is $1$, hence $B$ is a Dedekind domain.
+Let $\mathfrak m_1, \ldots , \mathfrak m_ n$ be the maximal ideals of $B$ (i.e., the primes lying over $\mathfrak m_ A$).
+We obtain extensions of discrete valuation rings
+
+\[ A \subset B_{\mathfrak m_ i} \]
+and hence ramification indices $e_ i$ and residue degrees $f_ i$. We have
+
+\[ [L : K] = \sum \nolimits _{i = 1, \ldots , n} e_ i f_ i \]
+Note that if $A$ is henselian (e.g. $A$ is complete) then $n=1$.
+
+\begin{definition}[\stackstag{09E9}]\label{definition:tamely_ramified_dvrs}
+Let $A$ be a discrete valuation ring with fraction field $K$. Let $L/K$ be a finite separable extension. With $B$ and $\mathfrak m_ i$, $i = 1, \ldots , n$
+as above, we say the extension $L/K$ is
+\begin{enumerate}
+    \item unramified with respect to $A$ if $e_ i = 1$ and the extension $\kappa (\mathfrak m_ i)/\kappa _ A$ is separable for all $i$,
+    \item tamely ramified with respect to $A$ if either the characteristic of $\kappa _ A$ is $0$ or the characteristic of $\kappa _ A$ is $p > 0$, the field extensions $\kappa (\mathfrak m_ i)/\kappa _ A$ are separable, and the ramification indices $e_ i$ are prime to $p$, and
+    \item totally ramified with respect to $A$ if $n = 1$ and the residue field extension $\kappa (\mathfrak m_1)/\kappa _ A$ is trivial.
+\end{enumerate}
+If the discrete valuation ring $A$ is clear from context, then we sometimes say $L/K$ is unramified, totally ramified, or tamely ramified for short.
+\end{definition}
+
+For the remainder of this section, assume $A$ is a \textit{complete discrete valuation ring} with uniformizer $\pi$ and a perfect residue
+field $\kappa$. In the equal characteristic case, where $\text{char}(A) = \text{char}(\kappa) = p > 0$, the
+Cohen Structure Theorem implies that $A$ contains a coefficient field $k \cong \kappa$, such that $A \cong k[[\pi]] \cong k[[t]]$.
+Consequently, the fraction field is given by $K = k((\pi))$.
+Let $L/K$ be a finite Galois extension with Galois group $G$.
+The integral closure $B$ of $A$ in $L$ is itself a complete discrete valuation ring.
+Since the residue field $\kappa$ is perfect, the extension of residue fields is separable, and there exists a uniformizer
+$\Pi \in B$ such that $B = A[\Pi]$.
+
+The \textit{lower numbering ramification filtration} of $G$, denoted by $(G_i)_{i \geq -1}$, is defined as:
+\[
+G_i = \{ \sigma \in G \mid v_B(\sigma (x) - x) \geq i + 1 \text{ for all } x \in B \}
+\]
+where $v_B$ is the valuation on $L$ associated with $B$. In this indexing, $G_{-1} = G$ and $G_0$
+corresponds to the \textit{inertia group} of the extension $L/K$. Note that $L/K$ is unramified if and only if
+$G_0 = \{1\}$, and it is tamely ramified if and only if $G_1 = \{1\}$.
+
+A standard result in the theory of local fields (complete local fields with a discrete valuation and perfect residue field)
+ensures that the condition in the definition of $G_i$ need only be checked for the uniformizer $\Pi$ of $B$.
+Specifically, if we define the function
+\[
+i^L_K(\sigma) = v_B(\sigma(\Pi) - \Pi)
+\]
+for $\sigma \in G$, then $G_i = \{ \sigma \in G \mid i^L_K(\sigma) \geq i + 1 \}$.
+The subgroups $G_i$ are normal in $G$ and become trivial for sufficiently large $i$.
+
+Consider a tower of fields $K \subset E \subset L$, and let $H = \text{Gal}(L/E) \subset G$. The lower numbering is compatible with subgroups:
+\[
+G_i \cap H = H_i \quad \text{for all } i \geq -1
+\]
+which follows from the identity $i^L_E = i^L_K|_{H}$.
+However, the lower numbering does not behave as simply with respect to quotients. If $H$ is normal in $G$, the image of $G_i$ in $G/H$ is generally not $(G/H)_i$.
+Instead, we have $G_i H / H = (G/H)_j$, where the index $j$ is given by the formula:
+\[
+j = \frac{1}{e_{L/E}} \sum_{\tau \in H} \min(i^L_K(\tau), i+1) - 1
+\]
+
+
+In the literature, one reindexes the ramification groups by defining the Herbrand function $\phi_{L/K} : [-1, \infty ) \to [-1, \infty )$:
+\[ \phi_{L/K}(i) = \frac{1}{e_{L/K}}\sum_{\sigma \in G} \min(i^L_K(\sigma), i+1)-1 = \int _0^i \frac{1}{[G_0 : G_t]} dt \]
+
+This function is continuous, strictly increasing, and piecewise linear, making it a bijection.
+It satisfies the composition law $\phi_{L/K} = \phi_{E/K} \circ \phi_{L/E}$ for a tower of extensions $K \subset E \subset L$.
+Using this function, we define the \textit{upper numbering ramification groups} as:
+\[
+G^i = G_{\phi_{L/K}^{-1}(i)}
+\]
+The primary advantage of this reindexing is its compatibility with quotients: for any normal subgroup $H \subset G$, we have:
+\[
+G^i H / H = (G/H)^i
+\]
+for all $i \geq -1$.
+
+We record, for orientation, the structure of the inertia group and of the
+graded pieces of the filtration; these facts are not used in the sequel, but
+they explain the dichotomy --- prime-to-$p$ versus $p$-power --- that shapes
+the whole chapter.
+
+\begin{prop}[\Cite{serreLF}, IV Corollary 3]
+    The quotients $G_i/G_{i+1}$, $i \geq 1$, are abelian groups, and are direct products of cyclic groups of order $p$.
+    The group $G_1$ is a $p$-group.
+\end{prop}
+
+\begin{prop}[\Cite{serreLF}, IV Corollary 4]
+    The inertia group $G_0$ has the following property:
+    \textit{It is the semi-direct product of a cyclic group of order prime to $p$ with a normal subgroup whose order is a power of $p$.}
+\end{prop}
+
+% ---------------------------------------------------------------------------
+%  2.2  Ramification of G-Torsors
+%  [Source: RamificationAfterBlowupIsTame.tex lines 1--121, moved BEFORE the
+%   Kummer/AS/ASW theories per the reorganization.]
+% ---------------------------------------------------------------------------
+
+\section{\texorpdfstring{Ramification of $G$-Torsors}{Ramification of G-Torsors}}\label{section:ramification_of_torsors}
+
+Generally speaking, assume we are given a locally Noetherian scheme $X$,
+a dense open $U \subset X$, a finite \'etale morphism $f: Y \to U$ and a prime divisor $Z \subset X$ such that $Z \cap U = \emptyset$
+and the local ring $\Oo_{X, \xi}$ of $X$ at the generic point $\xi$ of $Z$ is a discrete valuation ring.
+Setting $K_\xi = \Frac(\Oo_{X, \xi})$ we obtain a cartesian square
+\[ \xymatrix{ \mathop{\mathrm{Spec}}(K_\xi ) \ar[r] \ar[d] & U \ar[d] \\ \mathop{\mathrm{Spec}}(\mathcal{O}_{X, \xi }) \ar[r] & X } \]
+of schemes.
+In particular, we see that $Y \times _ U \mathop{\mathrm{Spec}}(K_\xi )$ is the spectrum of a finite separable algebra $L_\xi /K_\xi $.
+\begin{definition}\label{definition:tamely_ramified_in_codim_1}
+We say:
+\begin{enumerate}
+    \item $Y$ is \textit{unramified} over $X$ at $(Z, \xi)$ resp. $Y$ is \textit{tamely ramified} over $X$ at $(Z, \xi)$
+        if $L_\xi /K_\xi $ is unramified, resp. tamely ramified with respect to $\mathcal{O}_{X, \xi }$
+        (\Cref{definition:tamely_ramified_dvrs})
+
+    \item $Y$ is unramified over $X$ in codimension $1$, resp. $Y$ is tamely ramified over $X$ in codimension $1$ if $L_\xi /K_\xi $ is unramified, resp. tamely ramified
+    with respect to $\mathcal{O}_{X, \xi }$ for every $(Z, \xi )$ as above.
+\end{enumerate}
+
+More precisely, we decompose $L_\xi $ into a product of finite separable field extensions of $K_\xi $ and we require each of these to be unramified, resp. tamely ramified with
+respect to $\mathcal{O}_{X, \xi }$.
+
+\end{definition}
+
+Now back to our original assumptions, $C$ is a projective smooth geometrically connected curve
+over a field $k$ and $U=C\setminus \mdls$. Every $(Z, \xi)$ is now a closed point $P$ and $\Oo_{C, P}$ is a discrete valuation ring.
+Assume $f: Y \to U$ is actually a $G$-torsor $\cP \to U$ in $U_{\text{\'Et}}$ for $G$ a finite abelian group.
+
+By passing to the completion $\widehat{\Oo}_{C,P}$, we obtain the complete local field $\widehat{K}_P$.
+Restricting the torsor $\cP$ to the punctured formal neighborhood $\Spec(\widehat{K}_P)$
+ allows us to study the ramification in a strictly local context.
+ This restriction yields a $G$-torsor over a field, which necessarily decomposes into a disjoint union of spectra of finite separable field extensions
+ $$ \cP|_{\Spec(\widehat{K}_P)} \cong \bigsqcup \Spec(F) $$
+ such that:
+ \begin{enumerate}
+    \item These extensions $F/\widehat{K}_P$ are all isomorphic and Galois.
+    \item The Galois group $H = \Gal(F/\widehat{K}_P)$ identifies with the stabilizer of any connected component of the pullback $\cP|_{\Spec(\widehat{K}_P)}$,
+     which is a subgroup of $G$.
+    \item  The number of such components is then given by the index $[G:H]$.
+ \end{enumerate}
+
+ \begin{definition}\label{definition:local_ramification_boundness}
+    We say that the extension $F/\widehat{K}_P$ \textit{has ramification bounded by $r$} if the ramification group $H^r$ is trivial.
+    We say \textit{$\cP$ has ramification bounded by $r$ at $P$} if the corresponding local field extensions $F/\widehat{K}_P$
+    satisfy this condition.
+ \end{definition}
+
+
+\begin{definition}
+    Let $\mdls = \sum n_i P_i$ be a modulus on $C$. We say the $G$-torsor $\cP \to U$ has
+    \textbf{ramification bounded by $\mdls$} if, for each point $P_i$, the local restriction
+    $\cP|_{\Spec(\widehat{K}_{P_i})}$ has ramification bounded by the coefficient $n_i$.
+\end{definition}
+
+This local property remains invariant under base change to the separable closure.
+Let $\bar{s} = \Spec(\bar{k}) \to \Spec(k)$
+be a geometric point.
+The higher ramification groups for $\cP|_{\Spec(\widehat{K}_P)}$ are isomorphic to those of
+the geometric restriction $\cP_{\bar{k}}$ at any point $\bar{x}$ lying over $P$.
+Thus an equivalent definition:
+\begin{definition}
+    Let $\mdls = \sum n_i P_i$ be a modulus on $C$.
+    The $G$-torsor $\cP \to U$ has \textbf{ramification bounded by $\mdls$}
+    if for every geometric point $\bar{x}$ of $\mdls$ (with image $\bar{s}$ in $\Spec(k)$),
+    the restriction of $\cP$ to$$ \Spec(\widehat{\mathcal{O}}_{C_{\bar{k}},\bar{x}}) \times_{C_{\bar{k}}} U_{\bar{k}} $$
+    has ramification bounded by the multiplicity of $\mdls_{\bar{s}}$ at $\bar{x}$ in the sense of
+    \Cref{definition:local_ramification_boundness}.
+\end{definition}
+These definitions are equivalent because $\widehat{\mathcal{O}}_{C_{\bar{k}},\bar{x}} \cong \widehat{\mathcal{O}}_{C,P} \otimes_k \bar{k}$. Furthermore, the notions of tame ramification and unramifiedness derived here coincide with the codimension-$1$ criteria in \Cref{definition:tamely_ramified_in_codim_1}.
+
+There is another equivalent formulation through the language of characters.
+The group $G$, being a finite abelian group over $k$, is \'etale.
+Consequently, the correspondence between $G$-torsors and the fundamental group allows us to describe $G$-torsors
+ via characters. Specifically, there is an isomorphism (\Cref{main:cor:abelian_equivilance_fundamental_torsors}):
+\[ \mathrm{Hom}_{\mathrm{cont.}}(\pi_1^{\text{\'et}}(U, \overline{x}), G) \xrightarrow{\cong} \mathrm{Tors}(U_{\text{\'et}}, G) \]
+
+In our local setting, where we consider the restriction to the complete local field $\widehat{K}_P$,
+the fundamental group identifies with the absolute Galois group
+$G_{\widehat{K}_P} := \mathrm{Gal}({\widehat{K}_P}^{\mathrm{sep}}/{\widehat{K}_P})$.
+Thus, the restricted $G$-torsor $\mathcal{P}|_{\mathrm{Spec}(\widehat{K}_P)}$ corresponds to a unique continuous homomorphism:
+\[ \rho : G_{\widehat{K}_P} \to G \]
+
+Under this correspondence, the torsor $\mathcal{P}$ has ramification bounded by $r$ at $P$
+if and only if the homomorphism $\rho$ trivializes the $r$-th ramification group in the upper numbering:
+\[ \rho(G_{\widehat{K}_P}^r) = \{ 1 \} \]
+
+\subsection*{Basic Properties of Ramification of \texorpdfstring{$G$-Torsors}{G-Torsors}}
+We now prove some elementary lemmas regarding the ramification of $G$-torsors.
+\begin{lemma}\label{lemma:bounding_ramification_of_contracted_product}
+    Let $G$ be a finite abelian group and $X$ be a locally Noetherian scheme over a field $k$.
+    Let $U \subset X$ be a dense open subset and let $(Z, \xi)$ be a prime divisor in the complement $X \setminus U$.
+    Assume $\cP_1$ and $\cP_2$ are two $G$-torsors on $U_{\text{ét}}$, such that $\cP_1$ has ramification bounded by $r_1$ at $(Z, \xi)$, and $\cP_2$ has ramification bounded by $r_2$ at $(Z, \xi)$.
+    Then their product $\cP_1 \otimes^G \cP_2$ has ramification bounded by $\max(r_1, r_2)$ at $(Z, \xi)$.
+\end{lemma}
+\begin{proof}
+    Let $A=\widehat{\Oo_{X, \xi}}$ and let $K=\Frac(A)$.
+    Let $\rho_1, \rho_2: G_K \to G$ be the associated continuous homomorphisms corresponding to the $G$-torsors
+    $\cP_1|_{\Spec(K)}$, $\cP_2|_{\Spec(K)}$.
+    We finish by noticing that the associated character of $(\cP_1 \otimes^G \cP_2)|_{\Spec(K)}$ is $\rho=\rho_1 + \rho_2$.
+\end{proof}
+
+\begin{lemma}\label{lemma:descend_ramification_along_etale}
+
+Let $f: X \to Y$ be a morphism of locally Noetherian schemes. Let $U_X \subset X$ and $U_Y \subset Y$ be dense open subschemes such that $f^{-1}(U_Y) \subset U_X$.
+
+Let $(Z_X, \xi_X)$ and $(Z_Y, \xi_Y)$ be prime divisors of $X$ and $Y$ such that $Z_X \cap U_X = \emptyset$ and $Z_Y \cap U_Y = \emptyset$.
+Suppose $f(\xi_X) = \xi_Y$ and that $f$ is étale at $\xi_X$.
+Let $\mathcal{P}$ be a $G$-torsor over $U_Y$, and let $f^{-1} \mathcal{P}$ be its pullback to $f^{-1}(U_Y) \subset U_X$.
+Then, the ramification of $f^{-1} \mathcal{P}$ at $\xi_X$ is bounded by $r$ if and only if the ramification of $\mathcal{P}$ at $\xi_Y$ is bounded by $r$.
+\end{lemma}
+\begin{proof}
+The boundedness of ramification is determined by the behavior of the torsor over the completion of the local rings at the generic points.
+Let $A = \mathcal{O}_{Y, \xi}$ and $B = \mathcal{O}_{X, \xi_X}$ be the discrete valuation rings at the generic points, with fraction fields
+$K$ and $L$ respectively. Since $f$ is étale at $\xi_X$, the map $A \to B$ is a flat, unramified (hence weakly unramified) local homomorphism.
+Consequently, the extension of completions $\widehat{L} / \widehat{K}$ is a finite unramified extension of complete discretely valued fields.
+We finish by noticing that the upper numbering filtration on the absolute Galois group is compatible with unramified base change.\footnote{
+ Specifically, let $G_K = \operatorname{Gal}(K^{sep}/K)$ and $G_L = \operatorname{Gal}(L^{sep}/L)$. For an unramified extension, the Herbrand function is the identity, which implies that for any $r \geq 0$:
+\[ G_L^r = G_K^r \cap G_L \]}
+\end{proof}
+
+% --- NEW (not in the current chapter): two further stability lemmas, needed
+%     for the assembly of the general abelian case in 2.5.4. Their proofs are
+%     character computations in the style of the two lemmas above. ---
+
+\begin{lemma}\label{lemma:ramification_of_fiber_product}
+    Let $G_1, G_2$ be finite abelian groups and let $X, U, (Z, \xi)$ be as in
+    \Cref{lemma:bounding_ramification_of_contracted_product}. Let $\cP_1$ be a
+    $G_1$-torsor and $\cP_2$ a $G_2$-torsor on $U_{\text{ét}}$, and consider the fiber
+    product $\cP_1 \times_U \cP_2$, which is a $(G_1 \times G_2)$-torsor on
+    $U_{\text{ét}}$. If $\cP_i$ has ramification bounded by $r_i$ at $(Z, \xi)$ for
+    $i = 1, 2$, then $\cP_1 \times_U \cP_2$ has ramification bounded by
+    $\max(r_1, r_2)$ at $(Z, \xi)$. Moreover, $\cP_1 \times_U \cP_2$ is tamely
+    ramified (resp.\ unramified) at $(Z, \xi)$ if and only if both $\cP_1$ and
+    $\cP_2$ are.
+\end{lemma}
+\begin{proof}
+    Let $A=\widehat{\Oo_{X, \xi}}$, $K=\Frac(A)$, and let
+    $\rho_i: G_K \to G_i$ be the characters of $\cP_i|_{\Spec(K)}$. The
+    character of $(\cP_1 \times_U \cP_2)|_{\Spec(K)}$ is
+    $\rho = (\rho_1, \rho_2) : G_K \to G_1 \times G_2$, since torsors under a
+    product group correspond to pairs of characters,
+    $H^1(K, G_1 \times G_2) = H^1(K, G_1) \times H^1(K, G_2)$, compatibly with
+    the projections. Now for any closed subgroup $N \subset G_K$ (we take the
+    upper-numbering group $G_K^r$, resp.\ the wild inertia subgroup, resp.\ the
+    inertia subgroup) we have $\rho(N) = \{1\}$ if and only if
+    $\rho_1(N) = \{1\}$ and $\rho_2(N) = \{1\}$.
+\end{proof}
+
+\begin{lemma}\label{lemma:ramification_of_induced_torsor}
+    Let $\iota : H \hookrightarrow G$ be an injective homomorphism of finite abelian
+    groups, let $X, U, (Z, \xi)$ be as above, let $\cQ$ be an $H$-torsor on
+    $U_{\text{ét}}$, and let $\iota_* \cQ := (\cQ \times G)/H$ be the induced
+    $G$-torsor (where $H$ acts by $h \cdot (q, g) = (qh,\ \iota(h)^{-1}g)$).
+    Then $\iota_* \cQ$ has ramification bounded by $r$ at $(Z, \xi)$ if and only if
+    $\cQ$ does; likewise for tame ramification and for unramifiedness.
+\end{lemma}
+\begin{proof}
+    Let $A=\widehat{\Oo_{X, \xi}}$, $K=\Frac(A)$, and let $\chi: G_K \to H$ be the
+    character of $\cQ|_{\Spec(K)}$; the character of $(\iota_*\cQ)|_{\Spec(K)}$ is
+    $\iota \circ \chi$. Since $\iota$ is injective, $\iota \circ \chi$ and $\chi$
+    have the same kernel, so for any closed subgroup $N \subset G_K$ we have
+    $(\iota \circ \chi)(N) = \{1\}$ if and only if $\chi(N) = \{1\}$.
+    (Concretely: the connected components of the two torsors over $\Spec(K)$ are
+    spectra of the \emph{same} field extension $F/K$, the fixed field of
+    $\ker \chi$; the induced torsor merely has $[G : H]$ times as many components.)
+\end{proof}
+
+% ---------------------------------------------------------------------------
+%  2.3  Kummer, Artin--Schreier, and Artin--Schreier--Witt Theories
+%  [Basic theory only, presented in parallel. Sources: the "Kummer and
+%   Artin-Schreier Theories" block of LocalRamificationPreliminaries.tex;
+%   the reduced-representative arguments extracted from the proofs of
+%   lemma:realization_over_Gm (RamificationAfterBlowupIsTame.tex) and
+%   prop:reduced_polynomial_representatives (RamificationAfterBlowupPPower.tex);
+%   witt/WittVectorPrerequisites.tex is \input unchanged.]
+% ---------------------------------------------------------------------------
+
+\section{Kummer, Artin--Schreier, and Artin--Schreier--Witt Theories}\label{section:cyclic_extension_theories}
+
+For cyclic extensions, Kummer, Artin--Schreier, and Artin--Schreier--Witt
+theories provide explicit ways to classify extensions and calculate their
+ramification. The three theories follow one and the same template. In each
+case there is a short exact sequence of commutative group schemes over the
+base field $K$,
+\[
+    1 \to \mu_e \to \bG_m \xrightarrow{(-)^e} \bG_m \to 1,
+    \qquad
+    0 \to \Z/p\Z \to \bG_a \xrightarrow{\wp} \bG_a \to 0,
+    \qquad
+    0 \to \Z/p^r\Z \to W_r \xrightarrow{\wp} W_r \to 0,
+\]
+whose long exact sequence in (\'etale or Galois) cohomology classifies the
+$G$-torsors over $K$ --- for $G = \Z/e\Z$ (with $\mu_e \cong \Z/e\Z$ after a
+choice of primitive root of unity, requiring $\gcd(e, \operatorname{char} K) = 1$
+and $\mu_e \subset K$), $G = \Z/p\Z$, and $G = \Z/p^r\Z$ respectively --- by
+an explicit quotient group:
+\[
+    K^\times/(K^\times)^e,
+    \qquad
+    K/\wp(K),
+    \qquad
+    W_r(K)/\wp(W_r(K)).
+\]
+Concretely, each class is realized by adjoining a solution of one explicit
+equation: $X^e = a$, resp. $\wp(X) = X^p - X = a$, resp.
+$\wp(\vec X) = \vec f$ in Witt coordinates.
+When $K$ is moreover a local field $k((x))$, each class admits a
+\emph{reduced representative} --- a Laurent polynomial (or vector of Laurent
+polynomials) in $x^{-1}$ normalized so that the ramification of the extension
+can be read off directly from the valuation: the ramification index in the
+Kummer case, and the (highest) upper-numbering break in the Artin--Schreier
+and Artin--Schreier--Witt cases. The comparison table at the end of the
+section summarizes the three columns of this dictionary; the computations of
+\Cref{section:symmetric_power_computations} will traverse each column in
+turn.
+
+Throughout this section, $K$ is a discrete valuation field with a perfect
+residue field $\kappa$ of characteristic $p > 0$; from
+\Cref{lemma:kummer_reduced_representatives} on, we further specialize to
+$K = k((x))$ with $k$ algebraically closed.
+
+\subsection{Kummer Theory}\label{subsection:kummer_theory}
+
+Let $e$ be a positive integer prime to $p$, and assume $K$ contains the group
+$\mu_e$ of $e$-th roots of unity (of order $e$, since $\gcd(e,p)=1$ and
+$\kappa$ is perfect). Kummer theory states that every cyclic extension of
+$K$ of degree dividing $e$ is generated by an $e$-th root: it is of the form
+$K(a^{1/e})$ for some $a \in K^\times$, and the assignment
+$a \mapsto K(a^{1/e})$ induces a bijection between the cyclic subgroups of
+$K^\times/(K^\times)^e$ and the cyclic extensions of $K$ of degree dividing
+$e$, with $\Gal(K(a^{1/e})/K)$ cyclic of order equal to the order of $a$ in
+$K^\times/(K^\times)^e$, acting by multiplication by roots of unity on
+$a^{1/e}$. The ramification of these extensions is computed by the valuation
+of $a$:
+
+\begin{theorem}[Ramification in Kummer Extensions, \cite{koch1997algebraic}, Proposition 1.83]\label{theorem:kummer_ramification}
+Assume $K$ contains the $n$-th roots of unity $\mu_n$, with $\gcd(n, p) = 1$.
+Let $L/K$ be the extension given by the equation $X^n = a$ for some
+$a \in K^\times$ and denote by $G$ its Galois group. Then we have:
+
+\begin{enumerate}
+    \item If $v_K(a) \in n\mathbb{Z}$ and the image of $a\pi^{-v_K(a)}$ in the residue field $\kappa$ is an $n$-th power, the extension $L/K$ is trivial.
+    \item If $v_K(a) \in n\mathbb{Z}$ and the image of $a\pi^{-v_K(a)}$ in the residue field $\kappa$ is not an $n$-th power, the extension $L/K$ is cyclic and unramified.
+    \item If $v_K(a) \notin n\mathbb{Z}$, the extension $L/K$ is cyclic and ramified. Specifically, if $\gcd(|v_K(a)|, n) = 1$, the extension is totally ramified of degree $n$.
+     Otherwise it has ramification index $\frac{n}{\gcd(|v_K(a)|, n)}$.
+\end{enumerate}
+Conversely, Kummer theory ensures that every cyclic extension of degree $n$, prime to $p$, of a field that contains the $n$-th roots of unity, is of the above form.
+Moreover, in the above we can always take $a \in \Oo_K$.
+\end{theorem}
+Note that in the case of total ramification the extension is tamely ramified;
+indeed, since $\gcd(n,p)=1$, \emph{every} extension appearing in
+\Cref{theorem:kummer_ramification} is tamely ramified.
+
+Over the local field $k((x))$ with $k$ algebraically closed, the classes
+admit a particularly simple reduced representative --- a power of the
+uniformizer:
+
+\begin{lemma}[reduced representatives, Kummer case]\label{lemma:kummer_reduced_representatives}
+    Let $k$ be algebraically closed of characteristic $p > 0$, let $K = k((x))$,
+    and let $e$ be a positive integer prime to $p$. Then:
+    \begin{enumerate}
+        \item Every tamely ramified extension of $K$ is of the form
+        $k((x^{1/e'}))$ for some $e'$ prime to $p$; consequently the tame
+        quotient $G^t$ of $\Gal(K^{sep}/K)$ is procyclic,
+        $G^t \cong \varprojlim_{p \nmid e'} \mu_{e'}(k) \cong \prod_{\ell \neq p} \Z_\ell$.
+        \item Every class in $K^\times/(K^\times)^e$ is represented by $x^a$
+        for a unique $a \in \{0, 1, \dots, e-1\}$; the classes of the $x^a$
+        exhaust $\mathrm{Hom}_{\mathrm{cont.}}(G^t, \Z/e\Z) \cong \Z/e\Z$, and the class of
+        $x^a$ is a surjective character (i.e., the extension $X^e = x^a$ is a
+        field, totally ramified of degree $e$) precisely when $\gcd(a,e)=1$.
+    \end{enumerate}
+\end{lemma}
+\begin{proof}
+    (1) Since $k$ is algebraically closed, the residue field of $K$ is
+    algebraically closed, so $K$ admits no non-trivial unramified extensions,
+    and its tamely ramified extensions are exactly the Kummer extensions
+    $k((x^{1/e'}))$ with $p \nmid e'$ (\Cref{theorem:kummer_ramification}).
+    The description of $G^t$ follows by passing to the limit.
+
+    (2) Since $k^\times$ is divisible and every unit of $k[[x]]$ with
+    constant term $1$ is an $e$-th power (Hensel; $\gcd(e,p)=1$), we have
+    $K^\times = x^{\Z} \cdot (K^\times)^e \cdot k^\times = x^{\Z}(K^\times)^e$,
+    so the classes of $x^0, \dots, x^{e-1}$ exhaust $K^\times/(K^\times)^e
+    \cong \Z/e\Z$. Under the Kummer isomorphism
+    $K^\times/(K^\times)^e \cong \mathrm{Hom}_{\mathrm{cont.}}(G^t, \Z/e\Z)$ the class of
+    $x^a$ is $a$ times a generator, hence surjective iff $\gcd(a,e)=1$; by
+    \Cref{theorem:kummer_ramification}(3) this is exactly the totally
+    ramified case of degree $e$.
+\end{proof}
+
+\subsection{Artin--Schreier Theory}\label{subsection:artin_schreier_theory}
+
+For cyclic extensions of degree $p = \operatorname{char} \kappa$, the role of
+the $e$-th power map is played by the \emph{Artin--Schreier operator}
+$\wp(X) = X^p - X$, and the role of $K^\times/(K^\times)^e$ by the additive
+quotient $K/\wp(K)$.
+
+\begin{theorem}[Ramification in Artin--Schreier Extensions, \cite{Thomas2005}]\label{theorem:artin_schreier_ramification}
+Let $\wp(x) = x^p - x$ be the Artin--Schreier operator.
+Let $L/K$ be the extension given by the equation $X^p - X = a$ for some $a \in K$ and denote by $G$ its Galois group.
+Then we have:
+\begin{enumerate}
+    \item If $v_K(a) > 0$ or if $v_K(a) = 0$ and $a \in \wp(K)$, the extension $L/K$ is trivial.
+    \item If $v_K(a) = 0$ and if $a \notin \wp(K)$, the extension $L/K$ is cyclic of degree $p$ and unramified.
+    \item If $v_K(a) = -m < 0$ with $m \in \mathbb{Z}_{>0}$ and if $m$ is prime to $p$, the extension $L/K$ is cyclic of degree $p$ again and totally ramified. Moreover,
+     its ramification groups are given by:
+     $$G = G^{(-1)} = \dots = G^{(m)} \quad \text{and} \quad G^{(m+1)} = 1.$$
+\end{enumerate}
+Conversely, Artin--Schreier theory ensures that every cyclic extension of degree $p$ takes this form.
+\end{theorem}
+
+The analogue of the representatives $x^a$ of
+\Cref{lemma:kummer_reduced_representatives} is a polynomial in $x^{-1}$ whose
+pole order is prime to $p$; the pole order is then exactly the unique
+ramification break of \Cref{theorem:artin_schreier_ramification}(3).
+
+\begin{lemma}[reduced representatives, Artin--Schreier case]\label{lemma:as_reduced_representatives}
+    Let $k$ be algebraically closed of characteristic $p > 0$ and let
+    $K = k((x))$. Every class in $K/\wp(K)$ admits a representative
+    $f \in x^{-1}k[x^{-1}]$ which is either $0$ or of the form
+    $$f = cx^{-m} + a_{-m+1}x^{-m+1} + \dots + a_{-1}x^{-1}, \qquad c \neq 0, \quad p \nmid m.$$
+    In the latter case the extension $X^p - X = f$ is cyclic of degree $p$,
+    totally ramified, with unique ramification break $m$.
+\end{lemma}
+\begin{proof}
+    We show every class admits such a representative:
+    \begin{itemize}
+        \item $\wp$ is surjective on $k[[x]]$: given $h = \sum_{i \geq 0} b_i x^i$, solve
+        $\wp(u) = h$ with $u = \sum_{i \geq 0} u_i x^i$ by choosing $u_0$ with $u_0^p - u_0 = b_0$ (possible as $k$ is algebraically closed)
+        and setting recursively $u_i = u_{i/p}^p - b_i$, with the convention $u_{i/p} = 0$ when $p \nmid i$. Hence, writing an arbitrary
+        element as $f^- + f^+$ with $f^- \in x^{-1}k[x^{-1}]$ and $f^+ \in k[[x]]$, we may
+        choose a representative in $x^{-1}k[x^{-1}]$.
+        \item If the representative has pole order $m$ divisible by $p$, with leading term $cx^{-m}$, then subtracting
+        $\wp(c^{1/p}x^{-m/p}) = cx^{-m} - c^{1/p}x^{-m/p}$ strictly decreases the pole order while staying inside
+        $x^{-1}k[x^{-1}]$. Iterating, we reach a representative $f$ which is either $0$ or has pole order $m$ prime to $p$.
+    \end{itemize}
+    The last assertion is \Cref{theorem:artin_schreier_ramification}(3),
+    noting that a non-zero reduced $f$ has $v_K(f) = -m < 0$ with $p \nmid m$.
+\end{proof}
+
+Cyclic extensions of degree $p^r$ are classified by the same picture with the
+additive group $\bG_a$ replaced by the ring scheme $W_r$ of Witt vectors of
+length $r$, and $\wp = F - \mathrm{id}$ the Artin--Schreier--Witt operator.
+The following subsection collects the required background on Witt vectors and
+the Artin--Schreier--Witt classification
+(\Cref{theorem:asw_theory}) together with the Schmid--Witt formula
+(\Cref{theorem:schmid_witt_break_formula}) computing the ramification breaks
+--- the degree-$p^r$ row of the dictionary.
+
+% --- unchanged thesis file, read in place (defines subsection 2.3.3): ---
+\input{witt/WittVectorPrerequisites.tex}
+
+\subsection{Reduced Representatives for Artin--Schreier--Witt Classes}\label{subsection:asw_reduced_representatives}
+
+We now record the $W_r$-analogue of
+\Cref{lemma:as_reduced_representatives}: every Artin--Schreier--Witt class
+over $k((x))$ is represented by a vector of \emph{polynomials in $x^{-1}$}
+with controlled pole orders. Recall from
+\Cref{definition:reduced_witt_vector} the notion of a reduced vector; we add:
+
+\begin{definition}\label{definition:reduced_polynomial_vector}
+    A vector $\vec g = (g_0, \dots, g_{r-1}) \in W_r(k((x)))$ is a \textbf{reduced
+    polynomial vector} if it is reduced (\Cref{definition:reduced_witt_vector}) and
+    moreover every $g_j \in x^{-1}k[x^{-1}]$; then $m(g_j) = \deg_{x^{-1}} g_j$, and
+    $m(g_j) = 0$ if and only if $g_j = 0$.
+\end{definition}
+
+\begin{lemma}[surjectivity of $\wp$ on integral Witt vectors]\label{lemma:wp_surjective_on_integral_witt}
+    $\wp \colon W_r(k[[x]]) \to W_r(k[[x]])$ is surjective.
+\end{lemma}
+
+\begin{proof}
+    Induction on $r$. For $r=1$ this is the first bullet in the proof of
+    \Cref{lemma:as_reduced_representatives}: given $h = \sum_{i \geq 0} b_i x^i$, solve
+    $u^p - u = h$ coefficientwise, using that $k$ is algebraically closed for the
+    constant term. For $r>1$, let $\vec h \in W_r(k[[x]])$. By induction choose
+    $\vec u' \in W_{r-1}(k[[x]])$ with $\wp \vec u' = t(\vec h)$, and lift it to
+    $\tilde u := (\vec u', 0) \in W_r(k[[x]])$. By
+    \Cref{lemma:witt_bookkeeping}(i),
+    $t\bigl(\wp \tilde u \ominus \vec h\bigr) = \wp \vec u' \ominus t(\vec h) = 0$, so
+    $\wp \tilde u \ominus \vec h = V^{r-1}(g)$ for some $g \in k[[x]]$. Choose
+    $w \in k[[x]]$ with $\wp w = -g$ (case $r=1$ again). Then by
+    \Cref{lemma:witt_bookkeeping}(ii) and additivity of $V^{r-1}$,
+    \[
+    \wp\bigl(\tilde u \oplus V^{r-1}(w)\bigr)
+    = \wp \tilde u \oplus V^{r-1}(\wp w)
+    = \bigl(\vec h \oplus V^{r-1}(g)\bigr) \oplus V^{r-1}(-g) = \vec h. \qedhere
+    \]
+\end{proof}
+
+\begin{prop}[reduced polynomial representatives]\label{prop:reduced_polynomial_representatives}
+    Every class in $W_r(k((x)))/\wp W_r(k((x)))$ has a reduced polynomial
+    representative: for every $\vec f \in W_r(k((x)))$ there exists
+    $\vec u \in W_r(k((x)))$ such that $\vec g := \vec f \ominus \wp \vec u$ has all
+    components in $x^{-1}k[x^{-1}]$ with pole orders either $0$ or prime to $p$.
+\end{prop}
+
+\begin{proof}
+    Induction on $r$.
+
+    \emph{Base case $r=1$.} This is \Cref{lemma:as_reduced_representatives}:
+    first, writing $f = f^- + f^+$ with
+    $f^- \in x^{-1}k[x^{-1}]$ and $f^+ \in k[[x]]$, surjectivity of $\wp$ on $k[[x]]$
+    removes $f^+$; then, as long as the leading term is $cx^{-m}$ with $p \mid m$,
+    $m>0$, subtracting $\wp(c^{1/p}x^{-m/p}) = cx^{-m} - c^{1/p}x^{-m/p}$ strictly
+    decreases the pole order while staying inside $x^{-1}k[x^{-1}]$; this terminates
+    at $0$ or at pole order prime to $p$.
+
+    \emph{Inductive step.} Let $\vec f \in W_r(k((x)))$. By induction there is
+    $\vec u' \in W_{r-1}(k((x)))$ such that
+    $\vec g' := t(\vec f) \ominus \wp \vec u'$ is a reduced polynomial vector in
+    $W_{r-1}$. Lift $\vec u'$ to $\tilde u := (\vec u', 0) \in W_r(k((x)))$ and set
+    $\vec h := \vec f \ominus \wp \tilde u$. By \Cref{lemma:witt_bookkeeping}(i),
+    $t(\vec h) = \vec g'$, i.e.\
+    \[
+    \vec h = (g'_0, \dots, g'_{r-2},\, h_{r-1}), \qquad h_{r-1} \in k((x)),
+    \]
+    with the first $r-1$ components already reduced polynomials. It remains to repair
+    the last component \emph{without touching the others}; by
+    \Cref{lemma:witt_bookkeeping}(iii), adjustments of the form
+    $\ominus\, \wp\bigl(V^{r-1}(z)\bigr) = \ominus\, V^{r-1}(\wp z)$ change only the
+    last component, by $-\wp(z)$. So:
+    \begin{itemize}
+        \item Write $h_{r-1} = h^- + h^+$ with $h^- \in x^{-1}k[x^{-1}]$,
+        $h^+ \in k[[x]]$, choose $w \in k[[x]]$ with $\wp w = h^+$
+        (\Cref{lemma:wp_surjective_on_integral_witt} with $r=1$), and replace
+        $\vec h$ by $\vec h \ominus \wp(V^{r-1}w)$: the last component becomes $h^-$.
+        \item While the last component has leading term $cx^{-m}$ with $p \mid m$,
+        $m>0$, replace $\vec h$ by
+        $\vec h \ominus \wp\bigl(V^{r-1}(c^{1/p}x^{-m/p})\bigr)$: the last component
+        changes by $-\wp(c^{1/p}x^{-m/p}) = -cx^{-m} + c^{1/p}x^{-m/p}$, so its pole
+        order strictly decreases and it stays in $x^{-1}k[x^{-1}]$. This terminates at
+        $0$ or at pole order prime to $p$.
+    \end{itemize}
+    The result is a reduced polynomial vector $\wp$-equivalent to $\vec f$.
+\end{proof}
+
+\begin{rem*}
+    The individual components of a Witt vector cannot be truncated to their principal
+    parts one at a time --- Witt addition is not componentwise
+    (\Cref{eq:witt_addition_shape}), so a componentwise operation changes the
+    Artin--Schreier--Witt class. The point of
+    \Cref{prop:reduced_polynomial_representatives} is that all the adjustments are
+    performed by subtracting genuine elements of $\wp W_r(k((x)))$, inside the Witt
+    ring.
+\end{rem*}
+
+\subsection*{The Three Theories Side by Side}
+
+The following table summarizes the parallel structure of the three theories
+over $K = k((x))$, $k$ algebraically closed of characteristic $p > 0$. Each
+column supplies exactly the ingredients that the corresponding computation in
+\Cref{section:symmetric_power_computations} consumes: the explicit equation
+(to realize a local torsor over $\bG_m$), the reduced representative (to
+control pole orders), and the ramification criterion (to read off the
+conclusion at the generic point of the exceptional divisor).
+
+\begin{center}
+\renewcommand{\arraystretch}{1.6}
+\begin{tabular}{|l|c|c|c|}
+\hline
+ & \textbf{Kummer} & \textbf{Artin--Schreier} & \textbf{Artin--Schreier--Witt} \\
+\hline
+group $G$ & $\Z/e\Z$, $\gcd(e,p)=1$ & $\Z/p\Z$ & $\Z/p^r\Z$ \\
+\hline
+ambient group scheme & $\bG_m$ & $\bG_a$ & $W_r$ \\
+\hline
+isogeny & $X \mapsto X^e$ & $\wp(X) = X^p - X$ & $\wp(\vec X) = F\vec X \ominus \vec X$ \\
+\hline
+defining equation & $X^e = a$ & $X^p - X = a$ & $\wp(\vec X) = \vec f$ \\
+\hline
+classifying group & $K^\times/(K^\times)^e$ & $K/\wp(K)$ & $W_r(K)/\wp W_r(K)$ \\
+\hline
+reduced representative & $x^a$, $0 \le a < e$ &
+\makecell{$f \in x^{-1}k[x^{-1}]$, \\ $p \nmid m = $ pole order} &
+\makecell{$\vec f = (f_0, \dots, f_{r-1})$, \\ $f_j \in x^{-1}k[x^{-1}]$, $p \nmid m_j$} \\
+\hline
+classification & \Cref{lemma:kummer_reduced_representatives} & \Cref{lemma:as_reduced_representatives} & \Cref{theorem:asw_theory}, \Cref{prop:reduced_polynomial_representatives} \\
+\hline
+ramification & \makecell{tame; ram.\ index \\ $e/\gcd(a, e)$} &
+\makecell{totally ramified; \\ unique break $m$} &
+\makecell{totally ramified (if $p \nmid m_0$, $f_0 \neq 0$); \\ largest break $\max_j p^{\,r-1-j} m_j$} \\
+\hline
+criterion & \Cref{theorem:kummer_ramification} & \Cref{theorem:artin_schreier_ramification} & \Cref{theorem:schmid_witt_break_formula} \\
+\hline
+unramified iff & $e \mid a$ & $f = 0$ & $\vec f = \vec 0$ \\
+\hline
+\end{tabular}
+\end{center}
+
+% ---------------------------------------------------------------------------
+%  2.4  Prelude: shared geometric background, each item stated ONCE.
+%  [Sources: the blowup-of-affine-space computation appeared three times in
+%   RamificationAfterBlowupIsTame.tex (lines 629-649, 868-889 and inside
+%   lemma:formal_local_invariance); the normal-model discussion and
+%   lemma:torsor_unramified_codim_one from lines 124-204; the formal-local
+%   invariance block from lines 399-561; lemma:symmetric_regularity from
+%   RamificationAfterBlowupPPower.tex; the invariant-theory scaffold is
+%   factored out of the proofs of theorem:ramification_after_blowup_P1 and
+%   prop:witt_cover_identification.]
+% ---------------------------------------------------------------------------
+
+\section{Prelude: The Local Geometry of Blowups of Symmetric Powers}\label{section:blowup_prelude}
+
+This section collects the geometric ingredients that the three computations
+of \Cref{section:symmetric_power_computations} share: the complete local
+field at the generic point of the exceptional divisor, the formal--local
+invariance of the whole problem (which reduces us to $\bP^1$ and to explicit
+torsors over $\bG_m$), the invariant-theoretic description of the
+symmetric-power cover, and a regularity criterion for symmetric functions.
+Each is stated once and reused verbatim in all three cases.
+
+\subsection*{The Blowup of Affine Space at the Origin}
+
+\begin{prop}\label{prop:blowup_local_ring_at_exceptional}
+Let $X = \mathbb{A}_k^n$ be the affine $n$-space over a field $k$, let $0 \in X$ be the origin,
+and let $\tilde{X} = \Bl_0(X)$ be the blowup of $X$ at the origin, so that
+$\tilde{X} \subset X \times_k \mathbb{P}^{n-1}_k$ is defined by the equations $x_i u_j = x_j u_i$, where $[u_1 : \dots : u_n]$ are the homogeneous coordinates of
+$\mathbb{P}^{n-1}_k$. Let $E \subset \tilde{X}$ be the exceptional divisor --- the fiber over the origin,
+$E = \{ (0, [u_1 : \dots : u_n]) \}$, of codimension 1 in $\tilde{X}$ --- let
+$\eta \in E$ be its generic point, and let $R = \mathcal{O}_{\tilde{X}, \eta}$. Then:
+\begin{enumerate}
+    \item $R$ is a discrete valuation ring with fraction field $K = K(X) = k(x_1, \dots, x_n)$.
+    On the affine chart $U_1$ where $u_1 \neq 0$, we have $x_i = \frac{u_i}{u_1} x_1$, the coordinate ring is
+    $\mathcal{O}_{\tilde{X}}(U_1) = k\left[x_1, \frac{u_2}{u_1}, \dots, \frac{u_n}{u_1}\right]$,
+    and $\eta$ corresponds to the prime ideal $(x_1)$, so
+    $R = k[x_1, \frac{u_2}{u_1}, \dots, \frac{u_n}{u_1}]_{(x_1)}$.
+    \item The residue field is $\kappa(\eta) = k(\frac{u_2}{u_1}, \dots, \frac{u_n}{u_1})$, and the completion of $R$ is
+    $\hat{R} = \kappa(\eta)[[x_1]]$. The element $x_1$ is a uniformizer; so is every $x_i$, since
+    $x_i = (\frac{u_i}{u_1}) x_1$ with $\frac{u_i}{u_1}$ a unit in $R$.
+    \item The valuation $\nu_E$ of $R$ computes the order of vanishing at the origin:
+    for a monomial $M = x_1^{a_1} \dots x_n^{a_n}$ we have
+    $M = x_1^{\sum a_i} \left( \frac{u_2}{u_1} \right)^{a_2} \dots \left( \frac{u_n}{u_1} \right)^{a_n}$
+    with the parenthesized factor a unit in $R$, so $\nu_E(M) = \sum a_i = \deg M$; consequently, for any polynomial
+    $f = f_d + f_{d+1} + \dots + f_l$ with $f_i$ homogeneous of degree $i$ and $f_d \neq 0$, we have $\nu_E(f) = d$.
+\end{enumerate}
+\end{prop}
+
+The case relevant to us is the symmetric power: the situation is identical
+after replacing the coordinates $x_1, \dots, x_d$ by the elementary symmetric
+polynomials. Let $e_1, \dots, e_d$ be the elementary symmetric polynomials in
+$x_1, \dots, x_d$, so that $C^{(d)} = \Sym^d_k(\mathbb{A}^1) = \Spec k[e_1, \dots, e_d] \cong \mathbb{A}^d_k$
+locally at the origin. Blowing up the origin $Z = V(e_1, \dots, e_d)$ and applying
+\Cref{prop:blowup_local_ring_at_exceptional} in the coordinates $e_1, \dots, e_d$ (on the chart $u_d \neq 0$), the local
+ring at the generic point $\eta$ of the exceptional divisor is
+\[
+R = k\left[e_d, \tfrac{u_1}{u_d}, \dots, \tfrac{u_{d-1}}{u_d}\right]_{(e_d)},
+\qquad e_i = \tfrac{u_i}{u_d}\, e_d \ \text{ all uniformizers},
+\qquad \tfrac{e_i}{e_d} = \tfrac{u_i}{u_d} \in \kappa(\eta),
+\]
+with residue field $\kappa(\eta) = k(\frac{e_1}{e_d}, \dots, \frac{e_{d-1}}{e_d})$,
+completion $\hat{R} = \kappa(\eta)[[e_d]]$, and complete local field
+
+\begin{equation}\label{eq:complete_field_at_generic_point}
+     \widehat{K}_\eta = k\left(\tfrac{e_1}{e_d}, \dots, \tfrac{e_{d-1}}{e_d}\right)((e_d)).
+\end{equation}
+
+\subsection*{Normal Models of Symmetric Powers of Torsors}
+
+Let $C$ be a smooth, proper (projective) curve over a field $k$, and let $U \subset C$ be a dense open subset.
+Let $G$ be a finite abelian group, and let $\pi_U: U' \to U$ be a $G$-torsor in $U_{\text{\'Et}}$.
+Let $C'$ be the normal proper model of $U'$ over $k$ (i.e. the unique smooth proper curve which has $U'$ as a dense open subset).
+Let $\pi: C' \to C$ be the induced morphism (which is finite, generically \'etale over $U$).
+Let $U'^{(d)}$ be the standard $d$-th symmetric product of $U'$ as a scheme, and let $U'^{[d]}$ be the torsor-theoretic symmetric product;
+by \Cref{main:cor:sym-power-quotient} we have a canonical morphism $q_U: U'^{(d)} \to U'^{[d]}$.
+Note that $C'^{(d)}$ is smooth and finite over $C^{(d)}$, hence it is the normalization of $C^{(d)}$ inside $K(C'^{(d)})$.
+$U'^{(d)}$ is a dense open subset of $C'^{(d)}$, hence $C'^{(d)}$ is a normal proper model of $U'^{(d)}$.
+Let $C'^{[d]}$ be the normalization of $C^{(d)}$ in the function field $K(U'^{[d]})$;
+then $q_U$ extends to a map $q: C'^{(d)} \to C'^{[d]}$, and we have the following diagrams:
+\[
+\begin{tikzcd}
+	U' \arrow[r, hook] \arrow[d, "\pi_U"'] & C' \arrow[d, "\pi"] \\
+	U \arrow[r, hook] & C
+\end{tikzcd}
+\qquad \qquad
+\begin{tikzcd}
+	{U'^{(d)}} \arrow[r, hook] \arrow[d, "q_U"'] & {C'^{(d)}} \arrow[d, "q"] \\
+	{U'^{[d]}} \arrow[r, hook] \arrow[d] & {C'^{[d]}} \arrow[d] \\
+	{U^{(d)}} \arrow[r, hook] & {C^{(d)}}
+\end{tikzcd}
+\]
+
+\begin{lemma}\label{lemma:torsor_unramified_codim_one}
+In the context of the preceding discussion, the morphism $U'^{(d)} \to U'^{[d]} \hookrightarrow C'^{[d]}$
+is unramified in codimension $1$ (see \Cref{definition:tamely_ramified_in_codim_1}).
+\end{lemma}
+\begin{proof}
+
+Let $C' \setminus U' = \{x_1, \ldots, x_m \}$. For each $x \in C' \setminus U'$, define the locus
+$$Z_x = \{D \in C'^{(d)} \mid x \in \mathrm{Supp}(D) \}.$$
+Each $Z_x$ is a prime divisor in the symmetric product $C'^{(d)}$, and the boundary $C'^{(d)} \setminus U'^{(d)}$ is precisely the finite union $\bigcup_{i=1}^m Z_{x_i}$.
+
+Let $\eta$ be the generic point of $Z_x$.
+It suffices to show that the local ring extension $\mathcal{O}_{C'^{[d]}, q(\eta)} \hookrightarrow \mathcal{O}_{C'^{(d)}, \eta}$ is weakly unramified (\Cref{definition:weakly_unramified_and_tamely_ramified_DVR}).
+
+Let $p: C'^d \to C'^{(d)}$ be the natural quotient. Consider the closed subvariety
+$$H = \{x\} \times C' \times \cdots \times C' \subset C'^d.$$
+
+The subvariety $H$ is irreducible, and its image under $p$ is exactly $Z_x$.
+Consequently, $p$ maps the generic point $\eta_H$ of $H$ to the generic point $\eta$ of $Z_x$.
+\[
+\begin{tikzcd}
+\eta_H \arrow[d] \arrow[r] & H \arrow[r] \arrow[d] & C'^d \arrow[d, "p"] \\
+\eta \arrow[r] \arrow[d] & Z_x \arrow[r] \arrow[d] & C'^{(d)} \arrow[d, "q"] \\
+q(\eta) \arrow[r] & q(Z_x) \arrow[r] & C'^{[d]}
+\end{tikzcd}
+\]
+It suffices to show that the local ring extension $\mathcal{O}_{C'^{[d]}, q(\eta)} \hookrightarrow \mathcal{O}_{C'^d, \eta_H}$ is weakly unramified.
+Let $R = \mathcal{O}_{C'^d, \eta_H}$, and let $A=\mathcal{O}_{C'^{[d]}, q(\eta)}$.
+
+Recall that $C'^{[d]}$ is the quotient of $C'^d$ by the finite group $\Xi = \KG \rtimes S_d$ (see \Cref{main:cor:sym-power-quotient}),
+and the morphism $q \circ p : C'^d \to C'^{[d]}$ is a \textit{branched Galois cover} (finite, surjective map of normal integral schemes $X \to Y$, with function field extension $K(X)/K(Y)$ Galois).
+
+Hence the decomposition group of $\eta_H$ in $\Xi$ and the inertia group of $\eta_H$ in $\Xi$ are defined:
+$$D_{\eta_H} = \{ g \in \Xi \mid g(\eta_H) = \eta_H \}$$
+$$I_{\eta_H} = \{ g \in D_{\eta_H} \mid g^*(u) \equiv u \pmod{\mathfrak{m}_{R}} \text{ for all } u \in R \}$$
+
+\textbf{Claim: } The inertia group $I_{\eta_H}$ is trivial.
+
+Let $K=K(C')$ be the function field of $C'$; then
+$K(C'^d) = K^{\otimes_k d} \cong \Frac(K_1 \otimes_k K_2 \otimes_k \cdots \otimes_k K_d)$
+where $K_i$ is the copy of $K$ corresponding to the $i$-th factor of $C'^d$.
+The closed subscheme $H$ corresponds to the prime ideal $\pp_H \subset \Oo_{C'^d}$, and $R=\Oo_{C'^d, \pp_H}$.
+The residue field of $R$ is exactly $K(H) \cong \Frac(k(x) \otimes_k K_2 \otimes_k \cdots \otimes_k K_d)$ where $k(x)$ is the residue field of $x$.
+
+The action of $\gamma = (g_1, \ldots, g_d, \sigma) \in \Xi$, via the pullback $(\gamma^*)$ on $K(C'^d)$ does two things (in that order):
+\begin{enumerate}
+    \item It permutes the tensor factors according to $\sigma$. A function strictly in $K_i$ is mapped to a function in $K_{\sigma(i)}$.
+    \item It applies the field automorphism $g_i^* \in \mathrm{Aut}(K/k)$ to the respective factors.
+\end{enumerate}
+Let $\gamma \in I_{\eta_H} \subset \Xi$. Then the induced automorphism $\bar{\gamma}^*$ on $K(H)$ must be the identity map.
+This implies that $\sigma$ must fix $i$ for every $i \geq 2$ (the $K_i$ are linearly independent), and hence $\sigma=id$.
+The trivial action of $\bar{\gamma}^*$ restricts to a trivial action of $g_i^*$ on $K_{i}$ for every $i \geq 2$, and hence
+$g_i = 1$ for every $i \geq 2$ (since the action of $G$ on $K(C')$ is faithful).
+Finally, since $g_1 g_2 \cdots g_d = 1$, we also have $g_1 = 1$.
+Since the inertia group $I_{\eta_H}$ is trivial, the local ring extension $A \hookrightarrow R$ is weakly unramified.
+(See for example \stackstag{09E3}, \stackstag{0BTF})
+
+\end{proof}
+
+\subsection*{Formal--Local Invariance and Reduction to \texorpdfstring{$\bP^1$}{P1}}
+
+The next two results make precise the statement that \emph{the ramification of
+$\cP^{[d]}$ at $\eta_\ndls$ is a formal--local invariant of $\cP$ at $P$}:
+it depends only on the completed local ring $\widehat{\Oo_{C,P}} \cong k[[x]]$ together with the restriction of $\cP$
+to the punctured formal disc $\Spec(k((x)))$, since all of the constructions involved --- self products, quotients by finite
+groups, and blowups --- commute with the flat base change to the completion; for blowups, this is
+\Cref{main:theorem:blowup_flat_base_change}.
+We emphasize that this is not a general principle that can simply be quoted: it is a statement about the particular
+constructions at hand, and it is proved by checking each construction separately.
+
+Throughout the rest of this section we assume that $k$ is algebraically closed; in particular every closed point of $C$ is $k$-rational, and $\ndls = dP$ with $P \in C(k)$ and $d = \deg \ndls$.
+
+\begin{remnum}\label{rem:algebraically_closed_harmless}
+    The assumption that $k$ is algebraically closed is harmless in our situation, for the following reasons.
+    \begin{enumerate}
+        \item \textbf{(Base change to $\bar{k}$.)} Assume $k$ is perfect, so that $\bar{k}=k^{sep}$.
+        The formation of $C^{(d)}$ (a quotient by a finite group), of the blowup $X_\ndls$ along $Z_\ndls$, and of
+        $\cP^{[d]}$ (\Cref{main:cor:sym-power-quotient}) commutes with the flat base change $\Spec(\bar{k}) \to \Spec(k)$.
+        Since $E_\ndls \cong \bP^{\deg \ndls - 1}_k$ is geometrically irreducible, $(E_\ndls)_{\bar{k}}$ is irreducible
+        and its generic point $\bar{\eta}$ lies over $\eta_\ndls$; moreover
+        $\Oo_{X_\ndls, \eta_\ndls} \to \Oo_{(X_\ndls)_{\bar{k}}, \bar{\eta}}$ is a weakly unramified extension of discrete
+        valuation rings with separable residue field extension. The proof of \Cref{lemma:descend_ramification_along_etale}
+        uses only these two properties of the extension (there the extension was moreover finite étale), so it applies
+        verbatim: the ramification of $(\cP_{\bar{k}})^{[d]} = (\cP^{[d]})_{\bar{k}}$ at $\bar{\eta}$ is bounded by $r$ if
+        and only if the ramification of $\cP^{[d]}$ at $\eta_\ndls$ is. Hence unramifiedness and tameness at $\eta_\ndls$
+        may be checked after base change to $\bar{k}$.
+        \item \textbf{(Rationality of $P$ --- a caveat.)} If $P$ is a closed point with $\kappa(P) \neq k$, then after base
+        change to $\bar{k}$ the point $Z_{\ndls}$ corresponds to the divisor $\sum_{\bar{P} \mapsto P} n \bar{P}$ on
+        $C_{\bar{k}}$, whose support consists of $[\kappa(P):k]$ distinct points, whereas the computation below treats a
+        modulus supported at a single rational point. We therefore prove \Cref{theorem:torsors_after_blowup_is_tame} under
+        the standing assumption that $k$ is algebraically closed; this suffices for our purposes, since in the proof of
+        \Cref{main:theorem:SymmetricPowerOfSheafIsTamelyRamified} the field is assumed algebraically closed before the present
+        theorem is invoked.
+    \end{enumerate}
+\end{remnum}
+
+We now formulate the formal--local invariance precisely. Fix $P \in C(k)$ lying in the support of $\mdls$, set $\ndls = dP$,
+and fix a uniformizer $x$ of $\Oo_{C,P}$; it induces an isomorphism $\widehat{\Oo_{C,P}} \cong k[[x]]$.
+The scheme $\Spec(k[[x]])$ has two points --- the closed point, mapping to $P$, and the generic point, mapping to the generic
+point of $C$ --- so the punctured formal disc $\Spec(k((x)))$ maps to $U$, and we denote by
+$$\cP_x := \cP \times_U \Spec(k((x)))$$
+the corresponding restriction of $\cP$; it is a $G$-torsor over $\Spec(k((x)))$.
+Let $e_1, \dots, e_d \in k[[x_1, \dots, x_d]]$ be the elementary symmetric polynomials in $x_1, \dots, x_d$, and set
+$$ V = \Spec\left(k[[e_1, \dots, e_d]][e_d^{-1}]\right), \qquad W = \Spec\left(k[[x_1, \dots, x_d]][(x_1 \cdots x_d)^{-1}]\right).$$
+The inclusion $k[[e_1, \dots, e_d]] \subset k[[x_1, \dots, x_d]]$ induces a finite flat morphism $\hat{r}: W \to V$
+(note that inverting $e_d = x_1 \cdots x_d$ inverts each $x_i$), and for each $i$ we let
+$$ q_i : W \to \Spec(k((x))), \qquad x \mapsto x_i.$$
+The group $S_d$ acts on $W$ over $V$ by permuting $x_1, \dots, x_d$, and $q_{\sigma(i)} = q_i \circ \sigma$.
+
+\begin{lemma}[Formal--local invariance]\label{lemma:formal_local_invariance}
+    In the above notation:
+    \begin{enumerate}
+        \item The choice of $x$ induces an isomorphism $\widehat{\Oo_{C^{(d)}, Z_\ndls}} \cong k[[e_1, \dots, e_d]]$ carrying
+        the maximal ideal to $(e_1, \dots, e_d)$, such that the induced morphism $c: \Spec(k[[e_1, \dots, e_d]]) \to C^{(d)}$
+        is flat and satisfies $c^{-1}(U^{(d)}) = V$; we write $c_V : V \to U^{(d)}$ for the restriction.
+        \item There is an induced isomorphism $\widehat{\Oo_{X_\ndls, \eta_\ndls}} \cong \kappa[[e_d]]$, where
+        $\kappa = k(\frac{e_1}{e_d}, \dots, \frac{e_{d-1}}{e_d})$. In particular
+        $\widehat{K}_{\eta_\ndls} := \Frac(\widehat{\Oo_{X_\ndls, \eta_\ndls}}) \cong \kappa((e_d))$, and the canonical
+        morphism $\Spec(\widehat{K}_{\eta_\ndls}) \to U^{(d)}$ factors as
+        $\Spec(\kappa((e_d))) \to V \xrightarrow{c_V} U^{(d)}$, where the first map does not depend on $(C, \cP)$.
+        \item There is a canonical isomorphism of $G$-torsors over $V$
+        $$ \cP^{[d]} \times_{U^{(d)}} V \;\cong\; \Xi \backslash \left( q_1^{-1}\cP_x \times_W \cdots \times_W q_d^{-1}\cP_x \right).$$
+    \end{enumerate}
+    Consequently, the $G$-torsor $\cP^{[d]}|_{\Spec(\widehat{K}_{\eta_\ndls})}$ --- and hence whether the ramification of
+    $\cP^{[d]}$ at $\eta_\ndls$ is bounded by $r$ (resp.\ tame, resp.\ unramified) --- depends only on $d$ and on the
+    isomorphism class of the $G$-torsor $\cP_x$ over $k((x))$, and not otherwise on the pair $(C, \cP)$.
+\end{lemma}
+
+\begin{proof}
+    \textbf{(1)} Since $P$ is a $k$-rational point of the smooth curve $C$, the uniformizer $x$ induces
+    $\widehat{\Oo_{C,P}} \cong k[[x]]$. As completion at rational points takes products of $k$-varieties to completed tensor
+    products, we get $\widehat{\Oo_{C^d, (P, \dots, P)}} \cong k[[x]] \widehat{\otimes}_k \cdots \widehat{\otimes}_k k[[x]] = k[[x_1, \dots, x_d]]$.
+    Write $A = \Oo_{C^{(d)}, Z_\ndls}$ and $B = \Oo_{C^d, (P, \dots, P)}$.
+    Since $k$ is algebraically closed, a closed point $(Q_1, \dots, Q_d) \in C^d$ maps to $Z_\ndls = dP$ under the finite
+    projection $r: C^d \to C^{(d)}$ if and only if $Q_1 = \dots = Q_d = P$; hence $(P, \dots, P)$ is the unique point of
+    $C^d$ over $Z_\ndls$, $B = (r_* \Oo_{C^d})_{Z_\ndls}$ is a finite $A$-module, and $A = B^{S_d}$ (formation of invariants
+    commutes with localization at invariant primes).
+    Since $\mathfrak{m}_B$ is the unique maximal ideal of $B$ over $\mathfrak{m}_A$, we have
+    $\mathfrak{m}_B^N \subset \mathfrak{m}_A B \subset \mathfrak{m}_B$ for some $N$, so the $\mathfrak{m}_A$-adic and
+    $\mathfrak{m}_B$-adic topologies on $B$ agree, and therefore $B \otimes_A \hat{A} \cong \hat{B} \cong k[[x_1, \dots, x_d]]$.
+    Now $A = B^{S_d}$ is the kernel of $B \to \prod_{\sigma \in S_d} B$, $b \mapsto (\sigma(b) - b)_\sigma$; as $\hat{A}$ is
+    flat over $A$, tensoring with $\hat{A}$ preserves this kernel, so
+    $$\hat{A} \cong (B \otimes_A \hat{A})^{S_d} \cong k[[x_1, \dots, x_d]]^{S_d}.$$
+    Finally, $k[[x_1, \dots, x_d]]^{S_d} = k[[e_1, \dots, e_d]]$: the ring $k[x_1, \dots, x_d]$ is a finite free module over
+    $k[e_1, \dots, e_d]$, the same topological argument identifies $k[[x_1, \dots, x_d]]$ with
+    $k[x_1, \dots, x_d] \otimes_{k[e_1, \dots, e_d]} k[[e_1, \dots, e_d]]$, and taking $S_d$-invariants --- again a kernel,
+    preserved by the flat base change $k[e_1, \dots, e_d] \to k[[e_1, \dots, e_d]]$ --- yields $k[[e_1, \dots, e_d]]$.
+    Under these identifications the maximal ideal of $\hat{A}$ is $(e_1, \dots, e_d)$, and $c$ is flat as the composition of
+    the flat morphisms $\Spec(\hat{A}) \to \Spec(A) \to C^{(d)}$.
+
+    It remains to check that $c^{-1}(C^{(d)} \setminus U^{(d)}) = V(e_d)$ as sets. We have
+    $C^{(d)} \setminus U^{(d)} = \bigcup_{Q \in \mathrm{Supp}(\mdls)} Z_Q$ with $Z_Q = \{D : Q \in \mathrm{Supp}(D)\}$, as in
+    the proof of \Cref{lemma:torsor_unramified_codim_one}. For $Q \neq P$ the divisor $Z_Q$ does not contain the point
+    $Z_\ndls = dP$, so its ideal is not contained in $\mathfrak{m}_A$, and $c^{-1}(Z_Q) = \emptyset$. For $Q = P$, pull back
+    along the finite surjective morphism $\Spec(\hat{B}) \to \Spec(\hat{A})$: the preimage of $Z_P$ in $C^d$ is
+    $\bigcup_i p_i^{-1}(P)$, whose trace on $\Spec(\hat{B}) = \Spec(k[[x_1, \dots, x_d]])$ is
+    $V(x_1) \cup \dots \cup V(x_d) = V(x_1 \cdots x_d) = V(e_d)$; by surjectivity, $c^{-1}(Z_P) = V(e_d)$ as claimed. Hence
+    $c^{-1}(U^{(d)}) = V$, and likewise $\Spec(\hat{B}) \times_{C^d} U^d = W$.
+
+    \textbf{(2)} Blowing up commutes with flat base change, and the center $Z_\ndls$ pulls back under $c$ to the closed
+    point $V(e_1, \dots, e_d)$; hence
+    $$\hat{Y} := \Bl_{(e_1, \dots, e_d)}\left(\Spec k[[e_1, \dots, e_d]]\right) \cong X_\ndls \times_{C^{(d)}} \Spec(\hat{A}),$$
+    and the exceptional divisor $\hat{E} \subset \hat{Y}$ is the base change of $E_\ndls$ along
+    $\Spec(\hat{A}/\hat{\mathfrak{m}}) = \Spec(\kappa(Z_\ndls))$, i.e.\ the projection $\mathrm{pr}: \hat{Y} \to X_\ndls$
+    restricts to an isomorphism $\hat{E} \cong E_\ndls \cong \bP_k^{d-1}$.
+    Let $\hat{\eta}$ be the generic point of $\hat{E}$. Then $\mathrm{pr}(\hat\eta) = \eta_\ndls$, and the induced local
+    homomorphism of discrete valuation rings $\Oo_{X_\ndls, \eta_\ndls} \to \Oo_{\hat{Y}, \hat{\eta}}$ carries a uniformizer
+    to a uniformizer (the ideal of $E_\ndls$ pulls back to the ideal of $\hat{E}$) and induces an isomorphism of residue
+    fields (both are the function field of $\bP_k^{d-1}$); hence it induces an isomorphism on completions.
+    The completion of $\Oo_{\hat{Y}, \hat{\eta}}$ is computed exactly as in
+    \Cref{prop:blowup_local_ring_at_exceptional} (in the coordinates $e_1, \dots, e_d$, on the chart $u_d \neq 0$):
+    we have $e_i = \frac{u_i}{u_d} e_d$, the local ring at
+    $\hat\eta$ is $\left(\hat{A}[\frac{u_1}{u_d}, \dots, \frac{u_{d-1}}{u_d}]\right)_{(e_d)}$, its residue field is
+    $\kappa = k(\frac{u_1}{u_d}, \dots, \frac{u_{d-1}}{u_d}) = k(\frac{e_1}{e_d}, \dots, \frac{e_{d-1}}{e_d})$, and its
+    completion is $\kappa[[e_d]]$.
+    Finally, $e_d$ is invertible in $\widehat{K}_{\eta_\ndls} = \kappa((e_d))$, so the composite
+    $\Spec(\widehat{K}_{\eta_\ndls}) \to \Spec(\Oo_{\hat{Y}, \hat\eta}) \to \hat{Y} \to \Spec(\hat{A})$ factors through $V$,
+    giving the asserted factorization of $\Spec(\widehat{K}_{\eta_\ndls}) \to U^{(d)}$ through $c_V$.
+
+    \textbf{(3)} Let $h : \cP^{\times_k d} \to U^{(d)}$ denote the canonical morphism; it is finite, being the composition
+    of the finite étale morphism $\cP^{\times_k d} \to U^d$ with the finite morphism $U^d \to U^{(d)}$. By
+    \Cref{main:cor:sym-power-quotient},
+    $\cP^{[d]} = \Xi \backslash \cP^{\times_k d} = \underline{\Spec}_{U^{(d)}}\left((h_* \Oo_{\cP^{\times_k d}})^{\Xi}\right)$.
+    Pushforward along the affine morphism $h$ commutes with the flat base change $c_V : V \to U^{(d)}$, and the formation of
+    $\Xi$-invariants is a kernel, hence also commutes with flat base change; therefore
+    $$ \cP^{[d]} \times_{U^{(d)}} V \cong \Xi \backslash \left(\cP^{\times_k d} \times_{U^{(d)}} V\right).$$
+    By step (1), $U^d \times_{U^{(d)}} V \cong W$, so
+    $\cP^{\times_k d} \times_{U^{(d)}} V \cong \cP^{\times_k d} \times_{U^d} W$.
+    For each $i$, the composition $W \to \Spec(k[[x_1, \dots, x_d]]) \to \Spec(k[[x]]) \to C$ --- the middle map being the
+    completion of the projection $p_i : C^d \to C$, i.e.\ $x \mapsto x_i$ --- factors through $\Spec(k((x))) \to U$, since
+    $x_i$ is invertible on $W$; this composite is precisely $q_i$, and it commutes with $p_i : U^d \to U$. Since
+    $\cP^{\times_k d} = p_1^{-1}\cP \times_{U^d} \cdots \times_{U^d} p_d^{-1}\cP$, base changing to $W$ gives an isomorphism
+    $$ \cP^{\times_k d} \times_{U^d} W \cong q_1^{-1}\cP_x \times_W \cdots \times_W q_d^{-1}\cP_x, $$
+    which is equivariant for the actions of $G^d$ (in particular of $\KG$) and of $S_d$ --- the latter acting on $W$ by
+    permuting the $x_i$, compatibly with $q_{\sigma(i)} = q_i \circ \sigma$. Passing to $\Xi$-quotients yields the displayed
+    isomorphism.
+
+    For the final statement: the schemes $V$ and $W$, the maps $q_i$ and $\hat{r}$, the $\Xi$-action, and the point
+    $\Spec(\kappa((e_d))) \to V$ of (2) are all constructed from $d$ alone; by (3), the torsor
+    $\cP^{[d]}|_{\Spec(\widehat{K}_{\eta_\ndls})}$ is the pullback along $\Spec(\kappa((e_d))) \to V$ of a torsor constructed
+    from $\cP_x$ and these data. Since the ramification at $\eta_\ndls$ is by definition read off from
+    $\cP^{[d]}|_{\Spec(\widehat{K}_{\eta_\ndls})}$ together with the discrete valuation ring $\kappa[[e_d]]$
+    (\Cref{definition:tamely_ramified_in_codim_1}, \Cref{definition:local_ramification_boundness}), it depends only on
+    $(\cP_x, d)$.
+\end{proof}
+
+\begin{cor}[Reduction to $\bP^1$]\label{cor:reduction_to_P1}
+    Let $C, C'$ be smooth projective geometrically connected curves over the algebraically closed field $k$, let
+    $\cP \to U = C \setminus \mdls$ and $\cP' \to U' = C' \setminus \mdls'$ be $G$-torsors, let
+    $P \in \mathrm{Supp}(\mdls)(k)$ and $P' \in \mathrm{Supp}(\mdls')(k)$, and let $x, x'$ be uniformizers at $P, P'$
+    respectively. Assume that $\cP_x \cong \cP'_{x'}$ as $G$-torsors, compatibly with the isomorphism
+    $k((x)) \cong k((x'))$, $x \mapsto x'$.
+    Then for every $d \geq 1$ and every $r$, the ramification of $\cP^{[d]}$ at $\eta_{dP}$ is bounded by $r$ if and only if
+    the ramification of $\cP'^{[d]}$ at $\eta_{dP'}$ is; in particular, the one is unramified (resp.\ tamely ramified) at
+    $\eta_{dP}$ if and only if the other is at $\eta_{dP'}$.
+\end{cor}
+\begin{proof}
+    Immediate from \Cref{lemma:formal_local_invariance}: both $\cP^{[d]}|_{\Spec(\widehat{K}_{\eta_{dP}})}$ and
+    $\cP'^{[d]}|_{\Spec(\widehat{K}_{\eta_{dP'}})}$ are identified, compatibly with the discrete valuation ring
+    $\kappa[[e_d]]$, with the pullback along $\Spec(\kappa((e_d))) \to V$ of
+    $\Xi \backslash (q_1^{-1}\cP_x \times_W \cdots \times_W q_d^{-1}\cP_x)$.
+\end{proof}
+
+\subsection*{The Invariant-Theory Scaffold}
+
+All three computations of \Cref{section:symmetric_power_computations} identify
+the symmetric-power cover at $\eta_\ndls$ by the same invariant-theoretic
+mechanism, which we set up once. Let $G$ be a finite abelian group and let
+$\cP = \Spec S \to \bG_m = \Spec R$, $R = k[x, x^{-1}]$, be an affine
+$G$-torsor. Write
+\[
+    R^{\otimes_k d} = k[x_1^{\pm 1}, \dots, x_d^{\pm 1}],
+\]
+the coordinate ring of $U^d = \bG_m^d$, and let
+$S^{\otimes_k d}$ be the coordinate ring of the $G^d$-torsor
+$\cP^{\times_k d} = p_1^{-1}\cP \times_{U^d} \cdots \times_{U^d} p_d^{-1}\cP$
+over $U^d$.
+
+The $d$-fold product torsor
+$p_1^{-1}\cP \otimes^G \cdots \otimes^G p_d^{-1}\cP$ on $U^d$ --- the
+contracted product along the sum map $G^d \to G$ --- is the quotient of
+$\cP^{\times_k d}$ by the kernel
+$\KG = \{(g_1, \dots, g_d) \in G^d \mid g_1 + \dots + g_d = 0\}$ of the sum
+map. We identify $\KG \cong G^{d-1}$ via
+$(g_1, \dots, g_{d-1}) \mapsto (g_1,\, g_2 - g_1,\, \dots,\, -g_{d-1})$; its
+coordinate ring is the invariant ring $\left(S^{\otimes_k d}\right)^{G^{d-1}}$,
+and the residual action of $G = G^d / \KG$ is induced by
+$(g, 0, \dots, 0) \in G^d$.
+The symmetric group $S_d$ acts on everything by permuting the $d$ factors,
+and by \Cref{main:cor:sym-power-quotient} the symmetric-power torsor is the
+$\Xi = \KG \rtimes S_d$ quotient:
+\[
+    \cP^{[d]}\big|_{U^{(d)}}
+    = \Spec \left( \left( S^{\otimes_k d} \right)^{\Xi} \right)
+    = \Spec \left( \left( \left( S^{\otimes_k d} \right)^{G^{d-1}} \right)^{S_d} \right).
+\]
+On the base, the $S_d$-invariants form the ring of symmetric Laurent
+polynomials
+\[
+    \left(R^{\otimes_k d}\right)^{S_d} = k[e_1, e_2, \dots, e_d, e_d^{-1}],
+\]
+where $e_1, \dots, e_d$ are the elementary symmetric polynomials in
+$x_1, \dots, x_d$ (a Laurent polynomial is symmetric if and only if, after
+clearing the denominator $e_d^N = (x_1 \cdots x_d)^N$, its numerator is a
+symmetric polynomial). Finally, by
+\Cref{lemma:formal_local_invariance}(2)--(3) applied to $C = \bP^1$,
+$\mdls = d \cdot 0 + \infty$, the restriction of $\cP^{[d]}$ to the complete
+local field $\widehat{K}_\eta = \kappa(\eta)((e_d))$ of
+\Cref{eq:complete_field_at_generic_point} is the base change of
+$\Spec\left( \left( S^{\otimes_k d} \right)^{\Xi} \right)$ along
+$k[e_1, \dots, e_d, e_d^{-1}] \to \widehat{K}_\eta$. In each of the three
+computations, the task is therefore to identify the invariant ring
+$\left( S^{\otimes_k d} \right)^{\Xi}$ explicitly as the algebra of an
+equation of the same shape as that of $\cP$, with datum a \emph{symmetric}
+function of the $x_i$, and then to bound the valuation of that datum in
+$\widehat{K}_\eta$.
+
+\subsection*{Compatibilities of the Symmetric Power}
+
+% --- NEW (not in the current chapter): the symmetric power commutes with
+%     fiber products and with induced torsors. These are the two formal
+%     compatibilities that the assembly of the general abelian case (2.5.4)
+%     and the tame case (2.5.1) consume. Both proofs follow the same pattern
+%     as prop:witt_cover_identification: produce an equivariant morphism of
+%     torsors and conclude by prop:torsor_morphism_iso. ---
+
+Recall from \Cref{main:cor:sym-power-quotient} that
+$\cP^{[d]} = \Xi_G \backslash \cP^{\times_k d}$, where
+$\Xi_G = \KG \rtimes S_d$. The symmetric power is compatible with the two
+standard operations on the structure group: fiber products and induction
+along injections.
+
+\begin{lemma}[symmetric powers and fiber products]\label{lemma:sym_power_product}
+    Let $G_1, G_2$ be finite abelian groups, let $\cP_1, \cP_2$ be a $G_1$-,
+    resp.\ $G_2$-torsor on $U_{\text{ét}}$, and let
+    $\cP = \cP_1 \times_U \cP_2$ be the associated $(G_1 \times G_2)$-torsor.
+    Then there is a canonical isomorphism of $(G_1 \times G_2)$-torsors over
+    $U^{(d)}$
+    \[
+        \cP^{[d]} \;\cong\; \cP_1^{[d]} \times_{U^{(d)}} \cP_2^{[d]}.
+    \]
+\end{lemma}
+\begin{proof}
+    Write $G = G_1 \times G_2$. We have
+    $\cP^{\times_k d} = \cP_1^{\times_k d} \times_{U^d} \cP_2^{\times_k d}$,
+    and under this identification
+    $K_G = K_{G_1} \times K_{G_2}$ inside $G^d = G_1^d \times G_2^d$, with
+    $S_d$ acting diagonally. Consider the composition
+    \[
+        \cP^{\times_k d}
+        \longrightarrow \cP_1^{\times_k d} \times_{U^d} \cP_2^{\times_k d}
+        \longrightarrow
+        \bigl(\Xi_{G_1} \backslash \cP_1^{\times_k d}\bigr)
+        \times_{U^{(d)}}
+        \bigl(\Xi_{G_2} \backslash \cP_2^{\times_k d}\bigr)
+        = \cP_1^{[d]} \times_{U^{(d)}} \cP_2^{[d]}.
+    \]
+    The first projection $\cP^{\times_k d} \to \cP_1^{[d]}$ is invariant under
+    $K_{G_1} \rtimes S_d$ by construction and under $K_{G_2}$ because
+    $K_{G_2}$ acts only on the second factor; symmetrically for the second
+    projection. Hence the composition is $\Xi_G$-invariant and descends to a
+    morphism
+    \[
+        \phi \colon \cP^{[d]} = \Xi_G \backslash \cP^{\times_k d}
+        \longrightarrow \cP_1^{[d]} \times_{U^{(d)}} \cP_2^{[d]}
+    \]
+    over $U^{(d)}$. The residual $G$-action on the source is induced by
+    $(g_1, g_2, 0, \dots, 0) \in G^d$, which maps under the projections to the
+    residual $G_1$- and $G_2$-actions on the factors of the target; so $\phi$
+    is $G$-equivariant. The source is a $G$-torsor
+    (\Cref{main:cor:sym-power-quotient}), and the target is a fiber product of a
+    $G_1$-torsor and a $G_2$-torsor, hence a $G$-torsor. A $G$-equivariant
+    morphism of $G$-torsors is an isomorphism
+    (\Cref{main:prop:torsor_morphism_iso}).
+\end{proof}
+
+\begin{lemma}[symmetric powers and induced torsors]\label{lemma:sym_power_induced}
+    Let $\iota : H \hookrightarrow G$ be an injective homomorphism of finite
+    abelian groups and let $\cQ$ be an $H$-torsor on $U_{\text{ét}}$. Then
+    there is a canonical isomorphism of $G$-torsors over $U^{(d)}$
+    \[
+        (\iota_* \cQ)^{[d]} \;\cong\; \iota_*\bigl(\cQ^{[d]}\bigr).
+    \]
+\end{lemma}
+\begin{proof}
+    The canonical map $j \colon \cQ \to \iota_*\cQ = (\cQ \times G)/H$,
+    $q \mapsto [(q, 1)]$, satisfies $j(qh) = j(q)\cdot\iota(h)$. Its $d$-fold
+    product $\cQ^{\times_k d} \to (\iota_*\cQ)^{\times_k d}$ is equivariant
+    for $H^d \to G^d$ (which carries $K_H$ into $K_G$) and commutes with the
+    $S_d$-actions, hence descends to an $H$-equivariant morphism of the
+    quotients
+    \[
+        \psi \colon \cQ^{[d]} = \Xi_H \backslash \cQ^{\times_k d}
+        \longrightarrow \Xi_G \backslash (\iota_*\cQ)^{\times_k d}
+        = (\iota_*\cQ)^{[d]},
+    \]
+    where the residual $H = H^d/K_H$ acts on the target through
+    $\iota : H \to G = G^d/K_G$. By the universal property of induction, an
+    $H$-equivariant morphism from the $H$-torsor $\cQ^{[d]}$ to (the
+    restriction of) the $G$-torsor $(\iota_*\cQ)^{[d]}$ extends uniquely to a
+    $G$-equivariant morphism
+    \[
+        \iota_*\bigl(\cQ^{[d]}\bigr) \longrightarrow (\iota_*\cQ)^{[d]},
+        \qquad [(z, g)] \longmapsto \psi(z) \cdot g,
+    \]
+    which is well defined precisely because $\psi$ is $H$-equivariant. A
+    $G$-equivariant morphism of $G$-torsors over $U^{(d)}$ is an isomorphism
+    (\Cref{main:prop:torsor_morphism_iso}).
+\end{proof}
+
+\subsection*{A Symmetric Regularity Lemma}
+
+The valuation bound is in all cases an instance of the following lemma, applied
+with $y_i := 1/x_i$. Note that the elementary symmetric polynomials in the
+$y_i$ are related to those in the $x_i$ by
+\begin{equation}\label{eq:elementary_symmetric_inverse_variables}
+    e_k(y_1, \dots, y_d)
+    = \sum_{1 \le i_1 < \dots < i_k \le d} \frac{1}{x_{i_1} \cdots x_{i_k}}
+    = \frac{e_{d-k}(x_1, \dots, x_d)}{e_d(x_1, \dots, x_d)},
+\end{equation}
+which for $1 \leq k \leq d-1$ lies in the residue field
+$\kappa(\eta) = k(e_1/e_d, \dots, e_{d-1}/e_d)$ of
+\Cref{eq:complete_field_at_generic_point}.
+
+\begin{lemma}[symmetric regularity]\label{lemma:symmetric_regularity}
+    Let $\Phi \in k[y_1, \dots, y_d]^{S_d}$ be symmetric with every monomial of total
+    degree $< d$. Then $\Phi \in \kappa(\eta) = k(e_1/e_d, \dots, e_{d-1}/e_d)$; in
+    particular $\Phi$ is regular at $\eta_\ndls$.
+\end{lemma}
+
+\begin{proof}
+    $\Phi$ is a $k$-combination of monomial symmetric functions $m_\lambda(y)$ with
+    $|\lambda| < d$. Each $m_\lambda(y)$ is an isobaric polynomial in the elementary
+    symmetric functions $e_\mu(y) = \prod_i e_{\mu_i}(y)$ with $\mu \vdash |\lambda|$;
+    every part $\mu_i \leq |\lambda| < d$, so only $e_1(y), \dots, e_{d-1}(y)$ occur
+    --- never $e_d(y)$. By \Cref{eq:elementary_symmetric_inverse_variables}, each
+    $e_k(y)$ with $1 \leq k \leq d-1$ lies in $\kappa(\eta)$. Hence
+    $\Phi \in \kappa(\eta) \subset \widehat\Oo_\eta = \kappa(\eta)[[e_d]]$.
+\end{proof}
+
+% ---------------------------------------------------------------------------
+%  2.5  The Symmetric-Power Computations
+%  [Sources: theorem:ramification_after_blowup_P1 and lemma:realization_over_Gm
+%   of RamificationAfterBlowupIsTame.tex, split into per-case subsections with
+%   a common skeleton; RamificationAfterBlowupPPower.tex for the p^r case;
+%   subsection 2.5.4 (general finite abelian G) is NEW --- it replaces the
+%   one-line stub "Idea: decompose G by the structure theorem".]
+% ---------------------------------------------------------------------------
+
+\section{The Symmetric-Power Computations}\label{section:symmetric_power_computations}
+
+We now prove \Cref{theorem:torsors_after_blowup_is_tame}. The proof proceeds
+through the three cyclic cases --- $G = \Z/e\Z$ with $\gcd(e,p) = 1$,
+$G = \Z/p\Z$, and $G = \Z/p^r\Z$ --- each treated by the \emph{same}
+three-step computation, one column of the table of
+\Cref{section:cyclic_extension_theories} at a time:
+\begin{enumerate}
+    \item \textbf{Realize.} The restriction $\cP_x$ of $\cP$ to the punctured
+    formal disc at $P$ is realized, using the reduced representatives of
+    \Cref{section:cyclic_extension_theories}, by an explicit equation over
+    $\bG_m \subset \bP^1$; by \Cref{cor:reduction_to_P1} we may then assume
+    $C = \bP^1_k$, $\ndls = d \cdot 0$, $U = \bG_m$, and $\cP$ is this
+    explicit torsor.
+    \item \textbf{Identify.} Using the invariant-theory scaffold of
+    \Cref{section:blowup_prelude}, the restriction of $\cP^{[d]}$ to the
+    complete local field $\widehat K_\eta = \kappa(\eta)((e_d))$ of
+    \Cref{eq:complete_field_at_generic_point} is identified as the cover
+    defined by an equation \emph{of the same shape}, whose datum is the
+    symmetrization of the original datum: the product $\prod_i f(x_i)$ in the
+    Kummer case, the sum $\sum_i f(x_i)$ in the Artin--Schreier case, and the
+    Witt sum $\bigoplus_i \vec f(x_i)$ in the Artin--Schreier--Witt case.
+    \item \textbf{Count.} The valuation of the symmetrized datum in
+    $\widehat K_\eta$ is bounded --- using
+    \Cref{lemma:symmetric_regularity} and the pole bounds built into the
+    reduced representative --- and the ramification criterion of the relevant
+    theory yields the conclusion: \emph{tame} in the Kummer case,
+    \emph{unramified} in the two wild cases.
+\end{enumerate}
+Finally, in \Cref{subsection:general_abelian_case}, the general finite
+abelian case is assembled from the three cyclic cases by decomposing $G$ into
+primary cyclic factors, using the compatibility lemmas of
+\Cref{section:blowup_prelude}.
+
+Throughout this section $k$ is algebraically closed
+(\Cref{rem:algebraically_closed_harmless}), $P \in C(k)$, $\ndls = nP$, and
+$d = \deg \ndls = n$.
+
+% ---------------------------------------------------------------------
+\subsection{The Tame Case}\label{subsection:tame_case}
+% ---------------------------------------------------------------------
+
+\subsubsection*{Step 1: realization over $\bG_m$}
+
+\begin{lemma}[Realization over $\bG_m$, Kummer case]\label{lemma:realization_over_Gm_tame}
+    Let $k$ be algebraically closed of characteristic $p > 0$, and let $\cQ$ be a
+    tamely ramified $G$-torsor over $\Spec(k((x)))$. Then there exist an integer
+    $e$ prime to $p$, an injective homomorphism $\iota : \Z/e\Z \hookrightarrow G$,
+    and an integer $a$ prime to $e$, such that
+    $$\cP'_0 := \Spec\left(k[x, x^{-1}][T]/(T^e - x^a)\right)$$
+    is a $\Z/e\Z$-torsor over $\bG_m$, tamely ramified at $0$ and $\infty$, and the
+    induced $G$-torsor $\cP' := \iota_*\cP'_0$ satisfies $\cP'_x \cong \cQ$.
+    Here $T^e = x^a$ is regarded as a $\Z/e\Z$-torsor via a fixed primitive $e$-th
+    root of unity $\zeta_e \in k$.
+\end{lemma}
+\begin{proof}
+    By \Cref{lemma:kummer_reduced_representatives}(1), the tame quotient $G^t$ of
+    $\Gal(k((x))^{sep}/k((x)))$ is procyclic; fix a topological generator $\gamma$.
+    Let $\rho: \Gal(k((x))^{sep}/k((x))) \to G$ be the continuous homomorphism
+    classifying $\cQ$. Tameness means that $\rho$ kills the wild inertia subgroup,
+    so $\rho$ factors through $G^t$ and is determined by $g := \rho(\gamma)$, whose
+    order $e$ is prime to $p$. Let $\iota: \Z/e\Z \xrightarrow{\sim} \langle g \rangle \subset G$
+    be given by $1 \mapsto g$, so that $\rho = \iota \circ \chi$ for a surjective
+    character $\chi : G^t \to \Z/e\Z$.
+    By \Cref{lemma:kummer_reduced_representatives}(2), the classes of $x^a$,
+    $a \in \Z/e\Z$, exhaust $\mathrm{Hom}_{\mathrm{cont.}}(G^t, \Z/e\Z) \cong \Z/e\Z$, the class
+    of $x^a$ being surjective precisely when $\gcd(a, e) = 1$. Choose $a$ with the
+    class of $x^a$ equal to $\chi$; then $\cQ \cong \iota_*(T^e = x^a)$ over
+    $k((x))$. The same equation over $k[x, x^{-1}]$ defines a $\Z/e\Z$-torsor
+    $\cP'_0$ over $\bG_m$ (étale since $e$ is invertible in $k$), with
+    $(\iota_*\cP'_0)_x \cong \cQ$; it is tamely ramified at $0$ and at $\infty$
+    since its local characters there factor through the tame quotients.
+\end{proof}
+
+\subsubsection*{Step 2: identification of the symmetric-power cover}
+
+\begin{prop}[identification of the product torsor, Kummer case]\label{prop:kummer_cover_identification}
+    Let $G = \Z/e\Z$ with $e$ prime to $p$, let $f \in R^\times$ be a unit of
+    $R = k[x, x^{-1}]$, and let $\cP' = \Spec S \to \bG_m$, $S = R[X]/(X^e - f)$, be
+    the associated $G$-torsor. In the notation of the scaffold of
+    \Cref{section:blowup_prelude}, set
+    \[
+        Y := X_1 X_2 \cdots X_d \in S^{\otimes_k d},
+        \qquad
+        F := \prod_{i=1}^{d} f(x_i) \in R^{\otimes_k d}.
+    \]
+    Then:
+    \begin{enumerate}
+        \item \label{item:kummer_cover_invariance} $Y$ is $\KG$-invariant, and
+        \[
+            \bigl(S^{\otimes_k d}\bigr)^{G^{d-1}}
+            \;\cong\;
+            R^{\otimes_k d}[Y]\big/\bigl(Y^e - F\bigr)
+        \]
+        as $G$-torsors over $R^{\otimes_k d}$ (the residual $G$ acting by
+        $Y \mapsto \zeta_e^{\,g}\, Y$).
+        \item \label{item:kummer_cover_symmetry} $F$ is a symmetric Laurent
+        polynomial, i.e.\ lies in
+        $\bigl(R^{\otimes_k d}\bigr)^{S_d} = k[e_1, \dots, e_d, e_d^{-1}]$, and
+        \[
+            \Bigl(\bigl(S^{\otimes_k d}\bigr)^{G^{d-1}}\Bigr)^{S_d}
+            \;\cong\;
+            k[e_1, \dots, e_d, e_d^{-1}][Y]\big/\bigl(Y^e - F\bigr).
+        \]
+    \end{enumerate}
+    Consequently, restricting to the complete local field
+    $\widehat K_\eta = \kappa(\eta)((e_d))$ of
+    \Cref{eq:complete_field_at_generic_point},
+    \[
+        \cP'^{[d]}\big|_{\Spec \widehat K_\eta}
+        \;\cong\;
+        \Spec\; \widehat K_\eta[Z]\big/\bigl(Z^e - F\bigr).
+    \]
+\end{prop}
+\begin{proof}
+    \ref{item:kummer_cover_invariance}
+    Recall that $g \in G = \Z/e\Z$ acts on $X$ by $g(X) = \zeta_e^{\,g} X$. Hence
+    $(g_1, \dots, g_{d-1}) \in \KG \cong G^{d-1}$ acts on the generators by
+    \[
+        X_1 \mapsto \zeta_e^{\,g_1} X_1, \qquad
+        X_i \mapsto \zeta_e^{\,g_i - g_{i-1}} X_i \ (1 < i < d), \qquad
+        X_d \mapsto \zeta_e^{\,-g_{d-1}} X_d,
+    \]
+    so $Y = X_1 \cdots X_d$ transforms by the telescoping product
+    $\zeta_e^{\,g_1 + (g_2 - g_1) + \dots - g_{d-1}} = 1$: it is invariant.
+    Moreover $Y^e = \prod_i X_i^e = \prod_i f(x_i) = F$.
+    Since $F$ is a unit of $R^{\otimes_k d}$ and $e$ is invertible in $k$,
+    $T := R^{\otimes_k d}[Y]/(Y^e - F)$ is a $\Z/e\Z$-torsor over $U^d$ (finite
+    étale, with $G$ acting by $Y \mapsto \zeta_e^{\,g} Y$), and
+    $Y \mapsto X_1 \cdots X_d$ defines an $R^{\otimes_k d}$-algebra homomorphism
+    $\phi : T \to \bigl(S^{\otimes_k d}\bigr)^{G^{d-1}}$. The target is the
+    $d$-fold product torsor (the contracted product of the $p_i^{-1}\cP'$ along
+    the sum map $G^d \to G$), a $G$-torsor over $U^d$ by
+    \Cref{main:prop:symmetric_power_torsor} and the surrounding discussion; its
+    residual $G$-action is induced by $(g, 0, \dots, 0) \in G^d$, under which
+    $Y \mapsto \zeta_e^{\,g} Y$. So $\Spec \phi$ is a $G$-equivariant morphism of
+    $G$-torsors over $U^d$, hence an isomorphism by
+    \Cref{main:prop:torsor_morphism_iso}.
+
+    \ref{item:kummer_cover_symmetry} $S_d$ permutes the $x_i$ and the $X_i$, so it
+    fixes $Y$ and $F$; in particular
+    $F \in \bigl(R^{\otimes_k d}\bigr)^{S_d} = k[e_1, \dots, e_d, e_d^{-1}]$ (as
+    recorded in the scaffold). $T$ is free over $R^{\otimes_k d}$ with basis the
+    $S_d$-invariant monomials $Y^j$, $0 \leq j < e$; writing an element in this
+    basis, it is $S_d$-invariant if and only if all its coefficients are, whence
+    \[
+        T^{S_d}
+        = \bigl(R^{\otimes_k d}\bigr)^{S_d}[Y]\big/\bigl(Y^e - F\bigr)
+        = k[e_1, \dots, e_d, e_d^{-1}][Y]\big/\bigl(Y^e - F\bigr).
+    \]
+    The final statement follows from the scaffold: by
+    \Cref{main:cor:sym-power-quotient}, $\cP'^{[d]}$ is the $\Xi$-quotient computed
+    above, and its restriction to $\Spec \widehat K_\eta$ along
+    $k[e_1, \dots, e_d, e_d^{-1}] \to \widehat K_\eta$
+    (\Cref{lemma:formal_local_invariance}) is the Kummer cover of the image of
+    $F$.
+\end{proof}
+
+\subsubsection*{Step 3: the valuation count and the conclusion}
+
+\begin{theorem}[the tame case]\label{theorem:tame_after_blowup}
+    Let $G$ be a finite abelian group and let $\cP \to U = C \setminus \mdls$ be a
+    $G$-torsor which is tamely ramified at $P$. Then $\cP^{[d]}$ is tamely
+    ramified at $\eta_\ndls$.
+\end{theorem}
+\begin{proof}
+    \emph{Realize.} The restriction $\cQ = \cP_x$ is tamely ramified, so
+    \Cref{lemma:realization_over_Gm_tame} produces $e$ prime to $p$,
+    $\iota: \Z/e\Z \hookrightarrow G$, $a$ prime to $e$, and the torsor
+    $\cP'_0 : T^e = x^a$ over $\bG_m$ with $(\iota_*\cP'_0)_x \cong \cP_x$. By
+    \Cref{cor:reduction_to_P1}, the ramification of $\cP^{[d]}$ at $\eta_\ndls$
+    agrees with that of $(\iota_*\cP'_0)^{[d]}$ at $\eta_{d \cdot 0}$. By
+    \Cref{lemma:sym_power_induced},
+    $(\iota_*\cP'_0)^{[d]} \cong \iota_*\bigl(\cP'^{[d]}_0\bigr)$, and by
+    \Cref{lemma:ramification_of_induced_torsor} it is tamely ramified at
+    $\eta_{d \cdot 0}$ if and only if $\cP'^{[d]}_0$ is. So we may assume
+    $G = \Z/e\Z$ and $\cP = \cP'_0$.
+
+    \emph{Identify.} \Cref{prop:kummer_cover_identification}, with $f = x^a$,
+    identifies
+    \[
+        \cP'^{[d]}_0\big|_{\Spec \widehat K_\eta}
+        \;\cong\;
+        \Spec\; \widehat K_\eta[Z]\big/\bigl(Z^e - F\bigr),
+        \qquad
+        F = \prod_{i=1}^{d} x_i^a = (x_1 \cdots x_d)^a = e_d^{\,a}.
+    \]
+
+    \emph{Count.} In $\widehat K_\eta = \kappa(\eta)((e_d))$ we have
+    $v_{\widehat K_\eta}(F) = v_{\widehat K_\eta}(e_d^{\,a}) = a$. By
+    \Cref{theorem:kummer_ramification} (all of whose cases are tamely ramified,
+    since $\gcd(e, p) = 1$), the extension defined by $Z^e = e_d^{\,a}$ is tamely
+    ramified --- explicitly, its ramification index is $e/\gcd(a, e)$, prime to
+    $p$. Hence $\cP'^{[d]}_0$, and therefore $\cP^{[d]}$, is tamely ramified at
+    $\eta_\ndls$.
+\end{proof}
+
+% ---------------------------------------------------------------------
+\subsection{\texorpdfstring{The Wild Case $G = \Z/p\Z$}{The Wild Case G = Z/pZ}}\label{subsection:wild_case_Zp}
+% ---------------------------------------------------------------------
+
+\subsubsection*{Step 1: realization over $\bG_m$}
+
+\begin{lemma}[Realization over $\bG_m$, Artin--Schreier case]\label{lemma:realization_over_Gm_AS}
+    Let $k$ be algebraically closed of characteristic $p > 0$, let $G = \Z/p\Z$,
+    and let $\cQ$ be a $G$-torsor over $\Spec(k((x)))$ with ramification bounded
+    by $d$ (\Cref{definition:local_ramification_boundness}). Then there exists
+    $f \in x^{-1}k[x^{-1}]$, either $f = 0$ or
+    $f = cx^{-m} + a_{-m+1}x^{-m+1} + \dots + a_{-1}x^{-1}$ with $c \neq 0$,
+    $p \nmid m$ and $m < d$, such that
+    $$\cP' := \Spec\left(k[x, x^{-1}][X]/(X^p - X - f)\right)$$
+    is a $\Z/p\Z$-torsor over $\bG_m$ with $\cP'_x \cong \cQ$. Moreover $\cP'$
+    extends to a torsor over $\bP^1_k \setminus \{0\}$ --- in particular it is
+    unramified at $\infty$ --- and it has ramification bounded by $d$ at $0$.
+\end{lemma}
+\begin{proof}
+    If $\cQ$ is trivial, take $f = 0$. Otherwise, since $\Z/p\Z$ is simple and
+    $k((x))$ admits no non-trivial unramified extensions, $\cQ = \Spec(F)$ for a
+    cyclic extension $F/k((x))$ of degree $p$ together with an isomorphism
+    $\Gal(F/k((x))) \cong \Z/p\Z$. By Artin--Schreier theory
+    (\Cref{theorem:artin_schreier_ramification}) such data correspond to non-zero
+    classes in $k((x))/\wp(k((x)))$, and by
+    \Cref{lemma:as_reduced_representatives} the class of $\cQ$ admits a reduced
+    representative $f \in x^{-1}k[x^{-1}]$, non-zero with pole order $m$ prime to
+    $p$. The unique ramification break of $F = k((x))[X]/(X^p - X - f)$ is at
+    $m$ (\Cref{theorem:artin_schreier_ramification}(3)), so the ramification of
+    $\cQ$ is bounded by $d$ if and only if $m < d$.
+    Finally, $f \in k[x, x^{-1}]$, so the same equation defines a finite étale
+    $\Z/p\Z$-cover $\cP' \to \bG_m$ (a torsor via $X \mapsto X + 1$) with
+    $\cP'_x \cong \cQ$; and writing $y = x^{-1}$, we have $f \in y\,k[y]$, so
+    $X^p - X - f$ defines a finite étale cover of
+    $\mathbb{A}^1_k = \Spec(k[y]) = \bP^1_k \setminus \{0\}$ extending $\cP'$,
+    whence $\cP'$ is unramified at $\infty$.
+\end{proof}
+
+\subsubsection*{Step 2: identification of the symmetric-power cover}
+
+\begin{prop}[identification of the product torsor, Artin--Schreier case]\label{prop:as_cover_identification}
+    Let $G = \Z/p\Z$, let $f \in R = k[x, x^{-1}]$, and let
+    $\cP' = \Spec S \to \bG_m$, $S = R[X]/(X^p - X - f)$, be the associated
+    $G$-torsor. In the notation of the scaffold, set
+    \[
+        Y := X_1 + X_2 + \dots + X_d \in S^{\otimes_k d},
+        \qquad
+        \alpha := \sum_{i=1}^{d} f(x_i) \in R^{\otimes_k d}.
+    \]
+    Then:
+    \begin{enumerate}
+        \item \label{item:as_cover_invariance} $Y$ is $\KG$-invariant, and
+        \[
+            \bigl(S^{\otimes_k d}\bigr)^{G^{d-1}}
+            \;\cong\;
+            R^{\otimes_k d}[Y]\big/\bigl(Y^p - Y - \alpha\bigr)
+        \]
+        as $G$-torsors over $R^{\otimes_k d}$ (the residual $G$ acting by
+        $Y \mapsto Y + g$).
+        \item \label{item:as_cover_symmetry} $\alpha$ is a symmetric Laurent
+        polynomial, i.e.\ lies in
+        $\bigl(R^{\otimes_k d}\bigr)^{S_d} = k[e_1, \dots, e_d, e_d^{-1}]$, and
+        \[
+            \Bigl(\bigl(S^{\otimes_k d}\bigr)^{G^{d-1}}\Bigr)^{S_d}
+            \;\cong\;
+            k[e_1, \dots, e_d, e_d^{-1}][Y]\big/\bigl(Y^p - Y - \alpha\bigr).
+        \]
+    \end{enumerate}
+    Consequently, restricting to the complete local field
+    $\widehat K_\eta = \kappa(\eta)((e_d))$ of
+    \Cref{eq:complete_field_at_generic_point},
+    \[
+        \cP'^{[d]}\big|_{\Spec \widehat K_\eta}
+        \;\cong\;
+        \Spec\; \widehat K_\eta[Z]\big/\bigl(Z^p - Z - \alpha\bigr).
+    \]
+\end{prop}
+\begin{proof}
+    \ref{item:as_cover_invariance}
+    Recall that $g \in G = \Z/p\Z$ acts on $X$ by $g(X) = X + g$. Hence
+    $(g_1, \dots, g_{d-1}) \in \KG \cong G^{d-1}$ acts on the generators by
+    \[
+        X_1 \mapsto X_1 + g_1, \qquad
+        X_i \mapsto X_i - g_{i-1} + g_i \ (1 < i < d), \qquad
+        X_d \mapsto X_d - g_{d-1},
+    \]
+    so $Y = X_1 + \dots + X_d$ changes by the telescoping sum
+    $g_1 + (g_2 - g_1) + \dots + (-g_{d-1}) = 0$: it is invariant. Moreover
+    $\wp(Y) = \sum_i \wp(X_i) = \sum_i f(x_i) = \alpha$ ($\wp$ is additive).
+    By \Cref{lemma:asw_etale_torsor} (with $r = 1$ and $A = R^{\otimes_k d}$),
+    $T := R^{\otimes_k d}[Y]/(Y^p - Y - \alpha)$ is a $\Z/p\Z$-torsor over $U^d$,
+    and $Y \mapsto X_1 + \dots + X_d$ defines an $R^{\otimes_k d}$-algebra
+    homomorphism $\phi : T \to \bigl(S^{\otimes_k d}\bigr)^{G^{d-1}}$. The target
+    is the $d$-fold product torsor, a $G$-torsor over $U^d$ by
+    \Cref{main:prop:symmetric_power_torsor} and the surrounding discussion; its
+    residual $G$-action is induced by $(g, 0, \dots, 0) \in G^d$, under which
+    $Y \mapsto Y + g$. So $\Spec \phi$ is a $G$-equivariant morphism of
+    $G$-torsors over $U^d$, hence an isomorphism by
+    \Cref{main:prop:torsor_morphism_iso}.
+
+    \ref{item:as_cover_symmetry} $S_d$ permutes the $x_i$ and the $X_i$, so it
+    fixes $Y$ and $\alpha$; in particular
+    $\alpha \in \bigl(R^{\otimes_k d}\bigr)^{S_d} = k[e_1, \dots, e_d, e_d^{-1}]$.
+    $T$ is free over $R^{\otimes_k d}$ with basis the $S_d$-invariant monomials
+    $Y^j$, $0 \leq j < p$ (\Cref{lemma:asw_etale_torsor}); writing an element in
+    this basis, it is $S_d$-invariant if and only if all its coefficients are,
+    whence
+    \[
+        T^{S_d}
+        = k[e_1, \dots, e_d, e_d^{-1}][Y]\big/\bigl(Y^p - Y - \alpha\bigr).
+    \]
+    The final statement follows from the scaffold exactly as in
+    \Cref{prop:kummer_cover_identification}.
+\end{proof}
+
+\subsubsection*{Step 3: the degree count and the conclusion}
+
+\begin{theorem}[the wild case, $G = \Z/p\Z$]\label{theorem:wild_Zp_after_blowup}
+    Let $G = \Z/p\Z$ and let $\cP \to U = C \setminus \mdls$ be a $G$-torsor with
+    ramification bounded by $\ndls = nP$ at $P$. Then $\cP^{[d]}$ is unramified
+    at $\eta_\ndls$.
+\end{theorem}
+\begin{proof}
+    \emph{Realize.} The restriction $\cQ = \cP_x$ is a $\Z/p\Z$-torsor with
+    ramification bounded by $d$, so \Cref{lemma:realization_over_Gm_AS} produces
+    $\cP' : X^p - X = f$ over $\bG_m$ with $\cP'_x \cong \cP_x$, where $f$ is
+    reduced with pole order $m < d$ (or $f = 0$). By \Cref{cor:reduction_to_P1},
+    we may assume $\cP = \cP'$.
+
+    \emph{Identify.} \Cref{prop:as_cover_identification} identifies
+    \[
+        \cP'^{[d]}\big|_{\Spec \widehat K_\eta}
+        \;\cong\;
+        \Spec\; \widehat K_\eta[Z]\big/\bigl(Z^p - Z - \alpha\bigr),
+        \qquad
+        \alpha = \sum_{i=1}^{d} f(x_i).
+    \]
+
+    \emph{Count.} In the variables $y_i = x_i^{-1}$, each $f(x_i)$ is a
+    polynomial in $y_i$ of degree $m$ with zero constant term, so $\alpha$ is a
+    symmetric polynomial in $y_1, \dots, y_d$ all of whose monomials have total
+    degree $\leq m < d$. By \Cref{lemma:symmetric_regularity},
+    $\alpha \in \kappa(\eta) \subset \widehat\Oo_\eta = \kappa(\eta)[[e_d]]$; in
+    particular $v_{\widehat K_\eta}(\alpha) \geq 0$. By
+    \Cref{theorem:artin_schreier_ramification}(1)--(2), the extension defined by
+    $Z^p - Z = \alpha$ is trivial or unramified; either way, $\cP'^{[d]}$ ---
+    and therefore $\cP^{[d]}$ --- is unramified at $\eta_\ndls$.
+\end{proof}
+
+We record the two cyclic conclusions obtained so far in the form used later.
+
+\begin{cor}\label{cor:ramification_after_blowup_is_tame}
+    In the general settings of a curve $C$, and $\cP \to U=C \setminus \mdls$ a $G$-torsor with ramification bounded by $\ndls = n P \subset \mdls$ at $P$, we have:
+    \begin{enumerate}
+        \item If $G=\Z/p\Z$ then $\cP^{[\deg \ndls]}$ is unramified at $\eta_\ndls$
+        \item If $\cP$ is tamely ramified at $\ndls$ then $\cP^{[\deg \ndls]}$ is tamely ramified at $\eta_\ndls$
+    \end{enumerate}
+\end{cor}
+\begin{proof}
+    By \Cref{rem:algebraically_closed_harmless} we may assume $k$ is
+    algebraically closed, so that $P \in C(k)$ and $\deg \ndls = n$. Part (1) is
+    \Cref{theorem:wild_Zp_after_blowup}, and part (2) is
+    \Cref{theorem:tame_after_blowup}.
+\end{proof}
+
+% ---------------------------------------------------------------------
+\subsection{\texorpdfstring{The Wild Case $G = \Z/p^r\Z$}{The Wild Case G = Z/p\^{}rZ}}\label{subsection:wild_case_Zpr}
+% ---------------------------------------------------------------------
+% [Source: RamificationAfterBlowupPPower.tex, trimmed: the reduced-vector
+%  material moved to 2.3.3, lemma:symmetric_regularity moved to the prelude;
+%  internal references updated to the new per-case structure.]
+
+Next, we generalize to the case $G = \Z/p^r\Z$.
+
+\begin{theorem}\label{theorem:ramification_after_blowup_is_tame_for_p_power}
+    Assume $G=\Z/p^r\Z$. Then $\cP^{[\deg (\ndls)]}$ is unramified at $\eta_{\ndls}$.
+\end{theorem}
+
+The proof occupies the remainder of this subsection. In contrast with what the phrase
+``we generalize'' may suggest, the argument is \emph{not} an induction on $r$ with
+\Cref{theorem:wild_Zp_after_blowup} as its base case: it is a direct
+argument, treating all $r$ at once, in which each of the three steps of
+\Cref{subsection:wild_case_Zp} --- realization of
+the local torsor by an explicit equation over $\bG_m$, identification of the
+symmetric-power cover at $\eta_\ndls$, and the degree estimate --- is replaced by its
+Witt-vector analogue, using the theory collected in
+\Cref{subsection:witt_vector_prerequisites} and
+\Cref{subsection:asw_reduced_representatives}. In particular the case $r=1$ is
+\emph{reproved} (as the special case of Witt vectors of length one) rather than used.
+For an explanation of why the seemingly natural induction on $r$ fails --- in short:
+the hypothesis bounds the ramification of $\cP$ in \emph{upper} numbering, while the
+break of the top degree-$p$ layer $\cP \to \cP'$ is the largest \emph{lower}-numbering
+break, which can be of size about $p^{r-1}d$ --- see \Cref{main:section:a_wrong_path}.
+
+\subsubsection*{Standing reduction}
+
+As in the preceding cases, we may assume $k$ is
+algebraically closed (\Cref{rem:algebraically_closed_harmless}). We may further assume that $\cP \to U$ is \emph{totally
+ramified} at $P$ with inertia equal to all of $G$: writing
+$R = \widehat{\Oo_{C,P}}$, $K = \Frac(R)$, and letting
+$H = \rho(G^0) \subseteq G$ be the image of the inertia subgroup under the
+homomorphism $\rho \colon \Gal(K^{sep}/K) \to G$ classifying $\cP|_{\Spec K}$,
+decompose $\cP \to \cP/H \to U$ as in \Cref{main:prop:quotient_torsors}, where
+$\cP \to \cP/H$ is an $H$-torsor and $\cP/H \to U$ a $G/H$-torsor. Then
+$\cP/H$ is unramified at $P$, hence extends over $P$; taking any point
+$Q \in \cP/H$ over $P$ yields $\widehat{\Oo_{\cP/H, Q}} \cong \widehat{\Oo_{C,P}}$,
+and since $k$ is algebraically closed the torsor $\cP/H$ is locally trivial at
+$Q$. This replaces $(G, \cP \to U)$ by $(H, \cP \to \cP/H)$ with
+$H \cong \Z/p^s\Z$ for some $s \leq r$; as the theorem is proved for all $r$
+simultaneously, we may rename and assume $H = G$.
+
+After this reduction, the restriction $\cQ := \cP_x$ of $\cP$ to the punctured formal
+disc $\Spec k((x))$ at $P$ (with $x$ a uniformizer at $P$) is a \emph{connected}
+$\Z/p^r\Z$-torsor: $\cQ = \Spec L$ for a cyclic, totally ramified extension $L/K$ of
+degree $p^r$, with ramification bounded by $d := \deg \ndls$
+(\Cref{definition:local_ramification_boundness}); equivalently, the largest
+upper-numbering break $u$ of $L/K$ satisfies $u < d$ \emph{strictly}.
+
+\subsubsection*{Step 1: realization over $\bG_m$}
+
+The first step generalizes \Cref{lemma:realization_over_Gm_AS} from $\Z/p\Z$ to
+$\Z/p^r\Z$, using the reduced polynomial representatives of
+\Cref{subsection:asw_reduced_representatives}.
+
+\begin{lemma}[Realization over $\bG_m$ for $W_r$]\label{lemma:realization_over_Gm_Wr}
+    Let $k$ be algebraically closed of characteristic $p>0$ and let $\cQ$ be a
+    \emph{connected} $\Z/p^r\Z$-torsor over $\Spec(k((x)))$ with ramification bounded
+    by $d$ (\Cref{definition:local_ramification_boundness}). Then there is a reduced
+    polynomial vector $\vec f = (f_0, \dots, f_{r-1})$, $f_j \in x^{-1}k[x^{-1}]$,
+    such that, with $m_j := \deg_{x^{-1}} f_j$:
+    \begin{enumerate}
+        \item \label{item:realization_Wr_polebound} $p^{\,r-1-j}\, m_j < d$ for all
+        $0 \leq j \leq r-1$; equivalently $m_j < d\, p^{\,j-(r-1)}$;
+        \item \label{item:realization_Wr_torsor}
+        $\cP' := \Spec\Bigl(k[x,x^{-1}][\vec X]\big/\bigl(\wp \vec X \ominus \vec f\bigr)\Bigr)$
+        is a $\Z/p^r\Z$-torsor over $\bG_m$ with $\cP'_x \cong \cQ$;
+        \item \label{item:realization_Wr_infty} $\cP'$ extends to a torsor over
+        $\bP^1_k \setminus \{0\}$ --- in particular it is unramified at $\infty$ ---
+        and has ramification bounded by $d$ at $0$.
+    \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+    $\cQ = \Spec L$ with $L/K$ cyclic totally ramified of degree $p^r$ and largest
+    upper break $u < d$ (\Cref{theorem:asw_theory}). Let
+    $[\vec f_0] \in W_r(K)/\wp$ be its Artin--Schreier--Witt class and let $\vec f$ be
+    a reduced polynomial representative
+    (\Cref{prop:reduced_polynomial_representatives}).
+
+    First, $f_0 \neq 0$: otherwise
+    \Cref{cor:asw_class_order_and_first_component} would bound the order of the class
+    by $p^{r-1}$, contradicting $[L:K] = p^r$. Hence $m_0 \geq 1$ and $p \nmid m_0$,
+    and the Schmid--Witt break formula
+    (\Cref{theorem:schmid_witt_break_formula}) applies:
+    $\max_j p^{r-1-j} m_j = u < d$, which is \ref{item:realization_Wr_polebound}.
+
+    For \ref{item:realization_Wr_torsor}: by \Cref{lemma:asw_etale_torsor} (with
+    $A = k[x,x^{-1}] \ni f_j$), $\cP'$ is a $\Z/p^r\Z$-torsor over $\bG_m$; its
+    restriction to $\Spec k((x))$ is the Artin--Schreier--Witt torsor of the class of
+    $\vec f$, i.e.\ $\cQ$ (\Cref{theorem:asw_theory}).
+
+    For \ref{item:realization_Wr_infty}: in the coordinate $y = x^{-1}$ at $\infty$ we
+    have $f_j \in y\,k[y]$, so $\vec f \in W_r(k[y])$ and
+    \Cref{lemma:asw_etale_torsor} (with $A = k[y]$) extends $\cP'$ to a torsor over
+    $\A^1_k = \Spec k[y] = \bP^1_k \setminus \{0\}$; a torsor over the full local ring
+    at $\infty$ is unramified there. The ramification bound at $0$ holds because
+    $\cP'_x \cong \cQ$.
+\end{proof}
+
+\begin{rem*}\label{rem:realization_Wr_sanity}
+    Connectedness of $\cQ$ is guaranteed in the application by the standing reduction
+    (inertia equal to all of $G$). Note also the following sanity check: for every
+    $j$ with $p^{\,r-1-j} \geq d$, the bound \ref{item:realization_Wr_polebound}
+    forces $m_j = 0$, i.e.\ $f_j = 0$ --- all sufficiently low Witt components of a
+    reduced representative vanish outright. This makes visible how strong the
+    hypothesis $u < d$ is at the lower levels.
+\end{rem*}
+
+\subsubsection*{Step 2: identification of the symmetric-power cover}
+
+We now generalize the invariant-ring computation of
+\Cref{prop:as_cover_identification} to Witt coordinates. Fix
+$\vec f \in W_r(R)$, $R = k[x, x^{-1}]$, and let
+\[
+S \;=\; R[\vec X]\big/\bigl(\wp \vec X \ominus \vec f\bigr)
+\]
+be the coordinate ring of the torsor $\cP' \to \bG_m$ of
+\Cref{lemma:realization_over_Gm_Wr}. Write
+$R^{\otimes_k d} = k[x_1^{\pm 1}, \dots, x_d^{\pm 1}]$ and
+\[
+S^{\otimes_k d}
+= R^{\otimes_k d}[\vec X_1, \dots, \vec X_d]\big/
+\bigl(\wp \vec X_1 \ominus \vec f(x_1), \dots, \wp \vec X_d \ominus \vec f(x_d)\bigr),
+\]
+where $\vec X_i = (X_{i,0}, \dots, X_{i,r-1})$ and $\vec f(x_i)$ is the image of
+$\vec f$ under $x \mapsto x_i$. Exactly as in the scaffold of
+\Cref{section:blowup_prelude}, the $d$-fold product torsor
+$p_1^{-1}\cP' \otimes^G \cdots \otimes^G p_d^{-1}\cP'$ on $U^d$ is the quotient of
+$\Spec S^{\otimes_k d}$ by $\KG \cong G^{d-1}$, embedded in $G^d$ as the kernel of the
+sum map via $(g_1, \dots, g_{d-1}) \mapsto (g_1, g_2 - g_1, \dots, -g_{d-1})$, and
+acting (in Witt coordinates, writing $\underline g$ for the image of $g \in G$ under
+$\Z/p^r\Z \cong W_r(\F_p)$, \Cref{example:witt_of_Fp}) by
+\[
+(g_1, \dots, g_{d-1}) \colon \quad
+\vec X_1 \mapsto \vec X_1 \oplus \underline g_1, \qquad
+\vec X_i \mapsto \vec X_i \oplus \underline g_i \ominus \underline g_{i-1}
+\ (1 < i < d), \qquad
+\vec X_d \mapsto \vec X_d \ominus \underline g_{d-1}.
+\]
+
+\begin{prop}[identification of the product torsor, Witt case]\label{prop:witt_cover_identification}
+    Set
+    \[
+    \vec Y := \bigoplus_{i=1}^{d} \vec X_i \in W_r\bigl(S^{\otimes_k d}\bigr),
+    \qquad
+    \vec \alpha := \bigoplus_{i=1}^{d} \vec f(x_i) \in W_r\bigl(R^{\otimes_k d}\bigr),
+    \]
+    where $\bigoplus$ denotes the $d$-fold Witt vector sum $\oplus$ (not a direct
+    sum); in particular $\vec Y$ is a single Witt vector of length $r$. Then:
+    \begin{enumerate}
+        \item \label{item:witt_cover_invariance} Every component $Y_n$ of $\vec Y$ is
+        $G^{d-1}$-invariant, and
+        \[
+        \bigl(S^{\otimes_k d}\bigr)^{G^{d-1}}
+        \;\cong\;
+        R^{\otimes_k d}[\vec Y]\big/\bigl(\wp \vec Y \ominus \vec \alpha\bigr)
+        \]
+        as $G$-torsors over $R^{\otimes_k d}$ (the residual $G = G^d/G^{d-1}$ acting
+        by $\vec Y \mapsto \vec Y \oplus \underline g$).
+        \item \label{item:witt_cover_symmetry} Every component $\alpha_n$ of
+        $\vec \alpha$ is a symmetric Laurent polynomial, i.e.\ lies in
+        $\bigl(R^{\otimes_k d}\bigr)^{S_d} = k[e_1, \dots, e_d, e_d^{-1}]$, and
+        \[
+        \Bigl(\bigl(S^{\otimes_k d}\bigr)^{G^{d-1}}\Bigr)^{S_d}
+        \;\cong\;
+        k[e_1, \dots, e_d, e_d^{-1}][\vec Y]\big/\bigl(\wp \vec Y \ominus \vec \alpha\bigr).
+        \]
+    \end{enumerate}
+    Consequently, restricting to the complete local field
+    $\widehat K_\eta = \kappa(\eta)((e_d))$,
+    $\kappa(\eta) = k(e_1/e_d, \dots, e_{d-1}/e_d)$, of
+    \Cref{eq:complete_field_at_generic_point},
+    \[
+    \cP'^{[d]}\big|_{\Spec \widehat K_\eta}
+    \;\cong\;
+    \Spec\; \widehat K_\eta[\vec Z]\big/\bigl(\wp \vec Z \ominus \vec \alpha\bigr).
+    \]
+\end{prop}
+
+\begin{proof}
+    \ref{item:witt_cover_invariance} An element
+    $\sigma = (g_1, \dots, g_{d-1}) \in G^{d-1}$ acts as a ring automorphism of
+    $S^{\otimes_k d}$: this is its \emph{original} action, defined on the generators
+    $X_{i,n}$ by the twisted formulas above (which mix components through the carry
+    polynomials of \Cref{eq:witt_addition_shape}). By functoriality of $W_r$
+    (\Cref{subsection:witt_vector_prerequisites}), the induced map $W_r(\sigma)$ on
+    $W_r(S^{\otimes_k d})$ is componentwise and commutes with $\oplus, \ominus$; on
+    the generators it reproduces the twisted action,
+    $W_r(\sigma)(\vec X_i) = \vec X_i \oplus \underline g_i \ominus \underline g_{i-1}$
+    (with $\underline g_0 = \underline g_d = \vec 0$). Hence, using commutativity and
+    associativity of $\oplus$, the Witt sum transforms by the telescoping constant
+    \[
+    W_r(\sigma)(\vec Y)
+    \;=\; \bigoplus_{i=1}^{d} W_r(\sigma)(\vec X_i)
+    \;=\; \vec Y \oplus \underline g_1 \oplus (\underline g_2 \ominus \underline g_1)
+    \oplus \cdots \oplus (\ominus\, \underline g_{d-1})
+    \;=\; \vec Y.
+    \]
+    Since $W_r(\sigma)$ is componentwise, this equality of $r$-tuples says exactly
+    $\sigma(Y_n) = Y_n$ for every $n$, i.e.\ each $Y_n \in S^{\otimes_k d}$ is
+    invariant. Since $\wp = F - \mathrm{id}$ is additive
+    (\Cref{definition:asw_operator} ff.),
+    \[
+    \wp \vec Y = \bigoplus_{i=1}^{d} \wp \vec X_i
+    = \bigoplus_{i=1}^{d} \vec f(x_i) = \vec \alpha .
+    \]
+    Hence there is a well-defined $R^{\otimes_k d}$-algebra homomorphism
+    \[
+    \phi \colon\; T := R^{\otimes_k d}[\vec Z]\big/\bigl(\wp \vec Z \ominus \vec \alpha\bigr)
+    \;\longrightarrow\; \bigl(S^{\otimes_k d}\bigr)^{G^{d-1}},
+    \qquad \vec Z \mapsto \vec Y .
+    \]
+    By \Cref{lemma:asw_etale_torsor}, $\Spec T$ is a $G$-torsor over $U^d$. The
+    target is the product torsor (the contracted product of the $p_i^{-1}\cP'$ along
+    the sum map $G^d \to G$), a $G$-torsor over $U^d$ by
+    \Cref{main:prop:symmetric_power_torsor} and the surrounding discussion; its residual
+    $G$-action is induced by $(g, 0, \dots, 0) \in G^d$, i.e.\
+    $\vec X_1 \mapsto \vec X_1 \oplus \underline g$, under which
+    $\vec Y \mapsto \vec Y \oplus \underline g$. So $\Spec \phi$ is a $G$-equivariant
+    morphism of $G$-torsors over $U^d$, hence an isomorphism by
+    \Cref{main:prop:torsor_morphism_iso}.
+
+    \ref{item:witt_cover_symmetry} $S_d$ acts on $S^{\otimes_k d}$ by permuting the
+    tensor factors, i.e.\ $x_i \mapsto x_{\sigma(i)}$,
+    $\vec X_i \mapsto \vec X_{\sigma(i)}$. As in
+    \ref{item:witt_cover_invariance}, each $\sigma \in S_d$ is a ring automorphism,
+    so $W_r(\sigma)$ is componentwise and commutes with $\oplus$. Since $\oplus$ is
+    commutative and associative, permuting the summands of a Witt sum leaves it
+    unchanged; thus $\vec Y$ is $S_d$-invariant (componentwise, as before) and
+    $W_r(\sigma)(\vec \alpha) = \bigoplus_i \vec f(x_{\sigma(i)}) = \vec \alpha$, so
+    each $\alpha_n \in R^{\otimes_k d}$ is a symmetric Laurent polynomial, hence lies
+    in $k[e_1, \dots, e_d, e_d^{-1}]$ (the $S_d$-invariants of $R^{\otimes_k d}$, as
+    recorded in the scaffold). By
+    \Cref{lemma:asw_etale_torsor}, $T$ is free over $R^{\otimes_k d}$ with basis the
+    monomials $\prod_n Y_n^{a_n}$, $0 \leq a_n < p$, each of which is
+    $S_d$-invariant; writing an element in this basis, it is $S_d$-invariant if and
+    only if all its coefficients are. Therefore
+    \[
+    T^{S_d} = \bigl(R^{\otimes_k d}\bigr)^{S_d}[\vec Y]\big/\bigl(\wp \vec Y \ominus \vec \alpha\bigr)
+    = k[e_1, \dots, e_d, e_d^{-1}][\vec Y]\big/\bigl(\wp \vec Y \ominus \vec \alpha\bigr).
+    \]
+
+    The final statement follows exactly as in the $r=1$ case: by definition
+    $\cP'^{[d]}$ is the quotient by $\Xi = \KG \rtimes S_d$ computed above
+    (\Cref{main:cor:sym-power-quotient}), and its restriction to $\Spec \widehat K_\eta$
+    along $k[e_1, \dots, e_d, e_d^{-1}] \to \widehat K_\eta$ is the
+    Artin--Schreier--Witt cover of the image of $\vec \alpha$ in
+    $W_r(\widehat K_\eta)$.
+\end{proof}
+
+\begin{rem*}
+    A pure restriction argument on $H^1$'s (``the
+    class of the product torsor is the sum of the pulled-back characters'')
+    identifies the cover over $k(x_1, \dots, x_d)$ but does \emph{not} by itself
+    descend it to the symmetric base $k(e_1, \dots, e_d)$; the invariant-theoretic
+    computation above --- like its Kummer and Artin--Schreier counterparts,
+    \Cref{prop:kummer_cover_identification,prop:as_cover_identification} --- is
+    what effects the descent.
+\end{rem*}
+
+\subsubsection*{Step 3: the degree count}
+
+Throughout this paragraph, $\vec f$ is the reduced polynomial vector of
+\Cref{lemma:realization_over_Gm_Wr}, so $m_j = \deg_{x^{-1}} f_j$ satisfies
+$m_j < d\, p^{\,j-(r-1)}$, and $y_i := 1/x_i$, so that $f_j(x_i) \in y_i\, k[y_i]$ is
+a polynomial in $y_i$ of degree $m_j$.
+
+\begin{theorem}[regularity of all Witt components]\label{theorem:witt_components_regularity}
+    With $\vec f$ as in \Cref{lemma:realization_over_Gm_Wr}, every component
+    $\alpha_n$ $(0 \leq n \leq r-1)$ of
+    $\vec \alpha = \bigoplus_{i=1}^{d} \vec f(x_i)$ lies in $\kappa(\eta)$; in
+    particular $\vec \alpha \in W_r\bigl(\widehat\Oo_\eta\bigr)$.
+\end{theorem}
+
+\begin{proof}
+    Fix $n \leq r-1$ and a monomial $\prod_{i,j} \bigl(f_j(x_i)\bigr)^{e_{ij}}$ of
+    $\alpha_n$, viewed as a universal isobaric polynomial in the $f_j(x_i)$ of
+    weight $p^n$ (\Cref{lemma:witt_addition_isobaric}, with $f_j(x_i)$ of weight
+    $p^j$); set $E_j := \sum_i e_{ij}$, so $\sum_j E_j p^{\,j} = p^{\,n}$. Expanding
+    each $f_j(x_i)$ as a polynomial in $y_i$ of degree $m_j$, every resulting
+    monomial in the $y_i$ has total degree
+    \[
+    \leq\; \sum_{i,j} e_{ij}\, m_j \;=\; \sum_j E_j\, m_j
+    \;<\; \sum_j E_j\, d\, p^{\,j-(r-1)}
+    \;=\; d\, p^{-(r-1)} \sum_j E_j p^{\,j}
+    \;=\; d\, p^{\,n-(r-1)} \;\leq\; d,
+    \]
+    strictly: some $E_j > 0$ (as $\sum_j E_j p^j = p^n > 0$), and the pole bound
+    $m_j < d\, p^{\,j-(r-1)}$ of
+    \Cref{lemma:realization_over_Gm_Wr}\ref{item:realization_Wr_polebound} is strict
+    even when $m_j = 0$. Thus every monomial of $\alpha_n$ --- a symmetric polynomial
+    in $y_1, \dots, y_d$ by
+    \Cref{prop:witt_cover_identification}\ref{item:witt_cover_symmetry} --- has total
+    $y$-degree $< d$, and \Cref{lemma:symmetric_regularity} gives
+    $\alpha_n \in \kappa(\eta)$.
+\end{proof}
+
+\begin{rem*}
+    The bound is exact: the weight $p^{\,j-(r-1)}$ is paired against the isobaricity
+    constraint $\sum_j E_j p^{\,j} = p^{\,n}$, so the estimate
+    $d\, p^{\,n-(r-1)} \leq d$ is independent of how the Witt carries distribute the
+    exponents $E_j$; the hypothesis ``break $< d$ at $P$'' is used at \emph{every}
+    Witt level at once. The sanity check of
+    \Cref{lemma:realization_over_Gm_Wr} records the extreme case: components with
+    $p^{\,r-1-j} \geq d$ vanish outright in the reduced representative.
+\end{rem*}
+
+\subsubsection*{Proof of the theorem}
+
+\begin{proof}[Proof of \Cref{theorem:ramification_after_blowup_is_tame_for_p_power}]
+    By the standing reduction above we may assume $k$ algebraically closed and
+    $\cP \to U$ totally ramified at $P$ with inertia all of $G$, so that
+    $\cQ := \cP_x$ is a connected $\Z/p^r\Z$-torsor over $\Spec k((x))$ with
+    ramification bounded by $d = \deg \ndls$.
+
+    \Cref{lemma:realization_over_Gm_Wr} produces a torsor $\cP' \to \bG_m$, defined
+    by a reduced polynomial vector $\vec f$ with $p^{r-1-j} m_j < d$, with
+    $\cP'_x \cong \cQ$. By \Cref{cor:reduction_to_P1} (valid for arbitrary finite
+    abelian $G$), the ramification of $\cP^{[d]}$ at $\eta_\ndls$ agrees with that of
+    $\cP'^{[d]}$ at $\eta_{d \cdot 0}$; so we may assume $C = \bP^1_k$,
+    $\mdls = d \cdot 0 + \infty$, $\ndls = d \cdot 0$, $\cP = \cP'$.
+
+    By \Cref{prop:witt_cover_identification},
+    \[
+    \cP'^{[d]}\big|_{\Spec \widehat K_\eta}
+    \;\cong\;
+    \Spec\; \widehat K_\eta[\vec Z]\big/\bigl(\wp \vec Z \ominus \vec \alpha\bigr),
+    \qquad
+    \vec \alpha = \bigoplus_{i=1}^{d} \vec f(x_i),
+    \]
+    with $\widehat K_\eta = \kappa(\eta)((e_d))$ the complete local field at
+    $\eta_\ndls$ (\Cref{eq:complete_field_at_generic_point}) and
+    $\widehat\Oo_\eta = \kappa(\eta)[[e_d]]$ its valuation ring.
+
+    By \Cref{theorem:witt_components_regularity},
+    $\vec \alpha \in W_r(\kappa(\eta)) \subset W_r(\widehat\Oo_\eta)$. Hence, by
+    \Cref{lemma:asw_etale_torsor} applied over $A = \widehat\Oo_\eta$, the
+    Artin--Schreier--Witt cover $\wp \vec Z = \vec \alpha$ is finite \'etale over
+    $\widehat\Oo_\eta$, and $\cP'^{[d]}\big|_{\Spec \widehat K_\eta}$ is its generic
+    fibre: every field factor of
+    $\widehat K_\eta[\vec Z]/(\wp \vec Z \ominus \vec \alpha)$ is the fraction field
+    of a finite \'etale $\widehat\Oo_\eta$-algebra, i.e.\ an unramified extension of
+    $\widehat K_\eta$ with respect to the discrete valuation ring
+    $\widehat\Oo_\eta$. By \Cref{definition:tamely_ramified_in_codim_1},
+    $\cP^{[d]}$ is unramified at $\eta_\ndls$.
+\end{proof}
+
+\begin{rem*}
+    The argument proves all $r$ simultaneously; it reproves the case $r=1$
+    (\Cref{theorem:wild_Zp_after_blowup}) as the special case of a
+    vector of length one and never invokes it.
+\end{rem*}
+
+% ---------------------------------------------------------------------
+\subsection{The General Finite Abelian Case}\label{subsection:general_abelian_case}
+% ---------------------------------------------------------------------
+% [NEW: this subsection replaces the one-line stub "Finally, Proof of Theorem
+%  ...: Idea: decompose G by the structure theorem, and finish by the above."]
+
+We now assemble the general case from the three cyclic computations. The
+mechanism is the structure theorem for finite abelian groups together with the
+compatibility of the symmetric power with fiber products
+(\Cref{lemma:sym_power_product}).
+
+\begin{proof}[Proof of \Cref{theorem:torsors_after_blowup_is_tame}]
+    Fix a single-point submodulus $\ndls = n_i P_i$ of $\mdls$, write $P = P_i$
+    and $d = d_\ndls$. By \Cref{rem:algebraically_closed_harmless} we may assume
+    $k$ is algebraically closed, so $d = n_i$.
+
+    By the structure theorem for finite abelian groups, fix an isomorphism
+    \[
+        G \;\cong\; \prod_{j=1}^{s} \Z/q_j\Z,
+        \qquad q_j = \ell_j^{\,r_j} \ \text{prime powers},
+    \]
+    and let $\pi_j : G \to \Z/q_j\Z$ be the projections. Let
+    $\cP_j := \cP / \ker(\pi_j)$ be the quotient torsor
+    (\Cref{main:prop:quotient_torsors}); it is a $\Z/q_j\Z$-torsor over $U$, and at
+    each point of $\mathrm{Supp}(\mdls)$ its classifying character is
+    $\pi_j \circ \rho$, where $\rho$ is that of $\cP$.
+
+    \emph{Step 1: $\cP$ is the fiber product of its primary components.} The
+    quotient maps $\cP \to \cP_j$ combine to a morphism
+    \[
+        \cP \longrightarrow \cP_1 \times_U \cP_2 \times_U \cdots \times_U \cP_s
+    \]
+    which is equivariant for the isomorphism $G \cong \prod_j \Z/q_j\Z$. The
+    target, being a fiber product of $\Z/q_j\Z$-torsors, is a
+    $\prod_j \Z/q_j\Z$-torsor, so the morphism is an isomorphism of $G$-torsors
+    (\Cref{main:prop:torsor_morphism_iso}).
+
+    \emph{Step 2: each component satisfies the hypothesis of one of the three
+    cyclic cases.} Since $\rho(G^{\,n_i}_{\widehat{K}_{P_i}}) = \{1\}$ implies
+    $(\pi_j \circ \rho)(G^{\,n_i}_{\widehat{K}_{P_i}}) = \{1\}$, each $\cP_j$ has
+    ramification bounded by $\mdls$; in particular, bounded by $\ndls = dP$ at
+    $P$. Moreover:
+    \begin{itemize}
+        \item If $\ell_j \neq p$: the image of the wild inertia subgroup under
+        $\pi_j \circ \rho$ is a $p$-group inside $\Z/q_j\Z$, whose order is prime
+        to $p$; so it is trivial, and $\cP_j$ is \emph{tamely ramified} at every
+        point of $\mathrm{Supp}(\mdls)$ --- in particular at $P$.
+        \item If $\ell_j = p$: $\cP_j$ is a $\Z/p^{r_j}\Z$-torsor with
+        ramification bounded by $\ndls$ at $P$.
+    \end{itemize}
+
+    \emph{Step 3: the cyclic cases.} By \Cref{theorem:tame_after_blowup}, for
+    every $j$ with $\ell_j \neq p$ the torsor $\cP_j^{[d]}$ is tamely ramified at
+    $\eta_\ndls$. By \Cref{theorem:ramification_after_blowup_is_tame_for_p_power},
+    for every $j$ with $\ell_j = p$ the torsor $\cP_j^{[d]}$ is unramified ---
+    in particular tamely ramified --- at $\eta_\ndls$.
+
+    \emph{Step 4: reassembly.} Applying \Cref{lemma:sym_power_product}
+    repeatedly to Step 1,
+    \[
+        \cP^{[d]}
+        \;\cong\;
+        \cP_1^{[d]} \times_{U^{(d)}} \cP_2^{[d]} \times_{U^{(d)}} \cdots
+        \times_{U^{(d)}} \cP_s^{[d]}.
+    \]
+    By \Cref{lemma:ramification_of_fiber_product} (applied repeatedly at the
+    prime divisor $(E_\ndls, \eta_\ndls)$ of $X_\ndls$), a fiber product of
+    tamely ramified torsors is tamely ramified. Hence $\cP^{[d]}$ is tamely
+    ramified at $\eta_\ndls$, as claimed.
+\end{proof}
+
+\begin{rem*}
+    The proof shows slightly more: the wild part of $\cP$ contributes
+    \emph{unramified} factors at $\eta_\ndls$, so the ramification of
+    $\cP^{[d]}$ at $\eta_\ndls$ is entirely accounted for by the tame,
+    prime-to-$p$ part of $\cP$ --- with ramification index dividing the order
+    of the tame quotient of the local character at $P$, as computed in
+    \Cref{theorem:tame_after_blowup}.
+\end{rem*}
+
+% ---------------------------------------------------------------------------
+%  2.6  Ramification on Products of Blowups
+%  [Source: RamificationAfterBlowupIsTame.tex lines 837--957, unchanged except
+%   that the duplicated "Affine Case" computation is replaced by a reference
+%   to prop:blowup_local_ring_at_exceptional in the prelude.]
+% ---------------------------------------------------------------------------
+
+\section{Ramification on Products of Blowups}\label{subsection:ram_prod_analysis}
+We conclude this chapter by proving some auxiliary results that will be useful in \Cref{main:section:gcft}.
+
+Let $X$ and $Y$ be smooth schemes over a field $k$, and let $x \in X$ and $y \in Y$ be closed points.
+We denote the blowups of these schemes at the given points by
+$\pi_X: \Bl_x(X) \to X$ and $\pi_Y: \Bl_y(Y) \to Y$. Furthermore, let $\pi_{X \times Y}: \Bl_{(x,y)}(X \times_k Y) \to X \times_k Y$
+be the blowup of the product scheme at the point $(x,y)$.
+We denote by $E_X, E_Y$, and $E_{X \times Y}$ the respective exceptional divisors, and let $\eta_X, \eta_Y$, and $\eta_{X \times Y}$ be their generic points.
+
+In this section, we establish the following result concerning the stability of ramification bounds under the external product of torsors.
+
+\begin{prop}\label{prop:ramification-external-product}
+Let $G$ be a finite abelian group. Suppose $\cG_X$ and $\cG_Y$ are $G$-torsors defined on open subsets $U_X \subset \Bl_x(X)$ and $U_Y \subset \Bl_y(Y)$ that are disjoint
+from the exceptional divisors.
+If the ramification of $\cG_X$ at $\eta_X$ and $\cG_Y$ at $\eta_Y$ is bounded by $r$, then the external product torsor
+\[
+\cG_{X \times Y} := \text{pr}_1^{-1} \cG_X \otimes \text{pr}_2^{-1} \cG_Y
+\]
+has ramification bounded by $r$ at the generic point $\eta_{X\times Y}$ of the exceptional divisor in the product blowup.
+\end{prop}
+
+The proposition is purely local in nature; it suffices to consider the case where $X$ and $Y$ are affine.
+More precisely, by the smoothness of $X$ and $Y$, we may restrict our attention to open neighborhoods of $x$ and $y$ that are étale over affine spaces.
+The rest of this section treats that case. So let $X = \mathbb{A}^n_k$ and
+$Y = \mathbb{A}^m_k$ with origins $x = 0$ and $y = 0$; the local rings, residue
+fields and valuations at the generic points $\eta_X$ and $\eta_Y$ of the
+exceptional divisors $E_X \subset \Bl_0(X)$ and $E_Y \subset \Bl_0(Y)$ are the
+ones computed in \Cref{prop:blowup_local_ring_at_exceptional}.
+
+\subsection*{The Product Case}
+As before, $\text{Bl}_0(X) \subset X \times \mathbb{P}^{n-1}$ and $\text{Bl}_0(Y) \subset Y \times \mathbb{P}^{m-1}$ have exceptional divisors $E_X$ and $E_Y$ respectively.
+Consider the product $X \times_k Y \cong \mathbb{A}_k^{n+m}$.
+The blowup of the product at the origin $(0,0)$, denoted $\text{Bl}_{(0,0)}(X \times_k Y)$, is a subscheme of $(X \times Y) \times \mathbb{P}^{n+m-1}$ defined by:
+
+$$\begin{cases}
+x_i w_j = x_j w_i & 1 \le i, j \le n \\
+y_k w_{n+l} = y_l w_{n+k} & 1 \le k, l \le m \\
+x_i w_{n+j} = y_j w_i & 1 \le i \le n, \,\, 1 \le j \le m
+\end{cases}$$
+where $[w_1 : \dots : w_{n+m}]$ are the homogeneous coordinates of $\mathbb{P}^{n+m-1}$. The exceptional divisor $E_{X \times Y}$ is isomorphic to $\mathbb{P}^{n+m-1}$.
+
+\subsection*{Comparison of Blowups}
+
+Both $\text{Bl}_0(X) \times_k \text{Bl}_0(Y)$ and $\text{Bl}_{(0,0)}(X \times_k Y)$ are birational to $X \times_k Y$.
+They share a common dense open set $\tilde{U}$ defined by the condition that neither the $X$-coordinates nor the $Y$-coordinates vanish simultaneously in the projective space:
+$$\tilde{U} = \{ ((x,y), [w_1: \dots : w_{n+m}]) \mid (w_1, \dots, w_n) \neq 0 \text{ and } (w_{n+1}, \dots, w_{n+m}) \neq 0 \}$$This yields a diagram of open immersions:
+$$
+   \begin{tikzcd}
+        & \tilde{U} \arrow[dl, "f_1"'] \arrow[dr, "f_2", hook] & \\
+        \text{Bl}_0(X) \times_k \text{Bl}_0(Y) & & \text{Bl}_{(0,0)}(X \times_k Y)
+    \end{tikzcd}
+$$
+
+    where $f_1$ maps the coordinates to the respective projectivizations $[w_1: \dots : w_n]$ and $[w_{n+1}: \dots : w_{n+m}]$.
+    Also note that the generic point $\eta_{X \times Y}$  of $E_{X \times_k Y}$ is inside $\tilde{U}$.
+
+\subsection*{Extensions of DVRs}
+Let $S$ be the local ring of the generic point $\eta_{X\times Y}$ of $E_{X \times Y}$ in $\tilde{U}$.
+On the chart where $w_1 \neq 0$ and $w_{n+1} \neq 0$, we have
+$x_1 = (\frac{w_1}{w_{n+1}}) y_1$.
+Since $\frac{w_1}{w_{n+1}}$ is a unit in this chart, $x_1$ and $y_1$ are equivalent as uniformizers.
+We have:
+$$
+S=k\left[x_1, \frac{w_2}{w_1} \cdots, \frac{w_n}{w_1}, \frac{w_{n+1}}{w_1} \cdots \frac{w_{n+m}}{w_1}\right]_{(x_1)} =
+k\left[\frac{w_1}{w_{n+1}}, \frac{w_2}{w_{n+1}} \cdots \frac{w_n}{w_{n+1}}, y_1 \cdots \frac{w_{n+m}}{w_{n+1}}\right]_{(y_1)}
+$$
+
+$$k(\eta_{X \times Y}) = k\left(\frac{w_2}{w_1} \cdots, \frac{w_n}{w_1}, \frac{w_{n+1}}{w_1} \cdots \frac{w_{n+m}}{w_1}\right)$$
+
+Let $R_X$ be the local ring of the exceptional divisor $E_X$ in $\text{Bl}_0(X)$
+(computed in \Cref{prop:blowup_local_ring_at_exceptional}).
+The pullback of $E_X \times_k \text{Bl}_0(Y)$ along $f_1$ induces an extension of DVRs $R_X \hookrightarrow S$. Which is:
+\begin{enumerate}
+    \item Weakly Unramified: $x_1$ is a uniformizer in both $R_X$ and $S$, so the ramification index is $e=1$.
+    \item Residually Transcendental: The residue field extension $\kappa(\eta_X) \subset \kappa(\eta)$ is:
+    $$k\left(\frac{w_2}{w_1}, \dots, \frac{w_n}{w_1}\right) \subset k\left(\frac{w_2}{w_1}, \dots, \frac{w_n}{w_1}, \frac{w_{n+1}}{w_1}, \dots, \frac{w_{n+m}}{w_1}\right)$$
+    Hence separable.
+\end{enumerate}
+Since this extension is generated by transcendental elements, it is separable and formally smooth at the maximal ideal (\stackstag{09E7}).
+
+\subsection*{Ramification of $G$-Torsors on the Product}
+Let $G$ be a finite abelian group.
+Let $\mathcal{Q}$ be a $G$-torsor on an open $U \subset \text{Bl}_0(X)$ disjoint from $E_X$.
+Let $V \subset \text{Bl}_0(Y)$ be an open subscheme, and let $\pi_X: \text{Bl}_0(X) \times_k V \to \text{Bl}_0(X)$
+be the projection onto the first factor.
+By restricting this projection to $U \times_k V$, we obtain the pullback $G$-torsor:
+$$\pi_X^{-1}(\mathcal{Q}) \cong \mathcal{Q} \times_k V$$
+which is defined on the open subset $U \times_k V \subset \text{Bl}_0(X) \times_k \text{Bl}_0(Y)$.
+The extension of local rings $R_X \to S$ is weakly unramified (the ramification index $e=1$) and residually transcendental with separable residue field extension.
+Under these conditions the ramification filtration is preserved.
+Therefore, the pullback $\pi_X^{-1}(\mathcal{Q})$ has ramification bounded by $r$ at the generic point $\eta_{X \times Y}$ of the exceptional divisor $E_{X \times Y}$ if and only if
+the original torsor $\mathcal{Q}$ has ramification bounded by $r$ at the generic point $\eta_X$ of $E_X$.
+
+And we finish by \Cref{lemma:bounding_ramification_of_contracted_product}.
