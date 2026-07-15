@@ -2,7 +2,7 @@ PWD /Users/assaf/Desktop/Thesis/thesis final
 INPUT /usr/local/texlive/2025/texmf.cnf
 INPUT /usr/local/texlive/2025/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT main.tex
+INPUT /Users/assaf/Desktop/Thesis/thesis final/main.tex
 OUTPUT main.log
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/base/report.cls
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/base/report.cls
@@ -614,6 +614,9 @@ INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/wasy/wasy10.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/wasy/wasy7.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/euler/eufm10.tfm
+INPUT ./sections/Preliminaries/ReductionsBeforeCyclicTheories.tex
+INPUT ./sections/Preliminaries/ReductionsBeforeCyclicTheories.tex
+INPUT sections/Preliminaries/ReductionsBeforeCyclicTheories.tex
 INPUT ./sections/Preliminaries/CyclicRamificationTheories.tex
 INPUT ./sections/Preliminaries/CyclicRamificationTheories.tex
 INPUT sections/Preliminaries/CyclicRamificationTheories.tex

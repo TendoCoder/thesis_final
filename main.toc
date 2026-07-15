@@ -8,27 +8,30 @@
 \contentsline {chapter}{\numberline {2}Ramification After Blowup Is Tame}{18}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Ramification of Discrete Valuations}{19}{section.2.1}%
 \contentsline {section}{\numberline {2.2}Ramification of $G$-Torsors}{21}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Kummer, Artin--Schreier, and Artin--Schreier--Witt Theories}{24}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}Artin--Schreier--Witt Theory}{25}{subsection.2.3.1}%
-\contentsline {paragraph}{Working Witt-vector notation.}{25}{section*.12}%
-\contentsline {section}{\numberline {2.4}Proof of the Torsor Formulation}{29}{section.2.4}%
-\contentsline {chapter}{\numberline {3}Geometric Class Field Theory}{43}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Etale Fundamental Groups and Tame Fundamental Groups}{43}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Generalized Picard Scheme}{44}{section.3.2}%
-\contentsline {section}{\numberline {3.3}The Abel-Jacobi Morphism and its Fibers}{45}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Compactification of Blowup of Symmetric Powers of a Curve}{46}{section.3.4}%
-\contentsline {section}{\numberline {3.5}Ramification on Products of Blowups}{47}{section.3.5}%
-\contentsline {section}{\numberline {3.6}Proof of \Cref {theorem:SymmetricPowerOfSheafIsTamelyRamified}}{50}{section.3.6}%
-\contentsline {subsection}{\numberline {3.6.1}Reduction Lemmas}{50}{subsection.3.6.1}%
-\contentsline {section}{\numberline {3.7}Proof of \Cref {theorem:SymmetricPowerOfSheafIsTamelyRamified}}{52}{section.3.7}%
-\contentsline {section}{\numberline {3.8}Proof of \Cref {thm:GCFT_reduced}}{53}{section.3.8}%
-\contentsline {chapter}{\numberline {A}Witt Vector Algebra}{55}{appendix.A}%
-\contentsline {section}{\numberline {A.1}The ring of Witt vectors}{55}{section.A.1}%
-\contentsline {section}{\numberline {A.2}Frobenius, Verschiebung and truncation}{56}{section.A.2}%
-\contentsline {section}{\numberline {A.3}Isobaricity of the Witt addition polynomials}{58}{section.A.3}%
-\contentsline {chapter}{\numberline {B}A Wrong Path}{59}{appendix.B}%
-\contentsline {section}{\numberline {B.1}Quotient Towers of Symmetric-Power Torsors}{59}{section.B.1}%
-\contentsline {section}{\numberline {B.2}Setup and notation}{61}{section.B.2}%
-\contentsline {section}{\numberline {B.3}The master diagram}{63}{section.B.3}%
-\contentsline {section}{\numberline {B.4}Unramifiedness of $\mathcal {P}^{[d]_G}$ at $\eta _C$}{63}{section.B.4}%
-\contentsline {section}{\numberline {B.5}Difficulties in Proving the Theorem}{64}{section.B.5}%
+\contentsline {section}{\numberline {2.3}Two Reductions Before the Cyclic Calculations}{24}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Reduction from Finite Abelian Groups to Cyclic Groups}{24}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Formal--Local Reduction to $\mathbb {P}^1$}{25}{subsection.2.3.2}%
+\contentsline {section}{\numberline {2.4}Kummer, Artin--Schreier, and Artin--Schreier--Witt Theories}{28}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}Artin--Schreier--Witt Theory}{29}{subsection.2.4.1}%
+\contentsline {paragraph}{Working Witt-vector notation.}{29}{section*.12}%
+\contentsline {section}{\numberline {2.5}Proof of the Torsor Formulation}{33}{section.2.5}%
+\contentsline {chapter}{\numberline {3}Geometric Class Field Theory}{44}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Etale Fundamental Groups and Tame Fundamental Groups}{44}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Generalized Picard Scheme}{45}{section.3.2}%
+\contentsline {section}{\numberline {3.3}The Abel-Jacobi Morphism and its Fibers}{46}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Compactification of Blowup of Symmetric Powers of a Curve}{47}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Ramification on Products of Blowups}{48}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Proof of \Cref {theorem:SymmetricPowerOfSheafIsTamelyRamified}}{51}{section.3.6}%
+\contentsline {subsection}{\numberline {3.6.1}Reduction Lemmas}{51}{subsection.3.6.1}%
+\contentsline {section}{\numberline {3.7}Proof of \Cref {theorem:SymmetricPowerOfSheafIsTamelyRamified}}{53}{section.3.7}%
+\contentsline {section}{\numberline {3.8}Proof of \Cref {thm:GCFT_reduced}}{54}{section.3.8}%
+\contentsline {chapter}{\numberline {A}Witt Vector Algebra}{56}{appendix.A}%
+\contentsline {section}{\numberline {A.1}The ring of Witt vectors}{56}{section.A.1}%
+\contentsline {section}{\numberline {A.2}Frobenius, Verschiebung and truncation}{57}{section.A.2}%
+\contentsline {section}{\numberline {A.3}Isobaricity of the Witt addition polynomials}{59}{section.A.3}%
+\contentsline {chapter}{\numberline {B}A Wrong Path}{60}{appendix.B}%
+\contentsline {section}{\numberline {B.1}Quotient Towers of Symmetric-Power Torsors}{60}{section.B.1}%
+\contentsline {section}{\numberline {B.2}Setup and notation}{62}{section.B.2}%
+\contentsline {section}{\numberline {B.3}The master diagram}{64}{section.B.3}%
+\contentsline {section}{\numberline {B.4}Unramifiedness of $\mathcal {P}^{[d]_G}$ at $\eta _C$}{64}{section.B.4}%
+\contentsline {section}{\numberline {B.5}Difficulties in Proving the Theorem}{65}{section.B.5}%
