@@ -2,7 +2,7 @@ PWD /Users/assaf/Desktop/Thesis/thesis final
 INPUT /usr/local/texlive/2025/texmf.cnf
 INPUT /usr/local/texlive/2025/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT /Users/assaf/Desktop/Thesis/thesis final/main.tex
+INPUT main.tex
 OUTPUT main.log
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/base/report.cls
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/base/report.cls
@@ -620,9 +620,6 @@ INPUT sections/Preliminaries/ReductionsBeforeCyclicTheories.tex
 INPUT ./sections/Preliminaries/CyclicRamificationTheories.tex
 INPUT ./sections/Preliminaries/CyclicRamificationTheories.tex
 INPUT sections/Preliminaries/CyclicRamificationTheories.tex
-INPUT ./witt/WittVectorPrerequisites.tex
-INPUT ./witt/WittVectorPrerequisites.tex
-INPUT witt/WittVectorPrerequisites.tex
 INPUT ./sections/RamificationAfterBlowupIsTame.tex
 INPUT ./sections/RamificationAfterBlowupIsTame.tex
 INPUT sections/RamificationAfterBlowupIsTame.tex
@@ -641,6 +638,9 @@ INPUT sections/GeometricCFT/ProofOfReducedTheorem.tex
 INPUT ./witt/WittVectorAlgebraAppendix.tex
 INPUT ./witt/WittVectorAlgebraAppendix.tex
 INPUT witt/WittVectorAlgebraAppendix.tex
+INPUT ./witt/WittVectorPrerequisites.tex
+INPUT ./witt/WittVectorPrerequisites.tex
+INPUT witt/WittVectorPrerequisites.tex
 INPUT ./a_wrong_path/a_wrong_path.tex
 INPUT ./a_wrong_path/a_wrong_path.tex
 INPUT a_wrong_path/a_wrong_path.tex

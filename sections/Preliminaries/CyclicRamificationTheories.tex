@@ -1,48 +1,223 @@
-\section{Kummer, Artin--Schreier, and Artin--Schreier--Witt Theories}\label{section:cyclic_extension_theories}
+\section{Three Parallel Theories of Cyclic Torsors}
+\label{section:cyclic_extension_theories}
+\providecommand{\bW}{\mathbb{W}}
 
-\subsection*{Kummer and Artin-Schreier Theories}
-For cyclic extensions, Kummer and Artin-Schreier theories provide explicit ways to calculate ramification. 
-These results show how the valuation of a defining element $a \in K$ determines the ramification index and the jumps in the upper numbering filtration.
-Throughout this section, let $K$ be a discrete valuation field with a perfect residue field $\kappa$ of characteristic $p > 0$.
+The first reduction of the preceding section explains why cyclic theories
+suffice: it reduces the theorem from finite abelian groups to cyclic groups of
+order prime to $p$ and cyclic groups of order $p^r$. The second reduction
+explains exactly what these theories must accomplish: they must realize a local
+cyclic torsor over $k((x))$ by an explicit equation on
+$\bG_m\subset\bP^1_k$, with the required control of its ramification. We
+therefore recall the three theories in the parallel form in which they will be
+used:
+\[
+\begin{array}{c|c|c|c}
+\text{theory}&H&\varphi:H\to H&\ker(\varphi)\\ \hline
+\text{Kummer}&\bG_m&z\mapsto z^e&\mu_e\cong\Z/e\Z\\
+\text{Artin--Schreier}&\bG_a&z\mapsto z^p-z&\F_p\cong\Z/p\Z\\
+\text{Artin--Schreier--Witt}&\bW_r&F-\mathrm{id}
+    &W_r(\F_p)\cong\Z/p^r\Z.
+\end{array}
+\]
+Here the identification in the Kummer row is made after choosing a primitive
+$e$-th root of unity. In every row, pulling back $\varphi$ along a section $a$
+produces the torsor given by the equation $\varphi(X)=a$, and changing $a$ by
+an element of $\varphi(H)$ does not change its class.
 
-\begin{theorem}[Ramification in Kummer Extensions, \cite{koch1997algebraic}, Proposition 1.83]\label{theorem:kummer_ramification}
-%Let $K$ be a local field of characteristic $\text{char}(K) =p$  
-Assume $K$ contains the $n$-th roots of unity $\mu_n$. 
-Let $L/K$ be the extension given by the equation $X^n = a$ for some 
-$a \in K^\times$ and denote by $G$ its Galois group. Then we have:
+Artin--Schreier--Witt theory contains Artin--Schreier theory as the case
+$r=1$. We nevertheless treat the Artin--Schreier case separately: it displays,
+without the additional Witt-vector bookkeeping, the basic principle later
+used in the general case---choose a reduced representative of the local
+torsor, control its pole order by the ramification break, and use the same
+equation to realize the torsor on $\bG_m$.
 
+Only the conclusions used in Chapter~2 are stated here. The group-scheme
+constructions, classification arguments, normal-form results, and proofs are
+collected in \Cref{appendix:cyclic_torsor_theories}.
+
+Throughout this section, let $K$ be a complete discrete valuation field with
+perfect residue field $\kappa$ of characteristic $p>0$.
+
+\subsection{Kummer theory: order prime to \texorpdfstring{$p$}{p}}
+
+\paragraph{Classes and equations.}
+Assume that $K$ contains the $n$-th roots of unity $\mu_n$ and $(n,p)=1$.
+The Kummer sequence identifies
+$H^1(K,\mu_n)$ with $K^\times/(K^\times)^n$, the class of $a$ being
+represented by $X^n=a$. Conversely, every cyclic extension of degree $n$ is
+represented by such a Kummer equation.
+
+\begin{theorem}[Ramification in Kummer Extensions,
+{\cite[Proposition~1.83]{koch1997algebraic}}]
+\label{theorem:kummer_ramification}
+Assume $K$ contains the $n$-th roots of unity $\mu_n$ and $(n,p)=1$.
+Let $L/K$ be the extension given by $X^n=a$, for $a\in K^\times$.
+Then:
 \begin{enumerate}
-    \item If $v_K(a) \in n\mathbb{Z}$ and the image of $a\pi^{-v_K(a)}$ in the residue field $\kappa$ is an $n$-th power, the extension $L/K$ is trivial.
-    \item If $v_K(a) \in n\mathbb{Z}$ and the image of $a\pi^{-v_K(a)}$ in the residue field $\kappa$ is not an $n$-th power, the extension $L/K$ is cyclic and unramified.
-    \item If $v_K(a) \notin n\mathbb{Z}$, the extension $L/K$ is cyclic and ramified. Specifically, if $\gcd(|v_K(a)|, n) = 1$, the extension is totally ramified of degree $n$.
-     Otherwise it has ramification index $\frac{n}{|gcd(v_K(a)|, n)}$
+    \item If $v_K(a)\in n\Z$ and the image of
+    $a\pi^{-v_K(a)}$ in $\kappa$ is an $n$-th power, the extension is
+    trivial.
+    \item If $v_K(a)\in n\Z$ and the image of
+    $a\pi^{-v_K(a)}$ in $\kappa$ is not an $n$-th power, the extension is
+    unramified.
+    \item If $v_K(a)\notin n\Z$, the ramification index is
+    $n/\gcd(n,v_K(a))$; in particular, if $\gcd(n,v_K(a))=1$, the extension
+    is totally and tamely ramified of degree $n$.
 \end{enumerate}
-Conversly, Kummer theory ensures that every cyclic extension of degree $n$, prime to $p$ of a field that contains $n$-th roots of unity, is of the above form.
-Moreover, in the above we can always take $a \in \Oo_K$
 \end{theorem}
-Note that in the case of total ramification the extesntion is tamely ramified.
 
+\subsection{Artin--Schreier theory: order \texorpdfstring{$p$}{p}}
 
-\begin{theorem}[Ramification in Artin-Schreier Extensions, \cite{Thomas2005}]\label{theorem:artin_schreier_ramification}
-Let $\wp(x) = x^p - x$ be the Artin-Schreier opeartor.
-Let $L/K$ be the extension given by the equation $X^p - X = a$ for some $a \in K$ and denote by $G$ its Galois group. 
-Then we have:
+\paragraph{Classes and equations.}
+Put $\wp(z)=z^p-z$. The Artin--Schreier sequence identifies
+$H^1(K,\Z/p\Z)$ with $K/\wp(K)$, the class of $a$ being represented by
+$X^p-X=a$. Conversely, every cyclic extension of degree $p$ is represented
+by an Artin--Schreier equation. When $K=k((x))$ with $k$ algebraically
+closed, every class has a representative in $x^{-1}k[x^{-1}]$ whose nonzero
+pole order is prime to $p$.
+
+\begin{theorem}[Ramification in Artin--Schreier Extensions,
+\cite{Thomas2005}]
+\label{theorem:artin_schreier_ramification}
+Let $L/K$ be given by $X^p-X=a$. Then:
 \begin{enumerate}
-    \item If $v_K(a) > 0$ or if $v_K(a) = 0$ and $a \in \wp(K)$, the extension $L/K$ is trivial.
-    \item If $v_K(a) = 0$ and if $a \notin \wp(K)$, the extension $L/K$ is cyclic of degree $p$ and unramified.
-    \item If $v_K(a) = -m < 0$ with $m \in \mathbb{Z}_{>0}$ and if $m$ is prime to $p$, the extension $L/K$ is cyclic of degree $p$ again and totally ramified. Moreover,
-     its ramification groups are given by:
-     $$G = G^{(-1)} = \dots = G^{(m)} \quad \text{and} \quad G^{(m+1)} = 1.$$
+    \item If $v_K(a)>0$, or if $v_K(a)=0$ and $a\in\wp(K)$, the extension
+    is trivial.
+    \item If $v_K(a)=0$ and $a\notin\wp(K)$, the extension is cyclic of
+    degree $p$ and unramified.
+    \item If $v_K(a)=-m<0$ with $p\nmid m$, the extension is cyclic,
+    totally ramified of degree $p$, and has unique upper ramification break
+    $m$.
 \end{enumerate}
-Conversely, Artin-Schreier theory ensures that every cyclic extension of degree $p$ takes this form.
-Moreover, in the above and under the isomorphism $K \cong k((t))$, one can always take $a$ of the form 
-$c t^{-m} + a_{-m + 1} t^{-m + 1} + \cdots a_{-1}t^{-1} + a_0$. If $k$ is algebraically closed then there is a 
-change of variables such that $a=u^{-m}$.
 \end{theorem}
 
+\subsection{Artin--Schreier--Witt theory: order
+\texorpdfstring{$p^r$}{p-power}}
+\phantomsection\label{subsection:witt_vector_prerequisites}
 
+\paragraph{Classes and equations.}
+For an $\F_p$-algebra $A$, write $W_r(A)=A^r$ for the ring of $p$-typical
+Witt vectors of length $r$, with Witt addition and subtraction denoted by
+$\oplus$ and $\ominus$, and put $\wp=F-\mathrm{id}$. For a field $K$ of
+characteristic $p$, Artin--Schreier--Witt theory identifies
+\[
+H^1(K,\Z/p^r\Z)\cong W_r(K)/\wp W_r(K),
+\]
+the class of $\vec g$ being represented by the equation
+\[
+\wp\vec X=\vec g.
+\]
+The construction of the Witt group scheme, the proof that this equation
+defines a $\Z/p^r\Z$-torsor, and the full classification theorem are given in
+\Cref{appendix:asw_development}.
 
-%%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%%
-%          WITT VECTORS
-%%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%%
-\input{witt/WittVectorPrerequisites.tex}
+\begin{definition}\label{definition:reduced_witt_vector}
+Let $K=k((x))$. For $g\in K$, put
+$m(g):=\max(0,-v_x(g))$. A vector
+$\vec g=(g_0,\dots,g_{r-1})\in W_r(K)$ is \textbf{reduced} if, for every
+$j$, either $m(g_j)=0$ or $p\nmid m(g_j)$.
+\end{definition}
+
+\begin{theorem}[Ramification in Artin--Schreier--Witt Extensions
+(Schmid--Witt)]
+\label{theorem:schmid_witt_break_formula}
+Let $K=k((x))$, with $k$ perfect of characteristic $p$, and let $L/K$ be a
+cyclic totally ramified extension of degree $p^r$ whose
+Artin--Schreier--Witt class is represented by a reduced vector
+$\vec g=(g_0,\dots,g_{r-1})$, with $m_j:=m(g_j)$. Then the largest
+upper-numbering ramification break of $L/K$ is
+\[
+u=\max_{0\leq j\leq r-1}p^{r-1-j}m_j.
+\]
+\end{theorem}
+
+The Schmid--Witt formula is an external ramification theorem: we use it as
+stated and do not reproduce its proof. References and the precise scope in
+which it is used are recorded in \Cref{appendix:schmid_witt_reference}.
+
+\subsection{The common realization conclusion}
+
+The three theories give the following single conclusion, which is the form
+needed after the formal--local reduction to $\bP^1_k$.
+
+\begin{lemma}[Parallel realization over $\bG_m$]
+\label{lemma:realization_over_Gm}
+\label{lemma:realization_over_Gm_Wr}
+Let $k$ be algebraically closed of characteristic $p>0$, and let $\cQ$ be a
+$G$-torsor over $\Spec k((x))$.
+\begin{enumerate}
+    \item If $\cQ$ is tamely ramified, then there are an integer $e$ prime
+    to $p$, an injection $\iota:\Z/e\Z\hookrightarrow G$, and an integer
+    $a$ prime to $e$, such that $\cQ$ is the restriction of the induced
+    $G$-torsor on $\bG_m$ obtained from
+    \[
+    T^e=x^a.
+    \]
+    This torsor is tamely ramified at $0$ and $\infty$.
+
+    \item If $G=\Z/p\Z$ and the ramification of $\cQ$ is bounded by $d$,
+    then $\cQ$ is represented by
+    \[
+    X^p-X=f(x),\qquad f\in x^{-1}k[x^{-1}],
+    \]
+    where either $f=0$, or
+    $m:=\deg_{x^{-1}}f<d$ and $p\nmid m$. The same equation defines a
+    torsor on $\bG_m$ extending \'etale across $\infty$.
+
+    \item If $G=\Z/p^r\Z$, the torsor $\cQ$ is connected, and its
+    ramification is bounded by $d$, then $\cQ$ is represented by
+    \[
+    \wp\vec X=\vec f,
+    \]
+    where $\vec f=(f_0,\dots,f_{r-1})$ is reduced and
+    $f_j\in x^{-1}k[x^{-1}]$. With
+    $m_j:=\deg_{x^{-1}}f_j$, it has the following properties:
+    \begin{enumerate}
+        \item \label{item:realization_Wr_polebound}
+        \begin{equation}\label{eq:parallel_witt_pole_bound}
+        p^{r-1-j}m_j<d\qquad(0\leq j<r).
+        \end{equation}
+        \item \label{item:realization_Wr_torsor}
+        The same equation defines a $\Z/p^r\Z$-torsor on $\bG_m$ whose
+        restriction to $\Spec k((x))$ is $\cQ$.
+        \item \label{item:realization_Wr_infty}
+        This torsor extends \'etale across $\infty$.
+    \end{enumerate}
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+For (1), let
+$\rho:\Gal(k((x))^{\mathrm{sep}}/k((x)))\to G$ classify $\cQ$. Since
+$k$ is algebraically closed, $k((x))$ has no nontrivial unramified extension
+and its tame quotient is procyclic. If $\cQ$ is tame, the image of $\rho$ is
+therefore a cyclic group of order $e$ prime to $p$. Let
+$\iota:\Z/e\Z\hookrightarrow G$ identify this image with its subgroup of
+$G$. Kummer theory identifies the corresponding surjective character with
+the class of $x^a$ for some $a$ prime to $e$. Hence $\cQ$ is induced from
+$T^e=x^a$. The same equation over $k[x,x^{-1}]$ is \'etale and defines the
+required torsor on $\bG_m$; its ramification at both boundary points is tame.
+
+For (2), Artin--Schreier theory identifies $\cQ$ with a class in
+$k((x))/\wp(k((x)))$. The length-one construction in the proof of
+\Cref{prop:reduced_polynomial_representatives} produces a representative
+$f\in x^{-1}k[x^{-1}]$ which is zero or has pole order $m$ prime to $p$.
+By \Cref{theorem:artin_schreier_ramification}, the ramification bound is
+equivalent to $m<d$. The equation $X^p-X=f$ is \'etale over
+$k[x,x^{-1}]$; since $f\in k[x^{-1}]$, it also extends over
+$\Spec k[x^{-1}]=\bP^1_k\setminus\{0\}$.
+
+For (3), let $[\vec f_0]\in W_r(k((x)))/\wp$ be the class of $\cQ$ and
+choose a reduced polynomial representative $\vec f$ using
+\Cref{prop:reduced_polynomial_representatives}. Connectedness and
+\Cref{cor:asw_class_order_and_first_component} imply $f_0\neq0$. Put
+$m_j=\deg_{x^{-1}}f_j$. The Schmid--Witt formula gives
+\[
+\max_j p^{r-1-j}m_j<d,
+\]
+which is \Cref{eq:parallel_witt_pole_bound}. By
+\Cref{lemma:asw_etale_torsor}, the equation
+$\wp\vec X=\vec f$ defines a $\Z/p^r\Z$-torsor over $\bG_m$ with the
+prescribed local class. Since every $f_j$ lies in $k[x^{-1}]$, the same lemma
+applied over $k[x^{-1}]$ extends the torsor \'etale across $\infty$.
+\end{proof}

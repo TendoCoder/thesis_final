@@ -192,69 +192,10 @@
 
 
 
-By the reduction of the previous section, it remains to realize the relevant
-local cyclic torsors by explicit equations on $\bG_m$. We now do this using
-the Kummer and Artin--Schreier theories recalled above.
-
-\begin{lemma}[Realization over $\bG_m$]\label{lemma:realization_over_Gm}
-    Let $k$ be algebraically closed of characteristic $p > 0$, and let $\cQ$ be a $G$-torsor over $\Spec(k((x)))$.
-    \begin{enumerate}
-        \item If $\cQ$ is tamely ramified, then there exist an integer $e$ prime to $p$, an injective homomorphism
-        $\iota : \Z/e\Z \hookrightarrow G$, and an integer $a$ prime to $e$, such that
-        $$\cP' := \iota_*\left( \Spec\left(k[x, x^{-1}][T]/(T^e - x^a)\right) \right)$$
-        is a $G$-torsor over $\bG_m$, tamely ramified at $0$ and $\infty$, with $\cP'_x \cong \cQ$.
-        Here $T^e = x^a$ is regarded as a $\Z/e\Z$-torsor via a fixed primitive $e$-th root of unity $\zeta_e \in k$, and
-        $\iota_* \cQ' := (\cQ' \times G)/(\Z/e\Z)$ denotes the induced $G$-torsor.
-        \item If $G = \Z/p\Z$ and $\cQ$ has ramification bounded by $d$ (\Cref{definition:local_ramification_boundness}),
-        then there exists $f \in x^{-1}k[x^{-1}]$, either $f = 0$ or
-        $f = cx^{-m} + a_{-m+1}x^{-m+1} + \dots + a_{-1}x^{-1}$ with $c \neq 0$, $p \nmid m$ and $m < d$, such that
-        $$\cP' := \Spec\left(k[x, x^{-1}][X]/(X^p - X - f)\right)$$
-        is a $\Z/p\Z$-torsor over $\bG_m$ with $\cP'_x \cong \cQ$. Moreover $\cP'$ extends to a torsor over
-        $\bP^1_k \setminus \{0\}$ --- in particular it is unramified at $\infty$ --- and it has ramification bounded by $d$
-        at $0$.
-    \end{enumerate}
-    In both cases $\cP'_x$ denotes the restriction of $\cP'$ to $\Spec(k((x)))$, as before.
-\end{lemma}
-\begin{proof}
-    \textbf{(1)} Since $k$ is algebraically closed, the residue field of $k((x))$ is algebraically closed, so $k((x))$
-    admits no non-trivial unramified extensions, and its tamely ramified extensions are exactly the Kummer extensions
-    $k((x^{1/e}))$ with $p \nmid e$ (\Cref{theorem:kummer_ramification}). Hence the tame quotient $G^t$ of
-    $\Gal(k((x))^{sep}/k((x)))$ is procyclic, $G^t \cong \varprojlim_{p \nmid e} \mu_e(k) \cong \prod_{\ell \neq p} \Z_\ell$;
-    fix a topological generator $\gamma$.
-    Let $\rho: \Gal(k((x))^{sep}/k((x))) \to G$ be the continuous homomorphism classifying $\cQ$. Tameness means that
-    $\rho$ kills the wild inertia subgroup, so $\rho$ factors through $G^t$ and is determined by $g := \rho(\gamma)$, whose
-    order $e$ is prime to $p$. Let $\iota: \Z/e\Z \xrightarrow{\sim} \langle g \rangle \subset G$ be given by
-    $1 \mapsto g$, so that $\rho = \iota \circ \chi$ for a surjective character $\chi : G^t \to \Z/e\Z$.
-    On the other hand, for $a \in \Z$ the equation $T^e = x^a$ defines a $\mu_e \cong \Z/e\Z$-torsor over
-    $\Spec(k((x)))$, and by Kummer theory the classes of $x^a$, $a \in \Z/e\Z$, exhaust
-    $\mathrm{Hom}_{\mathrm{cont.}}(G^t, \Z/e\Z) \cong \Z/e\Z$, the class of $x^a$ being surjective precisely when
-    $\gcd(a, e) = 1$. Choose $a$ with the class of $x^a$ equal to $\chi$; then $\cQ \cong \iota_*(T^e = x^a)$ over
-    $k((x))$. The same equation over $k[x, x^{-1}]$ defines a $\Z/e\Z$-torsor over $\bG_m$ (étale since $e$ is invertible
-    in $k$), so $\cP' := \iota_*\left(\Spec(k[x,x^{-1}][T]/(T^e - x^a))\right)$ is a $G$-torsor over $\bG_m$ with
-    $\cP'_x \cong \cQ$; it is tamely ramified at $0$ and at $\infty$ since its local characters there factor through the
-    tame quotients.
-
-    \textbf{(2)} If $\cQ$ is trivial, take $f = 0$. Otherwise, since $\Z/p\Z$ is simple and $k((x))$ admits no non-trivial
-    unramified extensions, $\cQ = \Spec(F)$ for a cyclic extension $F/k((x))$ of degree $p$ together with an isomorphism
-    $\Gal(F/k((x))) \cong \Z/p\Z$. By Artin--Schreier theory such data correspond to non-zero classes in
-    $k((x))/\wp(k((x)))$, where $\wp(u) = u^p - u$, via $g \mapsto k((x))[X]/(X^p - X - g)$. We claim that every class
-    admits a representative $f$ as in the statement:
-    \begin{itemize}
-        \item $\wp$ is surjective on $k[[x]]$: given $h = \sum_{i \geq 0} b_i x^i$, solve $\wp(u) = h$ with
-        $u = \sum_{i \geq 0} u_i x^i$ by choosing $u_0$ with $u_0^p - u_0 = b_0$ (possible as $k$ is algebraically closed)
-        and setting recursively $u_i = u_{i/p}^p - b_i$, with the convention $u_{i/p} = 0$ when $p \nmid i$. Hence, we may
-        choose a representative in $x^{-1}k[x^{-1}]$.
-        \item If the representative has pole order $m$ divisible by $p$, with leading term $cx^{-m}$, then subtracting
-        $\wp(c^{1/p}x^{-m/p}) = cx^{-m} - c^{1/p}x^{-m/p}$ strictly decreases the pole order. Iterating, we reach a
-        representative $f$ which is either $0$ (impossible, as the class is non-zero) or has pole order $m$ prime to $p$.
-    \end{itemize}
-    By \Cref{theorem:artin_schreier_ramification}, the unique ramification jump of $F = k((x))[X]/(X^p - X - f)$ is at $m$,
-    so the ramification of $\cQ$ is bounded by $d$ if and only if $m < d$.
-    Finally, $f \in k[x, x^{-1}]$, so the same equation defines a finite étale $\Z/p\Z$-cover $\cP' \to \bG_m$ (a torsor via
-    $X \mapsto X + 1$) with $\cP'_x \cong \cQ$; and writing $y = x^{-1}$, we have $f \in y\,k[y]$, so $X^p - X - f$ defines
-    a finite étale cover of $\mathbb{A}^1_k = \Spec(k[y]) = \bP^1_k \setminus \{0\}$ extending $\cP'$, whence $\cP'$ is
-    unramified at $\infty$.
-\end{proof}
+The local cyclic torsors required by the preceding reduction have already
+been put into explicit form by
+\Cref{lemma:realization_over_Gm}. We now use those equations in the blowup
+calculation.
 
 Combining \Cref{cor:reduction_to_P1} with \Cref{lemma:realization_over_Gm}, in order to prove
 \Cref{theorem:torsors_after_blowup_is_tame} for a torsor which is tamely ramified at $P$, or for a $\Z/p\Z$-torsor with

@@ -55,154 +55,18 @@ degree $p^r$, with ramification bounded by $d := \deg \ndls$
 (\Cref{definition:local_ramification_boundness}); equivalently, the largest
 upper-numbering break $u$ of $L/K$ satisfies $u < d$ \emph{strictly}.
 
-\subsubsection*{Realization over $\bG_m$ for Witt vectors}
-
-The first step generalizes \Cref{lemma:realization_over_Gm}(2) from $\Z/p\Z$ to
-$\Z/p^r\Z$: every local torsor class as above is realized by an explicit
-Artin--Schreier--Witt equation over $\bG_m$ whose Witt datum is a vector of
-\emph{polynomials in $x^{-1}$} with controlled pole orders. Recall from
-\Cref{definition:reduced_witt_vector} the notion of a reduced vector; we add:
-
-\begin{definition}\label{definition:reduced_polynomial_vector}
-    A vector $\vec g = (g_0, \dots, g_{r-1}) \in W_r(k((x)))$ is a \textbf{reduced
-    polynomial vector} if it is reduced (\Cref{definition:reduced_witt_vector}) and
-    moreover every $g_j \in x^{-1}k[x^{-1}]$; then $m(g_j) = \deg_{x^{-1}} g_j$, and
-    $m(g_j) = 0$ if and only if $g_j = 0$.
-\end{definition}
-
-\begin{lemma}[surjectivity of $\wp$ on integral Witt vectors]\label{lemma:wp_surjective_on_integral_witt}
-    $\wp \colon W_r(k[[x]]) \to W_r(k[[x]])$ is surjective.
-\end{lemma}
-
-\begin{proof}
-    Induction on $r$. For $r=1$ this is the first bullet in the proof of
-    \Cref{lemma:realization_over_Gm}(2): given $h = \sum_{i \geq 0} b_i x^i$, solve
-    $u^p - u = h$ coefficientwise, using that $k$ is algebraically closed for the
-    constant term. For $r>1$, let $\vec h \in W_r(k[[x]])$. By induction choose
-    $\vec u' \in W_{r-1}(k[[x]])$ with $\wp \vec u' = t(\vec h)$, and lift it to
-    $\tilde u := (\vec u', 0) \in W_r(k[[x]])$. By
-    \Cref{lemma:witt_bookkeeping}(i),
-    $t\bigl(\wp \tilde u \ominus \vec h\bigr) = \wp \vec u' \ominus t(\vec h) = 0$, so
-    $\wp \tilde u \ominus \vec h = V^{r-1}(g)$ for some $g \in k[[x]]$. Choose
-    $w \in k[[x]]$ with $\wp w = -g$ (case $r=1$ again). Then by
-    \Cref{lemma:witt_bookkeeping}(ii) and additivity of $V^{r-1}$,
-    \[
-    \wp\bigl(\tilde u \oplus V^{r-1}(w)\bigr)
-    = \wp \tilde u \oplus V^{r-1}(\wp w)
-    = \bigl(\vec h \oplus V^{r-1}(g)\bigr) \oplus V^{r-1}(-g) = \vec h. \qedhere
-    \]
-\end{proof}
-
-\begin{prop}[reduced polynomial representatives]\label{prop:reduced_polynomial_representatives}
-    Every class in $W_r(k((x)))/\wp W_r(k((x)))$ has a reduced polynomial
-    representative: for every $\vec f \in W_r(k((x)))$ there exists
-    $\vec u \in W_r(k((x)))$ such that $\vec g := \vec f \ominus \wp \vec u$ has all
-    components in $x^{-1}k[x^{-1}]$ with pole orders either $0$ or prime to $p$.
-\end{prop}
-
-\begin{proof}
-    Induction on $r$.
-
-    \emph{Base case $r=1$.} This is the argument of
-    \Cref{lemma:realization_over_Gm}(2): first, writing $f = f^- + f^+$ with
-    $f^- \in x^{-1}k[x^{-1}]$ and $f^+ \in k[[x]]$, surjectivity of $\wp$ on $k[[x]]$
-    removes $f^+$; then, as long as the leading term is $cx^{-m}$ with $p \mid m$,
-    $m>0$, subtracting $\wp(c^{1/p}x^{-m/p}) = cx^{-m} - c^{1/p}x^{-m/p}$ strictly
-    decreases the pole order while staying inside $x^{-1}k[x^{-1}]$; this terminates
-    at $0$ or at pole order prime to $p$.
-
-    \emph{Inductive step.} Let $\vec f \in W_r(k((x)))$. By induction there is
-    $\vec u' \in W_{r-1}(k((x)))$ such that
-    $\vec g' := t(\vec f) \ominus \wp \vec u'$ is a reduced polynomial vector in
-    $W_{r-1}$. Lift $\vec u'$ to $\tilde u := (\vec u', 0) \in W_r(k((x)))$ and set
-    $\vec h := \vec f \ominus \wp \tilde u$. By \Cref{lemma:witt_bookkeeping}(i),
-    $t(\vec h) = \vec g'$, i.e.\
-    \[
-    \vec h = (g'_0, \dots, g'_{r-2},\, h_{r-1}), \qquad h_{r-1} \in k((x)),
-    \]
-    with the first $r-1$ components already reduced polynomials. It remains to repair
-    the last component \emph{without touching the others}; by
-    \Cref{lemma:witt_bookkeeping}(iii), adjustments of the form
-    $\ominus\, \wp\bigl(V^{r-1}(z)\bigr) = \ominus\, V^{r-1}(\wp z)$ change only the
-    last component, by $-\wp(z)$. So:
-    \begin{itemize}
-        \item Write $h_{r-1} = h^- + h^+$ with $h^- \in x^{-1}k[x^{-1}]$,
-        $h^+ \in k[[x]]$, choose $w \in k[[x]]$ with $\wp w = h^+$
-        (\Cref{lemma:wp_surjective_on_integral_witt} with $r=1$), and replace
-        $\vec h$ by $\vec h \ominus \wp(V^{r-1}w)$: the last component becomes $h^-$.
-        \item While the last component has leading term $cx^{-m}$ with $p \mid m$,
-        $m>0$, replace $\vec h$ by
-        $\vec h \ominus \wp\bigl(V^{r-1}(c^{1/p}x^{-m/p})\bigr)$: the last component
-        changes by $-\wp(c^{1/p}x^{-m/p}) = -cx^{-m} + c^{1/p}x^{-m/p}$, so its pole
-        order strictly decreases and it stays in $x^{-1}k[x^{-1}]$. This terminates at
-        $0$ or at pole order prime to $p$.
-    \end{itemize}
-    The result is a reduced polynomial vector $\wp$-equivalent to $\vec f$.
-\end{proof}
-
-\begin{rem*}
-    The individual components of a Witt vector cannot be truncated to their principal
-    parts one at a time --- Witt addition is not componentwise
-    (\Cref{eq:witt_addition_shape}), so a componentwise operation changes the
-    Artin--Schreier--Witt class. The point of
-    \Cref{prop:reduced_polynomial_representatives} is that all the adjustments are
-    performed by subtracting genuine elements of $\wp W_r(k((x)))$, inside the Witt
-    ring.
-\end{rem*}
-
-\begin{lemma}[Realization over $\bG_m$ for $W_r$]\label{lemma:realization_over_Gm_Wr}
-    Let $k$ be algebraically closed of characteristic $p>0$ and let $\cQ$ be a
-    \emph{connected} $\Z/p^r\Z$-torsor over $\Spec(k((x)))$ with ramification bounded
-    by $d$ (\Cref{definition:local_ramification_boundness}). Then there is a reduced
-    polynomial vector $\vec f = (f_0, \dots, f_{r-1})$, $f_j \in x^{-1}k[x^{-1}]$,
-    such that, with $m_j := \deg_{x^{-1}} f_j$:
-    \begin{enumerate}
-        \item \label{item:realization_Wr_polebound} $p^{\,r-1-j}\, m_j < d$ for all
-        $0 \leq j \leq r-1$; equivalently $m_j < d\, p^{\,j-(r-1)}$;
-        \item \label{item:realization_Wr_torsor}
-        $\cP' := \Spec\Bigl(k[x,x^{-1}][\vec X]\big/\bigl(\wp \vec X \ominus \vec f\bigr)\Bigr)$
-        is a $\Z/p^r\Z$-torsor over $\bG_m$ with $\cP'_x \cong \cQ$;
-        \item \label{item:realization_Wr_infty} $\cP'$ extends to a torsor over
-        $\bP^1_k \setminus \{0\}$ --- in particular it is unramified at $\infty$ ---
-        and has ramification bounded by $d$ at $0$.
-    \end{enumerate}
-\end{lemma}
-
-\begin{proof}
-    $\cQ = \Spec L$ with $L/K$ cyclic totally ramified of degree $p^r$ and largest
-    upper break $u < d$ (\Cref{theorem:asw_theory}). Let
-    $[\vec f_0] \in W_r(K)/\wp$ be its Artin--Schreier--Witt class and let $\vec f$ be
-    a reduced polynomial representative
-    (\Cref{prop:reduced_polynomial_representatives}).
-
-    First, $f_0 \neq 0$: otherwise
-    \Cref{cor:asw_class_order_and_first_component} would bound the order of the class
-    by $p^{r-1}$, contradicting $[L:K] = p^r$. Hence $m_0 \geq 1$ and $p \nmid m_0$,
-    and the Schmid--Witt break formula
-    (\Cref{theorem:schmid_witt_break_formula}) applies:
-    $\max_j p^{r-1-j} m_j = u < d$, which is \ref{item:realization_Wr_polebound}.
-
-    For \ref{item:realization_Wr_torsor}: by \Cref{lemma:asw_etale_torsor} (with
-    $A = k[x,x^{-1}] \ni f_j$), $\cP'$ is a $\Z/p^r\Z$-torsor over $\bG_m$; its
-    restriction to $\Spec k((x))$ is the Artin--Schreier--Witt torsor of the class of
-    $\vec f$, i.e.\ $\cQ$ (\Cref{theorem:asw_theory}).
-
-    For \ref{item:realization_Wr_infty}: in the coordinate $y = x^{-1}$ at $\infty$ we
-    have $f_j \in y\,k[y]$, so $\vec f \in W_r(k[y])$ and
-    \Cref{lemma:asw_etale_torsor} (with $A = k[y]$) extends $\cP'$ to a torsor over
-    $\A^1_k = \Spec k[y] = \bP^1_k \setminus \{0\}$; a torsor over the full local ring
-    at $\infty$ is unramified there. The ramification bound at $0$ holds because
-    $\cP'_x \cong \cQ$.
-\end{proof}
-
-\begin{rem*}\label{rem:realization_Wr_sanity}
-    Connectedness of $\cQ$ is guaranteed in the application by the standing reduction
-    (inertia equal to all of $G$). Note also the following sanity check: for every
-    $j$ with $p^{\,r-1-j} \geq d$, the bound \ref{item:realization_Wr_polebound}
-    forces $m_j = 0$, i.e.\ $f_j = 0$ --- all sufficiently low Witt components of a
-    reduced representative vanish outright. This makes visible how strong the
-    hypothesis $u < d$ is at the lower levels.
-\end{rem*}
+By \Cref{lemma:realization_over_Gm}(3), choose a reduced polynomial vector
+$\vec f=(f_0,\dots,f_{r-1})$, with $f_j\in x^{-1}k[x^{-1}]$, such that
+\[
+p^{r-1-j}\deg_{x^{-1}}f_j<d\qquad(0\leq j<r),
+\]
+and such that
+\[
+\cP':=\Spec\Bigl(k[x,x^{-1}][\vec X]
+    \big/\bigl(\wp\vec X\ominus\vec f\bigr)\Bigr)
+\]
+is a $\Z/p^r\Z$-torsor over $\bG_m$ with $\cP'_x\cong\cQ$. We fix this
+realization for the remainder of the proof.
 
 \subsubsection*{The symmetric-power cover at $\eta_\ndls$}
 
