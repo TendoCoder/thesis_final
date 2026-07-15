@@ -170,8 +170,9 @@ $G$-torsor over $\Spec k((x))$.
     \wp\vec X=\vec f,
     \]
     where $\vec f=(f_0,\dots,f_{r-1})$ is reduced and
-    $f_j\in x^{-1}k[x^{-1}]$. With
-    $m_j:=\deg_{x^{-1}}f_j$, it has the following properties:
+    $f_j\in x^{-1}k[x^{-1}]$. Put
+    $m_j:=\deg_{x^{-1}}f_j$ when $f_j\neq0$, and $m_j:=0$ when $f_j=0$.
+    Then it has the following properties:
     \begin{enumerate}
         \item \label{item:realization_Wr_polebound}
         \begin{equation}\label{eq:parallel_witt_pole_bound}
@@ -210,8 +211,8 @@ $\Spec k[x^{-1}]=\bP^1_k\setminus\{0\}$.
 For (3), let $[\vec f_0]\in W_r(k((x)))/\wp$ be the class of $\cQ$ and
 choose a reduced polynomial representative $\vec f$ using
 \Cref{prop:reduced_polynomial_representatives}. Connectedness and
-\Cref{cor:asw_class_order_and_first_component} imply $f_0\neq0$. Put
-$m_j=\deg_{x^{-1}}f_j$. The Schmid--Witt formula gives
+\Cref{cor:asw_class_order_and_first_component} imply $f_0\neq0$. We use
+the convention for $m_j$ in the statement. The Schmid--Witt formula gives
 \[
 \max_j p^{r-1-j}m_j<d,
 \]
@@ -220,4 +221,113 @@ which is \Cref{eq:parallel_witt_pole_bound}. By
 $\wp\vec X=\vec f$ defines a $\Z/p^r\Z$-torsor over $\bG_m$ with the
 prescribed local class. Since every $f_j$ lies in $k[x^{-1}]$, the same lemma
 applied over $k[x^{-1}]$ extends the torsor \'etale across $\infty$.
+\end{proof}
+
+\subsection{Three common inputs for the cyclic calculations}
+
+The explicit equations above enter the symmetric-power construction through
+one contracted-product calculation. We record it once for all three cyclic
+theories.
+
+Let $S$ be a scheme, let $H$ be a commutative $S$-group scheme, and let
+$\varphi:H\to H$ be a finite \'etale surjective homomorphism with constant
+kernel $G$. For a section $a:X\to H$, write
+\[
+    \mathcal T_a:=X\times_{a,H,\varphi}H.
+\]
+Thus $\mathcal T_a$ is a $G$-torsor on $X$. We write $\star$ for the group
+law of $H$: multiplication on $\bG_m$, ordinary addition on $\bG_a$, and
+Witt addition on $\bW_r$.
+
+\begin{prop}[Common cyclic product calculation]
+\label{prop:parallel_cyclic_product_torsor}
+Let $a_i:X\to H$, $1\leq i\leq d$, be sections. There is a canonical
+isomorphism of $G$-torsors
+\[
+    \mathcal T_{a_1}\otimes^G\cdots\otimes^G\mathcal T_{a_d}
+       \cong \mathcal T_{a_1\star\cdots\star a_d}.
+\]
+On equation coordinates it is induced by
+\[
+    (X_1,\dots,X_d)\longmapsto
+    Y:=X_1\star\cdots\star X_d,
+    \qquad
+    \varphi(Y)=a_1\star\cdots\star a_d.
+\]
+If a group $\Gamma$ permutes the indices, this isomorphism is
+$\Gamma$-equivariant and therefore compatible with descent to the quotient.
+\end{prop}
+
+\begin{proof}
+The product $\prod_i\mathcal T_{a_i}$ is a $G^d$-torsor. Contracting along
+the multiplication homomorphism $G^d\to G$ gives its quotient by $\KG$.
+The displayed map is $\KG$-invariant because the kernel translations cancel
+under $\star$, and it is equivariant for the residual $G$-action. Its target
+is a $G$-torsor because it is the pullback of $\varphi$. Hence it is an
+isomorphism by \Cref{prop:torsor_morphism_iso}. Commutativity and
+associativity of $\star$ give the permutation-equivariance.
+\end{proof}
+
+We shall also pass from the connected inertia torsor to the original torsor.
+The following compatibility ensures that this passage commutes with the
+symmetric-power construction.
+
+\begin{lemma}[Symmetric powers and induced torsors]
+\label{lemma:symmetric_power_induced_torsor}
+Let $\iota:H\hookrightarrow G$ be an injection of finite abelian groups, and
+let $\cQ$ be an $H$-torsor on $U$. There is a canonical isomorphism of
+$G$-torsors over $U^{(d)}$
+\[
+    (\iota_*\cQ)^{[d]}\cong\iota_*(\cQ^{[d]}).
+\]
+\end{lemma}
+
+\begin{proof}
+The canonical morphism
+$j:\cQ\to\iota_*\cQ=(\cQ\times G)/H$ is $H$-equivariant, where $H$ acts
+on the target through $\iota$. Its $d$-fold product commutes with the
+$S_d$-actions and is equivariant for $H^d\to G^d$. Writing
+$K_H:=\ker(H^d\to H)$, it therefore descends to an $H$-equivariant morphism
+\[
+    \cQ^{[d]}=(K_H\rtimes S_d)\backslash\cQ^{\times d}
+       \longrightarrow
+    (\KG\rtimes S_d)\backslash(\iota_*\cQ)^{\times d}
+       =(\iota_*\cQ)^{[d]}.
+\]
+The universal property of induction extends this morphism uniquely to a
+$G$-equivariant morphism
+$\iota_*(\cQ^{[d]})\to(\iota_*\cQ)^{[d]}$. Both sides are $G$-torsors over
+$U^{(d)}$, so it is an isomorphism by
+\Cref{prop:torsor_morphism_iso}.
+\end{proof}
+
+Finally, the two wild calculations use the same elementary fact about the
+exceptional valuation. Let $e_1,\dots,e_d$ be the elementary symmetric
+polynomials in $x_1,\dots,x_d$, put $y_i=x_i^{-1}$, and write
+\[
+    \kappa:=k(e_1/e_d,\dots,e_{d-1}/e_d).
+\]
+
+\begin{lemma}[Symmetric regularity]
+\label{lemma:symmetric_regularity}
+If $\Phi\in k[y_1,\dots,y_d]^{S_d}$ and every monomial of $\Phi$ has total
+degree strictly less than $d$, then
+\[
+    \Phi\in k(e_1/e_d,\dots,e_{d-1}/e_d)=\kappa.
+\]
+In particular, $\Phi$ is regular at the generic point of the exceptional
+divisor.
+\end{lemma}
+
+\begin{proof}
+The identity
+\[
+    e_j(y_1,\dots,y_d)
+       =\frac{e_{d-j}(x_1,\dots,x_d)}{e_d(x_1,\dots,x_d)}
+\]
+puts $e_1(y),\dots,e_{d-1}(y)$ in $\kappa$. By the fundamental theorem of
+symmetric polynomials, each homogeneous part of $\Phi$ is a polynomial in
+$e_1(y),\dots,e_d(y)$ with their natural degrees. Since every homogeneous
+part has degree $<d$, the generator $e_d(y)$ cannot occur. Hence
+$\Phi\in\kappa\subset\kappa[[e_d]]$.
 \end{proof}

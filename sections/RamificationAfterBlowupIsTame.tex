@@ -1,416 +1,213 @@
 \section{Proof of the Torsor Formulation}
 
+The reductions and cyclic theories of the preceding sections leave one
+explicit calculation. We state its three cyclic forms together and then prove
+them in parallel. This is the only intermediate statement needed for the
+proof of \Cref{theorem:torsors_after_blowup_is_tame}.
 
-                % Let $\eta$ be a generic point of an irreducible component of the boundary divisor $C'^{(d)} \setminus U'^{(d)}$.
-                %  Does the rational map $\Phi: C'^{(d)} \dashrightarrow C'^{[d]}$ extend to a morphism in an open neighborhood of $\eta$, and if so, is the corresponding local ring extension $\mathcal{O}_{C'^{[d]}, \Phi(\eta)} \hookrightarrow \mathcal{O}_{C'^{(d)}, \eta}$ unramified?
-
-                % % \[
-                % % \begin{tikzcd}
-                % % U'^{(d)} \arrow[r, "q_U"] \arrow[d] & U'^{[d]} \arrow[r] \arrow[d] & C'^{(d)} \arrow[d] \\
-                % % \mathrm{Sym}_k^d(U) \arrow[r] & \mathrm{Sym}_k^d(U) \arrow[r] & \mathrm{Sym}_k^d(C)
-                % % \end{tikzcd}
-                % % \]
-
-                % The following lemma suggests that the map $q: U'^{(d)} \to U'^{[d]}$ from \Cref{cor:sym-power-quotient} is unramified in codimension 1 
-                % according to \Cref{definition:tamely_ramified_in_codim_1}. 
-                % While this is essentially true, the statement should not be taken literally in that specific context. 
-                % Strictly adhering to \Cref{definition:tamely_ramified_in_codim_1} would require choosing a compactification of $U'^{[d]}$, 
-                % which we prefer to avoid. 
-                % Instead, we provide the following formulation, which suffices for our purposes and accurately characterizes the ramification behavior at codimension 1.
-
-                % \begin{lemma}\label{lemma:symmetric_powers_of_torsors_and_ramification}
-                    
-
-
-
-                %      Then $\pi$ is unramified in codimension 1, i.e. for every prime divisor $(Z, \xi)$ in $\mathrm{Sym}_k^d(C)$ such that $Z \cap \mathrm{Sym}_k^d(U) = \emptyset$, the base change of $\pi$ to $\Spec(K_\xi)$ is unramified.
-                %     Let $G$ be a finite abelian group.
-                %     Assume we are given:
-                %     \[
-                %     \begin{tikzcd}
-                %     U' \arrow[r] \arrow[d] & C' \arrow[d] \\
-                %     U \arrow[r] & C
-                %     \end{tikzcd}
-                %     \]
-                %     Where $C$ and $C'$ are smooth curves over a perfect field $k$, $U \subset C$ and $U' \subset C'$ are dense open subsets,
-                %     and $U' \to U$ is a $G$-torsor
-                %     Let 
-                %     \[
-                %         \begin{tikzcd}
-                %        \mathrm{Sym}_k^d(U') \arrow[rd] \arrow[r, "q"] & U'^{[d]} \arrow[r] \arrow[d, "\pi"] & \mathrm{Sym}_k^d(C') \arrow[d] \\
-                %        & \mathrm{Sym}_k^d(U) \arrow[r] & \mathrm{Sym}_k^d(C)
-                %         \end{tikzcd}
-                %     \]
-                %     be the associated symmetric product diagram where $q: \mathrm{Sym}_k^d(U') \to U'^{[d]}$ is the quotient map defined in \Cref{cor:sym-power-quotient}
-                %     and $\pi: U'^{[d]} \to \mathrm{Sym}_k^d(U)$ is a $G$-torsor. 
-                %     Let $(Z, \xi)$ be a prime divisor in $\mathrm{Sym}_k^d(C)$ such that $Z \cap \mathrm{Sym}_k^d(U) = \emptyset$,
-                %     let $\Oo_{C, \xi}$ be the corresponding local ring, and let $K_\xi = \Frac(\Oo_{C, \xi})$ be its fraction field. 
-                %     Then 
-                %     \begin{enumerate}
-                %         \item $q$ and $\pi$ are \'etale.
-                %         \item 
-                %     \end{enumerate}
-                %     Then the base change of $q$ to $\Spec(K_\xi)$ is unramified, i.e. the morphism
-                %     \[ q_{K_\xi}: \mathrm{Sym}_k^d(U') \times_{\mathrm{Sym}_k^d(U)} \Spec(K_\xi) \to U'^{[d]} \times_{\mathrm{Sym}_k^d(U)} \Spec(K_\xi) \]
-                %     is unramified.
-                % \textcolor{red}{complete tomorrow}
-                % \end{lemma}
-                % Generally speaking, assume we are given a locally Noetherian scheme $X$, 
-                % a dense open $U \subset X$, a finite \'etale morphsm $f: Y \to U$ and a prime divisor $Z \subset X$ such that $Z \cap U = \emptyset$
-                % and the local ring $\Oo_{X, \xi}$ of $X$ at the generic point $\xi$ of $Z$ is a discrete valuation ring. 
-                % Setting $K_\xi = \Frac(\Oo_{X, \xi})$ we obtain a cartesian square
-                % \[ \xymatrix{ \mathop{\mathrm{Spec}}(K_\xi ) \ar[r] \ar[d] & U \ar[d] \\ \mathop{\mathrm{Spec}}(\mathcal{O}_{X, \xi }) \ar[r] & X } \]
-                % of schemes. 
-                % In particular, we see that $Y \times _ U \mathop{\mathrm{Spec}}(K_\xi )$ is the spectrum of a finite separable algebra $L_\xi /K_\xi $. 
-
-                % We say: 
-                % \begin{enumerate}
-                %     \item $Y$ is \textit{unramified} over $X$ at $(Z, \xi)$ resp. $Y$ is \textit{tamely ramified} over $X$ at $(Z, \xi)$
-                %         if $L_\xi /K_\xi $ is unramified, resp. tamely ramified with respect to $\mathcal{O}_{X, \xi }$
-                %         (\Cref{definition:tamely_ramified_dvrs})
-                    
-                %     \item $Y$ is unramified over $X$ in codimension $1$, resp. $Y$ is tamely ramified over $X$ in codimension $1$ if $L_\xi /K_\xi $ is unramified, resp. tamely ramified 
-                %     with respect to $\mathcal{O}_{X, \xi }$ for every $(Z, \xi )$ as above. 
-                % \end{enumerate}
-
-
-    %As in \Cref{cor:sym-power-quotient}
-%$\mathrm{Sym}_S^d(\cP) \to \cP^{[d]}$
-
-
-% \subsection{The Local Ring \texorpdfstring{$\Oo_{\eta_\ndls}$}{at the generic point of the blowup}}
-% We remind the settings of this section: $C$ is a projective smooth geometrically connected curve over $k$.
-% $\mdls = \sum n_i P_i$ is a fixed modulus. $U=C \setminus \mdls$.
-% $\ndls \subset \mdls$ is a submodulus, $Z_\ndls$ is the closed subscheme of $C^{(\deg \ndls)} = \Sym_{k}^{\deg \ndls}(C)$ 
-% defined by $\ndls$ as a point of $C^{(\deg \ndls)}$.
-% $X_\ndls$ is the blowup of $C^{(\deg \ndls)}$ along $Z_\ndls$, $E_\ndls = Z_\ndls \times_{C^{(d)}} X_\ndls$ 
-% is the exceptional divisor of this blowup, and $\eta_\ndls$ is the generic point of $E_\ndls$. 
-
-% Diagrammatically:
-% \begin{equation}\label{equation:blowup_diagram_ndls}
-%   \begin{tikzcd}
-% \overline{\{\eta_\ndls \}} =  E_\ndls \arrow[r, hook] \arrow[d] & X_\ndls \arrow[d, "\pi_\ndls"] \\
-% Z_\ndls \arrow[r, hook]           & C^{(\deg \ndls)}          
-% \end{tikzcd}   
-% \end{equation}
-
-% We now assume $P=P_i$, $n = n_i$ and $\ndls = n P$.
-
-% Let $x \in \Oo_{C, P}$ be a local coordinate (uniformizer) at $P$.
-% $C^{(\deg \ndls)}$ is a smooth variety of dimension $n$, 
-% and $\ndls \in C^{(\deg \ndls)}$ is the point "serving as the origin" in this local context.
-
-% Near $\ndls$, the coordinate ring of $C^{(\deg \ndls)}$ is generated by the elementary symmetric polynomials in 
-% the local coordinates of the $n$ copies of $C$. If $x_1, \dots, x_n$ are the pullbacks of $x$ to $C^n$, 
-% the local coordinates for $X$ at $\ndls$ are:
-% $$e_1 = \sum_{i=1}^n x_i, \quad e_2 = \sum_{1 \le i < j \le n} x_i x_j, \dots, \quad e_n = x_1 x_2 \dots x_n$$
-
-
-% Recall that $X_{\ndls} \subset C^{(\deg \ndls)} \times_k \mathbb{P}^{n-1}_k$ is defined locally by the equations $e_i u_j = e_j u_i$, where $[u_1 : \dots : u_n]$ are the homogeneous coordinates of $\mathbb{P}^{n-1}_k$.
-% The exceptional divisor $E_{\ndls} \subset X_{\ndls}$ is the fiber over $\ndls$, $E_{\ndls} = \{ (\ndls, [u_1 : \dots : u_n]) \}$, which is isomorphic to $\mathbb{P}^{n-1}_k$. 
-% Let $R = \mathcal{O}_{X_{\ndls}, \eta_{\ndls}}$. This ring $R$ is a discrete valuation ring (DVR) with fraction field $K = K(X) = k(C^n)^{S_n}$.
-% Its residue field is  $\kappa(\eta_{\ndls}) = k(\frac{e_2}{e_1}, \dots, \frac{e_n}{e_1})$, 
-% and the completion of $R$ with respect to its maximal ideal is:
-% $$\hat{R} = \kappa(\eta_{\ndls})[[e_1]]$$
-% In this local ring, the first elementary symmetric polynomial $e_1$ is a uniformizer. Any other coordinate $e_i$ is also a uniformizer as $e_i = (\frac{u_i}{u_1}) e_1$ and $\frac{u_i}{u_1}$ is a unit in $R$.
-
-% For any symmetric polynomial $f \in k[x_1, \dots, x_n]^{S_n} = \Oo{C^{(n), \ndls}}$, we can write $f$ as a polynomial $G(e_1, \dots, e_n)$. If we expand $G$ into its homogeneous parts with respect to the $e_i$ coordinates, $G = G_d + G_{d+1} + \dots$, where $G_i$ is homogeneous of degree $i$ in $(e_1, \dots, e_n)$, the valuation $\nu_E$ associated with $E$ satisfies:
-% $$\nu_E(f) = d$$
-% This $d$ corresponds to the order of vanishing of the symmetric function $f$ at the point $\ndls$ in the symmetric product.
-
-
-% \subsubsection*{The Affine Case}
-% Let $X = \mathbb{A}_k^n$ be the affine $n$-space over a field $k$, and let $0 \in X$ be the origin. 
-% Let $\tilde{X} = \text{Bl}_0(X) = X_{\ndls}$ be the blowup of $X$ at the origin. 
-% Recall that $\tilde{X} \subset X \times_k \mathbb{P}^{n-1}_k$ is defined by the equations $x_i u_j = x_j u_i$, where $[u_1 : \dots : u_n]$ are the homogeneous coordinates of 
-% $\mathbb{P}^{n-1}_k$.
-% The exceptional divisor $E \subset \tilde{X}$ is the fiber over the origin, $E = \{ (0, [u_1 : \dots : u_n]) \}$, which is of codimension 1 in $\tilde{X}$. 
-% Let $\eta \in E$ be the generic point of $E$, and let $R = \mathcal{O}_{\tilde{X}, \eta}$ be the associated local ring. 
-% This ring $R$ is a discrete valuation ring (DVR) with fraction field $K = K(X) = k(x_1, \dots, x_n)$.
-
-% On the affine chart $U_1$ where $u_1 \neq 0$, we have $x_i = \frac{u_i}{u_1} x_1$. 
-% The coordinate ring is:$$\mathcal{O}_{\tilde{X}}(U_1) = k\left[x_1, \frac{u_2}{u_1}, \dots, \frac{u_n}{u_1}\right]$$
-% In this chart, the generic point $\eta$ corresponds to the prime ideal $\mathfrak{p}_1 = (x_1)$. Thus, the local ring is $R = k[x_1, \frac{u_2}{u_1}, \dots, \frac{u_n}{u_1}]_{(x_1)}$. 
-% The residue field is $\kappa(\eta) = k(\frac{u_2}{u_1}, \dots, \frac{u_n}{u_1})$, and the completion of $R$ with respect to its maximal ideal is:
-% $$\hat{R} = \kappa(\eta)[[x_1]]$$
-% In this local ring, $x_1$ is a uniformizer. Note that any $x_i$ (for $i > 1$) can also serve as a uniformizer, 
-% as $x_i = (\frac{u_i}{u_1}) x_1$ and $\frac{u_i}{u_1}$ is a unit in $R$.
-
-% For any monomial $M = x_1^{a_1} \dots x_n^{a_n} \in K$, we can write:
-% $$M = x_1^{\sum a_i} \left( \frac{u_2}{u_1} \right)^{a_2} \dots \left( \frac{u_n}{u_1} \right)^{a_n}$$
-% Since the term in parentheses is a unit in $R$, the valuation $\nu_E$ associated with $E$ satisfies:
-% $$\nu_E(M) = \sum a_i = \deg M$$
-% Consequently, for any polynomial $f = f_d + f_{d+1} + \dots + f_l$, where $f_i$ is the homogeneous part of degree $i$, we have $\nu_E(f) = d$ (the order of vanishing at the origin).
-
-%\subsubsection*{The Symmetric Product Case}
-
-% \textcolor{red}{in the above replace $n$ with $d$}
-% \subsection{Proof of Theorem \ref{theorem:SymmetricPowerOfSheavesIsTamelyRamifiedReduction}}
-% We assume $k$ is algebraically closed (We can base change by the unramified $\Spec{(k^{sep})} \to \Spec{(k)}$)
-% We begin with:
-
-% \begin{theorem}
-%     Assume $G=\Z/p\Z$ and let $\cP \to U$ be a $G$-torsor which is wildly ramified at $P$ with ramification bounded by $d$.
-%     Let $\ndls = dP$, the $G$-torsor $\cP^{[d]} \to U^{(d)}$ is unramified at $\eta_\ndls$- the generic point of 
-%     $E_\mdls \subset X_{\mdls}$.
-% \end{theorem}
-% \begin{proof}
-%     In order to be constructive, and present simpler proofs, we assume that 
-%     $C=\bP_k^1$, $\mdls = d \cdot 0$. $U$
-
-%     The computation that we will present is formal--local at $P$, , 
-%     Once you replace $\mathbf{P}^1$ by an arbitrary smooth curve $C$, 
-%     nothing essential changes at the generic point of the exceptional divisor, 
-%     because (after choosing a uniformizer $x$ at $P$) the completed local ring $\widehat{\mathcal{O}}_{C,P}$ 
-%     is still $k[[x]]$, and all the ``$d$--fold / symmetric / blowup'' constructions you use 
-%     are compatible with \'etale (indeed formal) localization.
-
-%     the general result will then be by 
-% $\bG_m = U \subset U' = C \setminus \mdls$
-%     Let $x$ be a local coordinate for $\Oo_{C, P}$, then 
-%     $R=\widehat{\Oo_{C, P}} = k[[x]]$ and $K=\Frac{R}=k((x))$
-%     Since $\Z/p\Z$ is simple, $\cP$ is either connected or a finite union of identity morphisms. The latter case being redundant. 
-%     So, by \Cref{theorem:artin_schreier_ramification} $\cP|_{K} = \Spec(F)$, 
-%     Where $F=\frac{K[X]}{(X^p - X - f(x))}$ and $f(x) = c x^{-m} + a_{-m+1}x^{-m+1} + \dots a_{-1}x^{-1} + a_0 \in k((x))$ with $m < d$.
-%     Thus, The ring corresponding to $\widehat{O_{C^{(d)}, (P, \dots P)}}$ is 
-%     $R' = k[[x_1, \dots, x_n]]$ with fraction field $K' = k((x_1, \dots, x_n))$.
-%     And the pullback of field.    $p_1^{-1}(\cP) \times \dots \times p_d^{-1}(\cP)$ on $C^{d}$
-%     Is 
-
-
-
-%     In the previous section, we saw that when $x$ is local coordinate for $\Oo_{C, P}$ (a uniformizer) at $P$. 
-%     Then $$\hat{R} = k(\frac{e_2}{e_1}, \dots, \frac{e_n}{e_1})[[e_1]]$$ where $R = \mathcal{O}_{X_{\ndls}, \eta_{\ndls}}$.
-%     Thus if $K=Frac(R)$ then:
-%     \begin{equation}\label{eq:complete_field_at_generic_point}
-%           \hat{K}= k(\frac{e_1}{e_d}, \dots, \frac{e_{d-1}}{u_d})((e_d))
-%      \end{equation}
-    
-    
-% \end{proof}
-
-
-
-
-The local cyclic torsors required by the preceding reduction have already
-been put into explicit form by
-\Cref{lemma:realization_over_Gm}. We now use those equations in the blowup
-calculation.
-
-Combining \Cref{cor:reduction_to_P1} with \Cref{lemma:realization_over_Gm}, in order to prove
-\Cref{theorem:torsors_after_blowup_is_tame} for a torsor which is tamely ramified at $P$, or for a $\Z/p\Z$-torsor with
-ramification bounded by $d$ at $P$, we may --- and do --- assume from now on that
-$$C = \bP^1_k, \qquad \mdls = d \cdot 0 + \infty, \qquad \ndls = d \cdot 0, \qquad U = \bG_m,$$
-and that $\cP \to \bG_m$ is one of the explicit torsors of \Cref{lemma:realization_over_Gm}.
-
-We start by analyzing the blowup $\tilde{X} = \text{Bl}_0(X)$ of $X = \mathbb{A}_k^n$
-where $0 \in X$ be the origin. 
-Recall that $\tilde{X} \subset X \times_k \mathbb{P}^{n-1}_k$ is defined by the equations $x_i u_j = x_j u_i$, where $[u_1 : \dots : u_n]$ are the homogeneous coordinates of 
-$\mathbb{P}^{n-1}_k$.
-The exceptional divisor $E \subset \tilde{X}$ is the fiber over the origin, $E = \{ (0, [u_1 : \dots : u_n]) \}$, which is of codimension 1 in $\tilde{X}$. 
-Let $\eta \in E$ be the generic point of $E$, and let $R = \mathcal{O}_{\tilde{X}, \eta}$ be the associated local ring. 
-This ring $R$ is a discrete valuation ring (DVR) with fraction field $K = K(X) = k(x_1, \dots, x_n)$.
-
-On the affine chart $U_1$ where $u_1 \neq 0$, we have $x_i = \frac{u_i}{u_1} x_1$. 
-The coordinate ring is:$$\mathcal{O}_{\tilde{X}}(U_1) = k\left[x_1, \frac{u_2}{u_1}, \dots, \frac{u_n}{u_1}\right]$$
-In this chart, the generic point $\eta$ corresponds to the prime ideal $\mathfrak{p}_1 = (x_1)$. Thus, the local ring is $R = k[x_1, \frac{u_2}{u_1}, \dots, \frac{u_n}{u_1}]_{(x_1)}$. 
-The residue field is $\kappa(\eta) = k(\frac{u_2}{u_1}, \dots, \frac{u_n}{u_1})$, and the completion of $R$ with respect to its maximal ideal is:
-$$\hat{R} = \kappa(\eta)[[x_1]]$$
-In this local ring, $x_1$ is a uniformizer. Note that any $x_i$ (for $i > 1$) can also serve as a uniformizer, 
-as $x_i = (\frac{u_i}{u_1}) x_1$ and $\frac{u_i}{u_1}$ is a unit in $R$.
-
-For any monomial $M = x_1^{a_1} \dots x_n^{a_n} \in K$, we can write:
-$$M = x_1^{\sum a_i} \left( \frac{u_2}{u_1} \right)^{a_2} \dots \left( \frac{u_n}{u_1} \right)^{a_n}$$
-Since the term in parentheses is a unit in $R$, the valuation $\nu_E$ associated with $E$ satisfies:
-$$\nu_E(M) = \sum a_i = \deg M$$
-Consequently, for any polynomial $f = f_d + f_{d+1} + \dots + f_l$, where $f_i$ is the homogeneous part of degree $i$, we have $\nu_E(f) = d$ (the order of vanishing at the origin).
-
-
-
-Our first result is:
-\begin{theorem}\label{theorem:ramification_after_blowup_P1}
-     Let $\cP \to \bG_m \subset \bP_k^1$ be a $G$ torsor which is either
-     \begin{enumerate}
-          \item tamely ramified at $0$ 
-          \item totally ramified at $0$ with $G=\Z/p\Z$ and ramificaiton bounded by $d$.
-     \end{enumerate}
-     Then the ramification of the $G$-torsor $\cP^{[d]} \to \bG_m^{(d)}$ at $\eta_\mdls$ the generic point of $E_\mdls \subset X_{\mdls}$ is  
-     \begin{enumerate}
-          \item tamely ramified if $\cP$ was tamely ramified
-          \item unramified if $\cP$ was totally ramified with $G=\Z/p\Z$ and ramification bounded by $d$
-     \end{enumerate}
+\begin{theorem}[The three cyclic cases]
+\label{theorem:cyclic_cases_after_blowup}
+\label{theorem:ramification_after_blowup_P1}
+\label{cor:ramification_after_blowup_is_tame}
+\label{theorem:ramification_after_blowup_is_tame_for_p_power}
+Let $\cP\to U=C\setminus\mdls$ be a $G$-torsor with $G$ cyclic, and let
+$\ndls=dP\subset\mdls$ be a single-point submodulus.
+\begin{enumerate}
+    \item If $G=\Z/e\Z$ with $(e,p)=1$, then $\cP^{[d]}$ is tamely
+    ramified at $\eta_\ndls$.
+    \item If $G=\Z/p\Z$ and the ramification of $\cP$ at $P$ is bounded
+    by $d$, then $\cP^{[d]}$ is unramified at $\eta_\ndls$.
+    \item If $G=\Z/p^r\Z$, $r\geq2$, and the ramification of $\cP$ at
+    $P$ is bounded by $d$, then $\cP^{[d]}$ is unramified at
+    $\eta_\ndls$.
+\end{enumerate}
 \end{theorem}
+
 \begin{proof}
-    The local ring at the generic point of the excptional divisor of the blowup of the affine space at 0 point is
-     $R = k[x_d, \frac{u_1}{u_d}, \dots, \frac{u_{d-1}}{u_d}]_{(x_d)}$. 
-     Where for every  $i < d$, we have $x_i = \frac{u_i}{u_d} x_d$ are all uniformizers.
-     The residue field is $\kappa(\eta) = k(\frac{u_1}{u_d}, \dots, \frac{u_{d-1}}{u_d})$
-     and the completion of $R$ with respect to its maximal ideal is:
-     $$\hat{R} = \kappa(\eta)[[x_d]]$$
-     In our situation, when we take symmetric product of the affine space, the situation is similiar with different coordinates
-     if we let $e_1, \dots, e_d$ be the symmetric polynomials in $x_1, \dots x_d$ then:
-     The local ring is 
-     $R = k[e_d, \frac{u_2}{u_d}, \dots, \frac{u_{d-1}}{u_d}]_{(e_d)}$. 
-     $e_i = \frac{u_i}{u_d} e_d$ are all uniformizers.
-     The residue field being:
-     $\kappa(\eta) = k(\frac{u_1}{u_d}, \dots, \frac{u_{d-1}}{u_d})$
-     and the completion: $\hat{R} = \kappa(\eta)[[s_d]]$
-     Note that from  $e_i = \frac{u_i}{u_d} e_d$
-     We get  $\frac{e_i}{e_d} = \frac{u_i}{u_d}$ in the fracion field. hence
+By \Cref{section:reductions_before_cyclic_theories}, we may work over an
+algebraically closed field and regard $P$ as rational. Choose a uniformizer
+$x$ at $P$, let
+\[
+    \rho:\Gal(k((x))^{\mathrm{sep}}/k((x)))\longrightarrow G
+\]
+classify the punctured-formal-disc restriction $\cP_x$, and put
+$H:=\operatorname{im}(\rho)$. If $H$ is trivial, then $\cP_x$ and its
+symmetric power are trivial, so the conclusion follows from
+\Cref{lemma:formal_local_invariance}.
 
-     \begin{equation}\label{eq:complete_field_at_generic_point}
-          \hat{K}= k(\frac{e_1}{e_d}, \dots, \frac{e_{d-1}}{u_d})((e_d))
-     \end{equation}
+Assume $H\neq0$. The surjective character with image $H$ defines a connected
+$H$-torsor $\cQ$ over $\Spec k((x))$, and
+$\cP_x\cong\iota_*\cQ$ for the inclusion $\iota:H\hookrightarrow G$.
+Whenever a ramification bound is assumed, it passes from $\cP_x$ to $\cQ$.
+By
+\Cref{lemma:realization_over_Gm}, the torsor $\cQ$ is realized by an explicit
+connected $H$-torsor $\cQ'$ on $\bG_m$. Moreover,
+\[
+    (\iota_*\cQ')^{[d]}
+       \cong\iota_*(\cQ'^{[d]})
+\]
+by \Cref{lemma:symmetric_power_induced_torsor}, and induction preserves the
+ramification bound by \Cref{lemma:ramification_of_induced_torsor}. Therefore
+\Cref{cor:reduction_to_P1} reduces every case to the connected explicit model
+\[
+    C=\bP^1_k,\qquad U=\bG_m,\qquad \ndls=d\cdot0.
+\]
+We rename $H$ as $G$ for the calculation.
 
-     We compute directly the extesntion of complete valued fields over the complete valued field at the generic point. 
-     Note that by \Cref{cor:reduction_to_P1} and \Cref{lemma:realization_over_Gm}
-     we can assume $\cP = \Spec k[x, x^{-1}][X]/(X^n - a)$ for $a \in k[x, x^{-1}]$ or $\cP = \Spec k[x, x^{-1}][X]/(X^p + X - f(x, x^{-1}))$
-     where $f(x,x^{-1}) = c x^{-m} + a_{-m + 1} x^{-m + 1} + \cdots a_{-1}x^{-1} + a_0 = c x^{-m} + f_{-m+1}(x^{-1})$ where $m < d$.
-     
-     We deal with each case separately. 
-     
-     \textbf{Artin-Schreier Extensions:}
+Write $x_1,\dots,x_d$ for the coordinates on $\bG_m^d$ and
+$e_1,\dots,e_d$ for their elementary symmetric polynomials. By
+\Cref{lemma:formal_local_invariance}, the completed local ring and field at
+the generic point $\eta=\eta_{d\cdot0}$ of the exceptional divisor are
+\begin{equation}\label{eq:complete_field_at_generic_point}
+    \widehat\Oo_\eta=\kappa[[e_d]],\qquad
+    \widehat K_\eta=\kappa((e_d)),\qquad
+    \kappa=k(e_1/e_d,\dots,e_{d-1}/e_d).
+\end{equation}
+The three calculations have the common shape
+\[
+\begin{array}{c|c|c|c}
+ &\Z/e\Z&\Z/p\Z&\Z/p^r\Z\\ \hline
+\text{normal form}&T^e=x^a&X^p-X=f&\wp\vec X=\vec f\\
+\text{product coordinate}&\prod_iT_i&\sum_iX_i&\bigoplus_i\vec X_i\\
+\text{new datum}&e_d^a&\sum_i f(x_i)&\bigoplus_i\vec f(x_i)\\
+\text{exceptional behavior}&v(e_d^a)=a&\text{regular}&
+    \text{componentwise regular}\\
+\text{conclusion}&\text{tame}&\text{unramified}&\text{unramified}.
+\end{array}
+\]
 
-     Set $R=k[x, x^{-1}]$, and $S = \Spec k[x, x^{-1}][X]/(X^p + X - f(x^{-1}))$
-     we have 
-     $$
-          \begin{aligned}
-          R^{\otimes_k d} &= k[x_1, x_1^{-1}, \dots, x_d, x_d^{-1}] \\
-          S^{\otimes_k d} &= k[x_1, x_1^{-1}, \dots, x_d, x_d^{-1}][X_1, \dots, X_d] / (X_1^p - X_1 - f(x_1), \dots, X_d^p - X_d - f(x_d)) \\
-          &= R^{\otimes_k d}[X_1, \dots, X_d] / (X_1^p - X_1 - f(x_1), \dots, X_d^p - X_d - f(x_d))
-          \end{aligned}
-     $$
+\medskip
+\noindent\textbf{Case (1): Kummer.}
+The relevant group scheme is $\bG_m$. More precisely, the connected torsor is
+the pullback of the finite \'etale homomorphism
+\[
+    [e]:\bG_m\longrightarrow\bG_m,\qquad T\longmapsto T^e,
+\]
+whose kernel is $\mu_e\cong G$, along the section $x\mapsto x^a$. Thus it has
+equation
+\[
+    T^e=x^a,\qquad (a,e)=1,
+\]
+by \Cref{lemma:realization_over_Gm}(1). Put
+\[
+    R:=k[x,x^{-1}],\qquad S:=R[T]/(T^e-x^a).
+\]
+Then $\Spec S\to\Spec R=\bG_m$ is this $G$-torsor. After pulling it back
+along the $d$ projections from $\bG_m^d$, the product torsor has coordinate
+algebra $S^{\otimes_k d}$ over $R^{\otimes_k d}$. Contracting the product
+action $G^d$ along $G^d\to G$ means taking invariants under
+$\KG=\ker(G^d\to G)$. By
+\Cref{prop:parallel_cyclic_product_torsor}, multiplication in $\bG_m$ gives
+\[
+    Y=\prod_{i=1}^dT_i,\qquad
+    Y^e=\prod_{i=1}^dx_i^a=(x_1\cdots x_d)^a=e_d^a,
+\]
+and hence an isomorphism of $G$-torsor algebras
+\[
+    (S^{\otimes_k d})^{\KG}
+       \cong
+    R^{\otimes_k d}[Y]/(Y^e-e_d^a).
+\]
+The group $S_d$ permutes the tensor factors and fixes both $Y$ and $e_d^a$.
+The algebra on the right is free over $R^{\otimes_k d}$ with the
+$S_d$-invariant basis $1,Y,\dots,Y^{e-1}$, so taking $S_d$-invariants acts
+only on its coefficients. Since
+\[
+    (R^{\otimes_k d})^{S_d}
+       =k[x_1^{\pm1},\dots,x_d^{\pm1}]^{S_d}
+       =k[e_1,\dots,e_d,e_d^{-1}],
+\]
+\Cref{cor:sym-power-quotient} identifies the descended torsor with
+\[
+    \cP^{[d]}\cong
+    \Spec\frac{k[e_1,\dots,e_d,e_d^{-1}][Y]}{(Y^e-e_d^a)}.
+\]
+Its generic fiber over $\widehat K_\eta$ is therefore the restriction of
+$\cP^{[d]}$ and is given by the same Kummer equation. The defining element
+$e_d^a$ has valuation $a$; thus
+\Cref{theorem:kummer_ramification}, together with $(e,p)=1$, shows that every
+field factor is tamely ramified. This proves part~(1).
 
-     Next, we want to understand the ring corresponding to $p_1^{-1}(\cP) \otimes \dots \otimes p_d^{-1}(\cP)$ on $C^{d}$ - 
-     the $d$'th-product of the $G=\Z/p\Z$-torsors  $p_1^{-1}(\cP), \dots, p_d^{-1}(\cP)$ on $U^{d}$. 
-     It corresponds to qoutient:
-     $\left(p_1^{-1}(\cP) \times \dots \times p_d^{-1}(\cP)\right) / G^{d-1}$ where the action of $G^{d-1}$ on the product is:
-     $$(g_1, \dots, g_{d-1}) \cdot (p_1, p_2, \dots, p_{d-1}, p_{d}) = (g_1(p_1), g_1^{-1}g_2(p_2), \dots, 
-     g_{d-2}^{-1}g_{d-1}(p_{d-1}), g_{d-1}^{-1}(p_d))$$
-     
-     The affine ring corrsponding to the torsor product is $\left(S^{\otimes_k d}\right)^{G^{d-1}}$
-    
-     Recall that the action of $g \in G=\Z/p\Z$ on $X$ is $g(X) = X + g$ ($g$ correspond to a number $0 \leq g \leq p-1)$.
-     So, the action of $(g_1, \dots, g_{d-1})$ on the generators $(X_1, X_2, \dots, X_{d-1}, X_{d})$
-     Is $X_1 \mapsto X_1 + g_1$, $X_i \mapsto X_i - g_{i-1} + g_i$ for $1<i<d$ and $X_d \mapsto X_d - g_{d-1}$.
-     So we see that $Y=X_1 + \dots + X_d$ is invariant.
-     Moreover $Y^P - Y - \sum_{i=1}^d f(x_i)=0$ is irreducible degree $p$ equation for $Y$,
-     Since we are quotienting a rank $p^{d}$ extesntion by a group of order $p^{d-1}$ the resulting invaraint subring must
-     have rank $p$ over $R^{\otimes_k d}$, So we conclude:
-     \[
-          \left(S^{\otimes_k d}\right)^{G^{d-1}} \cong R^{\otimes_k d}[Y] / (Y^p - Y - \sum_{i=1}^d f(x_i))
-     \]  
-     
-     The group $S_d$ acts on 
-     $ R^{\otimes_k d} = k[x_1^{\pm 1}, x_2^{\pm 1}, \dots, x_d^{\pm 1}]$
-      by permuting the variables $\{x_i\}_{i=1}^d$.
-     And since $Y=\sum_i^d X_i$ it leaves $Y$ invaraint. 
-     The invaraint subring $(R^{\otimes_k d})^{S_d}$ is simply $k[e_1, e_2, \dots, e_d, e_d^{-1}]$
-     where $\{ e_i \}$  are the symmetric polynomials in $x_1, \dots, x_d$:
-     $$e_k = \sum_{1 \le j_1 < j_2 < \dots < j_k \le d} x_{j_1} x_{j_2} \dots x_{j_k}$$
-     
-     To find $\left(R^{\otimes_k d}[Y] / (Y^p - Y - \sum_{i=1}^d f(x_i))\right)^{S_d}$ its enough to express
-     $\sum_{i=1}^d f(x_i)$ in $e_1, \dots, e_d$, this can be done with the newton polynomials, moreover, we claim the following:
+\medskip
+\noindent\textbf{Case (2): Artin--Schreier.}
+Here the relevant group scheme is $\bG_a$. The torsor is the pullback of the
+finite \'etale homomorphism
+\[
+    \wp:\bG_a\longrightarrow\bG_a,\qquad X\longmapsto X^p-X,
+\]
+whose kernel is $\F_p\cong G$, along the section $x\mapsto f(x)$ on
+$\bG_m$. By \Cref{lemma:realization_over_Gm}(2), its equation is
+\[
+    X^p-X=f(x),\qquad f\in x^{-1}k[x^{-1}],
+\]
+where either $f=0$, or $m:=\deg_{x^{-1}}f<d$ and $p\nmid m$. Put
+\[
+    R:=k[x,x^{-1}],\qquad
+    S:=R[X]/(X^p-X-f(x)).
+\]
+Thus $\Spec S\to\Spec R=\bG_m$ is the realized $G$-torsor. After pullback
+along the $d$ projections, $S^{\otimes_k d}$ is the coordinate algebra of
+the product torsor over $R^{\otimes_k d}$. Contracting along $G^d\to G$
+again amounts to taking $\KG$-invariants. This time the group law on
+$\bG_a$ is addition, so \Cref{prop:parallel_cyclic_product_torsor} gives
+\[
+    Y=\sum_{i=1}^dX_i,\qquad
+    Y^p-Y=\alpha,\qquad
+    \alpha:=\sum_{i=1}^df(x_i),
+\]
+and hence
+\[
+    (S^{\otimes_k d})^{\KG}
+       \cong
+    R^{\otimes_k d}[Y]/(Y^p-Y-\alpha).
+\]
+The group $S_d$ fixes $Y$ and $\alpha$. The displayed algebra is free over
+$R^{\otimes_k d}$ with the $S_d$-invariant basis
+$1,Y,\dots,Y^{p-1}$, so taking $S_d$-invariants acts only on the
+coefficients. Using $(R^{\otimes_k d})^{S_d}
+=k[e_1,\dots,e_d,e_d^{-1}]$ and
+\Cref{cor:sym-power-quotient}, we obtain
+\[
+    \cP^{[d]}\cong
+    \Spec\frac{k[e_1,\dots,e_d,e_d^{-1}][Y]}{(Y^p-Y-\alpha)}.
+\]
+Put $y_i=x_i^{-1}$. If $f\neq0$, then $\alpha$ is a symmetric polynomial in
+$y_1,\dots,y_d$ whose monomials have total degree at most $m<d$; if $f=0$,
+then $\alpha=0$. Hence \Cref{lemma:symmetric_regularity} gives
+\[
+    \alpha\in\kappa\subset\widehat\Oo_\eta.
+\]
+Set $A:=\widehat\Oo_\eta$ and
+\[
+    B:=A[Y]/(Y^p-Y-\alpha).
+\]
+Because the defining polynomial is monic of degree $p$, the algebra $B$ is
+finite free of rank $p$ over $A$. Its derivative with respect to $Y$ is
+$-1$, a unit in $B$; hence $B/A$ is finite \'etale. The preceding descended
+presentation identifies its generic fiber
+\[
+    B\otimes_A\widehat K_\eta
+       =\widehat K_\eta[Y]/(Y^p-Y-\alpha)
+\]
+with the restriction of $\cP^{[d]}$ to $\widehat K_\eta$.
 
-%% [REVIEW: unlabeled -- used only in the immediately following 'Finally, restricting...' step; fine inline, but a label would make the Kummer case's parallel argument citable]
-     \begin{lemma}
-          Let $f(x) = c x^{-m} + a_{-m + 1} x^{-m + 1} + \cdots a_{-1}x^{-1} + a_0$, 
-          define  $\alpha(x_1, ..., x_d) = \sum_1^d f(x_i)$, and deonte by $e_1, ..., e_d$ the elementary symmetric polynomials 
-          in $x_1, ..., x_d$. If $m < d$ then $\alpha(x_1, ..., x_d) \in k(e_1/e_d, e_2/e_d, ..., e_{d-1}/e_d)$
-     \end{lemma}
-     \begin{proof}
-          Changing variables $y_i=x_i^{-1}$ for each $i \in \{1, \dots, d\}$
-          We get 
-          $$\alpha = \sum_{i=1}^d f(x_i) = \sum_{i=1}^d \left( c y_i^m + a_{-m+1} y_i^{m-1} + \dots + a_{-1} y_i + a_0 \right)$$
-          Rearranging the sums, we get
-          $$\alpha = c \sum_{i=1}^d y_i^m + a_{-m+1} \sum_{i=1}^d y_i^{m-1} + \dots + a_{-1} \sum_{i=1}^d y_i + d a_0$$
-          Let $p_k(y_1, \dots, y_d) = \sum_{i=1}^d y_i^k$ be the $k$-th power sum symmetric polynomial. 
-          The expression for $\alpha$ is a linear combination of these power sums:
-          $$\alpha = c p_m(y) + a_{-m+1} p_{m-1}(y) + \dots + a_{-1} p_1(y) + d a_0$$
-         
-          According to the \textit{Fundamental Theorem of Symmetric Polynomials}, any symmetric polynomial in $y_1, \dots, y_d$ 
-          can be expressed as a polynomial in the elementary symmetric polynomials $e_k(y_1, \dots, y_d)$. 
-          Since $m < d$, $\alpha$ is a polynomial in $e_1(y), e_2(y), \dots, e_m(y)$. ($y=(y_1, \dots, y_d)$)
-          The elementary symmetric polynomials in $y_i = 1/x_i$ are related to the elementary symmetric polynomials in $x_i$ as follows: 
-          $$e_k(y_1, \dots, y_d) = \sum_{1 \le i_1 < \dots < i_k \le d} \frac{1}{x_{i_1} \dots x_{i_k}} = \frac{\sum_{1 \le j_1 < \dots < j_{d-k} \le d} x_{j_1} \dots x_{j_{d-k}}}{x_1 x_2 \dots x_d}$$
-          Thus,
-          $$e_k(y_1, \dots, y_d) = \frac{e_{d-k}(x_1, \dots, x_d)}{e_d(x_1, \dots, x_d)}$$
-          which concludes the proof.
-     \end{proof}
-
-Finally, restricting $\cP^{[d]}$ to $\spec {\hat{K}}$ we get by \Cref{eq:complete_field_at_generic_point}
-and \Cref{theorem:artin_schreier_ramification} the result. (that $\cP$ is unramified at the generic point of the exceptional divisor of the blowup).
-
-\textbf{Kummer Extensions:}
-Few things are different in that case,
-
-     Set $R=k[x, x^{-1}]$, and $S=R[X]/(X^n - f)$ where $f= f(x, 1/x) \in R$
-     In this case we have $char k = p$ and $gcd(p, n)=1$.
-
-     We have 
-     $$
-          \begin{aligned}
-          R^{\otimes_k d} &= k[x_1, x_1^{-1}, \dots, x_d, x_d^{-1}] \\
-          S^{\otimes_k d} &= k[x_1, x_1^{-1}, \dots, x_d, x_d^{-1}][X_1, \dots, X_d] / (X_1^n - f_1, \dots, X_d^n - f_d) \\
-          &= R^{\otimes_k d}[X_1, \dots, X_d] / (X_1^n - f_1, \dots, X_d^n - f_d)
-          \end{aligned}
-     $$
-     Where $f_i = f(x_i, x_i^{-1})$
-
-     Next, we want to figure out 
-      $\left(S^{\otimes_k d}\right)^{G^{d-1}}$
-    
-
-     Recall that the action of $g \in G=\Z/n\Z$ on $X$ is $g(X) = \zeta^{g} X$ ($g$ correspond to a number $0 \leq g \leq n-1)$.
-     So, the action of $(g_1, \dots, g_{d-1})$ on the generators $(X_1, X_2, \dots, X_{d-1}, X_{d})$
-     Is $X_1 \mapsto \zeta^{g_1} X_1$, $X_i \mapsto \zeta^{g_i - g_{i-1}}X_i$ for $1<i<d$ and $X_d \mapsto \zeta^{-g_{d-1}} X_d$.
-
-     So we see that $Y=X_1 X_2 \dots X_d$ is invariant.
-     And $Y^n - \prod_{i=1}^d f_i$ is irreducible degree $n$ equation for $Y$,
-     So, like before, we conclude:
-     \[
-          \left(S^{\otimes_k d}\right)^{G^{d-1}} \cong R^{\otimes_k d}[Y] / (Y^n - \prod_{i=1}^d f_i)
-     \]  
-     
-     The group $S_d$ acts on $R^{\otimes_k d}[Y] / (Y^n - \prod_{i=1}^d f_i)$ by permuting the indices.
-     on the variables $x_i$, 
-     On $Y=\prod_1^d X_i$ it is invaraint. 
-     The invaraint subring $(R^{\otimes_k d})^{S_d}$ is simply $k[e_1, e_2, \dots, e_d, e_d^{-1}]$ like before.
-     
-
-     The polynomial $F=\prod_{i=1}^d f_i$ is symmetric in $\{x_i\}_1^d$ so it can be expressed as a polynomial
-     $\tilde{F}(e_1, \dots, e_d)$ in the elementary symmetric variables. 
-     Hence the qoutient ring is:
-     $$\left( \frac{k[x_1^{\pm 1}, \dots, t_d^{\pm 1}][Y]}{(Y^n - \prod_{i=1}^d f_i)} \right)^{S_d} \cong 
-     \frac{k[e_1, \dots, e_d, e_d^{-1}][Y]}{(Y^n - \tilde{F}(e_1, \dots, e_d))}$$
-     So we see again, that  restricting $\cP^{[d]}$ to $\spec {\hat{K}}$ we get by \Cref{eq:complete_field_at_generic_point} 
-     and \Cref{theorem:kummer_ramification}, that $\cP$ is tamely ramified at the generic point of the exceptional divisor of the blowup.
-\end{proof}
-
-So, we conclude 
-\begin{cor}\label{cor:ramification_after_blowup_is_tame}
-    In the general settings of a curve $C$, and $\cP \to U=C \setminus \mdls$ a $G$-torsor with ramification bounded by $\ndls = n P \subset \mdls$ at $P$, we have:
-    \begin{enumerate}
-        \item If $G=\Z/p\Z$ then $\cP^{[\deg \ndls]}$ is unramified at $\eta_\ndls$
-        \item If $\cP$ is tamely ramified at $\ndls$ then $\cP^{[\deg \ndls]}$ is tamely ramified at $\eta_\ndls$
-    \end{enumerate}
-\end{cor}
-\begin{proof}
-    By the reduction in \Cref{section:reductions_before_cyclic_theories} we may assume $k$ is algebraically closed, so that $P \in C(k)$ and
-    $\deg \ndls = n$. The restriction $\cP_x$ of $\cP$ to the punctured formal disc at $P$ is tamely ramified, resp.\ a
-    $\Z/p\Z$-torsor with ramification bounded by $n$, so by \Cref{lemma:realization_over_Gm} there is a torsor
-    $\cP' \to \bG_m$ of the corresponding explicit form with $\cP'_x \cong \cP_x$. By \Cref{cor:reduction_to_P1}, the
-    ramification of $\cP^{[\deg \ndls]}$ at $\eta_\ndls$ agrees with that of $\cP'^{[\deg \ndls]}$ at $\eta_{n \cdot 0}$,
-    which was computed in \Cref{theorem:ramification_after_blowup_P1}.
-\end{proof}
+Since $A$ is a complete discrete valuation ring, the finite \'etale
+$A$-algebra $B$ is a product of finite \'etale local $A$-algebras. Each
+factor is a discrete valuation ring whose maximal ideal is generated by the
+uniformizer of $A$, and whose residue field is finite separable over
+$\kappa$. Consequently, every field factor of the generic fiber has
+ramification index $1$ and separable residue extension, so it is unramified
+in the sense of \Cref{definition:tamely_ramified_dvrs}. This proves part~(2).
 
 \input{sections/RamificationAfterBlowupPPower.tex}
+\end{proof}
 
 \begin{proof}[Proof of \Cref{theorem:torsors_after_blowup_is_tame}]
-For a cyclic group of order prime to $p$, every torsor is tamely ramified, so
-the required conclusion is \Cref{cor:ramification_after_blowup_is_tame}(2).
-For a cyclic $p$-group, the stronger conclusion of unramifiedness is
-\Cref{theorem:ramification_after_blowup_is_tame_for_p_power}. The general
-finite abelian case now follows from
-\Cref{prop:reduction_to_cyclic_groups}.
+Fix a single-point submodulus $\ndls=dP$. By
+\Cref{prop:reduction_to_cyclic_groups}, it is enough to consider cyclic
+groups of order prime to $p$ and cyclic $p$-groups. The prime-to-$p$ case is
+\Cref{theorem:cyclic_cases_after_blowup}(1). For $G=\Z/p^r\Z$, the
+ramification bound on $\cP$ gives the unramified conclusion by part~(2) when
+$r=1$ and by part~(3) when $r\geq2$. The reduction proposition reassembles
+the cyclic factors and proves the theorem for every finite abelian group.
 \end{proof}
