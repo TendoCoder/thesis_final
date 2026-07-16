@@ -1,0 +1,200 @@
+\documentclass[11pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[margin=1.12in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=teal,urlcolor=magenta]{hyperref}
+\usepackage[nameinlink,capitalise]{cleveref}
+
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+
+\newcommand{\A}{\mathbb A}
+\newcommand{\Pj}{\mathbb P}
+\newcommand{\F}{\mathcal F}
+\newcommand{\cP}{\mathcal P}
+\newcommand{\m}{\mathfrak m}
+\newcommand{\Pic}{\operatorname{Pic}}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\Fr}{\operatorname{Fr}}
+
+\title{A Tendler-Style Proof of Extension\\Across Takeuchi's Boundary}
+\author{Standalone note}
+\date{July 2026}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This note isolates a short proof that a rank-one local system which is tame
+along the boundary of Takeuchi's compactified Abel--Jacobi morphism extends
+across that boundary.  The proof adapts the power argument in
+Tendler's treatment of tame geometric class field theory: a prime-to-the-
+characteristic power kills tame inertia, while the abelian fundamental group
+of affine space in positive characteristic is pro-$p$.  The argument applies
+to a nonreduced modulus only after the ramification calculation in Chapter~2
+has made the symmetric-power local system tame at the full boundary.
+\end{abstract}
+
+\section{Setting}
+
+Let $k$ be a perfect field, let $C$ be a projective smooth geometrically
+connected curve over $k$, let $\m>0$ be an effective divisor, and put
+$U=C\setminus |\m|$.  Let $\Lambda$ be a finite ring whose cardinality is
+invertible in $k$, and let $\F$ be a locally constant sheaf of free rank-one
+$\Lambda$-modules on $U$.
+
+For sufficiently large $d$, write
+\[
+ \Phi_d\colon U^{(d)}\longrightarrow \Pic_{C,\m}^{d}
+\]
+for the Abel--Jacobi morphism and
+\[
+ \widetilde\Phi_d\colon
+ \widetilde C^{(d)}_{\m}\longrightarrow \Pic_{C,\m}^{d}
+\]
+for Takeuchi's compactification.  It is a projective-space bundle.  If
+\[
+ H=\widetilde C^{(d)}_{\m}\setminus U^{(d)},
+\]
+then, over a geometric generic point of $\Pic_{C,\m}^{d}$, the pair consisting
+of the compactified fiber and its boundary is
+\begin{equation}\label{eq:generic-fiber}
+ \left(\Pj^r,\Pj^{r-1}\right),
+ \qquad
+ r=d-\deg(\m)-g+1,
+\end{equation}
+and its open fiber is $\A^r$.
+
+The input supplied by the ramification calculation is:
+\begin{equation}\label{eq:tame-input}
+ \F^{[d]}\text{ is tamely ramified at the generic point of }H.
+\end{equation}
+
+\section{The extension argument}
+
+\begin{proposition}\label{prop:extension}
+Assume \eqref{eq:tame-input}.  Then $\F^{[d]}$ extends uniquely to a
+locally constant sheaf of free rank-one $\Lambda$-modules on
+$\widetilde C^{(d)}_{\m}$.
+\end{proposition}
+
+\begin{proof}
+Let $\xi$ be the generic point of $\Pic_{C,\m}^{d}$ and set
+$K=\overline{k(\xi)}$.  By \eqref{eq:generic-fiber}, the geometric generic
+open fiber is
+\[
+ V=\A^r_K\subset \overline V=\Pj^r_K,
+ \qquad
+ D_\infty=\overline V\setminus V=\Pj^{r-1}_K.
+\]
+Let $\cP^{[d]}=\Fr(\F^{[d]})$ be the $\Lambda^\times$-torsor of frames.
+Its restriction to $V$ corresponds to a continuous character
+\[
+ \chi\colon \pi_1(V)\longrightarrow \Lambda^\times.
+\]
+Because $\Lambda^\times$ is finite, the image of $\chi$ is finite.
+
+Suppose first that $\operatorname{char}k=0$.  Then $\pi_1(\A^r_K)=1$;
+see \cite[Example~4.14]{Tendler}.  Hence $\chi$ is trivial.
+
+Now suppose that $\operatorname{char}k=p>0$.  Let $I_\infty$ denote the
+inertia group at the generic point of $D_\infty$.  By the tameness assumption,
+the finite group $\chi(I_\infty)$ has order prime to $p$.  Let $N$ be its
+exponent.  Then
+\[
+ \gcd(N,p)=1
+ \qquad\text{and}\qquad
+ \chi^N|_{I_\infty}=1.
+\]
+Thus the rank-one local system corresponding to $\chi^N$ is unramified at
+the generic point of $D_\infty$.  Since $\Pj^r_K$ is regular and
+$D_\infty$ is the only codimension-one component of its complement, purity
+of the branch locus extends this local system from $V$ to $\Pj^r_K$.
+Projective space is simply connected, so the extension is constant.  Hence
+\begin{equation}\label{eq:N-power-trivial}
+ \chi^N=1\quad\text{on }\pi_1(V).
+\end{equation}
+
+Since $\chi$ is rank one, it factors through $\pi_1(V)^{\mathrm{ab}}$.
+Tendler proves that
+\[
+ \pi_1(\A^r_K)^{\mathrm{ab}}
+ \quad\text{is a pro-}p\text{ group}
+\]
+in \cite[Example~4.15]{Tendler}.  Consequently, the finite group
+$\operatorname{im}(\chi)$ is a $p$-group.  On the other hand,
+\eqref{eq:N-power-trivial} says that its exponent divides $N$, which is
+prime to $p$.  The only such $p$-group is the trivial group.  Therefore
+$\chi=1$.
+
+We have shown in either characteristic that $\cP^{[d]}$ is constant on the
+geometric generic affine fiber.  In particular, its inertia at the generic
+point of the hyperplane at infinity is trivial.  Unramifiedness can be
+checked after the separable extension $k(\xi)\subset K$, so
+$\cP^{[d]}$ is unramified at the generic point of $H$.
+
+Finally, $\widetilde C^{(d)}_{\m}$ is regular and $H$ is the only
+codimension-one component of its complement $U^{(d)}$.  Purity of the
+branch locus therefore extends $\cP^{[d]}$ to a finite etale
+$\Lambda^\times$-torsor on $\widetilde C^{(d)}_{\m}$.  The associated
+rank-one $\Lambda$-module is the required extension of $\F^{[d]}$.
+Uniqueness follows because a dense open immersion into a normal connected
+scheme induces a surjection on etale fundamental groups.
+\end{proof}
+
+\section{Relation with Tendler's proof}
+
+In Tendler's tame argument, a character $\rho$ is replaced by a power
+$\rho^{q-1}$ which is unramified.  The unramified geometric class field
+theory theorem makes the induced power of the symmetric-product character
+trivial on every affine Abel--Jacobi fiber.  Tendler then uses the fact that
+$\pi_1(\A^r)^{\mathrm{ab}}$ is pro-$p$ and that $q-1$ is prime to $p$ to
+deduce that the original character is already trivial on the fiber; see
+\cite[\S9.3]{Tendler}.
+
+The argument above makes two adjustments.
+
+\begin{enumerate}
+ \item The base field here is an arbitrary perfect field, so there is no
+ distinguished integer $q-1$.  Instead, $N$ is chosen to be the exponent of
+ the actual finite tame-inertia image.  Finiteness of $\Lambda$ guarantees
+ that such an $N$ exists, and tameness guarantees that $N$ is prime to $p$.
+
+ \item The original local system $\F$ may have wild ramification allowed by
+ the nonreduced modulus $\m$.  Therefore no prime-to-$p$ power of $\F$ need
+ be unramified on $C$.  The power argument is applied only after passing to
+ $\F^{[d]}$ and to the full boundary $H$, where the Chapter~2 calculation
+ has already proved tameness.
+\end{enumerate}
+
+Thus Tendler's method does not replace the ramification calculation.  It
+replaces the final step from ``tame at the full boundary'' to ``unramified,
+hence extendable across the full boundary.''
+
+\begin{remark}
+For rank-one local systems, this power argument proves exactly the special
+case needed here of the statement that affine space has trivial tame
+fundamental group relative to the hyperplane at infinity.  It therefore
+provides a more explicit alternative to citing that statement directly.
+\end{remark}
+
+\begin{thebibliography}{9}
+
+\bibitem{Tendler}
+Avichai Tendler,
+\emph{Geometric Class Field Theory},
+Master's thesis, Hebrew University of Jerusalem, 2010;
+arXiv:1507.00104 (2015).
+\url{https://arxiv.org/abs/1507.00104}.
+
+\bibitem{SGA1}
+Alexander Grothendieck,
+\emph{Rev\^etements \'etales et groupe fondamental (SGA 1)},
+Lecture Notes in Mathematics 224, Springer, 1971.
+
+\end{thebibliography}
+
+\end{document}

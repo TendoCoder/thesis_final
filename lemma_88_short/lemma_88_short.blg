@@ -1,0 +1,15 @@
+[3] Config.pm:308> INFO - This is Biber 2.20
+[4] Config.pm:311> INFO - Logfile is 'lemma_88_short.blg'
+[279] biber-darwin:340> INFO - === Thu Jul 16, 2026, 16:29:55
+[349] Biber.pm:420> INFO - Reading 'lemma_88_short.bcf'
+[653] Biber.pm:994> INFO - Found 4 citekeys in bib section 0
+[730] Biber.pm:4463> INFO - Processing section 0
+[775] Biber.pm:4654> INFO - Looking for bibtex file 'Bib.bib' for section 0
+[2099] bibtex.pm:1713> INFO - LaTeX decoding ...
+[2189] bibtex.pm:1519> INFO - Found BibTeX data source '../Bib.bib'
+[2441] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[2441] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[2441] Biber.pm:4283> INFO - Sorting list 'ynt/global//global/global/global' of type 'entry' with template 'ynt' and locale 'en-US'
+[2441] Biber.pm:4289> INFO - No sort tailoring available for locale 'en-US'
+[2490] bbl.pm:676> INFO - Writing 'lemma_88_short.bbl' with encoding 'UTF-8'
+[2498] bbl.pm:779> INFO - Output to lemma_88_short.bbl

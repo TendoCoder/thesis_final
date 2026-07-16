@@ -1,0 +1,15 @@
+[0] Config.pm:308> INFO - This is Biber 2.20
+[0] Config.pm:311> INFO - Logfile is 'chapter3_reorganized.blg'
+[64] biber-darwin:340> INFO - === Thu Jul 16, 2026, 14:37:53
+[81] Biber.pm:420> INFO - Reading 'chapter3_reorganized.bcf'
+[151] Biber.pm:994> INFO - Found 6 citekeys in bib section 0
+[164] Biber.pm:4463> INFO - Processing section 0
+[174] Biber.pm:4654> INFO - Looking for bibtex file 'Bib.bib' for section 0
+[375] bibtex.pm:1713> INFO - LaTeX decoding ...
+[396] bibtex.pm:1519> INFO - Found BibTeX data source '../Bib.bib'
+[445] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[445] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[445] Biber.pm:4283> INFO - Sorting list 'ynt/global//global/global/global' of type 'entry' with template 'ynt' and locale 'en-US'
+[445] Biber.pm:4289> INFO - No sort tailoring available for locale 'en-US'
+[454] bbl.pm:676> INFO - Writing 'chapter3_reorganized.bbl' with encoding 'UTF-8'
+[457] bbl.pm:779> INFO - Output to chapter3_reorganized.bbl

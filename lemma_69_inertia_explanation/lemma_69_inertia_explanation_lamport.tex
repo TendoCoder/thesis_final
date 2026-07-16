@@ -1,0 +1,279 @@
+\documentclass[11pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+
+\definecolor{heading}{HTML}{243B53}
+\definecolor{accent}{HTML}{486581}
+
+\newcommand{\cP}{\mathcal P}
+\newcommand{\PicM}{\operatorname{Pic}^{d}_{C,\mathfrak m}}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\step}[2]{\par\medskip\noindent
+  \textcolor{heading}{\textbf{\(\langle #1\rangle\)#2}}\quad}
+\newcommand{\pf}{\par\smallskip\noindent\textit{Proof.}\ }
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+
+\begin{document}
+
+\begin{center}
+  {\Large\bfseries Why constancy on the geometric generic fiber kills inertia}\par
+  \vspace{4pt}
+  {\large A Lamport-style expansion of the key step in Lemma~69}
+\end{center}
+
+\section*{The sentence being expanded}
+
+The proof says:
+\begin{quote}
+Hence this restriction is constant, so its inertia at the generic point of
+the hyperplane at infinity is trivial. Unramifiedness can be checked after
+this separable extension of the residue field; consequently
+$\cP^{[d]}$ is unramified at the generic point of $H$.
+\end{quote}
+
+The purpose of this note is to make every implication in that sentence
+explicit.  The main point is that two different facts are being used:
+\begin{enumerate}[label=(\roman*),leftmargin=2em]
+  \item the triviality of the \emph{tame} fundamental group makes the
+        torsor constant on the geometric generic open fiber; and
+  \item extending the residue field of a henselian discrete valuation ring
+        by a separable extension does not erase ramification.
+\end{enumerate}
+
+\section*{Notation and the local question}
+
+Put
+\[
+  X=\widetilde C^{(d)}_{\mathfrak m},\qquad
+  S=\PicM,\qquad
+  U=U^{(d)},\qquad
+  D=H=X\setminus U.
+\]
+Let $f\colon X\to S$ be the compactified Abel--Jacobi morphism.  Let
+$\xi$ be the generic point of $S$, and let $\eta$ be the generic point of
+$D$.  On the generic fiber one has
+\[
+  (X_\xi,D_\xi)\simeq
+  \bigl(\mathbb P^r_{k(\xi)},\mathbb P^{r-1}_{k(\xi)}\bigr),
+  \qquad U_\xi\simeq\mathbb A^r_{k(\xi)}.
+\]
+Thus $\eta$ is also the generic point of the hyperplane $D_\xi$.
+
+Let $G=\Lambda^\times$.  The $G$-torsor $\cP^{[d]}$ on $U$ gives a
+finite \(\acute{e}\)tale cover of the fraction field of the local ring at
+$\eta$.  The local question is:
+\[
+  \textit{Does this cover extend \(\acute{e}\)tale across the divisor $D$?}
+\]
+
+\section*{Structured proof}
+
+\step{1}{1. Reduce unramifiedness to an inertia calculation.}
+
+Let
+\[
+  R=\mathcal O^{h}_{X,\eta},\qquad K=\operatorname{Frac}(R).
+\]
+Because $X$ is regular and $D$ has codimension one, $R$ is a henselian
+discrete valuation ring.  Choose a geometric point of $\Spec K$ and let
+$I_\eta$ be the corresponding inertia group.
+
+\pf A finite \(\acute{e}\)tale $K$-scheme extends to a finite
+\(\acute{e}\)tale $R$-scheme if and only if $I_\eta$ acts trivially on its
+geometric fiber.  Applied to $\cP^{[d]}$, this gives the exact target:
+\[
+  \cP^{[d]}\text{ is unramified at }\eta
+  \quad\Longleftrightarrow\quad
+  I_\eta\text{ acts trivially on }\cP^{[d]}_{\bar K}.
+\]
+
+\step{1}{2. Pass to a separably closed generic field.}
+
+Choose a separable closure
+\[
+  \Omega=k(\xi)^{\mathrm{sep}}.
+\]
+It is enough for the \(\acute{e}\)tale argument that $\Omega$ be separably
+closed; it need not be an algebraic closure.  After base change to
+$\Spec\Omega$,
+\[
+  (X_\Omega,D_\Omega,U_\Omega)
+  \simeq
+  (\mathbb P^r_\Omega,\mathbb P^{r-1}_\Omega,\mathbb A^r_\Omega).
+\]
+Let $\bar\eta$ be the generic point of $D_\Omega$.
+
+\step{2}{1. The point $\bar\eta$ lies above $\eta$.}
+
+\pf The divisor $D$ is the relative hyperplane in the projective-space
+bundle $X\to S$.  Hence its generic point remains the generic point of the
+hyperplane after passing from the generic field $k(\xi)$ to $\Omega$.
+
+\step{2}{2. Locally, this base change only enlarges the residue field.}
+
+Let $R_\Omega$ denote the henselian discrete valuation ring at
+$\bar\eta$.  The map $R\to R_\Omega$ sends a local equation of $D$ to a
+local equation of $D_\Omega$.  In particular, its ramification index is
+one.  Its residue-field extension is
+\[
+  \kappa(\eta)longrightarrow\kappa(\bar\eta),
+\]
+obtained by adjoining the separable constants $\Omega/k(\xi)$.
+Consequently, $R_\Omega/R$ is an unramified extension of henselian discrete
+valuation rings, possibly after taking a filtered union when $\Omega$ is
+infinite.
+
+\step{2}{3. The inertia group does not change.}
+
+\pf After choosing compatible separable closures, an unramified extension
+of henselian discrete valuation fields identifies their geometric inertia
+groups:
+\[
+  I_{\bar\eta}\xrightarrow{\ \sim\ } I_\eta.
+\]
+Equivalently, a nontrivial ramification index cannot become $1$ merely by
+separably enlarging the residue field.  Thus unramifiedness may be
+\emph{checked} after this base change.
+
+\step{1}{3. Use the previously proved tameness.}
+
+The torsor $\cP^{[d]}$ is assumed tame along $D$.  Therefore its restriction
+to $U_\Omega=\mathbb A^r_\Omega$ is tame along
+$D_\Omega=\mathbb P^{r-1}_\Omega$.
+
+\pf In local terms, tameness says that the wild inertia subgroup
+$P_{\bar\eta}\subset I_{\bar\eta}$ already acts trivially.  The only
+possible remaining local monodromy is the prime-to-characteristic quotient
+\[
+  I^{t}_{\bar\eta}=I_{\bar\eta}/P_{\bar\eta}.
+\]
+This is why tameness alone does \emph{not} yet prove unramifiedness.
+
+\step{1}{4. The tame fundamental group forces the restricted torsor to be constant.}
+
+The result cited in Lemma~69 gives
+\[
+  \pi_1^t\!\left(
+    \mathbb A^r_\Omega;\mathbb P^{r-1}_\Omega
+  \right)=1.
+\]
+
+\pf Finite covers of $\mathbb A^r_\Omega$ that are tame along the
+hyperplane at infinity are classified by finite quotients of this tame
+fundamental group.  Since the group is trivial, there is no nontrivial
+connected tame cover.  Hence
+\[
+  \cP^{[d]}|_{\mathbb A^r_\Omega}
+  \simeq \mathbb A^r_\Omega\times G
+\]
+as a $G$-torsor, after choosing one point in a geometric fiber.  This is the
+meaning of ``the restriction is constant.''  The trivialization is not
+canonical, but its existence is all that is needed.
+
+\step{1}{5. A constant torsor has trivial inertia at infinity.}
+
+\pf The constant torsor on $\mathbb A^r_\Omega$ extends as the constant
+finite \(\acute{e}\)tale torsor
+\[
+  \mathbb P^r_\Omega\times G\longrightarrow\mathbb P^r_\Omega.
+\]
+It is therefore \(\acute{e}\)tale at $\bar\eta$, the generic point of the
+hyperplane at infinity.  By Step~$\langle1\rangle1$, this is equivalent to
+triviality of the action of $I_{\bar\eta}$.
+
+One can say the same thing directly in terms of the two parts of inertia:
+\begin{align*}
+  P_{\bar\eta}&\text{ acts trivially because the torsor is tame},\\
+  I^t_{\bar\eta}&\text{ acts trivially because the global tame monodromy is
+                       trivial}.
+\end{align*}
+Hence the full group $I_{\bar\eta}$ acts trivially.
+
+\step{1}{6. Descend the conclusion to the original generic point.}
+
+\pf By Step~$\langle2\rangle3$, the map
+$I_{\bar\eta}\to I_\eta$ identifies the relevant inertia actions.  Since
+the action becomes trivial after the separable residue-field extension, it
+was already trivial before that extension.  Step~$\langle1\rangle1$ now
+gives
+\[
+  \boxed{\cP^{[d]}\text{ is unramified at the generic point }\eta\text{ of }H.}
+\]
+
+\section*{What the original three sentences compress}
+
+The logic is the following chain:
+\[
+\begin{gathered}
+  \text{$\cP^{[d]}$ is tame along $H$}
+  \\
+  \Downarrow
+  \\
+  \text{its pullback to $\mathbb A^r_\Omega$ is classified by }
+  \pi_1^t(\mathbb A^r_\Omega;\mathbb P^{r-1}_\Omega)
+  \\
+  \Downarrow\quad\bigl(\pi_1^t=1\bigr)
+  \\
+  \text{the pulled-back torsor is constant}
+  \\
+  \Downarrow
+  \\
+  I_{\bar\eta}\text{ acts trivially}
+  \\
+  \Downarrow\quad\bigl(I_{\bar\eta}\simeq I_\eta\bigr)
+  \\
+  I_\eta\text{ acts trivially}
+  \\
+  \Downarrow
+  \\
+  \text{$\cP^{[d]}$ is unramified at $\eta$.}
+\end{gathered}
+\]
+
+The indispensable input is the \emph{global} statement that the relative
+tame fundamental group of the affine fiber is trivial.  Without that input,
+tameness would kill only wild inertia and could leave nontrivial tame
+inertia.
+
+\section*{A thesis-ready replacement paragraph}
+
+Here is a more explicit replacement for the quoted passage:
+
+\begin{quote}
+Let $\Omega=k(\xi)^{\mathrm{sep}}$, and let $\bar\eta$ be the generic point
+of the hyperplane
+$H_\Omega\simeq\mathbb P^{r-1}_\Omega$.  The pullback of $\cP^{[d]}$ to
+$\mathbb A^r_\Omega$ is tame along $H_\Omega$.  Since
+\[
+  \pi_1^t(\mathbb A^r_\Omega;\mathbb P^{r-1}_\Omega)=1,
+\]
+this pullback is a constant $\Lambda^\times$-torsor.  It therefore extends
+as the constant finite \(\acute{e}\)tale torsor over $\mathbb P^r_\Omega$,
+so the inertia group $I_{\bar\eta}$ acts trivially.  The passage from the
+generic point $\eta$ of $H$ to $\bar\eta$ is an unramified extension of the
+corresponding henselian discrete valuation rings: it enlarges the residue
+field separably and leaves a uniformizer unchanged.  Hence
+$I_{\bar\eta}\simeq I_\eta$, and triviality of inertia can be checked after
+this base change.  Thus $I_\eta$ acts trivially, which says precisely that
+$\cP^{[d]}$ is unramified at the generic point of $H$.
+\end{quote}
+
+\section*{A small notational caution}
+
+If $\overline{k(\xi)}$ denotes an algebraic closure, then in positive
+characteristic the extension
+$\overline{k(\xi)}/k(\xi)$ need not be separable.  For the argument above,
+one may first use the separable closure $k(\xi)^{\mathrm{sep}}$.  Passing
+afterwards through a purely inseparable extension does not change finite
+\(\acute{e}\)tale covers or their inertia.  This makes the phrase
+``after this separable extension of the residue field'' literally correct.
+
+\end{document}

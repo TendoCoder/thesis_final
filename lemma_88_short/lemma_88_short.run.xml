@@ -44,10 +44,10 @@
   <internal package="biblatex" priority="9" active="0">
     <generic>latex</generic>
     <provides type="dynamic">
-      <file>chapter2_reorganized.bcf</file>
+      <file>lemma_88_short.bcf</file>
     </provides>
     <requires type="dynamic">
-      <file>chapter2_reorganized.bbl</file>
+      <file>lemma_88_short.bbl</file>
     </requires>
     <requires type="static">
       <file>blx-dm.def</file>
@@ -64,19 +64,19 @@
     <generic>biber</generic>
     <cmdline>
       <binary>biber</binary>
-      <infile>chapter2_reorganized</infile>
+      <infile>lemma_88_short</infile>
     </cmdline>
     <input>
-      <file>chapter2_reorganized.bcf</file>
+      <file>lemma_88_short.bcf</file>
     </input>
     <output>
-      <file>chapter2_reorganized.bbl</file>
+      <file>lemma_88_short.bbl</file>
     </output>
     <provides type="dynamic">
-      <file>chapter2_reorganized.bbl</file>
+      <file>lemma_88_short.bbl</file>
     </provides>
     <requires type="dynamic">
-      <file>chapter2_reorganized.bcf</file>
+      <file>lemma_88_short.bcf</file>
     </requires>
     <requires type="editable">
       <file>Bib.bib</file>

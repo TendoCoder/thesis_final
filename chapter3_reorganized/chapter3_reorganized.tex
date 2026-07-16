@@ -1,0 +1,90 @@
+% =============================================================================
+%  chapter3_reorganized.tex
+%
+%  STANDALONE REVIEW COPY of a reorganized Chapter 3
+%  ("Geometric Class Field Theory").
+%
+%  Purpose: side-by-side comparison with the current chapter 3 of main.pdf.
+%  NO existing thesis file is modified; the body below COPIES content from
+%      sections/GeometricClassFieldTheory.tex
+%      sections/RamificationOnProductsOfBlowups.tex
+%      sections/GeometricCFT/ProofOfReducedTheorem.tex
+%
+%  The reorganization:
+%    (chapter preamble)  NEW introduction: the goal (Theorem thm:GCFT_reduced),
+%         the strategy, the statement of the chapter's technical main theorem,
+%         and a roadmap of the sections
+%    3.1  The Homotopy Exact Sequence and Tame Fundamental Groups
+%    3.2  The Generalized Picard Scheme
+%    3.3  The Abel--Jacobi Morphism and its Fibers
+%    3.4  Takeuchi's Compactification
+%    3.5  Tameness Along the Whole Boundary
+%         (merges the old sections 3.5 "Ramification on Products of Blowups",
+%          3.6 "Proof of Thm ..." (reduction lemmas) and 3.7 "Proof of Thm ..."
+%          -- the two identically-titled sections -- into one section with
+%          four subsections)
+%    3.6  Proof of Theorem thm:GCFT_reduced   (old 3.8; Lemma
+%         lemma:ExtensionOfTamelyRamifiedSheaf stays a red placeholder)
+%
+%  NEWLY WRITTEN MATHEMATICS IS TYPESET IN BLUE (\begin{bluemath} blocks /
+%  \textcolor{blue}) so it can be reviewed at a glance.  Structural glue,
+%  retitling and typo fixes are NOT colored.
+%
+%  Labels: all chapter-3 labels are copied verbatim (unprefixed), so the
+%  standalone notes (lemma_88_route_2/, extension_lemma_completion/) would
+%  keep resolving after an eventual integration.  References to results
+%  OUTSIDE chapter 3 (chapters 1-2, the thesis Introduction) are prefixed
+%  "main:" and resolve against ../main.aux via the xr package, so their
+%  numbers match the compiled thesis.
+%
+%  Compile (from inside this directory):
+%      TEXINPUTS=..: BIBINPUTS=..: latexmk -pdf chapter3_reorganized.tex
+% =============================================================================
+\documentclass[11pt]{report}
+\usepackage{geometry}\geometry{margin=1in}
+\usepackage[T1]{fontenc}
+\usepackage{ifthen}
+
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0.5em}
+
+\input{includes}
+\input{MacrosAndFigures}
+
+\usepackage{csquotes}
+\usepackage[
+backend=biber,
+style=alphabetic,
+sorting=ynt
+]{biblatex}
+\addbibresource{Bib.bib}
+
+\newboolean{ThesisIntro}
+\setboolean{ThesisIntro}{false}
+
+% Newly written mathematics is typeset in blue for review.
+\newenvironment{bluemath}{\par\begingroup\color{blue}}{\endgroup\par}
+
+% Resolve references to thesis results OUTSIDE this chapter (prefixed main:)
+% against the thesis aux file, so numbering matches main.pdf.
+\usepackage{xr}
+\externaldocument[main:]{../main}
+
+\title{Reorganized Chapter 3: Geometric Class Field Theory\\
+\large A standalone review copy for comparison with the current chapter\\
+\large (newly written mathematics in \textcolor{blue}{blue})}
+\author{}
+\date{\today}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+% Number the chapter as "3", matching its position in the thesis.
+\setcounter{chapter}{2}
+
+\input{chapter3_body}
+
+\printbibliography
+
+\end{document}

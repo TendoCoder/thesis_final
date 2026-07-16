@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.6.30)  16 JUL 2026 16:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.6.30)  16 JUL 2026 14:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**main.tex
-(./main.tex
+**chapter3_reorganized.tex
+(./chapter3_reorganized.tex
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
 (/usr/local/texlive/2025/texmf-dist/tex/latex/base/report.cls
@@ -55,8 +55,8 @@ Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
 )
 (/usr/local/texlive/2025/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
-) (./includes.tex
-(/usr/local/texlive/2025/texmf-dist/tex/latex/titling/titling.sty
+) (../includes.tex (/usr/local/texlive/2025/texmf-dist/tex/latex/titling/titlin
+g.sty
 Package: titling 2009/09/04 v2.1d maketitle typesetting
 \thanksmarkwidth=\skip51
 \thanksmargin=\skip52
@@ -1105,7 +1105,7 @@ Package: thm-amsthm 2023/05/04 v0.76
 (/usr/local/texlive/2025/texmf-dist/tex/generic/mleftright/mleftright.sty
 Package: mleftright 2019/12/03 v1.2 Math left/right delim. as open/close (HO)
 ))
-(./MacrosAndFigures.tex
+(../MacrosAndFigures.tex
 (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
 s/tikzlibrarypatterns.code.tex
 File: tikzlibrarypatterns.code.tex 2023-01-15 v3.1.10 (3.1.10)
@@ -1373,32 +1373,36 @@ Package biblatex Info: ... and expl3
 (/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/blx-case-expl3.sty
 Package: blx-case-expl3 2024/03/21 v3.20 expl3 case changing code for biblatex
 ))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/tools/xr.sty
+Package: xr 2024-04-10 v6.00 eXternal References (DPC)
+)
+Package xr Info: IMPORTING LABELS FROM ../main.aux on input line 72.
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'english'.
 
-(./main.aux)
-\openout1 = `main.aux'.
+(./chapter3_reorganized.aux)
+\openout1 = `chapter3_reorganized.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1460,41 +1464,41 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: rotating package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring ON on input line 27.
+Package hyperref Info: Link coloring ON on input line 79.
 
-(./main.out) (./main.out)
+(./chapter3_reorganized.out) (./chapter3_reorganized.out)
 \@outlinefile=\write7
-\openout7 = `main.out'.
+\openout7 = `chapter3_reorganized.out'.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 27.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 79.
 
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 27.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 79.
 
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+stmry on input line 2
-7.
+LaTeX Font Info:    Trying to load font information for U+stmry on input line 7
+9.
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/stmaryrd/Ustmry.fd)
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 27
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 79
 .
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Font Info:    Trying to load font information for U+wasy on input line 27
+LaTeX Font Info:    Trying to load font information for U+wasy on input line 79
 .
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/wasysym/uwasy.fd
 File: uwasy.fd 2020/01/19 v2.4 Wasy-2 symbol font definitions
 )
-Package xypdf Info: Line width: 0.43799pt on input line 27.
+Package xypdf Info: Line width: 0.43799pt on input line 79.
 Package biblatex Info: Trying to load language 'english'...
 Package biblatex Info: ... file 'english.lbx' found.
 
@@ -1504,393 +1508,145 @@ File: english.lbx 2024/03/21 v3.20 biblatex localization (PK/MW)
 Package biblatex Info: Input encoding 'utf8' detected.
 Package biblatex Info: Automatic encoding selection.
 (biblatex)             Assuming data encoding 'utf8'.
-\openout6 = `main.bcf'.
+\openout6 = `chapter3_reorganized.bcf'.
 
 Package biblatex Info: Trying to load bibliographic data...
-Package biblatex Info: ... file 'main.bbl' found.
+Package biblatex Info: ... file 'chapter3_reorganized.bbl' found.
 
-(./main.bbl)
-Package biblatex Info: Reference section=0 on input line 27.
-Package biblatex Info: Reference segment=0 on input line 27.
+(./chapter3_reorganized.bbl)
+Package biblatex Info: Reference section=0 on input line 79.
+Package biblatex Info: Reference segment=0 on input line 79.
 
 
 [1
 
 {/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/loc
 al/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}]
-LaTeX Font Info:    Trying to load font information for U+euf on input line 34.
+(./chapter3_reorganized.toc
+LaTeX Font Info:    Trying to load font information for U+euf on input line 10.
 
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
-)
-
-
-pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
-been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.39 \end{abstract}
-                    [1] (./main.toc
-
-
-pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
-been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.30 ...lity Under Products}{43}{subsection.3.3.1}
-                                                  % [1
-
-])
+))
 \tf@toc=\write8
-\openout8 = `main.toc'.
+\openout8 = `chapter3_reorganized.toc'.
 
 
+(./chapter3_body.tex
 
-[2] (./sections/Introduction.tex
 
-[3
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.12 \chapter
+             {Geometric Class Field Theory}\label{section:gcft} [1
 
 ]
+Chapter 3.
 Package hyperref Info: bookmark level for unknown theorem defaults to 0 on inpu
-t line 60.
+t line 23.
 
 
-[4])
-
-[5]
-Chapter 1.
-(./sections/Preliminaries/GeneralPreliminaries.tex
-Package hyperref Info: bookmark level for unknown definition defaults to 0 on i
-nput line 25.
-
-
-[6
+[2
 
 ]
-Package hyperref Info: bookmark level for unknown prop defaults to 0 on input l
-ine 45.
 
+[3]
+Package hyperref Info: bookmark level for unknown prop defaults to 0 on input l
+ine 130.
+Package hyperref Info: bookmark level for unknown cor defaults to 0 on input li
+ne 138.
+
+
+[4]
+Package hyperref Info: bookmark level for unknown rem* defaults to 0 on input l
+ine 218.
+
+
+[5{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
+}]
+
+[6]
 
 [7]
-Package hyperref Info: bookmark level for unknown rem* defaults to 0 on input l
-ine 176.
-
 
 [8]
-Package hyperref Info: bookmark level for unknown cor defaults to 0 on input li
-ne 193.
-
 
 [9]
 
 [10]
 
-[11{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.en
-c}]
+[11]
 
 [12]
+Package hyperref Info: bookmark level for unknown lemma defaults to 0 on input 
+line 638.
+
 
 [13]
 
 [14]
 
-[15] <xymatrix 2x2 154>
+[15])
 
-[16])
+[16]
 
-[17]
-Chapter 2.
-(./sections/RamificationAfterBlowupIntroduction.tex
+[17
 
-[18
-
-]) (./sections/Preliminaries/LocalRamificationPreliminaries.tex
-
-[19]
-
-[20]) (./sections/Preliminaries/GTorsorRamification.tex <xymatrix 2x2 154>
-
-[21]
-
-[22]
-Package hyperref Info: bookmark level for unknown lemma defaults to 0 on input 
-line 90.
-
-
-[23]) (./sections/Preliminaries/ReductionsBeforeCyclicTheories.tex
-
-[24]
-
-[25]
-
-[26]
-Overfull \hbox (9.6162pt too wide) in paragraph at lines 168--175
-\T1/cmr/m/n/10.95 Finally, $\OML/cmm/m/it/10.95 k\OT1/cmr/m/n/10.95 [[\OML/cmm/
-m/it/10.95 x[]; [] ; x[]\OT1/cmr/m/n/10.95 ]][] = \OML/cmm/m/it/10.95 k\OT1/cmr
-/m/n/10.95 [[\OML/cmm/m/it/10.95 e[]; [] ; e[]\OT1/cmr/m/n/10.95 ]]$\T1/cmr/m/n
-/10.95 : the ring $\OML/cmm/m/it/10.95 k\OT1/cmr/m/n/10.95 [\OML/cmm/m/it/10.95
- x[]; [] ; x[]\OT1/cmr/m/n/10.95 ]$ \T1/cmr/m/n/10.95 is a fi-nite free mod-ule
- over $\OML/cmm/m/it/10.95 k\OT1/cmr/m/n/10.95 [\OML/cmm/m/it/10.95 e[]; [] ; e
-[]\OT1/cmr/m/n/10.95 ]$\T1/cmr/m/n/10.95 ,
- []
-
-
-Overfull \hbox (7.60236pt too wide) in paragraph at lines 168--175
-\OML/cmm/m/it/10.95 k\OT1/cmr/m/n/10.95 [[\OML/cmm/m/it/10.95 e[]; [] ; e[]\OT1
-/cmr/m/n/10.95 ]]$ \T1/cmr/m/n/10.95 --- yields $\OML/cmm/m/it/10.95 k\OT1/cmr/
-m/n/10.95 [[\OML/cmm/m/it/10.95 e[]; [] ; e[]\OT1/cmr/m/n/10.95 ]]$\T1/cmr/m/n/
-10.95 . Un-der these iden-ti-fi-ca-tions the max-i-mal ideal of $[]$ is $\OT1/c
-mr/m/n/10.95 (\OML/cmm/m/it/10.95 e[]; [] ; e[]\OT1/cmr/m/n/10.95 )$\T1/cmr/m/n
-/10.95 ,
- []
-
-
-
-[27]) (./sections/Preliminaries/CyclicRamificationTheories.tex
-
-[28]
-
-[29]
-
-[30]
-
-[31]
-
-[32]) (./sections/RamificationAfterBlowupIsTame.tex
-
-[33]
-
-[34] (./sections/RamificationAfterBlowupPPower.tex
-
-[35]
-
-[36])) (./chapter3_reorganized_codex/chapter3_reorganized_codex.tex
-
-[37]
-Chapter 3.
-
-
-[38
-
-]
-
-[39]
-
-[40]
-
-[41]
-
-[42]
-
-[43]
-
-[44]
-
-[45]
-
-[46]
-
-[47]
-
-[48]
-
-[49]) (./witt/WittVectorAlgebraAppendix.tex
-
-[50]
-Appendix A.
-
-Overfull \hbox (27.8096pt too wide) detected at line 30
-\OML/cmm/m/it/10.95 w[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 S[]; [] ; S[]\OT
-1/cmr/m/n/10.95 ) = \OML/cmm/m/it/10.95 w[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10
-.95 X[]; [] ; X[]\OT1/cmr/m/n/10.95 ) + \OML/cmm/m/it/10.95 w[]\OT1/cmr/m/n/10.
-95 (\OML/cmm/m/it/10.95 Y[]; [] ; Y[]\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 ; 
- w[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 P[]; [] ; P[]\OT1/cmr/m/n/10.95 ) =
- \OML/cmm/m/it/10.95 w[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 X[]; [] ; X[]\O
-T1/cmr/m/n/10.95 ) \OMS/cmsy/m/n/10.95 ^^A \OML/cmm/m/it/10.95 w[]\OT1/cmr/m/n/
-10.95 (\OML/cmm/m/it/10.95 Y[]; [] ; Y[]\OT1/cmr/m/n/10.95 )
- []
-
-
-
-[51
-
-]
-Overfull \hbox (84.97499pt too wide) in paragraph at lines 95--98
-[]\T1/cmr/bx/n/10.95 Proposition 76 \T1/cmr/m/n/10.95 (shape of Witt ad-di-tion
-)\T1/cmr/bx/n/10.95 . []\T1/cmr/m/it/10.95 For ev-ery $\OML/cmm/m/it/10.95 n \O
-MS/cmsy/m/n/10.95 ^^U \OT1/cmr/m/n/10.95 0$ \T1/cmr/m/it/10.95 there is a poly-
-no-mial $\OML/cmm/m/it/10.95 C[] \OMS/cmsy/m/n/10.95 2 \U/msb/m/n/10.95 Z\OT1/c
-mr/m/n/10.95 [\OML/cmm/m/it/10.95 X[]; [] ; X[]\OT1/cmr/m/n/10.95 ; \OML/cmm/m/
-it/10.95 Y[]; [] ; Y[]\OT1/cmr/m/n/10.95 ]$\T1/cmr/m/it/10.95 ,
- []
-
-
-
-[52]
-Package hyperref Info: bookmark level for unknown example defaults to 0 on inpu
-t line 198.
-
-
-[53] (./witt/WittVectorPrerequisites.tex
-
-[54]
-
-[55]
-
-[56]
-Overfull \hbox (4.27704pt too wide) in paragraph at lines 224--227
-[]\T1/cmr/bx/n/10.95 Corollary 85. []\T1/cmr/m/it/10.95 Let $\OML/cmm/m/it/10.9
-5 M \OMS/cmsy/m/n/10.95 ^^S \U/msb/m/n/10.95 F[]$ \T1/cmr/m/it/10.95 and let $[
-] \OMS/cmsy/m/n/10.95 2 \OML/cmm/m/it/10.95 W[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/i
-t/10.95 M\OT1/cmr/m/n/10.95 )$ \T1/cmr/m/it/10.95 have $\OML/cmm/m/it/10.95 g[]
- \OT1/cmr/m/n/10.95 = 0$\T1/cmr/m/it/10.95 . Then $\OML/cmm/m/it/10.95 p[]\OT1/
-cmr/m/n/10.95 [[]] = 0$ \T1/cmr/m/it/10.95 in $\OML/cmm/m/it/10.95 W[]\OT1/cmr/
-m/n/10.95 (\OML/cmm/m/it/10.95 M\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 =}W[]\O
-T1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 M\OT1/cmr/m/n/10.95 )$\T1/cmr/m/it/10.95 
-.
- []
-
-
-Overfull \hbox (4.9629pt too wide) in paragraph at lines 262--264
-[]\T1/cmr/bx/n/10.95 Lemma 87 \T1/cmr/m/n/10.95 (Sur-jec-tiv-ity on in-te-gral 
-Witt vec-tors)\T1/cmr/bx/n/10.95 . []\T1/cmr/m/it/10.95 If $\OML/cmm/m/it/10.95
- k$ \T1/cmr/m/it/10.95 is al-ge-braically closed, then $\OML/cmm/m/it/10.95 } \
-OT1/cmr/m/n/10.95 : \OML/cmm/m/it/10.95 W[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10
-.95 k\OT1/cmr/m/n/10.95 [[\OML/cmm/m/it/10.95 x\OT1/cmr/m/n/10.95 ]]) \OMS/cmsy
-/m/n/10.95 !
- []
-
-
-
-[57]))
-
-[58]
-Appendix B.
-(./a_wrong_path/a_wrong_path.tex
-
-[59
-
-]
-
-[60]
-
-[61]
-
-[62]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 251.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 251.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 251.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 251.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 251.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\eta' on input line 251.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 251.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 251.
-
-
-
-[63]
-
-[64]
-
-[65]
-
-[66]
-
-[67])
-
-[68]
-
-[69
-
-] (./main.aux)
+] (./chapter3_reorganized.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: C39D5B7E89DB84F89B820985E04D2C15;11285.
-Package logreq Info: Writing requests to 'main.run.xml'.
-\openout1 = `main.run.xml'.
+Package rerunfilecheck Info: File `chapter3_reorganized.out' has not changed.
+(rerunfilecheck)             Checksum: 9BDA289F563DE77344B23BB7943D656E;2476.
+Package logreq Info: Writing requests to 'chapter3_reorganized.run.xml'.
+\openout1 = `chapter3_reorganized.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 45517 strings out of 473190
- 864078 string characters out of 5715800
- 1695916 words of memory out of 5000000
- 67551 multiletter control sequences out of 15000+600000
- 596350 words of font info for 155 fonts, out of 8000000 for 9000
+ 44509 strings out of 473190
+ 843608 string characters out of 5715800
+ 1698092 words of memory out of 5000000
+ 66944 multiletter control sequences out of 15000+600000
+ 583196 words of font info for 104 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 107i,17n,110p,3253b,2304s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
-></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb>
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.p
-fb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pf
-b></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb
-></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><
-/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></u
-sr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr
-/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/l
-ocal/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/loc
-al/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/
-texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/tex
-live/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texliv
-e/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive
-/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2
-025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/202
-5/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2025/
-texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/202
-5/texmf-dist/fonts/type1/public/amsfonts/euler/eufm7.pfb></usr/local/texlive/20
-25/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texliv
-e/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/te
-xlive/2025/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/local/texlive/20
-25/texmf-dist/fonts/type1/public/cm-super/sfbi1095.pfb></usr/local/texlive/2025
-/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/local/texlive/2025/t
-exmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2025/tex
-mf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2025/texmf
--dist/fonts/type1/public/cm-super/sfbx2074.pfb></usr/local/texlive/2025/texmf-d
-ist/fonts/type1/public/cm-super/sfbx2488.pfb></usr/local/texlive/2025/texmf-dis
-t/fonts/type1/public/cm-super/sfcc1095.pfb></usr/local/texlive/2025/texmf-dist/
-fonts/type1/public/cm-super/sfrm0600.pfb></usr/local/texlive/2025/texmf-dist/fo
-nts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2025/texmf-dist/font
-s/type1/public/cm-super/sfrm0900.pfb></usr/local/texlive/2025/texmf-dist/fonts/
-type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2025/texmf-dist/fonts/ty
-pe1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type
-1/public/cm-super/sfrm1728.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/
-public/cm-super/sfti0800.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/pu
-blic/cm-super/sfti1095.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/publ
-ic/cm-super/sftt1095.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public
-/stmaryrd/stmary10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/s
-tmaryrd/stmary8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/xypi
-c/xyatip10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/xypic/xyb
-tip10.pfb>
-Output written on main.pdf (71 pages, 894938 bytes).
+ 107i,17n,110p,3269b,1913s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
+></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.
+pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.p
+fb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pf
+b></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb>
+</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></
+usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></us
+r/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/l
+ocal/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/loca
+l/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local
+/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/t
+exlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/tex
+live/2025/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/t
+exlive/2025/texmf-dist/fonts/type1/public/amsfonts/euler/eufm7.pfb></usr/local/
+texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/lo
+cal/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></us
+r/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/
+local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/lo
+cal/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/loca
+l/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx2074.pfb></usr/local/
+texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb></usr/local/te
+xlive/2025/texmf-dist/fonts/type1/public/cm-super/sfcc1095.pfb></usr/local/texl
+ive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texliv
+e/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/
+2025/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/20
+25/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/local/texlive/2025
+/texmf-dist/fonts/type1/public/cm-super/sfti0800.pfb></usr/local/texlive/2025/t
+exmf-dist/fonts/type1/public/cm-super/sfti1095.pfb></usr/local/texlive/2025/tex
+mf-dist/fonts/type1/public/cm-super/sftt1095.pfb>
+Output written on chapter3_reorganized.pdf (18 pages, 489731 bytes).
 PDF statistics:
- 1470 PDF objects out of 1728 (max. 8388607)
- 1299 compressed objects within 13 object streams
- 430 named destinations out of 1000 (max. 500000)
- 397 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 488 PDF objects out of 1000 (max. 8388607)
+ 404 compressed objects within 5 object streams
+ 87 named destinations out of 1000 (max. 500000)
+ 101 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,0 +1,384 @@
+% =============================================================================
+%  lemma_88_short_body.tex -- a short proof of the extension lemma, after
+%  Deligne's tame case (following Tendler and Guignard).
+%
+%  Self-contained: labels defined here carry the suffix "_short"; all other
+%  \Cref's resolve against ../main.aux. If this proof is adopted, rename
+%  lemma:ExtensionOfTamelyRamifiedSheafShort back to
+%  lemma:ExtensionOfTamelyRamifiedSheaf and \input this file in place of the
+%  placeholder in sections/GeometricCFT/ProofOfReducedTheorem.tex.
+% =============================================================================
+
+\subsection*{The extension lemma, after Deligne's tame case}
+
+We keep the notation of \Cref{section:BlowupOfSymmetricPowerOfCurves}:
+$C$ is a projective smooth geometrically connected curve over the perfect field $k$,
+$\mdls = \sum n_i P_i > 0$ is a modulus with complement $U = C \setminus \mdls$,
+and $d$ is an integer satisfying \Cref{equation:degree-condition}.
+We write $Z_0 = Z_0(\mdls, d) \subset C^{(d)}$ for the center of the blowup
+$\pi : X_{\mdls, d} \to C^{(d)}$, $E_0$ for its exceptional divisor with generic point $\eta_0$,
+$\Cmod{d} \subseteq X_{\mdls,d}$ for Takeuchi's compactification
+(\Cref{theorem:takeuchi-compactification-theorem}), and
+$H = \Cmod{d} \setminus U^{(d)} = E_0 \times_{C^{(d)}} \Cmod{d}$ for the boundary divisor.
+Throughout, $p$ denotes the characteristic of $k$; if $p = 0$, statements of the form
+``prime to $p$'' are to be read as no condition, and the arguments below only simplify.
+We set
+\[
+N \;:=\; d - \deg\mdls - g + 1 \;\geq\; 1,
+\]
+the relative dimension of $\Phi_d$ (\Cref{section:AbelJacobi}; positivity
+follows from \Cref{equation:degree-condition}).
+
+\begin{lemma}\label{lemma:ExtensionOfTamelyRamifiedSheafShort}
+    If $\cF^{[d]}$ is a locally constant sheaf on $U^{(d)}$ which is tamely ramified along the
+    boundary divisor $H = \tilde{C}^{(d)}_\mdls \setminus U^{(d)}$,
+    then $\cF^{[d]}$ extends to a locally constant sheaf $\tilde{\cF}^{[d]}$ on
+    $\tilde{C}^{(d)}_\mdls$.
+\end{lemma}
+
+The proof has the same two-step skeleton as the other routes --- by
+Zariski--Nagata purity it suffices to show the corresponding torsor is
+\emph{unramified} at $\eta_0$ (\Cref{prop:extension_via_purity_short}), and
+tameness at $\eta_0$ is then upgraded to unramifiedness
+(\Cref{prop:tame_implies_unramified_short}) --- but the second step is now
+soft. The point $\eta_0$ lies in the \emph{generic fiber} of the compactified
+Abel--Jacobi morphism $\tilde{\Phi}_d$, with the same local ring; the
+corresponding generic fiber of the \emph{open} morphism $\Phi_d$ is an honest
+affine space $\A^N_\kappa$ over the function field $\kappa$ of $\PicCm[d]$
+(\Cref{lemma:boundary_generic_fiber_short}). Since affine space has no
+nontrivial abelian covers of degree prime to $p$
+(\Cref{lemma:affine_pro_p_short} --- five lines of Kummer theory), the
+prime-to-$p$ part of our torsor is \emph{constant} on that fiber, hence
+unramified at $\eta_0$; and the $p$-primary part of the inertia is killed by
+tameness alone, since a Galois extension of $p$-power order in residue
+characteristic $p$ admits no nontrivial tame ramification. No valuation
+computation and no degree count is needed.
+
+\subsubsection*{Geometry of the boundary and of the generic fiber}
+
+Let $\xi$ denote the generic point of $\PicCm[d]$ and let
+$\kappa := \kappa(\xi)$ be its residue field, i.e.\ the function field of
+$\PicCm[d]$.
+
+\begin{lemma}\label{lemma:boundary_generic_fiber_short}
+    With notation as above:
+    \begin{enumerate}
+        \item $\Cmod{d}$ is an integral scheme, smooth over $k$; $H$ is a nonempty open
+              subscheme of $E_0$, irreducible of codimension $1$ in $\Cmod{d}$ with generic
+              point $\eta_0$; the point $\eta_0$ is the unique point of
+              $\Cmod{d} \setminus U^{(d)}$ whose local ring has dimension $1$, and
+              $\Oo := \Oo_{\Cmod{d}, \eta_0}$ is a discrete valuation ring with fraction
+              field $K := k(C^{(d)})$.
+        \item $\tilde{\Phi}_d(\eta_0) = \xi$. The generic fiber
+              $P_\xi := \tilde{\Phi}_d^{-1}(\xi)$ is isomorphic to $\bP^N_\kappa$, its
+              function field is $K$, and the local ring of $P_\xi$ at $\eta_0$ \emph{equals}
+              $\Oo$. In particular $\kappa \subseteq \Oo$.
+        \item $A_\xi := P_\xi \cap U^{(d)} = \Phi_d^{-1}(\xi)$ is a dense open subscheme of
+              $P_\xi$ with closed complement $P_\xi \cap H$, its generic point is
+              $\Spec(K)$, and
+              \[ A_\xi \;\cong\; \A^N_\kappa \]
+              as a $\kappa$-scheme.
+    \end{enumerate}
+\end{lemma}
+\begin{proof}
+    (1) $\Cmod{d}$ is an open subscheme of the blowup $X_{\mdls,d}$ of the integral scheme
+    $C^{(d)}$, hence integral, with function field $K$; it is a projective space bundle over
+    the smooth $k$-scheme $\PicCm[d]$ (\Cref{theorem:takeuchi-compactification-theorem}),
+    hence smooth over $k$. The base change
+    $H = E_0 \times_{X_{\mdls,d}} \Cmod{d} \hookrightarrow E_0$ of the open immersion
+    $\Cmod{d} \hookrightarrow X_{\mdls,d}$ is an open immersion, and $H \neq \emptyset$:
+    otherwise $\Phi_d = \tilde{\Phi}_d$ would be proper, while its fibers are affine spaces
+    of dimension $N \geq 1$ (\Cref{section:AbelJacobi}). A nonempty open subscheme of the
+    irreducible $E_0$ is irreducible with the same generic point $\eta_0$; every other point
+    of $H$ is a proper specialization of $\eta_0$, so has local ring of dimension $\geq 2$.
+    Finally $\Oo$ is a one-dimensional regular local ring, i.e.\ a DVR, with fraction field
+    $k(\Cmod{d}) = K$.
+
+    (2) Every fiber of $\tilde{\Phi}_d$ meets $H$: a fiber contained in $U^{(d)}$ would be a
+    proper scheme equal to a fiber of $\Phi_d$, which is a positive-dimensional affine space
+    over the separable closure --- not proper. Hence $\tilde{\Phi}_d(H) = \PicCm[d]$
+    ($\tilde{\Phi}_d$ is proper, so the image of the closed set $H$ is closed and, as just
+    shown, it meets every point). Since $H = \overline{\{\eta_0\}} \cap \Cmod{d}$,
+    \[
+    \PicCm[d] = \tilde{\Phi}_d(H) \subseteq
+    \overline{\{\tilde{\Phi}_d(\eta_0)\}},
+    \]
+    which forces $\tilde{\Phi}_d(\eta_0) = \xi$. Next, since $\xi$ is the generic point of
+    the integral scheme $\PicCm[d]$, its local ring is the field $\kappa$, so
+    \[
+    P_\xi = \Cmod{d} \times_{\PicCm[d]} \Spec \Oo_{\PicCm[d], \xi}
+          = \varprojlim_{V \ni \xi \text{ open}} \tilde{\Phi}_d^{-1}(V)
+    \]
+    is a filtered limit of \emph{open} subschemes of $\Cmod{d}$ along the identity maps;
+    consequently, for every point $y \in P_\xi$ the local rings agree,
+    $\Oo_{P_\xi, y} = \Oo_{\Cmod{d}, y}$. Applying this to $y = \eta_0$ gives
+    $\Oo_{P_\xi,\eta_0} = \Oo$, and in particular $\kappa = \Oo_{\PicCm[d],\xi} \subseteq \Oo$.
+    By \Cref{theorem:takeuchi-compactification-theorem}, $\Cmod{d} = \bP(\cE)$ for a locally
+    free sheaf $\cE$ on $\PicCm[d]$, so $P_\xi = \bP(\cE_\xi) \cong \bP^{N}_\kappa$ (the
+    fiber dimension is $N$ because $P_\xi$ contains the fiber of $\Phi_d$, of dimension $N$,
+    as a dense open subset --- see (3)). The generic point of $\Cmod{d}$ maps to $\xi$
+    (dominance) and lies in $P_\xi$ as its generic point, so $\kappa(P_\xi) = K$.
+
+    (3) $P_\xi \cap U^{(d)} = P_\xi \setminus H$ holds because
+    $\Cmod{d} \setminus U^{(d)} = H$ (\Cref{theorem:takeuchi-compactification-theorem}), and
+    this set equals $\Phi_d^{-1}(\xi)$ because $\tilde{\Phi}_d$ extends $\Phi_d$. It is open
+    in the irreducible $P_\xi$ and nonempty ($\Phi_d$ is surjective,
+    \Cref{section:AbelJacobi}), hence dense with the same generic point $\Spec K$.
+
+    For the last isomorphism, recall the modular description of the fibers of $\Phi_d$
+    (\cite[Section 4, proof of Theorem 4.14]{Guignard2018}; it is also the description
+    recalled in \Cref{section:AbelJacobi}). Since $\mdls_\kappa \to \Spec \kappa$ is finite
+    flat and surjective, the rigidified Picard presheaf is already a sheaf, so the
+    $\kappa$-point $\xi$ of $\PicCm[d]$ is represented by an actual pair $(\cL, \psi)$ on
+    $C_\kappa$. For a $\kappa$-scheme $T$, a $T$-point of $\Phi_d^{-1}(\xi)$ is a divisor
+    $D \in U^{(d)}(T)$ together with the (unique, since rigidified pairs have no nontrivial
+    automorphisms) isomorphism $(\Oo_C(D), \psi_D) \cong (\cL, \psi)_T$; sending $D$ to the
+    image $s \in \Gamma(C_T, \cL_T)$ of the canonical section $1_D$ identifies
+    $\Phi_d^{-1}(\xi)(T)$ with
+    \[
+    V_\psi(T) := \{\, s \in \Gamma(C_T, \cL_T) \;:\; s|_{\mdls_T} = \psi_T(1) \,\}
+    \]
+    (the condition $s|_{\mdls_T} = \psi_T(1)$ pins down the scaling, and such an $s$ is
+    fiberwise nonzero because it is invertible along $\mdls$, so $D = V(s)$ is a relative
+    effective Cartier divisor of degree $d$ prime to $\mdls$). By the degree condition, on
+    each fiber $H^1(C, \cL(-\mdls)) = 0$, so (cohomology and base change, as recalled in
+    \Cref{section:BlowupOfSymmetricPowerOfCurves}) the restriction map of vector groups
+    $\mathrm{pr}_*\cL \to \mathrm{pr}_*(\cL|_{\mdls})$ over $\kappa$ is surjective with
+    kernel the vector group of $W := H^0(C_\kappa, \cL(-\mdls))$, of dimension $N$
+    (Riemann--Roch). Hence $A_\xi \cong V_\psi$ is a torsor under the vector group
+    $\mathbb{W} \cong \bG_a^N$ over $\kappa$. Every such torsor is trivial, since
+    $H^1_{et}(\Spec \kappa, \bG_a^N) = H^1(\mathrm{Gal}(\kappa^{sep}/\kappa),
+    (\kappa^{sep})^N) = 0$ (additive Hilbert 90). Therefore
+    $A_\xi \cong \mathbb{W} \cong \A^N_\kappa$.
+\end{proof}
+
+\subsubsection*{Affine space has no prime-to-$p$ abelian covers}
+
+The following is the elementary engine of Deligne's tame case, as used in
+(\cite{tendler2015geometricclassfieldtheory}, last section:
+``$\pi_1(\A^n)^{ab}$ is a pro-$p$ group'') and in
+(\cite{Guignard2018}, Section 5: triviality of the tame fundamental group of
+the affine line).
+
+\begin{lemma}\label{lemma:affine_pro_p_short}
+    Let $F$ be a separably closed field and let $G'$ be a finite abelian group whose order
+    is invertible in $F$. Then every $G'$-torsor on $(\A^N_F)_{et}$ is trivial.
+    Equivalently, every quotient of $\pi_1^{et,ab}(\A^N_F)$ of order invertible in $F$
+    vanishes (for $\operatorname{char} F = p > 0$: $\pi_1^{et,ab}(\A^N_F)$ is pro-$p$).
+\end{lemma}
+\begin{proof}
+    Writing $G' \cong \prod_i \Z/n_i\Z$ and decomposing the torsor accordingly
+    (\Cref{prop:quotient_torsors}), we may assume $G' = \Z/n\Z$ with $n$ invertible in $F$.
+    Since $F$ is separably closed and $x^n - 1$ is separable, $F$ contains all $n$-th roots
+    of unity, so $\Z/n\Z \cong \mu_n$ as étale sheaves on $\A^N_F$, and it suffices to show
+    $H^1_{et}(\A^N_F, \mu_n) = 0$ (étale $H^1$ with coefficients in a finite abelian
+    constant group classifies torsors under it, cf.\
+    \Cref{cor:abelian_equivilance_fundamental_torsors}). The Kummer sequence
+    $1 \to \mu_n \to \bG_m \xrightarrow{n} \bG_m \to 1$, exact on the étale site because
+    $n$ is invertible, gives
+    \[
+    \Gamma(\A^N_F, \Oo)^\times \xrightarrow{\;n\;} \Gamma(\A^N_F, \Oo)^\times
+    \longrightarrow H^1_{et}(\A^N_F, \mu_n) \longrightarrow \Pic(\A^N_F)[n].
+    \]
+    Now $\Gamma(\A^N_F, \Oo)^\times = F[x_1, \dots, x_N]^\times = F^\times$, which is
+    $n$-divisible ($x^n - a$ is separable for $a \neq 0$, and $F$ is separably closed), and
+    $\Pic(\A^N_F) = 0$ because $F[x_1,\dots,x_N]$ is a unique factorization domain. Hence
+    $H^1_{et}(\A^N_F, \mu_n) = 0$.
+\end{proof}
+
+\subsubsection*{Step 1: purity, and extending unramified torsors}
+
+This step is identical to the one in the other two routes; we reproduce it for
+completeness.
+
+\begin{prop}\label{prop:extension_via_purity_short}
+    Let $G$ be a finite abelian group, let $\rho : \pi_1^{et}(U^{(d)}, \bar{u}) \to G$ be a
+    continuous homomorphism and let $\cQ$ be the corresponding $G$-torsor on
+    $U^{(d)}_{\text{\'et}}$ (\Cref{cor:abelian_equivilance_fundamental_torsors}).
+    If $\cQ$ is unramified over $\Cmod{d}$ at $(H, \eta_0)$ in the sense of
+    \Cref{definition:tamely_ramified_in_codim_1}, then $\rho$ factors, necessarily uniquely,
+    through the canonical surjection
+    $\iota_* : \pi_1^{et}(U^{(d)}, \bar{u}) \twoheadrightarrow \pi_1^{et}(\Cmod{d}, \bar{u})$,
+    where $\iota : U^{(d)} \hookrightarrow \Cmod{d}$ is the open immersion.
+    Consequently, $\cQ$ extends to a $G$-torsor on $(\Cmod{d})_{\text{\'et}}$, uniquely up
+    to isomorphism.
+\end{prop}
+\begin{proof}
+    \textbf{Surjectivity of $\iota_*$.} For every connected finite étale cover
+    $T \to \Cmod{d}$, the scheme $T$ is regular (étale over the regular $\Cmod{d}$), hence
+    irreducible, and $T \times_{\Cmod{d}} U^{(d)}$ is a nonempty open subscheme of $T$,
+    hence connected. If the image of $\iota_*$ were contained in a proper open subgroup
+    $M \leq \pi_1^{et}(\Cmod{d}, \bar{u})$, the connected cover corresponding to $M$ would
+    pull back to a disconnected cover of $U^{(d)}$ --- a contradiction.
+
+    \textbf{Normalization.} Let $G' = \rho(\pi_1^{et}(U^{(d)}, \bar{u}))$ and let
+    $V \to U^{(d)}$ be the connected Galois cover with group $G'$ corresponding to
+    $\ker \rho$ (\Cref{theorem:equivalence_fundamental_covers}); as a $U^{(d)}$-scheme,
+    $\cQ$ is a disjoint union of $[G:G']$ copies of $V$, so $V$ is unramified over
+    $\Cmod{d}$ at $(H, \eta_0)$ as well. $V$ is integral and $K(V)/K$ is finite separable.
+    Let $\nu : W \to \Cmod{d}$ be the normalization of $\Cmod{d}$ in $K(V)$; since
+    $\Cmod{d}$ is Nagata (\stackstag{0335}), $\nu$ is finite, $W$ is integral and normal,
+    and $\nu^{-1}(U^{(d)}) \cong V$ by uniqueness of normalization.
+
+    \textbf{$\nu$ is étale, by purity of the branch locus.} We apply \stackstag{0BMB} at
+    each point $w \in W$ over $y = \nu(w)$: $\Oo_{W,w}$ is normal, $\Oo_{\Cmod{d},y}$ is
+    regular, $\nu$ is finite hence quasi-finite, and
+    $\dim(\Oo_{W,w}) = \dim(\Oo_{\Cmod{d},y})$ by the dimension formula for the finite
+    dominant morphism $\nu$ of integral schemes of finite type over $k$. For the
+    codimension-one condition, let $w' \rightsquigarrow w$ with
+    $\dim(\Oo_{W,w'}) = 1$ and $y' = \nu(w')$, so $\dim(\Oo_{\Cmod{d},y'}) = 1$. If
+    $y' \in U^{(d)}$, then $\nu$ is étale at $w'$ because $\nu^{-1}(U^{(d)}) = V$ is étale
+    over $U^{(d)}$. Otherwise $y' = \eta_0$ by
+    \Cref{lemma:boundary_generic_fiber_short}(1), and $\Oo_{W,w'}$ is a localization of
+    the integral closure of the discrete valuation ring $\Oo$ in $K(V)$; the hypothesis
+    that $V$ is unramified at $(H, \eta_0)$ says precisely
+    (\Cref{definition:tamely_ramified_dvrs}) that the ramification index there is $1$ with
+    separable residue extension, i.e.\ that $\nu$ is unramified at $w'$. Thus \stackstag{0BMB}
+    applies and $\nu$ is finite étale.
+
+    \textbf{Factorization.} As $V = W \times_{\Cmod{d}} U^{(d)}$, the action of
+    $\pi_1^{et}(U^{(d)}, \bar{u})$ on the fiber $V_{\bar{u}} = W_{\bar{u}}$ is the
+    restriction along $\iota_*$ of the $\pi_1^{et}(\Cmod{d}, \bar{u})$-action; the kernel
+    of the former is $\ker \rho$, so $\ker(\iota_*) \subseteq \ker \rho$ and $\rho$ factors
+    as $\rho = \tilde{\rho} \circ \iota_*$, uniquely by surjectivity of $\iota_*$. The
+    $G$-torsor $\tilde{\cQ}$ corresponding to $\tilde{\rho}$ restricts to $\cQ$ on
+    $U^{(d)}$, and any two extensions have equal characters, hence are isomorphic.
+\end{proof}
+
+\subsubsection*{Step 2: at the boundary, tame implies unramified}
+
+\begin{prop}\label{prop:tame_implies_unramified_short}
+    Let $G$ be a finite abelian group and let $\cQ$ be a $G$-torsor on
+    $U^{(d)}_{\text{\'et}}$. If $\cQ$ is tamely ramified over $\Cmod{d}$ at $(H, \eta_0)$,
+    then $\cQ$ is unramified at $(H, \eta_0)$.
+\end{prop}
+
+Note that no bound on the ramification of $\cQ$ along $\mdls$ is assumed, and that
+tameness is used only to kill the $p$-primary part of the inertia: the prime-to-$p$ part
+dies unconditionally, by the geometry of the generic fiber.
+
+\begin{proof}
+    Let $\widehat{K} = \widehat{K}_{\eta_0}$ be the fraction field of the completion of the
+    discrete valuation ring $\Oo$ (\Cref{lemma:boundary_generic_fiber_short}(1)), and let
+    \[ \rho : G_{\widehat{K}} \longrightarrow G \]
+    be the continuous homomorphism classifying the restriction of $\cQ$ to
+    $\Spec(\widehat{K})$. Let $\widehat{K}^{ur} \subseteq \widehat{K}^{sep}$ be the maximal
+    unramified extension and $I := \mathrm{Gal}(\widehat{K}^{sep}/\widehat{K}^{ur})$ the
+    inertia subgroup; the assertion to be proved is $\rho(I) = \{1\}$
+    (\Cref{definition:tamely_ramified_dvrs}).
+
+    \textbf{Tameness confines the inertia to the prime-to-$p$ part.}
+    Write $G = G_p \times G'$ with $G_p$ a $p$-group and $|G'|$ prime to $p$. The fixed
+    field of $\ker \rho$ is a finite Galois extension $F/\widehat{K}$ with group
+    $\rho(G_{\widehat{K}}) \subseteq G$ and inertia subgroup $\rho(I)$. By hypothesis this
+    extension is tame: its residue extension is separable and its ramification index $e$
+    is prime to $p$. For such extensions $|\rho(I)| = e$ (\cite[Ch.\ IV]{serreLF}), so
+    $\rho(I)$ is a finite group of order prime to $p$, whence
+    $\rho(I) \subseteq \{1\} \times G'$. Letting $\rho' := \mathrm{pr}_{G'} \circ \rho$,
+    which classifies the quotient $G'$-torsor $\cQ' := \cQ / G_p$
+    (\Cref{prop:quotient_torsors}), it therefore suffices to prove $\rho'(I) = \{1\}$.
+
+    \textbf{The prime-to-$p$ part is constant on the generic fiber.}
+    By \Cref{lemma:boundary_generic_fiber_short}, $A_\xi \cong \A^N_\kappa$ is a
+    subscheme of $U^{(d)}$ whose generic point is $\Spec(K)$, and
+    $\kappa \subseteq \Oo \subseteq \widehat{K}$. Consider the restriction
+    $\cQ'|_{A_\xi}$, a $G'$-torsor on $\A^N_\kappa$. Its pullback to
+    $\A^N_{\kappa^{sep}}$ is trivial by \Cref{lemma:affine_pro_p_short} ($|G'|$ is
+    invertible in $\kappa$, since it is prime to $p$). A trivializing section is a section
+    of the finite étale scheme $\cQ'|_{A_\xi}$ over $\A^N_{\kappa^{sep}} =
+    \varprojlim_{\kappa'} \A^N_{\kappa'}$, the limit running over the finite separable
+    subextensions $\kappa'/\kappa$ of $\kappa^{sep}$; as $\cQ'|_{A_\xi}$ is of finite
+    presentation, the section is defined at some finite level. Hence there is a finite
+    separable extension $\kappa'/\kappa$ such that
+    \[
+    \cQ'|_{A_\xi \times_\kappa \kappa'} \;\text{ is the trivial } G' \text{-torsor.}
+    \]
+
+    \textbf{Constant covers are unramified.}
+    Let $\widehat{\Oo}$ be the completion of $\Oo$, so $\widehat{K} =
+    \Frac(\widehat{\Oo})$ and $\kappa \subseteq \Oo \subseteq \widehat{\Oo}$. Since
+    $\kappa'/\kappa$ is finite separable, the base change
+    $\widehat{\Oo} \otimes_\kappa \kappa'$ is finite étale over the complete discrete
+    valuation ring $\widehat{\Oo}$; hence it is a finite product of complete discrete
+    valuation rings, each of which is unramified over $\widehat{\Oo}$ (étale means
+    exactly: the maximal ideal of $\widehat{\Oo}$ generates the maximal ideal, i.e.\ the
+    ramification index is $1$, and the residue extension is separable). Inverting a
+    uniformizer, $\widehat{K} \otimes_\kappa \kappa' = \prod_j \widehat{K}_j$ is a finite
+    product of finite separable field extensions of $\widehat{K}$, each \emph{unramified}
+    over $\widehat{K}$. Fix one factor $\widehat{K}_1$ and embed it in
+    $\widehat{K}^{sep}$; then
+    $\widehat{K}_1 \subseteq \widehat{K}^{ur}$, so
+    \[
+    I \;=\; \mathrm{Gal}(\widehat{K}^{sep}/\widehat{K}^{ur})
+      \;\subseteq\; \mathrm{Gal}(\widehat{K}^{sep}/\widehat{K}_1) \;=\; G_{\widehat{K}_1}.
+    \]
+    Now $\Spec(\widehat{K}_1) \to \Spec(\widehat{K} \otimes_\kappa \kappa') \to
+    \Spec(K \otimes_\kappa \kappa') \to A_\xi \times_\kappa \kappa'$ (the last map is the
+    inclusion of a generic point, \Cref{lemma:boundary_generic_fiber_short}(3)), so the
+    restriction of $\rho'$ to $G_{\widehat{K}_1}$ classifies the pullback of the
+    \emph{trivial} torsor $\cQ'|_{A_\xi \times_\kappa \kappa'}$, and is therefore the
+    trivial homomorphism:
+    \[
+    \rho'\left(G_{\widehat{K}_1}\right) = \{1\}, \qquad\text{hence}\qquad
+    \rho'(I) \subseteq \rho'\left(G_{\widehat{K}_1}\right) = \{1\}.
+    \]
+    Combining with the first step, $\rho(I) \subseteq \{1\} \times G'$ has trivial image
+    under $\mathrm{pr}_{G'}$, so $\rho(I) = \{1\}$, i.e.\ $\cQ$ is unramified at
+    $(H, \eta_0)$.
+\end{proof}
+
+\subsubsection*{Conclusion of the proof}
+
+\begin{proof}[Proof of \Cref{lemma:ExtensionOfTamelyRamifiedSheafShort}]
+    Let $G = \Lambda^\times$ and let $\cP^{[d]}$ be the $G$-torsor on
+    $U^{(d)}_{\text{\'et}}$ corresponding to $\cF^{[d]}$ under
+    \Cref{prop:torsor_module_equivalence}, with character
+    $\rho : \pi_1^{et}(U^{(d)}, \bar{u}) \to G$.
+    By \Cref{lemma:boundary_generic_fiber_short}(1), the only codimension-one point of
+    $\Cmod{d} \setminus U^{(d)}$ is $\eta_0$, so the hypothesis that $\cF^{[d]}$ is tamely
+    ramified along $H$ means precisely that $\cP^{[d]}$ is tamely ramified over $\Cmod{d}$
+    at $(H, \eta_0)$ (\Cref{definition:tamely_ramified_in_codim_1}).
+    By \Cref{prop:tame_implies_unramified_short}, $\cP^{[d]}$ is unramified at
+    $(H, \eta_0)$, and by \Cref{prop:extension_via_purity_short} the character $\rho$
+    factors uniquely through $\pi_1^{et}(\Cmod{d}, \bar{u})$. The locally constant sheaf
+    $\tilde{\cF}^{[d]}$ of free rank-one $\Lambda$-modules corresponding to the factored
+    character (\Cref{cor:abelian_equivilance_fundamental_torsors} together with
+    \Cref{prop:torsor_module_equivalence}) restricts to $\cF^{[d]}$ on $U^{(d)}$.
+\end{proof}
+
+\begin{rem*}
+    As in the other routes, the proof also gives uniqueness of the extension, and full
+    faithfulness of restriction from locally constant sheaves on $\Cmod{d}$ to locally
+    constant sheaves on $U^{(d)}$, since
+    $\iota_* : \pi_1^{et}(U^{(d)}) \to \pi_1^{et}(\Cmod{d})$ is surjective
+    (\Cref{prop:extension_via_purity_short}). This is the source of the uniqueness
+    assertions in \Cref{thm:GCFT_torsors} and \Cref{thm:GCFT_reduced}.
+\end{rem*}
+
+\begin{rem*}[Relation to Deligne's tame case, and to Routes 1 and 2]
+    In Deligne's tame case (modulus $\mdls$ reduced;
+    \cite{tendler2015geometricclassfieldtheory}, last section) the two soft inputs above
+    are used directly on the open Abel--Jacobi fibration: a tame character becomes
+    unramified on the curve after raising to a prime-to-$p$ power, the unramified case
+    descends it, and pro-$p$-ness of $\pi_1^{ab}$ of the affine-space fibers transfers the
+    conclusion back to the character itself. With wild ramification this reduction is
+    impossible \emph{on the curve} --- no prime-to-$p$ power of a wildly ramified character
+    is unramified --- which is why the thesis passes through Takeuchi's compactification
+    and the tameness theorem. The proof above is the same mechanism executed once, at the
+    single boundary point $\eta_0$: tameness (the thesis's hard input) kills the $p$-part
+    of the inertia, and the affine-space geometry of the generic Abel--Jacobi fiber kills
+    the prime-to-$p$ part. In the language of the placeholder note, this is
+    \textbf{Route~1}: the kernel of
+    $\pi_1^{ab}(U^{(d)}) \to \pi_1^{ab}(\PicCm[d])$ meets our character only in its
+    pro-$p$ part. Route~2 (\texttt{lemma\_88\_route\_2/}) and the direct valuation
+    computation (\texttt{extension\_lemma\_completion/}) prove the same statement; the
+    present route replaces their Kummer-valuation and degree-count arguments by the
+    triviality statement \Cref{lemma:affine_pro_p_short}.
+
+    The global geometry is indispensable: for a proper submodulus
+    $\ndls \subsetneq \mdls$ the analogous statement at $\eta_\ndls$ is \emph{false} (the
+    computations of \Cref{section:ramification_after_blowup_is_tame} produce genuinely,
+    tamely, ramified symmetric powers there), and correspondingly the exceptional divisor
+    of the blowup at $\ndls$ does not sit inside a fibration with affine-space fibers over
+    a base of the descent.
+\end{rem*}

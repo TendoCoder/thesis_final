@@ -1,0 +1,739 @@
+\chapter{Geometric Class Field Theory}\label{section:gcft}
+
+The purpose of this chapter is to deduce the reduced form of geometric class
+field theory, \Cref{thm:GCFT_reduced}, from the ramification calculation
+established in Chapter~2.
+
+Let $C$ be a smooth, projective, geometrically connected curve over the
+perfect field $k$, let $\mdls$ be a modulus on $C$, and put
+$U=C\setminus\mdls$. Given a rank-one local system $\cF$ on $U$ whose
+ramification is bounded by $\mdls$, our goal is to descend its symmetric
+power $\cF^{[d]}$ along the Abel--Jacobi morphism
+\[
+    \Phi_d\colon U^{(d)}\longrightarrow\PicCm[d]
+\]
+for all sufficiently large $d$.
+
+When $\mdls=0$, the fibers of the Abel--Jacobi morphism are projective
+spaces. Their trivial \'etale fundamental groups allow the desired descent
+directly. When $\mdls>0$, however, the fibers of $\Phi_d$ are affine spaces,
+so this argument cannot be applied to $\Phi_d$ itself. Following Takeuchi,
+we resolve this difficulty by extending $\Phi_d$ to a projective space
+bundle
+\[
+    \widetilde\Phi_d\colon
+    \widetilde C_{\mdls}^{(d)}
+    \longrightarrow \PicCm[d],
+\]
+where $\widetilde C_{\mdls}^{(d)}$ is an open subscheme of the blowup of
+$C^{(d)}$ along the locus obtained by adding the modulus.
+
+The proof then has three remaining steps. First, we use the single-point
+ramification calculation of Chapter~2, together with compatibility under
+products and addition of divisors, to prove that $\cF^{[d]}$ is tamely
+ramified along the boundary
+\[
+    H=\widetilde C_{\mdls}^{(d)}\setminus U^{(d)}.
+\]
+Second, we show that in this full-modulus compactification the tame
+ramification is in fact unramified, and hence that $\cF^{[d]}$ extends
+uniquely to a local system on $\widetilde C_{\mdls}^{(d)}$. Finally, since
+$\widetilde\Phi_d$ is a projective space bundle, it induces an isomorphism
+on \'etale fundamental groups. The extended local system therefore descends
+uniquely to $\PicCm[d]$, proving \Cref{thm:GCFT_reduced}.
+
+We begin by recalling the generalized Picard scheme and the geometry of the
+Abel--Jacobi morphism. We then introduce Takeuchi's compactification, prove
+the required ramification and extension results, and conclude with the
+descent argument.
+
+\section{Generalized Picard Schemes and the Abel--Jacobi Map}\label{section:generalized-picard-and-abel-jacobi}
+
+\subsection{The generalized Picard scheme}
+We recall the notion of generalized Jacobian varieties and study their fundamental properties. The material presented here is primarily adapted from \cite{Guignard2018} and \cite{takeuchi2019blow}. For further background on the general theory of abelian varieties and Jacobians, the reader may also consult \cite{milneAV}.
+Let $S$ be a scheme and let $C$ be a projective smooth $S$-scheme whose geometric fibers are connected and of dimension 1. Let $\mdls$ be a modulus on $C$, defined as an effective Cartier divisor of $C/S$ 
+(i.e., a closed subscheme of $C$ which is finite flat of finite presentation over $S$).
+We denote the projection $C \times_S T \to T$ by $\text{pr}$ for any $S$-scheme $T$.
+
+\subsection*{The Functor of Points}
+Let $d$ be an integer. For an $S$-scheme $T$, we consider the set of data $(\cL, \psi)$ where:
+\begin{itemize}
+    \item $\cL$ is an invertible sheaf of degree $d$ on $C_T$.
+    \item $\psi: \Oo_{\mdls_T} \xrightarrow{\sim} \cL|_{\mdls_T}$ is a trivialization of $\cL$ along the modulus.
+\end{itemize}
+Two such pairs $(\cL, \psi)$ and $(\cL', \psi')$ are said to be isomorphic if there exists an isomorphism of invertible sheaves $f : \cL \to \cL'$ such that the following diagram commutes:
+\[
+\begin{tikzcd}
+& \Oo_{\mdls_T} \arrow[dl, "\psi'"'] \arrow[dr, "\psi"] & \\
+\cL'|_{\mdls_T} \arrow[rr, "f|_{\mdls_T}"] & & \cL|_{\mdls_T}
+\end{tikzcd}
+\]
+We define the presheaf $\text{Pic}_{C, \mdls}^{d, \text{pre}}$ on $\text{Sch}/S$ by assigning to $T$ the set of isomorphism classes of such pairs. Let $\PicCm[d]$ denote the \'etale sheafification of this presheaf.
+
+\subsection*{Representability and Structure}
+The fundamental properties of this functor are as follows:
+\begin{enumerate}
+    \item $\text{Pic}_{C, \mdls}^{d}$ is represented by an $S$-scheme. (Note: If $\mdls$ is faithfully flat over $S$, the presheaf is already a \'etale sheaf).
+    \item $\text{Pic}_{C, \mdls}^{0}$ is a smooth commutative group $S$-scheme with geometrically connected fibers, referred to as the \textit{generalized Jacobian variety} of $C$ with modulus $\mdls$.
+    \item For any $d$, $\text{Pic}_{C, \mdls}^{d}$ is a $\text{Pic}_{C, \mdls}^{0}$-torsor.
+\end{enumerate}
+In the case where $\mdls = 0$, we recover the standard Jacobian variety, denoted simply as $\text{Pic}_C^d$.
+\subsection*{Relation to the Standard Jacobian}
+We now examine the behavior of the generalized Picard scheme under the variation of the modulus. By viewing the structure along the modulus as an additional rigidification, we obtain natural transition maps corresponding to the inclusion of moduli.
+
+Let $\mdls_1$ and $\mdls_2$ be moduli such that $\mdls_1 \subset \mdls_2$. There exists a natural map 
+\[
+\text{Pic}_{C, \mdls_2}^d \to \text{Pic}_{C, \mdls_1}^d
+\]
+obtained by restricting the isomorphism $\psi$. Since $\mdls_2$ is a finite $S$-scheme, this map is a surjection as a morphism of \'etale sheaves.
+In particular, for any modulus $\mdls$, there is a natural surjective morphism of \'etale sheaves:
+\[
+\text{Pic}_{C, \mdls}^d \to \text{Pic}_C^d.
+\]
+
+
+\subsection*{Local Freeness and Base Change}
+Let $\mdls$ be a modulus which is everywhere strictly positive. Let $g$ denote the genus of $C$, which is a locally constant function on $S$. We restrict our attention to degrees $d$ satisfying the condition:
+\begin{equation} \label{equation:degree-condition}
+    d \geq \max\{2g - 1 + \deg \mdls, \deg \mdls\}.
+\end{equation}
+
+Assuming $S$ is quasi-compact, such a $d$ always exists.
+
+Fix an integer $d$ satisfying the condition above. Let $T$ be an $S$-scheme and let $\cL$ be an invertible sheaf of degree $d$ on $C_T$. One can show that the pushforwards $\mathrm{pr}_* \cL$ and $\mathrm{pr}_* \cL(-{\mdls})$ are locally free sheaves and their formations commute with any base change. Explicitly, for any morphism of $S$-schemes $f : T' \to T$, the base change morphisms are isomorphisms:
+\[
+    f^* \mathrm{pr}_* \cL \xrightarrow{\sim} \mathrm{pr}_* f^* \cL
+\]
+and
+\[
+    f^* \mathrm{pr}_* (\cL(-{\mdls})) \xrightarrow{\sim} \mathrm{pr}_* f^* (\cL(-{\mdls})).
+\]
+In particular, following \cite{Guignard2018}, if $\cL$ is invertible $\cO_C$-module with degree $d$ satisfying \ref{equation:degree-condition} on each fiber of $f$ then, $\mathrm{pr}_* \cL$ is a locally free $\mathcal{O}_S$-module of rank $d-g+1$.
+
+For further background and verification of these constructions, we refer the reader to Milne's notes on abelian Varieties (\cite{milneAV}).
+
+\subsection{The Abel--Jacobi Morphism and Its Fibers}\label{section:AbelJacobi}
+
+
+Let $U = C \setminus \mdls$ be the complement of the modulus in $C$.
+The effective cartier divisors of degree $d$ which are prime to $\mdls$ are parameterized by the symmetric power $\Sym_S^d (U) = U^{(d)}$ over $S$ (See \cite{Guignard2018} Proposition 4.12, \cite{milneAV} Theorem 3.13).
+For any such divisor $D \in U^{(d)}$, the associated line bundle $\Oo_C(D)$ admits a canonical trivialization along $\mdls$. 
+Specifically, the canonical section $1_D$ is regular and non-vanishing on $\mdls$ because $\operatorname{supp}(D) \cap \operatorname{supp}(\mdls) = \emptyset$. 
+This section restricts to a nowhere-vanishing section on the subscheme $\mathfrak{m}$, thereby determining a trivialization $\psi_D^{-1}: \Oo_C(D)|_{\mdls} \xrightarrow{\sim} \Oo_{\mdls}$.
+This is done functorially in families, yielding a morphism from the symmetric power to the generalized Picard scheme (over $S$):
+\begin{equation}
+    \Phi_{d}: U^{(d)} \to \Pic^d_{C, \mathfrak{m}}, \quad D \mapsto [(\mathcal{O}_C(D), \psi_D)],
+\end{equation}
+
+When $\mdls = 0$, $d \geq \max \{2g - 1, 0\}$ and $C$ admits a section over $S$, $C^{(d)}$ is a projective space bundle over $\PicC[d]$, 
+It is proper, surjective with geometrically connected fibers.
+
+Guignard (\cite{Guignard2018} Theorem 4.14) proves that for $\mdls > 0$ and $d$ satisfying \Cref{equation:degree-condition}, the Abel-Jacobi morphism $\Phi_d$ is 
+surjective smooth of relative dimension $d - \deg \mdls - g + 1$, with geometrically connected fibers. 
+
+When $S=\Spec (k)$, the geometric-fibers of $\Phi_d$ are well understood:
+\begin{theorem}\label{theorem:abel-jacobi-fibers}
+    Assuming $S=\Spec (k)$ and $d \geq \max \{2g - 1 + \deg \mdls, \deg \mdls\}$. Then, the geometric-fibers of the Abel-Jacobi morphism $$ \Phi_d : U^{(d)} \to \PicCm[d] $$ over any point are isomorphic to
+$$
+\begin{cases}
+\mathbb{A}_{k^{sep}}^{d - \deg \mdls - g + 1} & \text{if } \mdls > 0 \\
+\mathbb{P}_{k^{sep}}^{d - g} & \text{if } \mdls = 0
+\end{cases}
+$$
+In both cases $\Phi_d$ is a fibration in affine spaces or projective spaces, depending on whether $\mdls$ is non-zero or zero.
+\end{theorem}
+\begin{proof}
+See \cite{tendler2015geometricclassfieldtheory} Propositions 3.13-3.14, or \cite{Toth2011} Proposition 2.1.4.    
+
+\end{proof}
+
+\section{Takeuchi's Compactification of the Abel--Jacobi Morphism}\label{section:BlowupOfSymmetricPowerOfCurves}
+We recall that our objective is to descend the local system $\cF^{[d]}$ from $U^{(d)}$ to $\PicCm[d]$ along the 
+Abel-Jacobi map $\Phi_d$:
+
+\[
+\begin{tikzcd}
+ \cF^{[d]} \arrow[d, purple]\\
+ U^{(d)} \arrow[r, "\Phi_d"] & \PicCm[d]      
+\end{tikzcd}
+\]
+
+
+(Here, the purple arrow emphasizes that the morphism is of sheaves on the étale site).
+
+However, we encounter an obstruction: in the case we are considering ($\mdls > 0$), 
+the fibers of $\Phi_d$ are affine spaces (of the same degree) rather than the better-behaved projective spaces. 
+This suggests that a solution to this problem is to compactify the morphism to yield projective fibers. 
+ 
+This section describes the result of the compactification constructed by \cite{takeuchi2019blow} 
+by blowing up the symmetric power.
+
+Let $\mdls = \sum_{i=1}^n k_P P$ with $\deg P = d_P$ be a modulus on $C$, and let $d$ satisfy 
+\Cref{equation:degree-condition}. 
+Takeuchi (\cite{takeuchi2019blow}) defines $Z_0=Z_0(\mathfrak{m}, d)$ as the closed subscheme of 
+$C^{(d)}$ defined by the map $C^{(d - \deg \mathfrak{m})} \to C^{(d)}$ adding $\mathfrak{m}$. 
+He also defines $X_{\mathfrak{m}, d}$ as the blowup of $C^{(d)}$ along $Z_0$.
+Let $E_0 = E_{\mathfrak{m},d} = Z_0(\mathfrak{m}, d) \times_{C^{(d)}} X_{\mathfrak{m}, d}$ be the exceptional divisor of the blowup. It is irreducible of codimension 1, and we let $\eta_0=\eta_{\mathfrak{m}, d}$ be its generic point.
+
+
+Diagrammatically:
+\[\begin{tikzcd}
+\overline{\{\eta_0 \}} =  E_0 \arrow[r] \arrow[d] & X_{\mdls, d} \arrow[d, "\pi"] \\
+Z_0 \arrow[r, "c.i"]           & C^{(d)}          
+\end{tikzcd}\] 
+
+Incorporating $U^{(d)}$, the local system $\cF^{[d]}$ and the Abel-Jacobi map, we have:
+\[
+\begin{tikzcd}
+    & & \cF^{[d]} \arrow[d, purple]\\
+\overline{\{\eta_0 \}} =  E_0 \arrow[r] \arrow[d] & 
+X_{\mdls, d} \arrow[d, "\pi"]  & \arrow[l, hook'] \arrow[dl, hook'] U^{(d)} \arrow[r, "\Phi_d"] & \PicCm[d] \\
+Z_0 \arrow[r, "c.i"]           & C^{(d)}          
+\end{tikzcd}
+\] 
+
+In Section 3 of \cite{takeuchi2019blow} Takeuchi constructs, for $d$ satisfying \Cref{equation:degree-condition} a compactification denoted by $\Cmod{d}$ and proves the following:
+
+\begin{theorem}[Takeuchi]\label{theorem:takeuchi-compactification-theorem}
+    The scheme $\Cmod{d}$ is an open subscheme of $X_{\mdls,d}$ containing $U^{(d)}$. 
+    The morphism $\Phi_d: U^{(d)} \to \PicCm[d]$ extends to a morphism $\tilde{\Phi}_d: \Cmod{d} \to \PicCm[d]$ which makes 
+    $\Cmod{d}$ a projective space bundle over $\PicCm[d]$. 
+    Furthermore, the complement of $U^{(d)}$ in $\Cmod{d}$ is isomorphic to the fiber product 
+    $E_0 \times_{C^{(d)}} \Cmod{d}$.
+\end{theorem}
+
+     
+
+Diagrammatically we have:
+\[
+\begin{tikzcd}
+    &  & \cF^{[d]} \arrow[d, purple]\\
+    E_0 \times_{C^{(d)}} \Cmod{d} \arrow[d] \arrow[r]  & \Cmod{d} \arrow[d, hook] \arrow[rd, "\tilde{\Phi}_d"]  & U^{(d)} \arrow[l, hook'] \arrow[d, "\Phi_d"] \\
+\overline{\{\eta_0 \}} =  E_0 \arrow[r] \arrow[d] & 
+X_{\mdls, d} \arrow[d, "\pi"]  &  \PicCm[d] &  \\
+Z_0 \arrow[r, "c.i"]           & C^{(d)}          
+\end{tikzcd}
+\] 
+
+Also note that $ E_0 \times_{C^{(d)}} \Cmod{d} = Z_0 \times_{C^{(d)}} \Cmod{d}$
+
+\section{Tame Ramification Along the Full Boundary}\label{section:tame-ramification-full-boundary}
+
+The ramification calculation of Chapter~2 concerns a modulus supported at a
+single point and a symmetric power of the corresponding degree. We now
+combine those local calculations over the different points of $\mdls$ and
+then pass from degree $\deg\mdls$ to every sufficiently large degree $d$.
+
+\begin{theorem}\label{theorem:SymmetricPowerOfSheafIsTamelyRamified}
+Let $\Lambda$ be a finite ring of cardinality invertible in $k$, and let
+$\cF$ be an \'etale sheaf of $\Lambda$-modules, locally free of rank~$1$ on
+$U$, with ramification bounded by $\mdls$. For every sufficiently large
+integer $d$, the local system $\cF^{[d]}$ is tamely ramified along
+\[
+H=\widetilde C^{(d)}_\mdls\setminus U^{(d)}
+  =E_0\times_{C^{(d)}}\widetilde C^{(d)}_\mdls.
+\]
+\end{theorem}
+
+\subsection{Compatibility Under Products}\label{subsection:ram_prod_analysis}
+We first record the product-compatibility result needed to combine the point-supported ramification calculations of Chapter~2.
+
+
+Let $X$ and $Y$ be smooth schemes over a field $k$, and let $x \in X$ and $y \in Y$ be closed points. 
+We denote the blowups of these schemes at the given points by 
+$\pi_X: \Bl_x(X) \to X$ and $\pi_Y: \Bl_y(Y) \to Y$. Furthermore, let $\pi_{X \times Y}: \Bl_{(x,y)}(X \times_k Y) \to X \times_k Y$ 
+be the blowup of the product scheme at the point $(x,y)$.
+We denote by $E_X, E_Y$, and $E_{X \times Y}$ the respective exceptional divisors, and let $\eta_X, \eta_Y$, and $\eta_{X \times Y}$ be their generic points.
+
+In this section, we establish the following result concerning the stability of ramification bounds under the external product of torsors.
+
+\begin{prop}\label{prop:ramification-external-product}
+Let $G$ be a finite abelian group. Suppose $\cG_X$ and $\cG_Y$ are $G$-torsors defined on open subsets $U_X \subset \Bl_x(X)$ and $U_Y \subset \Bl_y(Y)$ that are disjoint 
+from the exceptional divisors. 
+If the ramification of $\cG_X$ at $\eta_X$ and $\cG_Y$ at $\eta_Y$ is bounded by $r$, then the external product torsors 
+\[
+\cG_{X \times Y} := \text{pr}_1^{-1} \cG_X \otimes \text{pr}_2^{-1} \cG_Y
+\]
+have ramification bounded by $r$ at the generic point $\eta_{X\times Y}$ of the exceptional divisor in the product blowup.
+\end{prop}
+
+The proposition is purely local in nature, so it suffices to consider the case where $X$ and $Y$ are affine. 
+More precisely, by the smoothness of $X$ and $Y$, we may restrict our attention to open neighborhoods of $x$ and $y$ that are etale over affine spaces. 
+The rest of this section treats that case.
+
+\subsubsection*{The Affine Case}
+Let $X = \mathbb{A}_k^n$ be the affine $n$-space over a field $k$, and let $0 \in X$ be the origin. 
+Let $\tilde{X} = \text{Bl}_0(X)$ be the blowup of $X$ at the origin. 
+Recall that $\tilde{X} \subset X \times_k \mathbb{P}^{n-1}_k$ is defined by the equations $x_i u_j = x_j u_i$, where $[u_1 : \dots : u_n]$ are the homogeneous coordinates of 
+$\mathbb{P}^{n-1}_k$.
+The exceptional divisor $E \subset \tilde{X}$ is the fiber over the origin, $E = \{ (0, [u_1 : \dots : u_n]) \}$, which is of codimension 1 in $\tilde{X}$. 
+Let $\eta \in E$ be the generic point of $E$, and let $R = \mathcal{O}_{\tilde{X}, \eta}$ be the associated local ring. 
+This ring $R$ is a discrete valuation ring (DVR) with fraction field $K = K(X) = k(x_1, \dots, x_n)$.
+
+On the affine chart $U_1$ where $u_1 \neq 0$, we have $x_i = \frac{u_i}{u_1} x_1$. 
+The coordinate ring is:$$\mathcal{O}_{\tilde{X}}(U_1) = k\left[x_1, \frac{u_2}{u_1}, \dots, \frac{u_n}{u_1}\right]$$
+In this chart, the generic point $\eta$ corresponds to the prime ideal $\mathfrak{p}_1 = (x_1)$. Thus, the local ring is $R = k[x_1, \frac{u_2}{u_1}, \dots, \frac{u_n}{u_1}]_{(x_1)}$. 
+The residue field is $\kappa(\eta) = k(\frac{u_2}{u_1}, \dots, \frac{u_n}{u_1})$, and the completion of $R$ with respect to its maximal ideal is:
+$$\hat{R} = \kappa(\eta)[[x_1]]$$
+In this local ring, $x_1$ is a uniformizer. Note that any $x_i$ (for $i > 1$) can also serve as a uniformizer, 
+as $x_i = (\frac{u_i}{u_1}) x_1$ and $\frac{u_i}{u_1}$ is a unit in $R$.
+
+For any monomial $M = x_1^{a_1} \dots x_n^{a_n} \in K$, we can write:
+$$M = x_1^{\sum a_i} \left( \frac{u_2}{u_1} \right)^{a_2} \dots \left( \frac{u_n}{u_1} \right)^{a_n}$$
+Since the term in parentheses is a unit in $R$, the valuation $\nu_E$ associated with $E$ satisfies:
+$$\nu_E(M) = \sum a_i = \deg M$$
+Consequently, for any polynomial $f = f_d + f_{d+1} + \dots + f_l$, where $f_i$ is the homogeneous part of degree $i$, we have $\nu_E(f) = d$ (the order of vanishing at the origin).
+
+\subsubsection*{The Product Case}
+Now, let $X = \mathbb{A}^n$ and $Y = \mathbb{A}^m$ with origins $x=0$ and $y=0$. 
+As before, $\text{Bl}_0(X) \subset X \times \mathbb{P}^{n-1}$ and $\text{Bl}_0(Y) \subset Y \times \mathbb{P}^{m-1}$ have exceptional divisors $E_X$ and $E_Y$ respectively.
+Consider the product $X \times_k Y \cong \mathbb{A}_k^{n+m}$. 
+The blowup of the product at the origin $(0,0)$, denoted $\text{Bl}_{(0,0)}(X \times_k Y)$, is a subscheme of $(X \times Y) \times \mathbb{P}^{n+m-1}$ defined by:
+
+$$\begin{cases} 
+x_i w_j = x_j w_i & 1 \le i, j \le n \\
+y_k w_{n+l} = y_l w_{n+k} & 1 \le k, l \le m \\
+x_i w_{n+j} = y_j w_i & 1 \le i \le n, \,\, 1 \le j \le m 
+\end{cases}$$
+where $[w_1 : \dots : w_{n+m}]$ are the homogeneous coordinates of $\mathbb{P}^{n+m-1}$. The exceptional divisor $E_{X \times Y}$ is isomorphic to $\mathbb{P}^{n+m-1}$.
+
+\subsubsection*{Comparison of Blowups}
+
+Both $\text{Bl}_0(X) \times_k \text{Bl}_0(Y)$ and $\text{Bl}_{(0,0)}(X \times_k Y)$ are birational to $X \times_k Y$. 
+They share a common dense open set $\tilde{U}$ defined by the condition that neither the $X$-coordinates nor the $Y$-coordinates vanish simultaneously in the projective space:
+$$\tilde{U} = \{ ((x,y), [w_1: \dots : w_{n+m}]) \mid (w_1, \dots, w_n) \neq 0 \text{ and } (w_{n+1}, \dots, w_{n+m}) \neq 0 \}$$This yields a diagram of open immersions:
+$$ 
+   \begin{tikzcd}
+        & \tilde{U} \arrow[dl, "f_1"'] \arrow[dr, "f_2", hook] & \\
+        \text{Bl}_0(X) \times_k \text{Bl}_0(Y) & & \text{Bl}_{(0,0)}(X \times_k Y)
+    \end{tikzcd}
+$$
+    
+    where $f_1$ maps the coordinates to the respective projectivizations $[w_1: \dots : w_n]$ and $[w_{n+1}: \dots : w_{n+m}]$.
+    Also note that the generic point $\eta_{X \times Y}$  of $E_{X \times_k Y}$ is inside $\tilde{U}$
+
+\subsubsection*{Extensions of DVRs}
+Let $S$ be the local ring of the generic point $\eta_{X\times Y}$ of $E_{X \times Y}$ in $\tilde{U}$. 
+On the chart where $w_1 \neq 0$ and $w_{n+1} \neq 0$, we have 
+$x_1 = (\frac{w_1}{w_{n+1}}) y_1$. 
+Since $\frac{w_1}{w_{n+1}}$ is a unit in this chart, $x_1$ and $y_1$ are equivalent as uniformizers.
+We have:
+$$
+S=k\left[x_1, \frac{w_2}{w_1} \cdots, \frac{w_n}{w_1}, \frac{w_{n+1}}{w_1} \cdots \frac{w_{n+m}}{w_1}\right]_{(x_1)} = 
+k\left[\frac{w_1}{w_{n+1}}, \frac{w_2}{w_{n+1}} \cdots \frac{w_n}{w_{n+1}}, y_1 \cdots \frac{w_{n+m}}{w_{n+1}}\right]_{(y_1)}
+$$
+
+$$k(\eta_{X \times Y}) = k\left(\frac{w_2}{w_1} \cdots, \frac{w_n}{w_1}, \frac{w_{n+1}}{w_1} \cdots \frac{w_{n+m}}{w_1}\right)$$
+
+Let $R_X$ be the local ring of the exceptional divisor $E_X$ in $\text{Bl}_0(X)$. 
+The pullback of $E_X \times_k \text{Bl}_0(Y)$ along $f_1$ induces an extension of DVRs $R_X \hookrightarrow S$. Which is:
+\begin{enumerate}
+    \item Weakly Unramified: $x_1$ is a uniformizer in both $R_X$ and $S$, so the ramification index is $e=1$.
+    \item Residually Transcendental: The residue field extension $\kappa(\eta_X) \subset \kappa(\eta)$ is:
+    $$k\left(\frac{w_2}{w_1}, \dots, \frac{w_n}{w_1}\right) \subset k\left(\frac{w_2}{w_1}, \dots, \frac{w_n}{w_1}, \frac{w_{n+1}}{w_1}, \dots, \frac{w_{n+m}}{w_1}\right)$$
+    Hence separable.
+\end{enumerate}
+Since this extension is generated by transcendental elements, it is separable and formally smooth at the maximal ideal (\stackstag{09E7}).
+
+\subsubsection*{Ramification of $G$-Torsors}
+Let $G$ be a finite abelian group. 
+Let $\mathcal{Q}$ be a $G$-torsor on an open $U \subset \text{Bl}_0(X)$ disjoint from $E_X$. 
+Let $V \subset \text{Bl}_0(Y)$ be an open subscheme, and let $\pi_X: \text{Bl}_0(X) \times_k V \to \text{Bl}_0(X)$ 
+be the projection onto the first factor. 
+By restricting this projection to $U \times_k V$, we obtain the pullback $G$-torsor:
+$$\pi_X^{-1}(\mathcal{Q}) \cong \mathcal{Q} \times_k V$$
+which is defined on the open subset $U \times_k V \subset \text{Bl}_0(X) \times_k \text{Bl}_0(Y)$.
+The extension of local rings $R_X \to S$ is weakly unramified (the ramification index $e=1$) and residually transcendental with separable residue field extension. 
+Under these conditions the ramification filtration is preserved. 
+Therefore, the pullback $\pi_X^{-1}(\mathcal{Q})$ has ramification bounded by $r$ at the generic point $\eta_{X \times Y}$ of the exceptional divisor $E_{X \times Y}$ if and only if 
+the original torsor $\mathcal{Q}$ has ramification bounded by $r$ at the generic point $\eta_X$ of $E_X$
+
+And we finish by \Cref{lemma:bounding_ramification_of_contracted_product}.
+
+\subsection{From Point-Supported Moduli to the Full Boundary}
+
+The following addition lemma is adapted from \cite[Lemma~4.1]{takeuchi2019blow}.
+
+The following lemma is adapted from \cite{takeuchi2019blow} (Lemma 4.1)
+\begin{lemma}\label{lemma:takeuchi_lemma}
+     Let $C$ be a projective, smooth, and geometrically connected curve over a perfect field $k$. 
+     Let $\mathfrak{m} = \sum_{i=1}^{r} k_i P_i$ be an effective divisor where $P_1, \dots, P_r$ are distinct closed points. 
+     Let $U = C \setminus \mathfrak{m}$ and let $d \geq \deg \mathfrak{m}$.
+
+     Suppose $\mathfrak{n}_1, \dots, \mathfrak{n}_l$ are pairwise coprime submoduli of $\mathfrak{m}$ such that $\mathfrak{m} = \sum_{j=1}^l \mathfrak{n}_j$. 
+     Consider the summation morphism:
+     \[
+     \pi : C^{(\deg \mathfrak{n}_1)} \times_k \dots \times_k C^{(\deg \mathfrak{n}_l)} \times_k C^{(d - \deg \mathfrak{m})} \longrightarrow C^{(d)}
+     \]
+     defined by $(D_1, \dots, D_l, D_{extra}) \mapsto \sum_{j=1}^l D_j + D_{extra}$.
+
+     Then $\pi$ is étale at the generic point of the closed subvariety 
+     \[
+     V = \{\mathfrak{n}_1\} \times_k \dots \times_k \{\mathfrak{n}_l\} \times_k C^{(d - \deg \mathfrak{m})}
+     \]
+     inside the domain $C^{(\deg \mathfrak{n}_1)} \times_k \dots \times_k C^{(\deg \mathfrak{n}_l)} \times_k C^{(d - \deg \mathfrak{m})}$.
+
+\begin{proof}
+     We may assume that $k$ is algebraically closed (hence $\deg P_i = 1$ for all $i$). By miracle flatness $\pi$ is flat, it is quasi-finite and projective as a map between projecive spaces.
+     so we condlude $\pi$ is finite and flat. 
+     It is enough to show that there exists a closed point $Q$ of $\ndls_1 + \dots \ndls_l + C^{(d - \deg \mathfrak{m})} \subset C^{(d)}$ 
+     over which there are $\deg \pi$ points on $C^{(\ndls_1)} \times_k \dots \times_k C^{(\ndls_l)} \times_k C^{(d - \deg \mathfrak{m})}$. (Because it will be unramified 
+     at this point and thus also at the generic point of $V$.)
+     Choose $Q$ as a point corresponding to a divisor
+     $\ndls_1 + \dots + \ndls_l + P_{r+1} + \dots + P_{r+d - \deg \mathfrak{m}}$, where $P_1, \dots, P_{r+d - \deg \mathfrak{m}}$ are distinct points of $U(k)$.
+\end{proof}     
+\end{lemma}
+
+\begin{cor}\label{cor:etale_at_generic_point}
+     The morphism $C^{(\deg \mdls)} \times_k C^{(d - \deg \mdls)} \xrightarrow[]{\pi} C^{(d)}$
+     is finite flat everywhere, and étale at the generic point of the closed subvariety
+     $Z_\mdls \times_k C^{(d - \deg \mdls)} \subset C^{(\deg \mdls)} \times_k C^{(d - \deg \mdls)}$.     
+\end{cor}
+\begin{proof}
+This is the case $l=1$ and $\mathfrak n_1=\mathfrak m$ of \Cref{lemma:takeuchi_lemma}.
+\end{proof}
+
+Following from this, we look at the following diagram, coming from the flat base change
+
+$C^{(d - \deg \mdls)} \to \Spec(k)$ (\Cref{prop:symmetric_power_flat_base_change}) of \Cref{equation:blowup_diagram_ndls}:
+
+\[\begin{tikzcd}
+E_{\mdls} \times_k C^{(d-\deg \mdls)} \arrow[r] \arrow[d] & X_{\mdls} \times_k C^{(d-\deg \mdls)} \arrow[d] & \cF^{[\deg \mdls]} \times_k C^{(d-\deg \mdls)} \arrow[d, color=purple] \\
+Z_\mdls \times_k C^{(d-\deg \mdls)} \arrow[r] & C^{(\deg \mdls)} \times_k C^{(d-\deg \mdls)} & U^{(\deg \mdls)} \times_k C^{(d-\deg \mdls)} \arrow[lu]
+\end{tikzcd}\]
+
+Note that $U^{(\deg \mdls)} \times_k C^{(d-\deg \mdls)}$ is dense open subscheme of $X_{\mdls} \times_k C^{(d-\deg \mdls)}$,
+And $E_{\mdls} \times_k C^{(d-\deg \mdls)}$ is a prime divisor of $X_{\mdls} \times_k C^{(d-\deg \mdls)}$.
+Hence it is a well-defined question according to \Cref{definition:tamely_ramified_in_codim_1} to ask whether
+$\cF^{[\deg \mdls]} \times_k C^{(d-\deg \mdls)}$ is tamely ramified at the generic point $\theta$ of
+$E_{\mdls} \times_k C^{(d-\deg \mdls)}$.
+
+\begin{lemma}\label{lemma:tame_ramification_persists}
+     If $\cF^{[\deg \mdls]}$ is tamely ramified at $\eta_\mdls$, then
+     $\cF^{[\deg \mdls]} \times_k C^{(d-\deg \mdls)}$ is tamely ramified at the generic point $\theta$ of
+     $E_{\mdls} \times_k C^{(d-\deg \mdls)}$.
+\end{lemma}
+\begin{proof}
+    This follows from \stackstag{0EYD}
+\end{proof}
+
+
+By \Cref{lemma:tame_ramification_persists}, replacing $C^{(d - \deg \mdls)}$ with the dense open subscheme $U^{(d - \deg \mdls)} \subset C^{(d - \deg \mdls)}$,
+we get that the $G$-torsor $p_1^{-1} \cP^{[\deg \mdls]}$ ($\cP$ corresponds to $\cF$ under \Cref{prop:torsor_module_equivalence})
+is tamely ramified at $\theta$ the generic point of
+$E_{\mdls} \times_k U^{(d-\deg \mdls)} \subset U^{(\deg \mdls)} \times_k U^{(d - \deg \mdls)}$,
+where $p_1: U^{(\deg \mdls)} \times_k U^{(d - \deg \mdls)} \to U^{(\deg \mdls)}$ is the projection to the first factor.
+
+Looking at the second projection $p_2:X_{\mdls} \times_k U^{(d - \deg \mdls)} \to U^{(d - \deg \mdls)}$, and the fact that 
+$\cP^{[d - \deg \mdls]}$ is \'etale on $U^{(d - \deg \mdls)}$ we get that 
+$p_2^{-1} \cP^{[d - \deg \mdls]}= X_{\mdls} \times_k \cP^{[d - \deg \mdls]}$ is \'etale on $X_{\mdls} \times_k U^{(d - \deg \mdls)}$.
+Hence, its restriction to $U^{(\deg \mdls)} \times_k U^{(d - \deg \mdls)}$ is unramified at $\theta$.
+
+Thus, by \Cref{lemma:tame-times-unramified}, we conclude that $\boxP{\cP^{[\deg \mdls]}}{\cP^{[d - \deg \mdls]}} = p_1^{-1} \cP^{[\deg \mdls]} \otimes^G p_2^{-1} \cP^{[d - \deg \mdls]}$
+     is tamely ramified at $\theta$ the generic point of $E_{\mdls} \times_k U^{(d-\deg \mdls)}$.
+
+\begin{lemma}\label{lemma:tame-times-unramified}
+     Let $X \to \Spec k$ be a scheme over a field $k$, and let $\cP_1, \cP_2$ be two $G$-torsors on $U_{et}$.
+     Let $\xi$ be the generic point of a prime divisor $D \subset X$.
+     If $\cP_1$ is tamely ramified at $\xi$, and $\cP_2$ is unramified at $\xi$,
+     then the product $\cP_1 \otimes^G \cP_2$ is tamely ramified at $\xi$.
+\end{lemma}
+\begin{proof}
+     This follows from \Cref{lemma:bounding_ramification_of_contracted_product}.
+\end{proof}
+
+Combining this with \Cref{cor:etale_at_generic_point} we get
+
+\begin{cor}\label{cor:tame-ramification-symmetric-product}
+     Let $\mdls$ be a modulus as above, and let $\eta_\mdls$ be the generic point of $E_\mdls$.
+     Let $\cP$ be a $G$-torsor on $U_{et}$ with ramification bounded by $\mdls$.
+     Assume $\cP^{[\deg \mdls]}$ is tamely ramified at $\eta_\mdls$.
+     Then $\boxP{\cP^{[\deg \mdls]}}{\cP^{[d - \deg \mdls]}}$ is tamely ramified at the generic point $\theta$ of 
+     $E_{\mdls} \times_k C^{(d-\deg \mdls)} \subset C^{(\deg \mdls)} \times_k C^{(d - \deg \mdls)}$,
+     and $\cP^{[d]}$ is tamely ramified at the generic point $\eta_0=\eta_{\mdls,d}$ of $E_0=E_{\mdls,d}$
+\end{cor}
+\begin{proof} 
+The first assertion, that $\mathcal{P}^{[\deg \mathfrak{m}]} \boxtimes \mathcal{P}^{[d - \deg \mathfrak{m}]}$ is tamely ramified at $\theta$, follows from the preceding discussion. Thus, it remains to show that $\mathcal{P}^{[d]}$ is tamely ramified at $\eta_0$.
+
+Consider the blowup diagram defining $X_{\mathfrak{m}, d}$:
+\[
+\begin{tikzcd}
+\overline{\{\eta_0 \}} =  E_0 \arrow[r] \arrow[d] & X_{\mdls, d} \arrow[d, "\pi"] \\
+Z_0 \arrow[r, "c.i"]           & C^{(d)}          
+\end{tikzcd}
+\] 
+By performing a base change along the flat addition map $+: C^{(\deg \mathfrak{m})} \times_k U^{(d-\deg \mathfrak{m})} \to C^{(d)}$, we obtain the following commutative diagram:
+
+\[
+\begin{tikzcd}
+&  \left(C^{(\deg \mdls)} \times_k U^{(d-\deg \mdls)} \right) \times_{C^{(d)}} E_0 \arrow[r] \arrow[d] & \overline{\{\eta_0 \}} =  E_0 \arrow[d] \\
+& \left(C^{(\deg \mdls)} \times_k U^{(d-\deg \mdls)} \right) \times_{C^{(d)}} X_{\mdls, d} \arrow[d] \arrow[r] & X_{\mdls, d} \arrow[d, "\pi"] \\
+\mdls \times_k U^{(d-\deg \mdls)} \arrow[r, "c.i"] & C^{(\deg \mdls)} \times_k U^{(d-\deg \mdls)} \arrow[r, "+"]  & C^{(d)}          
+\end{tikzcd}
+\] 
+By \Cref{theorem:blowup_flat_base_change}, blowups commute with flat base
+change. Since the inverse image of the center $Z_0$ under the map $+$ is
+$\mathfrak{m} \times_k U^{(d-\deg \mathfrak{m})}$, the scheme
+$\left(C^{(\deg \mathfrak{m})} \times_k U^{(d-\deg \mathfrak{m})} \right)
+\times_{C^{(d)}} X_{\mathfrak{m}, d}$ is the blowup of
+$C^{(\deg \mathfrak{m})} \times_k U^{(d-\deg \mathfrak{m})}$ along
+$\mathfrak{m} \times_k U^{(d-\deg \mathfrak{m})}$.
+This, in turn, is isomorphic to the base change of the blowup $X_{\mathfrak{m}}$ (of $C^{(\deg \mathfrak{m})}$ along $\mathfrak{m}$) via the (flat) projection $C^{(\deg \mathfrak{m})} \times_k U^{(d - \deg \mathfrak{m})} \to C^{(\deg \mathfrak{m})}$.
+
+Assembling these facts, we obtain the following Cartesian square:
+\[
+\begin{tikzcd}
+&  E_{\mdls}\times U^{(d - \deg \mdls)}  \arrow[r, "\tilde{+}"] \arrow[d] & \overline{\{\eta_0 \}} =  E_0 \arrow[d] \\
+& X_{\mdls} \times_k U^{(d - \deg \mdls)} \arrow[d] \arrow[r, "\tilde{+}"] & X_{\mdls, d} \arrow[d, "\pi"] \\
+\mdls \times_k U^{(d-\deg \mdls)} \arrow[r, "c.i"] & C^{(\deg \mdls)} \times_k U^{(d-\deg \mdls)} \arrow[r, "+"]  & C^{(d)}          
+\end{tikzcd}
+\] 
+
+The point $\theta$ defined in the Corollary is the generic point of $E_{\mathfrak{m}} \times_k U^{(d-\deg \mathfrak{m})}$.
+ Let $\eta$ be the generic point of $\mathfrak{m} \times_k U^{(d-\deg \mathfrak{m})}$. 
+ By \Cref{cor:etale_at_generic_point}, the map $+$ is étale at $\eta$. 
+Consequently, the lifted map $\tilde{+}$ is étale at $\theta$. 
+Given the isomorphism $(+^{-1})(\cP^{[d]}) \cong \cP^{[\deg \mdls]} \boxtimes \cP^{[d - \deg \mdls]}$ from \Cref{prop:symmetric_powers_on_curves},
+the tame ramification of the box product at $\theta$ descends to the tame ramification of $\mathcal{P}^{[d]}$ at $\eta_0$ by applying \Cref{lemma:descend_ramification_along_etale}.
+
+\end{proof}
+
+
+\begin{lemma}\label{lemma:moduli_reduction}
+     Let $\ndls_1, \ndls_2 \subset \mdls$ be two coprime sub moduli of $\mdls$.
+     Assume $\cP^{[\deg \ndls_1]}$, $\cP^{[\deg \ndls_2]}$ are at most tamely ramified at $\eta_{\ndls_1}$, $\eta_{\ndls_2}$ respectively.
+     Then $\cP^{[\deg \ndls_1 + \deg \ndls_2]}$ is at most tamely ramified at $\eta_{\ndls_1 + \ndls_2}$.
+\end{lemma}
+
+\begin{proof}
+     It follows from \Cref{prop:ramification-external-product} and \Cref{prop:symmetric_powers_on_curves}.
+\end{proof}
+
+\subsection{Conclusion of the Tameness Argument}
+
+\begin{proof}[Proof of \Cref{theorem:SymmetricPowerOfSheafIsTamelyRamified}]
+Let $\cP=\operatorname{Fr}(\cF)$ be the $\Lambda^\times$-torsor of frames.
+For each single-point submodulus $\ndls=k_P P$ of $\mdls$,
+\Cref{theorem:SymmetricPowerOfSheavesIsTamelyRamifiedReduction} shows that
+$\cP^{[\deg\ndls]}$ is tamely ramified at $\eta_\ndls$. Repeated application
+of \Cref{lemma:moduli_reduction} shows that
+$\cP^{[\deg\mdls]}$ is tamely ramified at $\eta_\mdls$. Therefore
+\Cref{cor:tame-ramification-symmetric-product} implies that $\cP^{[d]}$ is
+tamely ramified at the generic point $\eta_0$ of $E_0$ for every
+sufficiently large $d$. By
+\Cref{prop:torsor_module_equivalence,definition:symmetric_power_local_system},
+the same conclusion holds for $\cF^{[d]}$ along $H$.
+\end{proof}
+
+\section{Extension Across the Boundary}\label{section:extension-across-boundary}
+
+We now use the geometry of the Abel--Jacobi fibers to upgrade the tameness
+proved above to extension across the boundary. The essential input is that an
+affine space has no nontrivial finite cover which is tame along the hyperplane
+at infinity.
+
+\begin{lemma}\label{lemma:ExtensionOfTamelyRamifiedSheaf}
+    Let $\cF^{[d]}$ be a locally constant sheaf of free rank-one $\Lambda$-modules
+    on $U^{(d)}$. If $\cF^{[d]}$ is tamely ramified along
+    \[
+        H=\widetilde C^{(d)}_\mdls\setminus U^{(d)},
+    \]
+    then it extends uniquely to a locally constant sheaf
+    $\widetilde{\cF}^{[d]}$ on $\widetilde C^{(d)}_\mdls$.
+\end{lemma}
+
+\begin{proof}
+    Put $r=d-\deg\mdls-g+1$, let $\xi$ be the generic point of
+    $\PicCm[d]$, and set $\Omega=k(\xi)^{\mathrm{sep}}$. By Takeuchi's
+    construction, after base change of the generic fiber to $\Spec\Omega$,
+    the compactified Abel--Jacobi fiber and its boundary are
+    \[
+        \left(
+        \widetilde C^{(d)}_{\mdls,\Omega},
+        H_{\Omega}
+        \right)
+        \cong
+        \left(
+        \mathbb P^r_{\Omega},
+        \mathbb P^{r-1}_{\Omega}
+        \right),
+    \]
+    and the open fiber is $\mathbb A^r_{\Omega}$.
+
+    Let $\cP^{[d]}$ be the $\Lambda^\times$-torsor of frames of
+    $\cF^{[d]}$. Its restriction to the geometric generic open fiber is tame
+    along the hyperplane at infinity. T\'oth proves
+    \cite[Example~3.3.8 and Claim~4.2.3]{Toth2011} that
+    \[
+        \pi_1^t\!\left(
+        \mathbb A^r_{\Omega};
+        \mathbb P^{r-1}_{\Omega}
+        \right)=1.
+    \]
+    Let $\bar\eta$ be the generic point of the hyperplane
+    $H_\Omega\cong\mathbb P^{r-1}_\Omega$. The pullback of $\cP^{[d]}$ to
+    $\mathbb A^r_\Omega$ is therefore a constant $\Lambda^\times$-torsor.
+    It extends as the constant finite \'etale torsor over
+    $\mathbb P^r_\Omega$, so the inertia group $I_{\bar\eta}$ acts
+    trivially. Let $\eta$ be the generic point of $H$. The passage from
+    $\eta$ to $\bar\eta$ gives an unramified extension of the corresponding
+    henselian discrete valuation rings: it enlarges the residue field
+    separably and leaves a uniformizer unchanged. Hence
+    $I_{\bar\eta}\cong I_\eta$, and triviality of inertia can be checked
+    after this base change. Thus $I_\eta$ acts trivially, which says precisely
+    that $\cP^{[d]}$ is unramified at the generic point of $H$.
+
+    The scheme $\widetilde C^{(d)}_\mdls$ is regular, and $H$ is the only
+    codimension-one component of its complement $U^{(d)}$. The standard
+    normalization-and-purity argument, using Zariski--Nagata purity
+    (\stackstag{0BMB}), therefore extends $\cP^{[d]}$ to a finite \'etale
+    $\Lambda^\times$-torsor on $\widetilde C^{(d)}_\mdls$.
+    (Indeed, take the componentwise normalization of
+    $\widetilde C^{(d)}_\mdls$ in the finite \'etale cover $\cP^{[d]}$.
+    This normalization is finite because $\widetilde C^{(d)}_\mdls$ is of
+    finite type over a field, hence Nagata. Its branch locus contains no
+    codimension-one point: over $U^{(d)}$ the cover is \'etale, and at the
+    generic point of $H$ it is unramified by the preceding paragraph.
+    Purity forces every nonempty branch locus over a regular scheme to have
+    a codimension-one component, so the branch locus is empty.) The associated
+    rank-one $\Lambda$-module is the desired extension
+    $\widetilde{\cF}^{[d]}$. It is unique because a dense open immersion into
+    a normal connected scheme induces a surjection on \'etale fundamental
+    groups.
+\end{proof}
+
+\begin{rem*}
+    Tameness does not imply unramifiedness for an arbitrary local extension.
+    Here the implication comes from the global fiber geometry: the relevant
+    boundary is the hyperplane at infinity of the geometric generic affine
+    Abel--Jacobi fiber, whose tame fundamental group is trivial. This is the
+    geometric argument used in the tame case by T\'oth.
+\end{rem*}
+
+\section{Descent and Reduced Geometric Class Field Theory}\label{section:gcft-descent}
+
+We finish by recording the fundamental-group input and applying it to the
+ordinary and generalized Abel--Jacobi morphisms.
+
+\subsection{The Fundamental-Group Input}
+
+\begin{prop}[\stackstag{0C0J}]\label{prop:fundamental-group-exact-sequence}
+Let $f\colon X\to S$ be a flat proper morphism of finite presentation whose
+geometric fibers are connected and reduced. Assume that $S$ is connected,
+and let $\bar s$ be a geometric point of $S$. Then there is an exact
+sequence
+\[
+\pi_1(X_{\bar s})\longrightarrow\pi_1(X)\longrightarrow\pi_1(S)
+\longrightarrow 1.
+\]
+\end{prop}
+
+\begin{cor}\label{cor:etale_fundamental_group_smooth_proper}
+Let $f\colon X\to S$ be a proper smooth morphism of finite presentation
+whose geometric fibers are connected. Then the sequence of
+\Cref{prop:fundamental-group-exact-sequence} is exact.
+\end{cor}
+\begin{proof}
+A smooth geometric fiber is reduced, so this is an immediate application of
+\Cref{prop:fundamental-group-exact-sequence}.
+\end{proof}
+
+\begin{cor}\label{cor:projective-bundle-fundamental-group}
+Let $f\colon X\to S$ be a projective space bundle over a connected scheme.
+Then pullback induces an isomorphism
+\[
+\pi_1^{\mathrm{et}}(X)\xrightarrow{\sim}\pi_1^{\mathrm{et}}(S).
+\]
+\end{cor}
+\begin{proof}
+The geometric fibers are projective spaces and therefore have trivial
+\'etale fundamental group. The assertion follows from
+\Cref{cor:etale_fundamental_group_smooth_proper}.
+\end{proof}
+
+\subsection{The Descent Argument}
+
+We work over $S=\Spec k$, where $k$ is perfect. By
+\Cref{prop:torsor_module_equivalence}, it is equivalent first to prove the
+following torsor formulation.
+
+\begin{theorem}[Torsor formulation]\label{thm:GCFT_torsors}
+Let $G=\Lambda^\times$, and let $\cP$ be a $G$-torsor on $U$ whose
+ramification is bounded by $\mdls$. For every sufficiently large integer
+$d$, there exists a unique, up to isomorphism, $G$-torsor $\cQ_d$ on
+$\PicCm[d]$ such that
+\[
+\Phi_d^*\cQ_d\cong\cP^{[d]}.
+\]
+\end{theorem}
+
+\begin{proof}
+We divide the proof into two cases.
+
+\textbf{Case 1: $\mdls=0$.}
+For $d$ sufficiently large,
+\Cref{theorem:abel-jacobi-fibers} identifies
+\[
+\Phi_d\colon C^{(d)}\longrightarrow\PicC[d]
+\]
+as a projective space bundle. Hence
+\Cref{cor:projective-bundle-fundamental-group} gives
+\[
+\pi_1^{\mathrm{et}}\bigl(C^{(d)}\bigr)
+ \xrightarrow{\sim}
+\pi_1^{\mathrm{et}}\bigl(\PicC[d]\bigr).
+\]
+The $G$-torsor $\cP^{[d]}$ therefore descends uniquely to a $G$-torsor on
+$\PicC[d]$.
+
+\textbf{Case 2: $\mdls>0$.}
+Let $\cF=\cP\times^G\Lambda$ be the rank-one local system associated with
+$\cP$. By \Cref{definition:symmetric_power_local_system}, the frame torsor
+of $\cF^{[d]}$ is $\cP^{[d]}$. For $d$ sufficiently large,
+\Cref{theorem:takeuchi-compactification-theorem} extends $\Phi_d$ to a
+projective space bundle
+\[
+\widetilde\Phi_d\colon
+\widetilde C^{(d)}_\mdls\longrightarrow\PicCm[d].
+\]
+By \Cref{theorem:SymmetricPowerOfSheafIsTamelyRamified},
+$\cF^{[d]}$ is tamely ramified along
+$H=\widetilde C^{(d)}_\mdls\setminus U^{(d)}$. Hence
+\Cref{lemma:ExtensionOfTamelyRamifiedSheaf} gives a unique extension
+$\widetilde{\cF}^{[d]}$ to $\widetilde C^{(d)}_\mdls$.
+
+By \Cref{cor:projective-bundle-fundamental-group},
+\[
+\pi_1^{\mathrm{et}}\bigl(\widetilde C^{(d)}_\mdls\bigr)
+ \xrightarrow{\sim}
+\pi_1^{\mathrm{et}}\bigl(\PicCm[d]\bigr).
+\]
+Thus $\widetilde{\cF}^{[d]}$ descends uniquely to a rank-one local system
+$\cG_d$ on $\PicCm[d]$. Restricting to $U^{(d)}$ gives
+$\Phi_d^*\cG_d\cong\cF^{[d]}$. Taking frame torsors yields
+\[
+\Phi_d^*\operatorname{Fr}(\cG_d)\cong\cP^{[d]},
+\]
+so $\cQ_d=\operatorname{Fr}(\cG_d)$ has the required property. Uniqueness
+follows from the fundamental-group isomorphism and from the surjection
+\[
+\pi_1^{\mathrm{et}}(U^{(d)})\twoheadrightarrow
+\pi_1^{\mathrm{et}}(\widetilde C^{(d)}_\mdls)
+\]
+induced by the dense open immersion into the normal scheme
+$\widetilde C^{(d)}_\mdls$.
+\end{proof}
+
+\begin{proof}[Proof of \Cref{thm:GCFT_reduced}]
+Let $\cF$ be as in \Cref{thm:GCFT_reduced}, and set
+$\cP=\operatorname{Fr}(\cF)$. Apply \Cref{thm:GCFT_torsors} to obtain
+$\cQ_d$ on $\PicCm[d]$, and let
+\[
+\cG_d=\cQ_d\times^{\Lambda^\times}\Lambda.
+\]
+The equivalence of \Cref{prop:torsor_module_equivalence}, together with the
+compatibility of frame torsors and symmetric powers from
+\Cref{definition:symmetric_power_local_system}, gives
+$\Phi_d^*\cG_d\cong\cF^{[d]}$. The same equivalence carries uniqueness of
+$\cQ_d$ to uniqueness of $\cG_d$.
+\end{proof}
