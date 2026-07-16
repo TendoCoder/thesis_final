@@ -1,6 +1,8 @@
-# Appendix B Reorganization Design
+# “A Failure of an Artin--Schreier Induction Strategy” Design
 
 **Goal:** Reorganize Appendix B so that it begins with the proposed induction from the Chapter 2 Artin--Schreier calculation, introduces the exact geometric and torsor-theoretic setup only after the motivation, follows the two induction inputs through the valuation tower, and ends with an explicit example showing why the inference does not close.
+
+**Title:** Appendix B will be renamed **“A Failure of an Artin--Schreier Induction Strategy.”** The preposition “of” is used because the appendix analyzes the failure of a particular strategy, not a failure to perform an action.
 
 ## Scope and mathematical claim
 
@@ -107,7 +109,8 @@ Conclude with four precise points:
 - Add a label to the proposed induction step if later cross-references require one.
 - Do not duplicate definitions already stated in Chapters 1--2; recall them only in the specialized notation of this appendix.
 - Use consistent notation for $H$ as the unique order-$p$ subgroup of $G$.
-- Correct the Introduction so that the existing Witt-vector chapter is Appendix A and “A Wrong Path” is Appendix B.
+- In Chapter 2, add a forward reference at the transition from the degree-$p$ Artin--Schreier calculation to the $p^r$ Artin--Schreier--Witt calculation. The reference will say that Appendix B studies the tempting attempt to derive the latter case inductively from the former and explains why wild base change prevents the argument from closing.
+- Correct the Introduction so that the existing Witt-vector chapter is Appendix A and Appendix B is “A Failure of an Artin--Schreier Induction Strategy.”
 - Compile the complete thesis and inspect the rendered Appendix B pages after editing.
 
 ## Verification
