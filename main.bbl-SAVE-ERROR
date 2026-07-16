@@ -19,6 +19,34 @@
 
 \refsection{0}
   \datalist[entry]{ynt/global//global/global/global}
+    \entry{Schmid1937}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=07a5d3cc965ee8a73e4665f95979e5e3}{%
+           family={Schmid},
+           familyi={S\bibinitperiod},
+           given={Hermann\bibnamedelima Ludwig},
+           giveni={H\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+      }
+      \strng{namehash}{07a5d3cc965ee8a73e4665f95979e5e3}
+      \strng{fullhash}{07a5d3cc965ee8a73e4665f95979e5e3}
+      \strng{fullhashraw}{07a5d3cc965ee8a73e4665f95979e5e3}
+      \strng{bibnamehash}{07a5d3cc965ee8a73e4665f95979e5e3}
+      \strng{authorbibnamehash}{07a5d3cc965ee8a73e4665f95979e5e3}
+      \strng{authornamehash}{07a5d3cc965ee8a73e4665f95979e5e3}
+      \strng{authorfullhash}{07a5d3cc965ee8a73e4665f95979e5e3}
+      \strng{authorfullhashraw}{07a5d3cc965ee8a73e4665f95979e5e3}
+      \field{labelalpha}{Sch37}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal für die reine und angewandte Mathematik}
+      \field{title}{Zur {Arithmetik} der zyklischen {$p$}-{Körper}}
+      \field{volume}{176}
+      \field{year}{1937}
+      \field{pages}{161\bibrangedash 167}
+      \range{pages}{7}
+    \endentry
     \entry{sga1}{book}{}{}
       \name{author}{1}{}{%
         {{hash=fb0e3184fdd2fcd28fa74ca67d7cdcc1}{%
@@ -48,6 +76,43 @@
       \field{title}{Revêtements étales et groupe fondamental (SGA 1)}
       \field{volume}{224}
       \field{year}{1971}
+    \endentry
+    \entry{KanesakaSekiguchi1979}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=590656c59c4237731774a3b3ec29a3b7}{%
+           family={Kanesaka},
+           familyi={K\bibinitperiod},
+           given={Kimiaki},
+           giveni={K\bibinitperiod}}}%
+        {{hash=6e9ab558a386acd113ab60f26d9c28ed}{%
+           family={Sekiguchi},
+           familyi={S\bibinitperiod},
+           given={Koji},
+           giveni={K\bibinitperiod}}}%
+      }
+      \strng{namehash}{21918f63ee41f3fcabcced386d117e4e}
+      \strng{fullhash}{21918f63ee41f3fcabcced386d117e4e}
+      \strng{fullhashraw}{21918f63ee41f3fcabcced386d117e4e}
+      \strng{bibnamehash}{21918f63ee41f3fcabcced386d117e4e}
+      \strng{authorbibnamehash}{21918f63ee41f3fcabcced386d117e4e}
+      \strng{authornamehash}{21918f63ee41f3fcabcced386d117e4e}
+      \strng{authorfullhash}{21918f63ee41f3fcabcced386d117e4e}
+      \strng{authorfullhashraw}{21918f63ee41f3fcabcced386d117e4e}
+      \field{labelalpha}{KS79}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Tokyo Journal of Mathematics}
+      \field{number}{2}
+      \field{title}{Representation of {Witt} vectors by formal power series and its applications}
+      \field{volume}{2}
+      \field{year}{1979}
+      \field{pages}{349\bibrangedash 370}
+      \range{pages}{22}
+      \verb{doi}
+      \verb 10.3836/tjm/1270473027
+      \endverb
     \endentry
     \entry{serreLF}{book}{}{}
       \name{author}{1}{}{%
@@ -413,6 +478,45 @@
       \endverb
       \verb{url}
       \verb https://alex-youcis.github.io/torsors.pdf
+      \endverb
+    \endentry
+    \entry{ElderKeating2025}{misc}{}{}
+      \name{author}{2}{}{%
+        {{hash=a77f73f758b9e80d17202ad5cc65935a}{%
+           family={Elder},
+           familyi={E\bibinitperiod},
+           given={G.\bibnamedelimi Griffith},
+           giveni={G\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+        {{hash=18ce3ae569214ed0816f5f7b9393610a}{%
+           family={Keating},
+           familyi={K\bibinitperiod},
+           given={Kevin},
+           giveni={K\bibinitperiod}}}%
+      }
+      \strng{namehash}{8735bb49b1ed7d68ee4ecd46ece65b03}
+      \strng{fullhash}{8735bb49b1ed7d68ee4ecd46ece65b03}
+      \strng{fullhashraw}{8735bb49b1ed7d68ee4ecd46ece65b03}
+      \strng{bibnamehash}{8735bb49b1ed7d68ee4ecd46ece65b03}
+      \strng{authorbibnamehash}{8735bb49b1ed7d68ee4ecd46ece65b03}
+      \strng{authornamehash}{8735bb49b1ed7d68ee4ecd46ece65b03}
+      \strng{authorfullhash}{8735bb49b1ed7d68ee4ecd46ece65b03}
+      \strng{authorfullhashraw}{8735bb49b1ed7d68ee4ecd46ece65b03}
+      \field{labelalpha}{EK25}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprinttype}{arXiv}
+      \field{title}{Artin--Schreier--Witt extensions and ramification breaks}
+      \field{year}{2025}
+      \verb{eprint}
+      \verb 2503.16830
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/2503.16830
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/2503.16830
       \endverb
     \endentry
   \enddatalist

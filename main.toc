@@ -26,27 +26,28 @@
 \contentsline {subsection}{\numberline {3.1.1}The generalized Picard scheme}{39}{subsection.3.1.1}%
 \contentsline {subsection}{\numberline {3.1.2}The Abel--Jacobi Morphism and Its Fibers}{40}{subsection.3.1.2}%
 \contentsline {section}{\numberline {3.2}Takeuchi's Compactification of the Abel--Jacobi Morphism}{41}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Tame Ramification Along the Full Boundary}{42}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Compatibility Under Products}{43}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}From Point-Supported Moduli to the Full Boundary}{45}{subsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.3.3}Conclusion of the Tameness Argument}{48}{subsection.3.3.3}%
-\contentsline {section}{\numberline {3.4}Extension Across the Boundary}{48}{section.3.4}%
-\contentsline {section}{\numberline {3.5}Descent and Reduced Geometric Class Field Theory}{49}{section.3.5}%
-\contentsline {subsection}{\numberline {3.5.1}The Fundamental-Group Input}{49}{subsection.3.5.1}%
-\contentsline {subsection}{\numberline {3.5.2}The Descent Argument}{50}{subsection.3.5.2}%
-\contentsline {chapter}{\numberline {A}Cyclic Torsor Theories and Witt Vectors}{52}{appendix.A}%
-\contentsline {section}{\numberline {A.1}The ring of Witt vectors}{52}{section.A.1}%
-\contentsline {section}{\numberline {A.2}Frobenius, Verschiebung and truncation}{53}{section.A.2}%
-\contentsline {section}{\numberline {A.3}Isobaricity of the Witt addition polynomials}{55}{section.A.3}%
-\contentsline {section}{\numberline {A.4}The common group-scheme construction}{55}{section.A.4}%
-\contentsline {section}{\numberline {A.5}Kummer and Artin--Schreier theory}{55}{section.A.5}%
-\contentsline {section}{\numberline {A.6}Artin--Schreier--Witt bookkeeping}{56}{section.A.6}%
-\contentsline {section}{\numberline {A.7}The ASW group scheme and classification}{57}{section.A.7}%
-\contentsline {section}{\numberline {A.8}The Schmid--Witt ramification formula}{58}{section.A.8}%
-\contentsline {section}{\numberline {A.9}Reduced polynomial representatives}{58}{section.A.9}%
-\contentsline {chapter}{\numberline {B}A Wrong Path}{60}{appendix.B}%
-\contentsline {section}{\numberline {B.1}Quotient Towers of Symmetric-Power Torsors}{60}{section.B.1}%
-\contentsline {section}{\numberline {B.2}Setup and notation}{62}{section.B.2}%
-\contentsline {section}{\numberline {B.3}The master diagram}{64}{section.B.3}%
-\contentsline {section}{\numberline {B.4}Unramifiedness of $\mathcal {P}^{[d]_G}$ at $\eta _C$}{64}{section.B.4}%
-\contentsline {section}{\numberline {B.5}Difficulties in Proving the Theorem}{65}{section.B.5}%
+\contentsline {section}{\numberline {3.3}Tame Ramification Along the Full Boundary}{43}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}From Point-Supported Moduli to the Full Modulus}{43}{subsection.3.3.1}%
+\contentsline {subsubsection}{Compatibility under products}{43}{section*.18}%
+\contentsline {subsection}{\numberline {3.3.2}From the Minimal Degree to Large Degrees}{46}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}Conclusion of the Tameness Argument}{49}{subsection.3.3.3}%
+\contentsline {section}{\numberline {3.4}Extension Across the Boundary}{49}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Descent and Reduced Geometric Class Field Theory}{51}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}The Fundamental-Group Input}{51}{subsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.5.2}The Descent Argument}{51}{subsection.3.5.2}%
+\contentsline {chapter}{\numberline {A}Cyclic Torsor Theories and Witt Vectors}{53}{appendix.A}%
+\contentsline {section}{\numberline {A.1}The ring of Witt vectors}{53}{section.A.1}%
+\contentsline {section}{\numberline {A.2}Frobenius, Verschiebung and truncation}{54}{section.A.2}%
+\contentsline {section}{\numberline {A.3}Isobaricity of the Witt addition polynomials}{56}{section.A.3}%
+\contentsline {section}{\numberline {A.4}The common group-scheme construction}{56}{section.A.4}%
+\contentsline {section}{\numberline {A.5}Kummer and Artin--Schreier theory}{56}{section.A.5}%
+\contentsline {section}{\numberline {A.6}Artin--Schreier--Witt bookkeeping}{57}{section.A.6}%
+\contentsline {section}{\numberline {A.7}The ASW group scheme and classification}{58}{section.A.7}%
+\contentsline {section}{\numberline {A.8}The Schmid--Witt ramification formula}{59}{section.A.8}%
+\contentsline {section}{\numberline {A.9}Reduced polynomial representatives}{59}{section.A.9}%
+\contentsline {chapter}{\numberline {B}A Wrong Path}{61}{appendix.B}%
+\contentsline {section}{\numberline {B.1}Quotient Towers of Symmetric-Power Torsors}{61}{section.B.1}%
+\contentsline {section}{\numberline {B.2}Setup and notation}{63}{section.B.2}%
+\contentsline {section}{\numberline {B.3}The master diagram}{65}{section.B.3}%
+\contentsline {section}{\numberline {B.4}Unramifiedness of $\mathcal {P}^{[d]_G}$ at $\eta _C$}{65}{section.B.4}%
+\contentsline {section}{\numberline {B.5}Difficulties in Proving the Theorem}{66}{section.B.5}%

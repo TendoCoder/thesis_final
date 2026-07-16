@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 1784214756.4884 "main.bcf" "main.bbl" "main" 1784214780.5373 0
+["biber main"] 1784218573.53273 "main.bcf" "main.bbl" "main" 1784221591.30976 0
   "Bib.bib" 1783958185.24578 6638 b64112559fc93c821da2bfcdf8aaec52 ""
-  "main.bcf" 1784214780.12762 113234 edebab608070d3cba8592d43a3fc20f4 "pdflatex"
+  "main.bcf" 1784221589.77416 113426 6a4b00b8887613bee1a30d3c571f07de "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1784214765.48375 "/Users/assaf/Desktop/Thesis/thesis final/main.tex" "main.pdf" "main" 1784214780.53783 0
+["pdflatex"] 1784221526.37006 "/Users/assaf/Desktop/Thesis/thesis final/main.tex" "main.pdf" "main" 1784221591.31822 0
   "/Users/assaf/Desktop/Thesis/thesis final/main.tex" 1784204850.51351 2390 2cda46d5c6b70b907d07353b6b90399c ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
@@ -363,14 +363,14 @@
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
   "MacrosAndFigures.tex" 1784028945.44446 11243 ec38155b0b9b3bd7da86011de390efee ""
   "a_wrong_path/a_wrong_path.tex" 1784115844.38369 32170 c2f0c0b15b87544f6ff22536931b214e ""
-  "chapter3_reorganized_codex/chapter3_reorganized_codex.tex" 1784214704.88438 41112 179969c9365f8e8c1c32e3791d010d4c ""
+  "chapter3_reorganized_codex/chapter3_reorganized_codex.tex" 1784221491.81794 45153 5e1dd13a6c4e7a41e16a8bbeff0136b5 ""
   "includes.tex" 1767864350.34224 1310 cf7ab68fb51c35bc2c470f3fe887a208 ""
-  "main.aux" 1784214780.11133 53703 c3fcb8ae052f3db353b812e57d1090e4 "pdflatex"
-  "main.bbl" 1784214765.2723 20715 9278861474a4392d30acc250729b4f46 "biber main"
-  "main.out" 1784214780.12228 11285 c39d5b7e89db84f89b820985e04d2c15 "pdflatex"
-  "main.run.xml" 1784214780.12931 2304 acce9008716093b6b3dd5b3ca74ce283 "pdflatex"
+  "main.aux" 1784221589.6656 54467 4ae3e5edcca7cf2490718cec44bec08c "pdflatex"
+  "main.bbl" 1784218580.46195 20715 9278861474a4392d30acc250729b4f46 "biber main"
+  "main.out" 1784221589.74469 11352 3efd0ff33138efc9672ac893d897d0ee "pdflatex"
+  "main.run.xml" 1784221589.78392 2304 acce9008716093b6b3dd5b3ca74ce283 "pdflatex"
   "main.tex" 1784204850.51351 2390 2cda46d5c6b70b907d07353b6b90399c ""
-  "main.toc" 1784214780.12946 4927 406646001f7b0511cbb2410c274a6ab5 "pdflatex"
+  "main.toc" 1784221589.78436 5016 c23ffced3c174472268c50ab3e54c6f4 "pdflatex"
   "sections/Introduction.tex" 1784022922.63306 12466 e2d99e51f2d50b27cebab81dabcc29ff ""
   "sections/Preliminaries/CyclicRamificationTheories.tex" 1784116254.85951 13855 3149710cf3e330989cf3de4007126349 ""
   "sections/Preliminaries/GTorsorRamification.tex" 1784047611.55664 11538 0a47d32891fc32a8db7b9bff07e92b47 ""

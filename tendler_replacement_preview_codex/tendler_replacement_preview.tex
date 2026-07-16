@@ -1,0 +1,145 @@
+\documentclass[11pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[margin=1.08in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=teal,urlcolor=magenta]{hyperref}
+
+\newtheorem{lemma}{Lemma}
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+\newcommand{\A}{\mathbb A}
+\newcommand{\Pj}{\mathbb P}
+\newcommand{\F}{\mathcal F}
+\newcommand{\Pic}{\operatorname{Pic}}
+
+\title{Proposed Tendler-Style Replacement\\for Extension Across the Boundary}
+\author{Standalone preview --- not incorporated into Chapter~3}
+\date{July 2026}
+
+\begin{document}
+
+\maketitle
+
+\noindent
+This document is a preview of the proposed replacement only.  It makes no
+change to the existing text of Chapter~3.
+
+\section*{Proposed introductory description}
+
+Second, on the geometric generic Abel--Jacobi fiber, the boundary is the
+hyperplane at infinity.  A Tendler-style prime-to-$p$ power argument,
+together with the structure of the abelian fundamental group of affine
+space, forces the corresponding boundary inertia representation to be
+trivial.  Purity then extends $\F^{[d]}$ uniquely across the boundary.
+
+\section*{Proposed replacement for the extension argument}
+
+\begin{lemma}
+The rank-one local system $\F^{[d]}$ on $U^{(d)}$, which is tame along the
+boundary $H$, extends uniquely to a rank-one local system on
+$\widetilde C^{(d)}$.
+\end{lemma}
+
+\begin{proof}
+Let $\xi$ be the generic point of $\Pic^{d}_{\widetilde C}$, let
+$\Omega=k(\xi)^{\mathrm{sep}}$, and consider the geometric generic fiber of
+the Abel--Jacobi morphism.  By the projective-bundle description,
+\[
+    \widetilde C^{(d)}_{\Omega}\simeq \Pj^{r}_{\Omega},
+    \qquad
+    H_{\Omega}\simeq \Pj^{r-1}_{\Omega},
+\]
+and hence
+\[
+    U^{(d)}_{\Omega}
+      =\widetilde C^{(d)}_{\Omega}\setminus H_{\Omega}
+      \simeq \A^{r}_{\Omega}.
+\]
+
+Let
+\[
+    \chi\colon
+    \pi_{1}\bigl(\A^{r}_{\Omega}\bigr)
+       \longrightarrow \Lambda^{\times}
+\]
+be the character corresponding to the restriction of $\F^{[d]}$ to this
+fiber.
+
+If $\operatorname{char}(k)=0$, then
+\[
+    \pi_{1}\bigl(\A^{r}_{\Omega}\bigr)=1,
+\]
+so $\chi$ is trivial \cite[Example~4.14]{Tendler}.
+
+Suppose now that $\operatorname{char}(k)=p>0$.  Let $I_{\infty}$ denote the
+inertia group at the generic point of the hyperplane at infinity.  Since
+$\F^{[d]}$ is tame along $H$, the finite group $\chi(I_{\infty})$ has order
+prime to $p$.  Let $N$ be its exponent.  Then $(N,p)=1$, and the character
+$\chi^{N}$ is trivial on $I_{\infty}$.
+
+Consequently, the local system corresponding to $\chi^{N}$ is unramified at
+the generic point of $\Pj^{r-1}_{\Omega}$.  By purity, it extends to
+$\Pj^{r}_{\Omega}$.  Since
+\[
+    \pi_{1}\bigl(\Pj^{r}_{\Omega}\bigr)=1,
+\]
+this extension is constant, and therefore
+\[
+    \chi^{N}=1.
+\]
+
+On the other hand, $\chi$ factors through
+\[
+    \pi_{1}\bigl(\A^{r}_{\Omega}\bigr)^{\mathrm{ab}},
+\]
+which is a pro-$p$ group \cite[Example~4.15]{Tendler}.  Hence the finite group
+$\operatorname{im}(\chi)$ is a $p$-group.  Since its exponent divides $N$,
+and $N$ is prime to $p$, it follows that
+\[
+    \operatorname{im}(\chi)=1.
+\]
+Thus $\chi$ is trivial.
+
+Let $\eta$ be the generic point of $H$.  The preceding argument shows that
+the pullback of the finite inertia representation at $\eta$ to the geometric
+generic fiber is trivial.  The corresponding extension of henselian discrete
+valuation rings has ramification index $1$ and separable residue-field
+extension.  Triviality of a finite inertia representation is detected after
+such a base change.  Hence the inertia group at $\eta$ acts trivially on
+$\F^{[d]}$.
+
+Therefore $\F^{[d]}$ is unramified at the generic point of $H$.  Since
+$\widetilde C^{(d)}$ is regular and $H$ is the only codimension-one component
+of $\widetilde C^{(d)}\setminus U^{(d)}$, purity gives an extension of
+$\F^{[d]}$ to $\widetilde C^{(d)}$.  The extension is unique because
+\[
+    \pi_{1}\bigl(U^{(d)}\bigr)
+       \longrightarrow
+    \pi_{1}\bigl(\widetilde C^{(d)}\bigr)
+\]
+is surjective.
+\end{proof}
+
+\begin{remark}
+The argument does not assert that tame ramification is generally
+unramified.  Tameness is used only to choose $N$ prime to $p$.  The conclusion
+that the inertia character is trivial then follows from the global geometry
+of the geometric generic fiber and from the fact that the abelian fundamental
+group of affine space is pro-$p$.
+\end{remark}
+
+\begin{thebibliography}{9}
+
+\bibitem{Tendler}
+Avichai Tendler,
+\emph{Geometric Class Field Theory},
+Master's thesis, Hebrew University of Jerusalem, 2010;
+arXiv:1507.00104 (2015), especially Examples~4.14--4.15 and \S9.3.
+\url{https://arxiv.org/abs/1507.00104}.
+
+\end{thebibliography}
+
+\end{document}
