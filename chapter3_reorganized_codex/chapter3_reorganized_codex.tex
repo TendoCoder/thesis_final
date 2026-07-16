@@ -54,7 +54,10 @@ descent argument.
 
 \subsection{The generalized Picard scheme}
 We recall the notion of generalized Jacobian varieties and study their fundamental properties. The material presented here is primarily adapted from \cite{Guignard2018} and \cite{takeuchi2019blow}. For further background on the general theory of abelian varieties and Jacobians, the reader may also consult \cite{milneAV}.
-Let $S$ be a scheme and let $C$ be a projective smooth $S$-scheme whose geometric fibers are connected and of dimension 1. Let $\mdls$ be a modulus on $C$, defined as an effective Cartier divisor of $C/S$ 
+Although the main theorem is over the fixed perfect field $k$, we recall the
+generalized Picard construction temporarily over an arbitrary base scheme
+$S$.
+Let $S$ be a scheme and let $p:C\to S$ be a projective smooth morphism whose geometric fibers are connected and of dimension 1. Let $\mdls$ be a modulus on $C$, defined as an effective Cartier divisor of $C/S$ 
 (i.e., a closed subscheme of $C$ which is finite flat of finite presentation over $S$).
 We denote the projection $C \times_S T \to T$ by $\text{pr}$ for any $S$-scheme $T$.
 
@@ -110,15 +113,18 @@ Let $\mdls$ be a modulus which is everywhere strictly positive. Let $g$ denote t
 
 Assuming $S$ is quasi-compact, such a $d$ always exists.
 
-Fix an integer $d$ satisfying the condition above. Let $T$ be an $S$-scheme and let $\cL$ be an invertible sheaf of degree $d$ on $C_T$. One can show that the pushforwards $\mathrm{pr}_* \cL$ and $\mathrm{pr}_* \cL(-{\mdls})$ are locally free sheaves and their formations commute with any base change. Explicitly, for any morphism of $S$-schemes $f : T' \to T$, the base change morphisms are isomorphisms:
+Fix an integer $d$ satisfying the condition above. Let $T$ be an $S$-scheme and let $\cL$ be an invertible sheaf of degree $d$ on $C_T$. One can show that the pushforwards $\mathrm{pr}_* \cL$ and $\mathrm{pr}_* \cL(-{\mdls})$ are locally free sheaves and their formations commute with any base change. Explicitly, for any morphism of $S$-schemes $u : T' \to T$, the base change morphisms are isomorphisms:
 \[
-    f^* \mathrm{pr}_* \cL \xrightarrow{\sim} \mathrm{pr}_* f^* \cL
+    u^* \mathrm{pr}_* \cL \xrightarrow{\sim} \mathrm{pr}_* u^* \cL
 \]
 and
 \[
-    f^* \mathrm{pr}_* (\cL(-{\mdls})) \xrightarrow{\sim} \mathrm{pr}_* f^* (\cL(-{\mdls})).
+    u^* \mathrm{pr}_* (\cL(-{\mdls})) \xrightarrow{\sim} \mathrm{pr}_* u^* (\cL(-{\mdls})).
 \]
-In particular, following \cite{Guignard2018}, if $\cL$ is invertible $\cO_C$-module with degree $d$ satisfying \ref{equation:degree-condition} on each fiber of $f$ then, $\mathrm{pr}_* \cL$ is a locally free $\mathcal{O}_S$-module of rank $d-g+1$.
+In particular, by \cite[Proposition~4.3]{Guignard2018}, if $\cL$ is an
+invertible $\cO_C$-module of degree $d$ on each fiber of $p$, where $d$
+satisfies \Cref{equation:degree-condition}, then $p_*\cL$ is a locally free
+$\mathcal{O}_S$-module of rank $d-g+1$.
 
 For further background and verification of these constructions, we refer the reader to Milne's notes on abelian Varieties (\cite{milneAV}).
 
@@ -135,13 +141,16 @@ This is done functorially in families, yielding a morphism from the symmetric po
     \Phi_{d}: U^{(d)} \to \Pic^d_{C, \mathfrak{m}}, \quad D \mapsto [(\mathcal{O}_C(D), \psi_D)],
 \end{equation}
 
-When $\mdls = 0$, $d \geq \max \{2g - 1, 0\}$ and $C$ admits a section over $S$, $C^{(d)}$ is a projective space bundle over $\PicC[d]$, 
-It is proper, surjective with geometrically connected fibers.
+If $\mdls=0$, $d\geq 2g-1$, and $C\to S$ admits a section, then the
+Abel--Jacobi morphism $C^{(d)}\to\PicC[d]$ is a projective space bundle. In
+particular, it is proper and smooth with geometrically connected fibers.
 
 Guignard (\cite{Guignard2018} Theorem 4.14) proves that for $\mdls > 0$ and $d$ satisfying \Cref{equation:degree-condition}, the Abel-Jacobi morphism $\Phi_d$ is 
 surjective smooth of relative dimension $d - \deg \mdls - g + 1$, with geometrically connected fibers. 
 
-When $S=\Spec(k)$, the geometric fibers of $\Phi_d$ are well understood:
+We now return to the standing situation $S=\Spec(k)$, which remains in
+force for the rest of the chapter. The geometric fibers of $\Phi_d$ are
+well understood:
 \begin{theorem}\label{theorem:abel-jacobi-fibers}
 Assume that $S=\Spec(k)$ and
 $d \geq \max\{2g-1+\deg\mdls,\deg\mdls\}$. Let
@@ -581,7 +590,11 @@ $E_{\mdls} \times_k C^{(d-\deg \mdls)}$.
      $E_{\mdls} \times_k C^{(d-\deg \mdls)}$.
 \end{lemma}
 \begin{proof}
-    This follows from \stackstag{0EYD}
+This is the stability of tame ramification in codimension one under base
+change (\stackstag{0EYD}), applied to the projection
+\[
+X_{\mdls}\times_k C^{(d-\deg\mdls)}\longrightarrow X_{\mdls}.
+\]
 \end{proof}
 
 
@@ -863,8 +876,8 @@ following torsor formulation.
 \begin{theorem}[Torsor formulation]\label{thm:GCFT_torsors}
 Let $G=\Lambda^\times$, and let $\cP$ be a $G$-torsor on $U$ whose
 ramification is bounded by $\mdls$. For every sufficiently large integer
-$d$, there exists a unique, up to isomorphism, $G$-torsor $\cQ_d$ on
-$\PicCm[d]$ such that
+$d$, there exists a $G$-torsor $\cQ_d$ on $\PicCm[d]$, unique up to
+isomorphism, such that
 \[
 \Phi_d^*\cQ_d\cong\cP^{[d]}.
 \]
