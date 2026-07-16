@@ -132,8 +132,19 @@ u=\max_{0\leq j\leq r-1}p^{r-1-j}m_j.
 \end{theorem}
 
 The Schmid--Witt formula is an external ramification theorem: we use it as
-stated and do not reproduce its proof. References and the precise scope in
-which it is used are recorded in \Cref{appendix:schmid_witt_reference}.
+stated and do not reproduce its proof. For finite residue fields, the formula
+is due to Kanesaka--Sekiguchi \cite{KanesakaSekiguchi1979} and Thomas
+\cite{Thomas2005}, building on Schmid \cite{Schmid1937} for $r=1$; for
+arbitrary perfect residue fields, it is due to Elder--Keating
+\cite{ElderKeating2025}. We use it in one direction only: evaluating the
+formula on one reduced representative computes the largest upper break, so
+no minimization over representatives is needed.
+
+Reducedness prevents cancellation between Witt levels. Indeed, if two
+nonzero pole orders $m_j$ and $m_{j'}$, with $j<j'$, contributed the same
+weighted value, then
+$m_{j'}=p^{j'-j}m_j$ would be divisible by $p$, contradicting reducedness.
+For $r=1$, the formula is exactly the Artin--Schreier break computation.
 
 \subsection{The common realization conclusion}
 
@@ -222,6 +233,14 @@ $\wp\vec X=\vec f$ defines a $\Z/p^r\Z$-torsor over $\bG_m$ with the
 prescribed local class. Since every $f_j$ lies in $k[x^{-1}]$, the same lemma
 applied over $k[x^{-1}]$ extends the torsor \'etale across $\infty$.
 \end{proof}
+
+\begin{rem*}\label{rem:realization_Wr_sanity}
+In part~(3), the weighted pole bound forces $f_j=0$ whenever
+$p^{r-1-j}\geq d$: if $f_j\neq0$, then $m_j$ is a positive integer and
+$p^{r-1-j}m_j\geq d$, contradicting
+\Cref{eq:parallel_witt_pole_bound}. Thus a break smaller than $d$ imposes a
+visible restriction on every Witt component, not only on the last one.
+\end{rem*}
 
 \subsection{Three common inputs for the cyclic calculations}
 

@@ -2,15 +2,15 @@
 \contentsline {chapter}{Introduction}{3}{chapter*.2}%
 \contentsline {chapter}{\numberline {1}General Preliminaries}{6}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Torsors and Rank-One Local Systems}{6}{section.1.1}%
-\contentsline {section}{\numberline {1.2}Torsors on the \'Etale Sites}{8}{section.1.2}%
+\contentsline {section}{\numberline {1.2}\'Etale Torsors, Covers, and Quotients}{8}{section.1.2}%
 \contentsline {section}{\numberline {1.3}Symmetric Powers of Schemes and Torsors}{11}{section.1.3}%
 \contentsline {section}{\numberline {1.4}Basic Geometric Lemmas}{16}{section.1.4}%
 \contentsline {chapter}{\numberline {2}Ramification After Blowup Is Tame}{18}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Ramification of Discrete Valuations}{19}{section.2.1}%
 \contentsline {section}{\numberline {2.2}Ramification of $G$-Torsors}{21}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Two Reductions Before the Cyclic Calculations}{24}{section.2.3}%
+\contentsline {section}{\numberline {2.3}Reduction to Cyclic Torsors on $\mathbb {P}^1$}{24}{section.2.3}%
 \contentsline {subsection}{\numberline {2.3.1}Reduction from Finite Abelian Groups to Cyclic Groups}{24}{subsection.2.3.1}%
-\contentsline {subsection}{\numberline {2.3.2}Formal--Local Reduction to $\mathbb {P}^1$}{25}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.2}Formal--Local Reduction from $C$ to $\mathbb {P}^1$}{25}{subsection.2.3.2}%
 \contentsline {section}{\numberline {2.4}Three Parallel Theories of Cyclic Torsors}{28}{section.2.4}%
 \contentsline {subsection}{\numberline {2.4.1}Kummer theory: order prime to $p$}{29}{subsection.2.4.1}%
 \contentsline {paragraph}{Classes and equations.}{29}{section*.10}%
@@ -19,8 +19,8 @@
 \contentsline {subsection}{\numberline {2.4.3}Artin--Schreier--Witt theory: order $p^r$}{30}{subsection.2.4.3}%
 \contentsline {paragraph}{Classes and equations.}{30}{section*.13}%
 \contentsline {subsection}{\numberline {2.4.4}The common realization conclusion}{30}{subsection.2.4.4}%
-\contentsline {subsection}{\numberline {2.4.5}Three common inputs for the cyclic calculations}{31}{subsection.2.4.5}%
-\contentsline {section}{\numberline {2.5}Proof of the Torsor Formulation}{33}{section.2.5}%
+\contentsline {subsection}{\numberline {2.4.5}Three common inputs for the cyclic calculations}{32}{subsection.2.4.5}%
+\contentsline {section}{\numberline {2.5}The Cyclic Exceptional--Divisor Calculation and Final Assembly}{33}{section.2.5}%
 \contentsline {chapter}{\numberline {3}Geometric Class Field Theory}{38}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Generalized Picard Schemes and the Abel--Jacobi Map}{39}{section.3.1}%
 \contentsline {subsection}{\numberline {3.1.1}The generalized Picard scheme}{39}{subsection.3.1.1}%
@@ -28,26 +28,34 @@
 \contentsline {section}{\numberline {3.2}Takeuchi's Compactification of the Abel--Jacobi Morphism}{41}{section.3.2}%
 \contentsline {section}{\numberline {3.3}Tame Ramification Along the Full Boundary}{43}{section.3.3}%
 \contentsline {subsection}{\numberline {3.3.1}From Point-Supported Moduli to the Full Modulus}{43}{subsection.3.3.1}%
-\contentsline {subsubsection}{Compatibility under products}{43}{section*.18}%
+\contentsline {subsubsection}{Compatibility under products}{44}{section*.18}%
 \contentsline {subsection}{\numberline {3.3.2}From the Minimal Degree to Large Degrees}{46}{subsection.3.3.2}%
 \contentsline {subsection}{\numberline {3.3.3}Conclusion of the Tameness Argument}{49}{subsection.3.3.3}%
 \contentsline {section}{\numberline {3.4}Extension Across the Boundary}{49}{section.3.4}%
 \contentsline {section}{\numberline {3.5}Descent and Reduced Geometric Class Field Theory}{51}{section.3.5}%
 \contentsline {subsection}{\numberline {3.5.1}The Fundamental-Group Input}{51}{subsection.3.5.1}%
 \contentsline {subsection}{\numberline {3.5.2}The Descent Argument}{51}{subsection.3.5.2}%
-\contentsline {chapter}{\numberline {A}Cyclic Torsor Theories and Witt Vectors}{53}{appendix.A}%
-\contentsline {section}{\numberline {A.1}The ring of Witt vectors}{53}{section.A.1}%
-\contentsline {section}{\numberline {A.2}Frobenius, Verschiebung and truncation}{54}{section.A.2}%
-\contentsline {section}{\numberline {A.3}Isobaricity of the Witt addition polynomials}{56}{section.A.3}%
-\contentsline {section}{\numberline {A.4}The common group-scheme construction}{56}{section.A.4}%
-\contentsline {section}{\numberline {A.5}Kummer and Artin--Schreier theory}{56}{section.A.5}%
-\contentsline {section}{\numberline {A.6}Artin--Schreier--Witt bookkeeping}{57}{section.A.6}%
-\contentsline {section}{\numberline {A.7}The ASW group scheme and classification}{58}{section.A.7}%
-\contentsline {section}{\numberline {A.8}The Schmid--Witt ramification formula}{59}{section.A.8}%
-\contentsline {section}{\numberline {A.9}Reduced polynomial representatives}{59}{section.A.9}%
-\contentsline {chapter}{\numberline {B}A Wrong Path}{61}{appendix.B}%
-\contentsline {section}{\numberline {B.1}Quotient Towers of Symmetric-Power Torsors}{61}{section.B.1}%
-\contentsline {section}{\numberline {B.2}Setup and notation}{63}{section.B.2}%
-\contentsline {section}{\numberline {B.3}The master diagram}{65}{section.B.3}%
-\contentsline {section}{\numberline {B.4}Unramifiedness of $\mathcal {P}^{[d]_G}$ at $\eta _C$}{65}{section.B.4}%
-\contentsline {section}{\numberline {B.5}Difficulties in Proving the Theorem}{66}{section.B.5}%
+\contentsline {chapter}{Appendix \numberline {A}Cyclic Torsor Theories and Witt Vectors}{53}{appendix.1.A}%
+\contentsline {section}{\numberline {A.1}The common group-scheme construction}{53}{section.1.A.1}%
+\contentsline {section}{\numberline {A.2}Kummer and Artin--Schreier theory}{53}{section.1.A.2}%
+\contentsline {subsection}{\numberline {A.2.1}Kummer theory}{53}{subsection.1.A.2.1}%
+\contentsline {subsection}{\numberline {A.2.2}Artin--Schreier theory}{54}{subsection.1.A.2.2}%
+\contentsline {section}{\numberline {A.3}Witt-vector algebra}{55}{section.1.A.3}%
+\contentsline {subsection}{\numberline {A.3.1}Ring structure and ghost coordinates}{55}{subsection.1.A.3.1}%
+\contentsline {subsection}{\numberline {A.3.2}Frobenius, Verschiebung, and truncation}{56}{subsection.1.A.3.2}%
+\contentsline {section}{\numberline {A.4}Artin--Schreier--Witt theory}{58}{section.1.A.4}%
+\contentsline {subsection}{\numberline {A.4.1}The ASW operator and bookkeeping}{58}{subsection.1.A.4.1}%
+\contentsline {subsection}{\numberline {A.4.2}Torsors and classification}{58}{subsection.1.A.4.2}%
+\contentsline {subsection}{\numberline {A.4.3}Reduced polynomial representatives}{59}{subsection.1.A.4.3}%
+\contentsline {section}{\numberline {A.5}Weighted Witt addition in the cyclic calculation}{60}{section.1.A.5}%
+\contentsline {chapter}{Appendix \numberline {B}A Failure of an Artin--Schreier Induction Strategy}{61}{appendix.1.B}%
+\contentsline {section}{\numberline {B.1}Motivation: can the Artin--Schreier calculation be iterated?}{61}{section.1.B.1}%
+\contentsline {section}{\numberline {B.2}Preliminaries for the attempted induction}{62}{section.1.B.2}%
+\contentsline {subsection}{\numberline {B.2.1}The symmetric quotient tower}{62}{subsection.1.B.2.1}%
+\contentsline {subsection}{\numberline {B.2.2}The geometric boundary and its valuations}{63}{subsection.1.B.2.2}%
+\contentsline {subsection}{\numberline {B.2.3}The master diagram}{64}{subsection.1.B.2.3}%
+\contentsline {subsection}{\numberline {B.2.4}The proposed induction step}{64}{subsection.1.B.2.4}%
+\contentsline {subsection}{\numberline {B.2.5}A base-change lemma}{64}{subsection.1.B.2.5}%
+\contentsline {section}{\numberline {B.3}Following the hypotheses through the valuation tower}{65}{section.1.B.3}%
+\contentsline {section}{\numberline {B.4}Failure under wild base change}{66}{section.1.B.4}%
+\contentsline {section}{\numberline {B.5}What the example proves}{67}{section.1.B.5}%
