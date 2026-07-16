@@ -16,9 +16,10 @@ finite étale surjective homomorphism of commutative group schemes with kernel
 Artin--Schreier--Witt equations, because the reader has not yet met Witt
 vectors, their addition law, Frobenius, or the operator \(F-\mathrm{id}\).
 
-At the end of Appendix A.2, after both classical theories have been
-introduced, a two-part lemma will record their concrete scheme-level
-realizations:
+After both classical theories have been introduced, Appendix A.2 will add a
+third subsection, A.2.3, titled “The classical equations as étale torsors.”
+This subsection will contain a two-part lemma recording their concrete
+scheme-level realizations:
 
 1. If \(n\) is invertible in a ring \(A\) and \(a\in A^\times\), then
    \(A[T]/(T^n-a)\) is finite free and étale over \(A\), with basis
@@ -31,7 +32,9 @@ realizations:
 
 The proof will use monicity for finite freeness, the derivatives
 \(nT^{n-1}\) and \(-1\) for étaleness, and the kernel actions for the torsor
-statements.
+statements. Giving the result its own subsection ensures that it is visibly a
+shared conclusion of A.2.1 and A.2.2 rather than part of the
+Artin--Schreier subsection alone.
 
 The existing ASW lemma will remain in Appendix A.4.2, after the necessary
 Witt-vector algebra and ASW operator have been defined. A transition will
