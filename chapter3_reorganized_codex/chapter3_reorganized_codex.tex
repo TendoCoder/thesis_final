@@ -198,8 +198,11 @@ In Section 3 of \cite{takeuchi2019blow} Takeuchi constructs, for $d$ satisfying 
     The scheme $\Cmod{d}$ is an open subscheme of $X_{\mdls,d}$ containing $U^{(d)}$. 
     The morphism $\Phi_d: U^{(d)} \to \PicCm[d]$ extends to a morphism $\tilde{\Phi}_d: \Cmod{d} \to \PicCm[d]$ which makes 
     $\Cmod{d}$ a projective space bundle over $\PicCm[d]$. 
-    Furthermore, the complement of $U^{(d)}$ in $\Cmod{d}$ is isomorphic to the fiber product 
-    $E_0 \times_{C^{(d)}} \Cmod{d}$.
+    Furthermore, the complement of $U^{(d)}$ in $\Cmod{d}$ is the scheme-theoretic intersection
+    \[
+        E_0 \times_{X_{\mdls,d}} \Cmod{d}
+        \cong Z_0 \times_{C^{(d)}} \Cmod{d}.
+    \]
 \end{theorem}
 
      
@@ -208,14 +211,16 @@ Diagrammatically we have:
 \[
 \begin{tikzcd}
     &  & \cF^{[d]} \arrow[d, purple]\\
-    E_0 \times_{C^{(d)}} \Cmod{d} \arrow[d] \arrow[r]  & \Cmod{d} \arrow[d, hook] \arrow[rd, "\tilde{\Phi}_d"]  & U^{(d)} \arrow[l, hook'] \arrow[d, "\Phi_d"] \\
+    E_0 \times_{X_{\mdls,d}} \Cmod{d} \arrow[d] \arrow[r]  & \Cmod{d} \arrow[d, hook] \arrow[rd, "\tilde{\Phi}_d"]  & U^{(d)} \arrow[l, hook'] \arrow[d, "\Phi_d"] \\
 \overline{\{\eta_0 \}} =  E_0 \arrow[r] \arrow[d] & 
 X_{\mdls, d} \arrow[d, "\pi"]  &  \PicCm[d] &  \\
 Z_0 \arrow[r, "c.i"]           & C^{(d)}          
 \end{tikzcd}
 \] 
 
-Also note that $ E_0 \times_{C^{(d)}} \Cmod{d} = Z_0 \times_{C^{(d)}} \Cmod{d}$
+Here the boundary may equivalently be written as
+$Z_0 \times_{C^{(d)}} \Cmod{d}$, since
+$E_0=Z_0\times_{C^{(d)}}X_{\mdls,d}$.
 
 \section{Tame Ramification Along the Full Boundary}\label{section:tame-ramification-full-boundary}
 
@@ -231,7 +236,8 @@ $U$, with ramification bounded by $\mdls$. For every sufficiently large
 integer $d$, the local system $\cF^{[d]}$ is tamely ramified along
 \[
 H=\widetilde C^{(d)}_\mdls\setminus U^{(d)}
-  =E_0\times_{C^{(d)}}\widetilde C^{(d)}_\mdls.
+  =E_0\times_{X_{\mdls,d}}\widetilde C^{(d)}_\mdls
+  \cong Z_0\times_{C^{(d)}}\widetilde C^{(d)}_\mdls.
 \]
 \end{theorem}
 
@@ -257,6 +263,7 @@ If the ramification of $\cG_X$ at $\eta_X$ and $\cG_Y$ at $\eta_Y$ is bounded by
 have ramification bounded by $r$ at the generic point $\eta_{X\times Y}$ of the exceptional divisor in the product blowup.
 \end{prop}
 
+\begin{proof}
 The proposition is purely local in nature, so it suffices to consider the case where $X$ and $Y$ are affine. 
 More precisely, by the smoothness of $X$ and $Y$, we may restrict our attention to open neighborhoods of $x$ and $y$ that are etale over affine spaces. 
 The rest of this section treats that case.
@@ -299,62 +306,114 @@ where $[w_1 : \dots : w_{n+m}]$ are the homogeneous coordinates of $\mathbb{P}^{
 
 \subsubsection*{Comparison of Blowups}
 
-Both $\text{Bl}_0(X) \times_k \text{Bl}_0(Y)$ and $\text{Bl}_{(0,0)}(X \times_k Y)$ are birational to $X \times_k Y$. 
-They share a common dense open set $\tilde{U}$ defined by the condition that neither the $X$-coordinates nor the $Y$-coordinates vanish simultaneously in the projective space:
-$$\tilde{U} = \{ ((x,y), [w_1: \dots : w_{n+m}]) \mid (w_1, \dots, w_n) \neq 0 \text{ and } (w_{n+1}, \dots, w_{n+m}) \neq 0 \}$$This yields a diagram of open immersions:
-$$ 
-   \begin{tikzcd}
-        & \tilde{U} \arrow[dl, "f_1"'] \arrow[dr, "f_2", hook] & \\
-        \text{Bl}_0(X) \times_k \text{Bl}_0(Y) & & \text{Bl}_{(0,0)}(X \times_k Y)
-    \end{tikzcd}
-$$
-    
-    where $f_1$ maps the coordinates to the respective projectivizations $[w_1: \dots : w_n]$ and $[w_{n+1}: \dots : w_{n+m}]$.
-    Also note that the generic point $\eta_{X \times Y}$  of $E_{X \times_k Y}$ is inside $\tilde{U}$
+Both $\text{Bl}_0(X) \times_k \text{Bl}_0(Y)$ and
+$\text{Bl}_{(0,0)}(X \times_k Y)$ are birational to $X \times_k Y$; their
+common dense open is
+\[
+    (X\setminus\{0\})\times_k(Y\setminus\{0\}).
+\]
+Put $B=\text{Bl}_{(0,0)}(X\times_kY)$, and let
+\[
+    q\colon B\longrightarrow\mathbb P_k^{n+m-1}
+\]
+be the second projection in the above realization of $B$. Define
+\[
+    \Omega_X=\bigcup_{i=1}^{n}D_+(w_i),
+    \qquad
+    \Omega_Y=\bigcup_{j=1}^{m}D_+(w_{n+j}),
+\]
+and
+\[
+    \widetilde U
+      :=q^{-1}(\Omega_X\cap\Omega_Y)
+      =\bigcup_{\substack{1\leq i\leq n\\1\leq j\leq m}}
+        q^{-1}\!\left(D_+(w_iw_{n+j})\right).
+\]
+There is a morphism
+\[
+\begin{aligned}
+f\colon\widetilde U&\longrightarrow
+   \text{Bl}_0(X)\times_k\text{Bl}_0(Y),\\
+((x,y),[w_1:\cdots:w_{n+m}])&\longmapsto
+\bigl((x,[w_1:\cdots:w_n]),
+      (y,[w_{n+1}:\cdots:w_{n+m}])\bigr).
+\end{aligned}
+\]
+Thus we have a diagram
+\[
+\begin{tikzcd}
+& \widetilde U \arrow[dl,"f"'] \arrow[dr,hook,"j"] & \\
+\text{Bl}_0(X)\times_k\text{Bl}_0(Y)
+&& B,
+\end{tikzcd}
+\]
+where $j$ is the open immersion. The restriction of $q$ induces an
+isomorphism $E_{X\times Y}\xrightarrow{\sim}\mathbb P_k^{n+m-1}$. Since neither
+$V_+(w_1,\ldots,w_n)$ nor $V_+(w_{n+1},\ldots,w_{n+m})$ contains the generic
+point of $\mathbb P_k^{n+m-1}$, we have
+$\eta_{X\times Y}\in\widetilde U$.
 
 \subsubsection*{Extensions of DVRs}
-Let $S$ be the local ring of the generic point $\eta_{X\times Y}$ of $E_{X \times Y}$ in $\tilde{U}$. 
-On the chart where $w_1 \neq 0$ and $w_{n+1} \neq 0$, we have 
-$x_1 = (\frac{w_1}{w_{n+1}}) y_1$. 
-Since $\frac{w_1}{w_{n+1}}$ is a unit in this chart, $x_1$ and $y_1$ are equivalent as uniformizers.
-We have:
-$$
-S=k\left[x_1, \frac{w_2}{w_1} \cdots, \frac{w_n}{w_1}, \frac{w_{n+1}}{w_1} \cdots \frac{w_{n+m}}{w_1}\right]_{(x_1)} = 
-k\left[\frac{w_1}{w_{n+1}}, \frac{w_2}{w_{n+1}} \cdots \frac{w_n}{w_{n+1}}, y_1 \cdots \frac{w_{n+m}}{w_{n+1}}\right]_{(y_1)}
-$$
-
-$$k(\eta_{X \times Y}) = k\left(\frac{w_2}{w_1} \cdots, \frac{w_n}{w_1}, \frac{w_{n+1}}{w_1} \cdots \frac{w_{n+m}}{w_1}\right)$$
-
-Let $R_X$ be the local ring of the exceptional divisor $E_X$ in $\text{Bl}_0(X)$. 
-The pullback of $E_X \times_k \text{Bl}_0(Y)$ along $f_1$ induces an extension of DVRs $R_X \hookrightarrow S$. Which is:
-\begin{enumerate}
-    \item Weakly Unramified: $x_1$ is a uniformizer in both $R_X$ and $S$, so the ramification index is $e=1$.
-    \item Residually Transcendental: The residue field extension $\kappa(\eta_X) \subset \kappa(\eta)$ is:
-    $$k\left(\frac{w_2}{w_1}, \dots, \frac{w_n}{w_1}\right) \subset k\left(\frac{w_2}{w_1}, \dots, \frac{w_n}{w_1}, \frac{w_{n+1}}{w_1}, \dots, \frac{w_{n+m}}{w_1}\right)$$
-    Hence separable.
-\end{enumerate}
-Since this extension is generated by transcendental elements, it is separable and formally smooth at the maximal ideal (\stackstag{09E7}).
+Let
+\[
+S=\mathcal O_{B,\eta_{X\times Y}},\qquad
+R_X=\mathcal O_{\text{Bl}_0(X),\eta_X},\qquad
+R_Y=\mathcal O_{\text{Bl}_0(Y),\eta_Y}.
+\]
+The morphisms $\operatorname{pr}_X\circ f$ and
+$\operatorname{pr}_Y\circ f$ send $\eta_{X\times Y}$ to $\eta_X$ and
+$\eta_Y$, respectively, and therefore induce local homomorphisms of DVRs
+\[
+    R_X\longrightarrow S,\qquad R_Y\longrightarrow S.
+\]
+The point $\eta_{X\times Y}$ belongs to
+$q^{-1}(D_+(w_1w_{n+1}))$. On this chart,
+\[
+\begin{aligned}
+S
+&=k\left[
+x_1,\frac{x_2}{x_1},\ldots,\frac{x_n}{x_1},
+\frac{y_1}{x_1},\ldots,\frac{y_m}{x_1}
+\right]_{(x_1)}\\
+&=k\left[
+y_1,\frac{x_1}{y_1},\ldots,\frac{x_n}{y_1},
+\frac{y_2}{y_1},\ldots,\frac{y_m}{y_1}
+\right]_{(y_1)}.
+\end{aligned}
+\]
+Consequently, $x_1$ is a uniformizer in both $R_X$ and $S$, while $y_1$ is
+a uniformizer in both $R_Y$ and $S$. Both extensions have ramification index
+one. Their residue-field extensions are
+\[
+k\left(\frac{x_2}{x_1},\ldots,\frac{x_n}{x_1}\right)
+\subset
+k\left(\frac{x_2}{x_1},\ldots,\frac{x_n}{x_1},
+        \frac{y_1}{x_1},\ldots,\frac{y_m}{x_1}\right)
+\]
+and
+\[
+k\left(\frac{y_2}{y_1},\ldots,\frac{y_m}{y_1}\right)
+\subset
+k\left(\frac{x_1}{y_1},\ldots,\frac{x_n}{y_1},
+        \frac{y_2}{y_1},\ldots,\frac{y_m}{y_1}\right),
+\]
+respectively. In particular, both are purely transcendental and hence
+separable.
 
 \subsubsection*{Ramification of $G$-Torsors}
-Let $G$ be a finite abelian group. 
-Let $\mathcal{Q}$ be a $G$-torsor on an open $U \subset \text{Bl}_0(X)$ disjoint from $E_X$. 
-Let $V \subset \text{Bl}_0(Y)$ be an open subscheme, and let $\pi_X: \text{Bl}_0(X) \times_k V \to \text{Bl}_0(X)$ 
-be the projection onto the first factor. 
-By restricting this projection to $U \times_k V$, we obtain the pullback $G$-torsor:
-$$\pi_X^{-1}(\mathcal{Q}) \cong \mathcal{Q} \times_k V$$
-which is defined on the open subset $U \times_k V \subset \text{Bl}_0(X) \times_k \text{Bl}_0(Y)$.
-The extension of local rings $R_X \to S$ is weakly unramified (the ramification index $e=1$) and residually transcendental with separable residue field extension. 
-Under these conditions the ramification filtration is preserved. 
-Therefore, the pullback $\pi_X^{-1}(\mathcal{Q})$ has ramification bounded by $r$ at the generic point $\eta_{X \times Y}$ of the exceptional divisor $E_{X \times Y}$ if and only if 
-the original torsor $\mathcal{Q}$ has ramification bounded by $r$ at the generic point $\eta_X$ of $E_X$
-
-And we finish by \Cref{lemma:bounding_ramification_of_contracted_product}.
+The extensions $R_X\to S$ and $R_Y\to S$ are weakly unramified and have
+separable residue-field extensions. Hence the pullbacks of $\cG_X$ and
+$\cG_Y$ to $\operatorname{Frac}(S)$ both have ramification bounded by $r$.
+Their contracted product is the restriction of $\cG_{X\times Y}$ to
+$\operatorname{Frac}(S)$, so
+\Cref{lemma:bounding_ramification_of_contracted_product} gives the same bound
+for $\cG_{X\times Y}$ at $\eta_{X\times Y}$.
+\end{proof}
 
 \subsection{From Point-Supported Moduli to the Full Boundary}
 
 The following addition lemma is adapted from \cite[Lemma~4.1]{takeuchi2019blow}.
 
-The following lemma is adapted from \cite{takeuchi2019blow} (Lemma 4.1)
 \begin{lemma}\label{lemma:takeuchi_lemma}
      Let $C$ be a projective, smooth, and geometrically connected curve over a perfect field $k$. 
      Let $\mathfrak{m} = \sum_{i=1}^{r} k_i P_i$ be an effective divisor where $P_1, \dots, P_r$ are distinct closed points. 
@@ -374,10 +433,18 @@ The following lemma is adapted from \cite{takeuchi2019blow} (Lemma 4.1)
      inside the domain $C^{(\deg \mathfrak{n}_1)} \times_k \dots \times_k C^{(\deg \mathfrak{n}_l)} \times_k C^{(d - \deg \mathfrak{m})}$.
 
 \begin{proof}
-     We may assume that $k$ is algebraically closed (hence $\deg P_i = 1$ for all $i$). By miracle flatness $\pi$ is flat, it is quasi-finite and projective as a map between projecive spaces.
-     so we condlude $\pi$ is finite and flat. 
+     We may assume that $k$ is algebraically closed (hence $\deg P_i = 1$ for all $i$).
+     The morphism $\pi$ is finite: it is induced by the finite quotient morphism
+     \[
+     C^d/\bigl(\mathfrak S_{\deg\ndls_1}\times\cdots\times
+       \mathfrak S_{\deg\ndls_l}\times
+       \mathfrak S_{d-\deg\mdls}\bigr)
+       \longrightarrow C^d/\mathfrak S_d.
+     \]
+     Its source and target are smooth $k$-schemes of pure dimension $d$.
+     Hence $\pi$ is flat by miracle flatness, and therefore finite flat.
      It is enough to show that there exists a closed point $Q$ of $\ndls_1 + \dots \ndls_l + C^{(d - \deg \mathfrak{m})} \subset C^{(d)}$ 
-     over which there are $\deg \pi$ points on $C^{(\ndls_1)} \times_k \dots \times_k C^{(\ndls_l)} \times_k C^{(d - \deg \mathfrak{m})}$. (Because it will be unramified 
+     over which there are $\deg \pi$ points on $C^{(\deg\ndls_1)} \times_k \dots \times_k C^{(\deg\ndls_l)} \times_k C^{(d - \deg \mathfrak{m})}$. (Because it will be unramified 
      at this point and thus also at the generic point of $V$.)
      Choose $Q$ as a point corresponding to a divisor
      $\ndls_1 + \dots + \ndls_l + P_{r+1} + \dots + P_{r+d - \deg \mathfrak{m}}$, where $P_1, \dots, P_{r+d - \deg \mathfrak{m}}$ are distinct points of $U(k)$.

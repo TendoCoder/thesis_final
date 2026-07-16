@@ -1,0 +1,525 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{ynt/global//global/global/global}
+    \entry{Schmid1937}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=07a5d3cc965ee8a73e4665f95979e5e3}{%
+           family={Schmid},
+           familyi={S\bibinitperiod},
+           given={Hermann\bibnamedelima Ludwig},
+           giveni={H\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+      }
+      \strng{namehash}{07a5d3cc965ee8a73e4665f95979e5e3}
+      \strng{fullhash}{07a5d3cc965ee8a73e4665f95979e5e3}
+      \strng{fullhashraw}{07a5d3cc965ee8a73e4665f95979e5e3}
+      \strng{bibnamehash}{07a5d3cc965ee8a73e4665f95979e5e3}
+      \strng{authorbibnamehash}{07a5d3cc965ee8a73e4665f95979e5e3}
+      \strng{authornamehash}{07a5d3cc965ee8a73e4665f95979e5e3}
+      \strng{authorfullhash}{07a5d3cc965ee8a73e4665f95979e5e3}
+      \strng{authorfullhashraw}{07a5d3cc965ee8a73e4665f95979e5e3}
+      \field{labelalpha}{Sch37}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal für die reine und angewandte Mathematik}
+      \field{title}{Zur {Arithmetik} der zyklischen {$p$}-{Körper}}
+      \field{volume}{176}
+      \field{year}{1937}
+      \field{pages}{161\bibrangedash 167}
+      \range{pages}{7}
+    \endentry
+    \entry{sga1}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=fb0e3184fdd2fcd28fa74ca67d7cdcc1}{%
+           family={Grothendieck},
+           familyi={G\bibinitperiod},
+           given={Alexander},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer-Verlag}%
+      }
+      \strng{namehash}{fb0e3184fdd2fcd28fa74ca67d7cdcc1}
+      \strng{fullhash}{fb0e3184fdd2fcd28fa74ca67d7cdcc1}
+      \strng{fullhashraw}{fb0e3184fdd2fcd28fa74ca67d7cdcc1}
+      \strng{bibnamehash}{fb0e3184fdd2fcd28fa74ca67d7cdcc1}
+      \strng{authorbibnamehash}{fb0e3184fdd2fcd28fa74ca67d7cdcc1}
+      \strng{authornamehash}{fb0e3184fdd2fcd28fa74ca67d7cdcc1}
+      \strng{authorfullhash}{fb0e3184fdd2fcd28fa74ca67d7cdcc1}
+      \strng{authorfullhashraw}{fb0e3184fdd2fcd28fa74ca67d7cdcc1}
+      \field{labelalpha}{SGA1}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{series}{Lecture notes in mathematics}
+      \field{shorthand}{SGA1}
+      \field{title}{Revêtements étales et groupe fondamental (SGA 1)}
+      \field{volume}{224}
+      \field{year}{1971}
+    \endentry
+    \entry{KanesakaSekiguchi1979}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=590656c59c4237731774a3b3ec29a3b7}{%
+           family={Kanesaka},
+           familyi={K\bibinitperiod},
+           given={Kimiaki},
+           giveni={K\bibinitperiod}}}%
+        {{hash=6e9ab558a386acd113ab60f26d9c28ed}{%
+           family={Sekiguchi},
+           familyi={S\bibinitperiod},
+           given={Koji},
+           giveni={K\bibinitperiod}}}%
+      }
+      \strng{namehash}{21918f63ee41f3fcabcced386d117e4e}
+      \strng{fullhash}{21918f63ee41f3fcabcced386d117e4e}
+      \strng{fullhashraw}{21918f63ee41f3fcabcced386d117e4e}
+      \strng{bibnamehash}{21918f63ee41f3fcabcced386d117e4e}
+      \strng{authorbibnamehash}{21918f63ee41f3fcabcced386d117e4e}
+      \strng{authornamehash}{21918f63ee41f3fcabcced386d117e4e}
+      \strng{authorfullhash}{21918f63ee41f3fcabcced386d117e4e}
+      \strng{authorfullhashraw}{21918f63ee41f3fcabcced386d117e4e}
+      \field{labelalpha}{KS79}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Tokyo Journal of Mathematics}
+      \field{number}{2}
+      \field{title}{Representation of {Witt} vectors by formal power series and its applications}
+      \field{volume}{2}
+      \field{year}{1979}
+      \field{pages}{349\bibrangedash 370}
+      \range{pages}{22}
+      \verb{doi}
+      \verb 10.3836/tjm/1270473027
+      \endverb
+    \endentry
+    \entry{serreLF}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=523a41970d92b80420ca6d5307619da7}{%
+           family={Serre},
+           familyi={S\bibinitperiod},
+           given={Jean-Pierre},
+           giveni={J\bibinithyphendelim P\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{523a41970d92b80420ca6d5307619da7}
+      \strng{fullhash}{523a41970d92b80420ca6d5307619da7}
+      \strng{fullhashraw}{523a41970d92b80420ca6d5307619da7}
+      \strng{bibnamehash}{523a41970d92b80420ca6d5307619da7}
+      \strng{authorbibnamehash}{523a41970d92b80420ca6d5307619da7}
+      \strng{authornamehash}{523a41970d92b80420ca6d5307619da7}
+      \strng{authorfullhash}{523a41970d92b80420ca6d5307619da7}
+      \strng{authorfullhashraw}{523a41970d92b80420ca6d5307619da7}
+      \field{labelalpha}{Ser79}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Local Fields}
+      \field{year}{1979}
+    \endentry
+    \entry{koch1997algebraic}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=7dc9d693c2843e9c4b5102c0496436c2}{%
+           family={Koch},
+           familyi={K\bibinitperiod},
+           given={Helmut},
+           giveni={H\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Berlin, Heidelberg}%
+      }
+      \list{publisher}{1}{%
+        {Springer-Verlag}%
+      }
+      \strng{namehash}{7dc9d693c2843e9c4b5102c0496436c2}
+      \strng{fullhash}{7dc9d693c2843e9c4b5102c0496436c2}
+      \strng{fullhashraw}{7dc9d693c2843e9c4b5102c0496436c2}
+      \strng{bibnamehash}{7dc9d693c2843e9c4b5102c0496436c2}
+      \strng{authorbibnamehash}{7dc9d693c2843e9c4b5102c0496436c2}
+      \strng{authornamehash}{7dc9d693c2843e9c4b5102c0496436c2}
+      \strng{authorfullhash}{7dc9d693c2843e9c4b5102c0496436c2}
+      \strng{authorfullhashraw}{7dc9d693c2843e9c4b5102c0496436c2}
+      \field{labelalpha}{Koc97}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-3-540-63003-6}
+      \field{series}{Encyclopaedia of Mathematical Sciences}
+      \field{title}{Algebraic Number Theory}
+      \field{volume}{62}
+      \field{year}{1997}
+    \endentry
+    \entry{Thomas2005}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=fd665ccb2b3cfe25f7b054a99e9827ff}{%
+           family={Thomas},
+           familyi={T\bibinitperiod},
+           given={Lara},
+           giveni={L\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Université Bordeaux 1}%
+      }
+      \strng{namehash}{fd665ccb2b3cfe25f7b054a99e9827ff}
+      \strng{fullhash}{fd665ccb2b3cfe25f7b054a99e9827ff}
+      \strng{fullhashraw}{fd665ccb2b3cfe25f7b054a99e9827ff}
+      \strng{bibnamehash}{fd665ccb2b3cfe25f7b054a99e9827ff}
+      \strng{authorbibnamehash}{fd665ccb2b3cfe25f7b054a99e9827ff}
+      \strng{authornamehash}{fd665ccb2b3cfe25f7b054a99e9827ff}
+      \strng{authorfullhash}{fd665ccb2b3cfe25f7b054a99e9827ff}
+      \strng{authorfullhashraw}{fd665ccb2b3cfe25f7b054a99e9827ff}
+      \field{labelalpha}{Tho05}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal de théorie des nombres de Bordeaux}
+      \field{number}{2}
+      \field{title}{Ramification groups in {Artin-Schreier-Witt} extensions}
+      \field{volume}{17}
+      \field{year}{2005}
+      \field{pages}{689\bibrangedash 720}
+      \range{pages}{32}
+      \verb{doi}
+      \verb 10.5802/jtnb.514
+      \endverb
+      \verb{urlraw}
+      \verb https://jtnb.centre-mersenne.org/articles/10.5802/jtnb.514/
+      \endverb
+      \verb{url}
+      \verb https://jtnb.centre-mersenne.org/articles/10.5802/jtnb.514/
+      \endverb
+    \endentry
+    \entry{milneAV}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=638058cd23e53094700e44c2a4f389f5}{%
+           family={Milne},
+           familyi={M\bibinitperiod},
+           given={James\bibnamedelima S.},
+           giveni={J\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \strng{namehash}{638058cd23e53094700e44c2a4f389f5}
+      \strng{fullhash}{638058cd23e53094700e44c2a4f389f5}
+      \strng{fullhashraw}{638058cd23e53094700e44c2a4f389f5}
+      \strng{bibnamehash}{638058cd23e53094700e44c2a4f389f5}
+      \strng{authorbibnamehash}{638058cd23e53094700e44c2a4f389f5}
+      \strng{authornamehash}{638058cd23e53094700e44c2a4f389f5}
+      \strng{authorfullhash}{638058cd23e53094700e44c2a4f389f5}
+      \strng{authorfullhashraw}{638058cd23e53094700e44c2a4f389f5}
+      \field{labelalpha}{Mil08}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Available at www.jmilne.org/math/}
+      \field{title}{Abelian Varieties (v2.00)}
+      \field{year}{2008}
+      \field{pages}{166+vi}
+      \range{pages}{-1}
+    \endentry
+    \entry{Toth2011}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=f86fe1ca1919ddf36a115b7343a6e40a}{%
+           family={Tóth},
+           familyi={T\bibinitperiod},
+           given={Péter},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{f86fe1ca1919ddf36a115b7343a6e40a}
+      \strng{fullhash}{f86fe1ca1919ddf36a115b7343a6e40a}
+      \strng{fullhashraw}{f86fe1ca1919ddf36a115b7343a6e40a}
+      \strng{bibnamehash}{f86fe1ca1919ddf36a115b7343a6e40a}
+      \strng{authorbibnamehash}{f86fe1ca1919ddf36a115b7343a6e40a}
+      \strng{authornamehash}{f86fe1ca1919ddf36a115b7343a6e40a}
+      \strng{authorfullhash}{f86fe1ca1919ddf36a115b7343a6e40a}
+      \strng{authorfullhashraw}{f86fe1ca1919ddf36a115b7343a6e40a}
+      \field{labelalpha}{Tót11}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{5}
+      \field{note}{Master of Science thesis}
+      \field{title}{Geometric Abelian Class Field Theory}
+      \field{year}{2011}
+      \verb{urlraw}
+      \verb https://math.bu.edu/people/rmagner/Seminar/GCFTthesis.pdf
+      \endverb
+      \verb{url}
+      \verb https://math.bu.edu/people/rmagner/Seminar/GCFTthesis.pdf
+      \endverb
+    \endentry
+    \entry{Rabinoff2014Witt}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=eedc1812a6a9cc76667536f702745c56}{%
+           family={Rabinoff},
+           familyi={R\bibinitperiod},
+           given={Joseph},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{eedc1812a6a9cc76667536f702745c56}
+      \strng{fullhash}{eedc1812a6a9cc76667536f702745c56}
+      \strng{fullhashraw}{eedc1812a6a9cc76667536f702745c56}
+      \strng{bibnamehash}{eedc1812a6a9cc76667536f702745c56}
+      \strng{authorbibnamehash}{eedc1812a6a9cc76667536f702745c56}
+      \strng{authornamehash}{eedc1812a6a9cc76667536f702745c56}
+      \strng{authorfullhash}{eedc1812a6a9cc76667536f702745c56}
+      \strng{authorfullhashraw}{eedc1812a6a9cc76667536f702745c56}
+      \field{labelalpha}{Rab14}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{math.RA}
+      \field{eprinttype}{arXiv}
+      \field{title}{The Theory of {Witt} Vectors}
+      \field{year}{2014}
+      \verb{eprint}
+      \verb 1409.7445
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/1409.7445
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/1409.7445
+      \endverb
+    \endentry
+    \entry{tendler2015geometricclassfieldtheory}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=eaa8d94f3e4daa8a9ae0ea55036908d6}{%
+           family={Tendler},
+           familyi={T\bibinitperiod},
+           given={Avichai},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{eaa8d94f3e4daa8a9ae0ea55036908d6}
+      \strng{fullhash}{eaa8d94f3e4daa8a9ae0ea55036908d6}
+      \strng{fullhashraw}{eaa8d94f3e4daa8a9ae0ea55036908d6}
+      \strng{bibnamehash}{eaa8d94f3e4daa8a9ae0ea55036908d6}
+      \strng{authorbibnamehash}{eaa8d94f3e4daa8a9ae0ea55036908d6}
+      \strng{authornamehash}{eaa8d94f3e4daa8a9ae0ea55036908d6}
+      \strng{authorfullhash}{eaa8d94f3e4daa8a9ae0ea55036908d6}
+      \strng{authorfullhashraw}{eaa8d94f3e4daa8a9ae0ea55036908d6}
+      \field{labelalpha}{Ten15}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{math.AG}
+      \field{eprinttype}{arXiv}
+      \field{title}{Geometric Class Field Theory}
+      \field{year}{2015}
+      \verb{eprint}
+      \verb 1507.00104
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/1507.00104
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/1507.00104
+      \endverb
+    \endentry
+    \entry{stacks-project}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=6b3a4953111be4867f48aef887bd0220}{%
+           family={Authors},
+           familyi={A\bibinitperiod},
+           given={The\bibnamedelimb Stacks\bibnamedelima Project},
+           giveni={T\bibinitperiod\bibinitdelim S\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+      }
+      \strng{namehash}{6b3a4953111be4867f48aef887bd0220}
+      \strng{fullhash}{6b3a4953111be4867f48aef887bd0220}
+      \strng{fullhashraw}{6b3a4953111be4867f48aef887bd0220}
+      \strng{bibnamehash}{6b3a4953111be4867f48aef887bd0220}
+      \strng{authorbibnamehash}{6b3a4953111be4867f48aef887bd0220}
+      \strng{authornamehash}{6b3a4953111be4867f48aef887bd0220}
+      \strng{authorfullhash}{6b3a4953111be4867f48aef887bd0220}
+      \strng{authorfullhashraw}{6b3a4953111be4867f48aef887bd0220}
+      \field{labelalpha}{Stacks}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://stacks.math.columbia.edu}}
+      \field{shorthand}{Stacks}
+      \field{title}{Stacks Project}
+      \field{year}{2018}
+    \endentry
+    \entry{Guignard2018}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=2ed142c654b9598d2f8eadf399cbbbc7}{%
+           family={Guignard},
+           familyi={G\bibinitperiod},
+           given={Quentin},
+           giveni={Q\bibinitperiod}}}%
+      }
+      \strng{namehash}{2ed142c654b9598d2f8eadf399cbbbc7}
+      \strng{fullhash}{2ed142c654b9598d2f8eadf399cbbbc7}
+      \strng{fullhashraw}{2ed142c654b9598d2f8eadf399cbbbc7}
+      \strng{bibnamehash}{2ed142c654b9598d2f8eadf399cbbbc7}
+      \strng{authorbibnamehash}{2ed142c654b9598d2f8eadf399cbbbc7}
+      \strng{authornamehash}{2ed142c654b9598d2f8eadf399cbbbc7}
+      \strng{authorfullhash}{2ed142c654b9598d2f8eadf399cbbbc7}
+      \strng{authorfullhashraw}{2ed142c654b9598d2f8eadf399cbbbc7}
+      \field{labelalpha}{Gui19}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{math.AG}
+      \field{eprinttype}{arXiv}
+      \field{journaltitle}{Algebra \& Number Theory}
+      \field{month}{5}
+      \field{note}{Revised version submitted on 29 May 2019}
+      \field{title}{On the ramified class field theory of relative curves}
+      \field{volume}{13}
+      \field{year}{2019}
+      \field{pages}{1299\bibrangedash 1326}
+      \range{pages}{28}
+      \verb{doi}
+      \verb 10.2140/ant.2019.13.1299
+      \endverb
+      \verb{eprint}
+      \verb 1804.02243
+      \endverb
+    \endentry
+    \entry{takeuchi2019blow}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=ca1ca5408035ebcb32c22da88c0cc886}{%
+           family={Takeuchi},
+           familyi={T\bibinitperiod},
+           given={Daichi},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Mathematical Sciences Publishers}%
+      }
+      \strng{namehash}{ca1ca5408035ebcb32c22da88c0cc886}
+      \strng{fullhash}{ca1ca5408035ebcb32c22da88c0cc886}
+      \strng{fullhashraw}{ca1ca5408035ebcb32c22da88c0cc886}
+      \strng{bibnamehash}{ca1ca5408035ebcb32c22da88c0cc886}
+      \strng{authorbibnamehash}{ca1ca5408035ebcb32c22da88c0cc886}
+      \strng{authornamehash}{ca1ca5408035ebcb32c22da88c0cc886}
+      \strng{authorfullhash}{ca1ca5408035ebcb32c22da88c0cc886}
+      \strng{authorfullhashraw}{ca1ca5408035ebcb32c22da88c0cc886}
+      \field{labelalpha}{Tak19}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Algebraic Number Theory}
+      \field{number}{6}
+      \field{title}{Blow-ups and the class field theory for curves}
+      \field{volume}{13}
+      \field{year}{2019}
+      \field{pages}{1327\bibrangedash 1351}
+      \range{pages}{25}
+      \verb{doi}
+      \verb 10.2140/ant.2019.13.1327
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.2140/ant.2019.13.1327
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.2140/ant.2019.13.1327
+      \endverb
+    \endentry
+    \entry{YoucisTorsors}{unpublished}{}{}
+      \name{author}{1}{}{%
+        {{hash=9081e78fbef748a06eaabc3fa3d39755}{%
+           family={Youcis},
+           familyi={Y\bibinitperiod},
+           given={Alex},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{9081e78fbef748a06eaabc3fa3d39755}
+      \strng{fullhash}{9081e78fbef748a06eaabc3fa3d39755}
+      \strng{fullhashraw}{9081e78fbef748a06eaabc3fa3d39755}
+      \strng{bibnamehash}{9081e78fbef748a06eaabc3fa3d39755}
+      \strng{authorbibnamehash}{9081e78fbef748a06eaabc3fa3d39755}
+      \strng{authornamehash}{9081e78fbef748a06eaabc3fa3d39755}
+      \strng{authorfullhash}{9081e78fbef748a06eaabc3fa3d39755}
+      \strng{authorfullhashraw}{9081e78fbef748a06eaabc3fa3d39755}
+      \field{labelalpha}{You20}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Available at \url{https://alex-youcis.github.io/torsors.pdf}}
+      \field{title}{Notes on Torsors}
+      \field{year}{2020}
+      \verb{urlraw}
+      \verb https://alex-youcis.github.io/torsors.pdf
+      \endverb
+      \verb{url}
+      \verb https://alex-youcis.github.io/torsors.pdf
+      \endverb
+    \endentry
+    \entry{ElderKeating2025}{misc}{}{}
+      \name{author}{2}{}{%
+        {{hash=a77f73f758b9e80d17202ad5cc65935a}{%
+           family={Elder},
+           familyi={E\bibinitperiod},
+           given={G.\bibnamedelimi Griffith},
+           giveni={G\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+        {{hash=18ce3ae569214ed0816f5f7b9393610a}{%
+           family={Keating},
+           familyi={K\bibinitperiod},
+           given={Kevin},
+           giveni={K\bibinitperiod}}}%
+      }
+      \strng{namehash}{8735bb49b1ed7d68ee4ecd46ece65b03}
+      \strng{fullhash}{8735bb49b1ed7d68ee4ecd46ece65b03}
+      \strng{fullhashraw}{8735bb49b1ed7d68ee4ecd46ece65b03}
+      \strng{bibnamehash}{8735bb49b1ed7d68ee4ecd46ece65b03}
+      \strng{authorbibnamehash}{8735bb49b1ed7d68ee4ecd46ece65b03}
+      \strng{authornamehash}{8735bb49b1ed7d68ee4ecd46ece65b03}
+      \strng{authorfullhash}{8735bb49b1ed7d68ee4ecd46ece65b03}
+      \strng{authorfullhashraw}{8735bb49b1ed7d68ee4ecd46ece65b03}
+      \field{labelalpha}{EK25}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprinttype}{arXiv}
+      \field{title}{Artin--Schreier--Witt extensions and ramification breaks}
+      \field{year}{2025}
+      \verb{eprint}
+      \verb 2503.16830
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/2503.16830
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/2503.16830
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

@@ -34,19 +34,19 @@
 \contentsline {section}{\numberline {3.5}Descent and Reduced Geometric Class Field Theory}{49}{section.3.5}%
 \contentsline {subsection}{\numberline {3.5.1}The Fundamental-Group Input}{49}{subsection.3.5.1}%
 \contentsline {subsection}{\numberline {3.5.2}The Descent Argument}{50}{subsection.3.5.2}%
-\contentsline {chapter}{\numberline {A}Cyclic Torsor Theories and Witt Vectors}{51}{appendix.A}%
-\contentsline {section}{\numberline {A.1}The ring of Witt vectors}{51}{section.A.1}%
-\contentsline {section}{\numberline {A.2}Frobenius, Verschiebung and truncation}{52}{section.A.2}%
-\contentsline {section}{\numberline {A.3}Isobaricity of the Witt addition polynomials}{54}{section.A.3}%
-\contentsline {section}{\numberline {A.4}The common group-scheme construction}{54}{section.A.4}%
-\contentsline {section}{\numberline {A.5}Kummer and Artin--Schreier theory}{54}{section.A.5}%
-\contentsline {section}{\numberline {A.6}Artin--Schreier--Witt bookkeeping}{55}{section.A.6}%
-\contentsline {section}{\numberline {A.7}The ASW group scheme and classification}{56}{section.A.7}%
-\contentsline {section}{\numberline {A.8}The Schmid--Witt ramification formula}{57}{section.A.8}%
-\contentsline {section}{\numberline {A.9}Reduced polynomial representatives}{57}{section.A.9}%
-\contentsline {chapter}{\numberline {B}A Wrong Path}{59}{appendix.B}%
-\contentsline {section}{\numberline {B.1}Quotient Towers of Symmetric-Power Torsors}{59}{section.B.1}%
-\contentsline {section}{\numberline {B.2}Setup and notation}{61}{section.B.2}%
-\contentsline {section}{\numberline {B.3}The master diagram}{63}{section.B.3}%
-\contentsline {section}{\numberline {B.4}Unramifiedness of $\mathcal {P}^{[d]_G}$ at $\eta _C$}{63}{section.B.4}%
-\contentsline {section}{\numberline {B.5}Difficulties in Proving the Theorem}{64}{section.B.5}%
+\contentsline {chapter}{\numberline {A}Cyclic Torsor Theories and Witt Vectors}{52}{appendix.A}%
+\contentsline {section}{\numberline {A.1}The ring of Witt vectors}{52}{section.A.1}%
+\contentsline {section}{\numberline {A.2}Frobenius, Verschiebung and truncation}{53}{section.A.2}%
+\contentsline {section}{\numberline {A.3}Isobaricity of the Witt addition polynomials}{55}{section.A.3}%
+\contentsline {section}{\numberline {A.4}The common group-scheme construction}{55}{section.A.4}%
+\contentsline {section}{\numberline {A.5}Kummer and Artin--Schreier theory}{55}{section.A.5}%
+\contentsline {section}{\numberline {A.6}Artin--Schreier--Witt bookkeeping}{56}{section.A.6}%
+\contentsline {section}{\numberline {A.7}The ASW group scheme and classification}{57}{section.A.7}%
+\contentsline {section}{\numberline {A.8}The Schmid--Witt ramification formula}{58}{section.A.8}%
+\contentsline {section}{\numberline {A.9}Reduced polynomial representatives}{58}{section.A.9}%
+\contentsline {chapter}{\numberline {B}A Wrong Path}{60}{appendix.B}%
+\contentsline {section}{\numberline {B.1}Quotient Towers of Symmetric-Power Torsors}{60}{section.B.1}%
+\contentsline {section}{\numberline {B.2}Setup and notation}{62}{section.B.2}%
+\contentsline {section}{\numberline {B.3}The master diagram}{64}{section.B.3}%
+\contentsline {section}{\numberline {B.4}Unramifiedness of $\mathcal {P}^{[d]_G}$ at $\eta _C$}{64}{section.B.4}%
+\contentsline {section}{\numberline {B.5}Difficulties in Proving the Theorem}{65}{section.B.5}%
